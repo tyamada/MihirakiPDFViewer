@@ -115,13 +115,36 @@ public struct SettingsView: View {
                         HStack {
                             Text(String(localized: "copyright_label"))
                             Spacer()
-                            Text(String(localized: "copyright"))
+                             Text(String(localized: "copyright"))
                         }
                     }
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
+
+                // 開発者への応援 (Tip)
+                VStack(alignment: .center, spacing: 12) {
+                    Divider()
+                    Text(String(localized: "developer_support_title", defaultValue: "開発者への応援"))
+                        .font(.headline)
+                    Text(String(localized: "developer_support_description", defaultValue: "あなたの応援が、アプリの継続的なアップデートに繋がります。購入しなくてもすべての機能を使用できます。"))
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
+                    
+                    NavigationLink(destination: TipSelectionView(tipManager: TipManager.shared)) {
+                        Text(String(localized: "tip_selection_title", defaultValue: "応援する"))
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                            .padding(.vertical, 8)
+                            .padding(.horizontal, 24)
+                            .background(Color.blue)
+                            .cornerRadius(20)
+                    }
+                }
+                .padding(.vertical)
             }
             .padding()
         }
