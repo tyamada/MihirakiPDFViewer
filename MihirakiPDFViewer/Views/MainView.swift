@@ -21,8 +21,9 @@ public struct MainView: View {
     @State private var isShowingErrorAlert = false
     @State private var isShowingSettings = false
     @State private var columnVisibility: NavigationSplitViewVisibility = .detailOnly
-    
-    
+    @State private var isShowingTipSuccessAlert = false
+    @State private var lastTipProductID: String? = nil
+
     public init() {}
 
     public var body: some View {
@@ -42,6 +43,25 @@ public struct MainView: View {
                 }
                 .sheet(isPresented: $isShowingSettings) {
                     settingsSheet
+                }
+                .alert(
+                    String(localized: "tip_success_title", defaultValue: "応援ありがとうございます！"),
+                    isPresented: $isShowingTipSuccessAlert,
+                    present: {
+                        TipSuccessAlert(productID: lastTipProductID)
+                    }
+                ) {
+                    Button(String(localized: "ok")) {
+                        TipManager.shared.resetSuccessFlag()
+                    }
+                } message: { alert in
+                    Text(alert.message)
+                }
+                .onChange(of: TipManager.shared.isPurchaseSuccess) { _, newValue in
+                    if newValue {
+                        lastTipProductID = TipManager.shared.lastPurchasedProductID
+                        isShowingTipSuccessAlert = true
+                    }
                 }
         }
         .fileImporter(
