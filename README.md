@@ -6,7 +6,7 @@ A simple and intuitive PDF viewer suitable for displaying right-bound books
 When opening a PDF, the page layout and scroll direction settings are 
 detected. Display the PDF in Single Page or Two Page view.
 
-This software was coded using generative AI (gemma-4-26b-a4b-qat).
+This software was coded using generative AI.
 
 ## Features
 
@@ -20,9 +20,9 @@ This software was coded using generative AI (gemma-4-26b-a4b-qat).
 
 1. **Open a PDF**: Use the file picker to select a PDF file from your device 
 or iCloud Drive.
-2. **Navigate**: Swipe through pages or use the scroll bar to move through 
+2. **Navigate**: Swipe through pages or use the slider to move through 
 the document.
-3. **Search**: Tap the search icon to find specific text within the PDF.
+3. **Search**: Type in the search bar to find specific text within the PDF.
 4. **Zoom**: Use pinch-to-zoom gestures to enlarge or reduce the view.
 5. **Layout**: Switch between single-page and spread views using the layout 
 options in the menu.
@@ -31,7 +31,7 @@ options in the menu.
 
 ### Cover Page Settings
 
-- **Type A** (Adobe Reader compatible)
+- **Type A** (Adobe Acrobat Reader compatible)
 Includes a cover page if `PageLayout` is 'TwoPageRight' or 'TwoColumnRight';
 otherwise, no cover page.
 - **Type B**
@@ -44,8 +44,8 @@ otherwise, no cover page.
 ## Installation (Source)
 
 ### Prerequisites
-- macOS
-- Xcode
+- macOS 26.6
+- Xcode 26.6
 
 ### Build Steps in Xcode
 
@@ -99,9 +99,10 @@ and add it again by dragging and dropping it.
 
 ## Key roles of AI
 
-- Automatic generation of initial code
-- Debugging suggestions
-- Automatic creation of test programs
+- Automatic generation of initial code (Cline & gemma-4-26b-a4b-qat)
+- Debugging suggestions (Cline & gemma-4-26b-a4b-qat)
+- Automatic creation of test programs (Cline & gemma-4-26b-a4b-qat)
+- Creating App Icon Images (ChatGPT)
 
 ## License
 
