@@ -395,6 +395,28 @@
         }
       }
     },
+    "developer_support_description" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "あなたの応援が、アプリの継続的なアップデートに繋がります。購入しなくてもすべての機能を使用できます。"
+          }
+        }
+      }
+    },
+    "developer_support_title" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "開発者への応援"
+          }
+        }
+      }
+    },
     "dir_l2r" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1659,6 +1681,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "设置"
+          }
+        }
+      }
+    },
+    "tip_selection_title" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "応援する"
+          }
+        }
+      }
+    },
+    "tip_success_message" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "応援ありがとうございました。"
+          }
+        }
+      }
+    },
+    "tip_success_title" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "応援ありがとうございます！"
           }
         }
       }

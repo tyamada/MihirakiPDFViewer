@@ -26,6 +26,10 @@ public struct MainView: View {
 
     public init() {}
 
+    private var tipSuccessMessage: String {
+        String(localized: "tip_success_message", defaultValue: "応援ありがとうございました。")
+    }
+
     public var body: some View {
         NavigationStack {
             mainContent
@@ -46,16 +50,13 @@ public struct MainView: View {
                 }
                 .alert(
                     String(localized: "tip_success_title", defaultValue: "応援ありがとうございます！"),
-                    isPresented: $isShowingTipSuccessAlert,
-                    present: {
-                        TipSuccessAlert(productID: lastTipProductID)
-                    }
+                    isPresented: $isShowingTipSuccessAlert
                 ) {
                     Button(String(localized: "ok")) {
                         TipManager.shared.resetSuccessFlag()
                     }
-                } message: { alert in
-                    Text(alert.message)
+                } message: {
+                    Text(tipSuccessMessage)
                 }
                 .onChange(of: TipManager.shared.isPurchaseSuccess) { _, newValue in
                     if newValue {

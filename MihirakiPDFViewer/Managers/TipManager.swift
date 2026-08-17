@@ -5,9 +5,11 @@
 // Created by Cline on 2026/08/16.
 //
 
+import Combine
 import Foundation
 import StoreKit
 import SwiftUI
+import UIKit
 
 /// 投げ銭（チップ）の購入と管理を行うマネージャー
 @MainActor
@@ -30,7 +32,7 @@ public class TipManager: ObservableObject {
     private init() {
         Task {
             await updateStorefront()
-            await startListeningForTransactions()
+            startListeningForTransactions()
         }
     }
     
@@ -75,7 +77,7 @@ public class TipManager: ObservableObject {
     }
     
     /// トランザクションを処理し、結果を反映する
-    private func handleTransaction(_ transaction: Transaction) async {
+    private func handleTransaction(_ transaction: StoreKit.Transaction) async {
         await transaction.finish()
         
         // 成功を通知
@@ -91,9 +93,14 @@ public class TipManager: ObservableObject {
     /// トランザクションの更新を監視する（アプリ起動時などの再開用）
     private func startListeningForTransactions() {
         transactionUpdates?.cancel()
-        transactionUpdates = Task.detached {
-            for await result in Transaction.updates {
-                await self.handleTransaction(result)
+        transactionUpdates = Task { [weak self] in
+            for await result in StoreKit.Transaction.updates {
+                switch result {
+                case .verified(let transaction):
+                    await self?.handleTransaction(transaction)
+                case .unverified(_, let error):
+                    print("Transaction update unverified: \(error)")
+                }
             }
         }
     }
@@ -103,7 +110,12 @@ public class TipManager: ObservableObject {
     public func changeAppIcon(named iconName: String?) {
         // iOSでアイコンを変更するには、Info.plistに代替アイコンの設定が必要
         // iconNameがnilの場合はデフォルトに戻す
-        UIApplication.shared.setApplicationIconName(iconName)
+        guard UIApplication.shared.supportsAlternateIcons else { return }
+        UIApplication.shared.setAlternateIconName(iconName) { error in
+            if let error {
+                print("Failed to change app icon: \(error)")
+            }
+        }
     }
     
     /// 購入成功フラグをリセットする
