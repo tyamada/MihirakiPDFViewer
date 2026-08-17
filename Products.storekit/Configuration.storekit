@@ -1,0 +1,102 @@
+{
+  "appPolicies" : {
+    "eula" : "",
+    "policies" : [
+      {
+        "locale" : "en_US",
+        "policyText" : "",
+        "policyURL" : ""
+      }
+    ]
+  },
+  "identifier" : "422C34CE",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "100",
+      "familyShareable" : false,
+      "internalID" : "14F53C71",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "Tip 100 Yen",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "",
+          "displayName" : "Tip 100 Yen",
+          "locale" : "ja"
+        }
+      ],
+      "productID" : "tip_100",
+      "promotionalImageID" : "74FF7A60",
+      "referenceName" : "tip_100",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "500",
+      "familyShareable" : false,
+      "internalID" : "F906B8E3",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "Tip 500 Yen",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "",
+          "displayName" : "Tip 500 Yen",
+          "locale" : "ja"
+        }
+      ],
+      "productID" : "tip_500",
+      "promotionalImageID" : "7AFF8EA2",
+      "referenceName" : "tip_500",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "1000",
+      "familyShareable" : false,
+      "internalID" : "3A999B47",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "Tip 1000 Yen",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "",
+          "displayName" : " Tip 1000 Yen",
+          "locale" : "ja"
+        }
+      ],
+      "productID" : "tip_1000",
+      "promotionalImageID" : "3BDBE814",
+      "referenceName" : "tip_1000",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : {
+    "_askToBuyEnabled" : false,
+    "_billingGracePeriodEnabled" : false,
+    "_billingIssuesEnabled" : false,
+    "_disableDialogs" : false,
+    "_failTransactionsEnabled" : false,
+    "_locale" : "ja",
+    "_renewalBillingIssuesEnabled" : false,
+    "_storefront" : "JPN",
+    "_storeKitErrors" : [
+
+    ],
+    "_timeRate" : 0
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 5,
+    "minor" : 0
+  }
+}
