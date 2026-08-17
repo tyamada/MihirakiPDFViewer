@@ -9,6 +9,7 @@
 // For the full license text, please see the LICENSE file in the root directory.
 //
 
+import StoreKit
 import SwiftUI
 
 /// 設定変更を行うためのビュー
@@ -149,5 +150,64 @@ public struct SettingsView: View {
             .padding()
         }
         .navigationTitle(String(localized: "settings"))
+    }
+}
+
+struct TipSelectionView: View {
+    @ObservedObject var tipManager: TipManager
+    @State private var purchasingProductID: String?
+
+    var body: some View {
+        List {
+            Section {
+                if tipManager.products.isEmpty {
+                    HStack {
+                        Spacer()
+                        ProgressView()
+                        Spacer()
+                    }
+                    .padding(.vertical)
+                } else {
+                    ForEach(tipManager.products, id: \.id) { product in
+                        Button {
+                            purchase(product)
+                        } label: {
+                            HStack(spacing: 12) {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(product.displayName)
+                                        .font(.headline)
+                                    Text(product.description)
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+                                }
+                                Spacer()
+                                if purchasingProductID == product.id {
+                                    ProgressView()
+                                } else {
+                                    Text(product.displayPrice)
+                                        .font(.subheadline)
+                                        .fontWeight(.semibold)
+                                }
+                            }
+                        }
+                        .disabled(purchasingProductID != nil)
+                    }
+                }
+            } footer: {
+                Text(String(localized: "developer_support_description", defaultValue: "あなたの応援が、アプリの継続的なアップデートに繋がります。購入しなくてもすべての機能を使用できます。"))
+            }
+        }
+        .navigationTitle(String(localized: "tip_selection_title", defaultValue: "応援する"))
+        .task {
+            await tipManager.updateStorefront()
+        }
+    }
+
+    private func purchase(_ product: Product) {
+        purchasingProductID = product.id
+        Task {
+            await tipManager.purchase(product)
+            purchasingProductID = nil
+        }
     }
 }

@@ -26,7 +26,7 @@
         },
         {
           "description" : "",
-          "displayName" : "Tip 100 Yen",
+          "displayName" : "投げ銭 100円",
           "locale" : "ja"
         }
       ],
@@ -47,7 +47,7 @@
         },
         {
           "description" : "",
-          "displayName" : "Tip 500 Yen",
+          "displayName" : "投げ銭 500円",
           "locale" : "ja"
         }
       ],
@@ -68,7 +68,7 @@
         },
         {
           "description" : "",
-          "displayName" : " Tip 1000 Yen",
+          "displayName" : " 投げ銭 1000円",
           "locale" : "ja"
         }
       ],

@@ -101,8 +101,13 @@ and add it again by dragging and dropping it.
 
 - Automatic generation of initial code (Cline & gemma-4-26b-a4b-qat)
 - Debugging suggestions (Cline & gemma-4-26b-a4b-qat)
+- Fix code (ChatGPT)
 - Automatic creation of test programs (Cline & gemma-4-26b-a4b-qat)
 - Creating App Icon Images (ChatGPT)
+
+## References
+
+1. [PDFのページ表示設定の謎を解く](https://qiita.com/TETSURO1999/items/e7a69026bdf8b5e8c631)
 
 ## License
 
@@ -111,4 +116,6 @@ file for details.
 
 ## Version History
 
-- **1.0**: Initial Version.
+- **v0.1.0**: Initial Version.
+- **v0.2.0**: Add Tip(In-App Purchase).
+
