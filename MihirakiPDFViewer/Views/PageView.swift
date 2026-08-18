@@ -2,7 +2,9 @@
 // PageView.swift
 // MihirakiPDFViewer
 //
-// Created by Takuma Yamada on 2026/08/14.
+// Created by Cline on 2026/07/02.
+// Reviewed & Updated by Takuma Yamada.
+//
 // Copyright 2026 Takuma Yamada.
 //
 // This software is released under the MIT License.

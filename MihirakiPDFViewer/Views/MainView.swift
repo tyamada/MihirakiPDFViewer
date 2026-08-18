@@ -2,7 +2,9 @@
 // MainView.swift
 // MihirakiPDFViewer
 //
-// Created by Takuma Yamada on 2026/08/14.
+// Created by Cline on 2026/07/02.
+// Reviewed & Updated by Takuma Yamada.
+//
 // Copyright 2026 Takuma Yamada.
 //
 // This software is released under the MIT License.
@@ -17,6 +19,8 @@ import PDFKit
 /// アプリケーションのメインビュー
 public struct MainView: View {
     @StateObject private var viewModel = PDFViewerViewModel()
+
+    @StateObject private var tipManager = TipManager.shared
     @State private var isShowingFilePicker = false
     @State private var isShowingErrorAlert = false
     @State private var isShowingSettings = false
@@ -52,15 +56,24 @@ public struct MainView: View {
                     String(localized: "tip_success_title", defaultValue: "応援ありがとうございます！"),
                     isPresented: $isShowingTipSuccessAlert
                 ) {
+                    if let iconName = tipManager.pendingAppIconName {
+                        Button(String(localized: "change_app_icon", defaultValue: "アイコンを変更")) {
+                            Task {
+                                await tipManager.changeAppIcon(named: iconName)
+                                tipManager.resetSuccessFlag()
+                            }
+                        }
+                    }
+
                     Button(String(localized: "ok")) {
-                        TipManager.shared.resetSuccessFlag()
+                        tipManager.resetSuccessFlag()
                     }
                 } message: {
                     Text(tipSuccessMessage)
                 }
-                .onChange(of: TipManager.shared.isPurchaseSuccess) { _, newValue in
+                .onChange(of: tipManager.isPurchaseSuccess) { _, newValue in
                     if newValue {
-                        lastTipProductID = TipManager.shared.lastPurchasedProductID
+                        lastTipProductID = tipManager.lastPurchasedProductID
                         isShowingTipSuccessAlert = true
                     }
                 }
