@@ -101,10 +101,23 @@ public class TipManager: ObservableObject {
         await transaction.finish()
 
         self.lastPurchasedProductID = transaction.productID
-        self.pendingAppIconName = "AppIconGold"
+        self.pendingAppIconName = appIconName(for: transaction.productID)
         self.isPurchaseSuccess = true
 
         print("Transaction handled successfully: \(transaction.productID)")
+    }
+
+    private func appIconName(for productID: String) -> String? {
+        switch productID {
+        case "tip_100":
+            return "AppIconBronze"
+        case "tip_500":
+            return "AppIconSilver"
+        case "tip_1000":
+            return "AppIconGold"
+        default:
+            return "AppIcon"
+        }
     }
     
     /// トランザクションの更新を監視する（アプリ起動時などの再開用）
