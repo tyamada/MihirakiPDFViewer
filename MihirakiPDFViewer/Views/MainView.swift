@@ -291,18 +291,16 @@ struct PDFContainerView: View {
 
     @ViewBuilder
     private func pageTabViewContent(size: CGSize) -> some View {
-        TabView {
-            ForEach(0..<viewModel.pageGroups.count, id: \.self) { index in
-                let group = viewModel.pageGroups[index]
-                PageContentContainer(
-                    group: group,
-                    size: size,
-                    isSpreadViewEnabled: viewModel.settings.isSpreadViewEnabled,
-                    searchMatches: viewModel.searchMatches.filter { $0.pageIndex == index }
-                )
-                .tag(index)
-                .frame(width: size.width, height: size.height)
-            }
+        ForEach(0..<viewModel.pageGroups.count, id: \.self) { index in
+            let group = viewModel.pageGroups[index]
+            PageContentContainer(
+                group: group,
+                size: size,
+                isSpreadViewEnabled: viewModel.settings.isSpreadViewEnabled,
+                searchMatches: viewModel.searchMatches.filter { $0.pageIndex == index }
+            )
+            .tag(index)
+            .frame(width: size.width, height: size.height)
         }
     }
 }
