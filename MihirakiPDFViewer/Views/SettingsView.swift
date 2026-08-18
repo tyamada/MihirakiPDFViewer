@@ -2,7 +2,9 @@
 // SettingView.swift
 // MihirakiPDFViewer
 //
-// Created by Takuma Yamada on 2026/08/14.
+// Created by Cline on 2026/07/02.
+// Reviewed & Updated by Takuma Yamada.
+//
 // Copyright 2026 Takuma Yamada.
 //
 // This software is released under the MIT License.
@@ -86,8 +88,8 @@ public struct SettingsView: View {
                     if let doc = viewModel.document {
                         VStack(alignment: .leading, spacing: 4) {
                             Text(String(localized: "total_pages", defaultValue: "\(doc.totalPageCount)"))
-                            Text("\(String(localized: "layout")): \(doc.pageLayout.displayName)")
-                            Text("\(String(localized: "direction")): \(doc.layoutDirection == .rightToLeft ? "R2L" : "L2R")")
+                            Text("\(String(localized: "page_layout")): \(doc.pageLayout.displayName)")
+                            Text("\(String(localized: "scroll_direction")): \(doc.layoutDirection == .rightToLeft ? "R2L" : "L2R")")
                         }
                         .foregroundColor(.secondary)
                     } else {
@@ -155,6 +157,7 @@ public struct SettingsView: View {
 
 struct TipSelectionView: View {
     @ObservedObject var tipManager: TipManager
+    @Environment(\.purchase) private var purchaseAction
     @State private var purchasingProductID: String?
 
     var body: some View {
@@ -206,7 +209,7 @@ struct TipSelectionView: View {
     private func purchase(_ product: Product) {
         purchasingProductID = product.id
         Task {
-            await tipManager.purchase(product)
+            await tipManager.purchase(product, using: purchaseAction)
             purchasingProductID = nil
         }
     }

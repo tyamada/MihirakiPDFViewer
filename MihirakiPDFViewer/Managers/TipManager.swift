@@ -3,6 +3,12 @@
 // MihirakiPDFViewer
 //
 // Created by Cline on 2026/08/16.
+// Reviewed & Updated by Takuma Yamada.
+//
+// Copyright 2026 Takuma Yamada.
+//
+// This software is released under the MIT License.
+// For the full license text, please see the LICENSE file in the root directory.
 //
 
 import Combine
@@ -26,6 +32,7 @@ public class TipManager: ObservableObject {
     @Published public private(set) var products: [Product] = []
     @Published public var isPurchaseSuccess: Bool = false
     @Published public var lastPurchasedProductID: String? = nil
+    @Published public private(set) var pendingAppIconName: String? = nil
     
     private var transactionUpdates: Task<Void, Never>?
     
@@ -48,8 +55,21 @@ public class TipManager: ObservableObject {
     
     /// 購入処理を開始する
     public func purchase(_ product: Product) async {
+        await purchase(product) {
+            try await product.purchase()
+        }
+    }
+
+    /// SwiftUIの購入アクションを使って購入処理を開始する
+    public func purchase(_ product: Product, using purchaseAction: PurchaseAction) async {
+        await purchase(product) {
+            try await purchaseAction(product)
+        }
+    }
+
+    private func purchase(_ product: Product, purchaseAction: () async throws -> Product.PurchaseResult) async {
         do {
-            let result = try await product.purchase()
+            let result = try await purchaseAction()
             
             switch result {
             case .success(let verification):
@@ -79,14 +99,11 @@ public class TipManager: ObservableObject {
     /// トランザクションを処理し、結果を反映する
     private func handleTransaction(_ transaction: StoreKit.Transaction) async {
         await transaction.finish()
-        
-        // 成功を通知
+
         self.lastPurchasedProductID = transaction.productID
+        self.pendingAppIconName = "AppIconGold"
         self.isPurchaseSuccess = true
-        
-        // アイコンの変更（もし特定の条件があれば。ここではとりあえず購入したらアイコンが変わる例も考えられるが、
-        // 今回は「投げ銭をした際にお礼」をメインとする）
-        // 必要に応じてここでアイコン変更メソッドを呼ぶ
+
         print("Transaction handled successfully: \(transaction.productID)")
     }
     
@@ -107,14 +124,24 @@ public class TipManager: ObservableObject {
     
     /// アプリのアイコンを変更する
     /// - Parameter iconName: Assetsに登録されているアイコン名
-    public func changeAppIcon(named iconName: String?) {
+    public func changeAppIcon(named iconName: String?) async {
         // iOSでアイコンを変更するには、Info.plistに代替アイコンの設定が必要
         // iconNameがnilの場合はデフォルトに戻す
-        guard UIApplication.shared.supportsAlternateIcons else { return }
-        UIApplication.shared.setAlternateIconName(iconName) { error in
-            if let error {
-                print("Failed to change app icon: \(error)")
-            }
+        guard UIApplication.shared.supportsAlternateIcons else {
+            print("Alternate app icons are not supported in this environment.")
+            return
+        }
+
+        guard UIApplication.shared.alternateIconName != iconName else {
+            print("App icon is already set to \(iconName ?? "primary").")
+            return
+        }
+
+        do {
+            try await UIApplication.shared.setAlternateIconName(iconName)
+            print("Changed app icon to \(iconName ?? "primary").")
+        } catch {
+            print("Failed to change app icon to \(iconName ?? "primary"): \(error)")
         }
     }
     
@@ -122,5 +149,6 @@ public class TipManager: ObservableObject {
     public func resetSuccessFlag() {
         isPurchaseSuccess = false
         lastPurchasedProductID = nil
+        pendingAppIconName = nil
     }
 }
