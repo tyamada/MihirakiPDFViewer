@@ -28,10 +28,40 @@
           "description" : "",
           "displayName" : "投げ銭 100円",
           "locale" : "ja"
+        },
+        {
+          "description" : "",
+          "displayName" : "던전 100엔",
+          "locale" : "ko"
+        },
+        {
+          "description" : "",
+          "displayName" : "小费：100日元",
+          "locale" : "zh_Hans"
+        },
+        {
+          "description" : "",
+          "displayName" : "Tipp: 100 Yen",
+          "locale" : "de"
+        },
+        {
+          "description" : "",
+          "displayName" : "Pourboire : 100 yens",
+          "locale" : "fr"
+        },
+        {
+          "description" : "",
+          "displayName" : "Dica: 100 ienes",
+          "locale" : "pt_BR"
+        },
+        {
+          "description" : "",
+          "displayName" : "Propina: 100 yenes",
+          "locale" : "es_MX"
         }
       ],
       "productID" : "tip_100",
-      "promotionalImageID" : "74FF7A60",
+      "promotionalImageID" : "E9451F87",
       "referenceName" : "tip_100",
       "type" : "Consumable"
     },
@@ -49,10 +79,40 @@
           "description" : "",
           "displayName" : "投げ銭 500円",
           "locale" : "ja"
+        },
+        {
+          "description" : "",
+          "displayName" : "던전 500엔",
+          "locale" : "ko"
+        },
+        {
+          "description" : "",
+          "displayName" : "小费：500日元",
+          "locale" : "zh_Hans"
+        },
+        {
+          "description" : "",
+          "displayName" : "Tipp: 500 Yen",
+          "locale" : "de"
+        },
+        {
+          "description" : "",
+          "displayName" : "Pourboire : 500 yens",
+          "locale" : "fr"
+        },
+        {
+          "description" : "",
+          "displayName" : "Dica: 500 ienes",
+          "locale" : "pt_BR"
+        },
+        {
+          "description" : "",
+          "displayName" : "Propina: 500 yenes",
+          "locale" : "es_MX"
         }
       ],
       "productID" : "tip_500",
-      "promotionalImageID" : "7AFF8EA2",
+      "promotionalImageID" : "E50232B0",
       "referenceName" : "tip_500",
       "type" : "Consumable"
     },
@@ -70,10 +130,40 @@
           "description" : "",
           "displayName" : "投げ銭 1000円",
           "locale" : "ja"
+        },
+        {
+          "description" : "",
+          "displayName" : "던전 1000엔",
+          "locale" : "ko"
+        },
+        {
+          "description" : "",
+          "displayName" : "小费：1000日元",
+          "locale" : "zh_Hans"
+        },
+        {
+          "description" : "",
+          "displayName" : "Tipp: 1000 Yen",
+          "locale" : "de"
+        },
+        {
+          "description" : "",
+          "displayName" : "Pourboire : 1000 yens",
+          "locale" : "fr"
+        },
+        {
+          "description" : "",
+          "displayName" : "Dica: 1000 ienes",
+          "locale" : "pt_BR"
+        },
+        {
+          "description" : "",
+          "displayName" : "Propina: 1000 yenes",
+          "locale" : "es_MX"
         }
       ],
       "productID" : "tip_1000",
-      "promotionalImageID" : "3BDBE814",
+      "promotionalImageID" : "431B2251",
       "referenceName" : "tip_1000",
       "type" : "Consumable"
     }

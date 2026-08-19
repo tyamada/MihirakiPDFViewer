@@ -31,7 +31,7 @@ public struct MainView: View {
     public init() {}
 
     private var tipSuccessMessage: String {
-        String(localized: "tip_success_message", defaultValue: "応援ありがとうございました。")
+        String(localized: "tip_success_message", defaultValue: "Thank you for your support.")
     }
 
     public var body: some View {
@@ -53,11 +53,11 @@ public struct MainView: View {
                     settingsSheet
                 }
                 .alert(
-                    String(localized: "tip_success_title", defaultValue: "応援ありがとうございます！"),
+                    String(localized: "tip_success_title", defaultValue: "Thank You for Your Support!"),
                     isPresented: $isShowingTipSuccessAlert
                 ) {
                     if let iconName = tipManager.pendingAppIconName {
-                        Button(String(localized: "change_app_icon", defaultValue: "アイコンを変更")) {
+                        Button(String(localized: "change_app_icon", defaultValue: "Change Icon")) {
                             Task {
                                 await tipManager.changeAppIcon(named: iconName)
                                 tipManager.resetSuccessFlag()
