@@ -65,8 +65,8 @@ then click **"Next..."**.
 #### 2. Import Source Files
 1. Download the source code from GitHub.
 2. **Drag and drop** the folders located inside the `Sources` folder (`App`, 
-`Models`, `ViewModels`, `Views`) into the **Project Navigator** (file tree) 
-on the left side of Xcode.
+`Managers`, `Models`, `ViewModels`, `Views`) into the **Project Navigator** 
+(file tree) on the left side of Xcode.
 3. In the dialog that appears (Add to "MihirakiPDFViewer"), configure 
 the settings as follows:
 - **Destination**: Select `Create groups` (*Important: to maintain the 
@@ -101,13 +101,12 @@ and add it again by dragging and dropping it.
 
 - Automatic generation of initial code (Cline & gemma-4-26b-a4b-qat)
 - Debugging suggestions (Cline & gemma-4-26b-a4b-qat)
-- Fix code (ChatGPT)
-- Automatic creation of test programs (Cline & gemma-4-26b-a4b-qat)
-- Creating App Icon Images (ChatGPT)
+- Agentic Coding (Xcode & Codex)
+- Creating App Icon & Tip images (ChatGPT)
 
 ## References
 
-1. [PDFのページ表示設定の謎を解く](https://qiita.com/TETSURO1999/items/e7a69026bdf8b5e8c631)
+1. [Demystifying PDF Page Display Settings](https://qiita.com/TETSURO1999/items/e7a69026bdf8b5e8c631)
 
 ## License
 
@@ -116,6 +115,6 @@ file for details.
 
 ## Version History
 
-- **v0.1.0**: Initial Version.
-- **v0.2.0**: Add Tip(In-App Purchase).
+- **v0.1.0** - 2026/08/16: Initial Release.
+- **v0.2.0** - 2026/08/19: Add a tipping feature.
 

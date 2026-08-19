@@ -129,15 +129,15 @@ public struct SettingsView: View {
                 // 開発者への応援 (Tip)
                 VStack(alignment: .center, spacing: 12) {
                     Divider()
-                    Text(String(localized: "developer_support_title", defaultValue: "開発者への応援"))
+                    Text(String(localized: "developer_support_title", defaultValue: "Support the Developer"))
                         .font(.headline)
-                    Text(String(localized: "developer_support_description", defaultValue: "あなたの応援が、アプリの継続的なアップデートに繋がります。購入しなくてもすべての機能を使用できます。"))
+                    Text(String(localized: "developer_support_description", defaultValue: "Your support helps keep the app updated. You can use all features without making a purchase."))
                         .font(.caption)
                         .foregroundColor(.secondary)
                         .multilineTextAlignment(.center)
                     
                     NavigationLink(destination: TipSelectionView(tipManager: TipManager.shared)) {
-                        Text(String(localized: "tip_selection_title", defaultValue: "応援する"))
+                        Text(String(localized: "tip_selection_title", defaultValue: "Support"))
                             .font(.subheadline)
                             .fontWeight(.semibold)
                             .foregroundColor(.white)
@@ -176,10 +176,23 @@ struct TipSelectionView: View {
                             purchase(product)
                         } label: {
                             HStack(spacing: 12) {
+
+                                Image(tipIconName(for: product.id))
+
+                                    .resizable()
+
+                                    .scaledToFill()
+
+                                    .frame(width: 44, height: 44)
+
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+
+                                    .accessibilityHidden(true)
+
                                 VStack(alignment: .leading, spacing: 4) {
-                                    Text(product.displayName)
+                                    Text(tipDisplayName(for: product.id))
                                         .font(.headline)
-                                    Text(product.description)
+                                    Text(tipDescription(for: product.id))
                                         .font(.caption)
                                         .foregroundColor(.secondary)
                                 }
@@ -197,12 +210,51 @@ struct TipSelectionView: View {
                     }
                 }
             } footer: {
-                Text(String(localized: "developer_support_description", defaultValue: "あなたの応援が、アプリの継続的なアップデートに繋がります。購入しなくてもすべての機能を使用できます。"))
+                Text(String(localized: "developer_support_description", defaultValue: "Your support helps keep the app updated. You can use all features without making a purchase."))
             }
         }
-        .navigationTitle(String(localized: "tip_selection_title", defaultValue: "応援する"))
+        .navigationTitle(String(localized: "tip_selection_title", defaultValue: "Support"))
         .task {
             await tipManager.updateStorefront()
+        }
+    }
+
+    private func tipIconName(for productID: String) -> String {
+        switch productID {
+        case "tip_100":
+            return "TipIconBronze"
+        case "tip_500":
+            return "TipIconSilver"
+        case "tip_1000":
+            return "TipIconGold"
+        default:
+            return "TipIconGold"
+        }
+    }
+
+    private func tipDisplayName(for productID: String) -> LocalizedStringResource {
+        switch productID {
+        case "tip_100":
+            return "tip_100_name"
+        case "tip_500":
+            return "tip_500_name"
+        case "tip_1000":
+            return "tip_1000_name"
+        default:
+            return "tip_selection_title"
+        }
+    }
+
+    private func tipDescription(for productID: String) -> LocalizedStringResource {
+        switch productID {
+        case "tip_100":
+            return "tip_100_description"
+        case "tip_500":
+            return "tip_500_description"
+        case "tip_1000":
+            return "tip_1000_description"
+        default:
+            return "developer_support_description"
         }
     }
 
