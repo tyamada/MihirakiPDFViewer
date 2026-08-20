@@ -1,120 +1,104 @@
 # MihirakiPDFViewer
 
-A simple and intuitive PDF viewer suitable for displaying right-bound books 
-(such as Japanese books).
+右綴じの書籍（日本語の書籍など）の表示に適した、シンプルで直感的なPDFビューアです。
 
-When opening a PDF, the page layout and scroll direction settings are 
-detected. Display the PDF in Single Page or Two Page view.
+PDFを開くと、ページレイアウトとスクロール方向の設定を検出します。PDFは単一ページ表示または見開き表示で閲覧できます。
 
-This software was coded using generative AI.
+このソフトウェアは生成AIを使用してコーディングされました。
 
-## Features
+## 機能
 
-- **View PDF Documents**: Open and read PDF files seamlessly.
-- **Search**: Quickly find text within your PDF documents.
-- **Layout Options**: Switch between single page and spread views.
-- **Settings**: Customize your viewing experience.
-- **Zooming**: Intuitive zoom gestures for better readability.
+- **PDFドキュメントの表示**: PDFファイルをスムーズに開いて閲覧できます。
+- **検索**: PDFドキュメント内のテキストをすばやく検索できます。
+- **レイアウトオプション**: 単一ページ表示と見開き表示を切り替えられます。
+- **設定**: 閲覧体験をカスタマイズできます。
+- **ズーム**: 直感的なズームジェスチャーで読みやすく表示できます。
 
-## How to Use
+## 使い方
 
-1. **Open a PDF**: Use the file picker to select a PDF file from your device 
-or iCloud Drive.
-2. **Navigate**: Swipe through pages or use the slider to move through 
-the document.
-3. **Search**: Type in the search bar to find specific text within the PDF.
-4. **Zoom**: Use pinch-to-zoom gestures to enlarge or reduce the view.
-5. **Layout**: Switch between single-page and spread views using the layout 
-options in the menu.
+1. **PDFを開く**: ファイルピッカーを使って、端末またはiCloud DriveからPDFファイルを選択します。
+2. **ページ移動**: スワイプまたはスライダーでドキュメント内を移動します。
+3. **検索**: 検索バーに入力して、PDF内の特定のテキストを検索します。
+4. **ズーム**: ピンチ操作で表示を拡大または縮小します。
+5. **レイアウト**: メニュー内のレイアウトオプションから、単一ページ表示と見開き表示を切り替えます。
 
-## Options
+## オプション
 
-### Cover Page Settings
+### 表紙ページ設定
 
-- **Type A** (Adobe Acrobat Reader compatible)
-Includes a cover page if `PageLayout` is 'TwoPageRight' or 'TwoColumnRight';
-otherwise, no cover page.
+- **Type A**（Adobe Acrobat Reader互換）
+`PageLayout` が `TwoPageRight` または `TwoColumnRight` の場合は表紙ページを含めます。
+それ以外の場合は表紙ページを含めません。
+
 - **Type B**
-Includes a cover page if `Direction` is 'L2R' and `PageLayout` is 
-'TwoPageRight' or 'TwoColumnRight';
-includes a cover page if `Direction` is 'R2L' and `PageLayout` is 
-'TwoPageLeft' or 'TwoColumnLeft';
-otherwise, no cover page.
+`Direction` が `L2R` で、`PageLayout` が `TwoPageRight` または `TwoColumnRight` の場合は表紙ページを含めます。
+`Direction` が `R2L` で、`PageLayout` が `TwoPageLeft` または `TwoColumnLeft` の場合は表紙ページを含めます。
+それ以外の場合は表紙ページを含めません。
 
-## Installation (Source)
+## インストール（ソース）
 
-### Prerequisites
+### 前提条件
+
 - macOS 26.6
 - Xcode 26.6
 
-### Build Steps in Xcode
+### Xcodeでのビルド手順
 
-#### 1. Create a New Project
-1. Launch **Xcode**.
-2. Select **"Create a new Xcode project..."** and click **"Next..."**.
-3. Select **"iOS"** as the platform and **"App"** as the application type, 
-then click **"Next..."**.
-4. Enter the project settings:
-- **Product Name**: `MihirakiPDFViewer` (optional)
-- **Organization Identifier**: `com.yourname` (optional)
+#### 1. 新規プロジェクトを作成
+
+1. **Xcode** を起動します。
+2. **"Create a new Xcode project..."** を選択し、**"Next..."** をクリックします。
+3. プラットフォームに **"iOS"**、アプリケーションタイプに **"App"** を選択し、**"Next..."** をクリックします。
+4. プロジェクト設定を入力します。
+- **Product Name**: `MihirakiPDFViewer`（任意）
+- **Organization Identifier**: `com.yourname`（任意）
 - **Interface**: `SwiftUI`
 - **Language**: `Swift`
-- **Storage**: `None` (default)
-5. Choose a save location and click **"Create"**.
+- **Storage**: `None`（デフォルト）
+5. 保存先を選択し、**"Create"** をクリックします。
 
-#### 2. Import Source Files
-1. Download the source code from GitHub.
-2. **Drag and drop** the folders located inside the `Sources` folder (`App`, 
-`Managers`, `Models`, `ViewModels`, `Views`) into the **Project Navigator** 
-(file tree) on the left side of Xcode.
-3. In the dialog that appears (Add to "MihirakiPDFViewer"), configure 
-the settings as follows:
-- **Destination**: Select `Create groups` (*Important: to maintain the 
-folder structure*)
-- **Options**: Check the box for `Copy items if needed`
+#### 2. ソースファイルを取り込む
 
-#### 3. Modify the Entry Point (App File)
-By default, Xcode is configured to launch the project using an automatically 
-generated file. You need to update this to use the provided code instead.
+1. GitHubからソースコードをダウンロードします。
+2. `Sources` フォルダ内のフォルダ（`App`、`Managers`、`Models`、`ViewModels`、`Views`）を、Xcode左側の **Project Navigator**（ファイルツリー）へドラッグ＆ドロップします。
+3. 表示されるダイアログ（Add to "MihirakiPDFViewer"）で、次のように設定します。
+- **Destination**: `Create groups` を選択（フォルダ構成を維持するため重要）
+- **Options**: `Copy items if needed` にチェック
 
-1. In the Xcode Project Navigator, delete the automatically generated 
-`[Project Name]App.swift` file.
-2. Ensure that `Sources/App/MihirakiPDFViewerApp.swift` is included in the 
-project. 
+#### 3. エントリーポイント（Appファイル）を変更
 
-#### 4. Build and Run
-1. Click the device selection menu to the right of the Run button (**▶️**) 
-in the Xcode toolbar and select an **iPad simulator** (such as "iPad Pro").
-2. Click the **▶️ (Run)** button or press `Command + R` on your keyboard.
-3. If the simulator launches and displays the screen for selecting a PDF 
-file, the setup was successful.
+デフォルトでは、Xcodeは自動生成されたファイルを使ってプロジェクトを起動するよう設定されています。提供されているコードを使うように更新する必要があります。
 
-### Troubleshooting
-*   **If an error occurs**: If you encounter an error with `import PDFKit`, 
-check if `PDFKit` is included in the project's **Frameworks, Libraries, 
-and Embedded Content** section (it is usually included by default).
-*   **"File not found" error**: If a file appears in red in the Xcode 
-Project Navigator, the file path is not linked correctly. Delete the file 
-and add it again by dragging and dropping it.
+1. XcodeのProject Navigatorで、自動生成された `[Project Name]App.swift` ファイルを削除します。
+2. `Sources/App/MihirakiPDFViewerApp.swift` がプロジェクトに含まれていることを確認します。
 
-## Key roles of AI
+#### 4. ビルドして実行
 
-- Automatic generation of initial code (Cline & gemma-4-26b-a4b-qat)
-- Debugging suggestions (Cline & gemma-4-26b-a4b-qat)
-- Agentic Coding (Xcode & Codex)
-- Creating App Icon & Tip images (ChatGPT)
+1. Xcodeツールバーの実行ボタン（**▶️**）右側にあるデバイス選択メニューをクリックし、**iPadシミュレータ**（例: "iPad Pro"）を選択します。
+2. **▶️（Run）** ボタンをクリックするか、キーボードで `Command + R` を押します。
+3. シミュレータが起動し、PDFファイルを選択する画面が表示されればセットアップ成功です。
 
-## References
+### トラブルシューティング
 
-1. [Demystifying PDF Page Display Settings](https://qiita.com/TETSURO1999/items/e7a69026bdf8b5e8c631)
+- **エラーが発生する場合**: `import PDFKit` に関するエラーが発生した場合は、プロジェクトの **Frameworks, Libraries, and Embedded Content** に `PDFKit` が含まれているか確認してください（通常はデフォルトで含まれています）。
+- **"File not found" エラー**: XcodeのProject Navigatorでファイルが赤く表示される場合は、ファイルパスが正しくリンクされていません。そのファイルを削除し、ドラッグ＆ドロップで再度追加してください。
 
-## License
+## AIの主な役割
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) 
-file for details.
+- 初期コードの自動生成（Cline & gemma-4-26b-a4b-qat）
+- デバッグ提案（Cline & gemma-4-26b-a4b-qat）
+- エージェント型コーディング（Xcode & Codex）
+- アプリアイコンとチップ画像の作成（ChatGPT）
 
-## Version History
+## 参考資料
 
-- **v0.1.0** - 2026/08/16: Initial Release.
-- **v0.2.0** - 2026/08/19: Add a tipping feature.
+1. [PDFのページ表示設定について理解する](https://qiita.com/TETSURO1999/items/e7a69026bdf8b5e8c631)
 
+## ライセンス
+
+このプロジェクトはMITライセンスの下で公開されています。詳細は [LICENSE](LICENSE) ファイルを参照してください。
+
+## バージョン履歴
+
+- **v0.1.0** - 2026/08/16: 初回リリース。
+- **v0.2.0** - 2026/08/19: 投げ銭機能を追加。
