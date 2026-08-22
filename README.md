@@ -1,8 +1,10 @@
 # MihirakiPDFViewer
 
-右綴じの書籍（日本語の書籍など）の表示に適した、シンプルで直感的なPDFビューアです。
+右綴じの書籍（日本語の書籍など）の表示に適した、シンプルで直感的な
+PDFビューアです。
 
-PDFを開くと、ページレイアウトとスクロール方向の設定を検出します。PDFは単一ページ表示または見開き表示で閲覧できます。
+PDFを開くと、ページレイアウトとスクロール方向の設定を検出します。
+PDFは単一ページ表示または見開き表示で閲覧できます。
 
 このソフトウェアは生成AIを使用してコーディングされました。
 
@@ -16,23 +18,28 @@ PDFを開くと、ページレイアウトとスクロール方向の設定を�
 
 ## 使い方
 
-1. **PDFを開く**: ファイルピッカーを使って、端末またはiCloud DriveからPDFファイルを選択します。
+1. **PDFを開く**: ファイルピッカーを使って、端末またはiCloud Driveから
+PDFファイルを選択します。
 2. **ページ移動**: スワイプまたはスライダーでドキュメント内を移動します。
 3. **検索**: 検索バーに入力して、PDF内の特定のテキストを検索します。
 4. **ズーム**: ピンチ操作で表示を拡大または縮小します。
-5. **レイアウト**: メニュー内のレイアウトオプションから、単一ページ表示と見開き表示を切り替えます。
+5. **レイアウト**: メニュー内のレイアウトオプションから、単一ページ表示と
+見開き表示を切り替えます。
 
 ## オプション
 
 ### 表紙ページ設定
 
 - **Type A**（Adobe Acrobat Reader互換）
-`PageLayout` が `TwoPageRight` または `TwoColumnRight` の場合は表紙ページを含めます。
+`PageLayout` が `TwoPageRight` または `TwoColumnRight` の場合は
+表紙ページを含めます。
 それ以外の場合は表紙ページを含めません。
 
 - **Type B**
-`Direction` が `L2R` で、`PageLayout` が `TwoPageRight` または `TwoColumnRight` の場合は表紙ページを含めます。
-`Direction` が `R2L` で、`PageLayout` が `TwoPageLeft` または `TwoColumnLeft` の場合は表紙ページを含めます。
+`Direction` が `L2R` で、`PageLayout` が `TwoPageRight` または
+`TwoColumnRight` の場合は表紙ページを含めます。
+`Direction` が `R2L` で、`PageLayout` が `TwoPageLeft` または
+`TwoColumnLeft` の場合は表紙ページを含めます。
 それ以外の場合は表紙ページを含めません。
 
 ## インストール（ソース）
@@ -48,7 +55,8 @@ PDFを開くと、ページレイアウトとスクロール方向の設定を�
 
 1. **Xcode** を起動します。
 2. **"Create a new Xcode project..."** を選択し、**"Next..."** をクリックします。
-3. プラットフォームに **"iOS"**、アプリケーションタイプに **"App"** を選択し、**"Next..."** をクリックします。
+3. プラットフォームに **"iOS"**、アプリケーションタイプに **"App"** を
+選択し、**"Next..."** をクリックします。
 4. プロジェクト設定を入力します。
 - **Product Name**: `MihirakiPDFViewer`（任意）
 - **Organization Identifier**: `com.yourname`（任意）
@@ -60,28 +68,44 @@ PDFを開くと、ページレイアウトとスクロール方向の設定を�
 #### 2. ソースファイルを取り込む
 
 1. GitHubからソースコードをダウンロードします。
-2. `Sources` フォルダ内のフォルダ（`App`、`Managers`、`Models`、`ViewModels`、`Views`）を、Xcode左側の **Project Navigator**（ファイルツリー）へドラッグ＆ドロップします。
-3. 表示されるダイアログ（Add to "MihirakiPDFViewer"）で、次のように設定します。
-- **Destination**: `Create groups` を選択（フォルダ構成を維持するため重要）
+2. `Sources` フォルダ内のフォルダ（`App`、`Managers`、`Models`、
+`ViewModels`、`Views`）を、Xcode左側の **Project Navigator**
+（ファイルツリー）へドラッグ＆ドロップします。
+3. 表示されるダイアログ（Add to "MihirakiPDFViewer"）で、次のように
+設定します。
+- **Destination**: `Create groups` を選択
+（フォルダ構成を維持するため重要）
 - **Options**: `Copy items if needed` にチェック
 
 #### 3. エントリーポイント（Appファイル）を変更
 
-デフォルトでは、Xcodeは自動生成されたファイルを使ってプロジェクトを起動するよう設定されています。提供されているコードを使うように更新する必要があります。
+デフォルトでは、Xcodeは自動生成されたファイルを使ってプロジェクトを
+起動するよう設定されています。提供されているコードを使うように更新する
+必要があります。
 
-1. XcodeのProject Navigatorで、自動生成された `[Project Name]App.swift` ファイルを削除します。
-2. `Sources/App/MihirakiPDFViewerApp.swift` がプロジェクトに含まれていることを確認します。
+1. XcodeのProject Navigatorで、自動生成された
+`[Project Name]App.swift` ファイルを削除します。
+2. `Sources/App/MihirakiPDFViewerApp.swift` がプロジェクトに含まれている
+ことを確認します。
 
 #### 4. ビルドして実行
 
-1. Xcodeツールバーの実行ボタン（**▶️**）右側にあるデバイス選択メニューをクリックし、**iPadシミュレータ**（例: "iPad Pro"）を選択します。
-2. **▶️（Run）** ボタンをクリックするか、キーボードで `Command + R` を押します。
-3. シミュレータが起動し、PDFファイルを選択する画面が表示されればセットアップ成功です。
+1. Xcodeツールバーの実行ボタン（**▶️**）右側にあるデバイス選択メニューを
+クリックし、**iPadシミュレータ**（例: "iPad Pro"）を選択します。
+2. **▶️（Run）** ボタンをクリックするか、キーボードで `Command + R` を
+押します。
+3. シミュレータが起動し、PDFファイルを選択する画面が表示されれば
+セットアップ成功です。
 
 ### トラブルシューティング
 
-- **エラーが発生する場合**: `import PDFKit` に関するエラーが発生した場合は、プロジェクトの **Frameworks, Libraries, and Embedded Content** に `PDFKit` が含まれているか確認してください（通常はデフォルトで含まれています）。
-- **"File not found" エラー**: XcodeのProject Navigatorでファイルが赤く表示される場合は、ファイルパスが正しくリンクされていません。そのファイルを削除し、ドラッグ＆ドロップで再度追加してください。
+- **エラーが発生する場合**: `import PDFKit` に関するエラーが発生した
+場合は、プロジェクトの **Frameworks, Libraries, and Embedded Content** に
+`PDFKit` が含まれているか確認してください
+（通常はデフォルトで含まれています）。
+- **"File not found" エラー**: XcodeのProject Navigatorでファイルが赤く
+表示される場合は、ファイルパスが正しくリンクされていません。そのファイルを
+削除し、ドラッグ＆ドロップで再度追加してください。
 
 ## AIの主な役割
 
@@ -96,7 +120,8 @@ PDFを開くと、ページレイアウトとスクロール方向の設定を�
 
 ## ライセンス
 
-このプロジェクトはMITライセンスの下で公開されています。詳細は [LICENSE](LICENSE) ファイルを参照してください。
+このプロジェクトはMITライセンスの下で公開されています。詳細は
+[LICENSE](LICENSE) ファイルを参照してください。
 
 ## バージョン履歴
 

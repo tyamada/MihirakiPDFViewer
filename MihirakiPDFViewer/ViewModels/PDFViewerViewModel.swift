@@ -48,6 +48,7 @@ public class PDFViewerViewModel: ObservableObject {
         public let id: Int
         public let pages: [PDFPage]
         public let startIndex: Int
+        public let pageIndices: [Int]
     }
 
     public var pageGroups: [PageGroup] {
@@ -61,7 +62,7 @@ public class PDFViewerViewModel: ObservableObject {
         if settings.isCoverPageEnabled {
             if totalPages > 0 {
                 if let firstPage = document.pdfDocument.page(at: 0) {
-                    groups.append(PageGroup(id: currentIndex, pages: [firstPage], startIndex: currentIndex))
+                    groups.append(PageGroup(id: currentIndex, pages: [firstPage], startIndex: currentIndex, pageIndices: [currentIndex]))
                     currentIndex += 1
                 }
             }
@@ -71,23 +72,24 @@ public class PDFViewerViewModel: ObservableObject {
          if settings.isSpreadViewEnabled {
              // 見開き表示: 2ページずつペアにする
              while currentIndex < totalPages {
-                 var pair: [PDFPage] = []
-                 if let page = document.pdfDocument.page(at: currentIndex) {
-                     pair.append(page)
+                 var pageIndices = [currentIndex]
+                 if currentIndex + 1 < totalPages {
+                     pageIndices.append(currentIndex + 1)
                  }
-                 
-                 if currentIndex + 1 < totalPages, let nextPage = document.pdfDocument.page(at: currentIndex + 1) {
-                     pair.append(nextPage)
+
+                 if settings.layoutDirection == .rightToLeft, pageIndices.count == 2 {
+                     pageIndices.reverse()
                  }
-                 
-                 groups.append(PageGroup(id: currentIndex, pages: pair, startIndex: currentIndex))
+
+                 let pages = pageIndices.compactMap { document.pdfDocument.page(at: $0) }
+                 groups.append(PageGroup(id: currentIndex, pages: pages, startIndex: currentIndex, pageIndices: pageIndices))
                  currentIndex += 2
              }
          } else {
              // 単一表示
              while currentIndex < totalPages {
                  if let page = document.pdfDocument.page(at: currentIndex) {
-                     groups.append(PageGroup(id: currentIndex, pages: [page], startIndex: currentIndex))
+                     groups.append(PageGroup(id: currentIndex, pages: [page], startIndex: currentIndex, pageIndices: [currentIndex]))
                  }
                  currentIndex += 1
              }

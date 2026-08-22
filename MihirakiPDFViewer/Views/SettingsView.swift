@@ -18,13 +18,22 @@ import SwiftUI
 public struct SettingsView: View {
     @ObservedObject var viewModel: PDFViewerViewModel
     @Environment(\.dismiss) var dismiss
+    @Environment(\.colorScheme) private var colorScheme
     
     public init(viewModel: PDFViewerViewModel) {
         self.viewModel = viewModel
     }
+
+    private var settingsBackgroundColor: Color {
+        colorScheme == .dark ? .black : .white
+    }
+
+    private var settingsTextColor: Color {
+        colorScheme == .dark ? .white : .black
+    }
     
     public var body: some View {
-        ScrollView {
+        Form {
             VStack(alignment: .leading, spacing: 24) {
                 // 画面設定
                 VStack(alignment: .leading, spacing: 12) {
@@ -40,6 +49,8 @@ public struct SettingsView: View {
                         ))
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(1)
+                .background(settingsBackgroundColor)
 
                 // 表示設定
                 VStack(alignment: .leading, spacing: 12) {
@@ -64,12 +75,14 @@ public struct SettingsView: View {
                         .pickerStyle(.segmented)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(1)
+                .background(settingsBackgroundColor)
 
                 // オプション
                 VStack(alignment: .leading, spacing: 12) {
                     Text(String(localized: "options"))
                         .font(.headline)
-                    Text(String(localized: "cover_page_setting_label"))
+                    Text(String(localized: "cover_page_setting_label", defaultValue: "Cover Page Setting"))
                     Picker(String(localized: "cover_page_setting_label", defaultValue: "Cover Page Setting"), selection: Binding(
                         get: { viewModel.settings.coverPageSetting },
                         set: { viewModel.settings.coverPageSetting = $0 }
@@ -80,6 +93,8 @@ public struct SettingsView: View {
                        .pickerStyle(.segmented)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(1)
+                .background(settingsBackgroundColor)
                 
                 // ドキュメント情報
                 VStack(alignment: .leading, spacing: 12) {
@@ -88,22 +103,34 @@ public struct SettingsView: View {
                     if let doc = viewModel.document {
                         VStack(alignment: .leading, spacing: 4) {
                             Text(String(localized: "total_pages", defaultValue: "\(doc.totalPageCount)"))
+                                .foregroundColor(settingsTextColor)
+                                .padding(.horizontal, 2)
+                                .background(settingsBackgroundColor)
                             Text("\(String(localized: "page_layout")): \(doc.pageLayout.displayName)")
+                                .foregroundColor(settingsTextColor)
+                                .padding(.horizontal, 2)
+                                .background(settingsBackgroundColor)
                             Text("\(String(localized: "scroll_direction")): \(doc.layoutDirection == .rightToLeft ? "R2L" : "L2R")")
+                                .foregroundColor(settingsTextColor)
+                                .padding(.horizontal, 2)
+                                .background(settingsBackgroundColor)
                         }
-                        .foregroundColor(.secondary)
+                        .foregroundColor(settingsTextColor)
                     } else {
                         Text(String(localized: "no_doc"))
                             .font(.caption)
-                            .foregroundColor(.secondary)
+                            .foregroundColor(settingsTextColor)
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(1)
+                .background(settingsBackgroundColor)
                 
                 // アプリ情報
                 VStack(alignment: .leading, spacing: 12) {
                     Text(String(localized: "app_info"))
                         .font(.headline)
+                        .foregroundColor(settingsTextColor)
                     VStack(alignment: .leading, spacing: 6) {
                         HStack {
                             Text(String(localized: "app_name_label"))
@@ -122,9 +149,12 @@ public struct SettingsView: View {
                         }
                     }
                     .font(.subheadline)
-                    .foregroundColor(.secondary)
+                    .foregroundColor(settingsTextColor)
+                    .accessibilityElement(children: .combine)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(1)
+                .background(settingsBackgroundColor)
 
                 // 開発者への応援 (Tip)
                 VStack(alignment: .center, spacing: 12) {
@@ -132,25 +162,28 @@ public struct SettingsView: View {
                     Text(String(localized: "developer_support_title", defaultValue: "Support the Developer"))
                         .font(.headline)
                     Text(String(localized: "developer_support_description", defaultValue: "Your support helps keep the app updated. You can use all features without making a purchase."))
-                        .font(.caption)
-                        .foregroundColor(.secondary)
+                        .font(.body)
+                        .foregroundColor(settingsTextColor)
                         .multilineTextAlignment(.center)
                     
                     NavigationLink(destination: TipSelectionView(tipManager: TipManager.shared)) {
                         Text(String(localized: "tip_selection_title", defaultValue: "Support"))
                             .font(.subheadline)
                             .fontWeight(.semibold)
-                            .foregroundColor(.white)
-                            .padding(.vertical, 8)
-                            .padding(.horizontal, 24)
-                            .background(Color.blue)
-                            .cornerRadius(20)
                     }
+                    .buttonStyle(.borderedProminent)
+                    .accessibilityIdentifier("supportButton")
+                    .accessibilityHint(String(localized: "support_button_accessibility_hint", defaultValue: "Opens the tip selection screen."))
                 }
                 .padding(.vertical)
+                .background(settingsBackgroundColor)
             }
             .padding()
+            .background(settingsBackgroundColor)
         }
+        .foregroundColor(settingsTextColor)
+        .background(settingsBackgroundColor)
+        .accessibilityIdentifier("settingsScreen")
         .navigationTitle(String(localized: "settings"))
     }
 }
@@ -158,12 +191,24 @@ public struct SettingsView: View {
 struct TipSelectionView: View {
     @ObservedObject var tipManager: TipManager
     @Environment(\.purchase) private var purchaseAction
+    @Environment(\.colorScheme) private var colorScheme
     @State private var purchasingProductID: String?
+
+    private var settingsTextColor: Color {
+        colorScheme == .dark ? .white : .black
+    }
 
     var body: some View {
         List {
             Section {
-                if tipManager.products.isEmpty {
+                if let errorMessage = tipManager.errorMessage {
+                    Text(errorMessage)
+                        .font(.caption)
+                        .foregroundColor(settingsTextColor)
+                        .multilineTextAlignment(.center)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .padding(.vertical)
+                } else if tipManager.products.isEmpty {
                     HStack {
                         Spacer()
                         ProgressView()
@@ -194,7 +239,7 @@ struct TipSelectionView: View {
                                         .font(.headline)
                                     Text(tipDescription(for: product.id))
                                         .font(.caption)
-                                        .foregroundColor(.secondary)
+                                        .foregroundColor(settingsTextColor)
                                 }
                                 Spacer()
                                 if purchasingProductID == product.id {
@@ -207,12 +252,16 @@ struct TipSelectionView: View {
                             }
                         }
                         .disabled(purchasingProductID != nil)
+                        .accessibilityIdentifier("tipProductButton_\(product.id)")
                     }
                 }
             } footer: {
                 Text(String(localized: "developer_support_description", defaultValue: "Your support helps keep the app updated. You can use all features without making a purchase."))
+                    .font(.body)
+                    .foregroundColor(settingsTextColor)
             }
         }
+        .accessibilityIdentifier("tipSelectionScreen")
         .navigationTitle(String(localized: "tip_selection_title", defaultValue: "Support"))
         .task {
             await tipManager.updateStorefront()

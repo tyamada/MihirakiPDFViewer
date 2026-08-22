@@ -51,6 +51,7 @@ public struct PDFDocumentWrapper: Identifiable, Equatable {
 
     private static func detectLayoutSettings(url: URL) -> DetectedSettings {
         guard let pdfDocument = CGPDFDocument(url as CFURL) else {
+            print("Failed to inspect PDF metadata. Falling back to default layout settings: \(url.lastPathComponent)")
             return DetectedSettings(direction: .leftToRight, isSpread: false, isCover: false, isSlider: true, pageLayout: .singlePage, coverPageSetting: .typeA)
         }
         

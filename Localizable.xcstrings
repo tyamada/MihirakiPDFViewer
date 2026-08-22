@@ -1,2463 +1,2573 @@
 {
-  "sourceLanguage": "en",
-  "strings": {
-    "": {
-      "shouldTranslate": false
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+      "shouldTranslate" : false
     },
-    "%@: %@": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "%1$@: %2$@"
+    "%@: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@: %2$@"
           }
         }
       },
-      "shouldTranslate": false
+      "shouldTranslate" : false
     },
-    "%lld / %lld": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "%1$lld / %2$lld"
+    "%lld / %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld / %2$lld"
           }
         }
       },
-      "shouldTranslate": false
+      "shouldTranslate" : false
     },
-    "app_info": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "App-Info"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "App Info"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Información de la aplicación"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Infos de l'app"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "アプリ情報"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "앱 정보"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Informações do app"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "应用信息"
+    "alternate_app_icons_not_supported" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Alternate app icons are not supported in this environment."
           }
         }
       }
     },
-    "app_name": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mihiraki PDF Viewer"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mihiraki PDF Viewer"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mihiraki PDF Viewer"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mihiraki PDF Viewer"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "見開きPDFビューア"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mihiraki PDF Viewer"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mihiraki PDF Viewer"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mihiraki PDF Viewer"
+    "app_icon_change_failed" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Could not change the app icon."
           }
         }
       }
     },
-    "app_name_label": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "App-Name"
+    "app_info" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App-Info"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "App Name"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App Info"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nombre de la aplicación"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Información de la aplicación"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nom de l'app"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Infos de l'app"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "アプリ名"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリ情報"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "앱 이름"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "앱 정보"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nome do app"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informações do app"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "应用名称"
-          }
-        }
-      }
-    },
-    "change_app_icon": {
-      "extractionState": "extracted_with_value",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Symbol ändern"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "Change Icon"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cambiar icono"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Changer l'icône"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "アイコンを変更"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "아이콘 변경"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Alterar ícone"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "更改图标"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "应用信息"
           }
         }
       }
     },
-    "close": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Schließen"
+    "app_name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mihiraki PDF Viewer"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Close"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mihiraki PDF Viewer"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cerrar"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mihiraki PDF Viewer"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fermer"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mihiraki PDF Viewer"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "閉じる"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "見開きPDFビューア"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "닫기"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mihiraki PDF Viewer"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fechar"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mihiraki PDF Viewer"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "关闭"
-          }
-        }
-      }
-    },
-    "copyright": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "© 2026 Takuma Yamada"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "© 2026 Takuma Yamada"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "© 2026 Takuma Yamada"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "© 2026 Takuma Yamada"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "© 2026 Takuma Yamada"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "© 2026 Takuma Yamada"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "© 2026 Takuma Yamada"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "© 2026 Takuma Yamada"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mihiraki PDF Viewer"
           }
         }
       }
     },
-    "copyright_label": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Urheberrecht"
+    "app_name_label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App-Name"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Copyright"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App Name"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Copyright"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombre de la aplicación"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Copyright"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nom de l'app"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "著作権"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリ名"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "저작권"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "앱 이름"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Copyright"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nome do app"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "版权"
-          }
-        }
-      }
-    },
-    "cover_page_setting_label": {
-      "extractionState": "extracted_with_value",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Einstellungen für das Deckblatt"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "Cover Page Setting"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Configuración de la portada"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Paramètres de la page de couverture"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "表紙設定"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "표지 설정"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Configurações da página de rosto"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "封面设置"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "应用名称"
           }
         }
       }
     },
-    "developer_support_description": {
-      "extractionState": "extracted_with_value",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ihre Unterstützung trägt dazu bei, dass die App weiterhin Updates erhält. Sie können alle Funktionen nutzen, ohne einen Kauf zu tätigen."
+    "change_app_icon" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Symbol ändern"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "Your support helps keep the app updated. You can use all features without making a purchase."
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Change Icon"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tu apoyo ayuda a garantizar que la aplicación siga recibiendo actualizaciones. Puedes utilizar todas las funciones sin realizar ninguna compra."
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cambiar icono"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Votre soutien permet de garantir que l'application continue de recevoir des mises à jour. Vous pouvez utiliser toutes les fonctionnalités sans effectuer d'achat."
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Changer l'icône"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "あなたの応援が、アプリの継続的なアップデートに繋がります。購入しなくてもすべての機能を使用できます。"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アイコンを変更"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "여러분의 후원은 앱이 지속적으로 업데이트되는 데 큰 힘이 됩니다. 구매하지 않으셔도 모든 기능을 이용하실 수 있습니다."
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "아이콘 변경"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Seu apoio ajuda a garantir que o aplicativo continue recebendo atualizações. Você pode usar todos os recursos sem fazer nenhuma compra."
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alterar ícone"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "您的支持有助于确保该应用持续获得更新。您无需付费即可使用所有功能。"
-          }
-        }
-      }
-    },
-    "developer_support_title": {
-      "extractionState": "extracted_with_value",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Unterstützung der Entwickler"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "Support the Developer"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apoyo a los desarrolladores"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Soutenir les développeurs"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "開発者への応援"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "개발자 지원"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apoiando os desenvolvedores"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "支持开发者"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更改图标"
           }
         }
       }
     },
-    "dir_l2r": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Von links nach rechts (L2R)"
+    "close" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schließen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Left to Right (L2R)"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Close"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "De izquierda a derecha (L2R)"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerrar"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "De gauche à droite (L2R)"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fermer"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "左から右 (L2R)"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "閉じる"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "왼쪽에서 오른쪽 (L2R)"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "닫기"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Da esquerda para a direita (L2R)"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fechar"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "从左到右 (L2R)"
-          }
-        }
-      }
-    },
-    "dir_r2l": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Von rechts nach links (R2L)"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Right to Left (R2L)"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "De derecha a izquierda (R2L)"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "De droite à gauche (R2L)"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "右から左 (R2L)"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "오른쪽에서 왼쪽 (R2L)"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Da direita para a esquerda (R2L)"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "从右到左 (R2L)"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关闭"
           }
         }
       }
     },
-    "Direction": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Richtung"
+    "copyright" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "© 2026 Takuma Yamada"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Direction"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "© 2026 Takuma Yamada"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dirección"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "© 2026 Takuma Yamada"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Direction"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "© 2026 Takuma Yamada"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "方向"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "© 2026 Takuma Yamada"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "방향"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "© 2026 Takuma Yamada"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Direção"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "© 2026 Takuma Yamada"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "方向"
-          }
-        }
-      }
-    },
-    "display_settings": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Anzeigeeinstellungen"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Display Settings"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ajustes de pantalla"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Réglages d'affichage"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "表示設定"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "화면 설정"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Configurações de exibisã"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "显示设置"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "© 2026 Takuma Yamada"
           }
         }
       }
     },
-    "doc_info": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dokumentinfo"
+    "copyright_label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Urheberrecht"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Document Info"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copyright"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Información del documento"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copyright"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Infos du document"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copyright"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ドキュメント情報"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "著作権"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "문서 정보"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "저작권"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Informações do documento"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copyright"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "文档信息"
-          }
-        }
-      }
-    },
-    "error": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fehler"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Error"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Error"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Erreur"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "エラー"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "오류"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Erro"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "错误"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "版权"
           }
         }
       }
     },
-    "error_occurred": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ein Fehler ist aufgetreten."
+    "cover_page_setting_label" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen für das Deckblatt"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "An error occurred."
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Cover Page Setting"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ocurrió un error."
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configuración de la portada"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Une erreur est survenue."
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paramètres de la page de couverture"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "エラーが発生しました。"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "表紙設定"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "오류가 발생했습니다."
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "표지 설정"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ocorreu um erro."
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configurações da página de rosto"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "发生错误"
-          }
-        }
-      }
-    },
-    "error_title": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fehler"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Error"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Error"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Erreur"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "エラー"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "오류"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Erro"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "错误"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "封面设置"
           }
         }
       }
     },
-    "is_cover_page": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Titelseite anzeigen"
+    "developer_support_description" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ihre Unterstützung trägt dazu bei, dass die App weiterhin Updates erhält. Sie können alle Funktionen nutzen, ohne einen Kauf zu tätigen."
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Show Cover Page"
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Your support helps keep the app updated. You can use all features without making a purchase."
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mostrar portada"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu apoyo ayuda a garantizar que la aplicación siga recibiendo actualizaciones. Puedes utilizar todas las funciones sin realizar ninguna compra."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Afficher la couverture"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Votre soutien permet de garantir que l'application continue de recevoir des mises à jour. Vous pouvez utiliser toutes les fonctionnalités sans effectuer d'achat."
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "表紙を表示"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "あなたの応援が、アプリの継続的なアップデートに繋がります。購入しなくてもすべての機能を使用できます。"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "표지 표시"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "여러분의 후원은 앱이 지속적으로 업데이트되는 데 큰 힘이 됩니다. 구매하지 않으셔도 모든 기능을 이용하실 수 있습니다."
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mostrar capa"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seu apoio ajuda a garantir que o aplicativo continue recebendo atualizações. Você pode usar todos os recursos sem fazer nenhuma compra."
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "显示封面"
-          }
-        }
-      }
-    },
-    "is_searchbar_enabled": {
-      "extractionState": "extracted_with_value",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Suchleiste"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "Search Bar"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Barra de búsqueda"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Barre de recherche"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "検索バー"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "검색창"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Barra de pesquisa"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "搜索栏"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您的支持有助于确保该应用持续获得更新。您无需付费即可使用所有功能。"
           }
         }
       }
     },
-    "is_slider_enabled": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Schieberegler anzeigen"
+    "developer_support_title" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unterstützung der Entwickler"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Slider Display"
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Support the Developer"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mostrar deslizador"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apoyo a los desarrolladores"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Afficher le curseur"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Soutenir les développeurs"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "スライダー表示"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開発者への応援"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "슬라이더 표시"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "개발자 지원"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Exibir controle deslizante"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apoiando os desenvolvedores"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "滑块显示"
-          }
-        }
-      }
-    },
-    "is_spread_view": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Zweiseitenansicht"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Two-page View"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vista de dos páginas"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vue en deux pages"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "見開き表示"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "두 페이지 보기"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Visualização de duas páginas"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "双页视图"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支持开发者"
           }
         }
       }
     },
-    "language": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sprache"
+    "dir_l2r" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Von links nach rechts (L2R)"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Language"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Left to Right (L2R)"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Idioma"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De izquierda a derecha (L2R)"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Langue"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De gauche à droite (L2R)"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "言語"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "左から右 (L2R)"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "언어"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "왼쪽에서 오른쪽 (L2R)"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Idioma"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Da esquerda para a direita (L2R)"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "语言"
-          }
-        }
-      }
-    },
-    "no_doc": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kein Dokument geladen"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No document loaded"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No hay ningún documento cargado"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aucun document chargé"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ドキュメントが読み込まれていません"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "문서가 로드되지 않았습니다"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nenhum documento carregado"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "未加载文档"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从左到右 (L2R)"
           }
         }
       }
     },
-    "ok": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "OK"
+    "dir_r2l" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Von rechts nach links (R2L)"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "OK"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Right to Left (R2L)"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aceptar"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De derecha a izquierda (R2L)"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "OK"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De droite à gauche (R2L)"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "OK"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "右から左 (R2L)"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "확인"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오른쪽에서 왼쪽 (R2L)"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "OK"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Da direita para a esquerda (R2L)"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "确定"
-          }
-        }
-      }
-    },
-    "options": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Optionen"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Options"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Opciones"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Options"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "オプション"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "옵션"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Opções"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "选项"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从右到左 (R2L)"
           }
         }
       }
     },
-    "page_layout": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Seitenlayout"
+    "Direction" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Richtung"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Page Layout"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Direction"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Diseño de página"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dirección"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mise en page"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Direction"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ページレイアウト"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "方向"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "페이지 레이아웃"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "방향"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Layout da página"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Direção"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "页面布局"
-          }
-        }
-      }
-    },
-    "screen_settings": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bildschirmeinstellungen"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Screen Settings"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Configuración de la pantalla"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Paramètres de l'écran"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "画面設定"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "화면 설정"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Configurações de tela"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "屏幕设置"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "方向"
           }
         }
       }
     },
-    "scroll_direction": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Blickrichtung"
+    "display_settings" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anzeigeeinstellungen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Screen Direction"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Display Settings"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Scroll Dirección"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajustes de pantalla"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Direction de mouvement à l'écran"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réglages d'affichage"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "スクロール方向"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "表示設定"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "화면 방향"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "화면 설정"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Direção de movimento na tela"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configurações de exibisã"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "屏幕运动方向"
-          }
-        }
-      }
-    },
-    "search": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Suchen"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Search"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Buscar"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rechercher"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "検索"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "검색"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pesquisar"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "搜索"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示设置"
           }
         }
       }
     },
-    "select_pdf_button": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Datei auswählen"
+    "doc_info" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dokumentinfo"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Select File"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Document Info"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Seleccionar archivo"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Información del documento"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sélectionner le fichier"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Infos du document"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ファイルを選択"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ドキュメント情報"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "파일 선택"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "문서 정보"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Selecionar arquivo"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informações do documento"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "选择文件"
-          }
-        }
-      }
-    },
-    "select_pdf_title": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bitte wählen Sie eine PDF-Datei aus"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Please select a PDF file"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Por favor, seleccione un archivo PDF"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Veuillez sélectionner un fichier PDF"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "PDFファイルを選択してください"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "PDF 파일을 선택하세요"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Por favor, selecione um arquivo PDF"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "请选择 PDF 文件"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "文档信息"
           }
         }
       }
     },
-    "settings": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Einstellungen"
+    "error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fehler"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Settings"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ajustes"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Réglages"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erreur"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "設定"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "エラー"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "설정"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오류"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Configurações"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erro"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "设置"
-          }
-        }
-      }
-    },
-    "tip_100_name": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "100-Yen-Unterstützung"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "100 Yen Tip"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Propina de 100 yenes"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pourboire de 100 yens"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "投げ銭 100円"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "100엔 후원"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gorjeta de 100 ienes"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "100日元小费"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "错误"
           }
         }
       }
     },
-    "tip_100_description": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Schaltet das Bronze-App-Symbol frei."
+    "error_occurred" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ein Fehler ist aufgetreten."
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "Unlocks the bronze app icon."
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An error occurred."
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Desbloquea el ícono bronce de la app."
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ocurrió un error."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Déverrouille l'icône bronze de l'app."
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une erreur est survenue."
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ブロンズのアプリアイコンを解除します。"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "エラーが発生しました。"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "브론즈 앱 아이콘을 잠금 해제합니다."
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오류가 발생했습니다."
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Desbloqueia o ícone bronze do app."
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ocorreu um erro."
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "解锁青铜应用图标。"
-          }
-        }
-      }
-    },
-    "tip_500_name": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "500-Yen-Unterstützung"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "500 Yen Tip"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Propina de 500 yenes"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pourboire de 500 yens"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "投げ銭 500円"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "500엔 후원"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gorjeta de 500 ienes"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "500日元小费"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "发生错误"
           }
         }
       }
     },
-    "tip_500_description": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Schaltet das Silber-App-Symbol frei."
+    "error_title" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fehler"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "Unlocks the silver app icon."
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Desbloquea el ícono plata de la app."
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Déverrouille l'icône argent de l'app."
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erreur"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "シルバーのアプリアイコンを解除します。"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "エラー"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "실버 앱 아이콘을 잠금 해제합니다."
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오류"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Desbloqueia o ícone prata do app."
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erro"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "解锁银色应用图标。"
-          }
-        }
-      }
-    },
-    "tip_1000_name": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "1000-Yen-Unterstützung"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "1000 Yen Tip"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Propina de 1000 yenes"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pourboire de 1000 yens"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "投げ銭 1000円"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "1000엔 후원"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gorjeta de 1000 ienes"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "1000日元小费"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "错误"
           }
         }
       }
     },
-    "tip_1000_description": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Schaltet das Gold-App-Symbol frei."
+    "is_cover_page" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Titelseite anzeigen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "Unlocks the gold app icon."
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show Cover Page"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Desbloquea el ícono dorado de la app."
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar portada"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Déverrouille l'icône or de l'app."
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher la couverture"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ゴールドのアプリアイコンを解除します。"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "表紙を表示"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "골드 앱 아이콘을 잠금 해제합니다."
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "표지 표시"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Desbloqueia o ícone dourado do app."
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar capa"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "解锁金色应用图标。"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示封面"
           }
         }
       }
     },
-    "tip_selection_title": {
-      "extractionState": "extracted_with_value",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Unterstützung"
+    "is_searchbar_enabled" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suchleiste"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "Support"
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Search Bar"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apoyo"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Barra de búsqueda"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Soutien"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Barre de recherche"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "応援する"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "検索バー"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "지원하다"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "검색창"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apoiar"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Barra de pesquisa"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "支持"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜索栏"
           }
         }
       }
     },
-    "tip_success_message": {
-      "extractionState": "extracted_with_value",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vielen Dank für Ihre Unterstützung."
+    "is_slider_enabled" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schieberegler anzeigen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "Thank you for your support."
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Slider Display"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gracias por su apoyo."
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar deslizador"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Merci pour votre soutien."
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher le curseur"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "応援ありがとうございました。"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "スライダー表示"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "성원해 주셔서 감사합니다."
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "슬라이더 표시"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Obrigado pelo seu apoio."
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exibir controle deslizante"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "感谢您的支持。"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "滑块显示"
           }
         }
       }
     },
-    "tip_success_title": {
-      "extractionState": "extracted_with_value",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vielen Dank für Ihre Unterstützung!"
+    "is_spread_view" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zweiseitenansicht"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "Thank You for Your Support!"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Two-page View"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "¡Gracias por su apoyo!"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vista de dos páginas"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Merci pour votre soutien !"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vue en deux pages"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "応援ありがとうございます！"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "見開き表示"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "성원해 주셔서 감사합니다!"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "두 페이지 보기"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Obrigado pelo seu apoio!"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visualização de duas páginas"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "感谢您的支持！"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "双页视图"
           }
         }
       }
     },
-    "total_pages": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Insgesamt %lld Seiten"
+    "language" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sprache"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Total %lld pages"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Language"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Un total de %lld páginas"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Idioma"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Un total de %lld pages"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Langue"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "全 %lld ページ"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "言語"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "총 %lld 페이지"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "언어"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Um total de %lld páginas"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Idioma"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "总共 %lld 页"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "语言"
           }
         }
       }
     },
-    "TypeA": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Typ A"
+    "no_doc" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kein Dokument geladen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Type A"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No document loaded"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tipo A"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hay ningún documento cargado"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Type A"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun document chargé"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "タイプA"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ドキュメントが読み込まれていません"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "유형 A"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "문서가 로드되지 않았습니다"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tipo A"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nenhum documento carregado"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A型"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未加载文档"
           }
         }
       }
     },
-    "TypeB": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Typ B"
+    "ok" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Type B"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tipo B"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aceptar"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Type B"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "タイプB"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "유형 B"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "확인"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tipo B"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "B型"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确定"
           }
         }
       }
     },
-    "version_label": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Version"
+    "options" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Optionen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Version"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Options"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Versión"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opciones"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Version"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Options"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "バージョン"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "オプション"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "버전"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "옵션"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Versão"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opções"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "版本"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选项"
+          }
+        }
+      }
+    },
+    "page_layout" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seitenlayout"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Page Layout"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diseño de página"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mise en page"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ページレイアウト"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "페이지 레이아웃"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Layout da página"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "页面布局"
+          }
+        }
+      }
+    },
+    "page_slider_accessibility_label" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Page"
+          }
+        }
+      }
+    },
+    "pdf_file_selection_failed" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Could not select the PDF file."
+          }
+        }
+      }
+    },
+    "pdf_page_accessibility_label" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Page %lld"
+          }
+        }
+      }
+    },
+    "pdf_page_accessibility_label_unknown" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "PDF page"
+          }
+        }
+      }
+    },
+    "purchase_failed" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The purchase could not be completed."
+          }
+        }
+      }
+    },
+    "purchase_verification_failed" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Could not verify the purchase."
+          }
+        }
+      }
+    },
+    "screen_settings" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bildschirmeinstellungen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Screen Settings"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configuración de la pantalla"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paramètres de l'écran"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "画面設定"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "화면 설정"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configurações de tela"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "屏幕设置"
+          }
+        }
+      }
+    },
+    "scroll_direction" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Blickrichtung"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Screen Direction"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scroll Dirección"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Direction de mouvement à l'écran"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "スクロール方向"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "화면 방향"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Direção de movimento na tela"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "屏幕运动方向"
+          }
+        }
+      }
+    },
+    "search" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suchen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "検索"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "검색"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pesquisar"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜索"
+          }
+        }
+      }
+    },
+    "select_pdf_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datei auswählen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select File"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seleccionar archivo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélectionner le fichier"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイルを選択"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "파일 선택"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecionar arquivo"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择文件"
+          }
+        }
+      }
+    },
+    "select_pdf_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte wählen Sie eine PDF-Datei aus"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please select a PDF file"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, seleccione un archivo PDF"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veuillez sélectionner un fichier PDF"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PDFファイルを選択してください"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PDF 파일을 선택하세요"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, selecione um arquivo PDF"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请选择 PDF 文件"
+          }
+        }
+      }
+    },
+    "settings" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajustes"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réglages"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設定"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "설정"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configurações"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设置"
+          }
+        }
+      }
+    },
+    "store_products_fetch_failed" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Could not load tip products. Please try again later."
+          }
+        }
+      }
+    },
+    "support_button_accessibility_hint" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Opens the tip selection screen."
+          }
+        }
+      }
+    },
+    "tip_100_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schaltet das Bronze-App-Symbol frei."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Unlocks the bronze app icon."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desbloquea el ícono bronce de la app."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Déverrouille l'icône bronze de l'app."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ブロンズのアプリアイコンを解除します。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "브론즈 앱 아이콘을 잠금 해제합니다."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desbloqueia o ícone bronze do app."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "解锁青铜应用图标。"
+          }
+        }
+      }
+    },
+    "tip_100_name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "100-Yen-Unterstützung"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "100 Yen Tip"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Propina de 100 yenes"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pourboire de 100 yens"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "投げ銭 100円"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "100엔 후원"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gorjeta de 100 ienes"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "100日元小费"
+          }
+        }
+      }
+    },
+    "tip_500_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schaltet das Silber-App-Symbol frei."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Unlocks the silver app icon."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desbloquea el ícono plata de la app."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Déverrouille l'icône argent de l'app."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "シルバーのアプリアイコンを解除します。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "실버 앱 아이콘을 잠금 해제합니다."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desbloqueia o ícone prata do app."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "解锁银色应用图标。"
+          }
+        }
+      }
+    },
+    "tip_500_name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "500-Yen-Unterstützung"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "500 Yen Tip"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Propina de 500 yenes"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pourboire de 500 yens"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "投げ銭 500円"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "500엔 후원"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gorjeta de 500 ienes"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "500日元小费"
+          }
+        }
+      }
+    },
+    "tip_1000_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schaltet das Gold-App-Symbol frei."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Unlocks the gold app icon."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desbloquea el ícono dorado de la app."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Déverrouille l'icône or de l'app."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ゴールドのアプリアイコンを解除します。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "골드 앱 아이콘을 잠금 해제합니다."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desbloqueia o ícone dourado do app."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "解锁金色应用图标。"
+          }
+        }
+      }
+    },
+    "tip_1000_name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1000-Yen-Unterstützung"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "1000 Yen Tip"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Propina de 1000 yenes"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pourboire de 1000 yens"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "投げ銭 1000円"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1000엔 후원"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gorjeta de 1000 ienes"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1000日元小费"
+          }
+        }
+      }
+    },
+    "tip_selection_title" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unterstützung"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Support"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apoyo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Soutien"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "応援する"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "지원하다"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apoiar"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支持"
+          }
+        }
+      }
+    },
+    "tip_success_message" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vielen Dank für Ihre Unterstützung."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Thank you for your support."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gracias por su apoyo."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Merci pour votre soutien."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "応援ありがとうございました。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "성원해 주셔서 감사합니다."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obrigado pelo seu apoio."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "感谢您的支持。"
+          }
+        }
+      }
+    },
+    "tip_success_title" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vielen Dank für Ihre Unterstützung!"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Thank You for Your Support!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Gracias por su apoyo!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Merci pour votre soutien !"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "応援ありがとうございます！"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "성원해 주셔서 감사합니다!"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obrigado pelo seu apoio!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "感谢您的支持！"
+          }
+        }
+      }
+    },
+    "total_pages" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Insgesamt %lld Seiten"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total %lld pages"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un total de %lld páginas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un total de %lld pages"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全 %lld ページ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "총 %lld 페이지"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Um total de %lld páginas"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "总共 %lld 页"
+          }
+        }
+      }
+    },
+    "TypeA" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Typ A"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Type A"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tipo A"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Type A"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "タイプA"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "유형 A"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tipo A"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A型"
+          }
+        }
+      }
+    },
+    "TypeB" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Typ B"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Type B"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tipo B"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Type B"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "タイプB"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "유형 B"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tipo B"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "B型"
+          }
+        }
+      }
+    },
+    "version_label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versión"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "バージョン"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "버전"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versão"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "版本"
           }
         }
       }
     }
   },
-  "version": "1.2"
+  "version" : "1.2"
 }
