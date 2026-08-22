@@ -116,7 +116,7 @@ public struct PDFDocumentWrapper: Identifiable, Equatable {
             }
         }
         
-        return DetectedSettings(direction: direction, isSpread: isSpread, isCover: isCover, isSlider: false, pageLayout: detectedLayout, coverPageSetting:  coverPageSetting)
+        return DetectedSettings(direction: direction, isSpread: isSpread, isCover: isCover, isSlider: true, pageLayout: detectedLayout, coverPageSetting:  coverPageSetting)
     }
 }
 
@@ -163,8 +163,8 @@ public struct PDFViewerSettings {
     public init(
         isSpreadViewEnabled: Bool = false,
         isCoverPageEnabled: Bool = false,
-        isSliderEnabled: Bool = false,
-        isSearchbarEnabled: Bool = false,
+        isSliderEnabled: Bool = true,
+        isSearchbarEnabled: Bool = true,
         layoutDirection: LayoutDirection = .leftToRight,
         coverPageSetting: CoverPageSetting = .typeA
     ) {
