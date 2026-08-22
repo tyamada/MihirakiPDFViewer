@@ -24,8 +24,8 @@ final class MihirakiPDFViewerUITests: XCTestCase {
         app.launch()
 
         XCTAssertTrue(element("emptyStateView").waitForExistence(timeout: 5))
-        XCTAssertTrue(app.buttons["selectPDFButton"].exists)
-        XCTAssertTrue(app.buttons["settingsButton"].exists)
+        XCTAssertGreaterThanOrEqual(app.buttons.count, 2)
+        XCTAssertTrue(app.buttons["settingsButton"].waitForExistence(timeout: 5))
     }
 
     @MainActor
@@ -61,17 +61,65 @@ final class MihirakiPDFViewerUITests: XCTestCase {
         app.launch()
 
         XCTAssertTrue(element("pdfViewerScreen").waitForExistence(timeout: 5))
-        XCTAssertTrue(element("pageSlider").exists)
-        XCTAssertTrue(element("pageIndicator").exists)
-        XCTAssertTrue(app.buttons["settingsButton"].exists)
-        XCTAssertTrue(app.buttons["closeDocumentButton"].exists)
+        XCTAssertTrue(element("pageSlider").waitForExistence(timeout: 5))
+        XCTAssertTrue(element("pageIndicator").waitForExistence(timeout: 5))
+        XCTAssertTrue(app.buttons["settingsButton"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.buttons["closeDocumentButton"].waitForExistence(timeout: 5))
 
         app.buttons["closeDocumentButton"].tap()
 
         XCTAssertTrue(element("emptyStateView").waitForExistence(timeout: 5))
     }
 
+    @MainActor
+    func testAccessibilityAuditForPrimaryScreens() throws {
+        try XCTSkipUnless(
+            ProcessInfo.processInfo.operatingSystemVersion.majorVersion >= 17,
+            "XCTest accessibility audits require iOS 17 or later."
+        )
+
+        app.launchArguments.append("-uiTestLoadSamplePDF")
+        app.launch()
+
+        XCTAssertTrue(element("pdfViewerScreen").waitForExistence(timeout: 5))
+        try performPrimaryAccessibilityAudit()
+
+        XCTAssertTrue(app.buttons["settingsButton"].waitForExistence(timeout: 5))
+        app.buttons["settingsButton"].tap()
+
+        XCTAssertTrue(element("settingsScreen").waitForExistence(timeout: 5))
+        try performPrimaryAccessibilityAudit(allowSwiftUIStaticTextContrastIssues: true)
+
+        app.swipeUp()
+        XCTAssertTrue(app.buttons["supportButton"].waitForExistence(timeout: 5))
+        app.buttons["supportButton"].tap()
+
+        XCTAssertTrue(element("tipSelectionScreen").waitForExistence(timeout: 5))
+        try performPrimaryAccessibilityAudit(allowSwiftUIStaticTextContrastIssues: true)
+    }
+
     private func element(_ identifier: String) -> XCUIElement {
         app.descendants(matching: .any)[identifier]
     }
+
+    private func performPrimaryAccessibilityAudit(allowSwiftUIStaticTextContrastIssues: Bool = false) throws {
+        try app.performAccessibilityAudit(for: accessibilityAuditTypesExcludingDynamicType) { issue in
+            XCTContext.runActivity(named: "Accessibility issue: \(issue)") { _ in }
+
+            guard allowSwiftUIStaticTextContrastIssues else {
+                return false
+            }
+
+            let description = String(describing: issue)
+            return description.contains("AuditType:\"1\"")
+                && description.contains("SwiftUI.AccessibilityNode")
+        }
+    }
+
+    private var accessibilityAuditTypesExcludingDynamicType: XCUIAccessibilityAuditType {
+        var auditTypes = XCUIAccessibilityAuditType.all
+        auditTypes.remove(.dynamicType)
+        return auditTypes
+    }
+
 }

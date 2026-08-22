@@ -26,6 +26,7 @@ public struct MainView: View {
     @State private var isShowingSettings = false
     @State private var columnVisibility: NavigationSplitViewVisibility = .detailOnly
     @State private var isShowingTipSuccessAlert = false
+    @State private var isShowingTipErrorAlert = false
     @State private var lastTipProductID: String? = nil
 
     public init() {}
@@ -59,8 +60,9 @@ public struct MainView: View {
                     if let iconName = tipManager.pendingAppIconName {
                         Button(String(localized: "change_app_icon", defaultValue: "Change Icon")) {
                             Task {
-                                await tipManager.changeAppIcon(named: iconName)
-                                tipManager.resetSuccessFlag()
+                                if await tipManager.changeAppIcon(named: iconName) {
+                                    tipManager.resetSuccessFlag()
+                                }
                             }
                         }
                     }
@@ -76,6 +78,21 @@ public struct MainView: View {
                         lastTipProductID = tipManager.lastPurchasedProductID
                         isShowingTipSuccessAlert = true
                     }
+                }
+                .alert(String(localized: "error_title"), isPresented: $isShowingTipErrorAlert) {
+                    Button(String(localized: "ok")) {
+                        tipManager.clearError()
+                    }
+                } message: {
+                    Text(tipManager.errorMessage ?? String(localized: "error_occurred"))
+                }
+                .onChange(of: tipManager.errorMessage) { _, newValue in
+                    if newValue != nil {
+                        isShowingTipErrorAlert = true
+                    }
+                }
+                .onAppear {
+                    loadSamplePDFForUITestsIfNeeded()
                 }
         }
         .fileImporter(
@@ -93,8 +110,54 @@ public struct MainView: View {
     }
 
     private func handleFileSelection(result: Result<[URL], Error>) {
-        if case .success(let urls) = result, let url = urls.first {
+        switch result {
+        case .success(let urls):
+            guard let url = urls.first else {
+                viewModel.errorMessage = String(localized: "pdf_file_selection_failed", defaultValue: "Could not select the PDF file.")
+                return
+            }
             viewModel.loadDocument(from: url)
+        case .failure(let error):
+            let nsError = error as NSError
+            if nsError.domain == NSCocoaErrorDomain && nsError.code == NSUserCancelledError {
+                return
+            }
+            viewModel.errorMessage = String(localized: "pdf_file_selection_failed", defaultValue: "Could not select the PDF file.")
+        }
+    }
+
+    private func loadSamplePDFForUITestsIfNeeded() {
+        guard ProcessInfo.processInfo.arguments.contains("-uiTestLoadSamplePDF"),
+              viewModel.document == nil,
+              let url = makeSamplePDFForUITests() else {
+            return
+        }
+
+        viewModel.loadDocument(from: url)
+        viewModel.settings.isSliderEnabled = true
+        viewModel.settings.isSearchbarEnabled = true
+    }
+
+    private func makeSamplePDFForUITests() -> URL? {
+        let url = FileManager.default.temporaryDirectory
+            .appendingPathComponent("MihirakiPDFViewerUITest")
+            .appendingPathExtension("pdf")
+        let renderer = UIGraphicsPDFRenderer(bounds: CGRect(x: 0, y: 0, width: 320, height: 420))
+
+        do {
+            try renderer.writePDF(to: url) { context in
+                for pageNumber in 1...3 {
+                    context.beginPage()
+                    let text = "UI Test Page \(pageNumber)"
+                    text.draw(
+                        at: CGPoint(x: 32, y: 32),
+                        withAttributes: [.font: UIFont.systemFont(ofSize: 24)]
+                    )
+                }
+            }
+            return url
+        } catch {
+            return nil
         }
     }
 
@@ -105,9 +168,14 @@ public struct MainView: View {
                 .navigationTitle(String(localized: "settings"))
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(String(localized: "close")) {
+                        Button {
                             isShowingSettings = false
+                        } label: {
+                            Image(systemName: "xmark.circle.fill")
+                                .foregroundColor(.primary)
                         }
+                        .accessibilityLabel(String(localized: "close"))
+                        .accessibilityIdentifier("settingsCloseButton")
                     }
                 }
         }
@@ -123,6 +191,7 @@ public struct MainView: View {
                     isShowingSettings: $isShowingSettings
                 )
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .accessibilityIdentifier("pdfViewerScreen")
 
                  if viewModel.pageGroups.count > 1 && viewModel.settings.isSliderEnabled {
                      VStack(spacing: 8) {
@@ -139,10 +208,14 @@ public struct MainView: View {
                              }
                          ), in: 0...1)
                          .accentColor(.blue)
+                         .accessibilityIdentifier("pageSlider")
+                         .accessibilityLabel(String(localized: "page_slider_accessibility_label", defaultValue: "Page"))
+                         .accessibilityValue("\(viewModel.currentPageIndex + 1) / \(viewModel.pageGroups.count)")
                          
                          Text("\(viewModel.currentPageIndex + 1) / \(viewModel.pageGroups.count)")
                              .font(.caption.monospacedDigit())
-                             .foregroundColor(.secondary)
+                             .accessibilityIdentifier("pageIndicator")
+                             .foregroundColor(.primary)
                      }
                      .padding(.horizontal)
                      .padding(.vertical, 8)
@@ -152,6 +225,7 @@ public struct MainView: View {
                  }
             }
             .navigationTitle("")
+            .navigationBarTitleDisplayMode(.inline)
         } else {
             makeEmptyStateView()
         }
@@ -165,13 +239,19 @@ public struct MainView: View {
                 .foregroundColor(.secondary)
             Text(String(localized: "select_pdf_title"))
                 .font(.title2)
-            Button(String(localized: "select_pdf_button")) {
+            Button {
                 isShowingFilePicker = true
+            } label: {
+                Text(String(localized: "select_pdf_button"))
+                    .accessibilityIdentifier("selectPDFButtonLabel")
             }
             .buttonStyle(.borderedProminent)
+            .accessibilityIdentifier("selectPDFButton")
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .accessibilityIdentifier("emptyStateView")
         .navigationTitle("")
+        .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
@@ -179,6 +259,8 @@ public struct MainView: View {
                     } label: {
                         Image(systemName: "gearshape")
                     }
+                    .accessibilityLabel(String(localized: "settings"))
+                    .accessibilityIdentifier("settingsButton")
                 }
             }
     }
@@ -241,6 +323,8 @@ struct PDFContainerView: View {
             } label: {
                 Image(systemName: "gearshape")
             }
+            .accessibilityLabel(String(localized: "settings"))
+            .accessibilityIdentifier("settingsButton")
         }
         if viewModel.settings.isSearchbarEnabled {
             ToolbarItem(placement: .principal) {
@@ -249,6 +333,7 @@ struct PDFContainerView: View {
                         .foregroundColor(.secondary)
                     TextField(String(localized: "search"), text: $viewModel.searchQuery)
                         .textFieldStyle(.roundedBorder)
+                        .accessibilityIdentifier("searchField")
                 }
                 .padding(.horizontal, 4)
             }
@@ -259,6 +344,7 @@ struct PDFContainerView: View {
             } label: {
                 Text(String(localized: "close"))
             }
+            .accessibilityIdentifier("closeDocumentButton")
         }
     }
 
@@ -297,7 +383,10 @@ struct PDFContainerView: View {
                 group: group,
                 size: size,
                 isSpreadViewEnabled: viewModel.settings.isSpreadViewEnabled,
-                searchMatches: viewModel.searchMatches.filter { $0.pageIndex == index }
+                searchMatches: viewModel.searchMatches.filter { group.pageIndices.contains($0.pageIndex) },
+                layoutDirection: viewModel.settings.layoutDirection,
+                isFirstGroup: index == 0,
+                isLastGroup: index == viewModel.pageGroups.count - 1
             )
             .tag(index)
             .frame(width: size.width, height: size.height)
@@ -310,6 +399,9 @@ struct PageContentContainer: View {
     let size: CGSize
     let isSpreadViewEnabled: Bool
     let searchMatches: [PDFViewerViewModel.PDFSearchMatch]
+    let layoutDirection: LayoutDirection
+    let isFirstGroup: Bool
+    let isLastGroup: Bool
 
     var body: some View {
         GeometryReader { geometry in
@@ -325,11 +417,26 @@ struct PageContentContainer: View {
 
     @ViewBuilder
     private func pageContent(_ containerSize: CGSize) -> some View {
-        if isSpreadViewEnabled && group.pages.count > 1 {
-            SpreadLayoutView(group: group, size: containerSize, searchMatches: searchMatches)
+        if shouldUseSpreadLayout {
+            SpreadLayoutView(
+                group: group,
+                size: containerSize,
+                searchMatches: searchMatches,
+                layoutDirection: layoutDirection,
+                isFirstGroup: isFirstGroup,
+                isLastGroup: isLastGroup
+            )
         } else {
             SinglePageView(group: group, size: containerSize, searchMatches: searchMatches)
         }
+    }
+
+    private var shouldUseSpreadLayout: Bool {
+        guard isSpreadViewEnabled else {
+            return false
+        }
+
+        return group.pages.count > 1 || (group.pages.count == 1 && (isFirstGroup || isLastGroup))
     }
 }
 
@@ -337,6 +444,19 @@ struct SpreadLayoutView: View {
     let group: PDFViewerViewModel.PageGroup
     let size: CGSize
     let searchMatches: [PDFViewerViewModel.PDFSearchMatch]
+    let layoutDirection: LayoutDirection
+    let isFirstGroup: Bool
+    let isLastGroup: Bool
+
+    static func singlePageSizeInSpread(pageSize: CGSize, containerSize: CGSize) -> CGSize {
+        let virtualSpreadSize = CGSize(width: pageSize.width * 2, height: pageSize.height)
+        let scale = min(containerSize.width / virtualSpreadSize.width, containerSize.height / virtualSpreadSize.height)
+        return CGSize(width: pageSize.width * scale, height: pageSize.height * scale)
+    }
+
+    static func pageComesBeforeBlankPage(layoutDirection: LayoutDirection) -> Bool {
+        layoutDirection == .leftToRight
+    }
 
     var body: some View {
         GeometryReader { geometry in
@@ -344,21 +464,51 @@ struct SpreadLayoutView: View {
             let ch = geometry.size.height
             
             let p1 = group.pages[0]
-            let p2 = group.pages[1]
             let s1 = p1.bounds(for: .mediaBox).size
-            let s2 = p2.bounds(for: .mediaBox).size
 
-            let w1 = s1.width * (ch / s1.height)
-            let w2 = s2.width * (ch / s2.height)
-            let totalWAtCh = w1 + w2
+            if group.pages.count == 1 {
+                let targetSize = Self.singlePageSizeInSpread(pageSize: s1, containerSize: geometry.size)
+
+                if isLastGroup {
+                    VStack(alignment: .center) {
+                        Spacer()
+                        HStack(spacing: 0) {
+                            if Self.pageComesBeforeBlankPage(layoutDirection: layoutDirection) {
+                                PageView(page: p1, pageNumber: group.pageIndices.first.map { $0 + 1 }, size: targetSize, searchMatches: searchMatches, alignment: .center)
+                                blankPage(size: targetSize)
+                            } else {
+                                blankPage(size: targetSize)
+                                PageView(page: p1, pageNumber: group.pageIndices.first.map { $0 + 1 }, size: targetSize, searchMatches: searchMatches, alignment: .center)
+                            }
+                        }
+                        .environment(\.layoutDirection, .leftToRight)
+                        Spacer()
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                } else {
+                    VStack(alignment: .center) {
+                        Spacer()
+                        PageView(page: p1, pageNumber: group.pageIndices.first.map { $0 + 1 }, size: targetSize, searchMatches: searchMatches, alignment: .center)
+                        Spacer()
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
+            } else {
+                let p2 = group.pages[1]
+                let s2 = p2.bounds(for: .mediaBox).size
+
+                let w1 = s1.width * (ch / s1.height)
+                let w2 = s2.width * (ch / s2.height)
+                let totalWAtCh = w1 + w2
 
              if totalWAtCh <= cw {
                  VStack(alignment: .center) {
                      Spacer()
                      HStack(spacing: 0) {
-                         PageView(page: p1, size: CGSize(width: w1, height: ch), searchMatches: searchMatches.filter { $0.pageIndex == group.startIndex }, alignment: .left)
-                         PageView(page: p2, size: CGSize(width: w2, height: ch), searchMatches: searchMatches.filter { $0.pageIndex == group.startIndex + 1 }, alignment: .right)
+                         PageView(page: p1, pageNumber: group.pageIndices[0] + 1, size: CGSize(width: w1, height: ch), searchMatches: searchMatches.filter { $0.pageIndex == group.pageIndices[0] }, alignment: .left)
+                         PageView(page: p2, pageNumber: group.pageIndices[1] + 1, size: CGSize(width: w2, height: ch), searchMatches: searchMatches.filter { $0.pageIndex == group.pageIndices[1] }, alignment: .right)
                      }
+                     .environment(\.layoutDirection, .leftToRight)
                      Spacer()
                  }
                  .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -372,14 +522,22 @@ struct SpreadLayoutView: View {
                  VStack(alignment: .center) {
                      Spacer()
                      HStack(spacing: 0) {
-                        PageView(page: p1, size: CGSize(width: targetW1, height: targetH1), alignment: .center)
-                        PageView(page: p2, size: CGSize(width: targetW2, height: targetH2), alignment: .center)
+                        PageView(page: p1, pageNumber: group.pageIndices[0] + 1, size: CGSize(width: targetW1, height: targetH1), searchMatches: searchMatches.filter { $0.pageIndex == group.pageIndices[0] }, alignment: .center)
+                        PageView(page: p2, pageNumber: group.pageIndices[1] + 1, size: CGSize(width: targetW2, height: targetH2), searchMatches: searchMatches.filter { $0.pageIndex == group.pageIndices[1] }, alignment: .center)
                      }
+                     .environment(\.layoutDirection, .leftToRight)
                      Spacer()
                  }
                  .frame(maxWidth: .infinity, maxHeight: .infinity)
              }
         }
+    }
+    }
+
+    private func blankPage(size: CGSize) -> some View {
+        Color.clear
+            .frame(width: size.width, height: size.height)
+            .accessibilityHidden(true)
     }
 }
 
@@ -400,7 +558,7 @@ struct SinglePageView: View {
                 
                 VStack(alignment: .center) {
                     Spacer()
-                    PageView(page: firstPage, size: targetSize, searchMatches: searchMatches, alignment: .center)
+                    PageView(page: firstPage, pageNumber: group.pageIndices.first.map { $0 + 1 }, size: targetSize, searchMatches: searchMatches, alignment: .center)
                     Spacer()
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)

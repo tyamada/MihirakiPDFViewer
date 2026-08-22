@@ -9,6 +9,7 @@
 
 import Foundation
 import PDFKit
+import SwiftUI
 import UIKit
 import XCTest
 @testable import MihirakiPDFViewer
@@ -34,6 +35,45 @@ final class PDFDocumentWrapperTests: XCTestCase {
         try Data("not a pdf".utf8).write(to: url)
 
         XCTAssertThrowsError(try PDFDocumentWrapper(url: url))
+    }
+
+    func testRecognizesPageLayoutAndDirectionFromBundledPDFs() throws {
+        let cases: [(name: String, pageLayout: PDFPageLayout, direction: LayoutDirection)] = [
+            ("L2R_Single", .singlePage, .leftToRight),
+            ("L2R_OneColumn", .oneColumn, .leftToRight),
+            ("L2R_TwoColumnLeft", .twoColumnLeft, .leftToRight),
+            ("L2R_TwoColumnRight", .twoColumnRight, .leftToRight),
+            ("L2R_TwoPageLeft", .twoPageLeft, .leftToRight),
+            ("L2R_TwoPageRight", .twoPageRight, .leftToRight),
+            ("R2L_Single", .singlePage, .rightToLeft),
+            ("R2L_OneColumn", .oneColumn, .rightToLeft),
+            ("R2L_TwoColumnLeft", .twoColumnLeft, .rightToLeft),
+            ("R2L_TwoColumnRight", .twoColumnRight, .rightToLeft),
+            ("R2L_TwoPageLeft", .twoPageLeft, .rightToLeft),
+            ("R2L_TwoPageRight", .twoPageRight, .rightToLeft)
+        ]
+
+        for testCase in cases {
+            try XCTContext.runActivity(named: testCase.name) { _ in
+                let wrapper = try PDFDocumentWrapper(url: bundledPDFURL(named: testCase.name))
+
+                XCTAssertEqual(wrapper.pageLayout, testCase.pageLayout)
+                XCTAssertEqual(wrapper.layoutDirection, testCase.direction)
+            }
+        }
+    }
+}
+
+@MainActor
+final class TipManagerTests: XCTestCase {
+    func testProductIDsMapToAppIconNames() {
+        XCTAssertEqual(TipManager.appIconName(for: "tip_100"), "AppIconBronze")
+        XCTAssertEqual(TipManager.appIconName(for: "tip_500"), "AppIconSilver")
+        XCTAssertEqual(TipManager.appIconName(for: "tip_1000"), "AppIconGold")
+    }
+
+    func testUnknownProductIDMapsToPrimaryAppIcon() {
+        XCTAssertEqual(TipManager.appIconName(for: "unknown_product"), "AppIcon")
     }
 }
 
@@ -125,6 +165,46 @@ final class PDFViewerViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.settings.coverPageSetting, .typeB)
     }
 
+    func testTypeAPageGroupsForR2LCoverPDF() throws {
+        let viewModel = try makeViewModelForBundledPDF(named: "R2L_Cover")
+
+        XCTAssertEqual(viewModel.settings.coverPageSetting, .typeA)
+        XCTAssertEqual(viewModel.settings.layoutDirection, .rightToLeft)
+        XCTAssertTrue(viewModel.settings.isSpreadViewEnabled)
+        XCTAssertTrue(viewModel.settings.isCoverPageEnabled)
+        XCTAssertEqual(pageNumbers(in: viewModel), [[1], [3, 2], [4]])
+    }
+
+    func testTypeAPageGroupsForR2LNoCoverPDF() throws {
+        let viewModel = try makeViewModelForBundledPDF(named: "R2L_NoCover")
+
+        XCTAssertEqual(viewModel.settings.coverPageSetting, .typeA)
+        XCTAssertEqual(viewModel.settings.layoutDirection, .rightToLeft)
+        XCTAssertTrue(viewModel.settings.isSpreadViewEnabled)
+        XCTAssertFalse(viewModel.settings.isCoverPageEnabled)
+        XCTAssertEqual(pageNumbers(in: viewModel), [[2, 1], [4, 3]])
+    }
+
+    func testTypeAPageGroupsForL2RCoverPDF() throws {
+        let viewModel = try makeViewModelForBundledPDF(named: "L2R_Cover")
+
+        XCTAssertEqual(viewModel.settings.coverPageSetting, .typeA)
+        XCTAssertEqual(viewModel.settings.layoutDirection, .leftToRight)
+        XCTAssertTrue(viewModel.settings.isSpreadViewEnabled)
+        XCTAssertTrue(viewModel.settings.isCoverPageEnabled)
+        XCTAssertEqual(pageNumbers(in: viewModel), [[1], [2, 3], [4]])
+    }
+
+    func testTypeAPageGroupsForL2RNoCoverPDF() throws {
+        let viewModel = try makeViewModelForBundledPDF(named: "L2R_NoCover")
+
+        XCTAssertEqual(viewModel.settings.coverPageSetting, .typeA)
+        XCTAssertEqual(viewModel.settings.layoutDirection, .leftToRight)
+        XCTAssertTrue(viewModel.settings.isSpreadViewEnabled)
+        XCTAssertFalse(viewModel.settings.isCoverPageEnabled)
+        XCTAssertEqual(pageNumbers(in: viewModel), [[1, 2], [3, 4]])
+    }
+
     func testEmptySearchClearsMatches() throws {
         let viewModel = PDFViewerViewModel()
         viewModel.document = try PDFDocumentWrapper(url: makeTemporaryPDF(pageCount: 1))
@@ -135,6 +215,46 @@ final class PDFViewerViewModelTests: XCTestCase {
         viewModel.performSearch(query: "")
 
         XCTAssertTrue(viewModel.searchMatches.isEmpty)
+    }
+
+    func testSinglePageInSpreadScalesUsingVirtualDoubleWidth() {
+        let targetSize = SpreadLayoutView.singlePageSizeInSpread(
+            pageSize: CGSize(width: 200, height: 300),
+            containerSize: CGSize(width: 300, height: 500)
+        )
+
+        XCTAssertEqual(targetSize.width, 150)
+        XCTAssertEqual(targetSize.height, 225)
+    }
+
+    func testTrailingSinglePageBlankPositionFollowsLayoutDirection() {
+        XCTAssertTrue(SpreadLayoutView.pageComesBeforeBlankPage(layoutDirection: .leftToRight))
+        XCTAssertFalse(SpreadLayoutView.pageComesBeforeBlankPage(layoutDirection: .rightToLeft))
+    }
+}
+
+@MainActor
+private func makeViewModelForBundledPDF(named name: String) throws -> PDFViewerViewModel {
+    let url = try bundledPDFURL(named: name)
+    let viewModel = PDFViewerViewModel()
+    viewModel.loadDocument(from: url)
+
+    XCTAssertNotNil(viewModel.document)
+    XCTAssertNil(viewModel.errorMessage)
+
+    return viewModel
+}
+
+private func bundledPDFURL(named name: String) throws -> URL {
+    let bundle = Bundle(for: PDFViewerViewModelTests.self)
+    let url = bundle.url(forResource: name, withExtension: "pdf")
+    return try XCTUnwrap(url, "\(name).pdf is not available in the test bundle.")
+}
+
+@MainActor
+private func pageNumbers(in viewModel: PDFViewerViewModel) -> [[Int]] {
+    viewModel.pageGroups.map { group in
+        group.pageIndices.map { $0 + 1 }
     }
 }
 

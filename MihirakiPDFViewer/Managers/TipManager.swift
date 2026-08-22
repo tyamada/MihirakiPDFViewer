@@ -33,6 +33,7 @@ public class TipManager: ObservableObject {
     @Published public var isPurchaseSuccess: Bool = false
     @Published public var lastPurchasedProductID: String? = nil
     @Published public private(set) var pendingAppIconName: String? = nil
+    @Published public private(set) var errorMessage: String? = nil
     
     private var transactionUpdates: Task<Void, Never>?
     
@@ -48,8 +49,10 @@ public class TipManager: ObservableObject {
         do {
             let storeProducts = try await Product.products(for: Self.productIDs)
             self.products = storeProducts.sorted(by: { $0.price < $1.price })
+            self.errorMessage = nil
         } catch {
             print("Failed to fetch products: \(error)")
+            self.errorMessage = String(localized: "store_products_fetch_failed", defaultValue: "Could not load tip products. Please try again later.")
         }
     }
     
@@ -81,6 +84,7 @@ public class TipManager: ObservableObject {
                 case .unverified(_, let error):
                     // 検証に失敗（不正な可能性がある）
                     print("Transaction unverified: \(error)")
+                    self.errorMessage = String(localized: "purchase_verification_failed", defaultValue: "Could not verify the purchase.")
                 }
             case .userCancelled:
                 // ユーザーがキャンセル
@@ -93,6 +97,7 @@ public class TipManager: ObservableObject {
             }
         } catch {
             print("Purchase failed: \(error)")
+            self.errorMessage = String(localized: "purchase_failed", defaultValue: "The purchase could not be completed.")
         }
     }
     
@@ -101,13 +106,13 @@ public class TipManager: ObservableObject {
         await transaction.finish()
 
         self.lastPurchasedProductID = transaction.productID
-        self.pendingAppIconName = appIconName(for: transaction.productID)
+        self.pendingAppIconName = Self.appIconName(for: transaction.productID)
         self.isPurchaseSuccess = true
 
         print("Transaction handled successfully: \(transaction.productID)")
     }
 
-    private func appIconName(for productID: String) -> String? {
+    static func appIconName(for productID: String) -> String? {
         switch productID {
         case "tip_100":
             return "AppIconBronze"
@@ -130,6 +135,7 @@ public class TipManager: ObservableObject {
                     await self?.handleTransaction(transaction)
                 case .unverified(_, let error):
                     print("Transaction update unverified: \(error)")
+                    self?.errorMessage = String(localized: "purchase_verification_failed", defaultValue: "Could not verify the purchase.")
                 }
             }
         }
@@ -137,24 +143,30 @@ public class TipManager: ObservableObject {
     
     /// アプリのアイコンを変更する
     /// - Parameter iconName: Assetsに登録されているアイコン名
-    public func changeAppIcon(named iconName: String?) async {
+    @discardableResult
+    public func changeAppIcon(named iconName: String?) async -> Bool {
         // iOSでアイコンを変更するには、Info.plistに代替アイコンの設定が必要
         // iconNameがnilの場合はデフォルトに戻す
         guard UIApplication.shared.supportsAlternateIcons else {
             print("Alternate app icons are not supported in this environment.")
-            return
+            errorMessage = String(localized: "alternate_app_icons_not_supported", defaultValue: "Alternate app icons are not supported in this environment.")
+            return false
         }
 
         guard UIApplication.shared.alternateIconName != iconName else {
             print("App icon is already set to \(iconName ?? "primary").")
-            return
+            return true
         }
 
         do {
             try await UIApplication.shared.setAlternateIconName(iconName)
             print("Changed app icon to \(iconName ?? "primary").")
+            errorMessage = nil
+            return true
         } catch {
             print("Failed to change app icon to \(iconName ?? "primary"): \(error)")
+            errorMessage = String(localized: "app_icon_change_failed", defaultValue: "Could not change the app icon.")
+            return false
         }
     }
     
@@ -163,5 +175,9 @@ public class TipManager: ObservableObject {
         isPurchaseSuccess = false
         lastPurchasedProductID = nil
         pendingAppIconName = nil
+    }
+
+    public func clearError() {
+        errorMessage = nil
     }
 }

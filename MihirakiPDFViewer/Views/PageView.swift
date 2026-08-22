@@ -23,17 +23,20 @@ public enum PageAlignment {
 /// 個々のページを表示するためのSwiftUIビュー
 public struct PageView: View {
     let page: PDFPage
+    let pageNumber: Int?
     let size: CGSize
     let searchMatches: [PDFViewerViewModel.PDFSearchMatch]
     let alignment: PageAlignment
 
     public init(
         page: PDFPage,
+        pageNumber: Int? = nil,
         size: CGSize,
         searchMatches: [PDFViewerViewModel.PDFSearchMatch] = [],
         alignment: PageAlignment = .center
     ) {
         self.page = page
+        self.pageNumber = pageNumber
         self.size = size
         self.searchMatches = searchMatches
         self.alignment = alignment
@@ -59,6 +62,7 @@ public struct PageView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: size.width, height: size.height)
                     .position(x: alignmentPositionX(alignment: alignment, width: geometry.size.width, renderedWidth: renderedWidth), y: geometry.size.height / 2)
+                    .accessibilityLabel(pageAccessibilityLabel)
 
                 // ハイライトの描画
                 ForEach(searchMatches) { match in
@@ -86,6 +90,14 @@ public struct PageView: View {
             positionX = width / 2 - (width - renderedWidth) / 2
         }
         return positionX
+    }
+
+    private var pageAccessibilityLabel: String {
+        if let pageNumber {
+            return String(localized: "pdf_page_accessibility_label", defaultValue: "Page \(pageNumber)")
+        }
+
+        return String(localized: "pdf_page_accessibility_label_unknown", defaultValue: "PDF page")
     }
 }
 
