@@ -280,6 +280,8 @@ struct PDFContainerView: View {
     
     @State private var zoomScale: CGFloat = 1.0
     @State private var lastZoomScale: CGFloat = 1.0
+    @State private var contentOffset: CGSize = .zero
+    @State private var lastContentOffset: CGSize = .zero
 
     var body: some View {
         GeometryReader { geometry in
@@ -294,8 +296,10 @@ struct PDFContainerView: View {
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 .environment(\.layoutDirection, viewModel.settings.layoutDirection == .leftToRight ? .leftToRight : .rightToLeft)
                 .scaleEffect(zoomScale)
+                .offset(contentOffset)
                 .gesture(magnificationGesture)
                 .simultaneousGesture(tapGesture)
+                .simultaneousGesture(longPressDragGesture)
         }
         .toolbar {
             toolbarContent
@@ -364,6 +368,9 @@ struct PDFContainerView: View {
             }
             .onEnded { _ in
                 lastZoomScale = zoomScale
+                if zoomScale <= 1.0 {
+                    resetContentOffset()
+                }
             }
     }
 
@@ -381,6 +388,31 @@ struct PDFContainerView: View {
             })
     }
 
+    private var longPressDragGesture: some Gesture {
+        LongPressGesture(minimumDuration: 0.25)
+            .sequenced(before: DragGesture())
+            .onChanged { value in
+                guard zoomScale > 1.0 else {
+                    return
+                }
+
+                if case .second(true, let drag?) = value {
+                    contentOffset = offset(from: lastContentOffset, translation: drag.translation)
+                }
+            }
+            .onEnded { value in
+                guard zoomScale > 1.0 else {
+                    resetContentOffset()
+                    return
+                }
+
+                if case .second(true, let drag?) = value {
+                    contentOffset = offset(from: lastContentOffset, translation: drag.translation)
+                    lastContentOffset = contentOffset
+                }
+            }
+    }
+
     private func resetZoom() {
         viewModel.currentPageIndex = 0
         resetZoomScale()
@@ -389,6 +421,19 @@ struct PDFContainerView: View {
     private func resetZoomScale() {
         zoomScale = 1.0
         lastZoomScale = 1.0
+        resetContentOffset()
+    }
+
+    private func resetContentOffset() {
+        contentOffset = .zero
+        lastContentOffset = .zero
+    }
+
+    private func offset(from baseOffset: CGSize, translation: CGSize) -> CGSize {
+        CGSize(
+            width: baseOffset.width + translation.width,
+            height: baseOffset.height + translation.height
+        )
     }
 
     @ViewBuilder
