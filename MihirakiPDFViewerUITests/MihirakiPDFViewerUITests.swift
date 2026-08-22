@@ -60,12 +60,29 @@ final class MihirakiPDFViewerUITests: XCTestCase {
         app.launchArguments.append("-uiTestLoadSamplePDF")
         app.launch()
 
-        XCTAssertTrue(element("pdfViewerScreen").waitForExistence(timeout: 5))
+        let pdfViewer = element("pdfViewerScreen")
+        XCTAssertTrue(pdfViewer.waitForExistence(timeout: 5))
+        XCTAssertFalse(element("pageSlider").exists)
+        XCTAssertFalse(element("pageIndicator").exists)
+        XCTAssertFalse(app.buttons["settingsButton"].exists)
+        XCTAssertFalse(app.buttons["closeDocumentButton"].exists)
+
+        tapPDFViewer()
+
         XCTAssertTrue(element("pageSlider").waitForExistence(timeout: 5))
         XCTAssertTrue(element("pageIndicator").waitForExistence(timeout: 5))
         XCTAssertTrue(app.buttons["settingsButton"].waitForExistence(timeout: 5))
         XCTAssertTrue(app.buttons["closeDocumentButton"].waitForExistence(timeout: 5))
 
+        tapPDFViewer()
+
+        XCTAssertFalse(element("pageSlider").waitForExistence(timeout: 1))
+        XCTAssertFalse(element("pageIndicator").exists)
+        XCTAssertFalse(app.buttons["settingsButton"].exists)
+        XCTAssertFalse(app.buttons["closeDocumentButton"].exists)
+
+        tapPDFViewer()
+        XCTAssertTrue(app.buttons["closeDocumentButton"].waitForExistence(timeout: 5))
         app.buttons["closeDocumentButton"].tap()
 
         XCTAssertTrue(element("emptyStateView").waitForExistence(timeout: 5))
@@ -84,6 +101,8 @@ final class MihirakiPDFViewerUITests: XCTestCase {
         XCTAssertTrue(element("pdfViewerScreen").waitForExistence(timeout: 5))
         try performPrimaryAccessibilityAudit()
 
+        tapPDFViewer()
+
         XCTAssertTrue(app.buttons["settingsButton"].waitForExistence(timeout: 5))
         app.buttons["settingsButton"].tap()
 
@@ -100,6 +119,11 @@ final class MihirakiPDFViewerUITests: XCTestCase {
 
     private func element(_ identifier: String) -> XCUIElement {
         app.descendants(matching: .any)[identifier]
+    }
+
+    private func tapPDFViewer() {
+        let pdfViewer = element("pdfViewerScreen")
+        pdfViewer.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
     }
 
     private func performPrimaryAccessibilityAudit(allowSwiftUIStaticTextContrastIssues: Bool = false) throws {

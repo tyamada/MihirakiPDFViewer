@@ -28,6 +28,7 @@ public struct MainView: View {
     @State private var isShowingTipSuccessAlert = false
     @State private var isShowingTipErrorAlert = false
     @State private var lastTipProductID: String? = nil
+    @State private var isPDFChromeVisible = false
 
     public init() {}
 
@@ -117,6 +118,7 @@ public struct MainView: View {
                 return
             }
             viewModel.loadDocument(from: url)
+            isPDFChromeVisible = false
         case .failure(let error):
             let nsError = error as NSError
             if nsError.domain == NSCocoaErrorDomain && nsError.code == NSUserCancelledError {
@@ -136,6 +138,7 @@ public struct MainView: View {
         viewModel.loadDocument(from: url)
         viewModel.settings.isSliderEnabled = true
         viewModel.settings.isSearchbarEnabled = true
+        isPDFChromeVisible = false
     }
 
     private func makeSamplePDFForUITests() -> URL? {
@@ -188,44 +191,46 @@ public struct MainView: View {
                 PDFContainerView(
                     viewModel: viewModel,
                     isShowingFilePicker: $isShowingFilePicker,
-                    isShowingSettings: $isShowingSettings
+                    isShowingSettings: $isShowingSettings,
+                    isPDFChromeVisible: $isPDFChromeVisible
                 )
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .accessibilityIdentifier("pdfViewerScreen")
+                .accessibilityIdentifier("pdfViewerScreen")
 
-                 if viewModel.pageGroups.count > 1 && viewModel.settings.isSliderEnabled {
-                     VStack(spacing: 8) {
-                         Slider(value: Binding(
-                             get: {
-                                 let maxIdx = Double(max(1, viewModel.pageGroups.count - 1))
-                                 let currentRatio = Double(viewModel.currentPageIndex) / maxIdx
-                                 return viewModel.settings.layoutDirection == .leftToRight ? currentRatio : (1.0 - currentRatio)
-                             },
-                             set: { newValue in
-                                 let maxIdx = Double(max(1, viewModel.pageGroups.count - 1))
-                                 let targetRatio = viewModel.settings.layoutDirection == .leftToRight ? newValue : (1.0 - newValue)
-                                 viewModel.currentPageIndex = Int((targetRatio * maxIdx).rounded())
-                             }
-                         ), in: 0...1)
-                         .accentColor(.blue)
-                         .accessibilityIdentifier("pageSlider")
-                         .accessibilityLabel(String(localized: "page_slider_accessibility_label", defaultValue: "Page"))
-                         .accessibilityValue("\(viewModel.currentPageIndex + 1) / \(viewModel.pageGroups.count)")
-                         
-                         Text("\(viewModel.currentPageIndex + 1) / \(viewModel.pageGroups.count)")
-                             .font(.caption.monospacedDigit())
-                             .accessibilityIdentifier("pageIndicator")
-                             .foregroundColor(.primary)
-                     }
-                     .padding(.horizontal)
-                     .padding(.vertical, 8)
-                     .background(Color(uiColor: .secondarySystemBackground))
-                     .cornerRadius(12)
-                     .padding(.horizontal, 16)
-                 }
+                if isPDFChromeVisible && viewModel.pageGroups.count > 1 && viewModel.settings.isSliderEnabled {
+                    VStack(spacing: 8) {
+                        Slider(value: Binding(
+                            get: {
+                                let maxIdx = Double(max(1, viewModel.pageGroups.count - 1))
+                                let currentRatio = Double(viewModel.currentPageIndex) / maxIdx
+                                return viewModel.settings.layoutDirection == .leftToRight ? currentRatio : (1.0 - currentRatio)
+                            },
+                            set: { newValue in
+                                let maxIdx = Double(max(1, viewModel.pageGroups.count - 1))
+                                let targetRatio = viewModel.settings.layoutDirection == .leftToRight ? newValue : (1.0 - newValue)
+                                viewModel.currentPageIndex = Int((targetRatio * maxIdx).rounded())
+                            }
+                        ), in: 0...1)
+                        .accentColor(.blue)
+                        .accessibilityIdentifier("pageSlider")
+                        .accessibilityLabel(String(localized: "page_slider_accessibility_label", defaultValue: "Page"))
+                        .accessibilityValue("\(viewModel.currentPageIndex + 1) / \(viewModel.pageGroups.count)")
+
+                        Text("\(viewModel.currentPageIndex + 1) / \(viewModel.pageGroups.count)")
+                            .font(.caption.monospacedDigit())
+                            .accessibilityIdentifier("pageIndicator")
+                            .foregroundColor(.primary)
+                    }
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
+                    .background(Color(uiColor: .secondarySystemBackground))
+                    .cornerRadius(12)
+                    .padding(.horizontal, 16)
+                }
             }
             .navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar(isPDFChromeVisible ? .visible : .hidden, for: .navigationBar)
         } else {
             makeEmptyStateView()
         }
@@ -271,6 +276,7 @@ struct PDFContainerView: View {
     @ObservedObject var viewModel: PDFViewerViewModel
     @Binding var isShowingFilePicker: Bool
     @Binding var isShowingSettings: Bool
+    @Binding var isPDFChromeVisible: Bool
     
     @State private var zoomScale: CGFloat = 1.0
     @State private var lastZoomScale: CGFloat = 1.0
@@ -289,7 +295,7 @@ struct PDFContainerView: View {
                 .environment(\.layoutDirection, viewModel.settings.layoutDirection == .leftToRight ? .leftToRight : .rightToLeft)
                 .scaleEffect(zoomScale)
                 .gesture(magnificationGesture)
-                .gesture(tapGesture)
+                .simultaneousGesture(tapGesture)
         }
         .toolbar {
             toolbarContent
@@ -317,34 +323,37 @@ struct PDFContainerView: View {
 
     @ToolbarContentBuilder
     private var toolbarContent: some ToolbarContent {
-        ToolbarItem(placement: .navigationBarLeading) {
-            Button {
-                isShowingSettings = true
-            } label: {
-                Image(systemName: "gearshape")
-            }
-            .accessibilityLabel(String(localized: "settings"))
-            .accessibilityIdentifier("settingsButton")
-        }
-        if viewModel.settings.isSearchbarEnabled {
-            ToolbarItem(placement: .principal) {
-                HStack {
-                    Image(systemName: "magnifyingglass")
-                        .foregroundColor(.secondary)
-                    TextField(String(localized: "search"), text: $viewModel.searchQuery)
-                        .textFieldStyle(.roundedBorder)
-                        .accessibilityIdentifier("searchField")
+        if isPDFChromeVisible {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    isShowingSettings = true
+                } label: {
+                    Image(systemName: "gearshape")
                 }
-                .padding(.horizontal, 4)
+                .accessibilityLabel(String(localized: "settings"))
+                .accessibilityIdentifier("settingsButton")
             }
-        }
-        ToolbarItem(placement: .navigationBarTrailing) {
-            Button {
-                viewModel.closeDocument()
-            } label: {
-                Text(String(localized: "close"))
+            if viewModel.settings.isSearchbarEnabled {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundColor(.secondary)
+                        TextField(String(localized: "search"), text: $viewModel.searchQuery)
+                            .textFieldStyle(.roundedBorder)
+                            .accessibilityIdentifier("searchField")
+                    }
+                    .padding(.horizontal, 4)
+                }
             }
-            .accessibilityIdentifier("closeDocumentButton")
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    isPDFChromeVisible = false
+                    viewModel.closeDocument()
+                } label: {
+                    Text(String(localized: "close"))
+                }
+                .accessibilityIdentifier("closeDocumentButton")
+            }
         }
     }
 
@@ -359,18 +368,25 @@ struct PDFContainerView: View {
     }
 
     private var tapGesture: some Gesture {
-        TapGesture().onEnded {
-            withAnimation {
-                if zoomScale > 1.0 {
-                    zoomScale = 1.0
-                    lastZoomScale = 1.0
+        TapGesture(count: 2)
+            .onEnded {
+                withAnimation {
+                    resetZoomScale()
                 }
             }
-        }
+            .exclusively(before: TapGesture(count: 1).onEnded {
+                withAnimation {
+                    isPDFChromeVisible.toggle()
+                }
+            })
     }
 
     private func resetZoom() {
         viewModel.currentPageIndex = 0
+        resetZoomScale()
+    }
+
+    private func resetZoomScale() {
         zoomScale = 1.0
         lastZoomScale = 1.0
     }
