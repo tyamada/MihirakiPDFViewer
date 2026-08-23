@@ -12,7 +12,7 @@ This software was coded using generative AI.
 
 - **View PDF Documents**: Open and read PDF files seamlessly.
 - **Search**: Quickly find text within your PDF documents.
-- **Layout Options**: Switch between single page and spread views.
+- **Layout Options**: Switch between single page and two page views.
 - **Settings**: Customize your viewing experience.
 - **Zooming**: Intuitive zoom gestures for better readability.
 
@@ -22,9 +22,11 @@ This software was coded using generative AI.
 or iCloud Drive.
 2. **Navigate**: Swipe through pages or use the slider to move through 
 the document.
-3. **Search**: Type in the search bar to find specific text within the PDF.
-4. **Zoom**: Use pinch-to-zoom gestures to enlarge or reduce the view.
-5. **Layout**: Switch between single-page and spread views using the layout 
+3. **Menu**: Tap to toggle the display of menus and sliders.
+4. **Search**: Type in the search bar to find specific text within the PDF.
+5. **Zoom**: Use pinch-to-zoom gestures to enlarge or reduce the view. Press 
+and hold, then drag to scroll.
+6. **Layout**: Switch between single-page and two-page views using the layout 
 options in the menu.
 
 ## Options
@@ -101,7 +103,7 @@ and add it again by dragging and dropping it.
 
 - Automatic generation of initial code (Cline & gemma-4-26b-a4b-qat)
 - Debugging suggestions (Cline & gemma-4-26b-a4b-qat)
-- Agentic Coding (Xcode & Codex)
+- Change code and bug fixes (Xcode & Codex)
 - Creating App Icon & Tip images (ChatGPT)
 
 ## References
@@ -117,4 +119,6 @@ file for details.
 
 - **v0.1.0** - 2026/08/16: Initial Release.
 - **v0.2.0** - 2026/08/19: Add a tipping feature.
-
+- **v0.2.1** - 2026/08/20: Changed README.md to the Japanese version.
+- **v0.2.2** - 2026/08/21: Added automated tests.
+- **v0.3.0** - 2026/08/23: updated UI, Added zoom dragging, and fixed cover sizing.
