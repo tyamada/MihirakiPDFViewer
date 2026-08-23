@@ -29,6 +29,8 @@ public struct MainView: View {
     @State private var isShowingTipErrorAlert = false
     @State private var lastTipProductID: String? = nil
     @State private var isPDFChromeVisible = false
+    @State private var isScrollDirectionHintVisible = false
+    @State private var scrollDirectionHintToken = UUID()
 
     public init() {}
 
@@ -119,6 +121,7 @@ public struct MainView: View {
             }
             viewModel.loadDocument(from: url)
             isPDFChromeVisible = false
+            showScrollDirectionHint()
         case .failure(let error):
             let nsError = error as NSError
             if nsError.domain == NSCocoaErrorDomain && nsError.code == NSUserCancelledError {
@@ -139,6 +142,24 @@ public struct MainView: View {
         viewModel.settings.isSliderEnabled = true
         viewModel.settings.isSearchbarEnabled = true
         isPDFChromeVisible = false
+        showScrollDirectionHint()
+    }
+
+    private func showScrollDirectionHint() {
+        let token = UUID()
+        scrollDirectionHintToken = token
+        isScrollDirectionHintVisible = true
+
+        Task {
+            try? await Task.sleep(for: .seconds(1))
+            await MainActor.run {
+                if scrollDirectionHintToken == token {
+                    withAnimation(.easeOut(duration: 0.2)) {
+                        isScrollDirectionHintVisible = false
+                    }
+                }
+            }
+        }
     }
 
     private func makeSamplePDFForUITests() -> URL? {
@@ -192,7 +213,8 @@ public struct MainView: View {
                     viewModel: viewModel,
                     isShowingFilePicker: $isShowingFilePicker,
                     isShowingSettings: $isShowingSettings,
-                    isPDFChromeVisible: $isPDFChromeVisible
+                    isPDFChromeVisible: $isPDFChromeVisible,
+                    isScrollDirectionHintVisible: isScrollDirectionHintVisible
                 )
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .accessibilityIdentifier("pdfViewerScreen")
@@ -271,12 +293,45 @@ public struct MainView: View {
     }
 }
 
+struct ScrollDirectionHintView: View {
+    let layoutDirection: LayoutDirection
+    @State private var isAnimating = false
+
+    private var symbolName: String {
+        layoutDirection == .leftToRight ? "arrow.right" : "arrow.left"
+    }
+
+    private var startOffset: CGFloat {
+        layoutDirection == .leftToRight ? -18 : 18
+    }
+
+    private var endOffset: CGFloat {
+        layoutDirection == .leftToRight ? 18 : -18
+    }
+
+    var body: some View {
+        Image(systemName: symbolName)
+            .font(.system(size: 44, weight: .semibold))
+            .foregroundColor(.white)
+            .frame(width: 96, height: 96)
+            .background(.black.opacity(0.62), in: Circle())
+            .shadow(radius: 8)
+            .offset(x: isAnimating ? endOffset : startOffset)
+            .onAppear {
+                withAnimation(.easeInOut(duration: 0.45).repeatForever(autoreverses: true)) {
+                    isAnimating = true
+                }
+            }
+    }
+}
+
 /// PDF表示のコンテナビュー
 struct PDFContainerView: View {
     @ObservedObject var viewModel: PDFViewerViewModel
     @Binding var isShowingFilePicker: Bool
     @Binding var isShowingSettings: Bool
     @Binding var isPDFChromeVisible: Bool
+    let isScrollDirectionHintVisible: Bool
     
     @State private var zoomScale: CGFloat = 1.0
     @State private var lastZoomScale: CGFloat = 1.0
@@ -300,6 +355,13 @@ struct PDFContainerView: View {
                 .gesture(magnificationGesture)
                 .simultaneousGesture(tapGesture)
                 .simultaneousGesture(longPressDragGesture)
+
+            if isScrollDirectionHintVisible {
+                ScrollDirectionHintView(layoutDirection: viewModel.settings.layoutDirection)
+                    .transition(.opacity)
+                    .allowsHitTesting(false)
+                    .accessibilityHidden(true)
+            }
         }
         .toolbar {
             toolbarContent
