@@ -313,18 +313,35 @@ struct ScrollDirectionHintView: View {
     }
 
     var body: some View {
-        Image(systemName: symbolName)
-            .font(.system(size: 44, weight: .semibold))
-            .foregroundColor(.white)
-            .frame(width: 96, height: 96)
-            .background(.black.opacity(0.62), in: Circle())
-            .shadow(radius: 8)
-            .offset(x: isAnimating ? endOffset : startOffset)
-            .onAppear {
-                withAnimation(.easeInOut(duration: 0.45).repeatForever(autoreverses: true)) {
-                    isAnimating = true
-                }
+        ZStack {
+            VStack {
+                Text(String(localized: "tap_to_show_menu_hint", defaultValue: "Tap to show the menu"))
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 18)
+                    .padding(.vertical, 10)
+                    .background(.black.opacity(0.62), in: RoundedRectangle(cornerRadius: 8, style: .continuous))
+                    .shadow(radius: 8)
+                Spacer()
             }
+            .padding(.top, 24)
+            .padding(.horizontal, 16)
+
+            Image(systemName: symbolName)
+                .font(.system(size: 44, weight: .semibold))
+                .foregroundColor(.white)
+                .frame(width: 96, height: 96)
+                .background(.black.opacity(0.62), in: Circle())
+                .shadow(radius: 8)
+                .offset(x: isAnimating ? endOffset : startOffset)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .onAppear {
+            withAnimation(.easeInOut(duration: 0.45).repeatForever(autoreverses: true)) {
+                isAnimating = true
+            }
+        }
     }
 }
 
