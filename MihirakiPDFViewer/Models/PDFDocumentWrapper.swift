@@ -31,6 +31,11 @@ public struct PDFDocumentWrapper: Identifiable, Equatable {
     public let isSliderEnabled: Bool
     public let pageLayout: PDFPageLayout
     public let coverPageSetting: CoverPageSetting
+    public let title: String?
+    public let author: String?
+    public let subtitle: String?
+    public let keywords: String?
+    public let pdfVersion: String?
 
     public init(url: URL) throws {
         guard let document = PDFDocument(url: url) else {
@@ -39,6 +44,13 @@ public struct PDFDocumentWrapper: Identifiable, Equatable {
         self.url = url
         self.pdfDocument = document
         self.totalPageCount = document.pageCount
+
+        let attributes = document.documentAttributes
+        self.title = Self.metadataString(attributes?[PDFDocumentAttribute.titleAttribute])
+        self.author = Self.metadataString(attributes?[PDFDocumentAttribute.authorAttribute])
+        self.subtitle = Self.metadataString(attributes?[PDFDocumentAttribute.subjectAttribute])
+        self.keywords = Self.metadataString(attributes?[PDFDocumentAttribute.keywordsAttribute])
+        self.pdfVersion = Self.pdfVersion(url: url)
         
         let detected = PDFDocumentWrapper.detectLayoutSettings(url: url)
         self.layoutDirection = detected.direction
@@ -47,6 +59,47 @@ public struct PDFDocumentWrapper: Identifiable, Equatable {
         self.pageLayout = detected.pageLayout
         self.isCoverPageEnabled = detected.isCover
         self.coverPageSetting = detected.coverPageSetting
+    }
+
+    private static func metadataString(_ value: Any?) -> String? {
+        if let string = value as? String {
+            return nonEmptyString(string)
+        }
+
+        if let strings = value as? [String] {
+            return nonEmptyString(strings.joined(separator: ", "))
+        }
+
+        if let array = value as? [Any] {
+            return nonEmptyString(array.map { String(describing: $0) }.joined(separator: ", "))
+        }
+
+        if let value {
+            return nonEmptyString(String(describing: value))
+        }
+
+        return nil
+    }
+
+    private static func nonEmptyString(_ value: String) -> String? {
+        let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
+        return trimmed.isEmpty ? nil : trimmed
+    }
+
+    private static func pdfVersion(url: URL) -> String? {
+        guard let pdfDocument = CGPDFDocument(url as CFURL) else {
+            return nil
+        }
+
+        var majorVersion: Int32 = 0
+        var minorVersion: Int32 = 0
+        pdfDocument.getVersion(majorVersion: &majorVersion, minorVersion: &minorVersion)
+
+        guard majorVersion > 0 else {
+            return nil
+        }
+
+        return "\(majorVersion).\(minorVersion)"
     }
 
     private static func detectLayoutSettings(url: URL) -> DetectedSettings {
