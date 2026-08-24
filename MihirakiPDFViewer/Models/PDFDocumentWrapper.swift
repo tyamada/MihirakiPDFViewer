@@ -15,6 +15,23 @@ import Foundation
 import PDFKit
 import SwiftUI
 
+public enum PDFDocumentWrapperError: LocalizedError, Equatable {
+    case loadFailed
+    case passwordRequired
+    case invalidPassword
+
+    public var errorDescription: String? {
+        switch self {
+        case .loadFailed:
+            return String(localized: "pdf_load_failed", defaultValue: "Could not load the PDF file.")
+        case .passwordRequired:
+            return String(localized: "pdf_password_required", defaultValue: "This PDF requires a password.")
+        case .invalidPassword:
+            return String(localized: "pdf_password_incorrect", defaultValue: "The password is incorrect.")
+        }
+    }
+}
+
 /// PDFのドキュメントと、それに関連するメタデータを保持するモデル
 public struct PDFDocumentWrapper: Identifiable, Equatable {
     public let id = UUID()
@@ -37,10 +54,23 @@ public struct PDFDocumentWrapper: Identifiable, Equatable {
     public let keywords: String?
     public let pdfVersion: String?
 
-    public init(url: URL) throws {
+    public init(url: URL, password: String? = nil) throws {
+        try Self.validatePasswordIfNeeded(url: url, password: password)
+
         guard let document = PDFDocument(url: url) else {
-            throw NSError(domain: "PDFDocumentWrapper", code: 1, userInfo: [NSLocalizedDescriptionKey: "PDFの読み込みに失敗しました。"])
+            throw PDFDocumentWrapperError.loadFailed
         }
+
+        if document.isLocked {
+            guard let password, !password.isEmpty else {
+                throw PDFDocumentWrapperError.passwordRequired
+            }
+
+            guard document.unlock(withPassword: password), !document.isLocked else {
+                throw PDFDocumentWrapperError.invalidPassword
+            }
+        }
+
         self.url = url
         self.pdfDocument = document
         self.totalPageCount = document.pageCount
@@ -50,15 +80,34 @@ public struct PDFDocumentWrapper: Identifiable, Equatable {
         self.author = Self.metadataString(attributes?[PDFDocumentAttribute.authorAttribute])
         self.subtitle = Self.metadataString(attributes?[PDFDocumentAttribute.subjectAttribute])
         self.keywords = Self.metadataString(attributes?[PDFDocumentAttribute.keywordsAttribute])
-        self.pdfVersion = Self.pdfVersion(url: url)
+        self.pdfVersion = Self.pdfVersion(url: url, password: password)
         
-        let detected = PDFDocumentWrapper.detectLayoutSettings(url: url)
+        let detected = PDFDocumentWrapper.detectLayoutSettings(url: url, password: password)
         self.layoutDirection = detected.direction
         self.isSpreadViewEnabled = detected.isSpread
         self.isSliderEnabled = detected.isSlider
         self.pageLayout = detected.pageLayout
         self.isCoverPageEnabled = detected.isCover
         self.coverPageSetting = detected.coverPageSetting
+    }
+
+    private static func validatePasswordIfNeeded(url: URL, password: String?) throws {
+        guard let pdfDocument = CGPDFDocument(url as CFURL) else {
+            return
+        }
+
+        guard pdfDocument.isEncrypted, !pdfDocument.isUnlocked else {
+            return
+        }
+
+        guard let password, !password.isEmpty else {
+            throw PDFDocumentWrapperError.passwordRequired
+        }
+
+        let didUnlock = password.withCString { pdfDocument.unlockWithPassword($0) }
+        guard didUnlock, pdfDocument.isUnlocked else {
+            throw PDFDocumentWrapperError.invalidPassword
+        }
     }
 
     private static func metadataString(_ value: Any?) -> String? {
@@ -86,8 +135,8 @@ public struct PDFDocumentWrapper: Identifiable, Equatable {
         return trimmed.isEmpty ? nil : trimmed
     }
 
-    private static func pdfVersion(url: URL) -> String? {
-        guard let pdfDocument = CGPDFDocument(url as CFURL) else {
+    private static func pdfVersion(url: URL, password: String?) -> String? {
+        guard let pdfDocument = unlockedCGPDFDocument(url: url, password: password) else {
             return nil
         }
 
@@ -102,8 +151,20 @@ public struct PDFDocumentWrapper: Identifiable, Equatable {
         return "\(majorVersion).\(minorVersion)"
     }
 
-    private static func detectLayoutSettings(url: URL) -> DetectedSettings {
+    private static func unlockedCGPDFDocument(url: URL, password: String?) -> CGPDFDocument? {
         guard let pdfDocument = CGPDFDocument(url as CFURL) else {
+            return nil
+        }
+
+        if pdfDocument.isEncrypted, !pdfDocument.isUnlocked, let password {
+            _ = password.withCString { pdfDocument.unlockWithPassword($0) }
+        }
+
+        return pdfDocument
+    }
+
+    private static func detectLayoutSettings(url: URL, password: String?) -> DetectedSettings {
+        guard let pdfDocument = unlockedCGPDFDocument(url: url, password: password) else {
             print("Failed to inspect PDF metadata. Falling back to default layout settings: \(url.lastPathComponent)")
             return DetectedSettings(direction: .leftToRight, isSpread: false, isCover: false, isSlider: true, pageLayout: .singlePage, coverPageSetting: .typeA)
         }

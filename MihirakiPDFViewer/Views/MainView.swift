@@ -31,6 +31,10 @@ public struct MainView: View {
     @State private var isPDFChromeVisible = false
     @State private var isScrollDirectionHintVisible = false
     @State private var scrollDirectionHintToken = UUID()
+    @State private var isShowingPDFPasswordPrompt = false
+    @State private var pendingPasswordPDFURL: URL?
+    @State private var pdfPassword = ""
+    @State private var pdfPasswordMessage: String?
 
     public init() {}
 
@@ -52,6 +56,21 @@ public struct MainView: View {
                     if newValue != nil {
                         isShowingErrorAlert = true
                     }
+                }
+                .alert(
+                    String(localized: "pdf_password_dialog_title", defaultValue: "Password Required"),
+                    isPresented: $isShowingPDFPasswordPrompt
+                ) {
+                    SecureField(String(localized: "pdf_password_placeholder", defaultValue: "Password"), text: $pdfPassword)
+                    Button(String(localized: "cancel"), role: .cancel) {
+                        cancelPDFPasswordPrompt()
+                    }
+                    Button(String(localized: "pdf_password_unlock_button", defaultValue: "Unlock")) {
+                        unlockPendingPDF()
+                    }
+                    .disabled(pdfPassword.isEmpty)
+                } message: {
+                    Text(pdfPasswordMessage ?? String(localized: "pdf_password_dialog_message", defaultValue: "Enter the user password for this PDF."))
                 }
                 .sheet(isPresented: $isShowingSettings) {
                     settingsSheet
@@ -119,9 +138,7 @@ public struct MainView: View {
                 viewModel.errorMessage = String(localized: "pdf_file_selection_failed", defaultValue: "Could not select the PDF file.")
                 return
             }
-            viewModel.loadDocument(from: url)
-            isPDFChromeVisible = false
-            showScrollDirectionHint()
+            openPDF(at: url)
         case .failure(let error):
             let nsError = error as NSError
             if nsError.domain == NSCocoaErrorDomain && nsError.code == NSUserCancelledError {
@@ -138,11 +155,59 @@ public struct MainView: View {
             return
         }
 
-        viewModel.loadDocument(from: url)
+        openPDF(at: url)
         viewModel.settings.isSliderEnabled = true
         viewModel.settings.isSearchbarEnabled = true
+    }
+
+    private func openPDF(at url: URL, password: String? = nil) {
+        switch viewModel.loadDocument(from: url, password: password) {
+        case .loaded:
+            finishPDFLoad()
+        case .passwordRequired:
+            presentPDFPasswordPrompt(for: url)
+        case .invalidPassword:
+            presentPDFPasswordPrompt(
+                for: url,
+                message: String(localized: "pdf_password_incorrect", defaultValue: "The password is incorrect.")
+            )
+        case .failed:
+            break
+        }
+    }
+
+    private func finishPDFLoad() {
+        pendingPasswordPDFURL = nil
+        pdfPassword = ""
+        pdfPasswordMessage = nil
+        isShowingPDFPasswordPrompt = false
         isPDFChromeVisible = false
         showScrollDirectionHint()
+    }
+
+    private func presentPDFPasswordPrompt(for url: URL, message: String? = nil) {
+        pendingPasswordPDFURL = url
+        pdfPassword = ""
+        pdfPasswordMessage = message
+        isShowingPDFPasswordPrompt = true
+    }
+
+    private func unlockPendingPDF() {
+        guard let url = pendingPasswordPDFURL else {
+            return
+        }
+
+        let password = pdfPassword
+        Task { @MainActor in
+            openPDF(at: url, password: password)
+        }
+    }
+
+    private func cancelPDFPasswordPrompt() {
+        pendingPasswordPDFURL = nil
+        pdfPassword = ""
+        pdfPasswordMessage = nil
+        viewModel.cancelPendingDocumentLoad()
     }
 
     private func showScrollDirectionHint() {

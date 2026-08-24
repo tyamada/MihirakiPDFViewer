@@ -48,6 +48,28 @@ final class PDFDocumentWrapperTests: XCTestCase {
         XCTAssertNotNil(wrapper.pdfVersion)
     }
 
+    func testPasswordProtectedPDFRequiresPasswordAndLoadsWithCorrectPassword() throws {
+        let url = try makePasswordProtectedPDF(password: "secret")
+
+        XCTAssertThrowsError(try PDFDocumentWrapper(url: url)) { error in
+            XCTAssertEqual(error as? PDFDocumentWrapperError, .passwordRequired)
+        }
+        XCTAssertThrowsError(try PDFDocumentWrapper(url: url, password: "wrong")) { error in
+            XCTAssertEqual(error as? PDFDocumentWrapperError, .invalidPassword)
+        }
+
+        let wrapper = try PDFDocumentWrapper(url: url, password: "secret")
+
+        XCTAssertEqual(wrapper.totalPageCount, 1)
+        XCTAssertFalse(wrapper.pdfDocument.isLocked)
+
+        let viewModel = PDFViewerViewModel()
+        XCTAssertEqual(viewModel.loadDocument(from: url), .passwordRequired)
+        XCTAssertEqual(viewModel.loadDocument(from: url, password: "wrong"), .invalidPassword)
+        XCTAssertEqual(viewModel.loadDocument(from: url, password: "secret"), .loaded)
+        XCTAssertNotNil(viewModel.document)
+    }
+
     func testThrowsForInvalidPDF() throws {
         let url = FileManager.default.temporaryDirectory
             .appendingPathComponent(UUID().uuidString)
@@ -276,6 +298,25 @@ private func pageNumbers(in viewModel: PDFViewerViewModel) -> [[Int]] {
     viewModel.pageGroups.map { group in
         group.pageIndices.map { $0 + 1 }
     }
+}
+
+private func makePasswordProtectedPDF(password: String) throws -> URL {
+    let sourceURL = try makeTemporaryPDF(pageCount: 1)
+    let encryptedURL = FileManager.default.temporaryDirectory
+        .appendingPathComponent(UUID().uuidString)
+        .appendingPathExtension("pdf")
+    let document = try XCTUnwrap(PDFDocument(url: sourceURL))
+
+    let didWrite = document.write(
+        to: encryptedURL,
+        withOptions: [
+            PDFDocumentWriteOption.userPasswordOption: password,
+            PDFDocumentWriteOption.ownerPasswordOption: "owner-\(password)"
+        ]
+    )
+    XCTAssertTrue(didWrite)
+
+    return encryptedURL
 }
 
 private func makeTemporaryPDF(pageCount: Int, documentInfo: [String: Any]? = nil) throws -> URL {
