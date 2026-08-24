@@ -28,6 +28,26 @@ final class PDFDocumentWrapperTests: XCTestCase {
         XCTAssertFalse(wrapper.isCoverPageEnabled)
     }
 
+    func testExtractsDocumentMetadata() throws {
+        let url = try makeTemporaryPDF(
+            pageCount: 1,
+            documentInfo: [
+                kCGPDFContextTitle as String: "Sample Title",
+                kCGPDFContextAuthor as String: "Sample Author",
+                kCGPDFContextSubject as String: "Sample Subtitle",
+                kCGPDFContextKeywords as String: "sample, pdf"
+            ]
+        )
+
+        let wrapper = try PDFDocumentWrapper(url: url)
+
+        XCTAssertEqual(wrapper.title, "Sample Title")
+        XCTAssertEqual(wrapper.author, "Sample Author")
+        XCTAssertEqual(wrapper.subtitle, "Sample Subtitle")
+        XCTAssertEqual(wrapper.keywords, "sample, pdf")
+        XCTAssertNotNil(wrapper.pdfVersion)
+    }
+
     func testThrowsForInvalidPDF() throws {
         let url = FileManager.default.temporaryDirectory
             .appendingPathComponent(UUID().uuidString)
@@ -258,11 +278,15 @@ private func pageNumbers(in viewModel: PDFViewerViewModel) -> [[Int]] {
     }
 }
 
-private func makeTemporaryPDF(pageCount: Int) throws -> URL {
+private func makeTemporaryPDF(pageCount: Int, documentInfo: [String: Any]? = nil) throws -> URL {
     let url = FileManager.default.temporaryDirectory
         .appendingPathComponent(UUID().uuidString)
         .appendingPathExtension("pdf")
-    let renderer = UIGraphicsPDFRenderer(bounds: CGRect(x: 0, y: 0, width: 200, height: 200))
+    let format = UIGraphicsPDFRendererFormat()
+    if let documentInfo {
+        format.documentInfo = documentInfo
+    }
+    let renderer = UIGraphicsPDFRenderer(bounds: CGRect(x: 0, y: 0, width: 200, height: 200), format: format)
 
     try renderer.writePDF(to: url) { context in
         for pageNumber in 1...pageCount {

@@ -32,6 +32,17 @@ public struct SettingsView: View {
         colorScheme == .dark ? .white : .black
     }
     
+    private func metadataDisplayValue(_ value: String?) -> String {
+        value ?? String(localized: "not_available", defaultValue: "Not available")
+    }
+
+    private func documentInfoRow(label: String, value: String?) -> some View {
+        Text("\(label): \(metadataDisplayValue(value))")
+            .foregroundColor(settingsTextColor)
+            .padding(.horizontal, 2)
+            .background(settingsBackgroundColor)
+    }
+
     public var body: some View {
         Form {
             VStack(alignment: .leading, spacing: 24) {
@@ -102,6 +113,11 @@ public struct SettingsView: View {
                         .font(.headline)
                     if let doc = viewModel.document {
                         VStack(alignment: .leading, spacing: 4) {
+                            documentInfoRow(label: String(localized: "pdf_title_label", defaultValue: "Title"), value: doc.title)
+                            documentInfoRow(label: String(localized: "pdf_author_label", defaultValue: "Author"), value: doc.author)
+                            documentInfoRow(label: String(localized: "pdf_subtitle_label", defaultValue: "Subtitle"), value: doc.subtitle)
+                            documentInfoRow(label: String(localized: "pdf_keywords_label", defaultValue: "Keywords"), value: doc.keywords)
+                            documentInfoRow(label: String(localized: "pdf_version_label", defaultValue: "PDF Version"), value: doc.pdfVersion)
                             Text(String(localized: "total_pages", defaultValue: "\(doc.totalPageCount)"))
                                 .foregroundColor(settingsTextColor)
                                 .padding(.horizontal, 2)
