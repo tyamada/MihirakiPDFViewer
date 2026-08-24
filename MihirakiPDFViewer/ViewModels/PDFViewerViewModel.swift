@@ -32,6 +32,13 @@ public class PDFViewerViewModel: ObservableObject {
         public let rects: [CGRect]
     }
 
+    public enum LoadDocumentResult: Equatable {
+        case loaded
+        case passwordRequired
+        case invalidPassword
+        case failed(String)
+    }
+
     private var securityScopedURL: URL?
     private var isAccessingResource = false
 
@@ -134,27 +141,40 @@ public class PDFViewerViewModel: ObservableObject {
     }
 
     /// PDFドキュメントをロードする
-    public func loadDocument(from url: URL) {
+    @discardableResult
+    public func loadDocument(from url: URL, password: String? = nil) -> LoadDocumentResult {
         // 以前のアクセスを停止
         stopCurrentAccess()
         
+        // セキュリティスコープへのアクセスを開始
+        let accessing = url.startAccessingSecurityScopedResource()
+        securityScopedURL = url
+        isAccessingResource = accessing
+        
         do {
-            // セキュリティスコープへのアクセスを開始
-            let accessing = url.startAccessingSecurityScopedResource()
-            securityScopedURL = url
-            isAccessingResource = accessing
-            
-            let loadedDocument = try PDFDocumentWrapper(url: url)
+            let loadedDocument = try PDFDocumentWrapper(url: url, password: password)
             self.document = loadedDocument
+            self.errorMessage = nil
             // ドキュメントのメタデータに基づいて、表示設定を更新
             self.settings.layoutDirection = loadedDocument.layoutDirection
             self.settings.isSpreadViewEnabled = loadedDocument.isSpreadViewEnabled
             self.settings.isCoverPageEnabled = loadedDocument.isCoverPageEnabled
             self.currentPageIndex = 0
+            return .loaded
+        } catch PDFDocumentWrapperError.passwordRequired {
+            self.document = nil
+            self.errorMessage = nil
+            return .passwordRequired
+        } catch PDFDocumentWrapperError.invalidPassword {
+            self.document = nil
+            self.errorMessage = nil
+            return .invalidPassword
         } catch {
             stopCurrentAccess()
             self.document = nil
-            self.errorMessage = error.localizedDescription
+            let message = error.localizedDescription
+            self.errorMessage = message
+            return .failed(message)
         }
     }
 
@@ -164,6 +184,12 @@ public class PDFViewerViewModel: ObservableObject {
             isAccessingResource = false
             securityScopedURL = nil
         }
+    }
+
+    public func cancelPendingDocumentLoad() {
+        stopCurrentAccess()
+        self.document = nil
+        self.currentPageIndex = 0
     }
 
     /// 現在のドキュメントを閉じる
