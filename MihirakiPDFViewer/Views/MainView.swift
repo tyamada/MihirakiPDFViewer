@@ -279,7 +279,10 @@ public struct MainView: View {
         .accessibilityIdentifier("emptyStateView")
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
+        .onAppear {
+            isShowingFilePicker = true
+        }
+        .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
                         isShowingSettings = true
