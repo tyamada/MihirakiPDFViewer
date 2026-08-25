@@ -366,15 +366,15 @@ struct ScrollDirectionHintView: View {
     @State private var isAnimating = false
 
     private var symbolName: String {
-        layoutDirection == .leftToRight ? "arrow.right" : "arrow.left"
+        layoutDirection == .leftToRight ? "arrow.left" : "arrow.right"
     }
 
     private var startOffset: CGFloat {
-        layoutDirection == .leftToRight ? -18 : 18
+        layoutDirection == .leftToRight ? 18 : -18
     }
 
     private var endOffset: CGFloat {
-        layoutDirection == .leftToRight ? 18 : -18
+        layoutDirection == .leftToRight ? -18 : 18
     }
 
     var body: some View {
