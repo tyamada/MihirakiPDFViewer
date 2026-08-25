@@ -196,13 +196,11 @@ final class PDFViewerViewModelTests: XCTestCase {
         viewModel.updateSettings(
             isSpreadViewEnabled: true,
             isCoverPageEnabled: true,
-            isSliderEnabled: true,
             layoutDirection: .rightToLeft
         )
 
         XCTAssertTrue(viewModel.settings.isSpreadViewEnabled)
         XCTAssertTrue(viewModel.settings.isCoverPageEnabled)
-        XCTAssertTrue(viewModel.settings.isSliderEnabled)
         XCTAssertEqual(viewModel.settings.layoutDirection, .rightToLeft)
         XCTAssertEqual(viewModel.settings.coverPageSetting, .typeB)
     }

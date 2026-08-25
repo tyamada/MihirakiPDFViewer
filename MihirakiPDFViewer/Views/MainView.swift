@@ -156,8 +156,6 @@ public struct MainView: View {
         }
 
         openPDF(at: url)
-        viewModel.settings.isSliderEnabled = true
-        viewModel.settings.isSearchbarEnabled = true
     }
 
     private func openPDF(at url: URL, password: String? = nil) {
@@ -284,7 +282,7 @@ public struct MainView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .accessibilityIdentifier("pdfViewerScreen")
 
-                if isPDFChromeVisible && viewModel.pageGroups.count > 1 && viewModel.settings.isSliderEnabled {
+                if isPDFChromeVisible && viewModel.pageGroups.count > 1 {
                     VStack(spacing: 8) {
                         Slider(value: Binding(
                             get: {
@@ -484,17 +482,15 @@ struct PDFContainerView: View {
                 .accessibilityLabel(String(localized: "settings"))
                 .accessibilityIdentifier("settingsButton")
             }
-            if viewModel.settings.isSearchbarEnabled {
-                ToolbarItem(placement: .principal) {
-                    HStack {
-                        Image(systemName: "magnifyingglass")
-                            .foregroundColor(.secondary)
-                        TextField(String(localized: "search"), text: $viewModel.searchQuery)
-                            .textFieldStyle(.roundedBorder)
-                            .accessibilityIdentifier("searchField")
-                    }
-                    .padding(.horizontal, 4)
+            ToolbarItem(placement: .principal) {
+                HStack {
+                    Image(systemName: "magnifyingglass")
+                        .foregroundColor(.secondary)
+                    TextField(String(localized: "search"), text: $viewModel.searchQuery)
+                        .textFieldStyle(.roundedBorder)
+                        .accessibilityIdentifier("searchField")
                 }
+                .padding(.horizontal, 4)
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {

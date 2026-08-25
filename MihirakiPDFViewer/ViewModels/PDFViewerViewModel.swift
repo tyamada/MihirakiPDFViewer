@@ -200,11 +200,10 @@ public class PDFViewerViewModel: ObservableObject {
     }
 
     /// 設定を変更する
-    public func updateSettings(isSpreadViewEnabled: Bool, isCoverPageEnabled: Bool, isSliderEnabled: Bool, layoutDirection: LayoutDirection) {
+    public func updateSettings(isSpreadViewEnabled: Bool, isCoverPageEnabled: Bool, layoutDirection: LayoutDirection) {
         self.settings = PDFViewerSettings(
             isSpreadViewEnabled: isSpreadViewEnabled,
             isCoverPageEnabled: isCoverPageEnabled,
-            isSliderEnabled: isSliderEnabled,
             layoutDirection: layoutDirection,
             coverPageSetting: self.settings.coverPageSetting
         )
