@@ -46,23 +46,6 @@ public struct SettingsView: View {
     public var body: some View {
         Form {
             VStack(alignment: .leading, spacing: 24) {
-                // 画面設定
-                VStack(alignment: .leading, spacing: 12) {
-                    Text(String(localized: "screen_settings"))
-                        .font(.headline)
-                    Toggle(String(localized: "is_slider_enabled", defaultValue: "Slider Display"), isOn: Binding(
-                            get: { viewModel.settings.isSliderEnabled },
-                            set: { viewModel.settings.isSliderEnabled = $0 }
-                        ))
-                    Toggle(String(localized: "is_searchbar_enabled", defaultValue: "Search Bar"), isOn: Binding(
-                            get: { viewModel.settings.isSearchbarEnabled },
-                            set: { viewModel.settings.isSearchbarEnabled = $0 }
-                        ))
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(1)
-                .background(settingsBackgroundColor)
-
                 // 表示設定
                 VStack(alignment: .leading, spacing: 12) {
                     Text(String(localized: "display_settings"))

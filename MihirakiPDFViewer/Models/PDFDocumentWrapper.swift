@@ -45,7 +45,6 @@ public struct PDFDocumentWrapper: Identifiable, Equatable {
     public let layoutDirection: LayoutDirection
     public let isSpreadViewEnabled: Bool
     public let isCoverPageEnabled: Bool
-    public let isSliderEnabled: Bool
     public let pageLayout: PDFPageLayout
     public let coverPageSetting: CoverPageSetting
     public let title: String?
@@ -85,7 +84,6 @@ public struct PDFDocumentWrapper: Identifiable, Equatable {
         let detected = PDFDocumentWrapper.detectLayoutSettings(url: url, password: password)
         self.layoutDirection = detected.direction
         self.isSpreadViewEnabled = detected.isSpread
-        self.isSliderEnabled = detected.isSlider
         self.pageLayout = detected.pageLayout
         self.isCoverPageEnabled = detected.isCover
         self.coverPageSetting = detected.coverPageSetting
@@ -166,7 +164,7 @@ public struct PDFDocumentWrapper: Identifiable, Equatable {
     private static func detectLayoutSettings(url: URL, password: String?) -> DetectedSettings {
         guard let pdfDocument = unlockedCGPDFDocument(url: url, password: password) else {
             print("Failed to inspect PDF metadata. Falling back to default layout settings: \(url.lastPathComponent)")
-            return DetectedSettings(direction: .leftToRight, isSpread: false, isCover: false, isSlider: true, pageLayout: .singlePage, coverPageSetting: .typeA)
+            return DetectedSettings(direction: .leftToRight, isSpread: false, isCover: false, pageLayout: .singlePage, coverPageSetting: .typeA)
         }
         
         var direction: LayoutDirection = .leftToRight
@@ -230,7 +228,7 @@ public struct PDFDocumentWrapper: Identifiable, Equatable {
             }
         }
         
-        return DetectedSettings(direction: direction, isSpread: isSpread, isCover: isCover, isSlider: true, pageLayout: detectedLayout, coverPageSetting:  coverPageSetting)
+        return DetectedSettings(direction: direction, isSpread: isSpread, isCover: isCover, pageLayout: detectedLayout, coverPageSetting:  coverPageSetting)
     }
 }
 
@@ -269,23 +267,17 @@ public enum CoverPageSetting: String {
 public struct PDFViewerSettings {
     public var isSpreadViewEnabled: Bool
     public var isCoverPageEnabled: Bool
-    public var isSliderEnabled: Bool
-    public var isSearchbarEnabled: Bool
     public var layoutDirection: LayoutDirection
     public var coverPageSetting: CoverPageSetting
 
     public init(
         isSpreadViewEnabled: Bool = false,
         isCoverPageEnabled: Bool = false,
-        isSliderEnabled: Bool = true,
-        isSearchbarEnabled: Bool = true,
         layoutDirection: LayoutDirection = .leftToRight,
         coverPageSetting: CoverPageSetting = .typeA
     ) {
         self.isSpreadViewEnabled = isSpreadViewEnabled
         self.isCoverPageEnabled = isCoverPageEnabled
-        self.isSliderEnabled = isSliderEnabled
-        self.isSearchbarEnabled = isSearchbarEnabled
         self.layoutDirection = layoutDirection
         self.coverPageSetting = coverPageSetting
     }
@@ -295,7 +287,6 @@ public struct DetectedSettings {
     public let direction: LayoutDirection
     public let isSpread: Bool
     public let isCover: Bool
-    public let isSlider: Bool
     public let pageLayout: PDFPageLayout
     public let coverPageSetting: CoverPageSetting
 
@@ -303,14 +294,12 @@ public struct DetectedSettings {
         direction: LayoutDirection,
         isSpread: Bool,
         isCover: Bool,
-        isSlider: Bool,
         pageLayout: PDFPageLayout,
         coverPageSetting: CoverPageSetting
     ) {
         self.direction = direction
         self.isSpread = isSpread
         self.isCover = isCover
-        self.isSlider = isSlider
         self.pageLayout = pageLayout
         self.coverPageSetting = coverPageSetting
     }
