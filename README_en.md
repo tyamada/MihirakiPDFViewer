@@ -11,23 +11,23 @@ This software was coded using generative AI.
 ## Features
 
 - **View PDF Documents**: Open and read PDF files seamlessly.
+- **Zooming**: Intuitive zoom gestures for better readability.
 - **Search**: Quickly find text within your PDF documents.
 - **Layout Options**: Switch between single page and two page views.
-- **Settings**: Customize your viewing experience.
-- **Zooming**: Intuitive zoom gestures for better readability.
 
 ## How to Use
 
-1. **Open a PDF**: Use the file picker to select a PDF file from your device 
+1. **Open PDF**: Use the file picker to select a PDF file from your device 
 or iCloud Drive.
-2. **Navigate**: Swipe through pages or use the slider to move through 
-the document.
-3. **Menu**: Tap to toggle the display of menus and sliders.
-4. **Search**: Type in the search bar to find specific text within the PDF.
-5. **Zoom**: Use pinch-to-zoom gestures to enlarge or reduce the view. Press 
-and hold, then drag to scroll.
-6. **Layout**: Switch between single-page and two-page views using the layout 
-options in the menu.
+2. **Navigate Pages**: Switch pages by swiping or using the slider.
+3. **Menu**: Tap the screen to toggle the visibility of the toolbar and 
+slider.
+4. **Zoom**: Pinch to zoom in or out. Long-press and drag to scroll while 
+zoomed in.
+5. **Search**: Enter text into the search bar to find specific content 
+within the PDF.
+6. **Layout**: Use the layout options in the menu to switch between 
+single-page and two-page views.
 
 ## Options
 
@@ -121,4 +121,4 @@ file for details.
 - **v0.2.0** - 2026/08/19: Add a tipping feature.
 - **v0.2.1** - 2026/08/20: Changed README.md to the Japanese version.
 - **v0.2.2** - 2026/08/21: Added automated tests.
-- **v0.3.0** - 2026/08/23: updated UI, Added zoom dragging, and fixed cover sizing.
+- **v0.3.0** - 2026/08/26: Updated UI, Added zoom dragging, and fixed cover sizing.
