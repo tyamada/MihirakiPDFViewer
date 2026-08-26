@@ -197,6 +197,16 @@ public class PDFViewerViewModel: ObservableObject {
         stopCurrentAccess()
         self.document = nil
         self.currentPageIndex = 0
+        self.searchQuery = ""
+        self.searchMatches = []
+    }
+
+    /// アプリ設定を初期状態に戻す
+    public func resetApplicationSettings() {
+        self.settings.isSpreadViewEnabled = false
+        self.settings.isCoverPageEnabled = false
+        self.settings.coverPageSetting = .typeA
+        closeDocument()
     }
 
     /// 設定を変更する
