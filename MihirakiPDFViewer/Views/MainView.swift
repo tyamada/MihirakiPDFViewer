@@ -343,7 +343,9 @@ public struct MainView: View {
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
-            isShowingFilePicker = true
+            if !ProcessInfo.processInfo.arguments.contains("-uiTestDisableAutoFilePicker") {
+                isShowingFilePicker = true
+            }
         }
         .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {

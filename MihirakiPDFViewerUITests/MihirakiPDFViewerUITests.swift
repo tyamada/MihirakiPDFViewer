@@ -13,6 +13,7 @@ final class MihirakiPDFViewerUITests: XCTestCase {
     override func setUpWithError() throws {
         continueAfterFailure = false
         app = XCUIApplication()
+        app.launchArguments.append("-uiTestDisableAutoFilePicker")
     }
 
     override func tearDownWithError() throws {
@@ -37,6 +38,12 @@ final class MihirakiPDFViewerUITests: XCTestCase {
 
         XCTAssertTrue(element("settingsScreen").waitForExistence(timeout: 5))
         XCTAssertTrue(app.buttons["settingsCloseButton"].exists)
+        XCTAssertTrue(app.buttons["helpButton"].waitForExistence(timeout: 5))
+
+        app.buttons["helpButton"].tap()
+
+        XCTAssertTrue(element("helpScreen").waitForExistence(timeout: 5))
+        XCTAssertFalse(element("tipSelectionScreen").exists)
     }
 
     @MainActor
