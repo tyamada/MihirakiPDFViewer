@@ -206,6 +206,8 @@ public class PDFViewerViewModel: ObservableObject {
         self.settings.isSpreadViewEnabled = false
         self.settings.isCoverPageEnabled = false
         self.settings.coverPageSetting = .typeA
+        self.settings.isHighQualityRenderingEnabled = false
+        self.settings.isSharpnessEnabled = false
         closeDocument()
     }
 
@@ -215,7 +217,9 @@ public class PDFViewerViewModel: ObservableObject {
             isSpreadViewEnabled: isSpreadViewEnabled,
             isCoverPageEnabled: isCoverPageEnabled,
             layoutDirection: layoutDirection,
-            coverPageSetting: self.settings.coverPageSetting
+            coverPageSetting: self.settings.coverPageSetting,
+            isHighQualityRenderingEnabled: self.settings.isHighQualityRenderingEnabled,
+            isSharpnessEnabled: self.settings.isSharpnessEnabled
         )
     }
 }

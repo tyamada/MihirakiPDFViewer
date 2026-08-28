@@ -11,8 +11,11 @@
 // For the full license text, please see the LICENSE file in the root directory.
 //
 
-import SwiftUI
+import CoreImage
+import CoreImage.CIFilterBuiltins
 import PDFKit
+import SwiftUI
+import UIKit
 
 public enum PageAlignment {
     case left
@@ -22,24 +25,32 @@ public enum PageAlignment {
 
 /// 個々のページを表示するためのSwiftUIビュー
 public struct PageView: View {
+    @Environment(\.displayScale) private var displayScale
+
     let page: PDFPage
     let pageNumber: Int?
     let size: CGSize
     let searchMatches: [PDFViewerViewModel.PDFSearchMatch]
     let alignment: PageAlignment
+    let isHighQualityRenderingEnabled: Bool
+    let isSharpnessEnabled: Bool
 
     public init(
         page: PDFPage,
         pageNumber: Int? = nil,
         size: CGSize,
         searchMatches: [PDFViewerViewModel.PDFSearchMatch] = [],
-        alignment: PageAlignment = .center
+        alignment: PageAlignment = .center,
+        isHighQualityRenderingEnabled: Bool = false,
+        isSharpnessEnabled: Bool = false
     ) {
         self.page = page
         self.pageNumber = pageNumber
         self.size = size
         self.searchMatches = searchMatches
         self.alignment = alignment
+        self.isHighQualityRenderingEnabled = isHighQualityRenderingEnabled
+        self.isSharpnessEnabled = isSharpnessEnabled
     }
 
     public var body: some View {
@@ -57,7 +68,7 @@ public struct PageView: View {
 
             ZStack(alignment: .topLeading) {
                 // PDFページの描画
-                Image(uiImage: page.thumbnail(of: size, for: .mediaBox))
+                Image(uiImage: renderedPageImage(displaySize: size))
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: size.width, height: size.height)
@@ -90,6 +101,67 @@ public struct PageView: View {
             positionX = width / 2 - (width - renderedWidth) / 2
         }
         return positionX
+    }
+
+    private func renderedPageImage(displaySize: CGSize) -> UIImage {
+        guard displaySize.width > 0, displaySize.height > 0 else {
+            return UIImage()
+        }
+
+        let screenScale = max(displayScale, 1)
+        let qualityMultiplier: CGFloat = isHighQualityRenderingEnabled ? 2 : 1
+        let targetScale = screenScale * qualityMultiplier
+        let maxPixelLength: CGFloat = isHighQualityRenderingEnabled ? 4096 : 2048
+        let longestPixelLength = max(displaySize.width, displaySize.height) * targetScale
+        let scale = longestPixelLength > maxPixelLength ? maxPixelLength / max(displaySize.width, displaySize.height) : targetScale
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = scale
+        format.opaque = true
+
+        let renderer = UIGraphicsImageRenderer(size: displaySize, format: format)
+        let image = renderer.image { context in
+            UIColor.white.setFill()
+            context.fill(CGRect(origin: .zero, size: displaySize))
+
+            let cgContext = context.cgContext
+            let pageBounds = page.bounds(for: .mediaBox)
+            let pageScale = min(displaySize.width / pageBounds.width, displaySize.height / pageBounds.height)
+            let renderSize = CGSize(width: pageBounds.width * pageScale, height: pageBounds.height * pageScale)
+            let origin = CGPoint(
+                x: (displaySize.width - renderSize.width) / 2,
+                y: (displaySize.height - renderSize.height) / 2
+            )
+
+            cgContext.saveGState()
+            cgContext.translateBy(x: origin.x, y: origin.y + renderSize.height)
+            cgContext.scaleBy(x: pageScale, y: -pageScale)
+            cgContext.translateBy(x: -pageBounds.minX, y: -pageBounds.minY)
+            page.draw(with: .mediaBox, to: cgContext)
+            cgContext.restoreGState()
+        }
+
+        guard isSharpnessEnabled else {
+            return image
+        }
+
+        return sharpenedImage(image) ?? image
+    }
+
+    private func sharpenedImage(_ image: UIImage) -> UIImage? {
+        guard let inputImage = CIImage(image: image) else {
+            return nil
+        }
+
+        let filter = CIFilter.sharpenLuminance()
+        filter.inputImage = inputImage
+        filter.sharpness = 0.45
+
+        guard let outputImage = filter.outputImage,
+              let cgImage = CIContext().createCGImage(outputImage, from: inputImage.extent) else {
+            return nil
+        }
+
+        return UIImage(cgImage: cgImage, scale: image.scale, orientation: image.imageOrientation)
     }
 
     private var pageAccessibilityLabel: String {

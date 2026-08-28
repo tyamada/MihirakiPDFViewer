@@ -50,6 +50,14 @@ public struct SettingsView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     Text(String(localized: "display_settings"))
                         .font(.headline)
+                    Toggle(String(localized: "high_quality_rendering", defaultValue: "High Quality"), isOn: Binding(
+                        get: { viewModel.settings.isHighQualityRenderingEnabled },
+                        set: { viewModel.settings.isHighQualityRenderingEnabled = $0 }
+                    ))
+                    Toggle(String(localized: "sharpness", defaultValue: "Sharpness"), isOn: Binding(
+                        get: { viewModel.settings.isSharpnessEnabled },
+                        set: { viewModel.settings.isSharpnessEnabled = $0 }
+                    ))
                     Toggle(String(localized: "is_spread_view"), isOn: Binding(
                         get: { viewModel.settings.isSpreadViewEnabled },
                         set: { viewModel.settings.isSpreadViewEnabled = $0 }

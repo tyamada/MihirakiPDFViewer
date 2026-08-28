@@ -269,17 +269,23 @@ public struct PDFViewerSettings {
     public var isCoverPageEnabled: Bool
     public var layoutDirection: LayoutDirection
     public var coverPageSetting: CoverPageSetting
+    public var isHighQualityRenderingEnabled: Bool
+    public var isSharpnessEnabled: Bool
 
     public init(
         isSpreadViewEnabled: Bool = false,
         isCoverPageEnabled: Bool = false,
         layoutDirection: LayoutDirection = .leftToRight,
-        coverPageSetting: CoverPageSetting = .typeA
+        coverPageSetting: CoverPageSetting = .typeA,
+        isHighQualityRenderingEnabled: Bool = false,
+        isSharpnessEnabled: Bool = false
     ) {
         self.isSpreadViewEnabled = isSpreadViewEnabled
         self.isCoverPageEnabled = isCoverPageEnabled
         self.layoutDirection = layoutDirection
         self.coverPageSetting = coverPageSetting
+        self.isHighQualityRenderingEnabled = isHighQualityRenderingEnabled
+        self.isSharpnessEnabled = isSharpnessEnabled
     }
 }
 

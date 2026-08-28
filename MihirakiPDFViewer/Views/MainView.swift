@@ -591,6 +591,8 @@ struct PDFContainerView: View {
                 isSpreadViewEnabled: viewModel.settings.isSpreadViewEnabled,
                 searchMatches: viewModel.searchMatches.filter { group.pageIndices.contains($0.pageIndex) },
                 layoutDirection: viewModel.settings.layoutDirection,
+                isHighQualityRenderingEnabled: viewModel.settings.isHighQualityRenderingEnabled,
+                isSharpnessEnabled: viewModel.settings.isSharpnessEnabled,
                 isFirstGroup: index == 0,
                 isLastGroup: index == viewModel.pageGroups.count - 1
             )
@@ -606,6 +608,8 @@ struct PageContentContainer: View {
     let isSpreadViewEnabled: Bool
     let searchMatches: [PDFViewerViewModel.PDFSearchMatch]
     let layoutDirection: LayoutDirection
+    let isHighQualityRenderingEnabled: Bool
+    let isSharpnessEnabled: Bool
     let isFirstGroup: Bool
     let isLastGroup: Bool
 
@@ -629,11 +633,19 @@ struct PageContentContainer: View {
                 size: containerSize,
                 searchMatches: searchMatches,
                 layoutDirection: layoutDirection,
+                isHighQualityRenderingEnabled: isHighQualityRenderingEnabled,
+                isSharpnessEnabled: isSharpnessEnabled,
                 isFirstGroup: isFirstGroup,
                 isLastGroup: isLastGroup
             )
         } else {
-            SinglePageView(group: group, size: containerSize, searchMatches: searchMatches)
+            SinglePageView(
+                group: group,
+                size: containerSize,
+                searchMatches: searchMatches,
+                isHighQualityRenderingEnabled: isHighQualityRenderingEnabled,
+                isSharpnessEnabled: isSharpnessEnabled
+            )
         }
     }
 
@@ -651,6 +663,8 @@ struct SpreadLayoutView: View {
     let size: CGSize
     let searchMatches: [PDFViewerViewModel.PDFSearchMatch]
     let layoutDirection: LayoutDirection
+    let isHighQualityRenderingEnabled: Bool
+    let isSharpnessEnabled: Bool
     let isFirstGroup: Bool
     let isLastGroup: Bool
 
@@ -680,11 +694,27 @@ struct SpreadLayoutView: View {
                         Spacer()
                         HStack(spacing: 0) {
                             if Self.pageComesBeforeBlankPage(layoutDirection: layoutDirection) {
-                                PageView(page: p1, pageNumber: group.pageIndices.first.map { $0 + 1 }, size: targetSize, searchMatches: searchMatches, alignment: .center)
+                                PageView(
+                                    page: p1,
+                                    pageNumber: group.pageIndices.first.map { $0 + 1 },
+                                    size: targetSize,
+                                    searchMatches: searchMatches,
+                                    alignment: .center,
+                                    isHighQualityRenderingEnabled: isHighQualityRenderingEnabled,
+                                    isSharpnessEnabled: isSharpnessEnabled
+                                )
                                 blankPage(size: targetSize)
                             } else {
                                 blankPage(size: targetSize)
-                                PageView(page: p1, pageNumber: group.pageIndices.first.map { $0 + 1 }, size: targetSize, searchMatches: searchMatches, alignment: .center)
+                                PageView(
+                                    page: p1,
+                                    pageNumber: group.pageIndices.first.map { $0 + 1 },
+                                    size: targetSize,
+                                    searchMatches: searchMatches,
+                                    alignment: .center,
+                                    isHighQualityRenderingEnabled: isHighQualityRenderingEnabled,
+                                    isSharpnessEnabled: isSharpnessEnabled
+                                )
                             }
                         }
                         .environment(\.layoutDirection, .leftToRight)
@@ -694,7 +724,15 @@ struct SpreadLayoutView: View {
                 } else {
                     VStack(alignment: .center) {
                         Spacer()
-                        PageView(page: p1, pageNumber: group.pageIndices.first.map { $0 + 1 }, size: targetSize, searchMatches: searchMatches, alignment: .center)
+                        PageView(
+                            page: p1,
+                            pageNumber: group.pageIndices.first.map { $0 + 1 },
+                            size: targetSize,
+                            searchMatches: searchMatches,
+                            alignment: .center,
+                            isHighQualityRenderingEnabled: isHighQualityRenderingEnabled,
+                            isSharpnessEnabled: isSharpnessEnabled
+                        )
                         Spacer()
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -711,8 +749,24 @@ struct SpreadLayoutView: View {
                  VStack(alignment: .center) {
                      Spacer()
                      HStack(spacing: 0) {
-                         PageView(page: p1, pageNumber: group.pageIndices[0] + 1, size: CGSize(width: w1, height: ch), searchMatches: searchMatches.filter { $0.pageIndex == group.pageIndices[0] }, alignment: .left)
-                         PageView(page: p2, pageNumber: group.pageIndices[1] + 1, size: CGSize(width: w2, height: ch), searchMatches: searchMatches.filter { $0.pageIndex == group.pageIndices[1] }, alignment: .right)
+                         PageView(
+                             page: p1,
+                             pageNumber: group.pageIndices[0] + 1,
+                             size: CGSize(width: w1, height: ch),
+                             searchMatches: searchMatches.filter { $0.pageIndex == group.pageIndices[0] },
+                             alignment: .left,
+                             isHighQualityRenderingEnabled: isHighQualityRenderingEnabled,
+                             isSharpnessEnabled: isSharpnessEnabled
+                         )
+                         PageView(
+                             page: p2,
+                             pageNumber: group.pageIndices[1] + 1,
+                             size: CGSize(width: w2, height: ch),
+                             searchMatches: searchMatches.filter { $0.pageIndex == group.pageIndices[1] },
+                             alignment: .right,
+                             isHighQualityRenderingEnabled: isHighQualityRenderingEnabled,
+                             isSharpnessEnabled: isSharpnessEnabled
+                         )
                      }
                      .environment(\.layoutDirection, .leftToRight)
                      Spacer()
@@ -728,8 +782,24 @@ struct SpreadLayoutView: View {
                  VStack(alignment: .center) {
                      Spacer()
                      HStack(spacing: 0) {
-                        PageView(page: p1, pageNumber: group.pageIndices[0] + 1, size: CGSize(width: targetW1, height: targetH1), searchMatches: searchMatches.filter { $0.pageIndex == group.pageIndices[0] }, alignment: .center)
-                        PageView(page: p2, pageNumber: group.pageIndices[1] + 1, size: CGSize(width: targetW2, height: targetH2), searchMatches: searchMatches.filter { $0.pageIndex == group.pageIndices[1] }, alignment: .center)
+                        PageView(
+                            page: p1,
+                            pageNumber: group.pageIndices[0] + 1,
+                            size: CGSize(width: targetW1, height: targetH1),
+                            searchMatches: searchMatches.filter { $0.pageIndex == group.pageIndices[0] },
+                            alignment: .center,
+                            isHighQualityRenderingEnabled: isHighQualityRenderingEnabled,
+                            isSharpnessEnabled: isSharpnessEnabled
+                        )
+                        PageView(
+                            page: p2,
+                            pageNumber: group.pageIndices[1] + 1,
+                            size: CGSize(width: targetW2, height: targetH2),
+                            searchMatches: searchMatches.filter { $0.pageIndex == group.pageIndices[1] },
+                            alignment: .center,
+                            isHighQualityRenderingEnabled: isHighQualityRenderingEnabled,
+                            isSharpnessEnabled: isSharpnessEnabled
+                        )
                      }
                      .environment(\.layoutDirection, .leftToRight)
                      Spacer()
@@ -751,6 +821,8 @@ struct SinglePageView: View {
     let group: PDFViewerViewModel.PageGroup
     let size: CGSize
     let searchMatches: [PDFViewerViewModel.PDFSearchMatch]
+    let isHighQualityRenderingEnabled: Bool
+    let isSharpnessEnabled: Bool
 
     var body: some View {
         GeometryReader { geometry in
@@ -764,7 +836,15 @@ struct SinglePageView: View {
                 
                 VStack(alignment: .center) {
                     Spacer()
-                    PageView(page: firstPage, pageNumber: group.pageIndices.first.map { $0 + 1 }, size: targetSize, searchMatches: searchMatches, alignment: .center)
+                    PageView(
+                        page: firstPage,
+                        pageNumber: group.pageIndices.first.map { $0 + 1 },
+                        size: targetSize,
+                        searchMatches: searchMatches,
+                        alignment: .center,
+                        isHighQualityRenderingEnabled: isHighQualityRenderingEnabled,
+                        isSharpnessEnabled: isSharpnessEnabled
+                    )
                     Spacer()
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
