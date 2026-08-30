@@ -4603,49 +4603,49 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Typ A"
+            "value" : "Standardmodus"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Type A"
+            "value" : "Standard Mode"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tipo A"
+            "value" : "Modo estándar"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Type A"
+            "value" : "Mode standard"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "タイプA"
+            "value" : "Standard Mode"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "유형 A"
+            "value" : "표준 모드"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tipo A"
+            "value" : "Modo padrão"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A型"
+            "value" : "标准模式"
           }
         }
       }
@@ -4655,49 +4655,49 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Typ B"
+            "value" : "Kompatibilitätsmodus"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Type B"
+            "value" : "Compatibility Mode"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tipo B"
+            "value" : "Modo de compatibilidad"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Type B"
+            "value" : "Mode de compatibilité"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "タイプB"
+            "value" : "Compatibility Mode"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "유형 B"
+            "value" : "호환 모드"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tipo B"
+            "value" : "Modo de compatibilidade"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "B型"
+            "value" : "兼容模式"
           }
         }
       }

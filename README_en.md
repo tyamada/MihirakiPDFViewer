@@ -33,10 +33,10 @@ single-page and two-page views.
 
 ### Cover Page Settings
 
-- **Type A** (Adobe Acrobat Reader compatible)
+- **Standard Mode**
 Includes a cover page if `PageLayout` is 'TwoPageRight' or 'TwoColumnRight';
 otherwise, no cover page.
-- **Type B**
+- **Compatibility Mode**
 Includes a cover page if `Direction` is 'L2R' and `PageLayout` is 
 'TwoPageRight' or 'TwoColumnRight';
 includes a cover page if `Direction` is 'R2L' and `PageLayout` is 
@@ -122,3 +122,4 @@ file for details.
 - **v0.2.1** - 2026/08/20: Changed README.md to the Japanese version.
 - **v0.2.2** - 2026/08/21: Added automated tests.
 - **v0.3.0** - 2026/08/26: Updated UI, Added zoom dragging, and fixed cover sizing.
+- **v0.4.0** - 2026/08/30: Changed cover page settings.
