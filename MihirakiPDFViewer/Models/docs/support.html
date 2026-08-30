@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="MihirakiPDFViewerのサポートページです。使い方、FAQ、トラブルシューティング、お問い合わせ方法を確認できます。">
+    <title>サポート | MihirakiPDFViewer</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #f4f7fb;
+            --surface: #ffffff;
+            --surface-soft: #eef3f8;
+            --text: #172033;
+            --muted: #607085;
+            --line: #d7e0ea;
+            --accent: #1f61c4;
+            --accent-dark: #184b96;
+            --danger: #c33d4a;
+            --shadow: 0 18px 50px rgba(23, 32, 51, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans",
+                "Yu Gothic", "Noto Sans JP", sans-serif;
+            line-height: 1.75;
+        }
+
+        a {
+            color: var(--accent);
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(18px);
+            background: rgba(244, 247, 251, 0.88);
+            border-bottom: 1px solid rgba(215, 224, 234, 0.8);
+        }
+
+        .nav,
+        .container,
+        .footer-inner {
+            width: min(1040px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 68px;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text);
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 0;
+        }
+
+        .brand img {
+            width: 38px;
+            height: 38px;
+            border-radius: 9px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .hero {
+            padding: 72px 0 54px;
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 260px;
+            align-items: center;
+            gap: 42px;
+        }
+
+        .eyebrow {
+            margin: 0 0 14px;
+            color: var(--accent-dark);
+            font-weight: 700;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.3rem, 5vw, 4rem);
+            line-height: 1.12;
+            letter-spacing: 0;
+        }
+
+        .hero p:last-child {
+            max-width: 720px;
+            margin: 20px 0 0;
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        .hero-card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-card img {
+            display: block;
+            width: 92px;
+            height: 92px;
+            margin-bottom: 18px;
+            border-radius: 20px;
+        }
+
+        .hero-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .section {
+            padding: 58px 0;
+            border-top: 1px solid rgba(215, 224, 234, 0.72);
+        }
+
+        .section:nth-child(even) {
+            background: var(--surface);
+        }
+
+        .section-heading {
+            margin-bottom: 24px;
+        }
+
+        .section-heading h2 {
+            margin: 0;
+            font-size: clamp(1.6rem, 3vw, 2.35rem);
+            line-height: 1.25;
+            letter-spacing: 0;
+        }
+
+        .section-heading p {
+            margin: 10px 0 0;
+            color: var(--muted);
+        }
+
+        .quick-links,
+        .faq-grid,
+        .steps,
+        .contact-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .quick-links {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .faq-grid,
+        .contact-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .quick-link,
+        .faq-category,
+        .step,
+        .contact-card,
+        .notice {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 22px;
+        }
+
+        .section:nth-child(even) .quick-link,
+        .section:nth-child(even) .faq-category,
+        .section:nth-child(even) .step,
+        .section:nth-child(even) .contact-card,
+        .section:nth-child(even) .notice {
+            background: var(--surface-soft);
+        }
+
+        .quick-link {
+            color: var(--text);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .faq-category h3,
+        .step h3,
+        .contact-card h3,
+        .notice h3 {
+            margin: 0 0 14px;
+            font-size: 1.16rem;
+            letter-spacing: 0;
+        }
+
+        details {
+            padding: 14px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        details:first-of-type {
+            border-top: 0;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        details p,
+        .step p,
+        .contact-card p,
+        .notice p {
+            margin: 10px 0 0;
+            color: var(--muted);
+        }
+
+        .steps {
+            counter-reset: steps;
+        }
+
+        .step {
+            position: relative;
+            padding-left: 72px;
+        }
+
+        .step::before {
+            counter-increment: steps;
+            content: counter(steps);
+            position: absolute;
+            left: 22px;
+            top: 22px;
+            display: grid;
+            place-items: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            background: var(--accent);
+            color: #fff;
+            font-weight: 800;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            margin-top: 16px;
+            padding: 0 18px;
+            border-radius: 8px;
+            border: 1px solid var(--accent);
+            background: var(--accent);
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .button.secondary {
+            background: transparent;
+            color: var(--accent);
+        }
+
+        .note {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .site-footer {
+            padding: 34px 0;
+            color: var(--muted);
+            border-top: 1px solid var(--line);
+            background: var(--surface);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        @media (max-width: 860px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-inner,
+            .quick-links,
+            .faq-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 46px 0 42px;
+            }
+
+            .hero-card {
+                display: none;
+            }
+
+            .section {
+                padding: 46px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav" aria-label="メインナビゲーション">
+            <a class="brand" href="index.html">
+                <img src="assets/icons/MihirakiPDFViewer-AppIcon.png" alt="" width="38" height="38">
+                <span>MihirakiPDFViewer</span>
+            </a>
+            <div class="nav-links">
+                <a href="#faq">FAQ</a>
+                <a href="#troubleshooting">困ったときは</a>
+                <a href="#contact">お問い合わせ</a>
+                <a href="index.html">トップ</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-inner">
+                <div>
+                    <p class="eyebrow">ヘルプ＆よくある質問</p>
+                    <h1>MihirakiPDFViewer サポート</h1>
+                    <p>
+                        MihirakiPDFViewerをご利用いただきありがとうございます。
+                        このページでは、PDFの開き方、見開き表示、検索、ズーム、
+                        パスワード付きPDFなど、よくある質問と対処方法をまとめています。
+                    </p>
+                </div>
+                <aside class="hero-card" aria-label="アプリ概要">
+                    <img src="assets/icons/MihirakiPDFViewer-AppIcon.png" alt="">
+                    <p>
+                        右綴じの本や日本語書籍の閲覧に適した、シンプルなPDFビューアです。
+                    </p>
+                </aside>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="quick-links-title">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 id="quick-links-title">知りたい項目へすぐ移動</h2>
+                    <p>該当するカテゴリを選ぶと、必要な情報にすばやく移動できます。</p>
+                </div>
+                <div class="quick-links">
+                    <a class="quick-link" href="#basic">使い方</a>
+                    <a class="quick-link" href="#viewing">表示と操作</a>
+                    <a class="quick-link" href="#security">データ・セキュリティ</a>
+                    <a class="quick-link" href="#troubleshooting">不具合対応</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="faq" aria-labelledby="faq-title">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 id="faq-title">よくある質問</h2>
+                    <p>カテゴリ別に、よくある質問と回答をまとめています。</p>
+                </div>
+                <div class="faq-grid">
+                    <article class="faq-category" id="basic">
+                        <h3>使い方</h3>
+                        <details open>
+                            <summary>PDFファイルはどこから開けますか？</summary>
+                            <p>
+                                起動時に表示されるファイルピッカーから、端末内または
+                                iCloud Drive上のPDFファイルを選択できます。
+                            </p>
+                        </details>
+                        <details>
+                            <summary>メニューやスライダーが表示されません。</summary>
+                            <p>
+                                PDF画像をタップすると、ツールバー、検索バー、
+                                スライダーの表示と非表示を切り替えられます。
+                            </p>
+                        </details>
+                        <details>
+                            <summary>ページ移動はどう操作しますか？</summary>
+                            <p>
+                                画面をスワイプするか、メニュー表示中に画面下部の
+                                スライダーを操作してください。
+                            </p>
+                        </details>
+                    </article>
+
+                    <article class="faq-category" id="viewing">
+                        <h3>表示と操作</h3>
+                        <details open>
+                            <summary>右綴じPDFに対応していますか？</summary>
+                            <p>
+                                対応しています。PDFのDirectionやPageLayoutを読み取り、
+                                右綴じ・左綴じに合わせたページ順で表示します。
+                            </p>
+                        </details>
+                        <details>
+                            <summary>見開き表示と単ページ表示を切り替えられますか？</summary>
+                            <p>
+                                設定画面の表示設定から切り替えられます。
+                                表紙あり/なしの扱いも調整できます。
+                            </p>
+                        </details>
+                        <details>
+                            <summary>拡大したPDFを移動できますか？</summary>
+                            <p>
+                                ピンチで拡大したあと、長押ししてからドラッグすると
+                                表示位置を移動できます。ダブルタップで拡大率をリセットできます。
+                            </p>
+                        </details>
+                        <details>
+                            <summary>表示がぼやける場合はどうすればよいですか？</summary>
+                            <p>
+                                設定画面で「高画質化」や「シャープネス」を有効にしてください。
+                                ただし、端末によっては描画負荷が上がる場合があります。
+                            </p>
+                        </details>
+                    </article>
+
+                    <article class="faq-category" id="security">
+                        <h3>データ・セキュリティ</h3>
+                        <details open>
+                            <summary>PDFファイルは外部へ送信されますか？</summary>
+                            <p>
+                                PDFの閲覧処理は端末上で行います。ファイルを外部サーバーへ
+                                アップロードして処理する機能はありません。
+                            </p>
+                        </details>
+                        <details>
+                            <summary>パスワード付きPDFを開けますか？</summary>
+                            <p>
+                                閲覧パスワードが設定されたPDFを開くと、パスワード入力
+                                ダイアログが表示されます。正しいパスワードで解除できると
+                                閲覧を続けられます。
+                            </p>
+                        </details>
+                        <details>
+                            <summary>アプリ内課金は必須ですか？</summary>
+                            <p>
+                                必須ではありません。チップ購入は開発を応援するための任意の
+                                機能で、購入しなくてもアプリの機能は利用できます。
+                            </p>
+                        </details>
+                    </article>
+
+                    <article class="faq-category" id="environment">
+                        <h3>動作環境・不具合</h3>
+                        <details open>
+                            <summary>PDFが開けない場合はどうすればよいですか？</summary>
+                            <p>
+                                ファイルがPDF形式であること、破損していないこと、
+                                iCloud Driveから完全にダウンロード済みであることを確認してください。
+                            </p>
+                        </details>
+                        <details>
+                            <summary>ページの左右が期待と違う場合は？</summary>
+                            <p>
+                                設定画面でスクロール方向、見開き表示、表紙設定を確認してください。
+                                PDF側のメタデータによっては手動調整が必要な場合があります。
+                            </p>
+                        </details>
+                        <details>
+                            <summary>設定を初期状態に戻せますか？</summary>
+                            <p>
+                                設定画面のオプションから「リセット」を選択すると、
+                                表示設定を初期状態に戻し、現在のドキュメントを閉じます。
+                            </p>
+                        </details>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="troubleshooting" aria-labelledby="troubleshooting-title">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 id="troubleshooting-title">困ったときは</h2>
+                    <p>表示が崩れる、動かない、開けない場合は、次の順に確認してください。</p>
+                </div>
+                <div class="steps">
+                    <article class="step">
+                        <h3>アプリを再起動する</h3>
+                        <p>
+                            一時的な表示崩れや操作不能が起きた場合は、アプリを終了して
+                            もう一度起動してください。
+                        </p>
+                    </article>
+                    <article class="step">
+                        <h3>PDFファイルを確認する</h3>
+                        <p>
+                            別のPDFで開けるか確認してください。特定のPDFだけ開けない場合は、
+                            ファイル破損、未ダウンロード、パスワード違いの可能性があります。
+                        </p>
+                    </article>
+                    <article class="step">
+                        <h3>表示設定を見直す</h3>
+                        <p>
+                            見開き表示、表紙表示、スクロール方向、表紙設定を変更すると、
+                            ページの並びや移動方向が改善することがあります。
+                        </p>
+                    </article>
+                    <article class="step">
+                        <h3>設定をリセットする</h3>
+                        <p>
+                            設定画面の「リセット」から初期状態に戻せます。リセット後は
+                            現在開いているPDFが閉じられます。
+                        </p>
+                    </article>
+                    <article class="step">
+                        <h3>OSとアプリを更新する</h3>
+                        <p>
+                            iOS/iPadOSとアプリを最新バージョンに更新してください。
+                            古い環境では一部の表示やファイル連携が正しく動作しない場合があります。
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contact" aria-labelledby="contact-title">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 id="contact-title">不具合報告・お問い合わせ</h2>
+                    <p>
+                        解決しない場合は、再現手順と利用環境を添えてお問い合わせください。
+                    </p>
+                </div>
+                <div class="contact-grid">
+                    <article class="contact-card">
+                        <h3>GitHub Issues</h3>
+                        <p>
+                            不具合報告や改善要望はGitHub Issuesへ登録してください。
+                            PDFファイルの内容に個人情報が含まれる場合は、添付しないでください。
+                        </p>
+                        <a class="button" href="https://github.com/" rel="noopener">GitHub Issuesを開く</a>
+                        <p class="note">
+                            公開リポジトリのURLが決まったら、このリンクをIssuesのURLへ
+                            差し替えてください。
+                        </p>
+                    </article>
+                    <article class="contact-card">
+                        <h3>メール</h3>
+                        <p>
+                            個別に連絡したい内容はメールでお問い合わせください。
+                            返信には時間がかかる場合があります。
+                        </p>
+                        <a class="button secondary" href="mailto:support@example.com">support@example.com</a>
+                        <p class="note">
+                            送信先メールアドレスが決まったら、実際のサポート用アドレスへ
+                            差し替えてください。
+                        </p>
+                    </article>
+                </div>
+
+                <article class="notice" style="margin-top: 16px;">
+                    <h3>報告時に含めてほしい情報</h3>
+                    <p>
+                        端末名、iOS/iPadOSのバージョン、アプリのバージョン、
+                        問題が起きたPDFの種類、再現手順、表示されたエラーメッセージを
+                        分かる範囲で記載してください。
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="updates" aria-labelledby="updates-title">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 id="updates-title">更新履歴・お知らせ</h2>
+                    <p>
+                        最新の変更内容はREADMEまたはGitHub Releasesに掲載する想定です。
+                    </p>
+                </div>
+                <div class="contact-grid">
+                    <article class="contact-card">
+                        <h3>README</h3>
+                        <p>アプリの概要、機能、バージョン履歴を確認できます。</p>
+                        <a class="button secondary" href="README.md">READMEを見る</a>
+                    </article>
+                    <article class="contact-card">
+                        <h3>GitHub Releases</h3>
+                        <p>公開後のリリースノートや既知の問題の掲載先として使えます。</p>
+                        <a class="button secondary" href="https://github.com/" rel="noopener">Releasesを開く</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <small>&copy; 2026 Takuma Yamada. All rights reserved.</small>
+            <div class="footer-links">
+                <a href="index.html">トップ</a>
+                <a href="support.html">サポート</a>
+                <a href="privacy.html">プライバシーポリシー</a>
+                <a href="README.md">README</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

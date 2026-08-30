@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="MihirakiPDFViewer is a simple PDF viewer for right-to-left books, Japanese publications, and two-page reading.">
+    <title>MihirakiPDFViewer</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #f4f7fb;
+            --surface: #ffffff;
+            --surface-soft: #eef3f8;
+            --text: #172033;
+            --muted: #607085;
+            --line: #d7e0ea;
+            --accent: #1f61c4;
+            --accent-dark: #184b96;
+            --shadow: 0 18px 50px rgba(23, 32, 51, 0.14);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(18px);
+            background: rgba(244, 247, 251, 0.86);
+            border-bottom: 1px solid rgba(215, 224, 234, 0.8);
+        }
+
+        .nav {
+            width: min(1120px, calc(100% - 32px));
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 68px;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            letter-spacing: 0;
+            text-decoration: none;
+        }
+
+        .brand img {
+            width: 38px;
+            height: 38px;
+            border-radius: 9px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 0 18px;
+            border-radius: 8px;
+            border: 1px solid var(--accent);
+            background: var(--accent);
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .button.secondary {
+            background: transparent;
+            color: var(--accent);
+        }
+
+        main {
+            overflow: hidden;
+        }
+
+        .hero {
+            width: min(1120px, calc(100% - 32px));
+            min-height: calc(100vh - 68px);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(320px, 440px);
+            align-items: center;
+            gap: 58px;
+            padding: 58px 0 40px;
+        }
+
+        .hero-copy {
+            max-width: 620px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            margin: 0 0 18px;
+            color: var(--accent-dark);
+            font-size: 0.94rem;
+            font-weight: 700;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.6rem, 6vw, 5.1rem);
+            line-height: 1.08;
+            letter-spacing: 0;
+        }
+
+        .hero-copy p {
+            margin: 22px 0 0;
+            color: var(--muted);
+            font-size: clamp(1.02rem, 2.2vw, 1.25rem);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        .hero-media {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .phone-shot {
+            width: min(100%, 390px);
+            height: auto;
+            border-radius: 28px;
+            box-shadow: var(--shadow);
+        }
+
+        .section {
+            padding: 76px 0;
+            border-top: 1px solid rgba(215, 224, 234, 0.72);
+        }
+
+        .section:nth-child(even) {
+            background: var(--surface);
+        }
+
+        .container {
+            width: min(1120px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        .section-heading {
+            max-width: 720px;
+            margin-bottom: 34px;
+        }
+
+        .section-heading h2 {
+            margin: 0;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            line-height: 1.2;
+            letter-spacing: 0;
+        }
+
+        .section-heading p {
+            margin: 14px 0 0;
+            color: var(--muted);
+            font-size: 1.04rem;
+        }
+
+        .problem-grid,
+        .feature-grid,
+        .usecase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .panel,
+        .feature,
+        .usecase {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 24px;
+        }
+
+        .section:nth-child(even) .panel,
+        .section:nth-child(even) .feature,
+        .section:nth-child(even) .usecase {
+            background: var(--surface-soft);
+        }
+
+        .panel h3,
+        .feature h3,
+        .usecase h3 {
+            margin: 0 0 10px;
+            font-size: 1.16rem;
+            letter-spacing: 0;
+        }
+
+        .panel p,
+        .feature p,
+        .usecase p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .feature-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            margin-bottom: 16px;
+            border-radius: 8px;
+            background: var(--accent);
+            color: #fff;
+            font-weight: 800;
+        }
+
+        .screenshots {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 16px;
+            align-items: start;
+        }
+
+        .screenshot-item {
+            margin: 0;
+        }
+
+        .screenshot-item img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--line);
+            box-shadow: 0 12px 32px rgba(23, 32, 51, 0.12);
+        }
+
+        .screenshot-item figcaption {
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .download {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 28px;
+            padding: 34px;
+            background: var(--text);
+            color: #fff;
+            border-radius: 8px;
+        }
+
+        .download h2 {
+            margin: 0;
+            font-size: clamp(1.55rem, 3vw, 2.2rem);
+        }
+
+        .download p {
+            margin: 8px 0 0;
+            color: rgba(255, 255, 255, 0.74);
+        }
+
+        .download .button {
+            border-color: #fff;
+            background: #fff;
+            color: var(--text);
+        }
+
+        .site-footer {
+            padding: 34px 0;
+            color: var(--muted);
+            border-top: 1px solid var(--line);
+            background: var(--surface);
+        }
+
+        .footer-inner {
+            width: min(1120px, calc(100% - 32px));
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        @media (max-width: 860px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+                padding-top: 42px;
+                gap: 38px;
+            }
+
+            .hero-media {
+                justify-content: flex-start;
+            }
+
+            .phone-shot {
+                width: min(100%, 330px);
+            }
+
+            .problem-grid,
+            .feature-grid,
+            .usecase-grid,
+            .screenshots,
+            .download {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 56px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav" aria-label="Main navigation">
+            <a class="brand" href="index_en.html">
+                <img src="assets/icons/MihirakiPDFViewer-AppIcon.png" alt="" width="38" height="38">
+                <span>MihirakiPDFViewer</span>
+            </a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#screenshots">Screenshots</a>
+                <a href="#download">Get the App</a>
+                <a href="index.html">Japanese</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">A viewer for right-to-left PDFs and Japanese books</p>
+                <h1>Read two-page PDFs in their natural order.</h1>
+                <p>
+                    MihirakiPDFViewer is a simple PDF viewer designed for
+                    right-to-left books and Japanese publications. It reads page
+                    layout and direction settings, then lets you switch smoothly
+                    between single-page and two-page viewing.
+                </p>
+                <div class="hero-actions">
+                    <a class="button" href="#download">Download</a>
+                    <a class="button secondary" href="#screenshots">View Screenshots</a>
+                </div>
+            </div>
+            <div class="hero-media" aria-label="MihirakiPDFViewer screenshot">
+                <img class="phone-shot" src="assets/screenshots/02_spread_r2l.png" alt="MihirakiPDFViewer showing a right-to-left PDF in two-page view">
+            </div>
+        </section>
+
+        <section class="section" id="solution">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>No more confusing page order.</h2>
+                    <p>
+                        Standard PDF viewers do not always display right-to-left
+                        books or two-page PDFs the way you expect. MihirakiPDFViewer
+                        reads the document settings and presents pages in a flow
+                        that matches the way the book should be read.
+                    </p>
+                </div>
+                <div class="problem-grid">
+                    <article class="panel">
+                        <h3>The Problem</h3>
+                        <p>Right-to-left PDFs may show pages or swipe direction in the wrong order.</p>
+                    </article>
+                    <article class="panel">
+                        <h3>The Fix</h3>
+                        <p>The app detects direction and layout settings, then arranges spreads naturally.</p>
+                    </article>
+                    <article class="panel">
+                        <h3>Readable Detail</h3>
+                        <p>Zoom, search, high-quality rendering, and sharpness help with small text.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="features">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Key Features</h2>
+                    <p>Essential PDF reading controls in a clean, focused interface.</p>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature">
+                        <div class="feature-badge">1</div>
+                        <h3>Right-to-left and left-to-right support</h3>
+                        <p>Switches page movement between L2R and R2L based on the PDF direction.</p>
+                    </article>
+                    <article class="feature">
+                        <div class="feature-badge">2</div>
+                        <h3>Single-page and two-page views</h3>
+                        <p>Read with a layout that fits the document, with cover handling when needed.</p>
+                    </article>
+                    <article class="feature">
+                        <div class="feature-badge">3</div>
+                        <h3>Search and zoom</h3>
+                        <p>Search text inside the PDF and pinch to zoom in on the area you need.</p>
+                    </article>
+                    <article class="feature">
+                        <div class="feature-badge">4</div>
+                        <h3>Password-protected PDFs</h3>
+                        <p>Open PDFs that require a user password and continue reading after unlock.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="screenshots">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Screenshots</h2>
+                </div>
+                <div class="screenshots">
+                    <figure class="screenshot-item">
+                        <img src="assets/screenshots/01_fullscreen_pdf.png" alt="Fullscreen PDF reading screen">
+                        <figcaption>Fullscreen viewing for focused reading</figcaption>
+                    </figure>
+                    <figure class="screenshot-item">
+                        <img src="assets/screenshots/03_search.png" alt="Searching text inside a PDF">
+                        <figcaption>Text search inside PDFs</figcaption>
+                    </figure>
+                    <figure class="screenshot-item">
+                        <img src="assets/screenshots/05_display_settings.png" alt="Display settings screen">
+                        <figcaption>Adjust spreads and cover settings</figcaption>
+                    </figure>
+                    <figure class="screenshot-item">
+                        <img src="assets/screenshots/07_password.png" alt="Password prompt for a protected PDF">
+                        <figcaption>Password-protected PDF support</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="usecases">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Use Cases</h2>
+                    <p>For anyone who wants to read right-to-left PDFs on iPhone or iPad.</p>
+                </div>
+                <div class="usecase-grid">
+                    <article class="usecase">
+                        <h3>Read Japanese books</h3>
+                        <p>Move through right-to-left books in a way that feels closer to paper.</p>
+                    </article>
+                    <article class="usecase">
+                        <h3>Review comics and documents</h3>
+                        <p>Keep left and right pages connected in two-page view.</p>
+                    </article>
+                    <article class="usecase">
+                        <h3>Find content quickly</h3>
+                        <p>Use search and zoom to inspect the exact section you need.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="download">
+            <div class="container">
+                <div class="download">
+                    <div>
+                        <h2>Try MihirakiPDFViewer</h2>
+                        <p>
+                            After the App Store release, replace this button with
+                            the App Store URL.
+                        </p>
+                    </div>
+                    <a class="button" href="#" aria-label="Download MihirakiPDFViewer on the App Store">
+                        Get on the App Store
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <small>&copy; 2026 Takuma Yamada. All rights reserved.</small>
+            <div class="footer-links">
+                <a href="support_en.html">Support</a>
+                <a href="privacy_en.html">Privacy Policy</a>
+                <a href="README.md">README</a>
+                <a href="index.html">Japanese</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

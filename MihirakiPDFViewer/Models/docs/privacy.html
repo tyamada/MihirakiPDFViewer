@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="MihirakiPDFViewerのプライバシーポリシーです。アプリで扱う情報、PDFファイル、アプリ内購入、問い合わせ時の情報について説明します。">
+    <title>プライバシーポリシー | MihirakiPDFViewer</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #f4f7fb;
+            --surface: #ffffff;
+            --surface-soft: #eef3f8;
+            --text: #172033;
+            --muted: #607085;
+            --line: #d7e0ea;
+            --accent: #1f61c4;
+            --accent-dark: #184b96;
+            --shadow: 0 18px 50px rgba(23, 32, 51, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans",
+                "Yu Gothic", "Noto Sans JP", sans-serif;
+            line-height: 1.75;
+        }
+
+        a {
+            color: var(--accent);
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(18px);
+            background: rgba(244, 247, 251, 0.88);
+            border-bottom: 1px solid rgba(215, 224, 234, 0.8);
+        }
+
+        .nav,
+        .container,
+        .footer-inner {
+            width: min(1040px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 68px;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text);
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 0;
+        }
+
+        .brand img {
+            width: 38px;
+            height: 38px;
+            border-radius: 9px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .hero {
+            padding: 72px 0 54px;
+        }
+
+        .eyebrow {
+            margin: 0 0 14px;
+            color: var(--accent-dark);
+            font-weight: 700;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.3rem, 5vw, 4rem);
+            line-height: 1.12;
+            letter-spacing: 0;
+        }
+
+        .lead {
+            max-width: 760px;
+            margin: 20px 0 0;
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        .section {
+            padding: 58px 0;
+            border-top: 1px solid rgba(215, 224, 234, 0.72);
+        }
+
+        .section:nth-child(even) {
+            background: var(--surface);
+        }
+
+        .section-heading {
+            margin-bottom: 24px;
+        }
+
+        .section-heading h2 {
+            margin: 0;
+            font-size: clamp(1.6rem, 3vw, 2.35rem);
+            line-height: 1.25;
+            letter-spacing: 0;
+        }
+
+        .section-heading p {
+            margin: 10px 0 0;
+            color: var(--muted);
+        }
+
+        .summary-grid,
+        .policy-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .summary-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .policy-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .card,
+        .notice {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 22px;
+        }
+
+        .section:nth-child(even) .card,
+        .section:nth-child(even) .notice {
+            background: var(--surface-soft);
+        }
+
+        .card h3,
+        .notice h3 {
+            margin: 0 0 12px;
+            font-size: 1.16rem;
+            letter-spacing: 0;
+        }
+
+        .card p,
+        .notice p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .card ul,
+        .notice ul {
+            margin: 10px 0 0;
+            padding-left: 1.2em;
+            color: var(--muted);
+        }
+
+        .card li + li,
+        .notice li + li {
+            margin-top: 6px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            margin-top: 16px;
+            padding: 0 18px;
+            border-radius: 8px;
+            border: 1px solid var(--accent);
+            background: var(--accent);
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .site-footer {
+            padding: 30px 0;
+            color: var(--muted);
+            border-top: 1px solid rgba(215, 224, 234, 0.9);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        @media (max-width: 760px) {
+            .nav {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .footer-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .summary-grid,
+            .policy-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero,
+            .section {
+                padding: 46px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav" aria-label="メインナビゲーション">
+            <a class="brand" href="index.html">
+                <img src="assets/icons/MihirakiPDFViewer-AppIcon.png" alt="" width="38" height="38">
+                <span>MihirakiPDFViewer</span>
+            </a>
+            <div class="nav-links" aria-label="ページ内リンク">
+                <a href="#summary">概要</a>
+                <a href="#policy">取り扱う情報</a>
+                <a href="#contact">お問い合わせ</a>
+                <a href="support.html">サポート</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <p class="eyebrow">Privacy Policy</p>
+                <h1>プライバシーポリシー</h1>
+                <p class="lead">
+                    MihirakiPDFViewerは、PDFを端末内で快適に閲覧するためのアプリです。
+                    このページでは、アプリが扱う情報と、その取り扱い方針を説明します。
+                </p>
+            </div>
+        </section>
+
+        <section id="summary" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>概要</h2>
+                    <p>アプリの基本的なプライバシー方針です。</p>
+                </div>
+                <div class="summary-grid">
+                    <article class="card">
+                        <h3>PDFの内容は送信しません</h3>
+                        <p>
+                            選択したPDFファイルの表示、検索、ページ判定などの処理は、
+                            原則として端末内で行われます。
+                        </p>
+                    </article>
+                    <article class="card">
+                        <h3>広告・解析SDKは使用しません</h3>
+                        <p>
+                            本アプリは、広告配信や行動解析を目的とした第三者SDKを
+                            組み込んでいません。
+                        </p>
+                    </article>
+                    <article class="card">
+                        <h3>購入処理はAppleが扱います</h3>
+                        <p>
+                            アプリ内購入はAppleのStoreKitを通じて処理されます。
+                            決済情報を本アプリが直接取得することはありません。
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="policy" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>取り扱う情報</h2>
+                    <p>機能ごとに、扱う可能性がある情報を整理しています。</p>
+                </div>
+                <div class="policy-grid">
+                    <article class="card">
+                        <h3>PDFファイル</h3>
+                        <p>
+                            ユーザーがファイルピッカーで選択したPDFを読み込みます。
+                            PDFの本文、メタデータ、ページ情報は閲覧機能のために使用します。
+                        </p>
+                        <ul>
+                            <li>PDFファイルを外部サーバーへアップロードしません。</li>
+                            <li>iCloud Drive上のPDFは、Appleの仕組みに従って端末へ読み込まれます。</li>
+                            <li>パスワード付きPDFのパスワードは、解除処理のために使用します。</li>
+                        </ul>
+                    </article>
+                    <article class="card">
+                        <h3>アプリ設定</h3>
+                        <p>
+                            表示設定、表紙設定、見開き表示、アプリアイコンなどの設定を
+                            端末内に保存する場合があります。
+                        </p>
+                        <ul>
+                            <li>設定はアプリの動作を復元するために使用します。</li>
+                            <li>設定情報を開発者のサーバーへ送信しません。</li>
+                        </ul>
+                    </article>
+                    <article class="card">
+                        <h3>検索語句</h3>
+                        <p>
+                            PDF内検索で入力された語句は、開いているPDF内の検索に使用します。
+                            検索語句を外部サービスへ送信しません。
+                        </p>
+                    </article>
+                    <article class="card">
+                        <h3>アプリ内購入</h3>
+                        <p>
+                            応援機能の購入状況は、購入後の表示やアプリアイコン変更のために
+                            使用されることがあります。
+                        </p>
+                        <ul>
+                            <li>決済情報はAppleが管理します。</li>
+                            <li>開発者がクレジットカード番号などを取得することはありません。</li>
+                        </ul>
+                    </article>
+                    <article class="card">
+                        <h3>お問い合わせ</h3>
+                        <p>
+                            GitHub Issuesやメールでお問い合わせいただいた場合、返信や調査に
+                            必要な範囲で、ユーザーが送信した情報を確認します。
+                        </p>
+                        <ul>
+                            <li>PDF本文や個人情報は、必要がない限り送信しないでください。</li>
+                            <li>不具合報告には、端末名、OSバージョン、アプリバージョン、再現手順を含めると調査しやすくなります。</li>
+                        </ul>
+                    </article>
+                    <article class="card">
+                        <h3>第三者提供</h3>
+                        <p>
+                            法令に基づく場合を除き、取得した情報を第三者へ提供しません。
+                            アプリ内購入やiCloud Driveなど、Appleが提供する機能については
+                            Appleのプライバシーポリシーも適用されます。
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>安全管理</h2>
+                    <p>ユーザーのPDFと設定を、必要な範囲で適切に扱います。</p>
+                </div>
+                <article class="notice">
+                    <h3>ユーザー自身で管理する情報について</h3>
+                    <p>
+                        PDFファイルやパスワードは、ユーザーの端末、iCloud Drive、
+                        またはユーザーが利用する保存先で管理されます。
+                        機密性の高いPDFを扱う場合は、端末のパスコード、生体認証、
+                        iCloudアカウントの保護設定を有効にしてください。
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>ポリシーの変更</h2>
+                    <p>必要に応じて、このプライバシーポリシーを更新することがあります。</p>
+                </div>
+                <article class="notice">
+                    <h3>変更の通知</h3>
+                    <p>
+                        重要な変更がある場合は、このページまたはアプリ内でお知らせします。
+                        最新の内容は常にこのページで確認できます。
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>お問い合わせ</h2>
+                    <p>
+                        プライバシーに関する質問や削除依頼がある場合は、
+                        サポート窓口からご連絡ください。
+                    </p>
+                </div>
+                <article class="notice">
+                    <h3>連絡先</h3>
+                    <p>
+                        GitHub Issuesまたはメールでお問い合わせください。
+                        公開される場所へ投稿する場合は、個人情報やPDF本文を含めないでください。
+                    </p>
+                    <a class="button" href="support.html#contact">サポートページを開く</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <span>&copy; 2026 Takuma Yamada. All rights reserved.</span>
+            <div class="footer-links" aria-label="フッターリンク">
+                <a href="index.html">トップ</a>
+                <a href="support.html">サポート</a>
+                <a href="privacy.html">プライバシーポリシー</a>
+                <a href="README.md">README</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
