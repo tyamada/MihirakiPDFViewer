@@ -20,10 +20,20 @@ import Combine
 @MainActor
 public class PDFViewerViewModel: ObservableObject {
     @Published public var document: PDFDocumentWrapper?
-    @Published public var settings: PDFViewerSettings
+    @Published public var settings: PDFViewerSettings {
+        didSet {
+            if settings.isHighQualityRenderingEnabled != oldValue.isHighQualityRenderingEnabled {
+                preferences?.set(settings.isHighQualityRenderingEnabled, forKey: Self.highQualityPreferenceKey)
+            }
+            if settings.isSharpnessEnabled != oldValue.isSharpnessEnabled {
+                preferences?.set(settings.isSharpnessEnabled, forKey: Self.sharpnessPreferenceKey)
+            }
+            saveReadingSession()
+        }
+    }
     @Published public var errorMessage: String?
-    @Published public var currentPageIndex: Int = 0
-    @Published public var searchQuery: String = ""
+    @Published public var currentPageIndex: Int = 0 { didSet { saveReadingSession() } }
+    @Published public var searchQuery: String = "" { didSet { saveReadingSession() } }
     @Published public var searchMatches: [PDFSearchMatch] = []
 
     public struct PDFSearchMatch: Identifiable {
@@ -42,11 +52,40 @@ public class PDFViewerViewModel: ObservableObject {
     private var securityScopedURL: URL?
     private var isAccessingResource = false
 
-    public init(settings: PDFViewerSettings? = nil) {
+    // The bookmark preserves access to PDFs chosen from document providers.
+    // Passwords are deliberately excluded; protected PDFs prompt again.
+    private struct ReadingSession: Codable {
+        var bookmark: Data
+        var pageIndex: Int
+        var searchQuery: String
+        var isSpread: Bool
+        var isCover: Bool
+        var isRightToLeft: Bool
+    }
+
+    public static var defaultSessionURL: URL {
+        URL.applicationSupportDirectory.appendingPathComponent("ReadingSession.json")
+    }
+
+    private let sessionURL: URL?
+    // Rendering preferences belong to the app, independently of the open PDF.
+    private let preferences: UserDefaults?
+    private static let highQualityPreferenceKey = "isHighQualityRenderingEnabled"
+    private static let sharpnessPreferenceKey = "isSharpnessEnabled"
+    private var documentBookmark: Data?
+    private var pendingSession: (url: URL, state: ReadingSession)?
+    private var isLoadingDocument = false
+
+    public init(settings: PDFViewerSettings? = nil, sessionURL: URL? = nil, preferences: UserDefaults? = nil) {
+        self.sessionURL = sessionURL
+        self.preferences = preferences
         if let settings = settings {
             self.settings = settings
         } else {
-            self.settings = PDFViewerSettings()
+            self.settings = PDFViewerSettings(
+                isHighQualityRenderingEnabled: preferences?.bool(forKey: Self.highQualityPreferenceKey) ?? false,
+                isSharpnessEnabled: preferences?.bool(forKey: Self.sharpnessPreferenceKey) ?? false
+            )
         }
     }
 
@@ -143,6 +182,10 @@ public class PDFViewerViewModel: ObservableObject {
     /// PDFドキュメントをロードする
     @discardableResult
     public func loadDocument(from url: URL, password: String? = nil) -> LoadDocumentResult {
+        isLoadingDocument = true
+        defer { isLoadingDocument = false }
+        if pendingSession?.url != url { pendingSession = nil }
+        documentBookmark = nil
         // 以前のアクセスを停止
         stopCurrentAccess()
         
@@ -160,6 +203,27 @@ public class PDFViewerViewModel: ObservableObject {
             self.settings.isSpreadViewEnabled = loadedDocument.isSpreadViewEnabled
             self.settings.isCoverPageEnabled = loadedDocument.isCoverPageEnabled
             self.currentPageIndex = 0
+            self.searchQuery = ""
+            self.searchMatches = []
+            if let restored = pendingSession?.state {
+                settings.isSpreadViewEnabled = restored.isSpread
+                settings.isCoverPageEnabled = restored.isCover
+                settings.layoutDirection = restored.isRightToLeft ? .rightToLeft : .leftToRight
+                currentPageIndex = min(max(0, restored.pageIndex), max(0, pageGroups.count - 1))
+                searchQuery = restored.searchQuery
+                performSearch(query: searchQuery)
+            }
+            pendingSession = nil
+            if sessionURL != nil {
+                do {
+                    documentBookmark = try url.bookmarkData(options: [], includingResourceValuesForKeys: nil, relativeTo: nil)
+                    isLoadingDocument = false
+                    saveReadingSession()
+                } catch {
+                    clearReadingSession()
+                    errorMessage = error.localizedDescription
+                }
+            }
             return .loaded
         } catch PDFDocumentWrapperError.passwordRequired {
             self.document = nil
@@ -170,12 +234,52 @@ public class PDFViewerViewModel: ObservableObject {
             self.errorMessage = nil
             return .invalidPassword
         } catch {
+            clearReadingSession()
             stopCurrentAccess()
             self.document = nil
             let message = error.localizedDescription
             self.errorMessage = message
             return .failed(message)
         }
+    }
+
+    /// Resolve the last PDF before opening it through the normal password flow.
+    public func documentURLForRestoration() -> URL? {
+        guard let sessionURL, FileManager.default.fileExists(atPath: sessionURL.path) else { return nil }
+        do {
+            let state = try JSONDecoder().decode(ReadingSession.self, from: Data(contentsOf: sessionURL))
+            var stale = false
+            let url = try URL(resolvingBookmarkData: state.bookmark, options: [.withoutUI], relativeTo: nil, bookmarkDataIsStale: &stale)
+            pendingSession = (url, state)
+            return url
+        } catch {
+            clearReadingSession()
+            errorMessage = error.localizedDescription
+            return nil
+        }
+    }
+
+    public func saveReadingSession() {
+        guard !isLoadingDocument, document != nil, let bookmark = documentBookmark, let sessionURL else { return }
+        let state = ReadingSession(
+            bookmark: bookmark, pageIndex: currentPageIndex, searchQuery: searchQuery,
+            isSpread: settings.isSpreadViewEnabled, isCover: settings.isCoverPageEnabled,
+            isRightToLeft: settings.layoutDirection == .rightToLeft
+        )
+        do {
+            try FileManager.default.createDirectory(at: sessionURL.deletingLastPathComponent(), withIntermediateDirectories: true)
+            try JSONEncoder().encode(state).write(to: sessionURL, options: .atomic)
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+    }
+
+    public func clearReadingSession() {
+        pendingSession = nil
+        documentBookmark = nil
+        guard let sessionURL, FileManager.default.fileExists(atPath: sessionURL.path) else { return }
+        do { try FileManager.default.removeItem(at: sessionURL) }
+        catch { errorMessage = error.localizedDescription }
     }
 
     private func stopCurrentAccess() {
@@ -187,6 +291,7 @@ public class PDFViewerViewModel: ObservableObject {
     }
 
     public func cancelPendingDocumentLoad() {
+        clearReadingSession()
         stopCurrentAccess()
         self.document = nil
         self.currentPageIndex = 0
@@ -194,6 +299,7 @@ public class PDFViewerViewModel: ObservableObject {
 
     /// 現在のドキュメントを閉じる
     public func closeDocument() {
+        clearReadingSession()
         stopCurrentAccess()
         self.document = nil
         self.currentPageIndex = 0

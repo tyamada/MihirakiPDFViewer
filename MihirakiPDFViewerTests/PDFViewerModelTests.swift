@@ -121,6 +121,113 @@ final class TipManagerTests: XCTestCase {
 
 @MainActor
 final class PDFViewerViewModelTests: XCTestCase {
+    func testRenderingPreferencesPersistWithoutPDFAndAfterClosingPDF() throws {
+        let suiteName = "RenderingPreferences-\(UUID().uuidString)"
+        let preferences = try XCTUnwrap(UserDefaults(suiteName: suiteName))
+        defer { preferences.removePersistentDomain(forName: suiteName) }
+        let model = PDFViewerViewModel(preferences: preferences)
+        XCTAssertFalse(model.settings.isHighQualityRenderingEnabled)
+        XCTAssertFalse(model.settings.isSharpnessEnabled)
+        model.settings.isHighQualityRenderingEnabled = true
+        model.settings.isSharpnessEnabled = true
+
+        let restored = PDFViewerViewModel(preferences: preferences)
+        XCTAssertTrue(restored.settings.isHighQualityRenderingEnabled)
+        XCTAssertTrue(restored.settings.isSharpnessEnabled)
+        XCTAssertEqual(restored.loadDocument(from: try makeTemporaryPDF(pageCount: 3)), .loaded)
+        restored.closeDocument()
+        let afterClose = PDFViewerViewModel(preferences: preferences)
+        XCTAssertTrue(afterClose.settings.isHighQualityRenderingEnabled)
+        XCTAssertTrue(afterClose.settings.isSharpnessEnabled)
+
+        afterClose.settings.isHighQualityRenderingEnabled = false
+        let afterDisablingOne = PDFViewerViewModel(preferences: preferences)
+        XCTAssertFalse(afterDisablingOne.settings.isHighQualityRenderingEnabled)
+        XCTAssertTrue(afterDisablingOne.settings.isSharpnessEnabled)
+        afterDisablingOne.settings.isSharpnessEnabled = false
+        XCTAssertFalse(PDFViewerViewModel(preferences: preferences).settings.isSharpnessEnabled)
+    }
+
+    func testResetApplicationSettingsPersistsRenderingDefaults() throws {
+        let suiteName = "RenderingPreferences-\(UUID().uuidString)"
+        let preferences = try XCTUnwrap(UserDefaults(suiteName: suiteName))
+        defer { preferences.removePersistentDomain(forName: suiteName) }
+        let model = PDFViewerViewModel(preferences: preferences)
+        model.settings.isHighQualityRenderingEnabled = true
+        model.settings.isSharpnessEnabled = true
+        model.resetApplicationSettings()
+        let restored = PDFViewerViewModel(preferences: preferences)
+        XCTAssertFalse(restored.settings.isHighQualityRenderingEnabled)
+        XCTAssertFalse(restored.settings.isSharpnessEnabled)
+    }
+
+    func testReadingSessionRestoresPDFPageLayoutAndQuery() throws {
+        let sessionURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+        defer { try? FileManager.default.removeItem(at: sessionURL) }
+        let pdfURL = try makeTemporaryPDF(pageCount: 8)
+        let original = PDFViewerViewModel(sessionURL: sessionURL)
+        XCTAssertEqual(original.loadDocument(from: pdfURL), .loaded)
+        original.updateSettings(isSpreadViewEnabled: true, isCoverPageEnabled: true, layoutDirection: .rightToLeft)
+        original.currentPageIndex = 2
+        original.searchQuery = "Page"
+
+        let restored = PDFViewerViewModel(sessionURL: sessionURL)
+        let url = try XCTUnwrap(restored.documentURLForRestoration())
+        XCTAssertEqual(restored.loadDocument(from: url), .loaded)
+        XCTAssertEqual(restored.document?.totalPageCount, 8)
+        XCTAssertEqual(restored.currentPageIndex, 2)
+        XCTAssertTrue(restored.settings.isSpreadViewEnabled)
+        XCTAssertTrue(restored.settings.isCoverPageEnabled)
+        XCTAssertEqual(restored.settings.layoutDirection, .rightToLeft)
+        XCTAssertEqual(restored.searchQuery, "Page")
+    }
+
+    func testClosingDocumentClearsReadingSession() throws {
+        let sessionURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+        defer { try? FileManager.default.removeItem(at: sessionURL) }
+        let model = PDFViewerViewModel(sessionURL: sessionURL)
+        XCTAssertEqual(model.loadDocument(from: try makeTemporaryPDF(pageCount: 3)), .loaded)
+        model.currentPageIndex = 1
+        model.closeDocument()
+        XCTAssertNil(PDFViewerViewModel(sessionURL: sessionURL).documentURLForRestoration())
+    }
+
+    func testProtectedReadingSessionRestoresAfterPasswordRetry() throws {
+        let sessionURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+        defer { try? FileManager.default.removeItem(at: sessionURL) }
+        let pdfURL = try makePasswordProtectedPDF(password: "1234", pageCount: 4)
+        let model = PDFViewerViewModel(sessionURL: sessionURL)
+        XCTAssertEqual(model.loadDocument(from: pdfURL, password: "1234"), .loaded)
+        model.currentPageIndex = 2
+        model.searchQuery = "resume"
+
+        let restored = PDFViewerViewModel(sessionURL: sessionURL)
+        let url = try XCTUnwrap(restored.documentURLForRestoration())
+        XCTAssertEqual(restored.loadDocument(from: url), .passwordRequired)
+        XCTAssertEqual(restored.loadDocument(from: url, password: "0000"), .invalidPassword)
+        XCTAssertEqual(restored.loadDocument(from: url, password: "1234"), .loaded)
+        XCTAssertEqual(restored.searchQuery, "resume")
+        XCTAssertEqual(restored.currentPageIndex, 2)
+    }
+
+    func testDeletedPDFDoesNotLeaveRepeatedRestorationAttempt() throws {
+        let sessionURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+        defer { try? FileManager.default.removeItem(at: sessionURL) }
+        let pdfURL = try makeTemporaryPDF(pageCount: 3)
+        let model = PDFViewerViewModel(sessionURL: sessionURL)
+        XCTAssertEqual(model.loadDocument(from: pdfURL), .loaded)
+        try FileManager.default.removeItem(at: pdfURL)
+
+        let restored = PDFViewerViewModel(sessionURL: sessionURL)
+        if let url = restored.documentURLForRestoration() {
+            guard case .failed = restored.loadDocument(from: url) else {
+                return XCTFail("A missing PDF must not restore")
+            }
+        }
+        XCTAssertNil(restored.document)
+        XCTAssertFalse(FileManager.default.fileExists(atPath: sessionURL.path))
+    }
+
     func testPageGroupsAreEmptyWithoutDocument() {
         let viewModel = PDFViewerViewModel()
 
@@ -257,6 +364,38 @@ final class PDFViewerViewModelTests: XCTestCase {
         XCTAssertTrue(viewModel.searchMatches.isEmpty)
     }
 
+    func testSearchLoadTestPDFsFindExpectedHitCounts() throws {
+        let cases: [(fileName: String, terms: [(query: String, count: Int)])] = [
+            (
+                "search_test_600_hits",
+                [
+                    ("負荷テスト", 600),
+                    ("LOADTEST600", 600),
+                    ("性能検証", 300),
+                    ("応答速度", 100)
+                ]
+            ),
+            (
+                "search_test_600_hits_en",
+                [
+                    ("Load Testing", 600),
+                    ("LOADTEST600", 600),
+                    ("Performance Check", 300),
+                    ("Response Time", 100)
+                ]
+            )
+        ]
+
+        for testCase in cases {
+            let document = try XCTUnwrap(PDFDocument(url: searchLoadTestURL(fileName: testCase.fileName)))
+
+            for term in testCase.terms {
+                let selections = document.findString(term.query, withOptions: .caseInsensitive)
+                XCTAssertEqual(selections.count, term.count, "\(term.query) in \(testCase.fileName).pdf")
+            }
+        }
+    }
+
     func testSinglePageInSpreadScalesUsingVirtualDoubleWidth() {
         let targetSize = SpreadLayoutView.singlePageSizeInSpread(
             pageSize: CGSize(width: 200, height: 300),
@@ -291,6 +430,19 @@ private func bundledPDFURL(named name: String) throws -> URL {
     return try XCTUnwrap(url, "\(name).pdf is not available in the test bundle.")
 }
 
+private func searchLoadTestURL(fileName: String) -> URL {
+    projectRootURL()
+        .appendingPathComponent("Test")
+        .appendingPathComponent(fileName)
+        .appendingPathExtension("pdf")
+}
+
+private func projectRootURL() -> URL {
+    URL(fileURLWithPath: #filePath)
+        .deletingLastPathComponent()
+        .deletingLastPathComponent()
+}
+
 @MainActor
 private func pageNumbers(in viewModel: PDFViewerViewModel) -> [[Int]] {
     viewModel.pageGroups.map { group in
@@ -298,8 +450,8 @@ private func pageNumbers(in viewModel: PDFViewerViewModel) -> [[Int]] {
     }
 }
 
-private func makePasswordProtectedPDF(password: String) throws -> URL {
-    let sourceURL = try makeTemporaryPDF(pageCount: 1)
+private func makePasswordProtectedPDF(password: String, pageCount: Int = 1) throws -> URL {
+    let sourceURL = try makeTemporaryPDF(pageCount: pageCount)
     let encryptedURL = FileManager.default.temporaryDirectory
         .appendingPathComponent(UUID().uuidString)
         .appendingPathExtension("pdf")

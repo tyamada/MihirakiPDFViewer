@@ -18,7 +18,11 @@ import PDFKit
 
 /// アプリケーションのメインビュー
 public struct MainView: View {
-    @StateObject private var viewModel = PDFViewerViewModel()
+    @StateObject private var viewModel = PDFViewerViewModel(
+        sessionURL: PDFViewerViewModel.defaultSessionURL, preferences: .standard
+    )
+    @Environment(\.scenePhase) private var scenePhase
+    @State private var didInitializeDocument = false
 
     @StateObject private var tipManager = TipManager.shared
     @State private var isShowingFilePicker = false
@@ -62,6 +66,7 @@ public struct MainView: View {
                     isPresented: $isShowingPDFPasswordPrompt
                 ) {
                     SecureField(String(localized: "pdf_password_placeholder", defaultValue: "Password"), text: $pdfPassword)
+                        .accessibilityIdentifier("pdfPasswordField")
                     Button(String(localized: "cancel"), role: .cancel) {
                         cancelPDFPasswordPrompt()
                     }
@@ -69,8 +74,10 @@ public struct MainView: View {
                         unlockPendingPDF()
                     }
                     .disabled(pdfPassword.isEmpty)
+                    .accessibilityIdentifier("pdfPasswordUnlockButton")
                 } message: {
                     Text(pdfPasswordMessage ?? String(localized: "pdf_password_dialog_message", defaultValue: "Enter the user password for this PDF."))
+                        .accessibilityIdentifier("pdfPasswordMessage")
                 }
                 .sheet(isPresented: $isShowingSettings) {
                     settingsSheet
@@ -114,8 +121,11 @@ public struct MainView: View {
                     }
                 }
                 .onAppear {
-                    loadSamplePDFForUITestsIfNeeded()
+                    initializeDocumentIfNeeded()
                 }
+        }
+        .onChange(of: scenePhase) { _, phase in
+            if phase != .active { viewModel.saveReadingSession() }
         }
         .fileImporter(
             isPresented: $isShowingFilePicker,
@@ -123,6 +133,9 @@ public struct MainView: View {
             allowsMultipleSelection: false
         ) { result in
             handleFileSelection(result: result)
+        }
+        .onOpenURL { url in
+            handleIncomingPDFURL(url)
         }
     }
 
@@ -148,14 +161,132 @@ public struct MainView: View {
         }
     }
 
-    private func loadSamplePDFForUITestsIfNeeded() {
-        guard ProcessInfo.processInfo.arguments.contains("-uiTestLoadSamplePDF"),
-              viewModel.document == nil,
-              let url = makeSamplePDFForUITests() else {
+    private func handleIncomingPDFURL(_ url: URL) {
+        guard url.pathExtension.localizedCaseInsensitiveCompare("pdf") == .orderedSame else {
+            viewModel.errorMessage = String(localized: "pdf_load_failed", defaultValue: "Could not load the PDF file.")
             return
         }
 
-        openPDF(at: url)
+        do {
+            let copiedURL = try copyIncomingPDFToDocuments(from: url)
+            openPDF(at: copiedURL)
+        } catch {
+            viewModel.errorMessage = String(localized: "pdf_file_selection_failed", defaultValue: "Could not select the PDF file.")
+        }
+    }
+
+    private func copyIncomingPDFToDocuments(from sourceURL: URL) throws -> URL {
+        let isAccessingResource = sourceURL.startAccessingSecurityScopedResource()
+        defer {
+            if isAccessingResource {
+                sourceURL.stopAccessingSecurityScopedResource()
+            }
+        }
+
+        let importedPDFDirectory = try importedPDFDirectoryURL()
+        let destinationURL = uniqueImportedPDFURL(
+            for: sourceURL.lastPathComponent.isEmpty ? "Document.pdf" : sourceURL.lastPathComponent,
+            in: importedPDFDirectory
+        )
+
+        var coordinationError: NSError?
+        var copyError: Error?
+        let coordinator = NSFileCoordinator(filePresenter: nil)
+        coordinator.coordinate(readingItemAt: sourceURL, options: [], error: &coordinationError) { readableURL in
+            do {
+                try FileManager.default.copyItem(at: readableURL, to: destinationURL)
+            } catch {
+                copyError = error
+            }
+        }
+
+        if let coordinationError {
+            throw coordinationError
+        }
+
+        if let copyError {
+            throw copyError
+        }
+
+        return destinationURL
+    }
+
+    private func importedPDFDirectoryURL() throws -> URL {
+        let documentsDirectory = try FileManager.default.url(
+            for: .documentDirectory,
+            in: .userDomainMask,
+            appropriateFor: nil,
+            create: true
+        )
+        let importedPDFDirectory = documentsDirectory.appendingPathComponent("ImportedPDFs", isDirectory: true)
+        try FileManager.default.createDirectory(at: importedPDFDirectory, withIntermediateDirectories: true)
+        return importedPDFDirectory
+    }
+
+    private func uniqueImportedPDFURL(for fileName: String, in directory: URL) -> URL {
+        let fileExtension = (fileName as NSString).pathExtension
+        let baseName = (fileName as NSString).deletingPathExtension
+        let sanitizedBaseName = baseName.isEmpty ? "Document" : baseName
+        let sanitizedExtension = fileExtension.isEmpty ? "pdf" : fileExtension
+        var candidateURL = directory
+            .appendingPathComponent(sanitizedBaseName)
+            .appendingPathExtension(sanitizedExtension)
+        var copyIndex = 2
+
+        while FileManager.default.fileExists(atPath: candidateURL.path) {
+            candidateURL = directory
+                .appendingPathComponent("\(sanitizedBaseName)-\(copyIndex)")
+                .appendingPathExtension(sanitizedExtension)
+            copyIndex += 1
+        }
+
+        return candidateURL
+    }
+
+    private func initializeDocumentIfNeeded() {
+        guard !didInitializeDocument else { return }
+        didInitializeDocument = true
+        if ProcessInfo.processInfo.arguments.contains("-uiTestResetRenderingPreferences") {
+            viewModel.resetApplicationSettings()
+        }
+        if ProcessInfo.processInfo.arguments.contains("-uiTestResetReadingSession") {
+            viewModel.clearReadingSession()
+        }
+        guard viewModel.document == nil, pendingPasswordPDFURL == nil else { return }
+
+        if let url = uiTestIncomingPDFURLFromLaunchArguments() {
+            handleIncomingPDFURL(url)
+        } else if let url = uiTestPDFURLFromLaunchArguments() {
+            openPDF(at: url)
+        } else if ProcessInfo.processInfo.arguments.contains("-uiTestLoadSamplePDF"),
+                  let url = makeSamplePDFForUITests() {
+            openPDF(at: url)
+        } else if let url = viewModel.documentURLForRestoration() {
+            openPDF(at: url)
+        } else if !ProcessInfo.processInfo.arguments.contains("-uiTestDisableAutoFilePicker"),
+                  viewModel.errorMessage == nil {
+            isShowingFilePicker = true
+        }
+    }
+
+    private func uiTestPDFURLFromLaunchArguments() -> URL? {
+        let arguments = ProcessInfo.processInfo.arguments
+        guard let pathArgumentIndex = arguments.firstIndex(of: "-uiTestPDFPath"),
+              arguments.indices.contains(pathArgumentIndex + 1) else {
+            return nil
+        }
+
+        return URL(fileURLWithPath: arguments[pathArgumentIndex + 1])
+    }
+
+    private func uiTestIncomingPDFURLFromLaunchArguments() -> URL? {
+        let arguments = ProcessInfo.processInfo.arguments
+        guard let pathArgumentIndex = arguments.firstIndex(of: "-uiTestIncomingPDFPath"),
+              arguments.indices.contains(pathArgumentIndex + 1) else {
+            return nil
+        }
+
+        return URL(fileURLWithPath: arguments[pathArgumentIndex + 1])
     }
 
     private func openPDF(at url: URL, password: String? = nil) {
@@ -342,11 +473,6 @@ public struct MainView: View {
         .accessibilityIdentifier("emptyStateView")
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
-        .onAppear {
-            if !ProcessInfo.processInfo.arguments.contains("-uiTestDisableAutoFilePicker") {
-                isShowingFilePicker = true
-            }
-        }
         .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
@@ -455,7 +581,7 @@ struct PDFContainerView: View {
             viewModel.performSearch(query: query)
         }
         .onChange(of: viewModel.document?.id) { _, _ in
-            resetZoom()
+            resetZoomScale()
         }
         .onChange(of: viewModel.pageGroups.count) { _, newCount in
             if viewModel.currentPageIndex >= newCount && newCount > 0 {
@@ -556,11 +682,6 @@ struct PDFContainerView: View {
                     lastContentOffset = contentOffset
                 }
             }
-    }
-
-    private func resetZoom() {
-        viewModel.currentPageIndex = 0
-        resetZoomScale()
     }
 
     private func resetZoomScale() {
