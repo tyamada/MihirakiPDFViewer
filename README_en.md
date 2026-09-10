@@ -1,5 +1,7 @@
 # MihirakiPDFViewer
 
+English | [日本語](README.md)
+
 A simple and intuitive PDF viewer suitable for displaying right-bound books 
 (such as Japanese books).
 

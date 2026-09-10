@@ -1,5 +1,7 @@
 # MihirakiPDFViewer
 
+[English](README_en.md) | 日本語
+
 右綴じの本（日本語の書籍など）の表示に適した、シンプルで直感的に
 使えるPDFビューアです。
 
