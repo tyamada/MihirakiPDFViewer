@@ -29,6 +29,29 @@ within the PDF.
 6. **Layout**: Use the layout options in the menu to switch between 
 single-page and two-page views.
 
+## Pricing and Supporting the Developer
+
+MihirakiPDFViewer is free to use. Core features such as PDF viewing,
+zooming, search, single-page view, and two-page view are available without
+feature restrictions, regardless of whether you make a purchase.
+
+In the App Store version, optional support tips are available as in-app
+purchases through StoreKit. These purchases are voluntary and are not used
+to remove ads or unlock restricted viewer features.
+
+The following support tips are available:
+
+- `tip_100`: Tip 100 yen
+- `tip_500`: Tip 500 yen
+- `tip_1000`: Tip 1000 yen
+
+After purchasing a support tip, you can choose a commemorative alternate
+app icon from the settings screen according to the purchased amount.
+
+- `tip_100`: Bronze icon
+- `tip_500`: Silver icon
+- `tip_1000`: Gold icon
+
 ## Options
 
 ### Cover Page Settings
@@ -108,7 +131,8 @@ and add it again by dragging and dropping it.
 
 ## References
 
-1. [Demystifying PDF Page Display Settings](https://qiita.com/TETSURO1999/items/e7a69026bdf8b5e8c631)
+1. [Unraveling the Mystery of PDF Page Display Settings](https://qiita.com/TETSURO1999/items/e7a69026bdf8b5e8c631)
+2. [Adobe Systems, PDF Reference Sixth Edition (Version 1.7), June 2006](https://opensource.adobe.com/dc-acrobat-sdk-docs/pdfstandards/pdfreference1.7old.pdf)
 
 ## License
 

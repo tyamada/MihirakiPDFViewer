@@ -301,6 +301,37 @@
             color: var(--text);
         }
 
+        .pricing-panel {
+            max-width: 760px;
+            padding: 28px;
+            border: 1px solid var(--line);
+            border-left: 5px solid var(--accent);
+            border-radius: 8px;
+            background: var(--surface);
+        }
+
+        .section:nth-child(even) .pricing-panel {
+            background: var(--surface-soft);
+        }
+
+        .pricing-panel p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .pricing-panel p + p {
+            margin-top: 12px;
+        }
+
+        .pricing-panel strong {
+            color: var(--text);
+            font-size: 1.16rem;
+        }
+
+        .pricing-panel small {
+            color: var(--muted);
+        }
+
         .site-footer {
             padding: 34px 0;
             color: var(--muted);
@@ -372,6 +403,7 @@
             <div class="nav-links">
                 <a href="#features">機能</a>
                 <a href="#screenshots">スクリーンショット</a>
+                <a href="#pricing">価格</a>
                 <a href="#download">入手</a>
             </div>
         </nav>
@@ -501,6 +533,30 @@
                         <h3>PDF内を調べる</h3>
                         <p>検索とズームを使って、必要な箇所をすばやく確認できます。</p>
                     </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="pricing">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>アプリの価格</h2>
+                    <p>閲覧に必要な機能は、購入の有無にかかわらず利用できます。</p>
+                </div>
+                <div class="pricing-panel">
+                    <p><strong>基本無料</strong>（広告なし）</p>
+                    <p>
+                        MihirakiPDFViewerは無料でご利用いただけます。PDFの閲覧、
+                        見開き表示、右綴じ対応、検索といった主要機能は、
+                        購入の有無にかかわらず制限なくお使いいただけます。
+                    </p>
+                    <p>
+                        <small>
+                            本アプリには「開発者への応援（投げ銭）」として
+                            アプリ内購入が含まれています。応援してくださった方には、
+                            設定画面に特別な記念バッジが表示されます。
+                        </small>
+                    </p>
                 </div>
             </div>
         </section>

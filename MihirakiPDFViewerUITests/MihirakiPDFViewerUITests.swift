@@ -522,7 +522,7 @@ final class MihirakiPDFViewerUITests: XCTestCase {
             .deletingLastPathComponent()
 
         return projectRoot
-            .appendingPathComponent("Test")
+            .appendingPathComponent("testdata")
             .appendingPathComponent("load_test_1100_pages.pdf")
     }
 
@@ -531,7 +531,7 @@ final class MihirakiPDFViewerUITests: XCTestCase {
             .deletingLastPathComponent()
             .deletingLastPathComponent()
         let preferredURL = projectRoot
-            .appendingPathComponent("Test")
+            .appendingPathComponent("testdata")
             .appendingPathComponent(preferredFileName)
             .appendingPathExtension("pdf")
 
@@ -544,7 +544,7 @@ final class MihirakiPDFViewerUITests: XCTestCase {
         }
 
         return projectRoot
-            .appendingPathComponent("Test")
+            .appendingPathComponent("testdata")
             .appendingPathComponent(fallbackFileName)
             .appendingPathExtension("pdf")
     }
@@ -554,7 +554,7 @@ final class MihirakiPDFViewerUITests: XCTestCase {
             .deletingLastPathComponent()
             .deletingLastPathComponent()
         let requestedURL = projectRoot
-            .appendingPathComponent("Test")
+            .appendingPathComponent("testdata")
             .appendingPathComponent("TestLightNovel_password")
             .appendingPathExtension("pdf")
 
@@ -563,7 +563,7 @@ final class MihirakiPDFViewerUITests: XCTestCase {
         }
 
         let sourceURL = projectRoot
-            .appendingPathComponent("Test")
+            .appendingPathComponent("testdata")
             .appendingPathComponent("TestLightNovel")
             .appendingPathExtension("pdf")
         let sourceDocument = try XCTUnwrap(PDFDocument(url: sourceURL))

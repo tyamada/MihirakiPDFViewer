@@ -432,7 +432,7 @@ private func bundledPDFURL(named name: String) throws -> URL {
 
 private func searchLoadTestURL(fileName: String) -> URL {
     projectRootURL()
-        .appendingPathComponent("Test")
+        .appendingPathComponent("testdata")
         .appendingPathComponent(fileName)
         .appendingPathExtension("pdf")
 }
