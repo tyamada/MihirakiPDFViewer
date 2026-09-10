@@ -59,10 +59,10 @@ App Store配布版では、StoreKitを使ったアプリ内購入として開発
 
 ### 表紙設定
 
-- **Type A**（Adobe Acrobat Reader互換）
+- **標準モード**
   `PageLayout`が`TwoPageRight`または`TwoColumnRight`の場合は表紙あり、
   それ以外の場合は表紙なしとして扱います。
-- **Type B**
+- **互換性モード**
   `Direction`が`L2R`で、`PageLayout`が`TwoPageRight`または
   `TwoColumnRight`の場合は表紙ありとして扱います。
   `Direction`が`R2L`で、`PageLayout`が`TwoPageLeft`または
