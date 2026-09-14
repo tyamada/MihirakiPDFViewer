@@ -266,6 +266,17 @@
             font-weight: 800;
         }
 
+        .language-switcher {
+            min-height: 36px;
+            padding: 0 34px 0 12px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--surface);
+            color: var(--text);
+            font: inherit;
+            font-weight: 600;
+        }
+
         .button {
             display: inline-flex;
             align-items: center;
@@ -354,6 +365,16 @@
                 <a href="#troubleshooting">困ったときは</a>
                 <a href="#contact">お問い合わせ</a>
                 <a href="index.html">トップ</a>
+                <select class="language-switcher" aria-label="Language" onchange="if (this.value) window.location.href = this.value;">
+                    <option value="support_en.html">English</option>
+                    <option value="support_fr.html">French</option>
+                    <option value="support_de.html">German</option>
+                    <option value="support_pt.html">Portuguese</option>
+                    <option value="support_es.html">Spanish</option>
+                    <option value="support.html" selected>日本語</option>
+                    <option value="support_zh-Hans.html">简体中文</option>
+                    <option value="support_ko.html">한국어</option>
+                </select>
             </div>
         </nav>
     </header>
