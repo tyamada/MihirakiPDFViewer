@@ -292,54 +292,58 @@ struct HelpView: View {
 
     private struct HelpItem: Identifiable {
         let id: Int
-        let titleKey: String
-        let titleDefaultValue: String
-        let descriptionKey: String
-        let descriptionDefaultValue: String
+        let title: LocalizedStringResource
+        let description: LocalizedStringResource
     }
 
     private let helpItems: [HelpItem] = [
         HelpItem(
             id: 1,
-            titleKey: "help_open_pdf_title",
-            titleDefaultValue: "Open PDF",
-            descriptionKey: "help_open_pdf_description",
-            descriptionDefaultValue: "Use the file picker to select a PDF file from your device or iCloud Drive."
+            title: LocalizedStringResource("help_open_pdf_title", defaultValue: "Open PDF"),
+            description: LocalizedStringResource(
+                "help_open_pdf_description",
+                defaultValue: "Use the file picker to select a PDF file from your device or iCloud Drive."
+            )
         ),
         HelpItem(
             id: 2,
-            titleKey: "help_navigate_pages_title",
-            titleDefaultValue: "Navigate Pages",
-            descriptionKey: "help_navigate_pages_description",
-            descriptionDefaultValue: "Switch pages by swiping or using the slider."
+            title: LocalizedStringResource("help_navigate_pages_title", defaultValue: "Navigate Pages"),
+            description: LocalizedStringResource(
+                "help_navigate_pages_description",
+                defaultValue: "Switch pages by swiping or using the slider."
+            )
         ),
         HelpItem(
             id: 3,
-            titleKey: "help_menu_title",
-            titleDefaultValue: "Menu",
-            descriptionKey: "help_menu_description",
-            descriptionDefaultValue: "Tap the screen to toggle the visibility of the toolbar and slider."
+            title: LocalizedStringResource("help_menu_title", defaultValue: "Menu"),
+            description: LocalizedStringResource(
+                "help_menu_description",
+                defaultValue: "Tap the screen to toggle the visibility of the toolbar and slider."
+            )
         ),
         HelpItem(
             id: 4,
-            titleKey: "help_zoom_title",
-            titleDefaultValue: "Zoom",
-            descriptionKey: "help_zoom_description",
-            descriptionDefaultValue: "Pinch to zoom in or out. Long-press and drag to scroll while zoomed in."
+            title: LocalizedStringResource("help_zoom_title", defaultValue: "Zoom"),
+            description: LocalizedStringResource(
+                "help_zoom_description",
+                defaultValue: "Pinch to zoom in or out. Long-press and drag to scroll while zoomed in."
+            )
         ),
         HelpItem(
             id: 5,
-            titleKey: "help_search_title",
-            titleDefaultValue: "Search",
-            descriptionKey: "help_search_description",
-            descriptionDefaultValue: "Enter text into the search bar to find specific content within the PDF."
+            title: LocalizedStringResource("help_search_title", defaultValue: "Search"),
+            description: LocalizedStringResource(
+                "help_search_description",
+                defaultValue: "Enter text into the search bar to find specific content within the PDF."
+            )
         ),
         HelpItem(
             id: 6,
-            titleKey: "help_layout_title",
-            titleDefaultValue: "Layout",
-            descriptionKey: "help_layout_description",
-            descriptionDefaultValue: "Use the layout options in the menu to switch between single-page and two-page views."
+            title: LocalizedStringResource("help_layout_title", defaultValue: "Layout"),
+            description: LocalizedStringResource(
+                "help_layout_description",
+                defaultValue: "Use the layout options in the menu to switch between single-page and two-page views."
+            )
         )
     ]
 
@@ -351,18 +355,14 @@ struct HelpView: View {
         colorScheme == .dark ? .white : .black
     }
 
-    private func localizedHelpText(key: String, defaultValue: String) -> String {
-        NSLocalizedString(key, bundle: .main, value: defaultValue, comment: "")
-    }
-
     var body: some View {
         Form {
             VStack(alignment: .leading, spacing: 16) {
                 ForEach(helpItems, id: \.id) { item in
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("\(item.id). \(localizedHelpText(key: item.titleKey, defaultValue: item.titleDefaultValue))")
+                        Text("\(item.id). \(String(localized: item.title))")
                             .font(.headline)
-                        Text(localizedHelpText(key: item.descriptionKey, defaultValue: item.descriptionDefaultValue))
+                        Text(item.description)
                             .font(.body)
                     }
                     .foregroundColor(textColor)
