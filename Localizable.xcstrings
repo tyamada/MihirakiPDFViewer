@@ -141,10 +141,22 @@
             "value" : "Los iconos alternativos de la app no son compatibles en este entorno."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hindi sinusuportahan sa environment na ito ang mga alternatibong icon ng app."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Les icônes alternatives de l’app ne sont pas prises en charge dans cet environnement."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ikon app alternatif tidak didukung di lingkungan ini."
           }
         },
         "ja" : {
@@ -159,16 +171,34 @@
             "value" : "이 환경에서는 대체 앱 아이콘이 지원되지 않습니다."
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "यो वातावरणमा वैकल्पिक एप आइकनहरू समर्थित छैनन्।"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ícones alternativos do app não são compatíveis neste ambiente."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Biểu tượng ứng dụng thay thế không được hỗ trợ trong môi trường này."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "此环境不支持备用应用图标。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "此環境不支援替代App圖像。"
           }
         }
       }
@@ -193,10 +223,22 @@
             "value" : "No se pudo cambiar el icono de la app."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hindi mapalitan ang icon ng app."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impossible de modifier l’icône de l’app."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ikon app tidak dapat diubah."
           }
         },
         "ja" : {
@@ -211,16 +253,34 @@
             "value" : "앱 아이콘을 변경할 수 없습니다."
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "एप आइकन परिवर्तन गर्न सकिएन।"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Não foi possível alterar o ícone do app."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Không thể thay đổi biểu tượng ứng dụng."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法更改应用图标。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "無法更改App圖像。"
           }
         }
       }
@@ -246,10 +306,22 @@
             "value" : "Información de la aplicación"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Impormasyon ng App"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Infos de l'app"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Informasi App"
           }
         },
         "ja" : {
@@ -264,16 +336,34 @@
             "value" : "앱 정보"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "एप जानकारी"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Informações do app"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Thông tin ứng dụng"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "应用信息"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "App資訊"
           }
         }
       }
@@ -299,9 +389,21 @@
             "value" : "Mihiraki PDF Viewer"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mihiraki PDF Viewer"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Mihiraki PDF Viewer"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
             "value" : "Mihiraki PDF Viewer"
           }
         },
@@ -317,15 +419,33 @@
             "value" : "Mihiraki PDF Viewer"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mihiraki PDF Viewer"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mihiraki PDF Viewer"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mihiraki PDF Viewer"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Mihiraki PDF Viewer"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
             "value" : "Mihiraki PDF Viewer"
           }
         }
@@ -352,10 +472,22 @@
             "value" : "Nombre de la aplicación"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pangalan ng App"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nom de l'app"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Nama App"
           }
         },
         "ja" : {
@@ -370,16 +502,34 @@
             "value" : "앱 이름"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "एपको नाम"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nome do app"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tên ứng dụng"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "应用名称"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "App名稱"
           }
         }
       }
@@ -404,10 +554,22 @@
             "value" : "Cancelar"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Kanselahin"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Annuler"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Batalkan"
           }
         },
         "ja" : {
@@ -422,15 +584,33 @@
             "value" : "취소"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "रद्द गर्नुहोस्"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cancelar"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hủy"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "取消"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
             "value" : "取消"
           }
         }
@@ -456,10 +636,22 @@
             "value" : "Cambiar icono"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Palitan ang Icon"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Changer l’icône"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ubah Ikon"
           }
         },
         "ja" : {
@@ -474,16 +666,34 @@
             "value" : "아이콘 변경"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "आइकन परिवर्तन गर्नुहोस्"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Alterar ícone"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Thay đổi biểu tượng"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "更改图标"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "更改App圖像"
           }
         }
       }
@@ -509,10 +719,22 @@
             "value" : "Cerrar"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Isara"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fermer"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tutup"
           }
         },
         "ja" : {
@@ -527,16 +749,34 @@
             "value" : "닫기"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "बन्द गर्नुहोस्"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fechar"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Đóng"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "关闭"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "關閉"
           }
         }
       }
@@ -562,9 +802,21 @@
             "value" : "© 2026 Takuma Yamada"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "© 2026 Takuma Yamada"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "© 2026 Takuma Yamada"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
             "value" : "© 2026 Takuma Yamada"
           }
         },
@@ -580,15 +832,33 @@
             "value" : "© 2026 Takuma Yamada"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "© 2026 Takuma Yamada"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "© 2026 Takuma Yamada"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "© 2026 Takuma Yamada"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "© 2026 Takuma Yamada"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
             "value" : "© 2026 Takuma Yamada"
           }
         }
@@ -615,10 +885,22 @@
             "value" : "Copyright"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Karapatang-ari"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Copyright"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hak Cipta"
           }
         },
         "ja" : {
@@ -633,16 +915,34 @@
             "value" : "저작권"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "प्रतिलिपि अधिकार"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Copyright"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Bản quyền"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "版权"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "著作權"
           }
         }
       }
@@ -667,10 +967,22 @@
             "value" : "Ajuste de portada"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Setting ng Pahinang Pabalat"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réglage de la page de couverture"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pengaturan Halaman Sampul"
           }
         },
         "ja" : {
@@ -685,16 +997,34 @@
             "value" : "표지 페이지 설정"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "आवरण पृष्ठ सेटिङ"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Configuração da capa"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Cài đặt trang bìa"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "封面页设置"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "封面頁設定"
           }
         }
       }
@@ -719,10 +1049,22 @@
             "value" : "Tu apoyo ayuda a mantener la app actualizada. Puedes usar todas las funciones sin realizar una compra."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ang suporta mo ay nakatutulong para mapanatiling napapanahon ang app. Magagamit mo ang lahat ng feature nang hindi bumibili."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Votre soutien aide à maintenir l’app à jour. Vous pouvez utiliser toutes les fonctionnalités sans effectuer d’achat."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Dukungan Anda membantu menjaga app tetap diperbarui. Anda dapat menggunakan semua fitur tanpa melakukan pembelian."
           }
         },
         "ja" : {
@@ -737,16 +1079,34 @@
             "value" : "여러분의 지원은 앱을 계속 업데이트하는 데 도움이 됩니다. 구매하지 않아도 모든 기능을 사용할 수 있습니다."
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "तपाईंको सहयोगले एपलाई अद्यावधिक राख्न मद्दत गर्छ। खरिद नगरी पनि तपाईं सबै सुविधाहरू प्रयोग गर्न सक्नुहुन्छ।"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Seu apoio ajuda a manter o app atualizado. Você pode usar todos os recursos sem fazer uma compra."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Sự ủng hộ của bạn giúp ứng dụng luôn được cập nhật. Bạn có thể sử dụng mọi tính năng mà không cần mua hàng."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "你的支持有助于保持应用更新。无需购买也可以使用所有功能。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "你的支持有助於持續更新App。即使不購買，也能使用所有功能。"
           }
         }
       }
@@ -771,10 +1131,22 @@
             "value" : "Apoyar al desarrollador"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Suportahan ang Developer"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Soutenir le développeur"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Dukung Pengembang"
           }
         },
         "ja" : {
@@ -789,16 +1161,34 @@
             "value" : "개발자 후원"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "विकासकर्तालाई सहयोग गर्नुहोस्"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Apoiar o desenvolvedor"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ủng hộ nhà phát triển"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "支持开发者"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "支持開發者"
           }
         }
       }
@@ -824,10 +1214,22 @@
             "value" : "De izquierda a derecha (L2R)"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mula Kaliwa Pakanan (L2R)"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "De gauche à droite (L2R)"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Kiri ke Kanan (L2R)"
           }
         },
         "ja" : {
@@ -842,16 +1244,34 @@
             "value" : "왼쪽에서 오른쪽 (L2R)"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "बायाँबाट दायाँ (L2R)"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Da esquerda para a direita (L2R)"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Từ trái sang phải (L2R)"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "从左到右 (L2R)"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "由左至右（L2R）"
           }
         }
       }
@@ -877,10 +1297,22 @@
             "value" : "De derecha a izquierda (R2L)"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mula Kanan Pakaliwa (R2L)"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "De droite à gauche (R2L)"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Kanan ke Kiri (R2L)"
           }
         },
         "ja" : {
@@ -895,16 +1327,34 @@
             "value" : "오른쪽에서 왼쪽 (R2L)"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "दायाँबाट बायाँ (R2L)"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Da direita para a esquerda (R2L)"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Từ phải sang trái (R2L)"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "从右到左 (R2L)"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "由右至左（R2L）"
           }
         }
       }
@@ -929,10 +1379,22 @@
             "value" : "Dirección"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Direksyon"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Direction"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Arah"
           }
         },
         "ja" : {
@@ -947,15 +1409,33 @@
             "value" : "방향"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "दिशा"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Direção"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hướng"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "方向"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
             "value" : "方向"
           }
         }
@@ -982,10 +1462,22 @@
             "value" : "Ajustes de pantalla"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mga Setting ng Display"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réglages d'affichage"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pengaturan Tampilan"
           }
         },
         "ja" : {
@@ -1000,16 +1492,34 @@
             "value" : "화면 설정"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "प्रदर्शन सेटिङहरू"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Configurações de exibisã"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Cài đặt hiển thị"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "显示设置"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "顯示設定"
           }
         }
       }
@@ -1035,10 +1545,22 @@
             "value" : "Información del documento"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Impormasyon ng Dokumento"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Infos du document"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Informasi Dokumen"
           }
         },
         "ja" : {
@@ -1053,16 +1575,34 @@
             "value" : "문서 정보"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "कागजात जानकारी"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Informações do documento"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Thông tin tài liệu"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "文档信息"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "文件資訊"
           }
         }
       }
@@ -1088,10 +1628,22 @@
             "value" : "Error"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Error"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Erreur"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Kesalahan"
           }
         },
         "ja" : {
@@ -1106,16 +1658,34 @@
             "value" : "오류"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "त्रुटि"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Erro"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Lỗi"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "错误"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "錯誤"
           }
         }
       }
@@ -1141,10 +1711,22 @@
             "value" : "Ocurrió un error."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Nagkaroon ng error."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Une erreur est survenue."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Terjadi kesalahan."
           }
         },
         "ja" : {
@@ -1159,16 +1741,34 @@
             "value" : "오류가 발생했습니다."
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "एउटा त्रुटि भयो"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ocorreu um erro."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Đã xảy ra lỗi."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "发生错误"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "發生錯誤。"
           }
         }
       }
@@ -1193,10 +1793,22 @@
             "value" : "Error"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Error"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Erreur"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Kesalahan"
           }
         },
         "ja" : {
@@ -1211,16 +1823,34 @@
             "value" : "오류"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "त्रुटि"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Erro"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Lỗi"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "错误"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "錯誤"
           }
         }
       }
@@ -1246,10 +1876,22 @@
             "value" : "Usa las opciones de diseño del menú para cambiar entre la vista de una página y la vista de dos páginas."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Gamitin ang mga opsyon sa layout sa menu para magpalipat-lipat sa view na isang pahina at view na dalawang pahina."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Utilisez les options de mise en page du menu pour passer de l’affichage une page à deux pages."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Gunakan opsi tata letak di menu untuk beralih antara tampilan satu halaman dan dua halaman."
           }
         },
         "ja" : {
@@ -1264,16 +1906,34 @@
             "value" : "메뉴의 레이아웃 옵션을 사용해 단일 페이지 보기와 두 페이지 보기 사이를 전환합니다."
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "एकल-पृष्ठ र दुई-पृष्ठ दृश्यहरू बीच स्विच गर्न मेनुमा रहेका लेआउट विकल्पहरू प्रयोग गर्नुहोस्।"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Use as opções de layout no menu para alternar entre a visualização de página única e de duas páginas."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Sử dụng các tùy chọn bố cục trong menu để chuyển đổi giữa chế độ xem một trang và hai trang."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "使用菜单中的布局选项，在单页视图和双页视图之间切换。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "使用選單中的佈局選項，在單頁顯示與雙頁顯示之間切換。"
           }
         }
       }
@@ -1299,10 +1959,22 @@
             "value" : "Diseño"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Layout"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mise en page"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tata Letak"
           }
         },
         "ja" : {
@@ -1317,16 +1989,34 @@
             "value" : "레이아웃"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "लेआउट"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Layout"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Bố cục"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "布局"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "佈局"
           }
         }
       }
@@ -1352,10 +2042,22 @@
             "value" : "Toca la pantalla para mostrar u ocultar la barra de herramientas y el control deslizante."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "I-tap ang screen para ipakita o itago ang toolbar at slider."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Touchez l’écran pour afficher ou masquer la barre d’outils et le curseur."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ketuk layar untuk menampilkan atau menyembunyikan bar alat dan penggeser."
           }
         },
         "ja" : {
@@ -1370,16 +2072,34 @@
             "value" : "화면을 탭하여 도구 막대와 슬라이더의 표시 여부를 전환합니다."
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "टुलबार र स्लाइडर देखाउने वा लुकाउने गर्न स्क्रिनमा ट्याप गर्नुहोस्।"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Toque na tela para alternar a exibição da barra de ferramentas e do controle deslizante."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Chạm vào màn hình để hiển thị hoặc ẩn thanh công cụ và thanh trượt."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "轻点屏幕以显示或隐藏工具栏和滑块。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "點一下螢幕，即可切換工具列和滑桿的顯示狀態。"
           }
         }
       }
@@ -1405,9 +2125,21 @@
             "value" : "Menú"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Menu"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Menu"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
             "value" : "Menu"
           }
         },
@@ -1423,9 +2155,21 @@
             "value" : "메뉴"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "मेनु"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Menu"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
             "value" : "Menu"
           }
         },
@@ -1433,6 +2177,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "菜单"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "選單"
           }
         }
       }
@@ -1458,10 +2208,22 @@
             "value" : "Cambia de página deslizando o usando el control deslizante."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Lumipat ng pahina sa pamamagitan ng pag-swipe o paggamit ng slider."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Changez de page en balayant l’écran ou avec le curseur."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Beralih halaman dengan menggesek atau menggunakan penggeser."
           }
         },
         "ja" : {
@@ -1476,16 +2238,34 @@
             "value" : "스와이프하거나 슬라이더를 사용해 페이지를 전환합니다."
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "स्वाइप गरेर वा स्लाइडर प्रयोग गरेर पृष्ठहरू बदल्नुहोस्।"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Troque de página deslizando ou usando o controle deslizante."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Chuyển trang bằng cách vuốt hoặc sử dụng thanh trượt."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "通过轻扫或使用滑块切换页面。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "透過滑動或使用滑桿切換頁面。"
           }
         }
       }
@@ -1511,10 +2291,22 @@
             "value" : "Navegar por páginas"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pag-navigate sa mga Pahina"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Parcourir les pages"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Navigasi Halaman"
           }
         },
         "ja" : {
@@ -1529,16 +2321,34 @@
             "value" : "페이지 이동"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "पृष्ठहरूमा नेभिगेट गर्नुहोस्"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Navegar pelas páginas"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Điều hướng trang"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "浏览页面"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "瀏覽頁面"
           }
         }
       }
@@ -1564,10 +2374,22 @@
             "value" : "Usa el selector de archivos para elegir un PDF de tu dispositivo o de iCloud Drive."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Gamitin ang tagapili ng file para pumili ng PDF file mula sa iyong device o iCloud Drive."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Utilisez le sélecteur de fichiers pour choisir un PDF sur votre appareil ou dans iCloud Drive."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Gunakan pemilih file untuk memilih file PDF dari perangkat Anda atau iCloud Drive."
           }
         },
         "ja" : {
@@ -1582,16 +2404,34 @@
             "value" : "파일 선택기를 사용해 기기 또는 iCloud Drive에서 PDF 파일을 선택합니다."
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "आफ्नो यन्त्र वा iCloud Drive बाट PDF फाइल चयन गर्न फाइल पिकर प्रयोग गर्नुहोस्।"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Use o seletor de arquivos para escolher um PDF do dispositivo ou do iCloud Drive."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Sử dụng trình chọn tệp để chọn một tệp PDF từ thiết bị của bạn hoặc iCloud Drive."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "使用文件选择器从设备或 iCloud Drive 中选择 PDF 文件。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "使用檔案選擇器，從你的裝置或iCloud Drive選取PDF檔案。"
           }
         }
       }
@@ -1617,10 +2457,22 @@
             "value" : "Abrir PDF"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Magbukas ng PDF"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ouvrir un PDF"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Buka PDF"
           }
         },
         "ja" : {
@@ -1635,16 +2487,34 @@
             "value" : "PDF 열기"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "PDF खोल्नुहोस्"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Abrir PDF"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mở PDF"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "打开 PDF"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "開啟PDF"
           }
         }
       }
@@ -1670,10 +2540,22 @@
             "value" : "Introduce texto en la barra de búsqueda para encontrar contenido específico dentro del PDF."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Maglagay ng teksto sa search bar para mahanap ang partikular na nilalaman sa PDF."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Saisissez du texte dans la barre de recherche pour trouver un contenu précis dans le PDF."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Masukkan teks ke bar pencarian untuk menemukan konten tertentu dalam PDF."
           }
         },
         "ja" : {
@@ -1688,16 +2570,34 @@
             "value" : "검색 막대에 텍스트를 입력하여 PDF 안의 특정 내용을 찾습니다."
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "PDF भित्रको विशेष सामग्री फेला पार्न खोज पट्टीमा पाठ प्रविष्ट गर्नुहोस्।"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Digite texto na barra de pesquisa para encontrar conteúdo específico no PDF."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hãy nhập văn bản vào thanh tìm kiếm để tìm nội dung cụ thể trong PDF."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "在搜索栏中输入文本，以查找 PDF 中的特定内容。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "在搜尋列中輸入文字，以尋找PDF中的特定內容。"
           }
         }
       }
@@ -1723,10 +2623,22 @@
             "value" : "Buscar"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Maghanap"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Recherche"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Cari"
           }
         },
         "ja" : {
@@ -1741,16 +2653,34 @@
             "value" : "검색"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "खोज्नुहोस्"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pesquisar"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tìm kiếm"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "搜索"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "搜尋"
           }
         }
       }
@@ -1776,10 +2706,22 @@
             "value" : "Ayuda"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tulong"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aide"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Bantuan"
           }
         },
         "ja" : {
@@ -1794,16 +2736,34 @@
             "value" : "도움말"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "मद्दत"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ajuda"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Trợ giúp"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "帮助"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "輔助說明"
           }
         }
       }
@@ -1829,10 +2789,22 @@
             "value" : "Pellizca para acercar o alejar. Mantén pulsado y arrastra para desplazarte mientras está ampliado."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Kurutin ang screen para mag-zoom in o mag-zoom out. Pindutin nang matagal at i-drag para mag-scroll habang naka-zoom in."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pincez pour zoomer ou dézoomer. Appuyez longuement puis faites glisser pour faire défiler en mode zoom."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Cubit untuk memperbesar atau memperkecil. Tekan lama dan seret untuk menggulir saat tampilan diperbesar."
           }
         },
         "ja" : {
@@ -1847,16 +2819,34 @@
             "value" : "핀치하여 확대하거나 축소합니다. 확대 중에는 길게 누른 뒤 드래그하여 스크롤합니다."
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "जुम इन वा आउट गर्न पिन्च गर्नुहोस्। जुम इन गरिएको बेला स्क्रोल गर्न लामो समय थिचेर तान्नुहोस्।"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Use o gesto de pinça para ampliar ou reduzir. Mantenha pressionado e arraste para rolar enquanto estiver ampliado."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Chụm hai ngón tay để phóng to hoặc thu nhỏ. Nhấn giữ và kéo để cuộn khi đang phóng to."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "通过捏合手势放大或缩小。放大时长按并拖动即可滚动。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "使用撥動手勢放大或縮小。放大時，請長按並拖移來捲動。"
           }
         }
       }
@@ -1882,10 +2872,22 @@
             "value" : "Zoom"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pag-zoom"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zoom"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Perbesar/Perkecil"
           }
         },
         "ja" : {
@@ -1900,16 +2902,34 @@
             "value" : "확대/축소"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "जुम"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zoom"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Thu phóng"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "缩放"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "縮放"
           }
         }
       }
@@ -1934,10 +2954,22 @@
             "value" : "Alta calidad"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mataas na Kalidad"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Haute qualité"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Kualitas Tinggi"
           }
         },
         "ja" : {
@@ -1952,16 +2984,34 @@
             "value" : "고화질"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "उच्च गुणस्तर"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Alta qualidade"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Chất lượng cao"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "高画质"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "高畫質"
           }
         }
       }
@@ -1987,10 +3037,22 @@
             "value" : "Mostrar portada"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ipakita ang Pahinang Pabalat"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher la couverture"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tampilkan Halaman Sampul"
           }
         },
         "ja" : {
@@ -2005,16 +3067,34 @@
             "value" : "표지 표시"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "आवरण पृष्ठ देखाउनुहोस्"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mostrar capa"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hiển thị trang bìa"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "显示封面"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "顯示封面頁"
           }
         }
       }
@@ -2040,10 +3120,22 @@
             "value" : "Vista de dos páginas"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "View na Dalawang Pahina"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vue en deux pages"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tampilan Dua Halaman"
           }
         },
         "ja" : {
@@ -2058,16 +3150,34 @@
             "value" : "두 페이지 보기"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "दुई-पृष्ठ दृश्य"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Visualização de duas páginas"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Chế độ xem hai trang"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "双页视图"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "雙頁顯示"
           }
         }
       }
@@ -2093,10 +3203,22 @@
             "value" : "Idioma"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Wika"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Langue"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Bahasa"
           }
         },
         "ja" : {
@@ -2111,16 +3233,34 @@
             "value" : "언어"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "भाषा"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Idioma"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ngôn ngữ"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "语言"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "語言"
           }
         }
       }
@@ -2146,10 +3286,22 @@
             "value" : "No hay ningún documento cargado"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Walang dokumentong na-load"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aucun document chargé"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tidak ada dokumen yang dimuat"
           }
         },
         "ja" : {
@@ -2164,16 +3316,34 @@
             "value" : "문서가 로드되지 않았습니다"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "कुनै कागजात लोड गरिएको छैन"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nenhum documento carregado"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Chưa tải tài liệu"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "未加载文档"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "未載入文件"
           }
         }
       }
@@ -2199,10 +3369,22 @@
             "value" : "No disponible"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hindi available"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Non disponible"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tidak tersedia"
           }
         },
         "ja" : {
@@ -2217,16 +3399,34 @@
             "value" : "사용할 수 없음"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "उपलब्ध छैन"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Não disponível"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Không khả dụng"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "不可用"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "無法取得"
           }
         }
       }
@@ -2252,9 +3452,21 @@
             "value" : "Aceptar"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "OK"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
             "value" : "OK"
           }
         },
@@ -2270,9 +3482,21 @@
             "value" : "확인"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ठीक छ"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
             "value" : "OK"
           }
         },
@@ -2280,6 +3504,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "确定"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "確定"
           }
         }
       }
@@ -2304,10 +3534,22 @@
             "value" : "Opciones"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mga Opsyon"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Options"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Opsi"
           }
         },
         "ja" : {
@@ -2322,16 +3564,34 @@
             "value" : "옵션"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "विकल्पहरू"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Opções"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tùy chọn"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "选项"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "選項"
           }
         }
       }
@@ -2357,10 +3617,22 @@
             "value" : "Diseño de página"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Layout ng Pahina"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mise en page"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tata Letak Halaman"
           }
         },
         "ja" : {
@@ -2375,16 +3647,34 @@
             "value" : "페이지 레이아웃"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "पृष्ठ लेआउट"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Layout da página"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Bố cục trang"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "页面布局"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "頁面佈局"
           }
         }
       }
@@ -2409,10 +3699,22 @@
             "value" : "Página"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pahina"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Page"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Halaman"
           }
         },
         "ja" : {
@@ -2427,16 +3729,34 @@
             "value" : "페이지"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "पृष्ठ"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Página"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Trang"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "页面"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "頁面"
           }
         }
       }
@@ -2462,10 +3782,22 @@
             "value" : "Autor"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "May-akda"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Auteur"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Penulis"
           }
         },
         "ja" : {
@@ -2480,15 +3812,33 @@
             "value" : "작성자"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "लेखक"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Autor"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tác giả"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "作者"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
             "value" : "作者"
           }
         }
@@ -2514,10 +3864,22 @@
             "value" : "No se pudo seleccionar el archivo PDF."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hindi mapili ang PDF file."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impossible de sélectionner le fichier PDF."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "File PDF tidak dapat dipilih."
           }
         },
         "ja" : {
@@ -2532,16 +3894,34 @@
             "value" : "PDF 파일을 선택할 수 없습니다."
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "PDF फाइल चयन गर्न सकिएन।"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Não foi possível selecionar o arquivo PDF."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Không thể chọn tệp PDF."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法选择 PDF 文件。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "無法選取PDF檔案。"
           }
         }
       }
@@ -2567,10 +3947,22 @@
             "value" : "Palabras clave"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mga Keyword"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mots-clés"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Kata Kunci"
           }
         },
         "ja" : {
@@ -2585,16 +3977,34 @@
             "value" : "키워드"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "मुख्य शब्दहरू"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Palavras-chave"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Từ khóa"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "关键词"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "關鍵字"
           }
         }
       }
@@ -2620,10 +4030,22 @@
             "value" : "No se pudo cargar el archivo PDF."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hindi ma-load ang PDF file."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impossible de charger le fichier PDF."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "File PDF tidak dapat dimuat."
           }
         },
         "ja" : {
@@ -2638,16 +4060,34 @@
             "value" : "PDF 파일을 불러올 수 없습니다."
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "PDF फाइल लोड गर्न सकिएन।"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Não foi possível carregar o arquivo PDF."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Không thể tải tệp PDF."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法加载 PDF 文件。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "無法載入PDF檔案。"
           }
         }
       }
@@ -2672,10 +4112,22 @@
             "value" : "Página %1$lld"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pahina %1$lld"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Page %1$lld"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Halaman %1$lld"
           }
         },
         "ja" : {
@@ -2690,16 +4142,34 @@
             "value" : "%1$lld페이지"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "पृष्ठ %1$lld"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Página %1$lld"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Trang %1$lld"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "第 %1$lld 页"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "第%1$lld頁"
           }
         }
       }
@@ -2724,10 +4194,22 @@
             "value" : "Página PDF"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pahina ng PDF"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Page PDF"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Halaman PDF"
           }
         },
         "ja" : {
@@ -2742,16 +4224,34 @@
             "value" : "PDF 페이지"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "PDF पृष्ठ"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Página PDF"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Trang PDF"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "PDF 页面"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "PDF頁面"
           }
         }
       }
@@ -2777,10 +4277,22 @@
             "value" : "Introduce la contraseña de usuario de este PDF."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ilagay ang password ng user para sa PDF na ito."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Saisissez le mot de passe utilisateur de ce PDF."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Masukkan kata sandi pengguna untuk PDF ini."
           }
         },
         "ja" : {
@@ -2795,16 +4307,34 @@
             "value" : "이 PDF의 사용자 암호를 입력하세요."
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "यस PDF को प्रयोगकर्ता पासवर्ड प्रविष्ट गर्नुहोस्।"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Digite a senha de usuário deste PDF."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hãy nhập mật khẩu người dùng cho tệp PDF này."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "请输入此 PDF 的用户密码。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "請輸入此PDF的使用者密碼。"
           }
         }
       }
@@ -2830,10 +4360,22 @@
             "value" : "Se requiere contraseña"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Kailangan ng Password"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mot de passe requis"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Kata Sandi Diperlukan"
           }
         },
         "ja" : {
@@ -2848,16 +4390,34 @@
             "value" : "암호 필요"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "पासवर्ड आवश्यक छ"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Senha necessária"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Yêu cầu mật khẩu"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "需要密码"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "需要密碼"
           }
         }
       }
@@ -2883,10 +4443,22 @@
             "value" : "La contraseña es incorrecta."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mali ang password."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Le mot de passe est incorrect."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Kata sandi salah."
           }
         },
         "ja" : {
@@ -2901,16 +4473,34 @@
             "value" : "암호가 올바르지 않습니다."
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "पासवर्ड गलत छ।"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "A senha está incorreta."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mật khẩu không đúng."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "密码不正确。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "密碼不正確。"
           }
         }
       }
@@ -2936,10 +4526,22 @@
             "value" : "Contraseña"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Password"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mot de passe"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Kata Sandi"
           }
         },
         "ja" : {
@@ -2954,16 +4556,34 @@
             "value" : "암호"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "पासवर्ड"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Senha"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mật khẩu"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "密码"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "密碼"
           }
         }
       }
@@ -2989,10 +4609,22 @@
             "value" : "Este PDF requiere una contraseña."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Nangangailangan ng password ang PDF na ito."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ce PDF nécessite un mot de passe."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "PDF ini memerlukan kata sandi."
           }
         },
         "ja" : {
@@ -3007,16 +4639,34 @@
             "value" : "이 PDF에는 암호가 필요합니다."
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "यस PDF का लागि पासवर्ड आवश्यक छ।"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Este PDF requer uma senha."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tệp PDF này yêu cầu mật khẩu."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "此 PDF 需要密码。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "此PDF受密碼保護。"
           }
         }
       }
@@ -3042,10 +4692,22 @@
             "value" : "Desbloquear"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "I-unlock"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Déverrouiller"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Buka Kunci"
           }
         },
         "ja" : {
@@ -3060,16 +4722,34 @@
             "value" : "잠금 해제"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "अनलक गर्नुहोस्"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Desbloquear"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mở khóa"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "解锁"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "解鎖"
           }
         }
       }
@@ -3095,10 +4775,22 @@
             "value" : "Subtítulo"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Subtitle"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sous-titre"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Subjudul"
           }
         },
         "ja" : {
@@ -3113,16 +4805,34 @@
             "value" : "부제"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "उपशीर्षक"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Subtítulo"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Phụ đề"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "副标题"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "副標題"
           }
         }
       }
@@ -3148,10 +4858,22 @@
             "value" : "Título"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pamagat"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Titre"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Judul"
           }
         },
         "ja" : {
@@ -3166,16 +4888,34 @@
             "value" : "제목"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "शीर्षक"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Título"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tiêu đề"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "标题"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "標題"
           }
         }
       }
@@ -3201,10 +4941,22 @@
             "value" : "Versión de PDF"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Bersyon ng PDF"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Version PDF"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Versi PDF"
           }
         },
         "ja" : {
@@ -3219,16 +4971,34 @@
             "value" : "PDF 버전"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "PDF संस्करण"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Versão do PDF"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Phiên bản PDF"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "PDF 版本"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "PDF版本"
           }
         }
       }
@@ -3253,10 +5023,22 @@
             "value" : "No se pudo completar la compra."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hindi makumpleto ang pagbili."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "L’achat n’a pas pu être finalisé."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pembelian tidak dapat diselesaikan."
           }
         },
         "ja" : {
@@ -3271,16 +5053,34 @@
             "value" : "구매를 완료할 수 없습니다."
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "खरिद पूरा गर्न सकिएन।"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Não foi possível concluir a compra."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Không thể hoàn tất giao dịch mua."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法完成购买。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "無法完成購買。"
           }
         }
       }
@@ -3305,10 +5105,22 @@
             "value" : "No se pudo verificar la compra."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hindi ma-verify ang pagbili."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impossible de vérifier l’achat."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pembelian tidak dapat diverifikasi."
           }
         },
         "ja" : {
@@ -3323,16 +5135,34 @@
             "value" : "구매를 확인할 수 없습니다."
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "खरिद प्रमाणित गर्न सकिएन।"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Não foi possível verificar a compra."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Không thể xác minh giao dịch mua."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法验证购买。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "無法驗證購買項目。"
           }
         }
       }
@@ -3357,10 +5187,22 @@
             "value" : "Si has cambiado el icono de la app, no se podrá restaurar después del restablecimiento."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Kung binago mo ang icon ng app, hindi na ito maibabalik pagkatapos mag-reset!"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Si vous avez modifié l’icône de l’app, elle ne pourra pas être restaurée après la réinitialisation !"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Jika Anda telah mengubah ikon app, ikon tersebut tidak dapat dipulihkan setelah pengaturan diatur ulang!"
           }
         },
         "ja" : {
@@ -3375,16 +5217,34 @@
             "value" : "앱 아이콘을 변경한 경우 재설정 후에는 되돌릴 수 없습니다!"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "यदि तपाईंले एप आइकन परिवर्तन गर्नुभएको छ भने, रिसेट गरेपछि त्यसलाई पुनर्स्थापना गर्न सकिँदैन!"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Se você alterou o ícone do app, ele não poderá ser restaurado após a redefinição!"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Nếu bạn đã thay đổi biểu tượng ứng dụng, biểu tượng đó sẽ không thể được khôi phục sau khi đặt lại!"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "如果你更改了应用图标，重置后将无法恢复！"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "如果你已更改App圖像，重設後將無法還原！"
           }
         }
       }
@@ -3409,10 +5269,22 @@
             "value" : "Esto restablecerá la configuración de portada y el icono de la app, y cerrará el documento actual."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ire-reset nito ang setting ng pahinang pabalat at icon ng app, at isasara ang kasalukuyang dokumento."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cela réinitialisera le réglage de la page de couverture et l’icône de l’app, puis fermera le document actuel."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tindakan ini akan mengatur ulang pengaturan halaman sampul dan ikon app, serta menutup dokumen saat ini."
           }
         },
         "ja" : {
@@ -3427,16 +5299,34 @@
             "value" : "표지 설정과 앱 아이콘을 재설정하고 현재 문서를 닫습니다."
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "यसले आवरण पृष्ठ सेटिङ र एप आइकन रिसेट गर्नेछ तथा हालको कागजात बन्द गर्नेछ।"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Isso redefinirá o ajuste da capa e o ícone do app, e fechará o documento atual."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Thao tác này sẽ đặt lại cài đặt trang bìa và biểu tượng ứng dụng, đồng thời đóng tài liệu hiện tại."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "这将重置封面页设置和应用图标，并关闭当前文档。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "此操作會重設封面頁設定和App圖像，並關閉目前的文件。"
           }
         }
       }
@@ -3461,10 +5351,22 @@
             "value" : "¿Restablecer configuración?"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "I-reset ang mga setting?"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réinitialiser les réglages ?"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Atur Ulang Pengaturan?"
           }
         },
         "ja" : {
@@ -3479,16 +5381,34 @@
             "value" : "설정을 재설정할까요?"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "सेटिङहरू रिसेट गर्ने?"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Redefinir ajustes?"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Đặt lại cài đặt?"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "要重置设置吗？"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "要重設設定嗎？"
           }
         }
       }
@@ -3513,10 +5433,22 @@
             "value" : "Esto restablecerá la configuración de la app."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ire-reset nito ang mga setting ng app."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cela réinitialisera les réglages de l’app."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tindakan ini akan mengatur ulang pengaturan app."
           }
         },
         "ja" : {
@@ -3531,16 +5463,34 @@
             "value" : "앱 설정을 재설정합니다."
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "यसले एपका सेटिङहरू रिसेट गर्नेछ।"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Isso redefinirá os ajustes do app."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Thao tác này sẽ đặt lại cài đặt ứng dụng."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "这将重置应用设置。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "此操作會重設App設定。"
           }
         }
       }
@@ -3565,10 +5515,22 @@
             "value" : "Restablecer"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "I-reset"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réinitialiser"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Atur Ulang"
           }
         },
         "ja" : {
@@ -3583,16 +5545,34 @@
             "value" : "재설정"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "रिसेट गर्नुहोस्"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Redefinir"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Đặt lại"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "重置"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "重設"
           }
         }
       }
@@ -3618,10 +5598,22 @@
             "value" : "Scroll Dirección"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Direksyon ng Screen"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Direction de mouvement à l'écran"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Arah Layar"
           }
         },
         "ja" : {
@@ -3636,16 +5628,34 @@
             "value" : "화면 방향"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "स्क्रिनको दिशा"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Direção de movimento na tela"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hướng cuộn màn hình"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "屏幕运动方向"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "畫面方向"
           }
         }
       }
@@ -3671,10 +5681,22 @@
             "value" : "Buscar"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Maghanap"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rechercher"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Cari"
           }
         },
         "ja" : {
@@ -3689,16 +5711,34 @@
             "value" : "검색"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "खोज्नुहोस्"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pesquisar"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tìm kiếm"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "搜索"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "搜尋"
           }
         }
       }
@@ -3724,10 +5764,22 @@
             "value" : "Seleccionar archivo"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pumili ng File"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sélectionner le fichier"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pilih File"
           }
         },
         "ja" : {
@@ -3742,16 +5794,34 @@
             "value" : "파일 선택"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "फाइल चयन गर्नुहोस्"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Selecionar arquivo"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Chọn tệp"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "选择文件"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "選取檔案"
           }
         }
       }
@@ -3777,10 +5847,22 @@
             "value" : "Por favor, seleccione un archivo PDF"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pumili ng PDF file"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Veuillez sélectionner un fichier PDF"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Silakan pilih file PDF"
           }
         },
         "ja" : {
@@ -3795,16 +5877,34 @@
             "value" : "PDF 파일을 선택하세요"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "कृपया PDF फाइल चयन गर्नुहोस्"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Por favor, selecione um arquivo PDF"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Vui lòng chọn một tệp PDF"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "请选择 PDF 文件"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "請選取PDF檔案"
           }
         }
       }
@@ -3830,10 +5930,22 @@
             "value" : "Ajustes"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mga Setting"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réglages"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pengaturan"
           }
         },
         "ja" : {
@@ -3848,16 +5960,34 @@
             "value" : "설정"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "सेटिङहरू"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Configurações"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Cài đặt"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "设置"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "設定"
           }
         }
       }
@@ -3882,10 +6012,22 @@
             "value" : "Nitidez"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Linaw"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Netteté"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ketajaman"
           }
         },
         "ja" : {
@@ -3900,16 +6042,34 @@
             "value" : "선명도"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "तीक्ष्णता"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nitidez"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Độ sắc nét"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "锐化"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "銳利度"
           }
         }
       }
@@ -3934,10 +6094,22 @@
             "value" : "No se pudieron cargar los productos de propina. Inténtalo de nuevo más tarde."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hindi ma-load ang mga produktong pangsuporta. Pakisubukang muli sa ibang pagkakataon."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impossible de charger les produits de pourboire. Veuillez réessayer plus tard."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Produk dukungan tidak dapat dimuat. Silakan coba lagi nanti."
           }
         },
         "ja" : {
@@ -3952,16 +6124,34 @@
             "value" : "팁 상품을 불러올 수 없습니다. 나중에 다시 시도해 주세요."
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "टिप उत्पादनहरू लोड गर्न सकिएन। कृपया पछि फेरि प्रयास गर्नुहोस्।"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Não foi possível carregar os produtos de gorjeta. Tente novamente mais tarde."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Không thể tải các sản phẩm ủng hộ. Vui lòng thử lại sau."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法加载打赏商品。请稍后再试。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "無法載入小費商品。請稍後再試。"
           }
         }
       }
@@ -3986,10 +6176,22 @@
             "value" : "Abre la pantalla de selección de propina."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Binubuksan ang screen para pumili ng halaga ng suporta."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ouvre l’écran de sélection du pourboire."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Membuka layar pemilihan dukungan."
           }
         },
         "ja" : {
@@ -4004,16 +6206,34 @@
             "value" : "팁 선택 화면을 엽니다."
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "टिप चयन स्क्रिन खोल्छ।"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Abre a tela de seleção de gorjeta."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mở màn hình chọn mức ủng hộ."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "打开打赏选择屏幕。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "開啟小費選擇畫面。"
           }
         }
       }
@@ -4039,10 +6259,22 @@
             "value" : "Toca para mostrar el menú"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "I-tap para ipakita ang menu"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Touchez pour afficher le menu"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ketuk untuk menampilkan menu"
           }
         },
         "ja" : {
@@ -4057,16 +6289,34 @@
             "value" : "탭하여 메뉴 표시"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "मेनु देखाउन ट्याप गर्नुहोस्"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Toque para mostrar o menu"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Chạm để hiển thị menu"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "轻点以显示菜单"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "點一下以顯示選單"
           }
         }
       }
@@ -4092,10 +6342,22 @@
             "value" : "Desbloquea el icono bronce de la app."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ina-unlock ang tansong icon ng app."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Déverrouille l’icône d’app bronze."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Membuka ikon app perunggu."
           }
         },
         "ja" : {
@@ -4110,16 +6372,34 @@
             "value" : "브론즈 앱 아이콘을 잠금 해제합니다."
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "काँस्य एप आइकन अनलक गर्छ।"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Desbloqueia o ícone bronze do app."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mở khóa biểu tượng ứng dụng màu đồng."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "解锁青铜色应用图标。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "解鎖銅色App圖像。"
           }
         }
       }
@@ -4145,10 +6425,22 @@
             "value" : "Propina de 100 yenes"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Suportang 100 Yen"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pourboire de 100 yens"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Dukungan 100 Yen"
           }
         },
         "ja" : {
@@ -4163,16 +6455,34 @@
             "value" : "100엔 팁"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "100 येन टिप"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gorjeta de 100 ienes"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ủng hộ 100 yên"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "100 日元打赏"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "100日圓小費"
           }
         }
       }
@@ -4198,10 +6508,22 @@
             "value" : "Desbloquea el icono plateado de la app."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ina-unlock ang pilak na icon ng app."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Déverrouille l’icône d’app argentée."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Membuka ikon app perak."
           }
         },
         "ja" : {
@@ -4216,16 +6538,34 @@
             "value" : "실버 앱 아이콘을 잠금 해제합니다."
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "चाँदीको एप आइकन अनलक गर्छ।"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Desbloqueia o ícone prateado do app."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mở khóa biểu tượng ứng dụng màu bạc."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "解锁银色应用图标。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "解鎖銀色App圖像。"
           }
         }
       }
@@ -4251,10 +6591,22 @@
             "value" : "Propina de 500 yenes"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Suportang 500 Yen"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pourboire de 500 yens"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Dukungan 500 Yen"
           }
         },
         "ja" : {
@@ -4269,16 +6621,34 @@
             "value" : "500엔 팁"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "500 येन टिप"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gorjeta de 500 ienes"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ủng hộ 500 yên"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "500 日元打赏"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "500日圓小費"
           }
         }
       }
@@ -4304,10 +6674,22 @@
             "value" : "Desbloquea el icono dorado de la app."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ina-unlock ang gintong icon ng app."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Déverrouille l’icône d’app dorée."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Membuka ikon app emas."
           }
         },
         "ja" : {
@@ -4322,16 +6704,34 @@
             "value" : "골드 앱 아이콘을 잠금 해제합니다."
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "सुनौलो एप आइकन अनलक गर्छ।"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Desbloqueia o ícone dourado do app."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mở khóa biểu tượng ứng dụng màu vàng."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "解锁金色应用图标。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "解鎖金色App圖像。"
           }
         }
       }
@@ -4357,10 +6757,22 @@
             "value" : "Propina de 1000 yenes"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Suportang 1000 Yen"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pourboire de 1000 yens"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Dukungan 1.000 Yen"
           }
         },
         "ja" : {
@@ -4375,16 +6787,34 @@
             "value" : "1000엔 팁"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "1000 येन टिप"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gorjeta de 1000 ienes"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ủng hộ 1.000 yên"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "1000 日元打赏"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "1000日圓小費"
           }
         }
       }
@@ -4409,10 +6839,22 @@
             "value" : "Apoyar"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Sumuporta"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Soutenir"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Dukung"
           }
         },
         "ja" : {
@@ -4427,15 +6869,33 @@
             "value" : "후원"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "सहयोग गर्नुहोस्"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Apoiar"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ủng hộ"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "支持"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
             "value" : "支持"
           }
         }
@@ -4461,10 +6921,22 @@
             "value" : "Gracias por tu apoyo."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Salamat sa iyong suporta."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Merci pour votre soutien."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Terima kasih atas dukungan Anda."
           }
         },
         "ja" : {
@@ -4479,16 +6951,34 @@
             "value" : "후원해 주셔서 감사합니다."
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "तपाईंको सहयोगका लागि धन्यवाद।"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Obrigado pelo seu apoio."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Cảm ơn bạn đã ủng hộ."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "感谢你的支持。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "感謝你的支持。"
           }
         }
       }
@@ -4513,10 +7003,22 @@
             "value" : "¡Gracias por tu apoyo!"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Salamat sa Iyong Suporta!"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Merci pour votre soutien !"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Terima Kasih atas Dukungan Anda!"
           }
         },
         "ja" : {
@@ -4531,16 +7033,34 @@
             "value" : "후원해 주셔서 감사합니다!"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "तपाईंको सहयोगका लागि धन्यवाद!"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Obrigado pelo seu apoio!"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Cảm ơn bạn đã ủng hộ!"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "感谢你的支持！"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "感謝你的支持！"
           }
         }
       }
@@ -4549,51 +7069,279 @@
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Insgesamt %lld Seiten"
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "Insgesamt %lld Seiten"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Insgesamt %lld Seiten"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "Insgesamt %lld Seiten"
+                }
+              }
+            }
           }
         },
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Total %lld pages"
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "Total %lld page"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Total %lld pages"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "Total %lld pages"
+                }
+              }
+            }
           }
         },
         "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Un total de %lld páginas"
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "Un total de %lld páginas"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Un total de %lld páginas"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "Un total de %lld páginas"
+                }
+              }
+            }
+          }
+        },
+        "fil" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "Kabuuang %lld pahina"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "Kabuuang %lld pahina"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "Kabuuang %lld pahina"
+                }
+              }
+            }
           }
         },
         "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Un total de %lld pages"
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "Un total de %lld pages"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Un total de %lld pages"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "Un total de %lld pages"
+                }
+              }
+            }
+          }
+        },
+        "id" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "Total %lld halaman"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "Total %lld halaman"
+                }
+              }
+            }
           }
         },
         "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "全 %lld ページ"
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "全 %lld ページ"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "全 %lld ページ"
+                }
+              }
+            }
           }
         },
         "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "총 %lld 페이지"
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "총 %lld 페이지"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "총 %lld 페이지"
+                }
+              }
+            }
+          }
+        },
+        "ne" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "कुल %lld पृष्ठ"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "कुल %lld पृष्ठहरू"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "कुल %lld पृष्ठहरू"
+                }
+              }
+            }
           }
         },
         "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Um total de %lld páginas"
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "Um total de %lld páginas"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Um total de %lld páginas"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "Um total de %lld páginas"
+                }
+              }
+            }
+          }
+        },
+        "vi" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "Tổng cộng %lld trang"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "Tổng cộng %lld trang"
+                }
+              }
+            }
           }
         },
         "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "总共 %lld 页"
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "总共 %lld 页"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "总共 %lld 页"
+                }
+              }
+            }
+          }
+        },
+        "zh-Hant" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "共%lld頁"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "共%lld頁"
+                }
+              }
+            }
           }
         }
       }
@@ -4618,10 +7366,22 @@
             "value" : "Modo estándar"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Karaniwang Mode"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mode standard"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mode Standar"
           }
         },
         "ja" : {
@@ -4636,16 +7396,34 @@
             "value" : "표준 모드"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "मानक मोड"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Modo padrão"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Chế độ tiêu chuẩn"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "标准模式"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "標準模式"
           }
         }
       }
@@ -4670,10 +7448,22 @@
             "value" : "Modo de compatibilidad"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mode ng Compatibility"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mode de compatibilité"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mode Kompatibilitas"
           }
         },
         "ja" : {
@@ -4688,16 +7478,34 @@
             "value" : "호환 모드"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "अनुकूलता मोड"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Modo de compatibilidade"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Chế độ tương thích"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "兼容模式"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "相容模式"
           }
         }
       }
@@ -4723,10 +7531,22 @@
             "value" : "Versión"
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Bersyon"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Version"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Versi"
           }
         },
         "ja" : {
@@ -4741,10 +7561,22 @@
             "value" : "버전"
           }
         },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "संस्करण"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Versão"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Phiên bản"
           }
         },
         "zh-Hans" : {
@@ -4752,9 +7584,15 @@
             "state" : "translated",
             "value" : "版本"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "版本"
+          }
         }
       }
     }
   },
-  "version" : "1.2"
+  "version" : "1.3"
 }

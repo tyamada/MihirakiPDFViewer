@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="ne">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="MihirakiPDFViewer को लागि समर्थन पृष्ठ। PDF हरू खोल्न, दुई-पृष्ठ दृश्य, खोज, जुम, पासवर्ड-सुरक्षित PDF हरू, र समस्या निवारणका लागि मद्दत खोज्नुहोस्।">
+    <title>समर्थन | ७४१९२६०३५१७</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #f4f7fb;
+            --surface: #ffffff;
+            --surface-soft: #eef3f8;
+            --text: #172033;
+            --muted: #607085;
+            --line: #d7e0ea;
+            --accent: #1f61c4;
+            --accent-dark: #184b96;
+            --shadow: 0 18px 50px rgba(23, 32, 51, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.75;
+        }
+
+        a {
+            color: var(--accent);
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(18px);
+            background: rgba(244, 247, 251, 0.88);
+            border-bottom: 1px solid rgba(215, 224, 234, 0.8);
+        }
+
+        .nav,
+        .container,
+        .footer-inner {
+            width: min(1040px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 68px;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text);
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 0;
+        }
+
+        .brand img {
+            width: 38px;
+            height: 38px;
+            border-radius: 9px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .hero {
+            padding: 72px 0 54px;
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 260px;
+            align-items: center;
+            gap: 42px;
+        }
+
+        .eyebrow {
+            margin: 0 0 14px;
+            color: var(--accent-dark);
+            font-weight: 700;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.3rem, 5vw, 4rem);
+            line-height: 1.12;
+            letter-spacing: 0;
+        }
+
+        .hero p:last-child {
+            max-width: 720px;
+            margin: 20px 0 0;
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        .hero-card,
+        .quick-link,
+        .faq-category,
+        .step,
+        .contact-card,
+        .notice {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 22px;
+        }
+
+        .hero-card {
+            padding: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-card img {
+            display: block;
+            width: 92px;
+            height: 92px;
+            margin-bottom: 18px;
+            border-radius: 20px;
+        }
+
+        .hero-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .section {
+            padding: 58px 0;
+            border-top: 1px solid rgba(215, 224, 234, 0.72);
+        }
+
+        .section:nth-child(even) {
+            background: var(--surface);
+        }
+
+        .section:nth-child(even) .quick-link,
+        .section:nth-child(even) .faq-category,
+        .section:nth-child(even) .step,
+        .section:nth-child(even) .contact-card,
+        .section:nth-child(even) .notice {
+            background: var(--surface-soft);
+        }
+
+        .section-heading {
+            margin-bottom: 24px;
+        }
+
+        .section-heading h2 {
+            margin: 0;
+            font-size: clamp(1.6rem, 3vw, 2.35rem);
+            line-height: 1.25;
+            letter-spacing: 0;
+        }
+
+        .section-heading p {
+            margin: 10px 0 0;
+            color: var(--muted);
+        }
+
+        .quick-links,
+        .faq-grid,
+        .steps,
+        .contact-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .quick-links {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .faq-grid,
+        .contact-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .quick-link {
+            color: var(--text);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .faq-category h3,
+        .step h3,
+        .contact-card h3,
+        .notice h3 {
+            margin: 0 0 14px;
+            font-size: 1.16rem;
+            letter-spacing: 0;
+        }
+
+        details {
+            padding: 14px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        details:first-of-type {
+            border-top: 0;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        details p,
+        .step p,
+        .contact-card p,
+        .notice p {
+            margin: 10px 0 0;
+            color: var(--muted);
+        }
+
+        .steps {
+            counter-reset: steps;
+        }
+
+        .step {
+            position: relative;
+            padding-left: 72px;
+        }
+
+        .step::before {
+            counter-increment: steps;
+            content: counter(steps);
+            position: absolute;
+            left: 22px;
+            top: 22px;
+            display: grid;
+            place-items: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            background: var(--accent);
+            color: #fff;
+            font-weight: 800;
+        }
+
+        .language-switcher {
+            min-height: 36px;
+            padding: 0 34px 0 12px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--surface);
+            color: var(--text);
+            font: inherit;
+            font-weight: 600;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            margin-top: 16px;
+            padding: 0 18px;
+            border-radius: 8px;
+            border: 1px solid var(--accent);
+            background: var(--accent);
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .button.secondary {
+            background: transparent;
+            color: var(--accent);
+        }
+
+        .note {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .site-footer {
+            padding: 34px 0;
+            color: var(--muted);
+            border-top: 1px solid var(--line);
+            background: var(--surface);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        @media (max-width: 860px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-inner,
+            .quick-links,
+            .faq-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 46px 0 42px;
+            }
+
+            .hero-card {
+                display: none;
+            }
+
+            .section {
+                padding: 46px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav" aria-label="मुख्य नेभिगेसन">
+            <a class="brand" href="index_ne.html">
+                <img src="assets/icons/MihirakiPDFViewer-AppIcon.png" alt="" width="38" height="38">
+                <span>MihirakiPDFViewer</span>
+            </a>
+            <div class="nav-links">
+                <a href="#faq">FAQ</a>
+                <a href="#troubleshooting">समस्या निवारण</a>
+                <a href="#contact">सम्पर्क गर्नुहोस्</a>
+                <a href="index_ne.html">घर</a>
+                <select class="language-switcher" aria-label="Language" onchange="if (this.value) window.location.href = this.value;">
+                    <option value="support_en.html">English</option>
+                    <option value="support_fr.html">French</option>
+                    <option value="support_de.html">German</option>
+                    <option value="support_pt.html">Portuguese</option>
+                    <option value="support_es.html">Spanish</option>
+                    <option value="support.html">日本語</option>
+                    <option value="support_zh-Hans.html">简体中文</option>
+                    <option value="support_zh-Hant.html">繁體中文</option>
+                    <option value="support_ko.html">한국어</option>
+                    <option value="support_vi.html">Tiếng Việt</option>
+                    <option value="support_fil.html">Filipino</option>
+                    <option value="support_ne.html" selected>नेपाली</option>
+                    <option value="support_id.html">Bahasa Indonesia</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-inner">
+                <div>
+                    <p class="eyebrow">मद्दत र बारम्बार सोधिने प्रश्नहरू</p>
+                    <h1>MihirakiPDFViewer समर्थन</h1>
+                    <p>
+                        MihirakiPDFViewer प्रयोग गर्नुभएकोमा धन्यवाद। यो पृष्ठले व्याख्या गर्दछ
+                        PDF हरू कसरी खोल्ने, दुई-पृष्ठ दृश्य, खोज, जुम, ह्यान्डल प्रयोग गर्नुहोस्
+                        पासवर्ड-सुरक्षित PDF हरू, र सामान्य समस्याहरूको निवारण।
+                    </p>
+                </div>
+                <aside class="hero-card" aria-label="अनुप्रयोग सिंहावलोकन">
+                    <img src="assets/icons/MihirakiPDFViewer-AppIcon.png" alt="">
+                    <p>
+                        दायाँ-देखि-बायाँ पुस्तकहरूको लागि बनाइएको साधारण PDF दर्शक र
+                        जापानी प्रकाशनहरू।
+                    </p>
+                </aside>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="quick-links-title">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 id="quick-links-title">तपाईलाई के चाहिन्छ मा जानुहोस्</h2>
+                    <p>सही जानकारी छिटो फेला पार्न को लागी एक कोटी चयन गर्नुहोस्।</p>
+                </div>
+                <div class="quick-links">
+                    <a class="quick-link" href="#basic">आधारभूत</a>
+                    <a class="quick-link" href="#viewing">हेर्दै</a>
+                    <a class="quick-link" href="#security">डाटा र सुरक्षा</a>
+                    <a class="quick-link" href="#troubleshooting">समस्या निवारण</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="faq" aria-labelledby="faq-title">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 id="faq-title">FAQ</h2>
+                    <p>साझा प्रश्न र उत्तरहरू, विषय अनुसार समूहबद्ध।</p>
+                </div>
+                <div class="faq-grid">
+                    <article class="faq-category" id="basic">
+                        <h3>आधारभूत</h3>
+                        <details open>
+                            <summary>म कहाँबाट PDF फाइलहरू खोल्न सक्छु?</summary>
+                            <p>
+                                एउटा चयन गर्न लन्चमा देखाइएको फाइल पिकर प्रयोग गर्नुहोस्
+                                तपाईंको उपकरण वा iCloud ड्राइभबाट PDF।
+                            </p>
+                        </details>
+                        <details>
+                            <summary>मेनु वा स्लाइडर देखिँदैन।</summary>
+                            <p>
+                                टूलबार टगल गर्न PDF छविमा ट्याप गर्नुहोस्, खोज्नुहोस्
+                                बार, र स्लाइडर।
+                            </p>
+                        </details>
+                        <details>
+                            <summary>म कसरी पृष्ठहरू बीच सार्न सक्छु?</summary>
+                            <p>
+                                स्क्रिनमा स्वाइप गर्नुहोस्, वा मेनु देखाउनुहोस् र प्रयोग गर्नुहोस्
+                                स्क्रिनको तल स्लाइडर।
+                            </p>
+                        </details>
+                    </article>
+
+                    <article class="faq-category" id="viewing">
+                        <h3>अवलोकन र नियन्त्रणहरू</h3>
+                        <details open>
+                            <summary>के यसले दायाँ-देखि-बायाँ PDF लाई समर्थन गर्छ?</summary>
+                            <p>
+                                हो। एपले PDF निर्देशन र PageLayout पढ्छ
+                                सेटिङहरू र उपयुक्त पृष्ठहरू प्रदर्शन गर्दछ
+                                दायाँ-देखि-बायाँ वा बायाँ-देखि-दायाँ पढ्नको लागि अर्डर।
+                            </p>
+                        </details>
+                        <details>
+                            <summary>के म एकल-पृष्ठ र दुई-पृष्ठ दृश्य बीच स्विच गर्न सक्छु?</summary>
+                            <p>
+                                हो। तपाईं प्रदर्शन देखि दृश्य परिवर्तन गर्न सक्नुहुन्छ
+                                कभर पृष्ठ कसरी ह्यान्डल गरिन्छ भन्ने सहित सेटिङहरू।
+                            </p>
+                        </details>
+                        <details>
+                            <summary>के म जूम गरिएको पीडीएफ वरिपरि सार्न सक्छु?</summary>
+                            <p>
+                                जुम गर्न पिन्च गरेपछि, लामो प्रेस गर्नुहोस् र तान्नुहोस्
+                                दृश्य क्षेत्र सार्नुहोस्। जुम रिसेट गर्न डबल ट्याप गर्नुहोस्।
+                            </p>
+                        </details>
+                        <details>
+                            <summary>यदि डिस्प्ले धमिलो देखिन्छ भने मैले के गर्नुपर्छ?</summary>
+                            <p>
+                                सेटिङहरूमा उच्च गुणस्तर वा तीक्ष्णता खोल्नुहोस्।
+                                यी विकल्पहरूले केहीमा रेन्डरिङ लोड बढाउन सक्छ
+                                उपकरणहरू।
+                            </p>
+                        </details>
+                    </article>
+
+                    <article class="faq-category" id="security">
+                        <h3>डाटा र सुरक्षा</h3>
+                        <details open>
+                            <summary>के PDF फाइलहरू उपकरण बाहिर पठाइन्छ?</summary>
+                            <p>
+                                PDF अवलोकन उपकरणमा प्रशोधन गरिएको छ। एप
+                                PDF मा अपलोड गर्ने सुविधा समावेश गर्दैन
+                                प्रशोधनका लागि बाह्य सर्भर।
+                            </p>
+                        </details>
+                        <details>
+                            <summary>के म पासवर्ड-सुरक्षित PDF हरू खोल्न सक्छु?</summary>
+                            <p>
+                                जब PDF लाई प्रयोगकर्ता पासवर्ड चाहिन्छ, एपले देखाउँछ
+                                पासवर्ड संवाद। यदि पासवर्डले PDF अनलक गर्छ भने,
+                                पढाइ जारी छ।
+                            </p>
+                        </details>
+                        <details>
+                            <summary>के इन-एप खरिदहरू आवश्यक छ?</summary>
+                            <p>
+                                होइन। सुझावहरू वैकल्पिक समर्थन खरिदहरू हुन्। एपको
+                                पढ्ने सुविधाहरू टिप खरिद नगरी प्रयोग गर्न सकिन्छ।
+                            </p>
+                        </details>
+                    </article>
+
+                    <article class="faq-category" id="environment">
+                        <h3>वातावरण र मुद्दाहरू</h3>
+                        <details open>
+                            <summary>पीडीएफ नखुलेमा के गर्ने?</summary>
+                            <p>
+                                सुनिश्चित गर्नुहोस् कि फाइल PDF हो, क्षतिग्रस्त छैन, र
+                                iCloud ड्राइभबाट पूर्ण रूपमा डाउनलोड गरिएको छ।
+                            </p>
+                        </details>
+                        <details>
+                            <summary>यदि बायाँ र दायाँ पृष्ठहरू अपेक्षित भएन भने के हुन्छ?</summary>
+                            <p>
+                                दिशा जाँच गर्नुहोस्, दुई-पृष्ठ दृश्य, आवरण प्रदर्शन,
+                                र आवरण मोड सेटिङहरू। केही PDF आवश्यक हुन सक्छ
+                                तिनीहरूको मेटाडेटामा निर्भर गर्दै म्यानुअल समायोजन।
+                            </p>
+                        </details>
+                        <details>
+                            <summary>के म सेटिङ्हरू रिसेट गर्न सक्छु?</summary>
+                            <p>
+                                हो। सेटिङ्हरूमा विकल्पहरूबाट रिसेट छनौट गर्नुहोस्
+                                पूर्वनिर्धारित प्रदर्शन सेटिङहरू पुनर्स्थापित गर्नुहोस् र बन्द गर्नुहोस्
+                                हालको कागजात।
+                            </p>
+                        </details>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="troubleshooting" aria-labelledby="troubleshooting-title">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 id="troubleshooting-title">समस्या निवारण</h2>
+                    <p>यदि एपले अपेक्षित रूपमा काम गर्दैन भने, यी वस्तुहरू क्रमबद्ध रूपमा जाँच गर्नुहोस्।</p>
+                </div>
+                <div class="steps">
+                    <article class="step">
+                        <h3>एप रिस्टार्ट गर्नुहोस्</h3>
+                        <p>
+                            यदि डिस्प्ले अस्थायी रूपमा बिग्रन्छ वा एप रोकिन्छ
+                            प्रतिक्रिया दिँदै, एप छोड्नुहोस् र फेरि खोल्नुहोस्।
+                        </p>
+                    </article>
+                    <article class="step">
+                        <h3>PDF फाइल जाँच गर्नुहोस्</h3>
+                        <p>
+                            अर्को PDF खोल्ने प्रयास गर्नुहोस्। यदि केवल एक फाइल असफल भयो भने, यो हुन सक्छ
+                            क्षतिग्रस्त, पूर्ण रूपमा डाउनलोड नगरिएको, वा a द्वारा सुरक्षित
+                            फरक पासवर्ड।
+                        </p>
+                    </article>
+                    <article class="step">
+                        <h3>प्रदर्शन सेटिङहरू समीक्षा गर्नुहोस्</h3>
+                        <p>
+                            दुई-पृष्ठ दृश्य, आवरण प्रदर्शन, दिशा, वा परिवर्तन गर्दै
+                            आवरण मोडले पृष्ठ क्रम र नेभिगेसन सुधार गर्न सक्छ।
+                        </p>
+                    </article>
+                    <article class="step">
+                        <h3>सेटिङहरू रिसेट गर्नुहोस्</h3>
+                        <p>
+                            पूर्वनिर्धारितमा फर्कन सेटिङहरूमा रिसेट प्रयोग गर्नुहोस्। द
+                            हाल खोलिएको PDF रिसेट पछि बन्द हुनेछ।
+                        </p>
+                    </article>
+                    <article class="step">
+                        <h3>iOS/iPadOS र एप अपडेट गर्नुहोस्</h3>
+                        <p>
+                            आफ्नो OS र एपलाई नवीनतम संस्करणहरूमा अपडेट गर्नुहोस्।
+                            पुरानो वातावरणमा फाइल एकीकरण वा प्रदर्शन हुन सक्छ
+                            मुद्दाहरू।
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contact" aria-labelledby="contact-title">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 id="contact-title">बग रिपोर्ट र सम्पर्क</h2>
+                    <p>
+                        यदि समस्या रहन्छ भने, कृपया आफ्नो वातावरण र समावेश गर्नुहोस्
+                        समर्थनलाई सम्पर्क गर्दा प्रजनन चरणहरू।
+                    </p>
+                </div>
+                <div class="contact-grid">
+                    <article class="contact-card">
+                        <h3>GitHub मुद्दाहरू</h3>
+                        <p>
+                            बग रिपोर्ट र सुविधा अनुरोधहरूको लागि GitHub मुद्दाहरू प्रयोग गर्नुहोस्।
+                            व्यक्तिगत वा गोप्य समावेश भएका PDFहरू संलग्न नगर्नुहोस्
+                            जानकारी।
+                        </p>
+                        <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">GitHub मुद्दाहरू खोल्नुहोस्</a>
+                    </article>
+                    <article class="contact-card">
+                        <h3>इमेल</h3>
+                        <p>
+                            निजी सोधपुछको लागि इमेल प्रयोग गर्नुहोस्। जवाफहरू केही लाग्न सक्छ
+                            समय।
+                        </p>
+                        <a class="button secondary" href="mailto:takuma.yamada22@gmail.com">takuma.yamada22@gmail.com</a>
+                    </article>
+                </div>
+
+                <article class="notice" style="margin-top: 16px;">
+                    <h3>समावेश गर्न जानकारी</h3>
+                    <p>
+                        कृपया यन्त्र मोडेल, iOS/iPadOS संस्करण, एप समावेश गर्नुहोस्
+                        संस्करण, PDF प्रकार, प्रजनन चरणहरू, र कुनै त्रुटि सन्देश
+                        तपाईंले देख्नुभयो।
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="updates" aria-labelledby="updates-title">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 id="updates-title">रिलिज नोटहरू र अद्यावधिकहरू</h2>
+                </div>
+                <div class="contact-grid">
+                    <article class="contact-card">
+                        <h3>GitHub रिलीज</h3>
+                        <p>यसलाई रिलीज नोटहरू र प्रकाशन पछि ज्ञात समस्याहरूको लागि प्रयोग गर्नुहोस्।</p>
+                        <a class="button secondary" href="https://github.com/tyamada/MihirakiPDFViewer/releases" rel="noopener">विज्ञप्तिहरू खोल्नुहोस्</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <small>© 2026 Takuma Yamada। सबै अधिकार सुरक्षित।</small>
+            <div class="footer-links">
+                <a href="index_ne.html">घर</a>
+                <a href="support_ne.html">समर्थन</a>
+                <a href="privacy_ne.html">गोपनीयता नीति</a>
+                <a href="README.md">README</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="ne">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="MihirakiPDFViewer को लागि गोपनीयता नीति। एपले PDF फाइलहरू, सेटिङहरू, इन-एप खरिदहरू, र समर्थन सोधपुछहरू कसरी ह्यान्डल गर्छ जान्नुहोस्।">
+    <title>गोपनीयता नीति | ७४१९२६०३५१७</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #f4f7fb;
+            --surface: #ffffff;
+            --surface-soft: #eef3f8;
+            --text: #172033;
+            --muted: #607085;
+            --line: #d7e0ea;
+            --accent: #1f61c4;
+            --accent-dark: #184b96;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.75;
+        }
+
+        a {
+            color: var(--accent);
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(18px);
+            background: rgba(244, 247, 251, 0.88);
+            border-bottom: 1px solid rgba(215, 224, 234, 0.8);
+        }
+
+        .nav,
+        .container,
+        .footer-inner {
+            width: min(1040px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 68px;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text);
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 0;
+        }
+
+        .brand img {
+            width: 38px;
+            height: 38px;
+            border-radius: 9px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .hero {
+            padding: 72px 0 54px;
+        }
+
+        .eyebrow {
+            margin: 0 0 14px;
+            color: var(--accent-dark);
+            font-weight: 700;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.3rem, 5vw, 4rem);
+            line-height: 1.12;
+            letter-spacing: 0;
+        }
+
+        .lead {
+            max-width: 760px;
+            margin: 20px 0 0;
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        .section {
+            padding: 58px 0;
+            border-top: 1px solid rgba(215, 224, 234, 0.72);
+        }
+
+        .section:nth-child(even) {
+            background: var(--surface);
+        }
+
+        .section-heading {
+            margin-bottom: 24px;
+        }
+
+        .section-heading h2 {
+            margin: 0;
+            font-size: clamp(1.6rem, 3vw, 2.35rem);
+            line-height: 1.25;
+            letter-spacing: 0;
+        }
+
+        .section-heading p {
+            margin: 10px 0 0;
+            color: var(--muted);
+        }
+
+        .summary-grid,
+        .policy-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .summary-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .policy-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .card,
+        .notice {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 22px;
+        }
+
+        .section:nth-child(even) .card,
+        .section:nth-child(even) .notice {
+            background: var(--surface-soft);
+        }
+
+        .card h3,
+        .notice h3 {
+            margin: 0 0 12px;
+            font-size: 1.16rem;
+            letter-spacing: 0;
+        }
+
+        .card p,
+        .notice p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .card ul,
+        .notice ul {
+            margin: 10px 0 0;
+            padding-left: 1.2em;
+            color: var(--muted);
+        }
+
+        .card li + li,
+        .notice li + li {
+            margin-top: 6px;
+        }
+
+        .language-switcher {
+            min-height: 36px;
+            padding: 0 34px 0 12px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--surface);
+            color: var(--text);
+            font: inherit;
+            font-weight: 600;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            margin-top: 16px;
+            padding: 0 18px;
+            border-radius: 8px;
+            border: 1px solid var(--accent);
+            background: var(--accent);
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .site-footer {
+            padding: 30px 0;
+            color: var(--muted);
+            border-top: 1px solid rgba(215, 224, 234, 0.9);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        @media (max-width: 760px) {
+            .nav {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .footer-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .summary-grid,
+            .policy-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero,
+            .section {
+                padding: 46px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav" aria-label="मुख्य नेभिगेसन">
+            <a class="brand" href="index_ne.html">
+                <img src="assets/icons/MihirakiPDFViewer-AppIcon.png" alt="" width="38" height="38">
+                <span>MihirakiPDFViewer</span>
+            </a>
+            <div class="nav-links" aria-label="पृष्ठ लिङ्कहरू">
+                <a href="#summary">सारांश</a>
+                <a href="#policy">डाटा ह्यान्डलिंग</a>
+                <a href="#contact">सम्पर्क गर्नुहोस्</a>
+                <a href="support_ne.html">समर्थन</a>
+                <select class="language-switcher" aria-label="Language" onchange="if (this.value) window.location.href = this.value;">
+                    <option value="privacy_en.html">English</option>
+                    <option value="privacy_fr.html">French</option>
+                    <option value="privacy_de.html">German</option>
+                    <option value="privacy_pt.html">Portuguese</option>
+                    <option value="privacy_es.html">Spanish</option>
+                    <option value="privacy.html">日本語</option>
+                    <option value="privacy_zh-Hans.html">简体中文</option>
+                    <option value="privacy_zh-Hant.html">繁體中文</option>
+                    <option value="privacy_ko.html">한국어</option>
+                    <option value="privacy_vi.html">Tiếng Việt</option>
+                    <option value="privacy_fil.html">Filipino</option>
+                    <option value="privacy_ne.html" selected>नेपाली</option>
+                    <option value="privacy_id.html">Bahasa Indonesia</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <p class="eyebrow">गोपनीयता नीति</p>
+                <h1>गोपनीयता नीति</h1>
+                <p class="lead">
+                    MihirakiPDFViewer PDF हरू आरामसँग पढ्नको लागि एउटा एप हो
+                    आफ्नो उपकरण। यो पृष्ठले कुन जानकारी एपलाई बताउँछ
+                    ह्यान्डलहरू र त्यो जानकारी कसरी प्रयोग गरिन्छ।
+                </p>
+            </div>
+        </section>
+
+        <section id="summary" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>सारांश</h2>
+                    <p>एपको आधारभूत गोपनीयता दृष्टिकोण।</p>
+                </div>
+                <div class="summary-grid">
+                    <article class="card">
+                        <h3>PDF सामग्री पठाइएको छैन</h3>
+                        <p>
+                            प्रदर्शन, खोज, पृष्ठ पत्ता लगाउने, र सम्बन्धित प्रशोधन
+                            चयन गरिएका PDF हरू उपकरणमा ह्यान्डल गरिएका छन्।
+                        </p>
+                    </article>
+                    <article class="card">
+                        <h3>कुनै विज्ञापन वा एनालिटिक्स SDK हरू छैनन्</h3>
+                        <p>
+                            एपले तेस्रो-पक्ष SDK हरू समावेश गर्दैन
+                            विज्ञापन वितरण वा व्यवहार विश्लेषण।
+                        </p>
+                    </article>
+                    <article class="card">
+                        <h3>खरिदहरू Apple द्वारा ह्यान्डल गरिन्छ</h3>
+                        <p>
+                            इन-एप खरिदहरू Apple को StoreKit मार्फत प्रशोधन गरिन्छ।
+                            एपले सीधै भुक्तानी जानकारी प्राप्त गर्दैन।
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="policy" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>एप ह्यान्डलहरूको जानकारी</h2>
+                    <p>जानकारी जुन प्रत्येक सुविधा द्वारा प्रयोग गर्न सकिन्छ।</p>
+                </div>
+                <div class="policy-grid">
+                    <article class="card">
+                        <h3>PDF फाइलहरू</h3>
+                        <p>
+                            एपले फाइल पिकरसँग चयन गरिएका PDF फाइलहरू खोल्छ।
+                            PDF पाठ, मेटाडाटा, र पृष्ठ जानकारी को लागी प्रयोग गरिन्छ
+                            हेर्ने सुविधाहरू।
+                        </p>
+                        <ul>
+                            <li>PDF फाइलहरू बाह्य सर्भरमा अपलोड हुँदैनन्।</li>
+                            <li>iCloud ड्राइभमा PDF हरू Apple को प्रणाली व्यवहार अनुसार लोड हुन्छन्।</li>
+                            <li>सुरक्षित PDF का लागि पासवर्डहरू कागजात अनलक गर्नका लागि मात्र प्रयोग गरिन्छ।</li>
+                        </ul>
+                    </article>
+                    <article class="card">
+                        <h3>एप सेटिङहरू</h3>
+                        <p>
+                            प्रदर्शन सेटिङहरू, आवरण सेटिङहरू, दुई-पृष्ठ दृश्य, एप
+                            आइकन सेटिङहरू, र समान प्राथमिकताहरू भण्डारण गर्न सकिन्छ
+                            उपकरणमा।
+                        </p>
+                        <ul>
+                            <li>सेटिङहरू एप व्यवहार पुनर्स्थापना गर्न प्रयोग गरिन्छ।</li>
+                            <li>सेटिङहरू विकासकर्ता सर्भरमा पठाइँदैन।</li>
+                        </ul>
+                    </article>
+                    <article class="card">
+                        <h3>खोज सर्तहरू</h3>
+                        <p>
+                            PDF खोजमा प्रविष्ट गरिएको पाठ भित्र खोज्न प्रयोग गरिन्छ
+                            PDF खोलियो। खोज सर्तहरू बाह्यमा पठाइँदैन
+                            सेवाहरू।
+                        </p>
+                    </article>
+                    <article class="card">
+                        <h3>इन-एप खरिदहरू</h3>
+                        <p>
+                            टिप खरिद स्थिति पोस्ट-खरीद UI को लागि प्रयोग गर्न सकिन्छ
+                            र एप आइकन परिवर्तन।
+                        </p>
+                        <ul>
+                            <li>भुक्तानी जानकारी Apple द्वारा व्यवस्थित गरिएको छ।</li>
+                            <li>विकासकर्ताले क्रेडिट कार्ड नम्बर वा समान भुक्तानी विवरणहरू प्राप्त गर्दैन।</li>
+                        </ul>
+                    </article>
+                    <article class="card">
+                        <h3>समर्थन सोधपुछ</h3>
+                        <p>
+                            यदि तपाईंले GitHub मुद्दाहरू वा इमेल मार्फत समर्थनलाई सम्पर्क गर्नुभयो भने,
+                            तपाईंले पठाउनुभएको जानकारी आवश्यकता अनुसार समीक्षा गर्न सकिन्छ
+                            जवाफ दिनुहोस् वा मुद्दा छानबिन गर्नुहोस्।
+                        </p>
+                        <ul>
+                            <li>आवश्यक नभएसम्म PDF सामग्री वा व्यक्तिगत जानकारी नपठाउनुहोस्।</li>
+                            <li>यन्त्र मोडेल, OS संस्करण, एप संस्करण, र प्रजनन चरणहरूले अनुसन्धानमा मद्दत गर्दछ।</li>
+                        </ul>
+                    </article>
+                    <article class="card">
+                        <h3>तेस्रो पक्षहरूसँग साझेदारी गर्दै</h3>
+                        <p>
+                            जानकारी बाहेक तेस्रो पक्षहरूलाई प्रदान गरिएको छैन
+                            जहाँ कानून द्वारा आवश्यक छ। एप्पलले प्रदान गरेको सुविधाहरू जस्तै
+                            इन-एप खरिदहरू र iCloud ड्राइभ पनि विषय हुन्
+                            एप्पलको गोपनीयता नीति।
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>सुरक्षा</h2>
+                    <p>PDF फाइलहरू र सेटिङहरू एपको लागि आवश्यक रूपमा मात्र ह्यान्डल गरिन्छ।</p>
+                </div>
+                <article class="notice">
+                    <h3>तपाईंले व्यवस्थापन गर्ने जानकारी</h3>
+                    <p>
+                        PDF फाइलहरू र पासवर्डहरू तपाईंको यन्त्रद्वारा व्यवस्थित हुन्छन्,
+                        iCloud ड्राइभ, वा तपाईंले प्रयोग गर्नुभएको भण्डारण स्थान। यदि तपाइँ सम्हाल्नुहोस्
+                        संवेदनशील पीडीएफहरू, उपकरण पासकोड सक्षम गर्नुहोस्, बायोमेट्रिक
+                        प्रमाणीकरण, र iCloud खाता सुरक्षा।
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>नीति परिवर्तनहरू</h2>
+                    <p>यो गोपनीयता नीति आवश्यक हुँदा अद्यावधिक गर्न सकिन्छ।</p>
+                </div>
+                <article class="notice">
+                    <h3>परिवर्तनको सूचना</h3>
+                    <p>
+                        महत्त्वपूर्ण परिवर्तनहरू यस पृष्ठमा वा मा घोषणा गरिनेछ
+                        एप। नवीनतम संस्करण सधैं यस पृष्ठमा उपलब्ध छ।
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>सम्पर्क गर्नुहोस्</h2>
+                    <p>
+                        गोपनीयता प्रश्नहरू वा मेटाउने अनुरोधहरूको लागि, कृपया सम्पर्क गर्नुहोस्
+                        समर्थन।
+                    </p>
+                </div>
+                <article class="notice">
+                    <h3>सम्पर्क विधि</h3>
+                    <p>
+                        GitHub मुद्दाहरू वा इमेल प्रयोग गर्नुहोस्। सार्वजनिक स्थानमा पोस्ट गर्दा,
+                        व्यक्तिगत जानकारी वा PDF सामग्री समावेश नगर्नुहोस्।
+                    </p>
+                    <a class="button" href="support_ne.html#contact">समर्थन पृष्ठ खोल्नुहोस्</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <span>© 2026 Takuma Yamada। सबै अधिकार सुरक्षित।</span>
+            <div class="footer-links" aria-label="फुटर लिङ्कहरू">
+                <a href="index_ne.html">घर</a>
+                <a href="support_ne.html">समर्थन</a>
+                <a href="privacy_ne.html">गोपनीयता नीति</a>
+                <a href="README.md">README</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
