@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Support page for MihirakiPDFViewer. Find help for opening PDFs, two-page view, search, zoom, password-protected PDFs, and troubleshooting.">
-    <title>Support | MihirakiPDFViewer</title>
+    <meta name="description" content="MihirakiPDFViewerのサポートページです。使い方、FAQ、トラブルシューティング、お問い合わせ方法を確認できます。">
+    <title>サポート | MihirakiPDFViewer</title>
     <style>
         :root {
             color-scheme: light;
@@ -16,6 +16,7 @@
             --line: #d7e0ea;
             --accent: #1f61c4;
             --accent-dark: #184b96;
+            --danger: #c33d4a;
             --shadow: 0 18px 50px rgba(23, 32, 51, 0.12);
         }
 
@@ -27,7 +28,8 @@
             margin: 0;
             background: var(--bg);
             color: var(--text);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans",
+                "Yu Gothic", "Noto Sans JP", sans-serif;
             line-height: 1.75;
         }
 
@@ -119,19 +121,10 @@
             font-size: 1.08rem;
         }
 
-        .hero-card,
-        .quick-link,
-        .faq-category,
-        .step,
-        .contact-card,
-        .notice {
+        .hero-card {
             background: var(--surface);
             border: 1px solid var(--line);
             border-radius: 8px;
-            padding: 22px;
-        }
-
-        .hero-card {
             padding: 24px;
             box-shadow: var(--shadow);
         }
@@ -157,14 +150,6 @@
 
         .section:nth-child(even) {
             background: var(--surface);
-        }
-
-        .section:nth-child(even) .quick-link,
-        .section:nth-child(even) .faq-category,
-        .section:nth-child(even) .step,
-        .section:nth-child(even) .contact-card,
-        .section:nth-child(even) .notice {
-            background: var(--surface-soft);
         }
 
         .section-heading {
@@ -198,6 +183,25 @@
         .faq-grid,
         .contact-grid {
             grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .quick-link,
+        .faq-category,
+        .step,
+        .contact-card,
+        .notice {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 22px;
+        }
+
+        .section:nth-child(even) .quick-link,
+        .section:nth-child(even) .faq-category,
+        .section:nth-child(even) .step,
+        .section:nth-child(even) .contact-card,
+        .section:nth-child(even) .notice {
+            background: var(--surface-soft);
         }
 
         .quick-link {
@@ -351,23 +355,23 @@
 </head>
 <body>
     <header class="site-header">
-        <nav class="nav" aria-label="Main navigation">
-            <a class="brand" href="index.html">
+        <nav class="nav" aria-label="メインナビゲーション">
+            <a class="brand" href="index_ja.html">
                 <img src="assets/icons/MihirakiPDFViewer-AppIcon.png" alt="" width="38" height="38">
                 <span>MihirakiPDFViewer</span>
             </a>
             <div class="nav-links">
                 <a href="#faq">FAQ</a>
-                <a href="#troubleshooting">Troubleshooting</a>
-                <a href="#contact">Contact</a>
-                <a href="index.html">Home</a>
+                <a href="#troubleshooting">困ったときは</a>
+                <a href="#contact">お問い合わせ</a>
+                <a href="index_ja.html">トップ</a>
                 <select class="language-switcher" aria-label="Language" onchange="if (this.value) window.location.href = this.value;">
-                    <option value="support.html" selected>English</option>
+                    <option value="support.html">English</option>
                     <option value="support_fr.html">French</option>
                     <option value="support_de.html">German</option>
                     <option value="support_pt.html">Portuguese</option>
                     <option value="support_es.html">Spanish</option>
-                    <option value="support_ja.html">日本語</option>
+                    <option value="support_ja.html" selected>日本語</option>
                     <option value="support_zh-Hans.html">简体中文</option>
                     <option value="support_zh-Hant.html">繁體中文</option>
                     <option value="support_ko.html">한국어</option>
@@ -384,19 +388,18 @@
         <section class="hero">
             <div class="container hero-inner">
                 <div>
-                    <p class="eyebrow">Help and Frequently Asked Questions</p>
-                    <h1>MihirakiPDFViewer Support</h1>
+                    <p class="eyebrow">ヘルプ＆よくある質問</p>
+                    <h1>MihirakiPDFViewer サポート</h1>
                     <p>
-                        Thank you for using MihirakiPDFViewer. This page explains
-                        how to open PDFs, use two-page view, search, zoom, handle
-                        password-protected PDFs, and troubleshoot common issues.
+                        MihirakiPDFViewerをご利用いただきありがとうございます。
+                        このページでは、PDFの開き方、見開き表示、検索、ズーム、
+                        パスワード付きPDFなど、よくある質問と対処方法をまとめています。
                     </p>
                 </div>
-                <aside class="hero-card" aria-label="App overview">
+                <aside class="hero-card" aria-label="アプリ概要">
                     <img src="assets/icons/MihirakiPDFViewer-AppIcon.png" alt="">
                     <p>
-                        A simple PDF viewer made for right-to-left books and
-                        Japanese publications.
+                        右綴じの本や日本語書籍の閲覧に適した、シンプルなPDFビューアです。
                     </p>
                 </aside>
             </div>
@@ -405,14 +408,14 @@
         <section class="section" aria-labelledby="quick-links-title">
             <div class="container">
                 <div class="section-heading">
-                    <h2 id="quick-links-title">Jump to What You Need</h2>
-                    <p>Select a category to quickly find the right information.</p>
+                    <h2 id="quick-links-title">知りたい項目へすぐ移動</h2>
+                    <p>該当するカテゴリを選ぶと、必要な情報にすばやく移動できます。</p>
                 </div>
                 <div class="quick-links">
-                    <a class="quick-link" href="#basic">Basics</a>
-                    <a class="quick-link" href="#viewing">Viewing</a>
-                    <a class="quick-link" href="#security">Data and Security</a>
-                    <a class="quick-link" href="#troubleshooting">Troubleshooting</a>
+                    <a class="quick-link" href="#basic">使い方</a>
+                    <a class="quick-link" href="#viewing">表示と操作</a>
+                    <a class="quick-link" href="#security">データ・セキュリティ</a>
+                    <a class="quick-link" href="#troubleshooting">不具合対応</a>
                 </div>
             </div>
         </section>
@@ -420,119 +423,114 @@
         <section class="section" id="faq" aria-labelledby="faq-title">
             <div class="container">
                 <div class="section-heading">
-                    <h2 id="faq-title">FAQ</h2>
-                    <p>Common questions and answers, grouped by topic.</p>
+                    <h2 id="faq-title">よくある質問</h2>
+                    <p>カテゴリ別に、よくある質問と回答をまとめています。</p>
                 </div>
                 <div class="faq-grid">
                     <article class="faq-category" id="basic">
-                        <h3>Basics</h3>
+                        <h3>使い方</h3>
                         <details open>
-                            <summary>Where can I open PDF files from?</summary>
+                            <summary>PDFファイルはどこから開けますか？</summary>
                             <p>
-                                Use the file picker shown at launch to select a
-                                PDF from your device or iCloud Drive.
+                                起動時に表示されるファイルピッカーから、端末内または
+                                iCloud Drive上のPDFファイルを選択できます。
                             </p>
                         </details>
                         <details>
-                            <summary>The menu or slider is not visible.</summary>
+                            <summary>メニューやスライダーが表示されません。</summary>
                             <p>
-                                Tap the PDF image to toggle the toolbar, search
-                                bar, and slider.
+                                PDF画像をタップすると、ツールバー、検索バー、
+                                スライダーの表示と非表示を切り替えられます。
                             </p>
                         </details>
                         <details>
-                            <summary>How do I move between pages?</summary>
+                            <summary>ページ移動はどう操作しますか？</summary>
                             <p>
-                                Swipe on the screen, or show the menu and use the
-                                slider at the bottom of the screen.
+                                画面をスワイプするか、メニュー表示中に画面下部の
+                                スライダーを操作してください。
                             </p>
                         </details>
                     </article>
 
                     <article class="faq-category" id="viewing">
-                        <h3>Viewing and Controls</h3>
+                        <h3>表示と操作</h3>
                         <details open>
-                            <summary>Does it support right-to-left PDFs?</summary>
+                            <summary>右綴じPDFに対応していますか？</summary>
                             <p>
-                                Yes. The app reads the PDF Direction and PageLayout
-                                settings and displays pages in the appropriate
-                                order for right-to-left or left-to-right reading.
+                                対応しています。PDFのDirectionやPageLayoutを読み取り、
+                                右綴じ・左綴じに合わせたページ順で表示します。
                             </p>
                         </details>
                         <details>
-                            <summary>Can I switch between single-page and two-page view?</summary>
+                            <summary>見開き表示と単ページ表示を切り替えられますか？</summary>
                             <p>
-                                Yes. You can change the view from the display
-                                settings, including how the cover page is handled.
+                                設定画面の表示設定から切り替えられます。
+                                表紙あり/なしの扱いも調整できます。
                             </p>
                         </details>
                         <details>
-                            <summary>Can I move around a zoomed PDF?</summary>
+                            <summary>拡大したPDFを移動できますか？</summary>
                             <p>
-                                After pinching to zoom, long-press and drag to
-                                move the visible area. Double-tap to reset zoom.
+                                ピンチで拡大したあと、長押ししてからドラッグすると
+                                表示位置を移動できます。ダブルタップで拡大率をリセットできます。
                             </p>
                         </details>
                         <details>
-                            <summary>What should I do if the display looks blurry?</summary>
+                            <summary>表示がぼやける場合はどうすればよいですか？</summary>
                             <p>
-                                Turn on High Quality or Sharpness in the settings.
-                                These options may increase rendering load on some
-                                devices.
+                                設定画面で「高画質化」や「シャープネス」を有効にしてください。
+                                ただし、端末によっては描画負荷が上がる場合があります。
                             </p>
                         </details>
                     </article>
 
                     <article class="faq-category" id="security">
-                        <h3>Data and Security</h3>
+                        <h3>データ・セキュリティ</h3>
                         <details open>
-                            <summary>Are PDF files sent outside the device?</summary>
+                            <summary>PDFファイルは外部へ送信されますか？</summary>
                             <p>
-                                PDF viewing is processed on the device. The app
-                                does not include a feature that uploads PDFs to an
-                                external server for processing.
+                                PDFの閲覧処理は端末上で行います。ファイルを外部サーバーへ
+                                アップロードして処理する機能はありません。
                             </p>
                         </details>
                         <details>
-                            <summary>Can I open password-protected PDFs?</summary>
+                            <summary>パスワード付きPDFを開けますか？</summary>
                             <p>
-                                When a PDF requires a user password, the app shows
-                                a password dialog. If the password unlocks the PDF,
-                                reading continues.
+                                閲覧パスワードが設定されたPDFを開くと、パスワード入力
+                                ダイアログが表示されます。正しいパスワードで解除できると
+                                閲覧を続けられます。
                             </p>
                         </details>
                         <details>
-                            <summary>Are in-app purchases required?</summary>
+                            <summary>アプリ内課金は必須ですか？</summary>
                             <p>
-                                No. Tips are optional support purchases. The app's
-                                reading features can be used without purchasing a tip.
+                                必須ではありません。チップ購入は開発を応援するための任意の
+                                機能で、購入しなくてもアプリの機能は利用できます。
                             </p>
                         </details>
                     </article>
 
                     <article class="faq-category" id="environment">
-                        <h3>Environment and Issues</h3>
+                        <h3>動作環境・不具合</h3>
                         <details open>
-                            <summary>What should I do if a PDF does not open?</summary>
+                            <summary>PDFが開けない場合はどうすればよいですか？</summary>
                             <p>
-                                Make sure the file is a PDF, is not damaged, and
-                                has fully downloaded from iCloud Drive.
+                                ファイルがPDF形式であること、破損していないこと、
+                                iCloud Driveから完全にダウンロード済みであることを確認してください。
                             </p>
                         </details>
                         <details>
-                            <summary>What if the left and right pages are not as expected?</summary>
+                            <summary>ページの左右が期待と違う場合は？</summary>
                             <p>
-                                Check the direction, two-page view, cover display,
-                                and cover mode settings. Some PDFs may require
-                                manual adjustment depending on their metadata.
+                                設定画面でスクロール方向、見開き表示、表紙設定を確認してください。
+                                PDF側のメタデータによっては手動調整が必要な場合があります。
                             </p>
                         </details>
                         <details>
-                            <summary>Can I reset the settings?</summary>
+                            <summary>設定を初期状態に戻せますか？</summary>
                             <p>
-                                Yes. Choose Reset from the options in Settings to
-                                restore default display settings and close the
-                                current document.
+                                設定画面のオプションから「リセット」を選択すると、
+                                表示設定を初期状態に戻し、現在のドキュメントを閉じます。
                             </p>
                         </details>
                     </article>
@@ -543,45 +541,43 @@
         <section class="section" id="troubleshooting" aria-labelledby="troubleshooting-title">
             <div class="container">
                 <div class="section-heading">
-                    <h2 id="troubleshooting-title">Troubleshooting</h2>
-                    <p>If the app does not work as expected, check these items in order.</p>
+                    <h2 id="troubleshooting-title">困ったときは</h2>
+                    <p>表示が崩れる、動かない、開けない場合は、次の順に確認してください。</p>
                 </div>
                 <div class="steps">
                     <article class="step">
-                        <h3>Restart the app</h3>
+                        <h3>アプリを再起動する</h3>
                         <p>
-                            If the display temporarily breaks or the app stops
-                            responding, quit the app and open it again.
+                            一時的な表示崩れや操作不能が起きた場合は、アプリを終了して
+                            もう一度起動してください。
                         </p>
                     </article>
                     <article class="step">
-                        <h3>Check the PDF file</h3>
+                        <h3>PDFファイルを確認する</h3>
                         <p>
-                            Try opening another PDF. If only one file fails, it may
-                            be damaged, not fully downloaded, or protected by a
-                            different password.
+                            別のPDFで開けるか確認してください。特定のPDFだけ開けない場合は、
+                            ファイル破損、未ダウンロード、パスワード違いの可能性があります。
                         </p>
                     </article>
                     <article class="step">
-                        <h3>Review display settings</h3>
+                        <h3>表示設定を見直す</h3>
                         <p>
-                            Changing two-page view, cover display, direction, or
-                            cover mode may improve page order and navigation.
+                            見開き表示、表紙表示、スクロール方向、表紙設定を変更すると、
+                            ページの並びや移動方向が改善することがあります。
                         </p>
                     </article>
                     <article class="step">
-                        <h3>Reset settings</h3>
+                        <h3>設定をリセットする</h3>
                         <p>
-                            Use Reset in Settings to return to defaults. The
-                            currently opened PDF will be closed after reset.
+                            設定画面の「リセット」から初期状態に戻せます。リセット後は
+                            現在開いているPDFが閉じられます。
                         </p>
                     </article>
                     <article class="step">
-                        <h3>Update iOS/iPadOS and the app</h3>
+                        <h3>OSとアプリを更新する</h3>
                         <p>
-                            Update your OS and the app to the latest versions.
-                            Older environments may have file integration or display
-                            issues.
+                            iOS/iPadOSとアプリを最新バージョンに更新してください。
+                            古い環境では一部の表示やファイル連携が正しく動作しない場合があります。
                         </p>
                     </article>
                 </div>
@@ -591,38 +587,36 @@
         <section class="section" id="contact" aria-labelledby="contact-title">
             <div class="container">
                 <div class="section-heading">
-                    <h2 id="contact-title">Bug Reports and Contact</h2>
+                    <h2 id="contact-title">不具合報告・お問い合わせ</h2>
                     <p>
-                        If the issue remains, please include your environment and
-                        reproduction steps when contacting support.
+                        解決しない場合は、再現手順と利用環境を添えてお問い合わせください。
                     </p>
                 </div>
                 <div class="contact-grid">
                     <article class="contact-card">
                         <h3>GitHub Issues</h3>
                         <p>
-                            Use GitHub Issues for bug reports and feature requests.
-                            Do not attach PDFs that contain personal or confidential
-                            information.
+                            不具合報告や改善要望はGitHub Issuesへ登録してください。
+                            PDFファイルの内容に個人情報が含まれる場合は、添付しないでください。
                         </p>
-                        <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">Open GitHub Issues</a>
+                        <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">GitHub Issuesを開く</a>
                     </article>
                     <article class="contact-card">
-                        <h3>Email</h3>
+                        <h3>メール</h3>
                         <p>
-                            Use email for private inquiries. Replies may take some
-                            time.
+                            個別に連絡したい内容はメールでお問い合わせください。
+                            返信には時間がかかる場合があります。
                         </p>
                         <a class="button secondary" href="mailto:takuma.yamada22@gmail.com">takuma.yamada22@gmail.com</a>
                     </article>
                 </div>
 
                 <article class="notice" style="margin-top: 16px;">
-                    <h3>Information to Include</h3>
+                    <h3>報告時に含めてほしい情報</h3>
                     <p>
-                        Please include the device model, iOS/iPadOS version, app
-                        version, PDF type, reproduction steps, and any error message
-                        you saw.
+                        端末名、iOS/iPadOSのバージョン、アプリのバージョン、
+                        問題が起きたPDFの種類、再現手順、表示されたエラーメッセージを
+                        分かる範囲で記載してください。
                     </p>
                 </article>
             </div>
@@ -631,13 +625,12 @@
         <section class="section" id="updates" aria-labelledby="updates-title">
             <div class="container">
                 <div class="section-heading">
-                    <h2 id="updates-title">Release Notes and Updates</h2>
+                    <h2 id="updates-title">更新履歴・お知らせ</h2>
                 </div>
                 <div class="contact-grid">
                     <article class="contact-card">
                         <h3>GitHub Releases</h3>
-                        <p>Use this for release notes and known issues after publication.</p>
-                        <a class="button secondary" href="https://github.com/tyamada/MihirakiPDFViewer/releases" rel="noopener">Open Releases</a>
+                        <a class="button secondary" href="https://github.com/tyamada/MihirakiPDFViewer/releases" rel="noopener">Releasesを開く</a>
                     </article>
                 </div>
             </div>
@@ -648,9 +641,9 @@
         <div class="footer-inner">
             <small>&copy; 2026 Takuma Yamada. All rights reserved.</small>
             <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="support.html">Support</a>
-                <a href="privacy.html">Privacy Policy</a>
+                <a href="index_ja.html">トップ</a>
+                <a href="support_ja.html">サポート</a>
+                <a href="privacy_ja.html">プライバシーポリシー</a>
                 <a href="README.md">README</a>
             </div>
         </div>

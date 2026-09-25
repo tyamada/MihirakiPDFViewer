@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="id">
+<html lang="ja">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="MihirakiPDFViewer adalah penampil PDF sederhana untuk buku dari kanan ke kiri, terbitan Jepang, dan bacaan dua halaman.">
+    <meta name="description" content="MihirakiPDFViewerは、右綴じPDFや日本語書籍を自然なページ順で読めるシンプルなPDFビューアです。">
     <title>MihirakiPDFViewer</title>
     <style>
         :root {
@@ -16,6 +16,8 @@
             --line: #d7e0ea;
             --accent: #1f61c4;
             --accent-dark: #184b96;
+            --success: #258460;
+            --warning: #c47a23;
             --shadow: 0 18px 50px rgba(23, 32, 51, 0.14);
         }
 
@@ -27,7 +29,8 @@
             margin: 0;
             background: var(--bg);
             color: var(--text);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans",
+                "Yu Gothic", "Noto Sans JP", sans-serif;
             line-height: 1.7;
         }
 
@@ -60,7 +63,6 @@
             gap: 12px;
             font-weight: 700;
             letter-spacing: 0;
-            text-decoration: none;
         }
 
         .brand img {
@@ -133,6 +135,8 @@
 
         .eyebrow {
             display: inline-flex;
+            align-items: center;
+            gap: 8px;
             margin: 0 0 18px;
             color: var(--accent-dark);
             font-size: 0.94rem;
@@ -308,6 +312,37 @@
             color: var(--text);
         }
 
+        .pricing-panel {
+            max-width: 760px;
+            padding: 28px;
+            border: 1px solid var(--line);
+            border-left: 5px solid var(--accent);
+            border-radius: 8px;
+            background: var(--surface);
+        }
+
+        .section:nth-child(even) .pricing-panel {
+            background: var(--surface-soft);
+        }
+
+        .pricing-panel p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .pricing-panel p + p {
+            margin-top: 12px;
+        }
+
+        .pricing-panel strong {
+            color: var(--text);
+            font-size: 1.16rem;
+        }
+
+        .pricing-panel small {
+            color: var(--muted);
+        }
+
         .site-footer {
             padding: 34px 0;
             color: var(--muted);
@@ -371,29 +406,30 @@
 </head>
 <body>
     <header class="site-header">
-        <nav class="nav" aria-label="Navigasi utama">
-            <a class="brand" href="index_id.html">
+        <nav class="nav" aria-label="メインナビゲーション">
+            <a class="brand" href="#">
                 <img src="assets/icons/MihirakiPDFViewer-AppIcon.png" alt="" width="38" height="38">
                 <span>MihirakiPDFViewer</span>
             </a>
             <div class="nav-links">
-                <a href="#features">Fitur</a>
-                <a href="#screenshots">Tangkapan layar</a>
-                <a href="#download">Dapatkan Aplikasinya</a>
+                <a href="#features">機能</a>
+                <a href="#screenshots">スクリーンショット</a>
+                <a href="#pricing">価格</a>
+                <a href="#download">入手</a>
                 <select class="language-switcher" aria-label="Language" onchange="if (this.value) window.location.href = this.value;">
                     <option value="index.html">English</option>
                     <option value="index_fr.html">French</option>
                     <option value="index_de.html">German</option>
                     <option value="index_pt.html">Portuguese</option>
                     <option value="index_es.html">Spanish</option>
-                    <option value="index_ja.html">日本語</option>
+                    <option value="index_ja.html" selected>日本語</option>
                     <option value="index_zh-Hans.html">简体中文</option>
                     <option value="index_zh-Hant.html">繁體中文</option>
                     <option value="index_ko.html">한국어</option>
                     <option value="index_vi.html">Tiếng Việt</option>
                     <option value="index_fil.html">Filipino</option>
                     <option value="index_ne.html">नेपाली</option>
-                    <option value="index_id.html" selected>Bahasa Indonesia</option>
+                    <option value="index_id.html">Bahasa Indonesia</option>
                 </select>
             </div>
         </nav>
@@ -402,47 +438,46 @@
     <main>
         <section class="hero">
             <div class="hero-copy">
-                <p class="eyebrow">Penampil PDF kanan-ke-kiri dan buku-buku Jepang</p>
-                <h1>Baca PDF dua halaman dalam urutan aslinya.</h1>
+                <p class="eyebrow">右綴じPDF・日本語書籍向けビューア</p>
+                <h1>見開きのPDFを、自然なページ順で。</h1>
                 <p>
-                    MihirakiPDFViewer adalah penampil PDF sederhana yang dirancang untuk
-                    buku kanan-ke-kiri dan publikasi Jepang. Bunyinya halaman
-                    pengaturan tata letak dan arah, lalu memungkinkan Anda beralih dengan lancar
-                    antara tampilan satu halaman dan dua halaman.
+                    MihirakiPDFViewerは、右綴じの本や日本語書籍を読みやすく
+                    表示するためのシンプルなPDFビューアです。ページレイアウトと
+                    スクロール方向を読み取り、単ページ表示と見開き表示を快適に
+                    切り替えられます。
                 </p>
                 <div class="hero-actions">
-                    <a class="button" href="#download">Unduh</a>
-                    <a class="button secondary" href="#screenshots">Lihat Tangkapan Layar</a>
+                    <a class="button" href="#download">ダウンロード</a>
+                    <a class="button secondary" href="#screenshots">画面を見る</a>
                 </div>
             </div>
-            <div class="hero-media" aria-label="Tangkapan layar MihirakiPDFViewer">
-                <img class="phone-shot" src="assets/screenshots/02_spread_r2l.png" alt="MihirakiPDFViewer menampilkan PDF kanan ke kiri dalam tampilan dua halaman">
+            <div class="hero-media" aria-label="MihirakiPDFViewerの画面例">
+                <img class="phone-shot" src="assets/screenshots/02_spread_r2l.png" alt="右綴じPDFを見開き表示しているMihirakiPDFViewerの画面">
             </div>
         </section>
 
         <section class="section" id="solution">
             <div class="container">
                 <div class="section-heading">
-                    <h2>Tidak ada lagi urutan halaman yang membingungkan.</h2>
+                    <h2>PDFのページ順に悩まない。</h2>
                     <p>
-                        Penampil PDF standar tidak selalu menampilkan kanan ke kiri
-                        buku atau PDF dua halaman seperti yang Anda harapkan. MihirakiPDFViewer
-                        membaca pengaturan dokumen dan menyajikan halaman dalam alur
-                        yang sesuai dengan cara buku itu dibaca.
+                        一般的なPDFビューアでは、右綴じの本や見開きPDFが
+                        期待どおりに並ばないことがあります。MihirakiPDFViewerは、
+                        PDFの設定を読み取り、読む流れに合う表示へ整えます。
                     </p>
                 </div>
                 <div class="problem-grid">
                     <article class="panel">
-                        <h3>Masalahnya</h3>
-                        <p>PDF kanan ke kiri mungkin menampilkan halaman atau arah geser dalam urutan yang salah.</p>
+                        <h3>悩み</h3>
+                        <p>右綴じのPDFを開くと、左右のページやスワイプ方向が合わない。</p>
                     </article>
                     <article class="panel">
-                        <h3>Perbaikannya</h3>
-                        <p>Aplikasi ini mendeteksi pengaturan arah dan tata letak, lalu mengatur spread secara alami.</p>
+                        <h3>解決</h3>
+                        <p>スクロール方向とページレイアウトを認識し、自然な見開きで表示します。</p>
                     </article>
                     <article class="panel">
-                        <h3>Detil yang Dapat Dibaca</h3>
-                        <p>Zoom, pencarian, rendering berkualitas tinggi, dan ketajaman membantu teks kecil.</p>
+                        <h3>読みやすさ</h3>
+                        <p>ズーム、検索、高画質表示、シャープネスで細かな文字も確認できます。</p>
                     </article>
                 </div>
             </div>
@@ -451,29 +486,29 @@
         <section class="section" id="features">
             <div class="container">
                 <div class="section-heading">
-                    <h2>Fitur Utama</h2>
-                    <p>Kontrol pembacaan PDF yang penting dalam antarmuka yang bersih dan fokus.</p>
+                    <h2>主要機能</h2>
+                    <p>PDF閲覧に必要な操作を、シンプルな画面にまとめました。</p>
                 </div>
                 <div class="feature-grid">
                     <article class="feature">
                         <div class="feature-badge">1</div>
-                        <h3>Dukungan kanan ke kiri dan kiri ke kanan</h3>
-                        <p>Mengalihkan pergerakan halaman antara L2R dan R2L berdasarkan arah PDF.</p>
+                        <h3>右綴じ・左綴じに対応</h3>
+                        <p>PDFの方向設定をもとに、L2R/R2Lのページ移動を切り替えます。</p>
                     </article>
                     <article class="feature">
                         <div class="feature-badge">2</div>
-                        <h3>Tampilan satu halaman dan dua halaman</h3>
-                        <p>Membaca dengan tata letak yang sesuai dengan dokumen, dengan penanganan sampul bila diperlukan.</p>
+                        <h3>単ページ・見開き表示</h3>
+                        <p>表紙あり/なしを調整しながら、文書に合うレイアウトで閲覧できます。</p>
                     </article>
                     <article class="feature">
                         <div class="feature-badge">3</div>
-                        <h3>Cari dan perbesar</h3>
-                        <p>Cari teks di dalam PDF dan cubit untuk memperbesar area yang Anda perlukan.</p>
+                        <h3>検索とズーム</h3>
+                        <p>PDF内テキストを検索し、ピンチ操作で必要な箇所を拡大できます。</p>
                     </article>
                     <article class="feature">
                         <div class="feature-badge">4</div>
-                        <h3>PDF yang dilindungi kata sandi</h3>
-                        <p>Buka PDF yang memerlukan kata sandi pengguna dan lanjutkan membaca setelah membuka kunci.</p>
+                        <h3>パスワード付きPDF</h3>
+                        <p>閲覧パスワードが必要なPDFも、入力後にそのまま読み進められます。</p>
                     </article>
                 </div>
             </div>
@@ -482,24 +517,24 @@
         <section class="section" id="screenshots">
             <div class="container">
                 <div class="section-heading">
-                    <h2>Tangkapan layar</h2>
+                    <h2>スクリーンショット</h2>
                 </div>
                 <div class="screenshots">
                     <figure class="screenshot-item">
-                        <img src="assets/screenshots/01_fullscreen_pdf.png" alt="Layar membaca PDF layar penuh">
-                        <figcaption>Tampilan layar penuh untuk membaca terfokus</figcaption>
+                        <img src="assets/screenshots/01_fullscreen_pdf.png" alt="PDFを全画面表示している画面">
+                        <figcaption>PDFに集中できる全画面表示</figcaption>
                     </figure>
                     <figure class="screenshot-item">
-                        <img src="assets/screenshots/03_search.png" alt="Mencari teks di dalam PDF">
-                        <figcaption>Pencarian teks di dalam PDF</figcaption>
+                        <img src="assets/screenshots/03_search.png" alt="PDF内検索を行っている画面">
+                        <figcaption>PDF内のテキスト検索</figcaption>
                     </figure>
                     <figure class="screenshot-item">
-                        <img src="assets/screenshots/05_display_settings.png" alt="Layar pengaturan tampilan">
-                        <figcaption>Sesuaikan pengaturan spread dan cover</figcaption>
+                        <img src="assets/screenshots/05_display_settings.png" alt="表示設定画面">
+                        <figcaption>見開きや表紙設定の調整</figcaption>
                     </figure>
                     <figure class="screenshot-item">
-                        <img src="assets/screenshots/07_password.png" alt="Permintaan kata sandi untuk PDF yang dilindungi">
-                        <figcaption>Dukungan PDF yang dilindungi kata sandi</figcaption>
+                        <img src="assets/screenshots/07_password.png" alt="パスワード付きPDFの入力画面">
+                        <figcaption>パスワード付きPDFに対応</figcaption>
                     </figure>
                 </div>
             </div>
@@ -508,22 +543,46 @@
         <section class="section" id="usecases">
             <div class="container">
                 <div class="section-heading">
-                    <h2>Kasus Penggunaan</h2>
-                    <p>Bagi siapa saja yang ingin membaca PDF dari kanan ke kiri di iPhone atau iPad.</p>
+                    <h2>こんな場面に</h2>
+                    <p>右綴じのPDFや資料を、iPhoneやiPadで読みたい人に向いています。</p>
                 </div>
                 <div class="usecase-grid">
                     <article class="usecase">
-                        <h3>Membaca buku-buku Jepang</h3>
-                        <p>Telusuri buku dari kanan ke kiri dengan cara yang terasa lebih dekat dengan kertas.</p>
+                        <h3>日本語書籍を読む</h3>
+                        <p>右綴じの本を、紙の本に近い感覚でページ移動できます。</p>
                     </article>
                     <article class="usecase">
-                        <h3>Tinjau komik dan dokumen</h3>
-                        <p>Jaga agar halaman kiri dan kanan tetap terhubung dalam tampilan dua halaman.</p>
+                        <h3>漫画や資料を確認する</h3>
+                        <p>見開き表示で左右のつながりを保ちながら閲覧できます。</p>
                     </article>
                     <article class="usecase">
-                        <h3>Temukan konten dengan cepat</h3>
-                        <p>Gunakan pencarian dan zoom untuk memeriksa bagian yang Anda perlukan.</p>
+                        <h3>PDF内を調べる</h3>
+                        <p>検索とズームを使って、必要な箇所をすばやく確認できます。</p>
                     </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="pricing">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>アプリの価格</h2>
+                    <p>閲覧に必要な機能は、購入の有無にかかわらず利用できます。</p>
+                </div>
+                <div class="pricing-panel">
+                    <p><strong>基本無料</strong>（広告なし）</p>
+                    <p>
+                        MihirakiPDFViewerは無料でご利用いただけます。PDFの閲覧、
+                        見開き表示、右綴じ対応、検索といった主要機能は、
+                        購入の有無にかかわらず制限なくお使いいただけます。
+                    </p>
+                    <p>
+                        <small>
+                            本アプリには「開発者への応援（投げ銭）」として
+                            アプリ内購入が含まれています。応援してくださった方には、
+                            設定画面に特別な記念バッジが表示されます。
+                        </small>
+                    </p>
                 </div>
             </div>
         </section>
@@ -532,14 +591,14 @@
             <div class="container">
                 <div class="download">
                     <div>
-                        <h2>Coba MihirakiPDFViewer</h2>
+                        <h2>MihirakiPDFViewerを使ってみる</h2>
                         <p>
-                            Setelah rilis App Store, ganti tombol ini dengan
-                            URL Toko Aplikasi.
+                            App Store公開後、このボタンのリンクをApp Store URLへ
+                            差し替えてください。
                         </p>
                     </div>
-                    <a class="button" href="#" aria-label="Unduh MihirakiPDFViewer di App Store">
-                        Dapatkan di App Store
+                    <a class="button" href="#" aria-label="App StoreでMihirakiPDFViewerをダウンロード">
+                        App Storeで入手
                     </a>
                 </div>
             </div>
@@ -548,11 +607,11 @@
 
     <footer class="site-footer">
         <div class="footer-inner">
-            <small>© 2026 Takuma Yamada. Semua hak dilindungi undang-undang.</small>
+            <small>&copy; 2026 Takuma Yamada. All rights reserved.</small>
             <div class="footer-links">
-                <a href="support_id.html">Dukungan</a>
-                <a href="privacy_id.html">Kebijakan Privasi</a>
-                <a href="README.md">BACA SAYA</a>
+                <a href="support_ja.html">サポート</a>
+                <a href="privacy_ja.html">プライバシーポリシー</a>
+                <a href="README.md">README</a>
             </div>
         </div>
     </footer>
