@@ -290,10 +290,17 @@ struct ResetSettingsView: View {
 struct HelpView: View {
     @Environment(\.colorScheme) private var colorScheme
 
+    private struct HelpDetail: Identifiable {
+        let id: String
+        let title: LocalizedStringResource
+        let description: LocalizedStringResource
+    }
+
     private struct HelpItem: Identifiable {
         let id: Int
         let title: LocalizedStringResource
         let description: LocalizedStringResource
+        var details: [HelpDetail] = []
     }
 
     private let helpItems: [HelpItem] = [
@@ -339,11 +346,101 @@ struct HelpView: View {
         ),
         HelpItem(
             id: 6,
-            title: LocalizedStringResource("help_layout_title", defaultValue: "Layout"),
+            title: LocalizedStringResource("settings", defaultValue: "Settings"),
             description: LocalizedStringResource(
-                "help_layout_description",
-                defaultValue: "Use the layout options in the menu to switch between single-page and two-page views."
-            )
+                "help_settings_description",
+                defaultValue: "Use the Settings screen to customize viewing and check information about the current document and app."
+            ),
+            details: [
+                HelpDetail(
+                    id: "highQualityRendering",
+                    title: LocalizedStringResource("high_quality_rendering", defaultValue: "High Quality"),
+                    description: LocalizedStringResource(
+                        "help_setting_high_quality_description",
+                        defaultValue: "Renders PDF pages at higher quality."
+                    )
+                ),
+                HelpDetail(
+                    id: "sharpness",
+                    title: LocalizedStringResource("sharpness", defaultValue: "Sharpness"),
+                    description: LocalizedStringResource(
+                        "help_setting_sharpness_description",
+                        defaultValue: "Makes text and lines appear sharper."
+                    )
+                ),
+                HelpDetail(
+                    id: "spreadView",
+                    title: LocalizedStringResource("is_spread_view", defaultValue: "Spread View"),
+                    description: LocalizedStringResource(
+                        "help_setting_spread_view_description",
+                        defaultValue: "Displays two pages side by side."
+                    )
+                ),
+                HelpDetail(
+                    id: "coverPage",
+                    title: LocalizedStringResource("is_cover_page", defaultValue: "Cover Page"),
+                    description: LocalizedStringResource(
+                        "help_setting_cover_page_description",
+                        defaultValue: "Displays the first page separately as the cover in spread view."
+                    )
+                ),
+                HelpDetail(
+                    id: "scrollDirection",
+                    title: LocalizedStringResource("scroll_direction", defaultValue: "Scroll Direction"),
+                    description: LocalizedStringResource(
+                        "help_setting_scroll_direction_description",
+                        defaultValue: "Selects whether pages advance from left to right or right to left."
+                    )
+                ),
+                HelpDetail(
+                    id: "coverPageSetting",
+                    title: LocalizedStringResource("cover_page_setting_label", defaultValue: "Cover Page Setting"),
+                    description: LocalizedStringResource(
+                        "help_setting_cover_page_type_description",
+                        defaultValue: "Selects how the cover page is positioned for each reading direction."
+                    )
+                ),
+                HelpDetail(
+                    id: "reset",
+                    title: LocalizedStringResource("reset_title", defaultValue: "Reset"),
+                    description: LocalizedStringResource(
+                        "help_setting_reset_description",
+                        defaultValue: "Resets app settings and closes the current document."
+                    )
+                ),
+                HelpDetail(
+                    id: "documentInformation",
+                    title: LocalizedStringResource("doc_info", defaultValue: "Document Information"),
+                    description: LocalizedStringResource(
+                        "help_setting_document_info_description",
+                        defaultValue: "Shows metadata, page count, page layout, and reading direction for the open PDF."
+                    )
+                ),
+                HelpDetail(
+                    id: "help",
+                    title: LocalizedStringResource("help_title", defaultValue: "Help"),
+                    description: LocalizedStringResource(
+                        "help_setting_help_description",
+                        defaultValue: "Opens this help screen."
+                    )
+                ),
+                HelpDetail(
+                    id: "appInformation",
+                    title: LocalizedStringResource("app_info", defaultValue: "App Information"),
+                    description: LocalizedStringResource(
+                        "help_setting_app_info_description",
+                        defaultValue: "Shows the app name, version, and copyright."
+                    )
+                ),
+                HelpDetail(
+                    id: "developerSupport",
+                    title: LocalizedStringResource("developer_support_title", defaultValue: "Support the Developer"),
+                    description: LocalizedStringResource(
+                        "help_setting_developer_support_description",
+                        defaultValue: "Opens the optional tip selection screen."
+                    )
+                )
+            ]
         )
     ]
 
@@ -364,6 +461,17 @@ struct HelpView: View {
                             .font(.headline)
                         Text(item.description)
                             .font(.body)
+
+                        ForEach(item.details) { detail in
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(detail.title)
+                                    .font(.subheadline)
+                                    .fontWeight(.semibold)
+                                Text(detail.description)
+                                    .font(.body)
+                            }
+                            .padding(.leading, 16)
+                        }
                     }
                     .foregroundColor(textColor)
                     .frame(maxWidth: .infinity, alignment: .leading)

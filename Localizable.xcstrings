@@ -2685,6 +2685,210 @@
         }
       }
     },
+    "help_setting_app_info_description" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Shows the app name, version, and copyright."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "アプリ名、バージョン、著作権を表示します。"
+          }
+        }
+      }
+    },
+    "help_setting_cover_page_description" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Displays the first page separately as the cover in spread view."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "見開き表示で最初のページを表紙として単独で表示します。"
+          }
+        }
+      }
+    },
+    "help_setting_cover_page_type_description" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Selects how the cover page is positioned for each reading direction."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "読む方向ごとの表紙の配置を選択します。"
+          }
+        }
+      }
+    },
+    "help_setting_developer_support_description" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Opens the optional tip selection screen."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "任意のチップ選択画面を開きます。"
+          }
+        }
+      }
+    },
+    "help_setting_document_info_description" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Shows metadata, page count, page layout, and reading direction for the open PDF."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "開いているPDFのメタデータ、ページ数、ページレイアウト、読む方向を表示します。"
+          }
+        }
+      }
+    },
+    "help_setting_help_description" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Opens this help screen."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "このヘルプ画面を開きます。"
+          }
+        }
+      }
+    },
+    "help_setting_high_quality_description" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Renders PDF pages at higher quality."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "PDFページをより高画質で表示します。"
+          }
+        }
+      }
+    },
+    "help_setting_reset_description" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Resets app settings and closes the current document."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "アプリの設定をリセットし、現在のドキュメントを閉じます。"
+          }
+        }
+      }
+    },
+    "help_setting_scroll_direction_description" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Selects whether pages advance from left to right or right to left."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ページを左から右へ送るか、右から左へ送るかを選択します。"
+          }
+        }
+      }
+    },
+    "help_setting_sharpness_description" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Makes text and lines appear sharper."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "文字や線をより鮮明に表示します。"
+          }
+        }
+      }
+    },
+    "help_setting_spread_view_description" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Displays two pages side by side."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "2ページを横に並べて表示します。"
+          }
+        }
+      }
+    },
+    "help_settings_description" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Use the Settings screen to customize viewing and check information about the current document and app."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "設定画面で表示をカスタマイズし、現在のドキュメントやアプリの情報を確認できます。"
+          }
+        }
+      }
+    },
     "help_title" : {
       "extractionState" : "manual",
       "localizations" : {

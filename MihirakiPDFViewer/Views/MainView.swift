@@ -563,7 +563,7 @@ struct PDFContainerView: View {
                 .environment(\.layoutDirection, viewModel.settings.layoutDirection == .leftToRight ? .leftToRight : .rightToLeft)
                 .scaleEffect(zoomScale)
                 .offset(contentOffset)
-                .gesture(magnificationGesture)
+                .simultaneousGesture(magnificationGesture)
                 .simultaneousGesture(tapGesture)
                 .simultaneousGesture(longPressDragGesture)
 
