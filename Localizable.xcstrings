@@ -2688,10 +2688,40 @@
     "help_setting_app_info_description" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Zeigt App-Name, Version und Urheberrecht an."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Shows the app name, version, and copyright."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Muestra el nombre de la app, la versión y el copyright."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ipinapakita ang pangalan ng app, bersyon, at karapatang-ari."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Affiche le nom de l’app, sa version et le copyright."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Menampilkan nama app, versi, dan hak cipta."
           }
         },
         "ja" : {
@@ -2699,16 +2729,82 @@
             "state" : "machine_translated",
             "value" : "アプリ名、バージョン、著作権を表示します。"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "앱 이름, 버전 및 저작권을 표시합니다."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "एपको नाम, संस्करण र प्रतिलिपि अधिकार देखाउँछ।"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mostra o nome do app, a versão e o copyright."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hiển thị tên ứng dụng, phiên bản và bản quyền."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "显示应用名称、版本和版权信息。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "顯示App名稱、版本和著作權。"
+          }
         }
       }
     },
     "help_setting_cover_page_description" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Zeigt die erste Seite in der Zweiseitenansicht separat als Titelseite an."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Displays the first page separately as the cover in spread view."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Muestra la primera página por separado como portada en la vista de dos páginas."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ipinapakita nang hiwalay ang unang pahina bilang pabalat sa view na dalawang pahina."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Affiche la première page séparément comme couverture dans la vue en deux pages."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Menampilkan halaman pertama secara terpisah sebagai sampul dalam tampilan dua halaman."
           }
         },
         "ja" : {
@@ -2716,16 +2812,82 @@
             "state" : "machine_translated",
             "value" : "見開き表示で最初のページを表紙として単独で表示します。"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "두 페이지 보기에서 첫 페이지를 표지로 따로 표시합니다."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "दुई-पृष्ठ दृश्यमा पहिलो पृष्ठलाई आवरणका रूपमा छुट्टै देखाउँछ।"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Exibe a primeira página separadamente como capa na visualização de duas páginas."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hiển thị riêng trang đầu tiên làm trang bìa trong chế độ xem hai trang."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "在双页视图中，将第一页单独显示为封面。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "在雙頁顯示中，將第一頁單獨顯示為封面。"
+          }
         }
       }
     },
     "help_setting_cover_page_type_description" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Legt fest, wie die Titelseite je nach Leserichtung positioniert wird."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Selects how the cover page is positioned for each reading direction."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Selecciona cómo se coloca la portada para cada dirección de lectura."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pinipili kung paano ipinoposisyon ang pahinang pabalat para sa bawat direksyon ng pagbasa."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Sélectionne la position de la couverture pour chaque sens de lecture."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Memilih posisi halaman sampul untuk setiap arah baca."
           }
         },
         "ja" : {
@@ -2733,16 +2895,82 @@
             "state" : "machine_translated",
             "value" : "読む方向ごとの表紙の配置を選択します。"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "읽기 방향에 따라 표지 페이지의 위치를 선택합니다."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "प्रत्येक पढ्ने दिशाका लागि आवरण पृष्ठको स्थान चयन गर्छ।"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Seleciona como a capa é posicionada para cada direção de leitura."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Chọn vị trí của trang bìa cho từng hướng đọc."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "选择各阅读方向下封面页的位置。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "選擇各閱讀方向的封面頁位置。"
+          }
         }
       }
     },
     "help_setting_developer_support_description" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Öffnet den optionalen Bildschirm zur Auswahl eines Trinkgelds."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Opens the optional tip selection screen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Abre la pantalla opcional de selección de propina."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Binubuksan ang opsyonal na screen para pumili ng halaga ng suporta."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ouvre l’écran facultatif de sélection du pourboire."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Membuka layar opsional untuk memilih dukungan."
           }
         },
         "ja" : {
@@ -2750,16 +2978,82 @@
             "state" : "machine_translated",
             "value" : "任意のチップ選択画面を開きます。"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "선택 사항인 팁 선택 화면을 엽니다."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "वैकल्पिक टिप चयन स्क्रिन खोल्छ।"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Abre a tela opcional de seleção de gorjeta."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mở màn hình chọn mức ủng hộ tùy ý."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "打开可选的打赏选择屏幕。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "開啟選用的支持金額選擇畫面。"
+          }
         }
       }
     },
     "help_setting_document_info_description" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Zeigt Metadaten, Seitenanzahl, Seitenlayout und Leserichtung der geöffneten PDF-Datei an."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Shows metadata, page count, page layout, and reading direction for the open PDF."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Muestra los metadatos, el número de páginas, el diseño de página y la dirección de lectura del PDF abierto."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ipinapakita ang metadata, bilang ng mga pahina, layout ng pahina, at direksyon ng pagbasa para sa nakabukas na PDF."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Affiche les métadonnées, le nombre de pages, la mise en page et le sens de lecture du PDF ouvert."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Menampilkan metadata, jumlah halaman, tata letak halaman, dan arah baca PDF yang dibuka."
           }
         },
         "ja" : {
@@ -2767,16 +3061,82 @@
             "state" : "machine_translated",
             "value" : "開いているPDFのメタデータ、ページ数、ページレイアウト、読む方向を表示します。"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "열려 있는 PDF의 메타데이터, 페이지 수, 페이지 레이아웃 및 읽기 방향을 표시합니다."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "खोलिएको PDF को मेटाडेटा, पृष्ठ सङ्ख्या, पृष्ठ लेआउट र पढ्ने दिशा देखाउँछ।"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mostra os metadados, a contagem de páginas, o layout da página e a direção de leitura do PDF aberto."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hiển thị siêu dữ liệu, số trang, bố cục trang và hướng đọc của tệp PDF đang mở."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "显示已打开 PDF 的元数据、页数、页面布局和阅读方向。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "顯示已開啟PDF的中繼資料、頁數、頁面佈局和閱讀方向。"
+          }
         }
       }
     },
     "help_setting_help_description" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Öffnet diesen Hilfebildschirm."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Opens this help screen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Abre esta pantalla de ayuda."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Binubuksan ang screen ng tulong na ito."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ouvre cet écran d’aide."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Membuka layar bantuan ini."
           }
         },
         "ja" : {
@@ -2784,16 +3144,82 @@
             "state" : "machine_translated",
             "value" : "このヘルプ画面を開きます。"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "이 도움말 화면을 엽니다."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "यो मद्दत स्क्रिन खोल्छ।"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Abre esta tela de ajuda."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mở màn hình trợ giúp này."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "打开此帮助屏幕。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "開啟此輔助說明畫面。"
+          }
         }
       }
     },
     "help_setting_high_quality_description" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Rendert PDF-Seiten in höherer Qualität."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Renders PDF pages at higher quality."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Renderiza las páginas del PDF con mayor calidad."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Nire-render ang mga pahina ng PDF sa mas mataas na kalidad."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Affiche les pages PDF avec une qualité supérieure."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Merender halaman PDF dengan kualitas lebih tinggi."
           }
         },
         "ja" : {
@@ -2801,16 +3227,82 @@
             "state" : "machine_translated",
             "value" : "PDFページをより高画質で表示します。"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "PDF 페이지를 더 높은 화질로 렌더링합니다."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "PDF पृष्ठहरू उच्च गुणस्तरमा रेन्डर गर्छ।"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Renderiza as páginas do PDF com maior qualidade."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hiển thị các trang PDF với chất lượng cao hơn."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "以更高画质渲染 PDF 页面。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "以較高畫質算繪PDF頁面。"
+          }
         }
       }
     },
     "help_setting_reset_description" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Setzt die App-Einstellungen zurück und schließt das aktuelle Dokument."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Resets app settings and closes the current document."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Restablece los ajustes de la app y cierra el documento actual."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Nire-reset ang mga setting ng app at isinasara ang kasalukuyang dokumento."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Réinitialise les réglages de l’app et ferme le document actuel."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mengatur ulang pengaturan app dan menutup dokumen saat ini."
           }
         },
         "ja" : {
@@ -2818,16 +3310,82 @@
             "state" : "machine_translated",
             "value" : "アプリの設定をリセットし、現在のドキュメントを閉じます。"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "앱 설정을 재설정하고 현재 문서를 닫습니다."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "एपका सेटिङहरू रिसेट गर्छ र हालको कागजात बन्द गर्छ।"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Redefine os ajustes do app e fecha o documento atual."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Đặt lại cài đặt ứng dụng và đóng tài liệu hiện tại."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "重置应用设置并关闭当前文档。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "重設App設定並關閉目前的文件。"
+          }
         }
       }
     },
     "help_setting_scroll_direction_description" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Legt fest, ob die Seiten von links nach rechts oder von rechts nach links weitergeblättert werden."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Selects whether pages advance from left to right or right to left."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Selecciona si las páginas avanzan de izquierda a derecha o de derecha a izquierda."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pinipili kung uusad ang mga pahina mula kaliwa pakanan o kanan pakaliwa."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Sélectionne le sens de défilement des pages, de gauche à droite ou de droite à gauche."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Memilih apakah halaman bergerak dari kiri ke kanan atau dari kanan ke kiri."
           }
         },
         "ja" : {
@@ -2835,16 +3393,82 @@
             "state" : "machine_translated",
             "value" : "ページを左から右へ送るか、右から左へ送るかを選択します。"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "페이지를 왼쪽에서 오른쪽 또는 오른쪽에서 왼쪽으로 넘길지 선택합니다."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "पृष्ठहरू बायाँबाट दायाँ वा दायाँबाट बायाँ कुन दिशामा अगाडि बढ्ने भन्ने चयन गर्छ।"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Seleciona se as páginas avançam da esquerda para a direita ou da direita para a esquerda."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Chọn thứ tự chuyển trang từ trái sang phải hoặc từ phải sang trái."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "选择页面是从左向右还是从右向左翻页。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "選擇頁面要由左至右或由右至左翻頁。"
+          }
         }
       }
     },
     "help_setting_sharpness_description" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Stellt Text und Linien schärfer dar."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Makes text and lines appear sharper."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hace que el texto y las líneas se vean más nítidos."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ginagawang mas malinaw ang teksto at mga linya."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Améliore la netteté du texte et des lignes."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Membuat teks dan garis tampak lebih tajam."
           }
         },
         "ja" : {
@@ -2852,16 +3476,82 @@
             "state" : "machine_translated",
             "value" : "文字や線をより鮮明に表示します。"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "텍스트와 선을 더 선명하게 표시합니다."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "पाठ र रेखाहरू अझ स्पष्ट देखाउँछ।"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Deixa o texto e as linhas mais nítidos."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Làm cho văn bản và đường nét hiển thị sắc nét hơn."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "使文字和线条显示得更清晰。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "讓文字和線條看起來更清晰。"
+          }
         }
       }
     },
     "help_setting_spread_view_description" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Zeigt zwei Seiten nebeneinander an."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Displays two pages side by side."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Muestra dos páginas una junto a otra."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ipinapakita nang magkatabi ang dalawang pahina."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Affiche deux pages côte à côte."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Menampilkan dua halaman secara berdampingan."
           }
         },
         "ja" : {
@@ -2869,22 +3559,124 @@
             "state" : "machine_translated",
             "value" : "2ページを横に並べて表示します。"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "두 페이지를 나란히 표시합니다."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "दुई पृष्ठलाई छेउछाउमा देखाउँछ।"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Exibe duas páginas lado a lado."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hiển thị hai trang cạnh nhau."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "并排显示两页。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "並排顯示兩頁。"
+          }
         }
       }
     },
     "help_settings_description" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Passe im Bildschirm „Einstellungen“ die Darstellung an und prüfe Informationen zum aktuellen Dokument und zur App."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Use the Settings screen to customize viewing and check information about the current document and app."
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Usa la pantalla Ajustes para personalizar la visualización y consultar información sobre el documento actual y la app."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Gamitin ang screen ng Mga Setting para i-customize ang pagtingin at tingnan ang impormasyon tungkol sa kasalukuyang dokumento at app."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Utilisez l’écran Réglages pour personnaliser l’affichage et consulter les informations sur le document actuel et l’app."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Gunakan layar Pengaturan untuk menyesuaikan tampilan dan memeriksa informasi tentang dokumen saat ini dan app."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "設定画面で表示をカスタマイズし、現在のドキュメントやアプリの情報を確認できます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "설정 화면에서 보기 방식을 사용자화하고 현재 문서와 앱 정보를 확인합니다."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "हेर्ने तरिका अनुकूलित गर्न र हालको कागजात तथा एपबारे जानकारी जाँच गर्न सेटिङहरू स्क्रिन प्रयोग गर्नुहोस्।"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Use a tela Ajustes para personalizar a visualização e consultar informações sobre o documento atual e o app."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Sử dụng màn hình Cài đặt để tùy chỉnh chế độ xem và kiểm tra thông tin về tài liệu hiện tại cũng như ứng dụng."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "使用“设置”屏幕自定义查看方式，并查看当前文档和应用的信息。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "使用「設定」畫面自訂顯示方式，並查看目前文件和App的資訊。"
           }
         }
       }
@@ -5375,67 +6167,67 @@
       "localizations" : {
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wenn du das App-Symbol geändert hast, kann es nach dem Zurücksetzen nicht wiederhergestellt werden!"
+            "state" : "machine_translated",
+            "value" : "Beim Zurücksetzen wird das standardmäßige App-Symbol wiederhergestellt. Um ein Unterstützer-Symbol erneut zu verwenden, muss die App erneut durch einen Kauf unterstützt werden."
           }
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "If you have changed the app icon, it cannot be restored after reset!"
+            "state" : "machine_translated",
+            "value" : "Resetting will restore the default app icon. To use a supporter icon again, you’ll need to make another support purchase."
           }
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Si has cambiado el icono de la app, no se podrá restaurar después del restablecimiento."
+            "state" : "machine_translated",
+            "value" : "Al restablecer los ajustes, se recuperará el icono predeterminado de la app. Para volver a usar un icono de colaborador, tendrás que realizar otra compra de apoyo."
           }
         },
         "fil" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Kung binago mo ang icon ng app, hindi na ito maibabalik pagkatapos mag-reset!"
+            "value" : "Ibabalik ng pag-reset ang default na icon ng app. Para magamit muli ang supporter icon, kailangan mong bumili ulit ng suporta."
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Si vous avez modifié l’icône de l’app, elle ne pourra pas être restaurée après la réinitialisation !"
+            "state" : "machine_translated",
+            "value" : "La réinitialisation rétablira l’icône d’app par défaut. Pour réutiliser une icône de soutien, vous devrez effectuer un nouvel achat de soutien."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Jika Anda telah mengubah ikon app, ikon tersebut tidak dapat dipulihkan setelah pengaturan diatur ulang!"
+            "value" : "Mengatur ulang akan mengembalikan ikon app default. Untuk menggunakan ikon pendukung lagi, Anda harus melakukan pembelian dukungan lagi."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "アプリアイコンを変更している場合、リセット後に元に戻すことはできません！"
+            "value" : "リセットすると、アプリアイコンは標準に戻ります。サポーターアイコンを再び使用するには、もう一度応援購入が必要です。"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "앱 아이콘을 변경한 경우 재설정 후에는 되돌릴 수 없습니다!"
+            "state" : "machine_translated",
+            "value" : "재설정하면 기본 앱 아이콘으로 돌아갑니다. 후원자 아이콘을 다시 사용하려면 후원 구매를 다시 해야 합니다."
           }
         },
         "ne" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "यदि तपाईंले एप आइकन परिवर्तन गर्नुभएको छ भने, रिसेट गरेपछि त्यसलाई पुनर्स्थापना गर्न सकिँदैन!"
+            "value" : "रिसेट गर्दा पूर्वनिर्धारित एप आइकन पुनर्स्थापित हुनेछ। समर्थक आइकन फेरि प्रयोग गर्न, तपाईंले अर्को सहयोग खरिद गर्नुपर्नेछ।"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Se você alterou o ícone do app, ele não poderá ser restaurado após a redefinição!"
+            "state" : "machine_translated",
+            "value" : "A redefinição restaurará o ícone padrão do app. Para usar novamente um ícone de apoiador, você precisará fazer outra compra de apoio."
           }
         },
         "vi" : {
           "stringUnit" : {
-            "state" : "machine_translated",
+            "state" : "translated",
             "value" : "Nếu bạn đã thay đổi biểu tượng ứng dụng, biểu tượng đó sẽ không thể được khôi phục sau khi đặt lại!"
           }
         },
@@ -5448,7 +6240,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "如果你已更改App圖像，重設後將無法還原！"
+            "value" : "重設會將App圖像恢復為預設圖像。若要再次使用支持者App圖像，你需要再次進行支持購買。"
           }
         }
       }
@@ -7277,8 +8069,8 @@
             "plural" : {
               "one" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Insgesamt %lld Seiten"
+                  "state" : "machine_translated",
+                  "value" : "Insgesamt %lld Seite"
                 }
               },
               "other" : {
@@ -7289,7 +8081,7 @@
               },
               "zero" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
+                  "state" : "machine_translated",
                   "value" : "Insgesamt %lld Seiten"
                 }
               }
@@ -7325,20 +8117,20 @@
             "plural" : {
               "one" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Un total de %lld páginas"
+                  "state" : "machine_translated",
+                  "value" : "%lld página en total"
                 }
               },
               "other" : {
                 "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Un total de %lld páginas"
+                  "state" : "machine_translated",
+                  "value" : "%lld páginas en total"
                 }
               },
               "zero" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Un total de %lld páginas"
+                  "state" : "machine_translated",
+                  "value" : "%lld páginas en total"
                 }
               }
             }
@@ -7373,20 +8165,20 @@
             "plural" : {
               "one" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Un total de %lld pages"
+                  "state" : "machine_translated",
+                  "value" : "%lld page au total"
                 }
               },
               "other" : {
                 "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Un total de %lld pages"
+                  "state" : "machine_translated",
+                  "value" : "%lld pages au total"
                 }
               },
               "zero" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Un total de %lld pages"
+                  "state" : "machine_translated",
+                  "value" : "%lld page au total"
                 }
               }
             }
@@ -7421,7 +8213,7 @@
               },
               "zero" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
+                  "state" : "translated",
                   "value" : "全 %lld ページ"
                 }
               }
@@ -7439,7 +8231,7 @@
               },
               "zero" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
+                  "state" : "machine_translated",
                   "value" : "총 %lld 페이지"
                 }
               }
@@ -7475,20 +8267,20 @@
             "plural" : {
               "one" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Um total de %lld páginas"
+                  "state" : "machine_translated",
+                  "value" : "%lld página no total"
                 }
               },
               "other" : {
                 "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Um total de %lld páginas"
+                  "state" : "machine_translated",
+                  "value" : "%lld páginas no total"
                 }
               },
               "zero" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Um total de %lld páginas"
+                  "state" : "machine_translated",
+                  "value" : "%lld páginas no total"
                 }
               }
             }
@@ -7523,7 +8315,7 @@
               },
               "zero" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
+                  "state" : "translated",
                   "value" : "总共 %lld 页"
                 }
               }

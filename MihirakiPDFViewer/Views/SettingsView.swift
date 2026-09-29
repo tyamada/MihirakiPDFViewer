@@ -80,28 +80,6 @@ public struct SettingsView: View {
                 .padding(1)
                 .background(settingsBackgroundColor)
 
-                // オプション
-                VStack(alignment: .leading, spacing: 12) {
-                    Text(String(localized: "options"))
-                        .font(.headline)
-                    Text(String(localized: "cover_page_setting_label", defaultValue: "Cover Page Setting"))
-                    Picker(String(localized: "cover_page_setting_label", defaultValue: "Cover Page Setting"), selection: Binding(
-                        get: { viewModel.settings.coverPageSetting },
-                        set: { viewModel.settings.coverPageSetting = $0 }
-                    )) {
-                        Text(String(localized: "TypeA")).tag(CoverPageSetting.typeA)
-                        Text(String(localized: "TypeB")).tag(CoverPageSetting.typeB)
-                    }
-                       .pickerStyle(.segmented)
-                    NavigationLink(destination: ResetSettingsView(viewModel: viewModel)) {
-                        Text(String(localized: "reset_title", defaultValue: "Reset"))
-                    }
-                    .accessibilityIdentifier("resetSettingsButton")
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(1)
-                .background(settingsBackgroundColor)
-                
                 // ドキュメント情報
                 VStack(alignment: .leading, spacing: 12) {
                     Text(String(localized: "doc_info"))
@@ -132,6 +110,28 @@ public struct SettingsView: View {
                             .font(.caption)
                             .foregroundColor(settingsTextColor)
                     }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(1)
+                .background(settingsBackgroundColor)
+
+                // オプション
+                VStack(alignment: .leading, spacing: 12) {
+                    Text(String(localized: "options"))
+                        .font(.headline)
+                    Text(String(localized: "cover_page_setting_label", defaultValue: "Cover Page Setting"))
+                    Picker(String(localized: "cover_page_setting_label", defaultValue: "Cover Page Setting"), selection: Binding(
+                        get: { viewModel.settings.coverPageSetting },
+                        set: { viewModel.settings.coverPageSetting = $0 }
+                    )) {
+                        Text(String(localized: "TypeA")).tag(CoverPageSetting.typeA)
+                        Text(String(localized: "TypeB")).tag(CoverPageSetting.typeB)
+                    }
+                    .pickerStyle(.segmented)
+                    NavigationLink(destination: ResetSettingsView(viewModel: viewModel)) {
+                        Text(String(localized: "reset_title", defaultValue: "Reset"))
+                    }
+                    .accessibilityIdentifier("resetSettingsButton")
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(1)
@@ -233,7 +233,7 @@ struct ResetSettingsView: View {
                 .font(.body)
                 .foregroundColor(textColor)
 
-            Text(String(localized: "reset_app_icon_warning", defaultValue: "If you have changed the app icon, it cannot be restored after reset!"))
+            Text(String(localized: "reset_app_icon_warning", defaultValue: "Resetting will restore the default app icon. To use a supporter icon again, you’ll need to make another support purchase."))
                 .font(.body)
                 .fontWeight(.semibold)
                 .foregroundColor(.red)
