@@ -63,7 +63,11 @@ public struct PageView: View {
             let renderedWidth = pageWidth * scale
             let renderedHeight = pageHeight * scale
             
-            let offsetX = (geometry.size.width - renderedWidth) / 2
+            let offsetX = Self.alignedPageOriginX(
+                alignment: alignment,
+                containerWidth: geometry.size.width,
+                renderedWidth: renderedWidth
+            )
             let offsetY = (geometry.size.height - renderedHeight) / 2
 
             ZStack(alignment: .topLeading) {
@@ -72,7 +76,7 @@ public struct PageView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: size.width, height: size.height)
-                    .position(x: alignmentPositionX(alignment: alignment, width: geometry.size.width, renderedWidth: renderedWidth), y: geometry.size.height / 2)
+                    .position(x: offsetX + renderedWidth / 2, y: geometry.size.height / 2)
                     .accessibilityLabel(pageAccessibilityLabel)
 
                 // ハイライトの描画
@@ -90,17 +94,19 @@ public struct PageView: View {
         }
     }
 
-    private func alignmentPositionX(alignment: PageAlignment, width: CGFloat, renderedWidth: CGFloat) -> CGFloat {
-        let positionX: CGFloat
+    static func alignedPageOriginX(
+        alignment: PageAlignment,
+        containerWidth: CGFloat,
+        renderedWidth: CGFloat
+    ) -> CGFloat {
         switch alignment {
         case .left:
-            positionX = width / 2 + (width - renderedWidth) / 2
+            return containerWidth - renderedWidth
         case .center:
-            positionX = width / 2
+            return (containerWidth - renderedWidth) / 2
         case .right:
-            positionX = width / 2 - (width - renderedWidth) / 2
+            return 0
         }
-        return positionX
     }
 
     private func renderedPageImage(displaySize: CGSize) -> UIImage {

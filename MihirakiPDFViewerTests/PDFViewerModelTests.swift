@@ -406,6 +406,36 @@ final class PDFViewerViewModelTests: XCTestCase {
         XCTAssertEqual(targetSize.height, 225)
     }
 
+    func testPageOriginFollowsPageAlignment() {
+        let containerWidth: CGFloat = 1_366
+        let renderedWidth: CGFloat = 600
+
+        XCTAssertEqual(
+            PageView.alignedPageOriginX(
+                alignment: .left,
+                containerWidth: containerWidth,
+                renderedWidth: renderedWidth
+            ),
+            766
+        )
+        XCTAssertEqual(
+            PageView.alignedPageOriginX(
+                alignment: .center,
+                containerWidth: containerWidth,
+                renderedWidth: renderedWidth
+            ),
+            383
+        )
+        XCTAssertEqual(
+            PageView.alignedPageOriginX(
+                alignment: .right,
+                containerWidth: containerWidth,
+                renderedWidth: renderedWidth
+            ),
+            0
+        )
+    }
+
     func testTrailingSinglePageBlankPositionFollowsLayoutDirection() {
         XCTAssertTrue(SpreadLayoutView.pageComesBeforeBlankPage(layoutDirection: .leftToRight))
         XCTAssertFalse(SpreadLayoutView.pageComesBeforeBlankPage(layoutDirection: .rightToLeft))
