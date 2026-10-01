@@ -421,16 +421,21 @@ public struct MainView: View {
     @ViewBuilder
     private func makeDetailView() -> some View {
         if viewModel.document != nil {
-            VStack(spacing: 0) {
+            ZStack(alignment: .bottom) {
                 PDFContainerView(
                     viewModel: viewModel,
-                    isShowingFilePicker: $isShowingFilePicker,
-                    isShowingSettings: $isShowingSettings,
                     isPDFChromeVisible: $isPDFChromeVisible,
                     isScrollDirectionHintVisible: isScrollDirectionHintVisible
                 )
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .ignoresSafeArea(.container, edges: .top)
                 .accessibilityIdentifier("pdfViewerScreen")
+
+                if isPDFChromeVisible {
+                    pdfTopControls
+                        .frame(maxHeight: .infinity, alignment: .top)
+                        .transition(.move(edge: .top).combined(with: .opacity))
+                }
 
                 if isPDFChromeVisible && viewModel.pageGroups.count > 1 {
                     VStack(spacing: 8) {
@@ -461,14 +466,49 @@ public struct MainView: View {
                     .background(Color(uiColor: .secondarySystemBackground))
                     .cornerRadius(12)
                     .padding(.horizontal, 16)
+                    .padding(.bottom, 8)
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
                 }
             }
             .navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar(isPDFChromeVisible ? .visible : .hidden, for: .navigationBar)
+            .toolbar(.hidden, for: .navigationBar)
         } else {
             makeEmptyStateView()
         }
+    }
+
+    private var pdfTopControls: some View {
+        HStack(spacing: 12) {
+            Button {
+                isShowingSettings = true
+            } label: {
+                Image(systemName: "gearshape")
+                    .frame(width: 32, height: 32)
+            }
+            .accessibilityLabel(String(localized: "settings"))
+            .accessibilityIdentifier("settingsButton")
+
+            HStack {
+                Image(systemName: "magnifyingglass")
+                    .foregroundColor(.secondary)
+                TextField(String(localized: "search"), text: $viewModel.searchQuery)
+                    .textFieldStyle(.roundedBorder)
+                    .accessibilityIdentifier("searchField")
+            }
+
+            Button {
+                isPDFChromeVisible = false
+                viewModel.closeDocument()
+            } label: {
+                Text(String(localized: "close"))
+                    .frame(minWidth: 32, minHeight: 32)
+            }
+            .accessibilityIdentifier("closeDocumentButton")
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 8)
+        .background(.regularMaterial)
     }
 
     @ViewBuilder
@@ -558,8 +598,6 @@ struct ScrollDirectionHintView: View {
 /// PDF表示のコンテナビュー
 struct PDFContainerView: View {
     @ObservedObject var viewModel: PDFViewerViewModel
-    @Binding var isShowingFilePicker: Bool
-    @Binding var isShowingSettings: Bool
     @Binding var isPDFChromeVisible: Bool
     let isScrollDirectionHintVisible: Bool
     
@@ -593,9 +631,6 @@ struct PDFContainerView: View {
                     .accessibilityHidden(true)
             }
         }
-        .toolbar {
-            toolbarContent
-        }
         .onChange(of: viewModel.searchQuery) { _, query in
             viewModel.performSearch(query: query)
         }
@@ -613,41 +648,6 @@ struct PDFContainerView: View {
     private func tabView(size: CGSize) -> some View {
         TabView(selection: $viewModel.currentPageIndex) {
             pageTabViewContent(size: size)
-        }
-    }
-
-
-    @ToolbarContentBuilder
-    private var toolbarContent: some ToolbarContent {
-        if isPDFChromeVisible {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                    isShowingSettings = true
-                } label: {
-                    Image(systemName: "gearshape")
-                }
-                .accessibilityLabel(String(localized: "settings"))
-                .accessibilityIdentifier("settingsButton")
-            }
-            ToolbarItem(placement: .principal) {
-                HStack {
-                    Image(systemName: "magnifyingglass")
-                        .foregroundColor(.secondary)
-                    TextField(String(localized: "search"), text: $viewModel.searchQuery)
-                        .textFieldStyle(.roundedBorder)
-                        .accessibilityIdentifier("searchField")
-                }
-                .padding(.horizontal, 4)
-            }
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    isPDFChromeVisible = false
-                    viewModel.closeDocument()
-                } label: {
-                    Text(String(localized: "close"))
-                }
-                .accessibilityIdentifier("closeDocumentButton")
-            }
         }
     }
 
