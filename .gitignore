@@ -63,7 +63,6 @@ fastlane/test_output
 
 # Working Folder
 AppStoreConnect/
-AppPreviews/
 output/
 /build/
 /tmp/
