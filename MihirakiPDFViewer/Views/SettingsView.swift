@@ -197,7 +197,7 @@ public struct SettingsView: View {
                     }
                     .buttonStyle(.borderedProminent)
                     .accessibilityIdentifier("supportButton")
-                    .accessibilityHint(String(localized: "support_button_accessibility_hint", defaultValue: "Opens the tip selection screen."))
+                    .accessibilityHint(String(localized: "supporter_icon_store_accessibility_hint", defaultValue: "Opens the supporter icon store."))
                 }
                 .padding(.vertical)
                 .background(settingsBackgroundColor)
@@ -229,14 +229,9 @@ struct ResetSettingsView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            Text(String(localized: "reset_settings_message", defaultValue: "This will reset the app settings."))
+            Text(String(localized: "reset_settings_and_icon_message", defaultValue: "This resets viewing settings, restores the default app icon, and closes the current document. Purchased supporter icons remain available."))
                 .font(.body)
                 .foregroundColor(textColor)
-
-            Text(String(localized: "reset_app_icon_warning", defaultValue: "Resetting will restore the default app icon. To use a supporter icon again, you’ll need to make another support purchase."))
-                .font(.body)
-                .fontWeight(.semibold)
-                .foregroundColor(.red)
 
             Spacer()
 
@@ -272,7 +267,7 @@ struct ResetSettingsView: View {
                 resetSettings()
             }
         } message: {
-            Text(String(localized: "reset_confirmation_message", defaultValue: "This will reset the cover page setting, app icon, and close the current document."))
+            Text(String(localized: "reset_settings_and_icon_message", defaultValue: "This resets viewing settings, restores the default app icon, and closes the current document. Purchased supporter icons remain available."))
         }
     }
 
@@ -436,8 +431,8 @@ struct HelpView: View {
                     id: "developerSupport",
                     title: LocalizedStringResource("developer_support_title", defaultValue: "Support the Developer"),
                     description: LocalizedStringResource(
-                        "help_setting_developer_support_description",
-                        defaultValue: "Opens the optional tip selection screen."
+                        "help_setting_supporter_icons_description",
+                        defaultValue: "Opens the supporter icon store. Purchases can be restored on devices using the same Apple Account."
                     )
                 )
             ]
@@ -516,46 +511,49 @@ struct TipSelectionView: View {
                     .padding(.vertical)
                 } else {
                     ForEach(tipManager.products, id: \.id) { product in
-                        Button {
-                            purchase(product)
-                        } label: {
-                            HStack(spacing: 12) {
+                        HStack(spacing: 12) {
+                            Image(tipIconName(for: product.id))
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 44, height: 44)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                .accessibilityHidden(true)
 
-                                Image(tipIconName(for: product.id))
-
-                                    .resizable()
-
-                                    .scaledToFill()
-
-                                    .frame(width: 44, height: 44)
-
-                                    .clipShape(RoundedRectangle(cornerRadius: 10))
-
-                                    .accessibilityHidden(true)
-
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text(tipDisplayName(for: product.id))
-                                        .font(.headline)
-                                    Text(tipDescription(for: product.id))
-                                        .font(.caption)
-                                        .foregroundColor(settingsTextColor)
-                                }
-                                Spacer()
-                                if purchasingProductID == product.id {
-                                    ProgressView()
-                                } else {
-                                    Text(product.displayPrice)
-                                        .font(.subheadline)
-                                        .fontWeight(.semibold)
-                                }
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text(tipDisplayName(for: product.id))
+                                    .font(.headline)
+                                Text(tipDescription(for: product.id))
+                                    .font(.caption)
+                                    .foregroundColor(settingsTextColor)
                             }
+                            Spacer()
+                            productAction(for: product)
                         }
-                        .disabled(purchasingProductID != nil)
-                        .accessibilityIdentifier("tipProductButton_\(product.id)")
                     }
                 }
+
+                Button {
+                    Task { await tipManager.restorePurchases() }
+                } label: {
+                    if tipManager.isRestoringPurchases {
+                        HStack {
+                            ProgressView()
+                            Text(String(localized: "restoring_purchases", defaultValue: "Restoring Purchases…"))
+                        }
+                    } else {
+                        Text(String(localized: "restore_purchases", defaultValue: "Restore Purchases"))
+                    }
+                }
+                .disabled(tipManager.isRestoringPurchases || purchasingProductID != nil)
+                .accessibilityIdentifier("restorePurchasesButton")
+
+                if let restoreMessage = tipManager.restoreMessage {
+                    Text(restoreMessage)
+                        .font(.footnote)
+                        .foregroundColor(settingsTextColor)
+                }
             } footer: {
-                Text(String(localized: "developer_support_description", defaultValue: "Your support helps keep the app updated. You can use all features without making a purchase."))
+                Text(String(localized: "supporter_icon_purchase_description", defaultValue: "Each purchase permanently unlocks its supporter icon. Restore purchases on another device using the same Apple Account."))
                     .font(.body)
                     .foregroundColor(settingsTextColor)
             }
@@ -569,11 +567,11 @@ struct TipSelectionView: View {
 
     private func tipIconName(for productID: String) -> String {
         switch productID {
-        case "tip_100":
+        case "supporter_icon_bronze":
             return "TipIconBronze"
-        case "tip_500":
+        case "supporter_icon_silver":
             return "TipIconSilver"
-        case "tip_1000":
+        case "supporter_icon_gold":
             return "TipIconGold"
         default:
             return "TipIconGold"
@@ -582,11 +580,11 @@ struct TipSelectionView: View {
 
     private func tipDisplayName(for productID: String) -> LocalizedStringResource {
         switch productID {
-        case "tip_100":
+        case "supporter_icon_bronze":
             return "tip_100_name"
-        case "tip_500":
+        case "supporter_icon_silver":
             return "tip_500_name"
-        case "tip_1000":
+        case "supporter_icon_gold":
             return "tip_1000_name"
         default:
             return "tip_selection_title"
@@ -595,11 +593,11 @@ struct TipSelectionView: View {
 
     private func tipDescription(for productID: String) -> LocalizedStringResource {
         switch productID {
-        case "tip_100":
+        case "supporter_icon_bronze":
             return "tip_100_description"
-        case "tip_500":
+        case "supporter_icon_silver":
             return "tip_500_description"
-        case "tip_1000":
+        case "supporter_icon_gold":
             return "tip_1000_description"
         default:
             return "developer_support_description"
@@ -611,6 +609,33 @@ struct TipSelectionView: View {
         Task {
             await tipManager.purchase(product, using: purchaseAction)
             purchasingProductID = nil
+        }
+    }
+
+    @ViewBuilder
+    private func productAction(for product: Product) -> some View {
+        if purchasingProductID == product.id {
+            ProgressView()
+        } else if tipManager.isPurchased(product.id) {
+            let iconName = TipManager.appIconName(for: product.id)
+            if tipManager.currentAppIconName == iconName {
+                Text(String(localized: "supporter_icon_in_use", defaultValue: "In Use"))
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            } else {
+                Button(String(localized: "use_supporter_icon", defaultValue: "Use Icon")) {
+                    Task { _ = await tipManager.changeAppIcon(named: iconName) }
+                }
+                .buttonStyle(.bordered)
+                .accessibilityIdentifier("useSupporterIconButton_\(product.id)")
+            }
+        } else {
+            Button(product.displayPrice) {
+                purchase(product)
+            }
+            .buttonStyle(.borderedProminent)
+            .disabled(purchasingProductID != nil || tipManager.isRestoringPurchases)
+            .accessibilityIdentifier("tipProductButton_\(product.id)")
         }
     }
 }

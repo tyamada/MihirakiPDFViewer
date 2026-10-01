@@ -2935,7 +2935,7 @@
       }
     },
     "help_setting_developer_support_description" : {
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -3594,6 +3594,77 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "並排顯示兩頁。"
+          }
+        }
+      }
+    },
+    "help_setting_supporter_icons_description" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Öffnet den Store für Unterstützer-Symbole. Käufe können auf Geräten mit demselben Apple Account wiederhergestellt werden."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Opens the supporter icon store. Purchases can be restored on devices using the same Apple Account."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Binubuksan ang store ng supporter icon. Maaaring i-restore ang mga binili sa mga device gamit ang parehong Apple Account."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ouvre la boutique d’icônes de soutien. Les achats peuvent être restaurés sur les appareils utilisant le même compte Apple."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Membuka toko ikon pendukung. Pembelian dapat dipulihkan di perangkat yang menggunakan Akun Apple yang sama."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "サポーターアイコンストアを開きます。同じApple Accountを使っているデバイスでは、購入項目を復元できます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "후원자 아이콘 스토어를 엽니다. 동일한 Apple Account를 사용하는 기기에서 구매 항목을 복원할 수 있습니다."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Abre a loja de ícones de apoiador. É possível restaurar as compras em dispositivos que usam a mesma Conta Apple."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mở cửa hàng biểu tượng ủng hộ. Có thể khôi phục các giao dịch mua trên những thiết bị sử dụng cùng một Tài khoản Apple."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "打开支持者应用图标商店。可在使用同一Apple Account的设备上恢复购买项目。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "開啟支持者App圖像商店。可在使用相同Apple Account的裝置上回復購買項目。"
           }
         }
       }
@@ -4340,6 +4411,77 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "未載入文件"
+          }
+        }
+      }
+    },
+    "no_purchases_to_restore" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Es waren keine Käufe zur Wiederherstellung verfügbar."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No purchases were available to restore."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Walang mga pagbiling maaaring i-restore."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Aucun achat n’était disponible pour la restauration."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tidak ada pembelian yang dapat dipulihkan."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "復元できる購入項目がありません。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "복원할 수 있는 구매 항목이 없습니다."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Nenhuma compra estava disponível para restauração."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Không có giao dịch mua nào để khôi phục."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "没有可恢复的购买项目。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "沒有可回復的購買項目。"
           }
         }
       }
@@ -6163,7 +6305,79 @@
         }
       }
     },
+    "purchases_restored" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Deine Käufe wurden wiederhergestellt."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Your purchases have been restored."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Na-restore na ang mga binili mo."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Vos achats ont été restaurés."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pembelian Anda telah dipulihkan."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "購入項目を復元しました。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "구매 항목을 복원했습니다."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Suas compras foram restauradas."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Các giao dịch mua của bạn đã được khôi phục."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "购买项目已恢复。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "已回復購買項目。"
+          }
+        }
+      }
+    },
     "reset_app_icon_warning" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -6246,6 +6460,7 @@
       }
     },
     "reset_confirmation_message" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -6409,7 +6624,79 @@
         }
       }
     },
+    "reset_settings_and_icon_message" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Dadurch werden die Darstellungseinstellungen zurückgesetzt, das standardmäßige App-Symbol wiederhergestellt und das aktuelle Dokument geschlossen. Gekaufte Unterstützer-Symbole bleiben verfügbar."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "This resets viewing settings, restores the default app icon, and closes the current document. Purchased supporter icons remain available."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ire-reset nito ang mga setting sa pagtingin, ibabalik ang default na icon ng app, at isasara ang kasalukuyang dokumento. Magagamit pa rin ang mga biniling supporter icon."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Cela réinitialisera les réglages d’affichage, rétablira l’icône d’app par défaut et fermera le document actuel. Les icônes de soutien achetées resteront disponibles."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tindakan ini akan mengatur ulang pengaturan tampilan, mengembalikan ikon app default, serta menutup dokumen saat ini. Ikon pendukung yang telah dibeli tetap tersedia."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "表示設定をリセットし、アプリアイコンを標準に戻して、現在のドキュメントを閉じます。購入済みのサポーターアイコンは引き続き使用できます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "보기 설정을 재설정하고 기본 앱 아이콘으로 복원한 다음 현재 문서를 닫습니다. 구매한 후원자 아이콘은 계속 사용할 수 있습니다."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Isso redefinirá os ajustes de visualização, restaurará o ícone padrão do app e fechará o documento atual. Os ícones de apoiador comprados continuarão disponíveis."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Thao tác này sẽ đặt lại cài đặt hiển thị, khôi phục biểu tượng ứng dụng mặc định và đóng tài liệu hiện tại. Các biểu tượng ủng hộ đã mua vẫn có thể sử dụng."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "这将重置查看设置、恢复默认应用图标并关闭当前文档。已购买的支持者应用图标仍可使用。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "此操作會重設顯示設定、恢復預設App圖像，並關閉目前的文件。已購買的支持者App圖像仍可使用。"
+          }
+        }
+      }
+    },
     "reset_settings_message" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -6569,6 +6856,219 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "重設"
+          }
+        }
+      }
+    },
+    "restore_purchases" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Käufe wiederherstellen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Restore Purchases"
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "I-restore ang mga Binili"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Restaurer les achats"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pulihkan Pembelian"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "購入を復元"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "구매 항목 복원"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Restaurar Compras"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Khôi phục giao dịch mua"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "恢复购买项目"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "回復購買項目"
+          }
+        }
+      }
+    },
+    "restore_purchases_failed" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Käufe konnten nicht wiederhergestellt werden. Bitte versuche es erneut."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Purchases could not be restored. Please try again."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hindi ma-restore ang mga binili. Pakisubukang muli."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Impossible de restaurer les achats. Veuillez réessayer."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pembelian tidak dapat dipulihkan. Silakan coba lagi."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "購入項目を復元できませんでした。やり直してみてください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "구매 항목을 복원할 수 없습니다. 다시 시도해 주세요."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Não foi possível restaurar as compras. Tente novamente."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Không thể khôi phục các giao dịch mua. Vui lòng thử lại."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "无法恢复购买项目。请再试一次。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "無法回復購買項目。請再試一次。"
+          }
+        }
+      }
+    },
+    "restoring_purchases" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Käufe wiederherstellen …"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Restoring Purchases…"
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Nire-restore ang mga Binili…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Restauration des achats…"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Memulihkan Pembelian…"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "購入を復元中…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "구매 항목 복원 중…"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Restauração de Compras…"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Đang khôi phục giao dịch mua…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "正在恢复购买项目…"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "正在回復購買項目⋯"
           }
         }
       }
@@ -7153,6 +7653,7 @@
       }
     },
     "support_button_accessibility_hint" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -7230,6 +7731,290 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "開啟小費選擇畫面。"
+          }
+        }
+      }
+    },
+    "supporter_icon_in_use" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "In Verwendung"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "In Use"
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ginagamit"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "En cours d’utilisation"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Sedang Digunakan"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "使用中"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "사용 중"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Em Uso"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Đang sử dụng"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "正在使用"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "使用中"
+          }
+        }
+      }
+    },
+    "supporter_icon_not_owned" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Kaufe dieses Unterstützer-Symbol, bevor du es verwendest."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Purchase this supporter icon before using it."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Bilhin muna ang supporter icon na ito bago ito gamitin."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Achetez cette icône de soutien avant de l’utiliser."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Beli ikon pendukung ini sebelum menggunakannya."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "このサポーターアイコンを購入してから使用してください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "이 후원자 아이콘을 구매한 후 사용하세요."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Compre este ícone de apoiador antes de usá-lo."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hãy mua biểu tượng ủng hộ này trước khi sử dụng."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "请先购买此支持者应用图标再使用。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "請先購買此支持者App圖像再使用。"
+          }
+        }
+      }
+    },
+    "supporter_icon_purchase_description" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Jeder Kauf schaltet das zugehörige Unterstützer-Symbol dauerhaft frei. Käufe können auf einem anderen Gerät mit demselben Apple Account wiederhergestellt werden."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Each purchase permanently unlocks its supporter icon. Restore purchases on another device using the same Apple Account."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Permanenteng ina-unlock ng bawat pagbili ang supporter icon nito. I-restore ang mga binili sa ibang device gamit ang parehong Apple Account."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Chaque achat déverrouille définitivement l’icône de soutien correspondante. Restaurez vos achats sur un autre appareil avec le même compte Apple."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Setiap pembelian membuka ikon pendukungnya secara permanen. Pulihkan pembelian di perangkat lain menggunakan Akun Apple yang sama."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "購入すると、対応するサポーターアイコンが永続的に解除されます。同じApple Accountを使えば、別のデバイスでも購入を復元できます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "구매할 때마다 해당 후원자 아이콘이 영구적으로 잠금 해제됩니다. 동일한 Apple Account를 사용하면 다른 기기에서 구매 항목을 복원할 수 있습니다."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Cada compra desbloqueia permanentemente o ícone de apoiador correspondente. Restaure as compras em outro dispositivo usando a mesma Conta Apple."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mỗi giao dịch mua sẽ mở khóa vĩnh viễn biểu tượng ủng hộ tương ứng. Khôi phục các giao dịch mua trên thiết bị khác bằng cùng một Tài khoản Apple."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "每次购买都会永久解锁对应的支持者应用图标。使用同一Apple Account可在其他设备上恢复购买项目。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "每次購買都會永久解鎖對應的支持者App圖像。使用相同的Apple Account即可在其他裝置回復購買項目。"
+          }
+        }
+      }
+    },
+    "supporter_icon_store_accessibility_hint" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Öffnet den Store für Unterstützer-Symbole."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Opens the supporter icon store."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Binubuksan ang store ng supporter icon."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ouvre la boutique d’icônes de soutien."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Membuka toko ikon pendukung."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "サポーターアイコンストアを開きます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "후원자 아이콘 스토어를 엽니다."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Abre a loja de ícones de apoiador."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mở cửa hàng biểu tượng ủng hộ."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "打开支持者应用图标商店。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "開啟支持者App圖像商店。"
           }
         }
       }
@@ -8502,6 +9287,77 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "相容模式"
+          }
+        }
+      }
+    },
+    "use_supporter_icon" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Symbol verwenden"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Use Icon"
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Gamitin ang Icon"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Utiliser l’icône"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Gunakan Ikon"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "アイコンを使用"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "아이콘 사용"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Usar ícone"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Sử dụng biểu tượng"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "使用图标"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "使用圖像"
           }
         }
       }

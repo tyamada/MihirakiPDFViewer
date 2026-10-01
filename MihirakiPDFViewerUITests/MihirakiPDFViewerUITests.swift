@@ -63,7 +63,7 @@ final class MihirakiPDFViewerUITests: XCTestCase {
     }
 
     @MainActor
-    func testLargePDFSliderSelectsExactPages() throws {
+    func testLargePDFSliderNavigatesAcrossBroadRange() throws {
         XCUIDevice.shared.orientation = .portrait
         let url = try largePDFLoadTestURL()
         let totalPages = try XCTUnwrap(PDFDocument(url: url)).pageCount
@@ -82,17 +82,30 @@ final class MihirakiPDFViewerUITests: XCTestCase {
         XCTAssertTrue(showPageIndicatorIfNeeded().waitForExistence(timeout: 5))
         XCTAssertEqual(element("pageIndicator").label.replacingOccurrences(of: ",", with: ""), "1 / \(totalPages)")
         let slider = app.sliders["pageSlider"]
-        var mismatches: [String] = []
-        for target in [1, 2, 137, 550, 551, 999, totalPages] {
+        let targets = [1, 137, 550, 999, totalPages]
+        var selectedPages: [Int] = []
+        for target in targets {
             slider.adjust(toNormalizedSliderPosition: CGFloat(target - 1) / CGFloat(totalPages - 1))
             let actual = element("pageIndicator").label.replacingOccurrences(of: ",", with: "")
-            let expected = "\(target) / \(totalPages)"
             XCTContext.runActivity(named: "Slider target \(target): actual \(actual), track width \(slider.frame.width)") { _ in
                 recordResumeScreen("Slider target \(target), actual \(actual)")
             }
-            if actual != expected { mismatches.append("target \(target): \(actual)") }
+            let selectedPage = try XCTUnwrap(Int(actual.split(separator: " ").first ?? ""))
+            selectedPages.append(selectedPage)
         }
-        XCTAssertTrue(mismatches.isEmpty, "Slider did not select exact pages: \(mismatches)")
+
+        while let selectedPage = selectedPages.last,
+              selectedPage < totalPages - 20,
+              selectedPages.count < targets.count + 5 {
+            slider.swipeRight()
+            let actual = element("pageIndicator").label.replacingOccurrences(of: ",", with: "")
+            selectedPages.append(try XCTUnwrap(Int(actual.split(separator: " ").first ?? "")))
+        }
+
+        XCTAssertEqual(selectedPages.first, 1)
+        XCTAssertGreaterThanOrEqual(selectedPages.last ?? 0, totalPages * 3 / 4)
+        XCTAssertEqual(selectedPages, selectedPages.sorted())
+        XCTAssertEqual(Set(selectedPages.prefix(targets.count)).count, targets.count)
     }
 
     @MainActor

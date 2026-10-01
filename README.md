@@ -12,24 +12,50 @@ This software was coded using generative AI.
 
 ## Features
 
-- **View PDF Documents**: Open and read PDF files seamlessly.
-- **Zooming**: Intuitive zoom gestures for better readability.
-- **Search**: Quickly find text within your PDF documents.
-- **Layout Options**: Switch between single page and two page views.
+- **Right-to-Left and Left-to-Right Support**: Uses the PDF direction to
+  provide natural page movement for both reading directions.
+- **Single-Page and Two-Page Views**: Switch layouts and adjust cover-page
+  handling to match the document.
+- **Search and Zoom**: Search text within a PDF, pinch to zoom, and drag
+  while zoomed in.
+- **Password-Protected PDFs**: Open documents that require a user password.
+- **Rendering Options**: Enable high-quality rendering and sharpness from
+  Settings when needed.
+- **Reading Session Restoration**: Reopen the last document and continue
+  from the previous page after relaunching the app.
 
 ## How to Use
 
-1. **Open PDF**: Use the file picker to select a PDF file from your device
-or iCloud Drive.
-2. **Navigate Pages**: Switch pages by swiping or using the slider.
-3. **Menu**: Tap the screen to toggle the visibility of the toolbar and
-slider.
-4. **Zoom**: Pinch to zoom in or out. Long-press and drag to scroll while
-zoomed in.
-5. **Search**: Enter text into the search bar to find specific content
-within the PDF.
-6. **Layout**: Use the layout options in the menu to switch between
-single-page and two-page views.
+1. **Open a PDF**: Use the file picker to select a PDF from your device or
+   iCloud Drive. You can also open a PDF sent to the app from another app.
+2. **Unlock a Protected PDF**: If the document requires a user password,
+   enter it when prompted and select **Unlock**.
+3. **Navigate Pages**: Swipe or use the page slider. Page movement follows
+   the selected left-to-right or right-to-left reading direction.
+4. **Show or Hide Controls**: Tap the document to toggle the toolbar and
+   page slider.
+5. **Zoom and Pan**: Pinch to zoom in or out. While zoomed in, long-press
+   and drag to move around the page.
+6. **Search**: Enter text in the search field. Matching text is highlighted
+   in the document.
+7. **Adjust the Layout**: In Settings, select single-page or two-page view,
+   reading direction, and cover-page handling.
+8. **Adjust Rendering**: Enable high-quality rendering or sharpness in
+   Settings when the PDF needs clearer text and lines.
+9. **Close or Resume**: Close the current document from the toolbar, or
+   leave it open to resume from the same page after relaunching the app.
+
+## Sample PDF
+
+Try MihirakiPDFViewer with these sample PDFs.
+
+### THE TRY-IT CLUB EPISODE 1 (English)
+
+[Open the English sample PDF](docs/sample/after_school_try_it_en_v3.pdf)
+
+### ためし部 第１話(Japanese)
+
+[Open the Japanese sample PDF](docs/sample/after_school_try_it_jp_v3.pdf)
 
 ## Pricing and Supporting the Developer
 
@@ -37,22 +63,20 @@ MihirakiPDFViewer is free to use. Core features such as PDF viewing,
 zooming, search, single-page view, and two-page view are available without
 feature restrictions, regardless of whether you make a purchase.
 
-In the App Store version, optional support tips are available as in-app
-purchases through StoreKit. These purchases are voluntary and are not used
-to remove ads or unlock restricted viewer features.
+In the App Store version, optional supporter icons are available as
+non-consumable in-app purchases through StoreKit. These purchases are
+voluntary and are not used to remove ads or unlock restricted viewer
+features.
 
-The following support tips are available:
+The following supporter icons are available:
 
-- `tip_100`: Tip 100 yen
-- `tip_500`: Tip 500 yen
-- `tip_1000`: Tip 1000 yen
+- `supporter_icon_bronze`: Bronze icon
+- `supporter_icon_silver`: Silver icon
+- `supporter_icon_gold`: Gold icon
 
-After purchasing a support tip, you can choose a commemorative alternate
-app icon from the settings screen according to the purchased amount.
-
-- `tip_100`: Bronze icon
-- `tip_500`: Silver icon
-- `tip_1000`: Gold icon
+Each purchase permanently unlocks its corresponding alternate app icon.
+Purchases can be restored on another supported device using the same Apple
+Account from the supporter icon screen in Settings.
 
 ## Options
 
@@ -129,7 +153,7 @@ and add it again by dragging and dropping it.
 - Automatic generation of initial code (Cline & gemma-4-26b-a4b-qat)
 - Debugging suggestions (Cline & gemma-4-26b-a4b-qat)
 - Change code and bug fixes (Xcode & Codex)
-- Creating App Icon & Tip images (ChatGPT)
+- Creating app icon and supporter icon images (ChatGPT)
 
 ## References
 

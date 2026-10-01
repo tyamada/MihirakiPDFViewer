@@ -21,49 +21,49 @@
       "localizations" : [
         {
           "description" : "",
-          "displayName" : "Tip 100 Yen",
+          "displayName" : "Bronze Tip",
           "locale" : "en_US"
         },
         {
           "description" : "",
-          "displayName" : "投げ銭 100円",
+          "displayName" : "Bronze Tip",
           "locale" : "ja"
         },
         {
           "description" : "",
-          "displayName" : "던전 100엔",
+          "displayName" : "Bronze Tip",
           "locale" : "ko"
         },
         {
           "description" : "",
-          "displayName" : "小费：100日元",
+          "displayName" : "Bronze Tip",
           "locale" : "zh_Hans"
         },
         {
           "description" : "",
-          "displayName" : "Tipp: 100 Yen",
+          "displayName" : "Bronze Tip",
           "locale" : "de"
         },
         {
           "description" : "",
-          "displayName" : "Pourboire : 100 yens",
+          "displayName" : "Bronze Tip",
           "locale" : "fr"
         },
         {
           "description" : "",
-          "displayName" : "Dica: 100 ienes",
+          "displayName" : "Bronze Tip",
           "locale" : "pt_BR"
         },
         {
           "description" : "",
-          "displayName" : "Propina: 100 yenes",
+          "displayName" : "Bronze Tip",
           "locale" : "es_MX"
         }
       ],
-      "productID" : "tip_100",
+      "productID" : "supporter_icon_bronze",
       "promotionalImageID" : "E9451F87",
-      "referenceName" : "tip_100",
-      "type" : "Consumable"
+      "referenceName" : "supporter_icon_bronze",
+      "type" : "NonConsumable"
     },
     {
       "displayPrice" : "500",
@@ -72,49 +72,49 @@
       "localizations" : [
         {
           "description" : "",
-          "displayName" : "Tip 500 Yen",
+          "displayName" : "Silver Tip",
           "locale" : "en_US"
         },
         {
           "description" : "",
-          "displayName" : "投げ銭 500円",
+          "displayName" : "Silver Tip",
           "locale" : "ja"
         },
         {
           "description" : "",
-          "displayName" : "던전 500엔",
+          "displayName" : "Silver Tip",
           "locale" : "ko"
         },
         {
           "description" : "",
-          "displayName" : "小费：500日元",
+          "displayName" : "Silver Tip",
           "locale" : "zh_Hans"
         },
         {
           "description" : "",
-          "displayName" : "Tipp: 500 Yen",
+          "displayName" : "Silver Tip",
           "locale" : "de"
         },
         {
           "description" : "",
-          "displayName" : "Pourboire : 500 yens",
+          "displayName" : "Silver Tip",
           "locale" : "fr"
         },
         {
           "description" : "",
-          "displayName" : "Dica: 500 ienes",
+          "displayName" : "Silver Tip",
           "locale" : "pt_BR"
         },
         {
           "description" : "",
-          "displayName" : "Propina: 500 yenes",
+          "displayName" : "Silver Tip",
           "locale" : "es_MX"
         }
       ],
-      "productID" : "tip_500",
+      "productID" : "supporter_icon_silver",
       "promotionalImageID" : "E50232B0",
-      "referenceName" : "tip_500",
-      "type" : "Consumable"
+      "referenceName" : "supporter_icon_silver",
+      "type" : "NonConsumable"
     },
     {
       "displayPrice" : "1000",
@@ -123,49 +123,49 @@
       "localizations" : [
         {
           "description" : "",
-          "displayName" : "Tip 1000 Yen",
+          "displayName" : "Gold Tip",
           "locale" : "en_US"
         },
         {
           "description" : "",
-          "displayName" : "投げ銭 1000円",
+          "displayName" : "Gold Tip",
           "locale" : "ja"
         },
         {
           "description" : "",
-          "displayName" : "던전 1000엔",
+          "displayName" : "Gold Tip",
           "locale" : "ko"
         },
         {
           "description" : "",
-          "displayName" : "小费：1000日元",
+          "displayName" : "Gold Tip",
           "locale" : "zh_Hans"
         },
         {
           "description" : "",
-          "displayName" : "Tipp: 1000 Yen",
+          "displayName" : "Gold Tip",
           "locale" : "de"
         },
         {
           "description" : "",
-          "displayName" : "Pourboire : 1000 yens",
+          "displayName" : "Gold Tip",
           "locale" : "fr"
         },
         {
           "description" : "",
-          "displayName" : "Dica: 1000 ienes",
+          "displayName" : "Gold Tip",
           "locale" : "pt_BR"
         },
         {
           "description" : "",
-          "displayName" : "Propina: 1000 yenes",
+          "displayName" : "Gold Tip",
           "locale" : "es_MX"
         }
       ],
-      "productID" : "tip_1000",
+      "productID" : "supporter_icon_gold",
       "promotionalImageID" : "431B2251",
-      "referenceName" : "tip_1000",
-      "type" : "Consumable"
+      "referenceName" : "supporter_icon_gold",
+      "type" : "NonConsumable"
     }
   ],
   "settings" : {

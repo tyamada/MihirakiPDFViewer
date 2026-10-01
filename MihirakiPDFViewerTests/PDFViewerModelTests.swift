@@ -109,9 +109,9 @@ final class PDFDocumentWrapperTests: XCTestCase {
 @MainActor
 final class TipManagerTests: XCTestCase {
     func testProductIDsMapToAppIconNames() {
-        XCTAssertEqual(TipManager.appIconName(for: "tip_100"), "AppIconBronze")
-        XCTAssertEqual(TipManager.appIconName(for: "tip_500"), "AppIconSilver")
-        XCTAssertEqual(TipManager.appIconName(for: "tip_1000"), "AppIconGold")
+        XCTAssertEqual(TipManager.appIconName(for: "supporter_icon_bronze"), "AppIconBronze")
+        XCTAssertEqual(TipManager.appIconName(for: "supporter_icon_silver"), "AppIconSilver")
+        XCTAssertEqual(TipManager.appIconName(for: "supporter_icon_gold"), "AppIconGold")
     }
 
     func testUnknownProductIDMapsToPrimaryAppIcon() {
@@ -456,8 +456,18 @@ private func makeViewModelForBundledPDF(named name: String) throws -> PDFViewerV
 
 private func bundledPDFURL(named name: String) throws -> URL {
     let bundle = Bundle(for: PDFViewerViewModelTests.self)
-    let url = bundle.url(forResource: name, withExtension: "pdf")
-    return try XCTUnwrap(url, "\(name).pdf is not available in the test bundle.")
+    if let url = bundle.url(forResource: name, withExtension: "pdf") {
+        return url
+    }
+
+    let testDataURL = projectRootURL()
+        .appendingPathComponent("testdata")
+        .appendingPathComponent(name)
+        .appendingPathExtension("pdf")
+    return try XCTUnwrap(
+        FileManager.default.fileExists(atPath: testDataURL.path) ? testDataURL : nil,
+        "\(name).pdf is not available in the test bundle or testdata directory."
+    )
 }
 
 private func searchLoadTestURL(fileName: String) -> URL {

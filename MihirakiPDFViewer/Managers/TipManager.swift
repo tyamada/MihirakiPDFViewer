@@ -24,23 +24,30 @@ public class TipManager: ObservableObject {
     
     // 定義された商品ID
     public static let productIDs = [
-        "tip_100",
-        "tip_500",
-        "tip_1000"
+        "supporter_icon_bronze",
+        "supporter_icon_silver",
+        "supporter_icon_gold"
     ]
     
     @Published public private(set) var products: [Product] = []
     @Published public var isPurchaseSuccess: Bool = false
     @Published public var lastPurchasedProductID: String? = nil
     @Published public private(set) var pendingAppIconName: String? = nil
+    @Published public private(set) var ownedProductIDs: Set<String> = []
+    @Published public private(set) var isRestoringPurchases = false
+    @Published public private(set) var restoreMessage: String? = nil
+    @Published public private(set) var currentAppIconName: String? = UIApplication.shared.alternateIconName
     @Published public private(set) var errorMessage: String? = nil
     
     private var transactionUpdates: Task<Void, Never>?
+    private var purchaseIntentUpdates: Task<Void, Never>?
     
     private init() {
         Task {
             await updateStorefront()
+            await refreshEntitlements()
             startListeningForTransactions()
+            startListeningForPurchaseIntents()
         }
     }
     
@@ -80,7 +87,7 @@ public class TipManager: ObservableObject {
                 switch verification {
                 case .verified(let transaction):
                     // 購入成功
-                    await handleTransaction(transaction)
+                    await handleTransaction(transaction, marksPurchaseSuccess: true)
                 case .unverified(_, let error):
                     // 検証に失敗（不正な可能性がある）
                     print("Transaction unverified: \(error)")
@@ -102,23 +109,35 @@ public class TipManager: ObservableObject {
     }
     
     /// トランザクションを処理し、結果を反映する
-    private func handleTransaction(_ transaction: StoreKit.Transaction) async {
+    private func handleTransaction(_ transaction: StoreKit.Transaction, marksPurchaseSuccess: Bool = false) async {
+        guard Self.productIDs.contains(transaction.productID) else {
+            return
+        }
+
+        if transaction.revocationDate == nil {
+            ownedProductIDs.insert(transaction.productID)
+        } else {
+            ownedProductIDs.remove(transaction.productID)
+        }
+
         await transaction.finish()
 
-        self.lastPurchasedProductID = transaction.productID
-        self.pendingAppIconName = Self.appIconName(for: transaction.productID)
-        self.isPurchaseSuccess = true
+        if marksPurchaseSuccess {
+            self.lastPurchasedProductID = transaction.productID
+            self.pendingAppIconName = Self.appIconName(for: transaction.productID)
+            self.isPurchaseSuccess = true
+        }
 
         print("Transaction handled successfully: \(transaction.productID)")
     }
 
     static func appIconName(for productID: String) -> String? {
         switch productID {
-        case "tip_100":
+        case "supporter_icon_bronze":
             return "AppIconBronze"
-        case "tip_500":
+        case "supporter_icon_silver":
             return "AppIconSilver"
-        case "tip_1000":
+        case "supporter_icon_gold":
             return "AppIconGold"
         default:
             return "AppIcon"
@@ -140,11 +159,28 @@ public class TipManager: ObservableObject {
             }
         }
     }
+
+    private func startListeningForPurchaseIntents() {
+        purchaseIntentUpdates?.cancel()
+        purchaseIntentUpdates = Task { [weak self] in
+            for await purchaseIntent in PurchaseIntent.intents {
+                await self?.purchase(purchaseIntent.product)
+            }
+        }
+    }
     
     /// アプリのアイコンを変更する
     /// - Parameter iconName: Assetsに登録されているアイコン名
     @discardableResult
     public func changeAppIcon(named iconName: String?) async -> Bool {
+        if let iconName {
+            let ownsIcon = ownedProductIDs.contains { Self.appIconName(for: $0) == iconName }
+            guard ownsIcon else {
+                errorMessage = String(localized: "supporter_icon_not_owned", defaultValue: "Purchase this supporter icon before using it.")
+                return false
+            }
+        }
+
         // iOSでアイコンを変更するには、Info.plistに代替アイコンの設定が必要
         // iconNameがnilの場合はデフォルトに戻す
         guard UIApplication.shared.supportsAlternateIcons else {
@@ -160,6 +196,7 @@ public class TipManager: ObservableObject {
 
         do {
             try await UIApplication.shared.setAlternateIconName(iconName)
+            currentAppIconName = iconName
             print("Changed app icon to \(iconName ?? "primary").")
             errorMessage = nil
             return true
@@ -179,5 +216,50 @@ public class TipManager: ObservableObject {
 
     public func clearError() {
         errorMessage = nil
+    }
+
+    public func isPurchased(_ productID: String) -> Bool {
+        ownedProductIDs.contains(productID)
+    }
+
+    public func refreshEntitlements() async {
+        var currentProductIDs: Set<String> = []
+
+        for await result in StoreKit.Transaction.currentEntitlements {
+            guard case .verified(let transaction) = result,
+                  Self.productIDs.contains(transaction.productID),
+                  transaction.revocationDate == nil else {
+                continue
+            }
+            currentProductIDs.insert(transaction.productID)
+        }
+
+        ownedProductIDs = currentProductIDs
+    }
+
+    public func restorePurchases() async {
+        guard !isRestoringPurchases else { return }
+
+        isRestoringPurchases = true
+        restoreMessage = nil
+        let previousProductIDs = ownedProductIDs
+
+        do {
+            try await AppStore.sync()
+            await refreshEntitlements()
+            restoreMessage = ownedProductIDs.isEmpty
+                ? String(localized: "no_purchases_to_restore", defaultValue: "No purchases were available to restore.")
+                : String(localized: "purchases_restored", defaultValue: "Your purchases have been restored.")
+            errorMessage = nil
+        } catch {
+            ownedProductIDs = previousProductIDs
+            errorMessage = String(localized: "restore_purchases_failed", defaultValue: "Purchases could not be restored. Please try again.")
+        }
+
+        isRestoringPurchases = false
+    }
+
+    public func clearRestoreMessage() {
+        restoreMessage = nil
     }
 }

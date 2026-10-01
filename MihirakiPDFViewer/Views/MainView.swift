@@ -328,7 +328,26 @@ public struct MainView: View {
 
         let password = pdfPassword
         Task { @MainActor in
-            openPDF(at: url, password: password)
+            switch viewModel.loadDocument(from: url, password: password) {
+            case .loaded:
+                finishPDFLoad()
+            case .invalidPassword:
+                isShowingPDFPasswordPrompt = false
+                pdfPassword = ""
+                pdfPasswordMessage = String(
+                    localized: "pdf_password_incorrect",
+                    defaultValue: "The password is incorrect."
+                )
+                try? await Task.sleep(for: .milliseconds(200))
+                isShowingPDFPasswordPrompt = true
+            case .passwordRequired:
+                isShowingPDFPasswordPrompt = false
+                pdfPassword = ""
+                try? await Task.sleep(for: .milliseconds(200))
+                isShowingPDFPasswordPrompt = true
+            case .failed:
+                break
+            }
         }
     }
 
