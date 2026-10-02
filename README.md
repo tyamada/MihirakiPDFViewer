@@ -55,7 +55,7 @@ Try MihirakiPDFViewer with these sample PDFs.
 
 ### ためし部 第１話(Japanese)
 
-[Open the Japanese sample PDF](docs/sample/after_school_try_it_jp_v3.pdf)
+[Open the Japanese sample PDF](docs/sample/after_school_try_it_ja_v3.1.pdf)
 
 ## Pricing and Supporting the Developer
 

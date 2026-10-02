@@ -55,7 +55,7 @@ MihirakiPDFViewerでお試しいただけるサンプルPDFです。
 
 ### ためし部 第１話(Japanese)
 
-[日本語版サンプルPDFを開く](docs/sample/after_school_try_it_jp_v3.pdf)
+[日本語版サンプルPDFを開く](docs/sample/after_school_try_it_ja_v3.1.pdf)
 
 ## 価格と開発者の応援
 
