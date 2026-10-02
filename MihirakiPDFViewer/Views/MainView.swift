@@ -616,6 +616,7 @@ struct PDFContainerView: View {
     private func containerView(size: CGSize) -> some View {
         ZStack(alignment: .bottom) {
             tabView(size: size)
+                .id(viewModel.document?.id)
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 .environment(\.layoutDirection, viewModel.settings.layoutDirection == .leftToRight ? .leftToRight : .rightToLeft)
                 .scaleEffect(zoomScale)
