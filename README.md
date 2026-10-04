@@ -49,13 +49,37 @@ This software was coded using generative AI.
 
 Try MihirakiPDFViewer with these sample PDFs.
 
-### THE TRY-IT CLUB EPISODE 1 (English)
+### THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP (English)
 
-[Open the English sample PDF](docs/sample/after_school_try_it_en_v3.pdf)
+[Open the English sample PDF](docs/sample/tameshibu_episode1_en.pdf)
 
-### ためし部 第１話(Japanese)
+### THE TRY-IT CLUB EPISODE 2 ROOM TO GROW (English)
 
-[Open the Japanese sample PDF](docs/sample/after_school_try_it_ja_v3.1.pdf)
+[Open the English sample PDF](docs/sample/tameshibu_episode2_en.pdf)
+
+### ためし部 第１話 ひと息マップ (Japanese)
+
+[Open the Japanese sample PDF](docs/sample/tameshibu_episode1_ja.pdf)
+
+### ためし部 第２話 机、ひろがる。 (Japanese)
+
+[Open the Japanese sample PDF](docs/sample/tameshibu_episode2_ja.pdf)
+
+### 해봄부 제1화 한숨 돌림 지도 (Korean)
+
+[Open the Korean sample PDF](docs/sample/tameshibu_episode1_ko.pdf)
+
+### 해봄부제2화 책상이 넓어지다 (Korean)
+
+[Open the Korean sample PDF](docs/sample/tameshibu_episode2_ko.pdf)
+
+### 试试社 第1话 歇口气地图 (Chinese (Simplified))
+
+[Open the Simplified Chinese sample PDF](docs/sample/tameshibu_episode1_zh_cn.pdf)
+
+### 试试社 第2话 桌子变大了 (Chinese (Simplified))
+
+[Open the Simplified Chinese sample PDF](docs/sample/tameshibu_episode2_zh_cn.pdf)
 
 ## Pricing and Supporting the Developer
 

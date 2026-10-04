@@ -49,13 +49,37 @@ PDFを単ページ表示または見開き表示で表示します。
 
 MihirakiPDFViewerでお試しいただけるサンプルPDFです。
 
-### THE TRY-IT CLUB EPISODE 1 (English)
+### THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP (English)
 
-[英語版サンプルPDFを開く](docs/sample/after_school_try_it_en_v3.pdf)
+[英語版サンプルPDFを開く](docs/sample/tameshibu_episode1_en.pdf)
 
-### ためし部 第１話(Japanese)
+### THE TRY-IT CLUB EPISODE 2 ROOM TO GROW (English)
 
-[日本語版サンプルPDFを開く](docs/sample/after_school_try_it_ja_v3.1.pdf)
+[英語版サンプルPDFを開く](docs/sample/tameshibu_episode2_en.pdf)
+
+### ためし部 第１話 ひと息マップ (Japanese)
+
+[日本語版サンプルPDFを開く](docs/sample/tameshibu_episode1_ja.pdf)
+
+### ためし部 第２話 机、ひろがる。 (Japanese)
+
+[日本語版サンプルPDFを開く](docs/sample/tameshibu_episode2_ja.pdf)
+
+### 해봄부 제1화 한숨 돌림 지도 (Korean)
+
+[韓国語版サンプルPDFを開く](docs/sample/tameshibu_episode1_ko.pdf)
+
+### 해봄부제2화 책상이 넓어지다 (Korean)
+
+[韓国語版サンプルPDFを開く](docs/sample/tameshibu_episode2_ko.pdf)
+
+### 试试社 第1话 歇口气地图 (Chinese (Simplified))
+
+[中国語（簡体字）版サンプルPDFを開く](docs/sample/tameshibu_episode1_zh_cn.pdf)
+
+### 试试社 第2话 桌子变大了 (Chinese (Simplified))
+
+[中国語（簡体字）版サンプルPDFを開く](docs/sample/tameshibu_episode2_zh_cn.pdf)
 
 ## 価格と開発者の応援
 
