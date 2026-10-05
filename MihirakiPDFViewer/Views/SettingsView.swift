@@ -203,6 +203,7 @@ public struct SettingsView: View {
                 .background(settingsBackgroundColor)
 
                 DeviceTestingSettingsSection()
+                AppLoggingSettingsSection()
             }
             .padding()
             .background(settingsBackgroundColor)
@@ -228,6 +229,25 @@ private struct DeviceTestingSettingsSection: View {
             }
             .buttonStyle(.borderedProminent)
             .accessibilityIdentifier("runDeviceTestsButton")
+        }
+        .padding(.vertical)
+    }
+}
+
+private struct AppLoggingSettingsSection: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Divider()
+            Text("Diagnostics")
+                .font(.headline)
+            NavigationLink {
+                AppLogView()
+            } label: {
+                Label("View app logs", systemImage: "doc.text.magnifyingglass")
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+            .accessibilityIdentifier("viewAppLogsButton")
         }
         .padding(.vertical)
     }

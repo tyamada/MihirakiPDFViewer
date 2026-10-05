@@ -111,9 +111,11 @@ public struct PageView: View {
 
     private func renderedPageImage(displaySize: CGSize) -> UIImage {
         guard displaySize.width > 0, displaySize.height > 0 else {
+            AppDiagnostics.record(.invalidRenderSize)
             return UIImage()
         }
 
+        let startedAt = ProcessInfo.processInfo.systemUptime
         let screenScale = max(displayScale, 1)
         let qualityMultiplier: CGFloat = isHighQualityRenderingEnabled ? 2 : 1
         let targetScale = screenScale * qualityMultiplier
@@ -146,11 +148,25 @@ public struct PageView: View {
             cgContext.restoreGState()
         }
 
-        guard isSharpnessEnabled else {
-            return image
+        let finalImage: UIImage
+        if isSharpnessEnabled {
+            if let sharpenedImage = sharpenedImage(image) {
+                finalImage = sharpenedImage
+            } else {
+                AppDiagnostics.record(.sharpeningFailed)
+                finalImage = image
+            }
+        } else {
+            finalImage = image
         }
 
-        return sharpenedImage(image) ?? image
+        let duration = Int(
+            ((ProcessInfo.processInfo.systemUptime - startedAt) * 1_000).rounded()
+        )
+        if duration >= 250 {
+            AppDiagnostics.record(.pageRenderSlow, durationMilliseconds: duration)
+        }
+        return finalImage
     }
 
     private func sharpenedImage(_ image: UIImage) -> UIImage? {

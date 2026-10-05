@@ -164,6 +164,27 @@ final class MihirakiPDFViewerUITests: XCTestCase {
     }
 
     @MainActor
+    func testAppLogScreen() throws {
+        app.launch()
+
+        XCTAssertTrue(app.buttons["settingsButton"].waitForExistence(timeout: 5))
+        app.buttons["settingsButton"].tap()
+        XCTAssertTrue(element("settingsScreen").waitForExistence(timeout: 5))
+
+        let logsButton = app.buttons["viewAppLogsButton"]
+        for _ in 0..<4 where !logsButton.exists {
+            app.swipeUp()
+        }
+
+        XCTAssertTrue(logsButton.waitForExistence(timeout: 5))
+        logsButton.tap()
+
+        XCTAssertTrue(element("appLogScreen").waitForExistence(timeout: 5))
+        XCTAssertTrue(element("appLogNoAutomaticSendingNotice").waitForExistence(timeout: 5))
+        XCTAssertTrue(app.buttons["shareAppLogsButton"].waitForExistence(timeout: 5))
+    }
+
+    @MainActor
     func testTipSelectionScreen() throws {
         app.launch()
 

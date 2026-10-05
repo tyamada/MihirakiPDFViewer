@@ -57,6 +57,22 @@
       },
       "shouldTranslate" : false
     },
+    "%@: %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@: %2$lld"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%1$@: %2$lld"
+          }
+        }
+      }
+    },
     "%lld / %lld" : {
       "localizations" : {
         "de" : {
@@ -223,6 +239,16 @@
         }
       }
     },
+    "App Logs" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "アプリのログ"
+          }
+        }
+      }
+    },
     "App version" : {
       "localizations" : {
         "ja" : {
@@ -239,6 +265,22 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "アプリのバージョン: %@"
+          }
+        }
+      }
+    },
+    "App version: %@ (%@)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "App version: %1$@ (%2$@)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "アプリのバージョン: %1$@（%2$@）"
           }
         }
       }
@@ -1273,6 +1315,16 @@
         }
       }
     },
+    "Diagnostics" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "診断"
+          }
+        }
+      }
+    },
     "dir_l2r" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1683,6 +1735,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "文件資訊"
+          }
+        }
+      }
+    },
+    "Duration: %lld ms" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "所要時間: %lld ms"
           }
         }
       }
@@ -4422,12 +4484,102 @@
         }
       }
     },
+    "Last 24 hours" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "過去24時間"
+          }
+        }
+      }
+    },
+    "Loading logs…" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ログを読み込み中…"
+          }
+        }
+      }
+    },
     "Local storage" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "ローカルストレージ"
+          }
+        }
+      }
+    },
+    "Logs are stored only on this device and are never sent externally automatically. Sharing occurs only when you tap Share." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ログはこの端末内にのみ保存され、外部へ自動的に送信されることはありません。“共有”をタップした場合にのみ共有されます。"
+          }
+        }
+      }
+    },
+    "Logs never include personal information, file names, file paths, search terms, passwords, or document contents." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ログには個人情報、ファイル名、ファイルパス、検索語、パスワード、または文書の内容は記録されません。"
+          }
+        }
+      }
+    },
+    "Logs older than 24 hours are deleted automatically." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "24時間を経過したログは自動的に削除されます。"
+          }
+        }
+      }
+    },
+    "Matches" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "一致件数"
+          }
+        }
+      }
+    },
+    "MihirakiPDFViewer App Logs" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "MihirakiPDFViewerのアプリログ"
+          }
+        }
+      }
+    },
+    "No logs" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ログはありません"
+          }
+        }
+      }
+    },
+    "No personal information or document contents are included." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "個人情報や文書の内容は含まれていません。"
           }
         }
       }
@@ -4864,6 +5016,32 @@
         }
       }
     },
+    "OS version: %@ %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "OS version: %1$@ %2$@"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "OSのバージョン: %1$@ %2$@"
+          }
+        }
+      }
+    },
+    "Page" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ページ"
+          }
+        }
+      }
+    },
     "page_layout" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -5025,6 +5203,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "頁面"
+          }
+        }
+      }
+    },
+    "Pages" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ページ数"
           }
         }
       }
@@ -6536,6 +6724,16 @@
         }
       }
     },
+    "Refresh" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "更新"
+          }
+        }
+      }
+    },
     "reset_app_icon_warning" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -7249,6 +7447,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "結果"
+          }
+        }
+      }
+    },
+    "Retention: 24 hours" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "保存期間: 24時間"
           }
         }
       }
@@ -8398,6 +8606,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "保存したデータと読み取ったデータが一致しませんでした。"
+          }
+        }
+      }
+    },
+    "There are no logs from the last 24 hours." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "過去24時間のログはありません。"
           }
         }
       }
@@ -9741,6 +9959,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "版本"
+          }
+        }
+      }
+    },
+    "View app logs" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "アプリのログを表示"
           }
         }
       }

@@ -28,11 +28,23 @@ public class PDFViewerViewModel: ObservableObject {
             if settings.isSharpnessEnabled != oldValue.isSharpnessEnabled {
                 preferences?.set(settings.isSharpnessEnabled, forKey: Self.sharpnessPreferenceKey)
             }
+            AppDiagnostics.record(.displaySettingsChanged)
             saveReadingSession()
         }
     }
     @Published public var errorMessage: String?
-    @Published public var currentPageIndex: Int = 0 { didSet { saveReadingSession() } }
+    @Published public var currentPageIndex: Int = 0 {
+        didSet {
+            if currentPageIndex != oldValue {
+                AppDiagnostics.record(
+                    .pageChanged,
+                    numericValue: currentPageIndex + 1,
+                    numericLabel: .page
+                )
+            }
+            saveReadingSession()
+        }
+    }
     @Published public var searchQuery: String = "" { didSet { saveReadingSession() } }
     @Published public var searchMatches: [PDFSearchMatch] = []
 
@@ -150,6 +162,8 @@ public class PDFViewerViewModel: ObservableObject {
             return
         }
 
+        let startedAt = ProcessInfo.processInfo.systemUptime
+        AppDiagnostics.record(.searchStarted)
         let pdfDocument = document.pdfDocument
         var matchesDict: [Int: [CGRect]] = [:]
         
@@ -177,11 +191,24 @@ public class PDFViewerViewModel: ObservableObject {
         self.searchMatches = matchesDict.map { (index, rects) in
             PDFSearchMatch(pageIndex: index, rects: rects)
         }.sorted { $0.pageIndex < $1.pageIndex }
+
+        let duration = Self.elapsedMilliseconds(since: startedAt)
+        AppDiagnostics.record(
+            .searchCompleted,
+            durationMilliseconds: duration,
+            numericValue: selections.count,
+            numericLabel: .matches
+        )
+        if duration >= 500 {
+            AppDiagnostics.record(.searchSlow, durationMilliseconds: duration)
+        }
     }
 
     /// PDFドキュメントをロードする
     @discardableResult
     public func loadDocument(from url: URL, password: String? = nil) -> LoadDocumentResult {
+        let startedAt = ProcessInfo.processInfo.systemUptime
+        AppDiagnostics.record(.documentLoadStarted)
         isLoadingDocument = true
         defer { isLoadingDocument = false }
         if pendingSession?.url != url { pendingSession = nil }
@@ -224,14 +251,28 @@ public class PDFViewerViewModel: ObservableObject {
                     errorMessage = error.localizedDescription
                 }
             }
+            AppDiagnostics.record(
+                .documentLoaded,
+                durationMilliseconds: Self.elapsedMilliseconds(since: startedAt),
+                numericValue: loadedDocument.totalPageCount,
+                numericLabel: .pages
+            )
             return .loaded
         } catch PDFDocumentWrapperError.passwordRequired {
             self.document = nil
             self.errorMessage = nil
+            AppDiagnostics.record(
+                .documentPasswordRequired,
+                durationMilliseconds: Self.elapsedMilliseconds(since: startedAt)
+            )
             return .passwordRequired
         } catch PDFDocumentWrapperError.invalidPassword {
             self.document = nil
             self.errorMessage = nil
+            AppDiagnostics.record(
+                .documentPasswordRejected,
+                durationMilliseconds: Self.elapsedMilliseconds(since: startedAt)
+            )
             return .invalidPassword
         } catch {
             clearReadingSession()
@@ -239,6 +280,10 @@ public class PDFViewerViewModel: ObservableObject {
             self.document = nil
             let message = error.localizedDescription
             self.errorMessage = message
+            AppDiagnostics.record(
+                .documentLoadFailed,
+                durationMilliseconds: Self.elapsedMilliseconds(since: startedAt)
+            )
             return .failed(message)
         }
     }
@@ -299,6 +344,7 @@ public class PDFViewerViewModel: ObservableObject {
 
     /// 現在のドキュメントを閉じる
     public func closeDocument() {
+        AppDiagnostics.record(.documentClosed)
         clearReadingSession()
         stopCurrentAccess()
         self.document = nil
@@ -309,6 +355,7 @@ public class PDFViewerViewModel: ObservableObject {
 
     /// アプリ設定を初期状態に戻す
     public func resetApplicationSettings() {
+        AppDiagnostics.record(.settingsReset)
         self.settings.isSpreadViewEnabled = false
         self.settings.isCoverPageEnabled = false
         self.settings.coverPageSetting = .typeA
@@ -318,6 +365,10 @@ public class PDFViewerViewModel: ObservableObject {
     }
 
     /// 設定を変更する
+    private static func elapsedMilliseconds(since startedAt: TimeInterval) -> Int {
+        Int(((ProcessInfo.processInfo.systemUptime - startedAt) * 1_000).rounded())
+    }
+
     public func updateSettings(isSpreadViewEnabled: Bool, isCoverPageEnabled: Bool, layoutDirection: LayoutDirection) {
         self.settings = PDFViewerSettings(
             isSpreadViewEnabled: isSpreadViewEnabled,

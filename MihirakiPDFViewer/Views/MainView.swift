@@ -125,7 +125,12 @@ public struct MainView: View {
                 }
         }
         .onChange(of: scenePhase) { _, phase in
-            if phase != .active { viewModel.saveReadingSession() }
+            if phase == .active {
+                AppDiagnostics.becameActive()
+            } else {
+                AppDiagnostics.becameInactive()
+                viewModel.saveReadingSession()
+            }
         }
         .fileImporter(
             isPresented: $isShowingFilePicker,
@@ -148,6 +153,7 @@ public struct MainView: View {
         switch result {
         case .success(let urls):
             guard let url = urls.first else {
+                AppDiagnostics.record(.documentSelectionFailed)
                 viewModel.errorMessage = String(localized: "pdf_file_selection_failed", defaultValue: "Could not select the PDF file.")
                 return
             }
@@ -155,14 +161,18 @@ public struct MainView: View {
         case .failure(let error):
             let nsError = error as NSError
             if nsError.domain == NSCocoaErrorDomain && nsError.code == NSUserCancelledError {
+                AppDiagnostics.record(.documentPickerCancelled)
                 return
             }
+            AppDiagnostics.record(.documentSelectionFailed)
             viewModel.errorMessage = String(localized: "pdf_file_selection_failed", defaultValue: "Could not select the PDF file.")
         }
     }
 
     private func handleIncomingPDFURL(_ url: URL) {
+        AppDiagnostics.record(.incomingDocumentReceived)
         guard url.pathExtension.localizedCaseInsensitiveCompare("pdf") == .orderedSame else {
+            AppDiagnostics.record(.incomingDocumentRejected)
             viewModel.errorMessage = String(localized: "pdf_load_failed", defaultValue: "Could not load the PDF file.")
             return
         }
@@ -171,6 +181,7 @@ public struct MainView: View {
             let copiedURL = try copyIncomingPDFToDocuments(from: url)
             openPDF(at: copiedURL)
         } catch {
+            AppDiagnostics.record(.incomingDocumentCopyFailed)
             viewModel.errorMessage = String(localized: "pdf_file_selection_failed", defaultValue: "Could not select the PDF file.")
         }
     }
@@ -265,6 +276,7 @@ public struct MainView: View {
             openPDF(at: url)
         } else if !ProcessInfo.processInfo.arguments.contains("-uiTestDisableAutoFilePicker"),
                   viewModel.errorMessage == nil {
+            AppDiagnostics.record(.documentPickerOpened)
             isShowingFilePicker = true
         }
     }
@@ -481,6 +493,7 @@ public struct MainView: View {
     private var pdfTopControls: some View {
         HStack(spacing: 12) {
             Button {
+                AppDiagnostics.record(.settingsOpened)
                 isShowingSettings = true
             } label: {
                 Image(systemName: "gearshape")
@@ -520,6 +533,7 @@ public struct MainView: View {
             Text(String(localized: "select_pdf_title"))
                 .font(.title2)
             Button {
+                AppDiagnostics.record(.documentPickerOpened)
                 isShowingFilePicker = true
             } label: {
                 Text(String(localized: "select_pdf_button"))
