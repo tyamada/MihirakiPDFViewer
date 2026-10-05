@@ -385,7 +385,7 @@ struct HelpView: View {
             title: LocalizedStringResource("settings", defaultValue: "Settings"),
             description: LocalizedStringResource(
                 "help_settings_description",
-                defaultValue: "Use the Settings screen to customize viewing and check information about the current document and app."
+                defaultValue: "Use the Settings screen to customize viewing, run on-device tests, review app logs, and check information about the current document and app."
             ),
             details: [
                 HelpDetail(
@@ -450,6 +450,22 @@ struct HelpView: View {
                     description: LocalizedStringResource(
                         "help_setting_document_info_description",
                         defaultValue: "Shows metadata, page count, page layout, and reading direction for the open PDF."
+                    )
+                ),
+                HelpDetail(
+                    id: "deviceTesting",
+                    title: LocalizedStringResource("device_testing", defaultValue: "Device Testing"),
+                    description: LocalizedStringResource(
+                        "help_setting_device_testing_description",
+                        defaultValue: "Runs app information, local storage, and PDF rendering checks on this device. Results include the test time, device, OS, and app version. Results are shared only when you tap Share and are never sent automatically."
+                    )
+                ),
+                HelpDetail(
+                    id: "diagnosticLogs",
+                    title: LocalizedStringResource("app_logs", defaultValue: "App Logs"),
+                    description: LocalizedStringResource(
+                        "help_setting_app_logs_description",
+                        defaultValue: "Shows privacy-safe diagnostic logs for investigating crashes, slowdowns, operation issues, and display issues. Logs do not include personal information, file contents, file names or paths, search terms, or passwords. They are deleted after 24 hours and are shared only when you tap Share."
                     )
                 ),
                 HelpDetail(

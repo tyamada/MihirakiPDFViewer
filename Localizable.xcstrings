@@ -450,6 +450,17 @@
         }
       }
     },
+    "app_logs" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "App Logs"
+          }
+        }
+      }
+    },
     "app_name" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1301,6 +1312,17 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "実機テスト"
+          }
+        }
+      }
+    },
+    "device_testing" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Device Testing"
           }
         }
       }
@@ -2920,6 +2942,23 @@
         }
       }
     },
+    "help_setting_app_logs_description" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Shows privacy-safe diagnostic logs for investigating crashes, slowdowns, operation issues, and display issues. Logs do not include personal information, file contents, file names or paths, search terms, or passwords. They are deleted after 24 hours and are shared only when you tap Share."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "クラッシュ、スローダウン、操作の不具合、および表示の不具合を調査するための、プライバシーに配慮した診断ログを表示します。ログには個人情報、ファイルの内容、ファイル名やパス、検索語、またはパスワードは記録されません。ログは24時間後に削除され、“共有”をタップした場合にのみ共有されます。"
+          }
+        }
+      }
+    },
     "help_setting_cover_page_description" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
@@ -3165,6 +3204,23 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "開啟選用的支持金額選擇畫面。"
+          }
+        }
+      }
+    },
+    "help_setting_device_testing_description" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Runs app information, local storage, and PDF rendering checks on this device. Results include the test time, device, OS, and app version. Results are shared only when you tap Share and are never sent automatically."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "この端末でアプリ情報、ローカルストレージ、およびPDF描画を検査します。結果にはテスト日時、端末名、OSとアプリのバージョンが含まれます。“共有”をタップした場合にのみ共有され、自動的に送信されることはありません。"
           }
         }
       }
@@ -3826,79 +3882,79 @@
       "localizations" : {
         "de" : {
           "stringUnit" : {
-            "state" : "machine_translated",
+            "state" : "needs_review",
             "value" : "Passe im Bildschirm „Einstellungen“ die Darstellung an und prüfe Informationen zum aktuellen Dokument und zur App."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Use the Settings screen to customize viewing and check information about the current document and app."
+            "value" : "Use the Settings screen to customize viewing, run on-device tests, review app logs, and check information about the current document and app."
           }
         },
         "es" : {
           "stringUnit" : {
-            "state" : "machine_translated",
+            "state" : "needs_review",
             "value" : "Usa la pantalla Ajustes para personalizar la visualización y consultar información sobre el documento actual y la app."
           }
         },
         "fil" : {
           "stringUnit" : {
-            "state" : "machine_translated",
+            "state" : "needs_review",
             "value" : "Gamitin ang screen ng Mga Setting para i-customize ang pagtingin at tingnan ang impormasyon tungkol sa kasalukuyang dokumento at app."
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "machine_translated",
+            "state" : "needs_review",
             "value" : "Utilisez l’écran Réglages pour personnaliser l’affichage et consulter les informations sur le document actuel et l’app."
           }
         },
         "id" : {
           "stringUnit" : {
-            "state" : "machine_translated",
+            "state" : "needs_review",
             "value" : "Gunakan layar Pengaturan untuk menyesuaikan tampilan dan memeriksa informasi tentang dokumen saat ini dan app."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "設定画面で表示をカスタマイズし、現在のドキュメントやアプリの情報を確認できます。"
+            "value" : "設定画面で表示をカスタマイズし、端末内テストの実行、アプリログの確認、現在のドキュメントとアプリの情報の確認ができます。"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "machine_translated",
+            "state" : "needs_review",
             "value" : "설정 화면에서 보기 방식을 사용자화하고 현재 문서와 앱 정보를 확인합니다."
           }
         },
         "ne" : {
           "stringUnit" : {
-            "state" : "machine_translated",
+            "state" : "needs_review",
             "value" : "हेर्ने तरिका अनुकूलित गर्न र हालको कागजात तथा एपबारे जानकारी जाँच गर्न सेटिङहरू स्क्रिन प्रयोग गर्नुहोस्।"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "machine_translated",
+            "state" : "needs_review",
             "value" : "Use a tela Ajustes para personalizar a visualização e consultar informações sobre o documento atual e o app."
           }
         },
         "vi" : {
           "stringUnit" : {
-            "state" : "machine_translated",
+            "state" : "needs_review",
             "value" : "Sử dụng màn hình Cài đặt để tùy chỉnh chế độ xem và kiểm tra thông tin về tài liệu hiện tại cũng như ứng dụng."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "machine_translated",
+            "state" : "needs_review",
             "value" : "使用“设置”屏幕自定义查看方式，并查看当前文档和应用的信息。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "machine_translated",
+            "state" : "needs_review",
             "value" : "使用「設定」畫面自訂顯示方式，並查看目前文件和App的資訊。"
           }
         }

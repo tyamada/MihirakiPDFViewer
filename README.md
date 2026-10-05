@@ -23,6 +23,17 @@ This software was coded using generative AI.
   Settings when needed.
 - **Reading Session Restoration**: Reopen the last document and continue
   from the previous page after relaunching the app.
+- **On-Device Diagnostics**: Run checks for app information, local storage,
+  and PDF rendering, then optionally share a result that includes the test
+  time, device name, OS version, and app version.
+- **Privacy-Safe App Logs**: Review and optionally share 24 hours of diagnostic
+  events for investigating crashes, slowdowns, operation issues, and display
+  issues. Logs exclude personal information, file contents, file names and
+  paths, search terms, and passwords.
+
+Diagnostic test results and app logs remain on the device unless you explicitly
+use the Share button. The app does not automatically send them outside the
+device, and logs older than 24 hours are deleted.
 
 ## How to Use
 
@@ -44,6 +55,10 @@ This software was coded using generative AI.
    Settings when the PDF needs clearer text and lines.
 9. **Close or Resume**: Close the current document from the toolbar, or
    leave it open to resume from the same page after relaunching the app.
+10. **Run Diagnostics**: At the bottom of Settings, choose **Run Device Test**
+    to run checks on the current device or **View App Logs** to review recent
+    diagnostic events. Each results screen has a Share button for sharing only
+    when you choose to do so.
 
 ## Sample PDF
 
