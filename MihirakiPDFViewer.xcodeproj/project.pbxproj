@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EC21F81230317A270062D47C /* TipManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC21F81030317A270062D47C /* TipManager.swift */; };
+		EC23F641307400C500F32816 /* DeviceTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC23F640307400C500F32816 /* DeviceTestView.swift */; };
 		EC5BB3E6302ECC0C00F4DE2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC5BB3E3302ECC0C00F4DE2E /* Assets.xcassets */; };
 		EC5BB3E8302ECC0C00F4DE2E /* PDFViewerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5BB3D9302ECC0C00F4DE2E /* PDFViewerApp.swift */; };
 		EC5BB3E9302ECC0C00F4DE2E /* PDFDocumentWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5BB3DB302ECC0C00F4DE2E /* PDFDocumentWrapper.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		EC21F81030317A270062D47C /* TipManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipManager.swift; sourceTree = "<group>"; };
+		EC23F640307400C500F32816 /* DeviceTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTestView.swift; sourceTree = "<group>"; };
 		EC5BB3D9302ECC0C00F4DE2E /* PDFViewerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewerApp.swift; sourceTree = "<group>"; };
 		EC5BB3DB302ECC0C00F4DE2E /* PDFDocumentWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFDocumentWrapper.swift; sourceTree = "<group>"; };
 		EC5BB3DD302ECC0C00F4DE2E /* PDFViewerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewerViewModel.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				EC5BB3DF302ECC0C00F4DE2E /* MainView.swift */,
 				EC5BB3E0302ECC0C00F4DE2E /* PageView.swift */,
 				EC5BB3E1302ECC0C00F4DE2E /* SettingsView.swift */,
+				EC23F640307400C500F32816 /* DeviceTestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 			files = (
 				EC5BB3E8302ECC0C00F4DE2E /* PDFViewerApp.swift in Sources */,
 				EC21F81230317A270062D47C /* TipManager.swift in Sources */,
+				EC23F641307400C500F32816 /* DeviceTestView.swift in Sources */,
 				EC5BB3E9302ECC0C00F4DE2E /* PDFDocumentWrapper.swift in Sources */,
 				EC5BB3EA302ECC0C00F4DE2E /* SettingsView.swift in Sources */,
 				EC5BB3EB302ECC0C00F4DE2E /* PDFViewerViewModel.swift in Sources */,

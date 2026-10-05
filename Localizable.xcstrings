@@ -121,6 +121,16 @@
       },
       "shouldTranslate" : false
     },
+    "All tests passed." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "すべてのテストに合格しました。"
+          }
+        }
+      }
+    },
     "alternate_app_icons_not_supported" : {
       "localizations" : {
         "de" : {
@@ -199,6 +209,36 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "此環境不支援替代App圖像。"
+          }
+        }
+      }
+    },
+    "App information" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "アプリ情報"
+          }
+        }
+      }
+    },
+    "App version" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "アプリのバージョン"
+          }
+        }
+      }
+    },
+    "App version: %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "アプリのバージョン: %@"
           }
         }
       }
@@ -1193,6 +1233,46 @@
         }
       }
     },
+    "Device name" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "端末名"
+          }
+        }
+      }
+    },
+    "Device Test Results" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "実機テスト結果"
+          }
+        }
+      }
+    },
+    "Device Testing" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "実機テスト"
+          }
+        }
+      }
+    },
+    "Device: %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "端末: %@"
+          }
+        }
+      }
+    },
     "dir_l2r" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1851,6 +1931,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "錯誤"
+          }
+        }
+      }
+    },
+    "Failed" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "失敗"
           }
         }
       }
@@ -4332,6 +4422,16 @@
         }
       }
     },
+    "Local storage" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ローカルストレージ"
+          }
+        }
+      }
+    },
     "no_doc" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -4482,6 +4582,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "沒有可回復的購買項目。"
+          }
+        }
+      }
+    },
+    "Not available" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "利用できません"
           }
         }
       }
@@ -4734,6 +4844,26 @@
         }
       }
     },
+    "OS version" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "OSのバージョン"
+          }
+        }
+      }
+    },
+    "OS version: %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "OSのバージョン: %@"
+          }
+        }
+      }
+    },
     "page_layout" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -4895,6 +5025,26 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "頁面"
+          }
+        }
+      }
+    },
+    "Passed" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "合格"
+          }
+        }
+      }
+    },
+    "PDF rendering" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "PDFレンダリング"
           }
         }
       }
@@ -6141,6 +6291,16 @@
         }
       }
     },
+    "Privacy" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "プライバシー"
+          }
+        }
+      }
+    },
     "purchase_failed" : {
       "localizations" : {
         "de" : {
@@ -7073,6 +7233,56 @@
         }
       }
     },
+    "Result: %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "結果: %@"
+          }
+        }
+      }
+    },
+    "Results" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "結果"
+          }
+        }
+      }
+    },
+    "Run tests again" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "テストを再実行"
+          }
+        }
+      }
+    },
+    "Run tests on this device" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "この端末でテストを実行"
+          }
+        }
+      }
+    },
+    "Running tests…" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "テストを実行中…"
+          }
+        }
+      }
+    },
     "scroll_direction" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -7488,6 +7698,16 @@
         }
       }
     },
+    "Share" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "共有"
+          }
+        }
+      }
+    },
     "sharpness" : {
       "localizations" : {
         "de" : {
@@ -7566,6 +7786,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "銳利度"
+          }
+        }
+      }
+    },
+    "Some tests failed." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "一部のテストに失敗しました。"
           }
         }
       }
@@ -8098,6 +8328,76 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "點一下以顯示選單"
+          }
+        }
+      }
+    },
+    "Test date" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "テスト日時"
+          }
+        }
+      }
+    },
+    "Test date: %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "テスト日時: %@"
+          }
+        }
+      }
+    },
+    "Test information" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "テスト情報"
+          }
+        }
+      }
+    },
+    "Test results are stored only on this device and are never sent externally automatically." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "テスト結果はこの端末内にのみ保存され、外部へ自動的に送信されることはありません。"
+          }
+        }
+      }
+    },
+    "The app version could not be read." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "アプリのバージョンを読み取れませんでした。"
+          }
+        }
+      }
+    },
+    "The generated PDF could not be read." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "生成したPDFを読み取れませんでした。"
+          }
+        }
+      }
+    },
+    "The saved data did not match the data that was read." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "保存したデータと読み取ったデータが一致しませんでした。"
           }
         }
       }

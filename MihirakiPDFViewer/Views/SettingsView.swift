@@ -201,6 +201,8 @@ public struct SettingsView: View {
                 }
                 .padding(.vertical)
                 .background(settingsBackgroundColor)
+
+                DeviceTestingSettingsSection()
             }
             .padding()
             .background(settingsBackgroundColor)
@@ -209,6 +211,25 @@ public struct SettingsView: View {
         .background(settingsBackgroundColor)
         .accessibilityIdentifier("settingsScreen")
         .navigationTitle(String(localized: "settings"))
+    }
+}
+
+private struct DeviceTestingSettingsSection: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Divider()
+            Text("Device Testing")
+                .font(.headline)
+            NavigationLink {
+                DeviceTestView()
+            } label: {
+                Label("Run tests on this device", systemImage: "checkmark.circle")
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+            .accessibilityIdentifier("runDeviceTestsButton")
+        }
+        .padding(.vertical)
     }
 }
 
