@@ -7547,6 +7547,431 @@
         }
       }
     },
+    "sample_pdf_browse_button" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Browse Sample PDFs"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "サンプルPDFを見る"
+          }
+        }
+      }
+    },
+    "sample_pdf_catalog_error" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The sample PDF list could not be loaded."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "サンプルPDFの一覧を読み込めませんでした。"
+          }
+        }
+      }
+    },
+    "sample_pdf_cellular_message" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "This PDF is %@. Downloading it will use mobile data."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "このPDFのサイズは%@です。ダウンロードにはモバイル通信を使用します。"
+          }
+        }
+      }
+    },
+    "sample_pdf_cellular_title" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Download Using Mobile Data?"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "モバイル通信でダウンロードしますか?"
+          }
+        }
+      }
+    },
+    "sample_pdf_checksum_error" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The downloaded PDF failed its integrity check."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ダウンロードしたPDFの整合性を確認できませんでした。"
+          }
+        }
+      }
+    },
+    "sample_pdf_close_before_delete" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Close this PDF before deleting it."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "削除する前に、このPDFを閉じてください。"
+          }
+        }
+      }
+    },
+    "sample_pdf_delete_button" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Delete"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "削除"
+          }
+        }
+      }
+    },
+    "sample_pdf_delete_error" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The sample PDF could not be deleted."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "サンプルPDFを削除できませんでした。"
+          }
+        }
+      }
+    },
+    "sample_pdf_delete_message" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Delete %@ from Documents?"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@をDocumentsから削除しますか?"
+          }
+        }
+      }
+    },
+    "sample_pdf_delete_title" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Delete Sample PDF?"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "サンプルPDFを削除しますか?"
+          }
+        }
+      }
+    },
+    "sample_pdf_deleting" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Deleting…"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "削除中…"
+          }
+        }
+      }
+    },
+    "sample_pdf_download_button" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Download"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ダウンロード"
+          }
+        }
+      }
+    },
+    "sample_pdf_download_error" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The sample PDF could not be downloaded."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "サンプルPDFをダウンロードできませんでした。"
+          }
+        }
+      }
+    },
+    "sample_pdf_downloaded" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Downloaded"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ダウンロード済み"
+          }
+        }
+      }
+    },
+    "sample_pdf_downloading" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Downloading…"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ダウンロード中…"
+          }
+        }
+      }
+    },
+    "sample_pdf_format_error" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The downloaded file is not a valid PDF."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ダウンロードしたファイルは有効なPDFではありません。"
+          }
+        }
+      }
+    },
+    "sample_pdf_language_filter_all" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "All"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "すべて"
+          }
+        }
+      }
+    },
+    "sample_pdf_language_filter_label" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Language"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "言語"
+          }
+        }
+      }
+    },
+    "sample_pdf_license_title" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "License"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ライセンス"
+          }
+        }
+      }
+    },
+    "sample_pdf_open_instructions" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "After downloading, close Settings, tap Open, and select a PDF from Documents/SamplePDFs."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ダウンロード後、“設定”を閉じて“開く”をタップし、Documents/SamplePDFsからPDFを選択してください。"
+          }
+        }
+      }
+    },
+    "sample_pdf_server_error" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The sample PDF could not be downloaded from the server."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "サーバからサンプルPDFをダウンロードできませんでした。"
+          }
+        }
+      }
+    },
+    "sample_pdf_settings_description" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Download sample PDFs to Documents and open them with the file picker."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "サンプルPDFをDocumentsにダウンロードし、ファイルピッカーから開きます。"
+          }
+        }
+      }
+    },
+    "sample_pdf_size_error" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The downloaded file size is invalid."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ダウンロードしたファイルのサイズが無効です。"
+          }
+        }
+      }
+    },
+    "sample_pdf_title" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sample PDFs"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "サンプルPDF"
+          }
+        }
+      }
+    },
+    "sample_pdf_url_error" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The sample PDF download URL is invalid."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "サンプルPDFのダウンロードURLが無効です。"
+          }
+        }
+      }
+    },
     "scroll_direction" : {
       "extractionState" : "manual",
       "localizations" : {

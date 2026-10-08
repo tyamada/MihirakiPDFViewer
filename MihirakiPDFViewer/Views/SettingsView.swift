@@ -137,6 +137,8 @@ public struct SettingsView: View {
                 .padding(1)
                 .background(settingsBackgroundColor)
                 
+                SamplePDFSettingsSection(openDocumentURL: viewModel.document?.url)
+
                 // ヘルプ
                 VStack(alignment: .leading, spacing: 12) {
                     Text(String(localized: "help_title", defaultValue: "Help"))
@@ -212,6 +214,37 @@ public struct SettingsView: View {
         .background(settingsBackgroundColor)
         .accessibilityIdentifier("settingsScreen")
         .navigationTitle(String(localized: "settings"))
+    }
+}
+
+private struct SamplePDFSettingsSection: View {
+    let openDocumentURL: URL?
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Divider()
+            Text(String(localized: "sample_pdf_title", defaultValue: "Sample PDFs"))
+                .font(.headline)
+            Text(String(
+                localized: "sample_pdf_settings_description",
+                defaultValue: "Download sample PDFs to Documents and open them with the file picker."
+            ))
+            .font(.subheadline)
+            .foregroundStyle(.secondary)
+
+            NavigationLink {
+                SamplePDFListView(openDocumentURL: openDocumentURL)
+            } label: {
+                Label(
+                    String(localized: "sample_pdf_browse_button", defaultValue: "Browse Sample PDFs"),
+                    systemImage: "doc.badge.arrow.up"
+                )
+                .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+            .accessibilityIdentifier("samplePDFsButton")
+        }
+        .padding(.vertical)
     }
 }
 

@@ -11,6 +11,10 @@
 		EC23F641307400C500F32816 /* DeviceTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC23F640307400C500F32816 /* DeviceTestView.swift */; };
 		EC23F6433074054900F32816 /* AppLogStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC23F6423074054900F32816 /* AppLogStore.swift */; };
 		EC23F6453074059B00F32816 /* AppLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC23F6443074059B00F32816 /* AppLogView.swift */; };
+		EC58BDC030774A950060F37C /* SamplePDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC58BDBF30774A950060F37C /* SamplePDF.swift */; };
+		EC58BDC230774A960060F37C /* SamplePDFStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC58BDC130774A960060F37C /* SamplePDFStore.swift */; };
+		EC58BDC530774AB30060F37C /* SamplePDFCatalog.json in Resources */ = {isa = PBXBuildFile; fileRef = EC58BDC430774AB30060F37C /* SamplePDFCatalog.json */; };
+		EC58BDC730774AB40060F37C /* SamplePDFListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC58BDC630774AB40060F37C /* SamplePDFListView.swift */; };
 		EC5BB3E6302ECC0C00F4DE2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC5BB3E3302ECC0C00F4DE2E /* Assets.xcassets */; };
 		EC5BB3E8302ECC0C00F4DE2E /* PDFViewerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5BB3D9302ECC0C00F4DE2E /* PDFViewerApp.swift */; };
 		EC5BB3E9302ECC0C00F4DE2E /* PDFDocumentWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5BB3DB302ECC0C00F4DE2E /* PDFDocumentWrapper.swift */; };
@@ -45,6 +49,10 @@
 		EC23F640307400C500F32816 /* DeviceTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTestView.swift; sourceTree = "<group>"; };
 		EC23F6423074054900F32816 /* AppLogStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogStore.swift; sourceTree = "<group>"; };
 		EC23F6443074059B00F32816 /* AppLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogView.swift; sourceTree = "<group>"; };
+		EC58BDBF30774A950060F37C /* SamplePDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePDF.swift; sourceTree = "<group>"; };
+		EC58BDC130774A960060F37C /* SamplePDFStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePDFStore.swift; sourceTree = "<group>"; };
+		EC58BDC430774AB30060F37C /* SamplePDFCatalog.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SamplePDFCatalog.json; sourceTree = "<group>"; };
+		EC58BDC630774AB40060F37C /* SamplePDFListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePDFListView.swift; sourceTree = "<group>"; };
 		EC5BB3D9302ECC0C00F4DE2E /* PDFViewerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewerApp.swift; sourceTree = "<group>"; };
 		EC5BB3DB302ECC0C00F4DE2E /* PDFDocumentWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFDocumentWrapper.swift; sourceTree = "<group>"; };
 		EC5BB3DD302ECC0C00F4DE2E /* PDFViewerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewerViewModel.swift; sourceTree = "<group>"; };
@@ -104,8 +112,17 @@
 			children = (
 				EC21F81030317A270062D47C /* TipManager.swift */,
 				EC23F6423074054900F32816 /* AppLogStore.swift */,
+				EC58BDC130774A960060F37C /* SamplePDFStore.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		EC58BDC330774AB30060F37C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EC58BDC430774AB30060F37C /* SamplePDFCatalog.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		EC5BB3DA302ECC0C00F4DE2E /* App */ = {
@@ -120,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				EC5BB3DB302ECC0C00F4DE2E /* PDFDocumentWrapper.swift */,
+				EC58BDBF30774A950060F37C /* SamplePDF.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -140,6 +158,7 @@
 				EC5BB3E1302ECC0C00F4DE2E /* SettingsView.swift */,
 				EC23F640307400C500F32816 /* DeviceTestView.swift */,
 				EC23F6443074059B00F32816 /* AppLogView.swift */,
+				EC58BDC630774AB40060F37C /* SamplePDFListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -154,6 +173,7 @@
 				EC5BB3E2302ECC0C00F4DE2E /* Views */,
 				EC5BB3E3302ECC0C00F4DE2E /* Assets.xcassets */,
 				EC5BB3E4302ECC0C00F4DE2E /* Info.plist */,
+				EC58BDC330774AB30060F37C /* Resources */,
 			);
 			path = MihirakiPDFViewer;
 			sourceTree = "<group>";
@@ -325,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC5BB3E6302ECC0C00F4DE2E /* Assets.xcassets in Resources */,
+				EC58BDC530774AB30060F37C /* SamplePDFCatalog.json in Resources */,
 				ECAB9B6330329C5100F232B3 /* Products.storekit in Resources */,
 				EC7A7124305C812F00D40C37 /* InfoPlist.xcstrings in Resources */,
 				EC5E08D830252C8000DB308F /* Localizable.xcstrings in Resources */,
@@ -354,11 +375,14 @@
 			files = (
 				EC5BB3E8302ECC0C00F4DE2E /* PDFViewerApp.swift in Sources */,
 				EC23F6453074059B00F32816 /* AppLogView.swift in Sources */,
+				EC58BDC030774A950060F37C /* SamplePDF.swift in Sources */,
 				EC21F81230317A270062D47C /* TipManager.swift in Sources */,
+				EC58BDC730774AB40060F37C /* SamplePDFListView.swift in Sources */,
 				EC23F6433074054900F32816 /* AppLogStore.swift in Sources */,
 				EC23F641307400C500F32816 /* DeviceTestView.swift in Sources */,
 				EC5BB3E9302ECC0C00F4DE2E /* PDFDocumentWrapper.swift in Sources */,
 				EC5BB3EA302ECC0C00F4DE2E /* SettingsView.swift in Sources */,
+				EC58BDC230774A960060F37C /* SamplePDFStore.swift in Sources */,
 				EC5BB3EB302ECC0C00F4DE2E /* PDFViewerViewModel.swift in Sources */,
 				EC5BB3EC302ECC0C00F4DE2E /* MainView.swift in Sources */,
 				EC5BB3ED302ECC0C00F4DE2E /* PageView.swift in Sources */,
@@ -595,14 +619,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MihirakiPDFViewer/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MihirakiPDFViewer;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = NO;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -633,14 +657,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MihirakiPDFViewer/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MihirakiPDFViewer;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = NO;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

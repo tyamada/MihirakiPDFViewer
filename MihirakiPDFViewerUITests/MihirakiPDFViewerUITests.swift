@@ -147,6 +147,34 @@ final class MihirakiPDFViewerUITests: XCTestCase {
     }
 
     @MainActor
+    func testSamplePDFListScreen() throws {
+        app.launch()
+
+        XCTAssertTrue(app.buttons["settingsButton"].waitForExistence(timeout: 5))
+        app.buttons["settingsButton"].tap()
+        XCTAssertTrue(element("settingsScreen").waitForExistence(timeout: 5))
+
+        let samplesButton = app.buttons["samplePDFsButton"]
+        for _ in 0..<4 where !samplesButton.exists {
+            app.swipeUp()
+        }
+        XCTAssertTrue(samplesButton.waitForExistence(timeout: 5))
+        samplesButton.tap()
+
+        XCTAssertTrue(element("samplePDFListScreen").waitForExistence(timeout: 5))
+        XCTAssertTrue(element("samplePDFLanguageFilter").waitForExistence(timeout: 5))
+        let englishTitle = app.staticTexts["THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP"]
+        let japaneseTitle = app.staticTexts["ためし部 第１話 ひと息マップ"]
+        let hasEnglishSample = englishTitle.waitForExistence(timeout: 2)
+        let hasJapaneseSample = japaneseTitle.waitForExistence(timeout: 2)
+        XCTAssertTrue(hasEnglishSample || hasJapaneseSample)
+        XCTAssertTrue(
+            element("samplePDFDownload_tameshibu-episode1-en").exists
+                || element("samplePDFDownload_tameshibu-episode1-ja").exists
+        )
+    }
+
+    @MainActor
     func testSettingsScreen() throws {
         app.launch()
 
