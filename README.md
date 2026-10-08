@@ -96,15 +96,15 @@ Try MihirakiPDFViewer with these sample PDFs.
 
 [Open the Simplified Chinese sample PDF](docs/sample/tameshibu_episode2_2_zh_cn.pdf)
 
-### 『ためし部』第1話・第2話 (Chinese (Traditional))
+### 試試社 第1話 / 第2話 (Chinese (Traditional))
 
 [Open episode 1](docs/sample/tameshibu_episode1_2_zh_tw.pdf) / [Open episode 2](docs/sample/tameshibu_episode2_2_zh_tw.pdf)
 
-### 『ためし部』第1話・第2話 (German)
+### DER PROBIERCLUB FOLGE 1 / 2 (German)
 
 [Open episode 1](docs/sample/tameshibu_episode1_2_de.pdf) / [Open episode 2](docs/sample/tameshibu_episode2_2_de.pdf)
 
-### 『ためし部』第1話・第2話 (French)
+### LE CLUB DES ESSAIS EPISODE 1 / 2 (French)
 
 [Open episode 1](docs/sample/tameshibu_episode1_2_fr.pdf) / [Open episode 2](docs/sample/tameshibu_episode2_2_fr.pdf)
 
@@ -227,12 +227,12 @@ file for details.
 
 ## Sample PDF License
 
-『ためし部』第1話・第2話<br>
+“Tameshibu” Episodes 1 and 2<br>
 © 2026 こまいろ日和
 
-本作品のうち、公開者が著作権その他の許諾対象となる権利を有する部分を、Creative Commons 表示 4.0 国際（CC BY 4.0）で提供します。<br>
+The portions of this work for which the publisher holds copyright or other licensable rights are made available under the Creative Commons Attribution 4.0 International License (CC BY 4.0).<br>
 https://creativecommons.org/licenses/by/4.0/
 
-再利用時は、作品名、作者名「こまいろ日和」、原作品の公開元、ライセンスへのリンクを表示し、変更した場合はその旨を明示してください。
+When reusing this work, provide the title of the work, the author name “こまいろ日和,” the original source, and a link to the license. Indicate whether any changes were made.
 
-本作品は、文章・画像の制作および翻訳に生成AIを使用しています。フォントなど第三者に権利がある素材には、それぞれのライセンスが適用されます。著作権等による保護を受けない部分の利用を、この表示によって制限するものではありません。
+Generative AI was used to create and translate the text and images in this work. Materials owned by third parties, such as fonts, are subject to their respective licenses. This notice does not restrict the use of any parts that are not protected by copyright or other rights.

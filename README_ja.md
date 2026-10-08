@@ -92,15 +92,15 @@ MihirakiPDFViewerでお試しいただけるサンプルPDFです。
 
 [中国語（簡体字）版サンプルPDFを開く](docs/sample/tameshibu_episode2_2_zh_cn.pdf)
 
-### 『ためし部』第1話・第2話（中国語・繁体字）
+### 試試社 第1話 / 第2話（中国語・繁体字）
 
 [第1話を開く](docs/sample/tameshibu_episode1_2_zh_tw.pdf) / [第2話を開く](docs/sample/tameshibu_episode2_2_zh_tw.pdf)
 
-### 『ためし部』第1話・第2話（ドイツ語）
+### DER PROBIERCLUB FOLGE 1 / 2（ドイツ語）
 
 [第1話を開く](docs/sample/tameshibu_episode1_2_de.pdf) / [第2話を開く](docs/sample/tameshibu_episode2_2_de.pdf)
 
-### 『ためし部』第1話・第2話（フランス語）
+### LE CLUB DES ESSAIS EPISODE 1 / 2（フランス語）
 
 [第1話を開く](docs/sample/tameshibu_episode1_2_fr.pdf) / [第2話を開く](docs/sample/tameshibu_episode2_2_fr.pdf)
 
