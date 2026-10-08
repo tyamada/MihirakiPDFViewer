@@ -23,6 +23,14 @@ PDFを単ページ表示または見開き表示で表示します。
   設定できます。
 - **読書位置の復元**: アプリを再起動したとき、最後に開いていた文書と
   ページから閲覧を再開できます。
+- **実機診断**: アプリ情報、ローカルストレージ、PDF描画のテストを端末上で
+  実行できます。結果にはテスト日時、端末名、OSとアプリのバージョンが含まれます。
+- **プライバシーに配慮したアプリログ**: クラッシュ、スローダウン、操作や表示の
+  不具合を調査するため、直近24時間の診断ログを表示・共有できます。個人情報、
+  ファイル内容、ファイル名やパス、検索語句、パスワードは記録しません。
+
+テスト結果とアプリログは、共有ボタンを明示的に操作しない限り端末外へ送信されません。
+自動送信機能はなく、24時間を経過したログは削除されます。
 
 ## 使い方
 
@@ -44,6 +52,9 @@ PDFを単ページ表示または見開き表示で表示します。
    高画質レンダリングまたはシャープネスを有効にします。
 9. **閉じる・再開する**: ツールバーから現在の文書を閉じられます。開いた
    まま終了した場合は、アプリの再起動後に同じページから再開できます。
+10. **診断する**: 設定画面の末尾にある**実機テストを実行**で端末上のテストを
+    実行し、**アプリログを表示**で直近の診断ログを確認します。どちらの画面も、
+    共有ボタンを操作した場合にのみ結果を共有します。
 
 ## サンプルPDF
 
@@ -51,35 +62,47 @@ MihirakiPDFViewerでお試しいただけるサンプルPDFです。
 
 ### THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP (English)
 
-[英語版サンプルPDFを開く](docs/sample/tameshibu_episode1_en.pdf)
+[英語版サンプルPDFを開く](docs/sample/tameshibu_episode1_2_en.pdf)
 
 ### THE TRY-IT CLUB EPISODE 2 ROOM TO GROW (English)
 
-[英語版サンプルPDFを開く](docs/sample/tameshibu_episode2_en.pdf)
+[英語版サンプルPDFを開く](docs/sample/tameshibu_episode2_2_en.pdf)
 
 ### ためし部 第１話 ひと息マップ (Japanese)
 
-[日本語版サンプルPDFを開く](docs/sample/tameshibu_episode1_ja.pdf)
+[日本語版サンプルPDFを開く](docs/sample/tameshibu_episode1_2_ja.pdf)
 
 ### ためし部 第２話 机、ひろがる。 (Japanese)
 
-[日本語版サンプルPDFを開く](docs/sample/tameshibu_episode2_ja.pdf)
+[日本語版サンプルPDFを開く](docs/sample/tameshibu_episode2_2_ja.pdf)
 
 ### 해봄부 제1화 한숨 돌림 지도 (Korean)
 
-[韓国語版サンプルPDFを開く](docs/sample/tameshibu_episode1_ko.pdf)
+[韓国語版サンプルPDFを開く](docs/sample/tameshibu_episode1_2_ko.pdf)
 
 ### 해봄부제2화 책상이 넓어지다 (Korean)
 
-[韓国語版サンプルPDFを開く](docs/sample/tameshibu_episode2_ko.pdf)
+[韓国語版サンプルPDFを開く](docs/sample/tameshibu_episode2_2_ko.pdf)
 
 ### 试试社 第1话 歇口气地图 (Chinese (Simplified))
 
-[中国語（簡体字）版サンプルPDFを開く](docs/sample/tameshibu_episode1_zh_cn.pdf)
+[中国語（簡体字）版サンプルPDFを開く](docs/sample/tameshibu_episode1_2_zh_cn.pdf)
 
 ### 试试社 第2话 桌子变大了 (Chinese (Simplified))
 
-[中国語（簡体字）版サンプルPDFを開く](docs/sample/tameshibu_episode2_zh_cn.pdf)
+[中国語（簡体字）版サンプルPDFを開く](docs/sample/tameshibu_episode2_2_zh_cn.pdf)
+
+### 『ためし部』第1話・第2話（中国語・繁体字）
+
+[第1話を開く](docs/sample/tameshibu_episode1_2_zh_tw.pdf) / [第2話を開く](docs/sample/tameshibu_episode2_2_zh_tw.pdf)
+
+### 『ためし部』第1話・第2話（ドイツ語）
+
+[第1話を開く](docs/sample/tameshibu_episode1_2_de.pdf) / [第2話を開く](docs/sample/tameshibu_episode2_2_de.pdf)
+
+### 『ためし部』第1話・第2話（フランス語）
+
+[第1話を開く](docs/sample/tameshibu_episode1_2_fr.pdf) / [第2話を開く](docs/sample/tameshibu_episode2_2_fr.pdf)
 
 ## 価格と開発者の応援
 
@@ -207,3 +230,15 @@ PDF閲覧機能の制限解除を目的としたものではありません。
 - **v0.3.0** - 2026/08/26: UIを更新し、ズーム中のドラッグ操作を追加。
   表紙サイズの調整も修正。
 - **v0.4.0** - 2026/08/30: 表紙設定を変更。
+
+## サンプルPDFのライセンス
+
+『ためし部』第1話・第2話<br>
+© 2026 こまいろ日和
+
+本作品のうち、公開者が著作権その他の許諾対象となる権利を有する部分を、Creative Commons 表示 4.0 国際（CC BY 4.0）で提供します。<br>
+https://creativecommons.org/licenses/by/4.0/
+
+再利用時は、作品名、作者名「こまいろ日和」、原作品の公開元、ライセンスへのリンクを表示し、変更した場合はその旨を明示してください。
+
+本作品は、文章・画像の制作および翻訳に生成AIを使用しています。フォントなど第三者に権利がある素材には、それぞれのライセンスが適用されます。著作権等による保護を受けない部分の利用を、この表示によって制限するものではありません。

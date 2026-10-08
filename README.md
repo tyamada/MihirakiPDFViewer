@@ -23,6 +23,17 @@ This software was coded using generative AI.
   Settings when needed.
 - **Reading Session Restoration**: Reopen the last document and continue
   from the previous page after relaunching the app.
+- **On-Device Diagnostics**: Run checks for app information, local storage,
+  and PDF rendering, then optionally share a result that includes the test
+  time, device name, OS version, and app version.
+- **Privacy-Safe App Logs**: Review and optionally share 24 hours of diagnostic
+  events for investigating crashes, slowdowns, operation issues, and display
+  issues. Logs exclude personal information, file contents, file names and
+  paths, search terms, and passwords.
+
+Diagnostic test results and app logs remain on the device unless you explicitly
+use the Share button. The app does not automatically send them outside the
+device, and logs older than 24 hours are deleted.
 
 ## How to Use
 
@@ -44,6 +55,10 @@ This software was coded using generative AI.
    Settings when the PDF needs clearer text and lines.
 9. **Close or Resume**: Close the current document from the toolbar, or
    leave it open to resume from the same page after relaunching the app.
+10. **Run Diagnostics**: At the bottom of Settings, choose **Run Device Test**
+    to run checks on the current device or **View App Logs** to review recent
+    diagnostic events. Each results screen has a Share button for sharing only
+    when you choose to do so.
 
 ## Sample PDF
 
@@ -51,35 +66,47 @@ Try MihirakiPDFViewer with these sample PDFs.
 
 ### THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP (English)
 
-[Open the English sample PDF](docs/sample/tameshibu_episode1_en.pdf)
+[Open the English sample PDF](docs/sample/tameshibu_episode1_2_en.pdf)
 
 ### THE TRY-IT CLUB EPISODE 2 ROOM TO GROW (English)
 
-[Open the English sample PDF](docs/sample/tameshibu_episode2_en.pdf)
+[Open the English sample PDF](docs/sample/tameshibu_episode2_2_en.pdf)
 
 ### ためし部 第１話 ひと息マップ (Japanese)
 
-[Open the Japanese sample PDF](docs/sample/tameshibu_episode1_ja.pdf)
+[Open the Japanese sample PDF](docs/sample/tameshibu_episode1_2_ja.pdf)
 
 ### ためし部 第２話 机、ひろがる。 (Japanese)
 
-[Open the Japanese sample PDF](docs/sample/tameshibu_episode2_ja.pdf)
+[Open the Japanese sample PDF](docs/sample/tameshibu_episode2_2_ja.pdf)
 
 ### 해봄부 제1화 한숨 돌림 지도 (Korean)
 
-[Open the Korean sample PDF](docs/sample/tameshibu_episode1_ko.pdf)
+[Open the Korean sample PDF](docs/sample/tameshibu_episode1_2_ko.pdf)
 
 ### 해봄부제2화 책상이 넓어지다 (Korean)
 
-[Open the Korean sample PDF](docs/sample/tameshibu_episode2_ko.pdf)
+[Open the Korean sample PDF](docs/sample/tameshibu_episode2_2_ko.pdf)
 
 ### 试试社 第1话 歇口气地图 (Chinese (Simplified))
 
-[Open the Simplified Chinese sample PDF](docs/sample/tameshibu_episode1_zh_cn.pdf)
+[Open the Simplified Chinese sample PDF](docs/sample/tameshibu_episode1_2_zh_cn.pdf)
 
 ### 试试社 第2话 桌子变大了 (Chinese (Simplified))
 
-[Open the Simplified Chinese sample PDF](docs/sample/tameshibu_episode2_zh_cn.pdf)
+[Open the Simplified Chinese sample PDF](docs/sample/tameshibu_episode2_2_zh_cn.pdf)
+
+### 『ためし部』第1話・第2話 (Chinese (Traditional))
+
+[Open episode 1](docs/sample/tameshibu_episode1_2_zh_tw.pdf) / [Open episode 2](docs/sample/tameshibu_episode2_2_zh_tw.pdf)
+
+### 『ためし部』第1話・第2話 (German)
+
+[Open episode 1](docs/sample/tameshibu_episode1_2_de.pdf) / [Open episode 2](docs/sample/tameshibu_episode2_2_de.pdf)
+
+### 『ためし部』第1話・第2話 (French)
+
+[Open episode 1](docs/sample/tameshibu_episode1_2_fr.pdf) / [Open episode 2](docs/sample/tameshibu_episode2_2_fr.pdf)
 
 ## Pricing and Supporting the Developer
 
@@ -197,3 +224,15 @@ file for details.
 - **v0.2.2** - 2026/08/21: Added automated tests.
 - **v0.3.0** - 2026/08/26: Updated UI, Added zoom dragging, and fixed cover sizing.
 - **v0.4.0** - 2026/08/30: Changed cover page settings.
+
+## Sample PDF License
+
+『ためし部』第1話・第2話<br>
+© 2026 こまいろ日和
+
+本作品のうち、公開者が著作権その他の許諾対象となる権利を有する部分を、Creative Commons 表示 4.0 国際（CC BY 4.0）で提供します。<br>
+https://creativecommons.org/licenses/by/4.0/
+
+再利用時は、作品名、作者名「こまいろ日和」、原作品の公開元、ライセンスへのリンクを表示し、変更した場合はその旨を明示してください。
+
+本作品は、文章・画像の制作および翻訳に生成AIを使用しています。フォントなど第三者に権利がある素材には、それぞれのライセンスが適用されます。著作権等による保護を受けない部分の利用を、この表示によって制限するものではありません。
