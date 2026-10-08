@@ -327,6 +327,30 @@ public class PDFViewerViewModel: ObservableObject {
         catch { errorMessage = error.localizedDescription }
     }
 
+    public func clearReadingSession(ifMatching url: URL) {
+        if pendingSession?.url.standardizedFileURL == url.standardizedFileURL {
+            clearReadingSession()
+            return
+        }
+
+        guard let sessionURL, FileManager.default.fileExists(atPath: sessionURL.path) else { return }
+        do {
+            let state = try JSONDecoder().decode(ReadingSession.self, from: Data(contentsOf: sessionURL))
+            var stale = false
+            let restoredURL = try URL(
+                resolvingBookmarkData: state.bookmark,
+                options: [.withoutUI],
+                relativeTo: nil,
+                bookmarkDataIsStale: &stale
+            )
+            if restoredURL.standardizedFileURL == url.standardizedFileURL {
+                clearReadingSession()
+            }
+        } catch {
+            clearReadingSession()
+        }
+    }
+
     private func stopCurrentAccess() {
         if let url = securityScopedURL, isAccessingResource {
             url.stopAccessingSecurityScopedResource()

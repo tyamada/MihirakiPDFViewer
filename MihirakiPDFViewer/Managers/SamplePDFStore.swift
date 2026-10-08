@@ -135,7 +135,8 @@ final class SamplePDFStore {
         }
     }
 
-    func delete(_ sample: SamplePDF) {
+    @discardableResult
+    func delete(_ sample: SamplePDF) -> Bool {
         states[sample.id] = .deleting
         errorMessage = nil
 
@@ -145,9 +146,11 @@ final class SamplePDFStore {
                 try fileManager.removeItem(at: url)
             }
             states[sample.id] = .notDownloaded
+            return true
         } catch {
             states[sample.id] = .downloaded
             errorMessage = SamplePDFStoreError.deleteFailed.localizedDescription
+            return false
         }
     }
 

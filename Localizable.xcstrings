@@ -7870,19 +7870,36 @@
         }
       }
     },
+    "sample_pdf_open_button" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Open"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "開く"
+          }
+        }
+      }
+    },
     "sample_pdf_open_instructions" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "After downloading, close Settings, tap Open, and select a PDF from Documents/SamplePDFs."
+            "value" : "Tap Open next to a downloaded sample PDF to view it."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "ダウンロード後、“設定”を閉じて“開く”をタップし、Documents/SamplePDFsからPDFを選択してください。"
+            "value" : "ダウンロード済みのサンプルPDFを表示するには、その横にある“開く”をタップします。"
           }
         }
       }
@@ -7905,7 +7922,7 @@
       }
     },
     "sample_pdf_settings_description" : {
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

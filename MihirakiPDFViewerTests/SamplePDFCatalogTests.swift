@@ -22,7 +22,7 @@ struct SamplePDFCatalogTests {
         #expect(catalog.schemaVersion == 1)
         #expect(catalog.license.identifier == "CC-BY-4.0")
         #expect(catalog.license.creator == "Takuma Yamada")
-        #expect(catalog.samples.count == 8)
+        #expect(catalog.samples.count == 14)
 
         let ids = Set(catalog.samples.map(\.id))
         let fileNames = Set(catalog.samples.map(\.fileName))

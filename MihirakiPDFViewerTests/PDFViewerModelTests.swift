@@ -192,6 +192,25 @@ final class PDFViewerViewModelTests: XCTestCase {
         XCTAssertNil(PDFViewerViewModel(sessionURL: sessionURL).documentURLForRestoration())
     }
 
+    func testDeletingMatchingPDFClearsReadingSession() throws {
+        let sessionURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+        defer { try? FileManager.default.removeItem(at: sessionURL) }
+        let pdfURL = try makeTemporaryPDF(pageCount: 3)
+        let model = PDFViewerViewModel(sessionURL: sessionURL)
+        XCTAssertEqual(model.loadDocument(from: pdfURL), .loaded)
+        model.currentPageIndex = 2
+
+        try FileManager.default.removeItem(at: pdfURL)
+        model.clearReadingSession(ifMatching: pdfURL)
+
+        let replacementURL = try makeTemporaryPDF(pageCount: 3)
+        try FileManager.default.moveItem(at: replacementURL, to: pdfURL)
+        let reopened = PDFViewerViewModel(sessionURL: sessionURL)
+        XCTAssertNil(reopened.documentURLForRestoration())
+        XCTAssertEqual(reopened.loadDocument(from: pdfURL), .loaded)
+        XCTAssertEqual(reopened.currentPageIndex, 0)
+    }
+
     func testProtectedReadingSessionRestoresAfterPasswordRetry() throws {
         let sessionURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
         defer { try? FileManager.default.removeItem(at: sessionURL) }

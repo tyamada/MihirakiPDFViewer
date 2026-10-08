@@ -9,13 +9,17 @@ import SwiftUI
 
 struct SamplePDFListView: View {
     let openDocumentURL: URL?
+    let openDocument: (URL) -> Void
+    let didDeleteDocument: (URL) -> Void
 
+    @Environment(\.dismiss) private var dismiss
     @State private var store = SamplePDFStore()
     @State private var cellularDownload: SamplePDF?
     @State private var deletionCandidate: SamplePDF?
     @State private var isShowingError = false
     @State private var selectedLanguageCode: String?
     @State private var didInitializeLanguageFilter = false
+    @State private var areRowActionsSuppressed = false
 
     var body: some View {
         Group {
@@ -32,15 +36,17 @@ struct SamplePDFListView: View {
                                 sample: sample,
                                 state: store.state(for: sample),
                                 isOpen: isOpen(sample),
+                                areActionsSuppressed: areRowActionsSuppressed,
                                 isDownloadEnabled: store.isNetworkPathKnown,
                                 downloadAction: { requestDownload(sample) },
-                                deleteAction: { deletionCandidate = sample }
+                                openAction: { open(sample) },
+                                deleteAction: { requestDeletion(sample) }
                             )
                         }
                     } footer: {
                         Text(String(
                             localized: "sample_pdf_open_instructions",
-                            defaultValue: "After downloading, close Settings, tap Open, and select a PDF from Documents/SamplePDFs."
+                            defaultValue: "Tap Open next to a downloaded sample PDF to view it."
                         ))
                     }
 
@@ -101,11 +107,14 @@ struct SamplePDFListView: View {
             presenting: deletionCandidate
         ) { sample in
             Button(String(localized: "cancel"), role: .cancel) {
-                deletionCandidate = nil
+                finishDeletionPrompt()
             }
             Button(String(localized: "sample_pdf_delete_button", defaultValue: "Delete"), role: .destructive) {
-                deletionCandidate = nil
-                store.delete(sample)
+                let url = store.localURL(for: sample)
+                if store.delete(sample) {
+                    didDeleteDocument(url)
+                }
+                finishDeletionPrompt()
             }
         } message: { sample in
             Text(String(
@@ -133,6 +142,22 @@ struct SamplePDFListView: View {
         }
     }
 
+    private func requestDeletion(_ sample: SamplePDF) {
+        Task {
+            try? await Task.sleep(for: .milliseconds(150))
+            deletionCandidate = sample
+        }
+    }
+
+    private func finishDeletionPrompt() {
+        areRowActionsSuppressed = true
+        deletionCandidate = nil
+        Task {
+            try? await Task.sleep(for: .milliseconds(300))
+            areRowActionsSuppressed = false
+        }
+    }
+
     private func initializeLanguageFilterIfNeeded() {
         guard !didInitializeLanguageFilter, let catalog = store.catalog else { return }
         let languageCodes = SamplePDFLanguageFilter.availableLanguageCodes(in: catalog.samples)
@@ -152,6 +177,12 @@ struct SamplePDFListView: View {
         Task {
             await store.download(sample, allowsCellular: allowsCellular)
         }
+    }
+
+    private func open(_ sample: SamplePDF) {
+        guard !areRowActionsSuppressed else { return }
+        openDocument(store.localURL(for: sample))
+        dismiss()
     }
 
     private func isOpen(_ sample: SamplePDF) -> Bool {
@@ -187,8 +218,10 @@ private struct SamplePDFRow: View {
     let sample: SamplePDF
     let state: SamplePDFDownloadState
     let isOpen: Bool
+    let areActionsSuppressed: Bool
     let isDownloadEnabled: Bool
     let downloadAction: () -> Void
+    let openAction: () -> Void
     let deleteAction: () -> Void
 
     var body: some View {
@@ -225,7 +258,7 @@ private struct SamplePDFRow: View {
             }
             .accessibilityElement(children: .combine)
         case .downloaded:
-            HStack {
+            HStack(spacing: 12) {
                 Label(
                     String(localized: "sample_pdf_downloaded", defaultValue: "Downloaded"),
                     systemImage: "checkmark.circle.fill"
@@ -234,12 +267,22 @@ private struct SamplePDFRow: View {
 
                 Spacer()
 
-                Button(
-                    String(localized: "sample_pdf_delete_button", defaultValue: "Delete"),
-                    role: .destructive,
-                    action: deleteAction
-                )
-                .disabled(isOpen)
+                Button(action: openAction) {
+                    Text(String(localized: "sample_pdf_open_button", defaultValue: "Open"))
+                        .frame(minWidth: 44, minHeight: 44)
+                        .contentShape(Rectangle())
+                }
+                .buttonStyle(.borderless)
+                .disabled(isOpen || areActionsSuppressed)
+                .accessibilityIdentifier("samplePDFOpen_\(sample.id)")
+
+                Button(role: .destructive, action: deleteAction) {
+                    Text(String(localized: "sample_pdf_delete_button", defaultValue: "Delete"))
+                        .frame(minWidth: 44, minHeight: 44)
+                        .contentShape(Rectangle())
+                }
+                .buttonStyle(.borderless)
+                .disabled(isOpen || areActionsSuppressed)
                 .accessibilityHint(
                     isOpen
                         ? String(localized: "sample_pdf_close_before_delete", defaultValue: "Close this PDF before deleting it.")

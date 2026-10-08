@@ -14,7 +14,6 @@ final class MihirakiPDFViewerUITests: XCTestCase {
     override func setUpWithError() throws {
         continueAfterFailure = false
         app = XCUIApplication()
-        app.launchArguments.append("-uiTestDisableAutoFilePicker")
         app.launchArguments.append("-uiTestResetReadingSession")
         app.launchArguments.append("-uiTestResetRenderingPreferences")
     }
@@ -29,6 +28,8 @@ final class MihirakiPDFViewerUITests: XCTestCase {
 
         XCTAssertTrue(element("emptyStateView").waitForExistence(timeout: 5))
         XCTAssertGreaterThanOrEqual(app.buttons.count, 2)
+        XCTAssertTrue(app.buttons["selectPDFButton"].isHittable)
+        XCTAssertTrue(app.buttons["samplePDFsButton"].isHittable)
         XCTAssertTrue(app.buttons["settingsButton"].waitForExistence(timeout: 5))
     }
 
@@ -135,7 +136,7 @@ final class MihirakiPDFViewerUITests: XCTestCase {
         XCUIDevice.shared.press(.home)
         app.terminate()
         XCTAssertEqual(app.state, .notRunning)
-        app.launchArguments = ["-uiTestDisableAutoFilePicker"]
+        app.launchArguments = []
         app.launch()
         XCTAssertTrue(element("pdfViewerScreen").waitForExistence(timeout: 10))
         tapPDFViewer()
@@ -150,14 +151,7 @@ final class MihirakiPDFViewerUITests: XCTestCase {
     func testSamplePDFListScreen() throws {
         app.launch()
 
-        XCTAssertTrue(app.buttons["settingsButton"].waitForExistence(timeout: 5))
-        app.buttons["settingsButton"].tap()
-        XCTAssertTrue(element("settingsScreen").waitForExistence(timeout: 5))
-
         let samplesButton = app.buttons["samplePDFsButton"]
-        for _ in 0..<4 where !samplesButton.exists {
-            app.swipeUp()
-        }
         XCTAssertTrue(samplesButton.waitForExistence(timeout: 5))
         samplesButton.tap()
 
@@ -171,6 +165,8 @@ final class MihirakiPDFViewerUITests: XCTestCase {
         XCTAssertTrue(
             element("samplePDFDownload_tameshibu-episode1-en").exists
                 || element("samplePDFDownload_tameshibu-episode1-ja").exists
+                || element("samplePDFOpen_tameshibu-episode1-en").exists
+                || element("samplePDFOpen_tameshibu-episode1-ja").exists
         )
     }
 
@@ -183,6 +179,7 @@ final class MihirakiPDFViewerUITests: XCTestCase {
 
         XCTAssertTrue(element("settingsScreen").waitForExistence(timeout: 5))
         XCTAssertTrue(app.buttons["settingsCloseButton"].exists)
+        XCTAssertFalse(app.buttons["samplePDFsButton"].isHittable)
         XCTAssertTrue(app.buttons["helpButton"].waitForExistence(timeout: 5))
 
         app.buttons["helpButton"].tap()
@@ -329,7 +326,7 @@ final class MihirakiPDFViewerUITests: XCTestCase {
         XCTAssertFalse(expectedPage.hasPrefix("1 / "))
         XCUIDevice.shared.press(.home)
         app.terminate()
-        app.launchArguments = ["-uiTestDisableAutoFilePicker"]
+        app.launchArguments = []
         app.launch()
         unlock()
         XCTAssertTrue(showPageIndicatorIfNeeded().waitForExistence(timeout: 5))
@@ -364,7 +361,7 @@ final class MihirakiPDFViewerUITests: XCTestCase {
         app.terminate()
         XCTAssertEqual(app.state, .notRunning)
         // Do not let the test-only PDF loader mask missing restoration.
-        app.launchArguments = ["-uiTestDisableAutoFilePicker"]
+        app.launchArguments = []
         app.launch()
         let restored = element("pdfViewerScreen").waitForExistence(timeout: 10)
         recordResumeScreen("After relaunch, expected page \(expectedPage)")

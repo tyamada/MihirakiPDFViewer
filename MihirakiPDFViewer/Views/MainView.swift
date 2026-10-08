@@ -274,10 +274,6 @@ public struct MainView: View {
             openPDF(at: url)
         } else if let url = viewModel.documentURLForRestoration() {
             openPDF(at: url)
-        } else if !ProcessInfo.processInfo.arguments.contains("-uiTestDisableAutoFilePicker"),
-                  viewModel.errorMessage == nil {
-            AppDiagnostics.record(.documentPickerOpened)
-            isShowingFilePicker = true
         }
     }
 
@@ -532,6 +528,7 @@ public struct MainView: View {
                 .foregroundColor(.secondary)
             Text(String(localized: "select_pdf_title"))
                 .font(.title2)
+                .accessibilityIdentifier("emptyStateView")
             Button {
                 AppDiagnostics.record(.documentPickerOpened)
                 isShowingFilePicker = true
@@ -541,9 +538,23 @@ public struct MainView: View {
             }
             .buttonStyle(.borderedProminent)
             .accessibilityIdentifier("selectPDFButton")
+
+            NavigationLink {
+                SamplePDFListView(
+                    openDocumentURL: nil,
+                    openDocument: { url in openPDF(at: url) },
+                    didDeleteDocument: { url in viewModel.clearReadingSession(ifMatching: url) }
+                )
+            } label: {
+                Label(
+                    String(localized: "sample_pdf_browse_button", defaultValue: "Browse Sample PDFs"),
+                    systemImage: "doc.badge.arrow.up"
+                )
+            }
+            .buttonStyle(.bordered)
+            .accessibilityIdentifier("samplePDFsButton")
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .accessibilityIdentifier("emptyStateView")
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
