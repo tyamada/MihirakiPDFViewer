@@ -66,35 +66,47 @@ Try MihirakiPDFViewer with these sample PDFs.
 
 ### THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP (English)
 
-[Open the English sample PDF](docs/sample/tameshibu_episode1_en.pdf)
+[Open the English sample PDF](docs/sample/tameshibu_episode1_2_en.pdf)
 
 ### THE TRY-IT CLUB EPISODE 2 ROOM TO GROW (English)
 
-[Open the English sample PDF](docs/sample/tameshibu_episode2_en.pdf)
+[Open the English sample PDF](docs/sample/tameshibu_episode2_2_en.pdf)
 
 ### ためし部 第１話 ひと息マップ (Japanese)
 
-[Open the Japanese sample PDF](docs/sample/tameshibu_episode1_ja.pdf)
+[Open the Japanese sample PDF](docs/sample/tameshibu_episode1_2_ja.pdf)
 
 ### ためし部 第２話 机、ひろがる。 (Japanese)
 
-[Open the Japanese sample PDF](docs/sample/tameshibu_episode2_ja.pdf)
+[Open the Japanese sample PDF](docs/sample/tameshibu_episode2_2_ja.pdf)
 
 ### 해봄부 제1화 한숨 돌림 지도 (Korean)
 
-[Open the Korean sample PDF](docs/sample/tameshibu_episode1_ko.pdf)
+[Open the Korean sample PDF](docs/sample/tameshibu_episode1_2_ko.pdf)
 
 ### 해봄부제2화 책상이 넓어지다 (Korean)
 
-[Open the Korean sample PDF](docs/sample/tameshibu_episode2_ko.pdf)
+[Open the Korean sample PDF](docs/sample/tameshibu_episode2_2_ko.pdf)
 
 ### 试试社 第1话 歇口气地图 (Chinese (Simplified))
 
-[Open the Simplified Chinese sample PDF](docs/sample/tameshibu_episode1_zh_cn.pdf)
+[Open the Simplified Chinese sample PDF](docs/sample/tameshibu_episode1_2_zh_cn.pdf)
 
 ### 试试社 第2话 桌子变大了 (Chinese (Simplified))
 
-[Open the Simplified Chinese sample PDF](docs/sample/tameshibu_episode2_zh_cn.pdf)
+[Open the Simplified Chinese sample PDF](docs/sample/tameshibu_episode2_2_zh_cn.pdf)
+
+### 試試社 第1話 / 第2話 (Chinese (Traditional))
+
+[Open episode 1](docs/sample/tameshibu_episode1_2_zh_tw.pdf) / [Open episode 2](docs/sample/tameshibu_episode2_2_zh_tw.pdf)
+
+### DER PROBIERCLUB FOLGE 1 / 2 (German)
+
+[Open episode 1](docs/sample/tameshibu_episode1_2_de.pdf) / [Open episode 2](docs/sample/tameshibu_episode2_2_de.pdf)
+
+### LE CLUB DES ESSAIS EPISODE 1 / 2 (French)
+
+[Open episode 1](docs/sample/tameshibu_episode1_2_fr.pdf) / [Open episode 2](docs/sample/tameshibu_episode2_2_fr.pdf)
 
 ## Pricing and Supporting the Developer
 
@@ -212,3 +224,15 @@ file for details.
 - **v0.2.2** - 2026/08/21: Added automated tests.
 - **v0.3.0** - 2026/08/26: Updated UI, Added zoom dragging, and fixed cover sizing.
 - **v0.4.0** - 2026/08/30: Changed cover page settings.
+
+## Sample PDF License
+
+“Tameshibu” Episodes 1 and 2<br>
+© 2026 こまいろ日和
+
+The portions of this work for which the publisher holds copyright or other licensable rights are made available under the Creative Commons Attribution 4.0 International License (CC BY 4.0).<br>
+https://creativecommons.org/licenses/by/4.0/
+
+When reusing this work, provide the title of the work, the author name “こまいろ日和,” the original source, and a link to the license. Indicate whether any changes were made.
+
+Generative AI was used to create and translate the text and images in this work. Materials owned by third parties, such as fonts, are subject to their respective licenses. This notice does not restrict the use of any parts that are not protected by copyright or other rights.
