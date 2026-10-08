@@ -96,17 +96,29 @@ Try MihirakiPDFViewer with these sample PDFs.
 
 [Open the Simplified Chinese sample PDF](docs/sample/tameshibu_episode2_2_zh_cn.pdf)
 
-### 試試社 第1話 / 第2話 (Chinese (Traditional))
+### 試試社 第1話 (Chinese (Traditional))
 
-[Open episode 1](docs/sample/tameshibu_episode1_2_zh_tw.pdf) / [Open episode 2](docs/sample/tameshibu_episode2_2_zh_tw.pdf)
+[Open episode 1](docs/sample/tameshibu_episode1_2_zh_tw.pdf)
 
-### DER PROBIERCLUB FOLGE 1 / 2 (German)
+### 試試社 第2話 (Chinese (Traditional))
 
-[Open episode 1](docs/sample/tameshibu_episode1_2_de.pdf) / [Open episode 2](docs/sample/tameshibu_episode2_2_de.pdf)
+[Open episode 2](docs/sample/tameshibu_episode2_2_zh_tw.pdf)
 
-### LE CLUB DES ESSAIS EPISODE 1 / 2 (French)
+### DER PROBIERCLUB FOLGE 1 (German)
 
-[Open episode 1](docs/sample/tameshibu_episode1_2_fr.pdf) / [Open episode 2](docs/sample/tameshibu_episode2_2_fr.pdf)
+[Open episode 1](docs/sample/tameshibu_episode1_2_de.pdf)
+
+### DER PROBIERCLUB FOLGE 2 (German)
+
+[Open episode 2](docs/sample/tameshibu_episode2_2_de.pdf)
+
+### LE CLUB DES ESSAIS EPISODE 1 (French)
+
+[Open episode 1](docs/sample/tameshibu_episode1_2_fr.pdf)
+
+### LE CLUB DES ESSAIS EPISODE 2 (French)
+
+[Open episode 2](docs/sample/tameshibu_episode2_2_fr.pdf)
 
 ## Pricing and Supporting the Developer
 
@@ -216,23 +228,33 @@ and add it again by dragging and dropping it.
 This project is licensed under the MIT License - see the [LICENSE](LICENSE)
 file for details.
 
-## Version History
-
-- **v0.1.0** - 2026/08/16: Initial Release.
-- **v0.2.0** - 2026/08/19: Add a tipping feature.
-- **v0.2.1** - 2026/08/20: Changed README.md to the Japanese version.
-- **v0.2.2** - 2026/08/21: Added automated tests.
-- **v0.3.0** - 2026/08/26: Updated UI, Added zoom dragging, and fixed cover sizing.
-- **v0.4.0** - 2026/08/30: Changed cover page settings.
-
 ## Sample PDF License
 
-“Tameshibu” Episodes 1 and 2<br>
-© 2026 こまいろ日和
+THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP (English)<br>
+THE TRY-IT CLUB EPISODE 2 ROOM TO GROW (English)<br>
+© 2026 Komairo Hiyori
 
 The portions of this work for which the publisher holds copyright or other licensable rights are made available under the Creative Commons Attribution 4.0 International License (CC BY 4.0).<br>
 https://creativecommons.org/licenses/by/4.0/
 
-When reusing this work, provide the title of the work, the author name “こまいろ日和,” the original source, and a link to the license. Indicate whether any changes were made.
+When reusing this work, provide the title of the work, the author name “Komairo Hiyori,” the original source, and a link to the license. Indicate whether any changes were made.
 
 Generative AI was used to create and translate the text and images in this work. Materials owned by third parties, such as fonts, are subject to their respective licenses. This notice does not restrict the use of any parts that are not protected by copyright or other rights.
+
+## Version History
+
+- **Unreleased** - 2026/10/09: Added downloadable multilingual sample PDFs,
+  updated them to the second edition, added language filtering, device
+  diagnostics and privacy-safe logging, and clarified the sample PDF license
+  and attribution.
+- **v1.0.4** - 2026/10/02: Added restoration of supporter icon purchases and
+  improved PDF layout stability when controls are shown.
+- **v1.0.3** - 2026/09/30: Fixed search highlight alignment on iPad and
+  updated the settings reset guidance and translations.
+- **v0.4.0** - 2026/08/30: Changed cover page settings.
+- **v0.3.0** - 2026/08/26: Updated the UI, added zoom dragging, and fixed cover
+  sizing.
+- **v0.2.2** - 2026/08/21: Added automated tests.
+- **v0.2.1** - 2026/08/20: Changed README.md to the Japanese version.
+- **v0.2.0** - 2026/08/19: Added a tipping feature.
+- **v0.1.0** - 2026/08/16: Initial release.
