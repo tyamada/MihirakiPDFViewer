@@ -2695,6 +2695,89 @@
         }
       }
     },
+    "help_sample_pdfs_description" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Durchsuche Beispiel-PDFs nach Sprache, lade eine Datei auf dieses Gerät herunter, öffne sie im Viewer oder lösche die lokale Kopie, wenn du sie nicht mehr benötigst. Downloads über mobile Daten müssen bestätigt werden."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Browse sample PDFs by language, download one to this device, open it in the viewer, or delete the local copy when you no longer need it. Mobile-data downloads ask for confirmation."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Explora los PDF de muestra por idioma, descarga uno en este dispositivo, ábrelo en el visor o elimina la copia local cuando ya no la necesites. Las descargas mediante datos móviles requieren confirmación."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mag-browse ng mga sample PDF ayon sa wika, mag-download ng isa sa device na ito, buksan ito sa viewer, o burahin ang lokal na kopya kapag hindi mo na ito kailangan. Hihingi ng kumpirmasyon ang mga download gamit ang mobile data."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Parcourez les PDF d’exemple par langue, téléchargez-en un sur cet appareil, ouvrez-le dans le lecteur ou supprimez la copie locale lorsqu’elle ne vous est plus utile. Les téléchargements via les données cellulaires nécessitent une confirmation."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Telusuri contoh PDF menurut bahasa, unduh satu ke perangkat ini, buka di penampil, atau hapus salinan lokal saat tidak lagi diperlukan. Pengunduhan melalui data seluler memerlukan konfirmasi."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "サンプルPDFを言語別に探し、この端末にダウンロードしてビューアで開いたり、不要になったローカルコピーを削除したりできます。モバイル通信でダウンロードする場合は確認を求められます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "샘플 PDF를 언어별로 탐색하고, 이 기기에 다운로드하여 뷰어에서 열거나 더 이상 필요하지 않은 로컬 사본을 삭제할 수 있습니다. 모바일 데이터를 사용한 다운로드에는 확인이 필요합니다."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "भाषाअनुसार नमुना PDFहरू ब्राउज गर्नुहोस्, एउटालाई यस यन्त्रमा डाउनलोड गर्नुहोस्, भ्युअरमा खोल्नुहोस् वा आवश्यक नपरेपछि स्थानीय प्रतिलिपि मेटाउनुहोस्। मोबाइल डेटा प्रयोग गरी डाउनलोड गर्दा पुष्टि मागिन्छ।"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Explore os PDFs de exemplo por idioma, baixe um para este dispositivo, abra-o no visualizador ou apague a cópia local quando não precisar mais dela. Downloads por dados móveis exigem confirmação."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Duyệt các tệp PDF mẫu theo ngôn ngữ, tải một tệp xuống thiết bị này, mở tệp trong trình xem hoặc xóa bản sao cục bộ khi bạn không còn cần đến. Các lượt tải xuống bằng dữ liệu di động sẽ yêu cầu xác nhận."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "按语言浏览示例 PDF，将 PDF 下载到此设备、在阅读器中打开，或在不再需要时删除本地副本。使用蜂窝数据下载时需要确认。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "依語言瀏覽範例PDF、下載至此裝置後在檢視器中開啟，或刪除不再需要的本機複本。使用行動數據下載時會要求確認。"
+          }
+        }
+      }
+    },
     "help_search_description" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -7868,6 +7951,89 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "ライセンス"
+          }
+        }
+      }
+    },
+    "sample_pdf_navigation_title" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Beispiel-PDFs"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sample PDFs"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "PDF de muestra"
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mga Sample PDF"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "PDF d’exemple"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Contoh PDF"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "サンプルPDF"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "샘플 PDF"
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "नमुना PDFहरू"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "PDFs de Exemplo"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "PDF mẫu"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "示例 PDF"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "範例PDF"
           }
         }
       }

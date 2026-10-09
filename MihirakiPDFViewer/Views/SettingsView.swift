@@ -355,6 +355,14 @@ struct HelpView: View {
         ),
         HelpItem(
             id: 2,
+            title: LocalizedStringResource("sample_pdf_navigation_title", defaultValue: "Sample PDFs"),
+            description: LocalizedStringResource(
+                "help_sample_pdfs_description",
+                defaultValue: "Browse sample PDFs by language, download one to this device, open it in the viewer, or delete the local copy when you no longer need it. Mobile-data downloads ask for confirmation."
+            )
+        ),
+        HelpItem(
+            id: 3,
             title: LocalizedStringResource("help_navigate_pages_title", defaultValue: "Navigate Pages"),
             description: LocalizedStringResource(
                 "help_navigate_pages_description",
@@ -362,7 +370,7 @@ struct HelpView: View {
             )
         ),
         HelpItem(
-            id: 3,
+            id: 4,
             title: LocalizedStringResource("help_menu_title", defaultValue: "Menu"),
             description: LocalizedStringResource(
                 "help_menu_description",
@@ -370,7 +378,7 @@ struct HelpView: View {
             )
         ),
         HelpItem(
-            id: 4,
+            id: 5,
             title: LocalizedStringResource("help_zoom_title", defaultValue: "Zoom"),
             description: LocalizedStringResource(
                 "help_zoom_description",
@@ -378,7 +386,7 @@ struct HelpView: View {
             )
         ),
         HelpItem(
-            id: 5,
+            id: 6,
             title: LocalizedStringResource("help_search_title", defaultValue: "Search"),
             description: LocalizedStringResource(
                 "help_search_description",
@@ -386,7 +394,7 @@ struct HelpView: View {
             )
         ),
         HelpItem(
-            id: 6,
+            id: 7,
             title: LocalizedStringResource("settings", defaultValue: "Settings"),
             description: LocalizedStringResource(
                 "help_settings_description",
@@ -442,14 +450,6 @@ struct HelpView: View {
                     )
                 ),
                 HelpDetail(
-                    id: "reset",
-                    title: LocalizedStringResource("reset_title", defaultValue: "Reset"),
-                    description: LocalizedStringResource(
-                        "help_setting_reset_description",
-                        defaultValue: "Resets app settings and closes the current document."
-                    )
-                ),
-                HelpDetail(
                     id: "documentInformation",
                     title: LocalizedStringResource("doc_info", defaultValue: "Document Information"),
                     description: LocalizedStringResource(
@@ -471,6 +471,14 @@ struct HelpView: View {
                     description: LocalizedStringResource(
                         "help_setting_app_logs_description",
                         defaultValue: "Shows privacy-safe diagnostic logs for investigating crashes, slowdowns, operation issues, and display issues. Logs do not include personal information, file contents, file names or paths, search terms, or passwords. They are deleted after 24 hours and are shared only when you tap Share."
+                    )
+                ),
+                HelpDetail(
+                    id: "reset",
+                    title: LocalizedStringResource("reset_title", defaultValue: "Reset"),
+                    description: LocalizedStringResource(
+                        "help_setting_reset_description",
+                        defaultValue: "Resets app settings and closes the current document."
                     )
                 ),
                 HelpDetail(

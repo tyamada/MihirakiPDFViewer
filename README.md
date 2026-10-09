@@ -13,7 +13,8 @@ This software was coded using generative AI.
 ## Features
 
 - **Right-to-Left and Left-to-Right Support**: Uses the PDF direction to
-  provide natural page movement for both reading directions.
+  provide natural page movement for both reading directions. Right-to-left
+  documents open on their first page instead of jumping to the last page.
 - **Single-Page and Two-Page Views**: Switch layouts and adjust cover-page
   handling to match the document.
 - **Search and Zoom**: Search text within a PDF, pinch to zoom, and drag
@@ -23,6 +24,10 @@ This software was coded using generative AI.
   Settings when needed.
 - **Reading Session Restoration**: Reopen the last document and continue
   from the previous page after relaunching the app.
+- **Downloadable Sample PDFs**: Browse the bundled catalog by language,
+  download a sample to the device, open it in the viewer, and delete the local
+  copy when it is no longer needed. Downloads over mobile data require
+  confirmation.
 - **On-Device Diagnostics**: Run checks for app information, local storage,
   and PDF rendering, then optionally share a result that includes the test
   time, device name, OS version, and app version.
@@ -39,24 +44,28 @@ device, and logs older than 24 hours are deleted.
 
 1. **Open a PDF**: Use the file picker to select a PDF from your device or
    iCloud Drive. You can also open a PDF sent to the app from another app.
-2. **Unlock a Protected PDF**: If the document requires a user password,
+2. **Try a Sample PDF**: Choose **Browse Sample PDFs**, select a language,
+   and download a sample. A downloaded sample can be opened or deleted from
+   the same screen. The app asks before downloading over mobile data.
+3. **Unlock a Protected PDF**: If the document requires a user password,
    enter it when prompted and select **Unlock**.
-3. **Navigate Pages**: Swipe or use the page slider. Page movement follows
+4. **Navigate Pages**: Swipe or use the page slider. Page movement follows
    the selected left-to-right or right-to-left reading direction.
-4. **Show or Hide Controls**: Tap the document to toggle the toolbar and
+5. **Show or Hide Controls**: Tap the document to toggle the toolbar and
    page slider.
-5. **Zoom and Pan**: Pinch to zoom in or out. While zoomed in, long-press
+6. **Zoom and Pan**: Pinch to zoom in or out. While zoomed in, long-press
    and drag to move around the page.
-6. **Search**: Enter text in the search field. Matching text is highlighted
+7. **Search**: Enter text in the search field. Matching text is highlighted
    in the document.
-7. **Adjust the Layout**: In Settings, select single-page or two-page view,
+8. **Adjust the Layout**: In Settings, select single-page or two-page view,
    reading direction, and cover-page handling.
-8. **Adjust Rendering**: Enable high-quality rendering or sharpness in
+9. **Adjust Rendering**: Enable high-quality rendering or sharpness in
    Settings when the PDF needs clearer text and lines.
-9. **Close or Resume**: Close the current document from the toolbar, or
+10. **Close or Resume**: Close the current document from the toolbar, or
    leave it open to resume from the same page after relaunching the app.
-10. **Run Diagnostics**: At the bottom of Settings, choose **Run Device Test**
-    to run checks on the current device or **View App Logs** to review recent
+11. **Run Diagnostics**: In the **Options** section of Settings, choose
+    **Run tests on this device** to run checks on the current device or
+    **View app logs** to review recent
     diagnostic events. Each results screen has a Share button for sharing only
     when you choose to do so.
 
@@ -122,9 +131,10 @@ Try MihirakiPDFViewer with these sample PDFs.
 
 ## Pricing and Supporting the Developer
 
-MihirakiPDFViewer is free to use. Core features such as PDF viewing,
-zooming, search, single-page view, and two-page view are available without
-feature restrictions, regardless of whether you make a purchase.
+MihirakiPDFViewer is free to use and has no ads. Core features such as PDF
+viewing, sample downloads, zooming, search, single-page view, and two-page
+view are available without feature restrictions, regardless of whether you
+make a purchase.
 
 In the App Store version, optional supporter icons are available as
 non-consumable in-app purchases through StoreKit. These purchases are
@@ -246,7 +256,8 @@ Generative AI was used to create and translate the text and images in this work.
 - **Unreleased** - 2026/10/09: Added downloadable multilingual sample PDFs,
   updated them to the second edition, added language filtering, device
   diagnostics and privacy-safe logging, and clarified the sample PDF license
-  and attribution.
+  and attribution. Fixed right-to-left documents opening on the last page and
+  reorganized Settings controls and Help content.
 - **v1.0.4** - 2026/10/02: Added restoration of supporter icon purchases and
   improved PDF layout stability when controls are shown.
 - **v1.0.3** - 2026/09/30: Fixed search highlight alignment on iPad and
