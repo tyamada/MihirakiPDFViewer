@@ -643,7 +643,6 @@ struct PDFContainerView: View {
             tabView(size: size)
                 .id(viewModel.document?.id)
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-                .environment(\.layoutDirection, viewModel.settings.layoutDirection == .leftToRight ? .leftToRight : .rightToLeft)
                 .scaleEffect(zoomScale)
                 .offset(contentOffset)
                 .simultaneousGesture(magnificationGesture)
@@ -749,7 +748,7 @@ struct PDFContainerView: View {
 
     @ViewBuilder
     private func pageTabViewContent(size: CGSize) -> some View {
-        ForEach(0..<viewModel.pageGroups.count, id: \.self) { index in
+        ForEach(orderedPageGroupIndices, id: \.self) { index in
             let group = viewModel.pageGroups[index]
             PageContentContainer(
                 group: group,
@@ -765,6 +764,11 @@ struct PDFContainerView: View {
             .tag(index)
             .frame(width: size.width, height: size.height)
         }
+    }
+
+    private var orderedPageGroupIndices: [Int] {
+        let indices = Array(viewModel.pageGroups.indices)
+        return viewModel.settings.layoutDirection == .rightToLeft ? Array(indices.reversed()) : indices
     }
 }
 

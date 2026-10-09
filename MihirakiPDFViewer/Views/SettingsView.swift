@@ -128,9 +128,17 @@ public struct SettingsView: View {
                         Text(String(localized: "TypeB")).tag(CoverPageSetting.typeB)
                     }
                     .pickerStyle(.segmented)
+
+                    DeviceTestingSettingsSection()
+                    AppLoggingSettingsSection()
+
                     NavigationLink(destination: ResetSettingsView(viewModel: viewModel)) {
                         Text(String(localized: "reset_title", defaultValue: "Reset"))
+                            .frame(maxWidth: .infinity)
                     }
+                    .buttonStyle(.borderedProminent)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical)
                     .accessibilityIdentifier("resetSettingsButton")
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -143,7 +151,10 @@ public struct SettingsView: View {
                         .font(.headline)
                     NavigationLink(destination: HelpView()) {
                         Text(String(localized: "help_title", defaultValue: "Help"))
+                            .frame(maxWidth: .infinity)
                     }
+                    .buttonStyle(.borderedProminent)
+                    .frame(maxWidth: .infinity)
                     .accessibilityIdentifier("helpButton")
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -181,29 +192,28 @@ public struct SettingsView: View {
                 .background(settingsBackgroundColor)
 
                 // 開発者への応援 (Tip)
-                VStack(alignment: .center, spacing: 12) {
+                VStack(alignment: .leading, spacing: 12) {
                     Divider()
                     Text(String(localized: "developer_support_title", defaultValue: "Support the Developer"))
                         .font(.headline)
                     Text(String(localized: "developer_support_description", defaultValue: "Your support helps keep the app updated. You can use all features without making a purchase."))
                         .font(.body)
                         .foregroundColor(settingsTextColor)
-                        .multilineTextAlignment(.center)
+                        .multilineTextAlignment(.leading)
                     
                     NavigationLink(destination: TipSelectionView(tipManager: TipManager.shared)) {
                         Text(String(localized: "tip_selection_title", defaultValue: "Support"))
                             .font(.subheadline)
                             .fontWeight(.semibold)
+                            .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.borderedProminent)
+                    .frame(maxWidth: .infinity)
                     .accessibilityIdentifier("supportButton")
                     .accessibilityHint(String(localized: "supporter_icon_store_accessibility_hint", defaultValue: "Opens the supporter icon store."))
                 }
                 .padding(.vertical)
                 .background(settingsBackgroundColor)
-
-                DeviceTestingSettingsSection()
-                AppLoggingSettingsSection()
             }
             .padding()
             .background(settingsBackgroundColor)
@@ -218,9 +228,6 @@ public struct SettingsView: View {
 private struct DeviceTestingSettingsSection: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Divider()
-            Text("Device Testing")
-                .font(.headline)
             NavigationLink {
                 DeviceTestView()
             } label: {
@@ -228,6 +235,7 @@ private struct DeviceTestingSettingsSection: View {
                     .frame(maxWidth: .infinity)
             }
             .buttonStyle(.borderedProminent)
+            .frame(maxWidth: .infinity)
             .accessibilityIdentifier("runDeviceTestsButton")
         }
         .padding(.vertical)
@@ -237,9 +245,6 @@ private struct DeviceTestingSettingsSection: View {
 private struct AppLoggingSettingsSection: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Divider()
-            Text("Diagnostics")
-                .font(.headline)
             NavigationLink {
                 AppLogView()
             } label: {
@@ -247,9 +252,9 @@ private struct AppLoggingSettingsSection: View {
                     .frame(maxWidth: .infinity)
             }
             .buttonStyle(.borderedProminent)
+            .frame(maxWidth: .infinity)
             .accessibilityIdentifier("viewAppLogsButton")
         }
-        .padding(.vertical)
     }
 }
 

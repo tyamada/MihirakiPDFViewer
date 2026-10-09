@@ -1307,6 +1307,7 @@
       }
     },
     "Device Testing" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -1338,6 +1339,7 @@
       }
     },
     "Diagnostics" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
