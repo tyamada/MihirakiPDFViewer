@@ -610,7 +610,7 @@ final class MihirakiPDFViewerUITests: XCTestCase {
         app.buttons["settingsButton"].tap()
 
         XCTAssertTrue(element("settingsScreen").waitForExistence(timeout: 5))
-        try performPrimaryAccessibilityAudit(allowSwiftUIStaticTextContrastIssues: true)
+        try performPrimaryAccessibilityAudit()
 
         app.swipeUp()
         XCTAssertTrue(app.buttons["supportButton"].waitForExistence(timeout: 5))

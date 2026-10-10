@@ -48,8 +48,7 @@ public struct SettingsView: View {
             VStack(alignment: .leading, spacing: 24) {
                 // 表示設定
                 VStack(alignment: .leading, spacing: 12) {
-                    Text(String(localized: "display_settings"))
-                        .font(.headline)
+                    SettingsSectionHeader(title: "display_settings")
                     Toggle(String(localized: "high_quality_rendering", defaultValue: "High Quality"), isOn: Binding(
                         get: { viewModel.settings.isHighQualityRenderingEnabled },
                         set: { viewModel.settings.isHighQualityRenderingEnabled = $0 }
@@ -82,8 +81,7 @@ public struct SettingsView: View {
 
                 // ドキュメント情報
                 VStack(alignment: .leading, spacing: 12) {
-                    Text(String(localized: "doc_info"))
-                        .font(.headline)
+                    SettingsSectionHeader(title: "doc_info")
                     if let doc = viewModel.document {
                         VStack(alignment: .leading, spacing: 4) {
                             documentInfoRow(label: String(localized: "pdf_title_label", defaultValue: "Title"), value: doc.title)
@@ -117,8 +115,7 @@ public struct SettingsView: View {
 
                 // オプション
                 VStack(alignment: .leading, spacing: 12) {
-                    Text(String(localized: "options"))
-                        .font(.headline)
+                    SettingsSectionHeader(title: "options")
                     Toggle(
                         String(
                             localized: "single_page_in_portrait",
@@ -148,7 +145,7 @@ public struct SettingsView: View {
                         Text(String(localized: "reset_title", defaultValue: "Reset"))
                             .frame(maxWidth: .infinity)
                     }
-                    .buttonStyle(.borderedProminent)
+                    .buttonStyle(HighContrastSettingsButtonStyle())
                     .frame(maxWidth: .infinity)
                     .padding(.vertical)
                     .accessibilityIdentifier("resetSettingsButton")
@@ -159,13 +156,14 @@ public struct SettingsView: View {
                 
                 // ヘルプ
                 VStack(alignment: .leading, spacing: 12) {
-                    Text(String(localized: "help_title", defaultValue: "Help"))
-                        .font(.headline)
+                    SettingsSectionHeader(
+                        title: LocalizedStringResource("help_title", defaultValue: "Help")
+                    )
                     NavigationLink(destination: HelpView()) {
                         Text(String(localized: "help_title", defaultValue: "Help"))
                             .frame(maxWidth: .infinity)
                     }
-                    .buttonStyle(.borderedProminent)
+                    .buttonStyle(HighContrastSettingsButtonStyle())
                     .frame(maxWidth: .infinity)
                     .accessibilityIdentifier("helpButton")
 
@@ -175,7 +173,7 @@ public struct SettingsView: View {
                         Label("Report a Problem", systemImage: "exclamationmark.bubble")
                             .frame(maxWidth: .infinity)
                     }
-                    .buttonStyle(.borderedProminent)
+                    .buttonStyle(HighContrastSettingsButtonStyle())
                     .frame(maxWidth: .infinity)
                     .accessibilityIdentifier("reportProblemButton")
                 }
@@ -185,29 +183,24 @@ public struct SettingsView: View {
 
                 // アプリ情報
                 VStack(alignment: .leading, spacing: 12) {
-                    Text(String(localized: "app_info"))
-                        .font(.headline)
-                        .foregroundColor(settingsTextColor)
-                    VStack(alignment: .leading, spacing: 6) {
-                        HStack {
-                            Text(String(localized: "app_name_label"))
-                            Spacer()
-                             Text(Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String ?? "PDFViewer")
-                        }
-                        HStack {
-                            Text(String(localized: "version_label"))
-                            Spacer()
-                             Text(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.0")
-                        }
-                        HStack {
-                            Text(String(localized: "copyright_label"))
-                            Spacer()
-                             Text(String(localized: "copyright"))
-                        }
+                    SettingsSectionHeader(title: "app_info")
+                    VStack(alignment: .leading, spacing: 12) {
+                        AppInformationRow(
+                            label: "app_name_label",
+                            value: Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
+                                ?? Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String
+                                ?? "PDFViewer"
+                        )
+                        AppInformationRow(
+                            label: "version_label",
+                            value: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+                                ?? "1.0.0"
+                        )
+                        AppInformationRow(
+                            label: "copyright_label",
+                            value: String(localized: "copyright")
+                        )
                     }
-                    .font(.subheadline)
-                    .foregroundColor(settingsTextColor)
-                    .accessibilityElement(children: .combine)
 
                     NavigationLink {
                         LicenseView()
@@ -215,7 +208,7 @@ public struct SettingsView: View {
                         Label("License", systemImage: "doc.plaintext")
                             .frame(maxWidth: .infinity)
                     }
-                    .buttonStyle(.borderedProminent)
+                    .buttonStyle(HighContrastSettingsButtonStyle())
                     .frame(maxWidth: .infinity)
                     .accessibilityIdentifier("licenseButton")
                 }
@@ -226,8 +219,12 @@ public struct SettingsView: View {
                 // 開発者への応援 (Tip)
                 VStack(alignment: .leading, spacing: 12) {
                     Divider()
-                    Text(String(localized: "developer_support_title", defaultValue: "Support the Developer"))
-                        .font(.headline)
+                    SettingsSectionHeader(
+                        title: LocalizedStringResource(
+                            "developer_support_title",
+                            defaultValue: "Support the Developer"
+                        )
+                    )
                     Text(String(localized: "developer_support_description", defaultValue: "Your support helps keep the app updated. You can use all features without making a purchase."))
                         .font(.body)
                         .foregroundColor(settingsTextColor)
@@ -239,7 +236,7 @@ public struct SettingsView: View {
                             .fontWeight(.semibold)
                             .frame(maxWidth: .infinity)
                     }
-                    .buttonStyle(.borderedProminent)
+                    .buttonStyle(HighContrastSettingsButtonStyle())
                     .frame(maxWidth: .infinity)
                     .accessibilityIdentifier("supportButton")
                     .accessibilityHint(String(localized: "supporter_icon_store_accessibility_hint", defaultValue: "Opens the supporter icon store."))
@@ -257,6 +254,72 @@ public struct SettingsView: View {
     }
 }
 
+private struct SettingsSectionHeader: View {
+    let title: LocalizedStringResource
+
+    var body: some View {
+        Text(title)
+            .font(.headline)
+            .accessibilityAddTraits(.isHeader)
+    }
+}
+
+private struct AppInformationRow: View {
+    let label: LocalizedStringResource
+    let value: String
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 2) {
+            Text(label)
+                .font(.caption)
+                .fontWeight(.semibold)
+            Text(value)
+                .font(.body)
+        }
+        .foregroundStyle(.primary)
+        .accessibilityElement(children: .combine)
+    }
+}
+
+private struct HighContrastSettingsButtonStyle: ButtonStyle {
+    @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.colorSchemeContrast) private var colorSchemeContrast
+    @Environment(\.isEnabled) private var isEnabled
+
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .font(.body.weight(.semibold))
+            .foregroundStyle(foregroundColor)
+            .padding(.horizontal, 16)
+            .padding(.vertical, 12)
+            .background(
+                backgroundColor.opacity(backgroundOpacity(isPressed: configuration.isPressed)),
+                in: RoundedRectangle(cornerRadius: 10)
+            )
+            .contentShape(RoundedRectangle(cornerRadius: 10))
+    }
+
+    private var backgroundColor: Color {
+        colorScheme == .dark ? .white : .black
+    }
+
+    private var foregroundColor: Color {
+        colorScheme == .dark ? .black : .white
+    }
+
+    private func backgroundOpacity(isPressed: Bool) -> Double {
+        guard isEnabled else {
+            return 0.45
+        }
+
+        guard isPressed else {
+            return 1
+        }
+
+        return colorSchemeContrast == .increased ? 0.9 : 0.78
+    }
+}
+
 private struct DeviceTestingSettingsSection: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -266,7 +329,7 @@ private struct DeviceTestingSettingsSection: View {
                 Label("Run tests on this device", systemImage: "checkmark.circle")
                     .frame(maxWidth: .infinity)
             }
-            .buttonStyle(.borderedProminent)
+            .buttonStyle(HighContrastSettingsButtonStyle())
             .frame(maxWidth: .infinity)
             .accessibilityIdentifier("runDeviceTestsButton")
         }
@@ -283,7 +346,7 @@ private struct AppLoggingSettingsSection: View {
                 Label("View app logs", systemImage: "doc.text.magnifyingglass")
                     .frame(maxWidth: .infinity)
             }
-            .buttonStyle(.borderedProminent)
+            .buttonStyle(HighContrastSettingsButtonStyle())
             .frame(maxWidth: .infinity)
             .accessibilityIdentifier("viewAppLogsButton")
         }
