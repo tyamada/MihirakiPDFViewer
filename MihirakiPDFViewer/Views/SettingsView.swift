@@ -138,9 +138,6 @@ public struct SettingsView: View {
                     }
                     .pickerStyle(.segmented)
 
-                    DeviceTestingSettingsSection()
-                    AppLoggingSettingsSection()
-
                     NavigationLink(destination: ResetSettingsView(viewModel: viewModel)) {
                         Text(String(localized: "reset_title", defaultValue: "Reset"))
                             .frame(maxWidth: .infinity)
@@ -166,6 +163,9 @@ public struct SettingsView: View {
                     .buttonStyle(HighContrastSettingsButtonStyle())
                     .frame(maxWidth: .infinity)
                     .accessibilityIdentifier("helpButton")
+
+                    DeviceTestingSettingsSection()
+                    AppLoggingSettingsSection()
 
                     NavigationLink {
                         IssueReportingGuideView()
