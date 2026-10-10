@@ -208,6 +208,16 @@ public struct SettingsView: View {
                     .font(.subheadline)
                     .foregroundColor(settingsTextColor)
                     .accessibilityElement(children: .combine)
+
+                    NavigationLink {
+                        LicenseView()
+                    } label: {
+                        Label("License", systemImage: "doc.plaintext")
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .frame(maxWidth: .infinity)
+                    .accessibilityIdentifier("licenseButton")
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(1)
@@ -347,6 +357,30 @@ struct ResetSettingsView: View {
             isResetting = false
             dismiss()
         }
+    }
+}
+
+struct LicenseView: View {
+    private static let licenseText = """
+    MIT License
+
+    Copyright (c) 2026 Takuma Yamada
+
+    Permission is hereby granted, free of charge, to any person, including without limitation all persons who obtain a copy of this software or other materials provided under this license, to deal in the software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, and to permit persons to do so subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    """
+
+    var body: some View {
+        ScrollView {
+            Text(verbatim: Self.licenseText)
+                .font(.body)
+                .textSelection(.enabled)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding()
+        }
+        .navigationTitle("License")
+        .accessibilityIdentifier("licenseScreen")
     }
 }
 

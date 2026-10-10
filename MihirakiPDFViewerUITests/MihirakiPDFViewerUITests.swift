@@ -189,6 +189,29 @@ final class MihirakiPDFViewerUITests: XCTestCase {
     }
 
     @MainActor
+    func testLicenseScreen() throws {
+        app.launch()
+
+        XCTAssertTrue(app.buttons["settingsButton"].waitForExistence(timeout: 5))
+        app.buttons["settingsButton"].tap()
+        XCTAssertTrue(element("settingsScreen").waitForExistence(timeout: 5))
+
+        let licenseButton = app.buttons["licenseButton"]
+        for _ in 0..<6 where !licenseButton.exists {
+            app.swipeUp()
+        }
+
+        XCTAssertTrue(licenseButton.waitForExistence(timeout: 5))
+        licenseButton.tap()
+
+        XCTAssertTrue(element("licenseScreen").waitForExistence(timeout: 5))
+        let licenseText = app.staticTexts.matching(
+            NSPredicate(format: "label BEGINSWITH %@", "MIT License")
+        ).firstMatch
+        XCTAssertTrue(licenseText.exists)
+    }
+
+    @MainActor
     func testIssueReportingGuide() throws {
         app.launch()
 

@@ -4747,6 +4747,16 @@
         }
       }
     },
+    "License" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ライセンス"
+          }
+        }
+      }
+    },
     "Loading logs…" : {
       "localizations" : {
         "ja" : {
