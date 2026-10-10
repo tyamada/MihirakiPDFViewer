@@ -137,6 +137,36 @@
       },
       "shouldTranslate" : false
     },
+    "A GitHub account is required. The information you submit may be publicly visible." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "GitHubアカウントが必要です。送信した情報は一般公開される場合があります。"
+          }
+        }
+      }
+    },
+    "A screenshot, app logs, or device test results when helpful" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "必要に応じて、スクリーンショット、アプリログ、または端末テストの結果"
+          }
+        }
+      }
+    },
+    "A short summary of the problem" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "問題の簡単な概要"
+          }
+        }
+      }
+    },
     "All tests passed." : {
       "localizations" : {
         "ja" : {
@@ -458,6 +488,12 @@
             "state" : "new",
             "value" : "App Logs"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "アプリのログ"
+          }
         }
       }
     },
@@ -627,6 +663,16 @@
         }
       }
     },
+    "Before reporting" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "報告する前に"
+          }
+        }
+      }
+    },
     "cancel" : {
       "localizations" : {
         "de" : {
@@ -787,6 +833,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "更改App圖像"
+          }
+        }
+      }
+    },
+    "Check screenshots and diagnostic information before posting. Nothing is sent automatically." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "投稿する前に、スクリーンショットと診断情報を確認してください。情報が自動的に送信されることはありません。"
           }
         }
       }
@@ -1325,6 +1381,12 @@
             "state" : "new",
             "value" : "Device Testing"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "実機テスト"
+          }
         }
       }
     },
@@ -1334,6 +1396,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "端末: %@"
+          }
+        }
+      }
+    },
+    "Diagnostic information" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "診断情報"
           }
         }
       }
@@ -1676,6 +1748,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "顯示設定"
+          }
+        }
+      }
+    },
+    "Do not attach the PDF itself or include document contents, file names, names, or other personal information." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "PDF自体を添付したり、文書の内容、ファイル名、氏名、その他の個人情報を記載したりしないでください。"
           }
         }
       }
@@ -4376,6 +4458,36 @@
         }
       }
     },
+    "How often the problem occurs" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "問題が発生する頻度"
+          }
+        }
+      }
+    },
+    "If you encounter a problem, please collect the information below and submit a report on GitHub Issues." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "問題が発生した場合は、以下の情報を収集し、GitHub Issuesで報告してください。"
+          }
+        }
+      }
+    },
+    "Include in your report" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "報告に含める情報"
+          }
+        }
+      }
+    },
     "is_cover_page" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -5051,6 +5163,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "確定"
+          }
+        }
+      }
+    },
+    "Open GitHub Issues" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "GitHub Issuesを開く"
           }
         }
       }
@@ -6630,6 +6752,16 @@
         }
       }
     },
+    "Protect your privacy" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "プライバシーを保護"
+          }
+        }
+      }
+    },
     "purchase_failed" : {
       "localizations" : {
         "de" : {
@@ -6871,6 +7003,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "更新"
+          }
+        }
+      }
+    },
+    "Report a Problem" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "問題を報告"
           }
         }
       }
@@ -8664,16 +8806,6 @@
         }
       }
     },
-    "Some tests failed." : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "一部のテストに失敗しました。"
-          }
-        }
-      }
-    },
     "single_page_in_portrait" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
@@ -8687,6 +8819,26 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "縦向きでは単一ページ表示"
+          }
+        }
+      }
+    },
+    "Some tests failed." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "一部のテストに失敗しました。"
+          }
+        }
+      }
+    },
+    "Steps that reproduce the problem" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "問題を再現する手順"
           }
         }
       }
@@ -10652,6 +10804,26 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "アプリのログを表示"
+          }
+        }
+      }
+    },
+    "What you expected and what actually happened" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "期待した動作と実際の動作"
+          }
+        }
+      }
+    },
+    "Your app version, OS version, device, and relevant viewing settings" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "アプリのバージョン、OSのバージョン、端末、および関連する表示設定"
           }
         }
       }

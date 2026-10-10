@@ -119,15 +119,6 @@ public struct SettingsView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     Text(String(localized: "options"))
                         .font(.headline)
-                    Text(String(localized: "cover_page_setting_label", defaultValue: "Cover Page Setting"))
-                    Picker(String(localized: "cover_page_setting_label", defaultValue: "Cover Page Setting"), selection: Binding(
-                        get: { viewModel.settings.coverPageSetting },
-                        set: { viewModel.settings.coverPageSetting = $0 }
-                    )) {
-                        Text(String(localized: "TypeA")).tag(CoverPageSetting.typeA)
-                        Text(String(localized: "TypeB")).tag(CoverPageSetting.typeB)
-                    }
-                    .pickerStyle(.segmented)
                     Toggle(
                         String(
                             localized: "single_page_in_portrait",
@@ -139,6 +130,16 @@ public struct SettingsView: View {
                         )
                     )
                     .accessibilityIdentifier("singlePageInPortraitToggle")
+
+                    Text(String(localized: "cover_page_setting_label", defaultValue: "Cover Page Setting"))
+                    Picker(String(localized: "cover_page_setting_label", defaultValue: "Cover Page Setting"), selection: Binding(
+                        get: { viewModel.settings.coverPageSetting },
+                        set: { viewModel.settings.coverPageSetting = $0 }
+                    )) {
+                        Text(String(localized: "TypeA")).tag(CoverPageSetting.typeA)
+                        Text(String(localized: "TypeB")).tag(CoverPageSetting.typeB)
+                    }
+                    .pickerStyle(.segmented)
 
                     DeviceTestingSettingsSection()
                     AppLoggingSettingsSection()
@@ -167,6 +168,16 @@ public struct SettingsView: View {
                     .buttonStyle(.borderedProminent)
                     .frame(maxWidth: .infinity)
                     .accessibilityIdentifier("helpButton")
+
+                    NavigationLink {
+                        IssueReportingGuideView()
+                    } label: {
+                        Label("Report a Problem", systemImage: "exclamationmark.bubble")
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .frame(maxWidth: .infinity)
+                    .accessibilityIdentifier("reportProblemButton")
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(1)
@@ -335,6 +346,95 @@ struct ResetSettingsView: View {
             viewModel.resetApplicationSettings()
             isResetting = false
             dismiss()
+        }
+    }
+}
+
+struct IssueReportingGuideView: View {
+    private let newIssueURL = URL(
+        string: "https://github.com/tyamada/MihirakiPDFViewer/issues/new?template=bug_report.yml"
+    )
+
+    var body: some View {
+        List {
+            IssueReportingIntroductionSection()
+            IssueReportingPreparationSection()
+
+            Section("Diagnostic information") {
+                NavigationLink {
+                    AppLogView()
+                } label: {
+                    Label("View app logs", systemImage: "doc.text.magnifyingglass")
+                }
+                .accessibilityIdentifier("reportProblemAppLogsButton")
+
+                NavigationLink {
+                    DeviceTestView()
+                } label: {
+                    Label("Run tests on this device", systemImage: "checkmark.circle")
+                }
+                .accessibilityIdentifier("reportProblemDeviceTestsButton")
+            }
+
+            IssueReportingPrivacySection()
+
+            if let newIssueURL {
+                Section {
+                    Link(destination: newIssueURL) {
+                        Label("Open GitHub Issues", systemImage: "arrow.up.right.square")
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .accessibilityIdentifier("openGitHubIssuesButton")
+                } footer: {
+                    Text("A GitHub account is required. The information you submit may be publicly visible.")
+                }
+            }
+        }
+        .navigationTitle("Report a Problem")
+        .accessibilityIdentifier("issueReportingGuideScreen")
+    }
+}
+
+private struct IssueReportingIntroductionSection: View {
+    var body: some View {
+        Section {
+            Text("If you encounter a problem, please collect the information below and submit a report on GitHub Issues.")
+        } header: {
+            Text("Before reporting")
+        }
+    }
+}
+
+private struct IssueReportingPreparationSection: View {
+    var body: some View {
+        Section("Include in your report") {
+            Label("A short summary of the problem", systemImage: "1.circle")
+            Label("Steps that reproduce the problem", systemImage: "2.circle")
+            Label("What you expected and what actually happened", systemImage: "3.circle")
+            Label("How often the problem occurs", systemImage: "4.circle")
+            Label("Your app version, OS version, device, and relevant viewing settings", systemImage: "5.circle")
+            Label("A screenshot, app logs, or device test results when helpful", systemImage: "6.circle")
+        }
+    }
+}
+
+private struct IssueReportingPrivacySection: View {
+    var body: some View {
+        Section("Protect your privacy") {
+            Label {
+                Text("Do not attach the PDF itself or include document contents, file names, names, or other personal information.")
+            } icon: {
+                Image(systemName: "hand.raised.fill")
+                    .foregroundStyle(.orange)
+            }
+
+            Label {
+                Text("Check screenshots and diagnostic information before posting. Nothing is sent automatically.")
+            } icon: {
+                Image(systemName: "lock.shield")
+                    .foregroundStyle(.green)
+            }
         }
     }
 }
