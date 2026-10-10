@@ -271,6 +271,7 @@ public struct PDFViewerSettings {
     public var coverPageSetting: CoverPageSetting
     public var isHighQualityRenderingEnabled: Bool
     public var isSharpnessEnabled: Bool
+    public var isSinglePageInPortraitEnabled: Bool
 
     public init(
         isSpreadViewEnabled: Bool = false,
@@ -278,7 +279,8 @@ public struct PDFViewerSettings {
         layoutDirection: LayoutDirection = .leftToRight,
         coverPageSetting: CoverPageSetting = .typeA,
         isHighQualityRenderingEnabled: Bool = false,
-        isSharpnessEnabled: Bool = false
+        isSharpnessEnabled: Bool = false,
+        isSinglePageInPortraitEnabled: Bool = false
     ) {
         self.isSpreadViewEnabled = isSpreadViewEnabled
         self.isCoverPageEnabled = isCoverPageEnabled
@@ -286,6 +288,7 @@ public struct PDFViewerSettings {
         self.coverPageSetting = coverPageSetting
         self.isHighQualityRenderingEnabled = isHighQualityRenderingEnabled
         self.isSharpnessEnabled = isSharpnessEnabled
+        self.isSinglePageInPortraitEnabled = isSinglePageInPortraitEnabled
     }
 }
 

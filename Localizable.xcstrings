@@ -8674,6 +8674,23 @@
         }
       }
     },
+    "single_page_in_portrait" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Single Page in Portrait"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "縦向きでは単一ページ表示"
+          }
+        }
+      }
+    },
     "store_products_fetch_failed" : {
       "localizations" : {
         "de" : {

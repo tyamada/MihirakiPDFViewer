@@ -634,6 +634,12 @@ struct PDFContainerView: View {
     var body: some View {
         GeometryReader { geometry in
             containerView(size: geometry.size)
+                .onAppear {
+                    viewModel.updateViewportSize(geometry.size)
+                }
+                .onChange(of: geometry.size) { _, newSize in
+                    viewModel.updateViewportSize(newSize)
+                }
         }
     }
 
@@ -753,7 +759,7 @@ struct PDFContainerView: View {
             PageContentContainer(
                 group: group,
                 size: size,
-                isSpreadViewEnabled: viewModel.settings.isSpreadViewEnabled,
+                isSpreadViewEnabled: viewModel.isSpreadLayoutEnabled,
                 searchMatches: viewModel.searchMatches.filter { group.pageIndices.contains($0.pageIndex) },
                 layoutDirection: viewModel.settings.layoutDirection,
                 isHighQualityRenderingEnabled: viewModel.settings.isHighQualityRenderingEnabled,

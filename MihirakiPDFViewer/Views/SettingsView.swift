@@ -128,6 +128,17 @@ public struct SettingsView: View {
                         Text(String(localized: "TypeB")).tag(CoverPageSetting.typeB)
                     }
                     .pickerStyle(.segmented)
+                    Toggle(
+                        String(
+                            localized: "single_page_in_portrait",
+                            defaultValue: "Single Page in Portrait"
+                        ),
+                        isOn: Binding(
+                            get: { viewModel.settings.isSinglePageInPortraitEnabled },
+                            set: { viewModel.settings.isSinglePageInPortraitEnabled = $0 }
+                        )
+                    )
+                    .accessibilityIdentifier("singlePageInPortraitToggle")
 
                     DeviceTestingSettingsSection()
                     AppLoggingSettingsSection()

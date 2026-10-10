@@ -161,6 +161,67 @@ final class PDFViewerViewModelTests: XCTestCase {
         XCTAssertFalse(restored.settings.isSharpnessEnabled)
     }
 
+    func testPortraitDisplayDefaultsDependOnDeviceIdiom() throws {
+        let phoneSuiteName = "PortraitPreferencePhone-\(UUID().uuidString)"
+        let phonePreferences = try XCTUnwrap(UserDefaults(suiteName: phoneSuiteName))
+        defer { phonePreferences.removePersistentDomain(forName: phoneSuiteName) }
+        XCTAssertTrue(PDFViewerViewModel(preferences: phonePreferences, isPhone: true).settings.isSinglePageInPortraitEnabled)
+
+        let tabletSuiteName = "PortraitPreferenceTablet-\(UUID().uuidString)"
+        let tabletPreferences = try XCTUnwrap(UserDefaults(suiteName: tabletSuiteName))
+        defer { tabletPreferences.removePersistentDomain(forName: tabletSuiteName) }
+        XCTAssertFalse(PDFViewerViewModel(preferences: tabletPreferences, isPhone: false).settings.isSinglePageInPortraitEnabled)
+    }
+
+    func testPortraitDisplayPreferencePersistsAndOverridesDeviceDefault() throws {
+        let suiteName = "PortraitPreference-\(UUID().uuidString)"
+        let preferences = try XCTUnwrap(UserDefaults(suiteName: suiteName))
+        defer { preferences.removePersistentDomain(forName: suiteName) }
+        let model = PDFViewerViewModel(preferences: preferences, isPhone: true)
+        model.settings.isSinglePageInPortraitEnabled = false
+
+        let restored = PDFViewerViewModel(preferences: preferences, isPhone: true)
+        XCTAssertFalse(restored.settings.isSinglePageInPortraitEnabled)
+    }
+
+    func testPortraitSinglePageModePreservesDisplayedPDFPageAcrossRotation() throws {
+        var settings = PDFViewerSettings(
+            isSpreadViewEnabled: true,
+            isSinglePageInPortraitEnabled: true
+        )
+        settings.isCoverPageEnabled = false
+        let model = PDFViewerViewModel(settings: settings, isPhone: true)
+        model.document = try PDFDocumentWrapper(url: makeTemporaryPDF(pageCount: 5))
+        model.updateViewportSize(CGSize(width: 800, height: 600))
+        model.currentPageIndex = 1
+        XCTAssertEqual(model.pageGroups[model.currentPageIndex].startIndex, 2)
+
+        model.updateViewportSize(CGSize(width: 600, height: 800))
+        XCTAssertFalse(model.isSpreadLayoutEnabled)
+        XCTAssertEqual(model.pageGroups.count, 5)
+        XCTAssertEqual(model.currentPageIndex, 2)
+        XCTAssertEqual(model.pageGroups[model.currentPageIndex].startIndex, 2)
+
+        model.updateViewportSize(CGSize(width: 800, height: 600))
+        XCTAssertTrue(model.isSpreadLayoutEnabled)
+        XCTAssertEqual(model.currentPageIndex, 1)
+        XCTAssertEqual(model.pageGroups[model.currentPageIndex].startIndex, 2)
+    }
+
+    func testPortraitModeUsesSpreadWhenSinglePagePreferenceIsDisabled() throws {
+        let settings = PDFViewerSettings(
+            isSpreadViewEnabled: true,
+            isSinglePageInPortraitEnabled: false
+        )
+        let model = PDFViewerViewModel(settings: settings, isPhone: true)
+        model.document = try PDFDocumentWrapper(url: makeTemporaryPDF(pageCount: 3))
+
+        model.updateViewportSize(CGSize(width: 600, height: 800))
+
+        XCTAssertTrue(model.isSpreadLayoutEnabled)
+        XCTAssertEqual(model.pageGroups.map(\.pages.count), [2, 1])
+    }
+
     func testReadingSessionRestoresPDFPageLayoutAndQuery() throws {
         let sessionURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
         defer { try? FileManager.default.removeItem(at: sessionURL) }

@@ -14,6 +14,7 @@
 import Foundation
 import PDFKit
 import SwiftUI
+import UIKit
 import Combine
 
 /// PDFビューアの表示ロジックを管理するViewModel
@@ -29,6 +30,10 @@ public class PDFViewerViewModel: ObservableObject {
                 preferences?.set(settings.isSharpnessEnabled, forKey: Self.sharpnessPreferenceKey)
             }
             AppDiagnostics.record(.displaySettingsChanged)
+            if settings.isSinglePageInPortraitEnabled != oldValue.isSinglePageInPortraitEnabled {
+                preferences?.set(settings.isSinglePageInPortraitEnabled, forKey: Self.singlePageInPortraitPreferenceKey)
+            }
+            preserveDisplayedPageWhenLayoutChanges(from: oldValue)
             saveReadingSession()
         }
     }
@@ -47,6 +52,7 @@ public class PDFViewerViewModel: ObservableObject {
     }
     @Published public var searchQuery: String = "" { didSet { saveReadingSession() } }
     @Published public var searchMatches: [PDFSearchMatch] = []
+    @Published public private(set) var isPortrait = false
 
     public struct PDFSearchMatch: Identifiable {
         public let id = UUID()
@@ -84,19 +90,30 @@ public class PDFViewerViewModel: ObservableObject {
     private let preferences: UserDefaults?
     private static let highQualityPreferenceKey = "isHighQualityRenderingEnabled"
     private static let sharpnessPreferenceKey = "isSharpnessEnabled"
+    private static let singlePageInPortraitPreferenceKey = "isSinglePageInPortraitEnabled"
+    private let defaultSinglePageInPortraitEnabled: Bool
     private var documentBookmark: Data?
     private var pendingSession: (url: URL, state: ReadingSession)?
     private var isLoadingDocument = false
 
-    public init(settings: PDFViewerSettings? = nil, sessionURL: URL? = nil, preferences: UserDefaults? = nil) {
+    public init(
+        settings: PDFViewerSettings? = nil,
+        sessionURL: URL? = nil,
+        preferences: UserDefaults? = nil,
+        isPhone: Bool? = nil
+    ) {
+        let defaultSinglePageInPortraitEnabled = isPhone ?? (UIDevice.current.userInterfaceIdiom == .phone)
         self.sessionURL = sessionURL
         self.preferences = preferences
+        self.defaultSinglePageInPortraitEnabled = defaultSinglePageInPortraitEnabled
         if let settings = settings {
             self.settings = settings
         } else {
+            let savedPortraitPreference = preferences?.object(forKey: Self.singlePageInPortraitPreferenceKey) as? Bool
             self.settings = PDFViewerSettings(
                 isHighQualityRenderingEnabled: preferences?.bool(forKey: Self.highQualityPreferenceKey) ?? false,
-                isSharpnessEnabled: preferences?.bool(forKey: Self.sharpnessPreferenceKey) ?? false
+                isSharpnessEnabled: preferences?.bool(forKey: Self.sharpnessPreferenceKey) ?? false,
+                isSinglePageInPortraitEnabled: savedPortraitPreference ?? defaultSinglePageInPortraitEnabled
             )
         }
     }
@@ -109,51 +126,105 @@ public class PDFViewerViewModel: ObservableObject {
         public let pageIndices: [Int]
     }
 
+    public var isSpreadLayoutEnabled: Bool {
+        effectiveSpreadLayoutEnabled(for: settings, isPortrait: isPortrait)
+    }
+
     public var pageGroups: [PageGroup] {
-        guard let document = document else { return [] }
+        makePageGroups(settings: settings, isPortrait: isPortrait)
+    }
+
+    public func updateViewportSize(_ size: CGSize) {
+        guard size.width > 0, size.height > 0 else { return }
+        let newIsPortrait = size.height >= size.width
+        guard newIsPortrait != isPortrait else { return }
+
+        let oldGroups = pageGroups
+        let displayedPageIndex = displayedPageIndex(in: oldGroups)
+        isPortrait = newIsPortrait
+        restoreDisplayedPage(displayedPageIndex, in: pageGroups)
+    }
+
+    private func effectiveSpreadLayoutEnabled(for settings: PDFViewerSettings, isPortrait: Bool) -> Bool {
+        settings.isSpreadViewEnabled && !(isPortrait && settings.isSinglePageInPortraitEnabled)
+    }
+
+    private func makePageGroups(settings: PDFViewerSettings, isPortrait: Bool) -> [PageGroup] {
+        guard let document else { return [] }
         let totalPages = document.totalPageCount
         var groups: [PageGroup] = []
-
         var currentIndex = 0
 
-        // 1. 表紙の処理 (Cover Page)
-        if settings.isCoverPageEnabled {
-            if totalPages > 0 {
-                if let firstPage = document.pdfDocument.page(at: 0) {
-                    groups.append(PageGroup(id: currentIndex, pages: [firstPage], startIndex: currentIndex, pageIndices: [currentIndex]))
-                    currentIndex += 1
+        if settings.isCoverPageEnabled, totalPages > 0,
+           let firstPage = document.pdfDocument.page(at: 0) {
+            groups.append(PageGroup(
+                id: currentIndex,
+                pages: [firstPage],
+                startIndex: currentIndex,
+                pageIndices: [currentIndex]
+            ))
+            currentIndex += 1
+        }
+
+        if effectiveSpreadLayoutEnabled(for: settings, isPortrait: isPortrait) {
+            while currentIndex < totalPages {
+                var pageIndices = [currentIndex]
+                if currentIndex + 1 < totalPages {
+                    pageIndices.append(currentIndex + 1)
                 }
+
+                if settings.layoutDirection == .rightToLeft, pageIndices.count == 2 {
+                    pageIndices.reverse()
+                }
+
+                let pages = pageIndices.compactMap { document.pdfDocument.page(at: $0) }
+                groups.append(PageGroup(
+                    id: currentIndex,
+                    pages: pages,
+                    startIndex: currentIndex,
+                    pageIndices: pageIndices
+                ))
+                currentIndex += 2
             }
-         }
-
-         // 2. 見開き表示か単一表示かの判定
-         if settings.isSpreadViewEnabled {
-             // 見開き表示: 2ページずつペアにする
-             while currentIndex < totalPages {
-                 var pageIndices = [currentIndex]
-                 if currentIndex + 1 < totalPages {
-                     pageIndices.append(currentIndex + 1)
-                 }
-
-                 if settings.layoutDirection == .rightToLeft, pageIndices.count == 2 {
-                     pageIndices.reverse()
-                 }
-
-                 let pages = pageIndices.compactMap { document.pdfDocument.page(at: $0) }
-                 groups.append(PageGroup(id: currentIndex, pages: pages, startIndex: currentIndex, pageIndices: pageIndices))
-                 currentIndex += 2
-             }
-         } else {
-             // 単一表示
-             while currentIndex < totalPages {
-                 if let page = document.pdfDocument.page(at: currentIndex) {
-                     groups.append(PageGroup(id: currentIndex, pages: [page], startIndex: currentIndex, pageIndices: [currentIndex]))
-                 }
-                 currentIndex += 1
-             }
-         }
+        } else {
+            while currentIndex < totalPages {
+                if let page = document.pdfDocument.page(at: currentIndex) {
+                    groups.append(PageGroup(
+                        id: currentIndex,
+                        pages: [page],
+                        startIndex: currentIndex,
+                        pageIndices: [currentIndex]
+                    ))
+                }
+                currentIndex += 1
+            }
+        }
 
         return groups
+    }
+
+    private func preserveDisplayedPageWhenLayoutChanges(from oldSettings: PDFViewerSettings) {
+        let oldGroups = makePageGroups(settings: oldSettings, isPortrait: isPortrait)
+        let displayedPageIndex = displayedPageIndex(in: oldGroups)
+        restoreDisplayedPage(displayedPageIndex, in: pageGroups)
+    }
+
+    private func displayedPageIndex(in groups: [PageGroup]) -> Int? {
+        guard groups.indices.contains(currentPageIndex) else { return nil }
+        return groups[currentPageIndex].startIndex
+    }
+
+    private func restoreDisplayedPage(_ pageIndex: Int?, in groups: [PageGroup]) {
+        guard let pageIndex,
+              let groupIndex = groups.firstIndex(where: { $0.pageIndices.contains(pageIndex) }) else {
+            if groups.isEmpty {
+                currentPageIndex = 0
+            } else if currentPageIndex >= groups.count {
+                currentPageIndex = groups.count - 1
+            }
+            return
+        }
+        currentPageIndex = groupIndex
     }
 
     public func performSearch(query: String) {
@@ -385,6 +456,7 @@ public class PDFViewerViewModel: ObservableObject {
         self.settings.coverPageSetting = .typeA
         self.settings.isHighQualityRenderingEnabled = false
         self.settings.isSharpnessEnabled = false
+        self.settings.isSinglePageInPortraitEnabled = defaultSinglePageInPortraitEnabled
         closeDocument()
     }
 
@@ -400,7 +472,8 @@ public class PDFViewerViewModel: ObservableObject {
             layoutDirection: layoutDirection,
             coverPageSetting: self.settings.coverPageSetting,
             isHighQualityRenderingEnabled: self.settings.isHighQualityRenderingEnabled,
-            isSharpnessEnabled: self.settings.isSharpnessEnabled
+            isSharpnessEnabled: self.settings.isSharpnessEnabled,
+            isSinglePageInPortraitEnabled: self.settings.isSinglePageInPortraitEnabled
         )
     }
 }
