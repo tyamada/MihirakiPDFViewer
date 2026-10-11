@@ -166,6 +166,26 @@
       "promotionalImageID" : "431B2251",
       "referenceName" : "supporter_icon_gold",
       "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "100",
+      "familyShareable" : false,
+      "internalID" : "C20C2D5A",
+      "localizations" : [
+        {
+          "description" : "A commemorative badge available with a promotion code.",
+          "displayName" : "Ver. 2.0 Release Commemorative Koyomi Badge",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "プロモーションコードで取得できる記念バッジです。",
+          "displayName" : "Ver.2.0公開記念こよみバッジ",
+          "locale" : "ja"
+        }
+      ],
+      "productID" : "supporter_badge_koyomi_v2",
+      "referenceName" : "supporter_badge_koyomi_v2",
+      "type" : "NonConsumable"
     }
   ],
   "settings" : {

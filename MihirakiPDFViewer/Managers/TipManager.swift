@@ -21,12 +21,15 @@ import UIKit
 @MainActor
 public class TipManager: ObservableObject {
     public static let shared = TipManager()
+
+    public static let koyomiV2BadgeProductID = "supporter_badge_koyomi_v2"
     
     // 定義された商品ID
     public static let productIDs = [
         "supporter_icon_bronze",
         "supporter_icon_silver",
-        "supporter_icon_gold"
+        "supporter_icon_gold",
+        koyomiV2BadgeProductID
     ]
     
     @Published public private(set) var products: [Product] = []
@@ -140,7 +143,7 @@ public class TipManager: ObservableObject {
         case "supporter_icon_gold":
             return "AppIconGold"
         default:
-            return "AppIcon"
+            return nil
         }
     }
     

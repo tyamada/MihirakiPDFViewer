@@ -4654,6 +4654,23 @@
         }
       }
     },
+    "koyomi_v2_badge_name" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Ver. 2.0 Release Commemorative Koyomi Badge"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ver.2.0公開記念こよみバッジ"
+          }
+        }
+      }
+    },
     "language" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -5301,6 +5318,23 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "OSのバージョン: %1$@ %2$@"
+          }
+        }
+      }
+    },
+    "owned_badges" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Owned Badges"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "取得済みバッジ"
           }
         }
       }
@@ -6762,6 +6796,23 @@
         }
       }
     },
+    "promotion_code_badge" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Promotion code badge"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "プロモーションコード限定バッジ"
+          }
+        }
+      }
+    },
     "Protect your privacy" : {
       "localizations" : {
         "ja" : {
@@ -7003,6 +7054,23 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "已回復購買項目。"
+          }
+        }
+      }
+    },
+    "redeem_promotion_code" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Redeem Promotion Code"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "プロモーションコードを使う"
           }
         }
       }

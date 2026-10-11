@@ -788,7 +788,7 @@ struct TipSelectionView: View {
                     }
                     .padding(.vertical)
                 } else {
-                    ForEach(tipManager.products, id: \.id) { product in
+                    ForEach(tipManager.products.filter { $0.id != TipManager.koyomiV2BadgeProductID }, id: \.id) { product in
                         HStack(spacing: 12) {
                             Image(tipIconName(for: product.id))
                                 .resizable()
@@ -830,10 +830,35 @@ struct TipSelectionView: View {
                         .font(.footnote)
                         .foregroundColor(settingsTextColor)
                 }
+
             } footer: {
                 Text(String(localized: "supporter_icon_purchase_description", defaultValue: "Each purchase permanently unlocks its supporter icon. Restore purchases on another device using the same Apple Account."))
                     .font(.body)
                     .foregroundColor(settingsTextColor)
+            }
+
+            if tipManager.isPurchased(TipManager.koyomiV2BadgeProductID) {
+                Section {
+                    HStack(spacing: 16) {
+                        Image("KoyomiV2Badge")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 72, height: 72)
+                            .accessibilityHidden(true)
+
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(String(localized: "koyomi_v2_badge_name", defaultValue: "Ver. 2.0 Release Commemorative Koyomi Badge"))
+                                .font(.headline)
+                            Text(String(localized: "promotion_code_badge", defaultValue: "Promotion code badge"))
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                    .accessibilityElement(children: .combine)
+                    .accessibilityIdentifier("ownedBadge_koyomiV2")
+                } header: {
+                    Text(String(localized: "owned_badges", defaultValue: "Owned Badges"))
+                }
             }
         }
         .accessibilityIdentifier("tipSelectionScreen")

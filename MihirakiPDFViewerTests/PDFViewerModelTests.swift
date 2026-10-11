@@ -114,8 +114,9 @@ final class TipManagerTests: XCTestCase {
         XCTAssertEqual(TipManager.appIconName(for: "supporter_icon_gold"), "AppIconGold")
     }
 
-    func testUnknownProductIDMapsToPrimaryAppIcon() {
-        XCTAssertEqual(TipManager.appIconName(for: "unknown_product"), "AppIcon")
+    func testProductsWithoutAlternateIconsDoNotMapToAnIcon() {
+        XCTAssertNil(TipManager.appIconName(for: "unknown_product"))
+        XCTAssertNil(TipManager.appIconName(for: TipManager.koyomiV2BadgeProductID))
     }
 }
 

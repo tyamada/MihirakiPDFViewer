@@ -67,3 +67,10 @@ output/
 /build/
 /tmp/
 convpng.py
+
+# Keep app asset catalogs trackable even when a global Assets.* rule is present.
+!MihirakiPDFViewer/Assets.xcassets/
+MihirakiPDFViewer/Assets.xcassets/*
+!MihirakiPDFViewer/Assets.xcassets/KoyomiV2Badge.imageset/
+!MihirakiPDFViewer/Assets.xcassets/KoyomiV2Badge.imageset/Contents.json
+!MihirakiPDFViewer/Assets.xcassets/KoyomiV2Badge.imageset/tameshibu_badge_koyomi.png
