@@ -15,8 +15,9 @@ This software was coded using generative AI.
 - **Right-to-Left and Left-to-Right Support**: Uses the PDF direction to
   provide natural page movement for both reading directions. Right-to-left
   documents open on their first page instead of jumping to the last page.
-- **Single-Page and Two-Page Views**: Switch layouts and adjust cover-page
-  handling to match the document.
+- **Single-Page and Two-Page Views**: Portrait screens default to single-page
+  view on every device. Switch layouts and adjust cover-page handling to match
+  the document.
 - **Search and Zoom**: Search text within a PDF, pinch to zoom, and drag
   while zoomed in.
 - **Password-Protected PDFs**: Open documents that require a user password.
@@ -58,7 +59,9 @@ device, and logs older than 24 hours are deleted.
 7. **Search**: Enter text in the search field. Matching text is highlighted
    in the document.
 8. **Adjust the Layout**: In Settings, select single-page or two-page view,
-   reading direction, and cover-page handling.
+   reading direction, and cover-page handling. When the screen is taller than
+   it is wide, single-page view is enabled by default on every device; turn off
+   **Single Page in Portrait** to keep two-page view.
 9. **Adjust Rendering**: Enable high-quality rendering or sharpness in
    Settings when the PDF needs clearer text and lines.
 10. **Close or Resume**: Close the current document from the toolbar, or

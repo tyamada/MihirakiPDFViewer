@@ -14,7 +14,6 @@
 import Foundation
 import PDFKit
 import SwiftUI
-import UIKit
 import Combine
 
 /// PDFビューアの表示ロジックを管理するViewModel
@@ -91,7 +90,7 @@ public class PDFViewerViewModel: ObservableObject {
     private static let highQualityPreferenceKey = "isHighQualityRenderingEnabled"
     private static let sharpnessPreferenceKey = "isSharpnessEnabled"
     private static let singlePageInPortraitPreferenceKey = "isSinglePageInPortraitEnabled"
-    private let defaultSinglePageInPortraitEnabled: Bool
+    private static let defaultSinglePageInPortraitEnabled = true
     private var documentBookmark: Data?
     private var pendingSession: (url: URL, state: ReadingSession)?
     private var isLoadingDocument = false
@@ -99,13 +98,10 @@ public class PDFViewerViewModel: ObservableObject {
     public init(
         settings: PDFViewerSettings? = nil,
         sessionURL: URL? = nil,
-        preferences: UserDefaults? = nil,
-        isPhone: Bool? = nil
+        preferences: UserDefaults? = nil
     ) {
-        let defaultSinglePageInPortraitEnabled = isPhone ?? (UIDevice.current.userInterfaceIdiom == .phone)
         self.sessionURL = sessionURL
         self.preferences = preferences
-        self.defaultSinglePageInPortraitEnabled = defaultSinglePageInPortraitEnabled
         if let settings = settings {
             self.settings = settings
         } else {
@@ -113,7 +109,7 @@ public class PDFViewerViewModel: ObservableObject {
             self.settings = PDFViewerSettings(
                 isHighQualityRenderingEnabled: preferences?.bool(forKey: Self.highQualityPreferenceKey) ?? false,
                 isSharpnessEnabled: preferences?.bool(forKey: Self.sharpnessPreferenceKey) ?? false,
-                isSinglePageInPortraitEnabled: savedPortraitPreference ?? defaultSinglePageInPortraitEnabled
+                isSinglePageInPortraitEnabled: savedPortraitPreference ?? Self.defaultSinglePageInPortraitEnabled
             )
         }
     }
@@ -456,7 +452,7 @@ public class PDFViewerViewModel: ObservableObject {
         self.settings.coverPageSetting = .typeA
         self.settings.isHighQualityRenderingEnabled = false
         self.settings.isSharpnessEnabled = false
-        self.settings.isSinglePageInPortraitEnabled = defaultSinglePageInPortraitEnabled
+        self.settings.isSinglePageInPortraitEnabled = Self.defaultSinglePageInPortraitEnabled
         closeDocument()
     }
 

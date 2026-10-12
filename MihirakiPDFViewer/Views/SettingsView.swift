@@ -634,6 +634,17 @@ struct HelpView: View {
                     )
                 ),
                 HelpDetail(
+                    id: "singlePageInPortrait",
+                    title: LocalizedStringResource(
+                        "single_page_in_portrait",
+                        defaultValue: "Single Page in Portrait"
+                    ),
+                    description: LocalizedStringResource(
+                        "help_setting_single_page_in_portrait_description",
+                        defaultValue: "Displays one page at a time by default when the screen is taller than it is wide, regardless of device type. Turn this off to keep spread view in portrait."
+                    )
+                ),
+                HelpDetail(
                     id: "coverPage",
                     title: LocalizedStringResource("is_cover_page", defaultValue: "Cover Page"),
                     description: LocalizedStringResource(

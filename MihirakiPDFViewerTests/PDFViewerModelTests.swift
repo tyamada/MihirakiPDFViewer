@@ -162,26 +162,22 @@ final class PDFViewerViewModelTests: XCTestCase {
         XCTAssertFalse(restored.settings.isSharpnessEnabled)
     }
 
-    func testPortraitDisplayDefaultsDependOnDeviceIdiom() throws {
-        let phoneSuiteName = "PortraitPreferencePhone-\(UUID().uuidString)"
-        let phonePreferences = try XCTUnwrap(UserDefaults(suiteName: phoneSuiteName))
-        defer { phonePreferences.removePersistentDomain(forName: phoneSuiteName) }
-        XCTAssertTrue(PDFViewerViewModel(preferences: phonePreferences, isPhone: true).settings.isSinglePageInPortraitEnabled)
+    func testPortraitDisplayDefaultsToSinglePage() throws {
+        let suiteName = "PortraitPreferenceDefault-\(UUID().uuidString)"
+        let preferences = try XCTUnwrap(UserDefaults(suiteName: suiteName))
+        defer { preferences.removePersistentDomain(forName: suiteName) }
 
-        let tabletSuiteName = "PortraitPreferenceTablet-\(UUID().uuidString)"
-        let tabletPreferences = try XCTUnwrap(UserDefaults(suiteName: tabletSuiteName))
-        defer { tabletPreferences.removePersistentDomain(forName: tabletSuiteName) }
-        XCTAssertFalse(PDFViewerViewModel(preferences: tabletPreferences, isPhone: false).settings.isSinglePageInPortraitEnabled)
+        XCTAssertTrue(PDFViewerViewModel(preferences: preferences).settings.isSinglePageInPortraitEnabled)
     }
 
-    func testPortraitDisplayPreferencePersistsAndOverridesDeviceDefault() throws {
+    func testPortraitDisplayPreferencePersistsAndOverridesDefault() throws {
         let suiteName = "PortraitPreference-\(UUID().uuidString)"
         let preferences = try XCTUnwrap(UserDefaults(suiteName: suiteName))
         defer { preferences.removePersistentDomain(forName: suiteName) }
-        let model = PDFViewerViewModel(preferences: preferences, isPhone: true)
+        let model = PDFViewerViewModel(preferences: preferences)
         model.settings.isSinglePageInPortraitEnabled = false
 
-        let restored = PDFViewerViewModel(preferences: preferences, isPhone: true)
+        let restored = PDFViewerViewModel(preferences: preferences)
         XCTAssertFalse(restored.settings.isSinglePageInPortraitEnabled)
     }
 
@@ -191,7 +187,7 @@ final class PDFViewerViewModelTests: XCTestCase {
             isSinglePageInPortraitEnabled: true
         )
         settings.isCoverPageEnabled = false
-        let model = PDFViewerViewModel(settings: settings, isPhone: true)
+        let model = PDFViewerViewModel(settings: settings)
         model.document = try PDFDocumentWrapper(url: makeTemporaryPDF(pageCount: 5))
         model.updateViewportSize(CGSize(width: 800, height: 600))
         model.currentPageIndex = 1
@@ -214,7 +210,7 @@ final class PDFViewerViewModelTests: XCTestCase {
             isSpreadViewEnabled: true,
             isSinglePageInPortraitEnabled: false
         )
-        let model = PDFViewerViewModel(settings: settings, isPhone: true)
+        let model = PDFViewerViewModel(settings: settings)
         model.document = try PDFDocumentWrapper(url: makeTemporaryPDF(pageCount: 3))
 
         model.updateViewportSize(CGSize(width: 600, height: 800))

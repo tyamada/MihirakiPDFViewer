@@ -3890,6 +3890,89 @@
         }
       }
     },
+    "help_setting_single_page_in_portrait_description" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Zeigt standardmäßig jeweils eine Seite an, wenn der Bildschirm höher als breit ist – unabhängig vom Gerätetyp. Deaktiviere diese Option, um die Zweiseitenansicht im Hochformat beizubehalten."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Displays one page at a time by default when the screen is taller than it is wide, regardless of device type. Turn this off to keep spread view in portrait."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Muestra una página a la vez de forma predeterminada cuando la pantalla es más alta que ancha, independientemente del tipo de dispositivo. Desactiva esta opción para mantener la vista de dos páginas en orientación vertical."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Bilang default, nagpapakita ng isang pahina sa bawat pagkakataon kapag mas mataas kaysa malapad ang screen, anuman ang uri ng device. I-off ito para panatilihin ang view na dalawang pahina sa portrait."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Affiche une page à la fois par défaut lorsque l’écran est plus haut que large, quel que soit le type d’appareil. Désactivez cette option pour conserver la vue en deux pages en orientation portrait."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Menampilkan satu halaman dalam satu waktu secara default saat layar lebih tinggi daripada lebarnya, apa pun jenis perangkatnya. Nonaktifkan pengaturan ini agar tampilan dua halaman tetap digunakan dalam orientasi potret."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "端末の種類に関係なく、画面が縦長の場合はデフォルトで1ページずつ表示します。縦向きでも見開き表示を維持するには、この設定をオフにします。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "기기 종류와 관계없이 화면의 세로 길이가 가로보다 길면 기본적으로 한 번에 한 페이지를 표시합니다. 세로 방향에서도 두 페이지 보기를 유지하려면 이 설정을 끄십시오."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "स्क्रिनको उचाइ चौडाइभन्दा बढी हुँदा, यन्त्रको प्रकार जेसुकै भए पनि, पूर्वनिर्धारित रूपमा एक पटकमा एउटा पृष्ठ देखाउँछ। पोर्ट्रेटमा दुई-पृष्ठ दृश्य कायम राख्न यसलाई बन्द गर्नुहोस्।"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Exibe uma página por vez por padrão quando a tela é mais alta do que larga, independentemente do tipo de dispositivo. Desative esta opção para manter a visualização de duas páginas na orientação vertical."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Theo mặc định, hiển thị mỗi lần một trang khi màn hình có chiều cao lớn hơn chiều rộng, bất kể loại thiết bị. Tắt cài đặt này để duy trì chế độ xem hai trang theo hướng dọc."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "无论设备类型如何，当屏幕高度大于宽度时，默认每次显示一页。关闭此设置可在竖屏方向下保持双页视图。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "無論裝置類型為何，當螢幕高度大於寬度時，預設一次顯示一頁。關閉此設定可在直向顯示時維持雙頁顯示。"
+          }
+        }
+      }
+    },
     "help_setting_spread_view_description" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
