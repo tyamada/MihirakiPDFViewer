@@ -116,7 +116,7 @@ public class PDFViewerViewModel: NSObject, ObservableObject {
     }
 
     public var isSpreadLayoutEnabled: Bool {
-        effectiveSpreadLayoutEnabled(for: settings, isPortrait: isPortrait)
+        PDFPageGrouping.isSpreadEnabled(settings: settings, isPortrait: isPortrait)
     }
 
     public var pageGroups: [PageGroup] {
@@ -134,62 +134,21 @@ public class PDFViewerViewModel: NSObject, ObservableObject {
         restoreDisplayedPage(displayedPageIndex, in: pageGroups)
     }
 
-    private func effectiveSpreadLayoutEnabled(for settings: PDFViewerSettings, isPortrait: Bool) -> Bool {
-        settings.isSpreadViewEnabled && !(isPortrait && settings.isSinglePageInPortraitEnabled)
-    }
-
     private func makePageGroups(settings: PDFViewerSettings, isPortrait: Bool) -> [PageGroup] {
         guard let document else { return [] }
-        let totalPages = document.totalPageCount
-        var groups: [PageGroup] = []
-        var currentIndex = 0
-
-        if settings.isCoverPageEnabled, totalPages > 0,
-           let firstPage = document.pdfDocument.page(at: 0) {
-            groups.append(PageGroup(
-                id: currentIndex,
-                pages: [firstPage],
-                startIndex: currentIndex,
-                pageIndices: [currentIndex]
-            ))
-            currentIndex += 1
+        return PDFPageGrouping.pageIndexGroups(
+            totalPageCount: document.totalPageCount,
+            settings: settings,
+            isPortrait: isPortrait
+        ).map { pageIndices in
+            let startIndex = pageIndices.min() ?? 0
+            return PageGroup(
+                id: startIndex,
+                pages: pageIndices.compactMap { document.pdfDocument.page(at: $0) },
+                startIndex: startIndex,
+                pageIndices: pageIndices
+            )
         }
-
-        if effectiveSpreadLayoutEnabled(for: settings, isPortrait: isPortrait) {
-            while currentIndex < totalPages {
-                var pageIndices = [currentIndex]
-                if currentIndex + 1 < totalPages {
-                    pageIndices.append(currentIndex + 1)
-                }
-
-                if settings.layoutDirection == .rightToLeft, pageIndices.count == 2 {
-                    pageIndices.reverse()
-                }
-
-                let pages = pageIndices.compactMap { document.pdfDocument.page(at: $0) }
-                groups.append(PageGroup(
-                    id: currentIndex,
-                    pages: pages,
-                    startIndex: currentIndex,
-                    pageIndices: pageIndices
-                ))
-                currentIndex += 2
-            }
-        } else {
-            while currentIndex < totalPages {
-                if let page = document.pdfDocument.page(at: currentIndex) {
-                    groups.append(PageGroup(
-                        id: currentIndex,
-                        pages: [page],
-                        startIndex: currentIndex,
-                        pageIndices: [currentIndex]
-                    ))
-                }
-                currentIndex += 1
-            }
-        }
-
-        return groups
     }
 
     private func preserveDisplayedPageWhenLayoutChanges(from oldSettings: PDFViewerSettings) {
@@ -205,7 +164,10 @@ public class PDFViewerViewModel: NSObject, ObservableObject {
 
     private func restoreDisplayedPage(_ pageIndex: Int?, in groups: [PageGroup]) {
         guard let pageIndex,
-              let groupIndex = groups.firstIndex(where: { $0.pageIndices.contains(pageIndex) }) else {
+              let groupIndex = PDFPageGrouping.groupIndex(
+                containing: pageIndex,
+                in: groups.map(\.pageIndices)
+              ) else {
             if groups.isEmpty {
                 currentPageIndex = 0
             } else if currentPageIndex >= groups.count {
