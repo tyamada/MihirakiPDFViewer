@@ -36,7 +36,7 @@ private struct PDFPasswordPromptState {
 
 /// アプリケーションのメインビュー
 public struct MainView: View {
-    @StateObject private var viewModel = PDFViewerViewModel(
+    @State private var viewModel = PDFViewerViewModel(
         sessionURL: PDFViewerViewModel.defaultSessionURL, preferences: .standard
     )
     @Environment(\.scenePhase) private var scenePhase
@@ -568,7 +568,7 @@ struct ScrollDirectionHintView: View {
 
 /// PDF表示のコンテナビュー
 struct PDFContainerView: View {
-    @ObservedObject var viewModel: PDFViewerViewModel
+    @Bindable var viewModel: PDFViewerViewModel
     @Binding var isPDFChromeVisible: Bool
     let isScrollDirectionHintVisible: Bool
     
@@ -700,8 +700,8 @@ struct PDFContainerView: View {
 
     @ViewBuilder
     private func pageTabViewContent(size: CGSize) -> some View {
-        ForEach(orderedPageGroupIndices, id: \.self) { index in
-            let group = viewModel.pageGroups[index]
+        ForEach(orderedPageGroups) { item in
+            let group = item.group
             PageContentContainer(
                 group: group,
                 size: size,
@@ -710,17 +710,30 @@ struct PDFContainerView: View {
                 layoutDirection: viewModel.settings.layoutDirection,
                 isHighQualityRenderingEnabled: viewModel.settings.isHighQualityRenderingEnabled,
                 isSharpnessEnabled: viewModel.settings.isSharpnessEnabled,
-                isFirstGroup: index == 0,
-                isLastGroup: index == viewModel.pageGroups.count - 1
+                isFirstGroup: item.index == 0,
+                isLastGroup: item.index == item.groupCount - 1
             )
-            .tag(index)
+            .tag(item.index)
             .frame(width: size.width, height: size.height)
         }
     }
 
-    private var orderedPageGroupIndices: [Int] {
-        let indices = Array(viewModel.pageGroups.indices)
-        return viewModel.settings.layoutDirection == .rightToLeft ? Array(indices.reversed()) : indices
+    private var orderedPageGroups: [IndexedPageGroup] {
+        let groups = viewModel.pageGroups
+        let indexedGroups = groups.enumerated().map { index, group in
+            IndexedPageGroup(index: index, group: group, groupCount: groups.count)
+        }
+        return viewModel.settings.layoutDirection == .rightToLeft
+            ? Array(indexedGroups.reversed())
+            : indexedGroups
+    }
+
+    private struct IndexedPageGroup: Identifiable {
+        let index: Int
+        let group: PDFViewerViewModel.PageGroup
+        let groupCount: Int
+
+        var id: Int { group.id }
     }
 }
 

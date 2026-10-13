@@ -12,15 +12,16 @@
 //
 
 import Foundation
+import Observation
 import PDFKit
 import SwiftUI
-import Combine
 
 /// PDFビューアの表示ロジックを管理するViewModel
 @MainActor
-public class PDFViewerViewModel: NSObject, ObservableObject {
-    @Published public var document: PDFDocumentWrapper?
-    @Published public var settings: PDFViewerSettings {
+@Observable
+public class PDFViewerViewModel: NSObject {
+    public var document: PDFDocumentWrapper?
+    public var settings: PDFViewerSettings {
         didSet {
             if settings.isHighQualityRenderingEnabled != oldValue.isHighQualityRenderingEnabled {
                 preferences?.set(settings.isHighQualityRenderingEnabled, forKey: Self.highQualityPreferenceKey)
@@ -36,8 +37,8 @@ public class PDFViewerViewModel: NSObject, ObservableObject {
             saveReadingSession()
         }
     }
-    @Published public var errorMessage: String?
-    @Published public var currentPageIndex: Int = 0 {
+    public var errorMessage: String?
+    public var currentPageIndex: Int = 0 {
         didSet {
             if currentPageIndex != oldValue {
                 AppDiagnostics.record(
@@ -49,10 +50,10 @@ public class PDFViewerViewModel: NSObject, ObservableObject {
             saveReadingSession()
         }
     }
-    @Published public var searchQuery: String = "" { didSet { saveReadingSession() } }
-    @Published public var searchMatches: [PDFSearchMatch] = []
-    @Published public private(set) var isSearching = false
-    @Published public private(set) var isPortrait = false
+    public var searchQuery: String = "" { didSet { saveReadingSession() } }
+    public var searchMatches: [PDFSearchMatch] = []
+    public private(set) var isSearching = false
+    public private(set) var isPortrait = false
 
     public struct PDFSearchMatch: Identifiable {
         public var id: Int { pageIndex }

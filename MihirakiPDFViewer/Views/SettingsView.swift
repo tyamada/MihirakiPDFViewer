@@ -16,7 +16,7 @@ import SwiftUI
 
 /// 設定変更を行うためのビュー
 public struct SettingsView: View {
-    @ObservedObject var viewModel: PDFViewerViewModel
+    @Bindable var viewModel: PDFViewerViewModel
     @Environment(\.dismiss) var dismiss
     @Environment(\.colorScheme) private var colorScheme
     @State private var isShowingPromotionCodeInstructions = false
@@ -383,7 +383,7 @@ private struct AppLoggingSettingsSection: View {
 }
 
 struct ResetSettingsView: View {
-    @ObservedObject var viewModel: PDFViewerViewModel
+    @Bindable var viewModel: PDFViewerViewModel
     @Environment(\.dismiss) private var dismiss
     @Environment(\.colorScheme) private var colorScheme
     @State private var isShowingResetConfirmation = false
