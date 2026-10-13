@@ -219,6 +219,30 @@ final class PDFViewerViewModelTests: XCTestCase {
         XCTAssertEqual(model.pageGroups.map(\.pages.count), [2, 1])
     }
 
+    func testRegularWidthPortraitUsesSpreadAndPreservesDisplayedPage() throws {
+        let settings = PDFViewerSettings(
+            isSpreadViewEnabled: true,
+            isSinglePageInPortraitEnabled: true
+        )
+        let model = PDFViewerViewModel(settings: settings)
+        model.document = try PDFDocumentWrapper(url: makeTemporaryPDF(pageCount: 5))
+        model.updateViewportSize(
+            CGSize(width: 600, height: 800),
+            horizontalSizeClass: .compact
+        )
+        model.currentPageIndex = 2
+
+        model.updateViewportSize(
+            CGSize(width: 800, height: 1000),
+            horizontalSizeClass: .regular
+        )
+
+        XCTAssertTrue(model.isSpreadLayoutEnabled)
+        XCTAssertEqual(model.pageGroups.map(\.pages.count), [2, 2, 1])
+        XCTAssertEqual(model.currentPageIndex, 1)
+        XCTAssertEqual(model.pageGroups[model.currentPageIndex].startIndex, 2)
+    }
+
     func testReadingSessionRestoresPDFPageLayoutAndQuery() throws {
         let sessionURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
         defer { try? FileManager.default.removeItem(at: sessionURL) }

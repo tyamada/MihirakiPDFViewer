@@ -50,6 +50,19 @@ struct PDFPageGroupingTests {
     }
 
     @Test
+    func regularWidthPortraitCanUseSpread() {
+        #expect(
+            groups(
+                pageCount: 4,
+                spread: true,
+                singlePageInPortrait: true,
+                isPortrait: true,
+                horizontalSizeClass: .regular
+            ) == [[0, 1], [2, 3]]
+        )
+    }
+
+    @Test
     func locatesGroupContainingDisplayedPage() {
         let groups = [[0], [2, 1], [4, 3]]
 
@@ -63,7 +76,8 @@ struct PDFPageGroupingTests {
         cover: Bool = false,
         direction: LayoutDirection = .leftToRight,
         singlePageInPortrait: Bool = false,
-        isPortrait: Bool = false
+        isPortrait: Bool = false,
+        horizontalSizeClass: UserInterfaceSizeClass? = nil
     ) -> [[Int]] {
         PDFPageGrouping.pageIndexGroups(
             totalPageCount: pageCount,
@@ -73,7 +87,12 @@ struct PDFPageGroupingTests {
                 layoutDirection: direction,
                 isSinglePageInPortraitEnabled: singlePageInPortrait
             ),
-            isPortrait: isPortrait
+            viewportLayout: PDFViewportLayout(
+                size: isPortrait
+                    ? CGSize(width: 600, height: 800)
+                    : CGSize(width: 800, height: 600),
+                horizontalSizeClass: horizontalSizeClass
+            )
         )
     }
 }

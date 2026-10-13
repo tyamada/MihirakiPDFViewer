@@ -53,7 +53,14 @@ public class PDFViewerViewModel: NSObject {
     public var searchQuery: String = "" { didSet { saveReadingSession() } }
     public var searchMatches: [PDFSearchMatch] = []
     public private(set) var isSearching = false
-    public private(set) var isPortrait = false
+    private(set) var viewportLayout = PDFViewportLayout(
+        size: CGSize(width: 1, height: 0),
+        horizontalSizeClass: nil
+    )
+
+    public var isPortrait: Bool {
+        viewportLayout.isPortrait
+    }
 
     public struct PDFSearchMatch: Identifiable {
         public var id: Int { pageIndex }
@@ -117,30 +124,39 @@ public class PDFViewerViewModel: NSObject {
     }
 
     public var isSpreadLayoutEnabled: Bool {
-        PDFPageGrouping.isSpreadEnabled(settings: settings, isPortrait: isPortrait)
+        PDFPageGrouping.isSpreadEnabled(settings: settings, viewportLayout: viewportLayout)
     }
 
     public var pageGroups: [PageGroup] {
-        makePageGroups(settings: settings, isPortrait: isPortrait)
+        makePageGroups(settings: settings, viewportLayout: viewportLayout)
     }
 
-    public func updateViewportSize(_ size: CGSize) {
+    public func updateViewportSize(
+        _ size: CGSize,
+        horizontalSizeClass: UserInterfaceSizeClass? = nil
+    ) {
         guard size.width > 0, size.height > 0 else { return }
-        let newIsPortrait = size.height >= size.width
-        guard newIsPortrait != isPortrait else { return }
+        let newLayout = PDFViewportLayout(
+            size: size,
+            horizontalSizeClass: horizontalSizeClass
+        )
+        guard newLayout != viewportLayout else { return }
 
         let oldGroups = pageGroups
         let displayedPageIndex = displayedPageIndex(in: oldGroups)
-        isPortrait = newIsPortrait
+        viewportLayout = newLayout
         restoreDisplayedPage(displayedPageIndex, in: pageGroups)
     }
 
-    private func makePageGroups(settings: PDFViewerSettings, isPortrait: Bool) -> [PageGroup] {
+    private func makePageGroups(
+        settings: PDFViewerSettings,
+        viewportLayout: PDFViewportLayout
+    ) -> [PageGroup] {
         guard let document else { return [] }
         return PDFPageGrouping.pageIndexGroups(
             totalPageCount: document.totalPageCount,
             settings: settings,
-            isPortrait: isPortrait
+            viewportLayout: viewportLayout
         ).map { pageIndices in
             let startIndex = pageIndices.min() ?? 0
             return PageGroup(
@@ -153,7 +169,7 @@ public class PDFViewerViewModel: NSObject {
     }
 
     private func preserveDisplayedPageWhenLayoutChanges(from oldSettings: PDFViewerSettings) {
-        let oldGroups = makePageGroups(settings: oldSettings, isPortrait: isPortrait)
+        let oldGroups = makePageGroups(settings: oldSettings, viewportLayout: viewportLayout)
         let displayedPageIndex = displayedPageIndex(in: oldGroups)
         restoreDisplayedPage(displayedPageIndex, in: pageGroups)
     }

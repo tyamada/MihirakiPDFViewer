@@ -571,6 +571,7 @@ struct PDFContainerView: View {
     @Bindable var viewModel: PDFViewerViewModel
     @Binding var isPDFChromeVisible: Bool
     let isScrollDirectionHintVisible: Bool
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
     @State private var zoomScale: CGFloat = 1.0
     @State private var lastZoomScale: CGFloat = 1.0
@@ -581,12 +582,22 @@ struct PDFContainerView: View {
         GeometryReader { geometry in
             containerView(size: geometry.size)
                 .onAppear {
-                    viewModel.updateViewportSize(geometry.size)
+                    updateViewport(size: geometry.size)
                 }
                 .onChange(of: geometry.size) { _, newSize in
-                    viewModel.updateViewportSize(newSize)
+                    updateViewport(size: newSize)
+                }
+                .onChange(of: horizontalSizeClass) { _, _ in
+                    updateViewport(size: geometry.size)
                 }
         }
+    }
+
+    private func updateViewport(size: CGSize) {
+        viewModel.updateViewportSize(
+            size,
+            horizontalSizeClass: horizontalSizeClass
+        )
     }
 
     @ViewBuilder

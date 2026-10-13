@@ -7,20 +7,33 @@
 
 import SwiftUI
 
+struct PDFViewportLayout: Equatable {
+    let size: CGSize
+    let horizontalSizeClass: UserInterfaceSizeClass?
+
+    var isPortrait: Bool {
+        size.height >= size.width
+    }
+
+    var prefersSinglePage: Bool {
+        isPortrait && horizontalSizeClass != .regular
+    }
+}
+
 /// Computes page groupings independently of PDFKit objects.
 struct PDFPageGrouping {
     static func isSpreadEnabled(
         settings: PDFViewerSettings,
-        isPortrait: Bool
+        viewportLayout: PDFViewportLayout
     ) -> Bool {
         settings.isSpreadViewEnabled
-            && !(isPortrait && settings.isSinglePageInPortraitEnabled)
+            && !(viewportLayout.prefersSinglePage && settings.isSinglePageInPortraitEnabled)
     }
 
     static func pageIndexGroups(
         totalPageCount: Int,
         settings: PDFViewerSettings,
-        isPortrait: Bool
+        viewportLayout: PDFViewportLayout
     ) -> [[Int]] {
         guard totalPageCount > 0 else { return [] }
 
@@ -32,7 +45,7 @@ struct PDFPageGrouping {
             currentIndex += 1
         }
 
-        if isSpreadEnabled(settings: settings, isPortrait: isPortrait) {
+        if isSpreadEnabled(settings: settings, viewportLayout: viewportLayout) {
             while currentIndex < totalPageCount {
                 var pageIndices = [currentIndex]
                 if currentIndex + 1 < totalPageCount {
