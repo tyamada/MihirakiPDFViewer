@@ -439,6 +439,47 @@ final class PDFViewerViewModelTests: XCTestCase {
         viewModel.performSearch(query: "")
 
         XCTAssertTrue(viewModel.searchMatches.isEmpty)
+        XCTAssertFalse(viewModel.isSearching)
+    }
+
+    func testAsynchronousSearchReturnsMatchesWithStablePageIdentity() async throws {
+        let viewModel = PDFViewerViewModel()
+        XCTAssertEqual(viewModel.loadDocument(from: try makeTemporaryPDF(pageCount: 3)), .loaded)
+
+        viewModel.performSearch(query: "Page")
+
+        await fulfillment(
+            of: [searchCompletionExpectation(for: viewModel)],
+            timeout: 5
+        )
+        XCTAssertEqual(viewModel.searchMatches.map(\.pageIndex), [0, 1, 2])
+        XCTAssertEqual(viewModel.searchMatches.map(\.id), [0, 1, 2])
+    }
+
+    func testStartingANewSearchOnlyPublishesTheLatestQuery() async throws {
+        let viewModel = PDFViewerViewModel()
+        XCTAssertEqual(viewModel.loadDocument(from: try makeTemporaryPDF(pageCount: 30)), .loaded)
+
+        viewModel.performSearch(query: "Page")
+        viewModel.performSearch(query: "30")
+
+        await fulfillment(
+            of: [searchCompletionExpectation(for: viewModel)],
+            timeout: 5
+        )
+        XCTAssertEqual(viewModel.searchMatches.map(\.pageIndex), [29])
+    }
+
+    func testClosingDocumentCancelsSearchAndClearsResults() throws {
+        let viewModel = PDFViewerViewModel()
+        XCTAssertEqual(viewModel.loadDocument(from: try makeTemporaryPDF(pageCount: 30)), .loaded)
+
+        viewModel.performSearch(query: "Page")
+        viewModel.closeDocument()
+
+        XCTAssertNil(viewModel.document)
+        XCTAssertTrue(viewModel.searchMatches.isEmpty)
+        XCTAssertFalse(viewModel.isSearching)
     }
 
     func testSearchLoadTestPDFsFindExpectedHitCounts() throws {
@@ -516,6 +557,13 @@ final class PDFViewerViewModelTests: XCTestCase {
     func testTrailingSinglePageBlankPositionFollowsLayoutDirection() {
         XCTAssertTrue(SpreadLayoutView.pageComesBeforeBlankPage(layoutDirection: .leftToRight))
         XCTAssertFalse(SpreadLayoutView.pageComesBeforeBlankPage(layoutDirection: .rightToLeft))
+    }
+
+    private func searchCompletionExpectation(for viewModel: PDFViewerViewModel) -> XCTestExpectation {
+        XCTNSPredicateExpectation(
+            predicate: NSPredicate { _, _ in !viewModel.isSearching },
+            object: nil
+        )
     }
 }
 

@@ -18,7 +18,7 @@ import Combine
 
 /// PDFビューアの表示ロジックを管理するViewModel
 @MainActor
-public class PDFViewerViewModel: ObservableObject {
+public class PDFViewerViewModel: NSObject, ObservableObject {
     @Published public var document: PDFDocumentWrapper?
     @Published public var settings: PDFViewerSettings {
         didSet {
@@ -51,10 +51,11 @@ public class PDFViewerViewModel: ObservableObject {
     }
     @Published public var searchQuery: String = "" { didSet { saveReadingSession() } }
     @Published public var searchMatches: [PDFSearchMatch] = []
+    @Published public private(set) var isSearching = false
     @Published public private(set) var isPortrait = false
 
     public struct PDFSearchMatch: Identifiable {
-        public let id = UUID()
+        public var id: Int { pageIndex }
         public let pageIndex: Int
         public let rects: [CGRect]
     }
@@ -66,25 +67,12 @@ public class PDFViewerViewModel: ObservableObject {
         case failed(String)
     }
 
-    private var securityScopedURL: URL?
-    private var isAccessingResource = false
-
-    // The bookmark preserves access to PDFs chosen from document providers.
-    // Passwords are deliberately excluded; protected PDFs prompt again.
-    private struct ReadingSession: Codable {
-        var bookmark: Data
-        var pageIndex: Int
-        var searchQuery: String
-        var isSpread: Bool
-        var isCover: Bool
-        var isRightToLeft: Bool
-    }
-
     public static var defaultSessionURL: URL {
         URL.applicationSupportDirectory.appendingPathComponent("ReadingSession.json")
     }
 
-    private let sessionURL: URL?
+    private let sessionStore: ReadingSessionStore
+    private let securityScopedResourceManager = SecurityScopedResourceManager()
     // Rendering preferences belong to the app, independently of the open PDF.
     private let preferences: UserDefaults?
     private static let highQualityPreferenceKey = "isHighQualityRenderingEnabled"
@@ -92,15 +80,19 @@ public class PDFViewerViewModel: ObservableObject {
     private static let singlePageInPortraitPreferenceKey = "isSinglePageInPortraitEnabled"
     private static let defaultSinglePageInPortraitEnabled = true
     private var documentBookmark: Data?
-    private var pendingSession: (url: URL, state: ReadingSession)?
+    private var pendingSession: ReadingSessionStore.Restoration?
     private var isLoadingDocument = false
+    private var activeSearchDocument: PDFDocument?
+    private var searchRectsByPage: [Int: [CGRect]] = [:]
+    private var searchSelectionCount = 0
+    private var searchStartedAt: TimeInterval?
 
     public init(
         settings: PDFViewerSettings? = nil,
         sessionURL: URL? = nil,
         preferences: UserDefaults? = nil
     ) {
-        self.sessionURL = sessionURL
+        self.sessionStore = ReadingSessionStore(fileURL: sessionURL)
         self.preferences = preferences
         if let settings = settings {
             self.settings = settings
@@ -112,6 +104,7 @@ public class PDFViewerViewModel: ObservableObject {
                 isSinglePageInPortraitEnabled: savedPortraitPreference ?? Self.defaultSinglePageInPortraitEnabled
             )
         }
+        super.init()
     }
 
     /// 表示すべきページのグループ（1ページまたは2ページのペア）
@@ -224,51 +217,41 @@ public class PDFViewerViewModel: ObservableObject {
     }
 
     public func performSearch(query: String) {
-        guard let document = document, !query.isEmpty else {
-            searchMatches = []
+        guard let pdfDocument = document?.pdfDocument, !query.isEmpty else {
+            cancelSearch()
             return
         }
 
-        let startedAt = ProcessInfo.processInfo.systemUptime
+        if let activeSearchDocument {
+            activeSearchDocument.delegate = nil
+            activeSearchDocument.cancelFindString()
+            self.activeSearchDocument = nil
+        }
+
+        startSearch(in: pdfDocument, query: query)
+    }
+
+    private func startSearch(in pdfDocument: PDFDocument, query: String) {
+        activeSearchDocument = pdfDocument
+        searchRectsByPage = [:]
+        searchSelectionCount = 0
+        searchStartedAt = ProcessInfo.processInfo.systemUptime
+        isSearching = true
         AppDiagnostics.record(.searchStarted)
-        let pdfDocument = document.pdfDocument
-        var matchesDict: [Int: [CGRect]] = [:]
-        
-        let selections = pdfDocument.findString(query, withOptions: .caseInsensitive)
-        
-        // Create a mapping from PDFPage to its index in the document
-        var pageToIndex: [PDFPage: Int] = [:]
-        for i in 0..<pdfDocument.pageCount {
-            if let page = pdfDocument.page(at: i) {
-                pageToIndex[page] = i
-            }
-        }
+        pdfDocument.delegate = self
+        pdfDocument.beginFindString(query, withOptions: .caseInsensitive)
+    }
 
-        for selection in selections {
-            // Get the first page of the selection and its index
-            if let firstPage = selection.pages.first, 
-               let pageIndex = pageToIndex[firstPage] {
-                // Get the bounds of the selection on that specific page
-                let rect = selection.bounds(for: firstPage)
-                matchesDict[pageIndex, default: []].append(rect)
-            }
-        }
-        
-        // Map the dictionary to the array of search matches
-        self.searchMatches = matchesDict.map { (index, rects) in
-            PDFSearchMatch(pageIndex: index, rects: rects)
-        }.sorted { $0.pageIndex < $1.pageIndex }
-
-        let duration = Self.elapsedMilliseconds(since: startedAt)
-        AppDiagnostics.record(
-            .searchCompleted,
-            durationMilliseconds: duration,
-            numericValue: selections.count,
-            numericLabel: .matches
-        )
-        if duration >= 500 {
-            AppDiagnostics.record(.searchSlow, durationMilliseconds: duration)
-        }
+    private func cancelSearch() {
+        let document = activeSearchDocument
+        activeSearchDocument = nil
+        searchRectsByPage = [:]
+        searchSelectionCount = 0
+        searchStartedAt = nil
+        isSearching = false
+        searchMatches = []
+        document?.delegate = nil
+        document?.cancelFindString()
     }
 
     /// PDFドキュメントをロードする
@@ -276,17 +259,12 @@ public class PDFViewerViewModel: ObservableObject {
     public func loadDocument(from url: URL, password: String? = nil) -> LoadDocumentResult {
         let startedAt = ProcessInfo.processInfo.systemUptime
         AppDiagnostics.record(.documentLoadStarted)
+        cancelSearch()
         isLoadingDocument = true
         defer { isLoadingDocument = false }
         if pendingSession?.url != url { pendingSession = nil }
         documentBookmark = nil
-        // 以前のアクセスを停止
-        stopCurrentAccess()
-        
-        // セキュリティスコープへのアクセスを開始
-        let accessing = url.startAccessingSecurityScopedResource()
-        securityScopedURL = url
-        isAccessingResource = accessing
+        securityScopedResourceManager.beginAccessing(url)
         
         do {
             let loadedDocument = try PDFDocumentWrapper(url: url, password: password)
@@ -308,9 +286,9 @@ public class PDFViewerViewModel: ObservableObject {
                 performSearch(query: searchQuery)
             }
             pendingSession = nil
-            if sessionURL != nil {
+            if sessionStore.isEnabled {
                 do {
-                    documentBookmark = try url.bookmarkData(options: [], includingResourceValuesForKeys: nil, relativeTo: nil)
+                    documentBookmark = try sessionStore.makeBookmark(for: url)
                     isLoadingDocument = false
                     saveReadingSession()
                 } catch {
@@ -343,7 +321,7 @@ public class PDFViewerViewModel: ObservableObject {
             return .invalidPassword
         } catch {
             clearReadingSession()
-            stopCurrentAccess()
+            securityScopedResourceManager.stopAccessing()
             self.document = nil
             let message = error.localizedDescription
             self.errorMessage = message
@@ -357,13 +335,9 @@ public class PDFViewerViewModel: ObservableObject {
 
     /// Resolve the last PDF before opening it through the normal password flow.
     public func documentURLForRestoration() -> URL? {
-        guard let sessionURL, FileManager.default.fileExists(atPath: sessionURL.path) else { return nil }
         do {
-            let state = try JSONDecoder().decode(ReadingSession.self, from: Data(contentsOf: sessionURL))
-            var stale = false
-            let url = try URL(resolvingBookmarkData: state.bookmark, options: [.withoutUI], relativeTo: nil, bookmarkDataIsStale: &stale)
-            pendingSession = (url, state)
-            return url
+            pendingSession = try sessionStore.restoration()
+            return pendingSession?.url
         } catch {
             clearReadingSession()
             errorMessage = error.localizedDescription
@@ -372,15 +346,14 @@ public class PDFViewerViewModel: ObservableObject {
     }
 
     public func saveReadingSession() {
-        guard !isLoadingDocument, document != nil, let bookmark = documentBookmark, let sessionURL else { return }
-        let state = ReadingSession(
+        guard !isLoadingDocument, document != nil, let bookmark = documentBookmark else { return }
+        let state = ReadingSessionStore.State(
             bookmark: bookmark, pageIndex: currentPageIndex, searchQuery: searchQuery,
             isSpread: settings.isSpreadViewEnabled, isCover: settings.isCoverPageEnabled,
             isRightToLeft: settings.layoutDirection == .rightToLeft
         )
         do {
-            try FileManager.default.createDirectory(at: sessionURL.deletingLastPathComponent(), withIntermediateDirectories: true)
-            try JSONEncoder().encode(state).write(to: sessionURL, options: .atomic)
+            try sessionStore.save(state)
         } catch {
             errorMessage = error.localizedDescription
         }
@@ -389,8 +362,7 @@ public class PDFViewerViewModel: ObservableObject {
     public func clearReadingSession() {
         pendingSession = nil
         documentBookmark = nil
-        guard let sessionURL, FileManager.default.fileExists(atPath: sessionURL.path) else { return }
-        do { try FileManager.default.removeItem(at: sessionURL) }
+        do { try sessionStore.remove() }
         catch { errorMessage = error.localizedDescription }
     }
 
@@ -400,17 +372,8 @@ public class PDFViewerViewModel: ObservableObject {
             return
         }
 
-        guard let sessionURL, FileManager.default.fileExists(atPath: sessionURL.path) else { return }
         do {
-            let state = try JSONDecoder().decode(ReadingSession.self, from: Data(contentsOf: sessionURL))
-            var stale = false
-            let restoredURL = try URL(
-                resolvingBookmarkData: state.bookmark,
-                options: [.withoutUI],
-                relativeTo: nil,
-                bookmarkDataIsStale: &stale
-            )
-            if restoredURL.standardizedFileURL == url.standardizedFileURL {
+            if try sessionStore.containsSession(for: url) {
                 clearReadingSession()
             }
         } catch {
@@ -418,17 +381,10 @@ public class PDFViewerViewModel: ObservableObject {
         }
     }
 
-    private func stopCurrentAccess() {
-        if let url = securityScopedURL, isAccessingResource {
-            url.stopAccessingSecurityScopedResource()
-            isAccessingResource = false
-            securityScopedURL = nil
-        }
-    }
-
     public func cancelPendingDocumentLoad() {
+        cancelSearch()
         clearReadingSession()
-        stopCurrentAccess()
+        securityScopedResourceManager.stopAccessing()
         self.document = nil
         self.currentPageIndex = 0
     }
@@ -436,12 +392,12 @@ public class PDFViewerViewModel: ObservableObject {
     /// 現在のドキュメントを閉じる
     public func closeDocument() {
         AppDiagnostics.record(.documentClosed)
+        cancelSearch()
         clearReadingSession()
-        stopCurrentAccess()
+        securityScopedResourceManager.stopAccessing()
         self.document = nil
         self.currentPageIndex = 0
         self.searchQuery = ""
-        self.searchMatches = []
     }
 
     /// アプリ設定を初期状態に戻す
@@ -471,5 +427,51 @@ public class PDFViewerViewModel: ObservableObject {
             isSharpnessEnabled: self.settings.isSharpnessEnabled,
             isSinglePageInPortraitEnabled: self.settings.isSinglePageInPortraitEnabled
         )
+    }
+}
+
+extension PDFViewerViewModel: PDFDocumentDelegate {
+    public func didMatchString(_ instance: PDFSelection) {
+        guard let pdfDocument = activeSearchDocument,
+              let page = instance.pages.first else {
+            return
+        }
+
+        let pageIndex = pdfDocument.index(for: page)
+        guard pageIndex != NSNotFound else { return }
+
+        searchRectsByPage[pageIndex, default: []].append(instance.bounds(for: page))
+        searchSelectionCount += 1
+    }
+
+    public func documentDidEndDocumentFind(_ notification: Notification) {
+        guard let finishedDocument = notification.object as? PDFDocument,
+              finishedDocument === activeSearchDocument else {
+            return
+        }
+
+        activeSearchDocument = nil
+
+        searchMatches = searchRectsByPage.map { pageIndex, rects in
+            PDFSearchMatch(pageIndex: pageIndex, rects: rects)
+        }.sorted { $0.pageIndex < $1.pageIndex }
+        isSearching = false
+
+        if let searchStartedAt {
+            let duration = Self.elapsedMilliseconds(since: searchStartedAt)
+            AppDiagnostics.record(
+                .searchCompleted,
+                durationMilliseconds: duration,
+                numericValue: searchSelectionCount,
+                numericLabel: .matches
+            )
+            if duration >= 500 {
+                AppDiagnostics.record(.searchSlow, durationMilliseconds: duration)
+            }
+        }
+
+        searchRectsByPage = [:]
+        searchSelectionCount = 0
+        searchStartedAt = nil
     }
 }

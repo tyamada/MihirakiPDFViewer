@@ -16,6 +16,24 @@ import UniformTypeIdentifiers
 import UIKit
 import PDFKit
 
+private struct PDFPasswordPromptState {
+    var isPresented = false
+    var pendingURL: URL?
+    var password = ""
+    var message: String?
+
+    mutating func present(for url: URL, message: String? = nil) {
+        pendingURL = url
+        password = ""
+        self.message = message
+        isPresented = true
+    }
+
+    mutating func reset() {
+        self = PDFPasswordPromptState()
+    }
+}
+
 /// アプリケーションのメインビュー
 public struct MainView: View {
     @StateObject private var viewModel = PDFViewerViewModel(
@@ -35,10 +53,8 @@ public struct MainView: View {
     @State private var isPDFChromeVisible = false
     @State private var isScrollDirectionHintVisible = false
     @State private var scrollDirectionHintToken = UUID()
-    @State private var isShowingPDFPasswordPrompt = false
-    @State private var pendingPasswordPDFURL: URL?
-    @State private var pdfPassword = ""
-    @State private var pdfPasswordMessage: String?
+    @State private var pdfPasswordPrompt = PDFPasswordPromptState()
+    private let incomingPDFImporter = IncomingPDFImporter()
 
     public init() {}
 
@@ -63,9 +79,12 @@ public struct MainView: View {
                 }
                 .alert(
                     String(localized: "pdf_password_dialog_title", defaultValue: "Password Required"),
-                    isPresented: $isShowingPDFPasswordPrompt
+                    isPresented: $pdfPasswordPrompt.isPresented
                 ) {
-                    SecureField(String(localized: "pdf_password_placeholder", defaultValue: "Password"), text: $pdfPassword)
+                    SecureField(
+                        String(localized: "pdf_password_placeholder", defaultValue: "Password"),
+                        text: $pdfPasswordPrompt.password
+                    )
                         .accessibilityIdentifier("pdfPasswordField")
                     Button(String(localized: "cancel"), role: .cancel) {
                         cancelPDFPasswordPrompt()
@@ -73,10 +92,13 @@ public struct MainView: View {
                     Button(String(localized: "pdf_password_unlock_button", defaultValue: "Unlock")) {
                         unlockPendingPDF()
                     }
-                    .disabled(pdfPassword.isEmpty)
+                    .disabled(pdfPasswordPrompt.password.isEmpty)
                     .accessibilityIdentifier("pdfPasswordUnlockButton")
                 } message: {
-                    Text(pdfPasswordMessage ?? String(localized: "pdf_password_dialog_message", defaultValue: "Enter the user password for this PDF."))
+                    Text(
+                        pdfPasswordPrompt.message
+                            ?? String(localized: "pdf_password_dialog_message", defaultValue: "Enter the user password for this PDF.")
+                    )
                         .accessibilityIdentifier("pdfPasswordMessage")
                 }
                 .sheet(isPresented: $isShowingSettings) {
@@ -178,80 +200,12 @@ public struct MainView: View {
         }
 
         do {
-            let copiedURL = try copyIncomingPDFToDocuments(from: url)
+            let copiedURL = try incomingPDFImporter.copyImportedPDF(from: url)
             openPDF(at: copiedURL)
         } catch {
             AppDiagnostics.record(.incomingDocumentCopyFailed)
             viewModel.errorMessage = String(localized: "pdf_file_selection_failed", defaultValue: "Could not select the PDF file.")
         }
-    }
-
-    private func copyIncomingPDFToDocuments(from sourceURL: URL) throws -> URL {
-        let isAccessingResource = sourceURL.startAccessingSecurityScopedResource()
-        defer {
-            if isAccessingResource {
-                sourceURL.stopAccessingSecurityScopedResource()
-            }
-        }
-
-        let importedPDFDirectory = try importedPDFDirectoryURL()
-        let destinationURL = uniqueImportedPDFURL(
-            for: sourceURL.lastPathComponent.isEmpty ? "Document.pdf" : sourceURL.lastPathComponent,
-            in: importedPDFDirectory
-        )
-
-        var coordinationError: NSError?
-        var copyError: Error?
-        let coordinator = NSFileCoordinator(filePresenter: nil)
-        coordinator.coordinate(readingItemAt: sourceURL, options: [], error: &coordinationError) { readableURL in
-            do {
-                try FileManager.default.copyItem(at: readableURL, to: destinationURL)
-            } catch {
-                copyError = error
-            }
-        }
-
-        if let coordinationError {
-            throw coordinationError
-        }
-
-        if let copyError {
-            throw copyError
-        }
-
-        return destinationURL
-    }
-
-    private func importedPDFDirectoryURL() throws -> URL {
-        let documentsDirectory = try FileManager.default.url(
-            for: .documentDirectory,
-            in: .userDomainMask,
-            appropriateFor: nil,
-            create: true
-        )
-        let importedPDFDirectory = documentsDirectory.appendingPathComponent("ImportedPDFs", isDirectory: true)
-        try FileManager.default.createDirectory(at: importedPDFDirectory, withIntermediateDirectories: true)
-        return importedPDFDirectory
-    }
-
-    private func uniqueImportedPDFURL(for fileName: String, in directory: URL) -> URL {
-        let fileExtension = (fileName as NSString).pathExtension
-        let baseName = (fileName as NSString).deletingPathExtension
-        let sanitizedBaseName = baseName.isEmpty ? "Document" : baseName
-        let sanitizedExtension = fileExtension.isEmpty ? "pdf" : fileExtension
-        var candidateURL = directory
-            .appendingPathComponent(sanitizedBaseName)
-            .appendingPathExtension(sanitizedExtension)
-        var copyIndex = 2
-
-        while FileManager.default.fileExists(atPath: candidateURL.path) {
-            candidateURL = directory
-                .appendingPathComponent("\(sanitizedBaseName)-\(copyIndex)")
-                .appendingPathExtension(sanitizedExtension)
-            copyIndex += 1
-        }
-
-        return candidateURL
     }
 
     private func initializeDocumentIfNeeded() {
@@ -263,7 +217,7 @@ public struct MainView: View {
         if ProcessInfo.processInfo.arguments.contains("-uiTestResetReadingSession") {
             viewModel.clearReadingSession()
         }
-        guard viewModel.document == nil, pendingPasswordPDFURL == nil else { return }
+        guard viewModel.document == nil, pdfPasswordPrompt.pendingURL == nil else { return }
 
         if let url = uiTestIncomingPDFURLFromLaunchArguments() {
             handleIncomingPDFURL(url)
@@ -314,45 +268,39 @@ public struct MainView: View {
     }
 
     private func finishPDFLoad() {
-        pendingPasswordPDFURL = nil
-        pdfPassword = ""
-        pdfPasswordMessage = nil
-        isShowingPDFPasswordPrompt = false
+        pdfPasswordPrompt.reset()
         isPDFChromeVisible = false
         showScrollDirectionHint()
     }
 
     private func presentPDFPasswordPrompt(for url: URL, message: String? = nil) {
-        pendingPasswordPDFURL = url
-        pdfPassword = ""
-        pdfPasswordMessage = message
-        isShowingPDFPasswordPrompt = true
+        pdfPasswordPrompt.present(for: url, message: message)
     }
 
     private func unlockPendingPDF() {
-        guard let url = pendingPasswordPDFURL else {
+        guard let url = pdfPasswordPrompt.pendingURL else {
             return
         }
 
-        let password = pdfPassword
+        let password = pdfPasswordPrompt.password
         Task { @MainActor in
             switch viewModel.loadDocument(from: url, password: password) {
             case .loaded:
                 finishPDFLoad()
             case .invalidPassword:
-                isShowingPDFPasswordPrompt = false
-                pdfPassword = ""
-                pdfPasswordMessage = String(
+                pdfPasswordPrompt.isPresented = false
+                pdfPasswordPrompt.password = ""
+                pdfPasswordPrompt.message = String(
                     localized: "pdf_password_incorrect",
                     defaultValue: "The password is incorrect."
                 )
                 try? await Task.sleep(for: .milliseconds(200))
-                isShowingPDFPasswordPrompt = true
+                pdfPasswordPrompt.isPresented = true
             case .passwordRequired:
-                isShowingPDFPasswordPrompt = false
-                pdfPassword = ""
+                pdfPasswordPrompt.isPresented = false
+                pdfPasswordPrompt.password = ""
                 try? await Task.sleep(for: .milliseconds(200))
-                isShowingPDFPasswordPrompt = true
+                pdfPasswordPrompt.isPresented = true
             case .failed:
                 break
             }
@@ -360,9 +308,7 @@ public struct MainView: View {
     }
 
     private func cancelPDFPasswordPrompt() {
-        pendingPasswordPDFURL = nil
-        pdfPassword = ""
-        pdfPasswordMessage = nil
+        pdfPasswordPrompt.reset()
         viewModel.cancelPendingDocumentLoad()
     }
 
