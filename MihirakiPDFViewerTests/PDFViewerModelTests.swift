@@ -583,6 +583,58 @@ final class PDFViewerViewModelTests: XCTestCase {
         XCTAssertFalse(SpreadLayoutView.pageComesBeforeBlankPage(layoutDirection: .rightToLeft))
     }
 
+    func testPageImageCacheReusesMatchingRenderingConfiguration() {
+        let cache = PDFPageImageCache(countLimit: 2, totalCostLimit: 1_024)
+        let page = PDFPage()
+        let expectedImage = UIImage()
+        var renderCount = 0
+
+        let render: () -> UIImage = {
+            renderCount += 1
+            return expectedImage
+        }
+        let firstImage = cache.image(
+            for: page,
+            displaySize: CGSize(width: 100, height: 200),
+            displayScale: 2,
+            isHighQualityRenderingEnabled: false,
+            isSharpnessEnabled: false,
+            render: render
+        )
+        let secondImage = cache.image(
+            for: page,
+            displaySize: CGSize(width: 100, height: 200),
+            displayScale: 2,
+            isHighQualityRenderingEnabled: false,
+            isSharpnessEnabled: false,
+            render: render
+        )
+
+        XCTAssertTrue(firstImage === secondImage)
+        XCTAssertEqual(renderCount, 1)
+    }
+
+    func testPageImageCacheSeparatesRenderingSettings() {
+        let cache = PDFPageImageCache(countLimit: 2, totalCostLimit: 1_024)
+        let page = PDFPage()
+        var renderCount = 0
+
+        for sharpnessEnabled in [false, true] {
+            _ = cache.image(
+                for: page,
+                displaySize: CGSize(width: 100, height: 200),
+                displayScale: 2,
+                isHighQualityRenderingEnabled: false,
+                isSharpnessEnabled: sharpnessEnabled
+            ) {
+                renderCount += 1
+                return UIImage()
+            }
+        }
+
+        XCTAssertEqual(renderCount, 2)
+    }
+
     private func searchCompletionExpectation(for viewModel: PDFViewerViewModel) -> XCTestExpectation {
         XCTNSPredicateExpectation(
             predicate: NSPredicate { _, _ in !viewModel.isSearching },

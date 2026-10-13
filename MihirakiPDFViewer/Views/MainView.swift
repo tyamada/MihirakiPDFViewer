@@ -623,6 +623,7 @@ struct PDFContainerView: View {
             viewModel.performSearch(query: query)
         }
         .onChange(of: viewModel.document?.id) { _, _ in
+            PDFPageImageCache.shared.removeAllImages()
             resetZoomScale()
         }
         .onChange(of: viewModel.pageGroups.count) { _, newCount in

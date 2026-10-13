@@ -17,6 +17,93 @@ import PDFKit
 import SwiftUI
 import UIKit
 
+final class PDFPageImageCache {
+    static let shared = PDFPageImageCache()
+
+    private let cache = NSCache<PDFPageRenderKey, UIImage>()
+
+    init(countLimit: Int = 24, totalCostLimit: Int = 128 * 1_024 * 1_024) {
+        cache.countLimit = countLimit
+        cache.totalCostLimit = totalCostLimit
+    }
+
+    func image(
+        for page: PDFPage,
+        displaySize: CGSize,
+        displayScale: CGFloat,
+        isHighQualityRenderingEnabled: Bool,
+        isSharpnessEnabled: Bool,
+        render: () -> UIImage
+    ) -> UIImage {
+        let key = PDFPageRenderKey(
+            page: page,
+            displaySize: displaySize,
+            displayScale: displayScale,
+            isHighQualityRenderingEnabled: isHighQualityRenderingEnabled,
+            isSharpnessEnabled: isSharpnessEnabled
+        )
+        if let cachedImage = cache.object(forKey: key) {
+            return cachedImage
+        }
+
+        let image = render()
+        let pixelWidth = Int((image.size.width * image.scale).rounded(.up))
+        let pixelHeight = Int((image.size.height * image.scale).rounded(.up))
+        let estimatedCost = pixelWidth * pixelHeight * 4
+        cache.setObject(image, forKey: key, cost: estimatedCost)
+        return image
+    }
+
+    func removeAllImages() {
+        cache.removeAllObjects()
+    }
+}
+
+private final class PDFPageRenderKey: NSObject {
+    private let page: PDFPage
+    private let width: CGFloat
+    private let height: CGFloat
+    private let displayScale: CGFloat
+    private let isHighQualityRenderingEnabled: Bool
+    private let isSharpnessEnabled: Bool
+
+    init(
+        page: PDFPage,
+        displaySize: CGSize,
+        displayScale: CGFloat,
+        isHighQualityRenderingEnabled: Bool,
+        isSharpnessEnabled: Bool
+    ) {
+        self.page = page
+        self.width = displaySize.width
+        self.height = displaySize.height
+        self.displayScale = displayScale
+        self.isHighQualityRenderingEnabled = isHighQualityRenderingEnabled
+        self.isSharpnessEnabled = isSharpnessEnabled
+    }
+
+    override var hash: Int {
+        var hasher = Hasher()
+        hasher.combine(ObjectIdentifier(page))
+        hasher.combine(width)
+        hasher.combine(height)
+        hasher.combine(displayScale)
+        hasher.combine(isHighQualityRenderingEnabled)
+        hasher.combine(isSharpnessEnabled)
+        return hasher.finalize()
+    }
+
+    override func isEqual(_ object: Any?) -> Bool {
+        guard let other = object as? PDFPageRenderKey else { return false }
+        return page === other.page
+            && width == other.width
+            && height == other.height
+            && displayScale == other.displayScale
+            && isHighQualityRenderingEnabled == other.isHighQualityRenderingEnabled
+            && isSharpnessEnabled == other.isSharpnessEnabled
+    }
+}
+
 public enum PageAlignment {
     case left
     case center
@@ -25,6 +112,8 @@ public enum PageAlignment {
 
 /// 個々のページを表示するためのSwiftUIビュー
 public struct PageView: View {
+    private static let imageContext = CIContext()
+
     @Environment(\.displayScale) private var displayScale
 
     let page: PDFPage
@@ -72,7 +161,7 @@ public struct PageView: View {
 
             ZStack(alignment: .topLeading) {
                 // PDFページの描画
-                Image(uiImage: renderedPageImage(displaySize: size))
+                Image(uiImage: cachedPageImage(displaySize: size))
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: size.width, height: size.height)
@@ -91,6 +180,18 @@ public struct PageView: View {
                 }
             }
             .frame(width: size.width, height: size.height)
+        }
+    }
+
+    private func cachedPageImage(displaySize: CGSize) -> UIImage {
+        PDFPageImageCache.shared.image(
+            for: page,
+            displaySize: displaySize,
+            displayScale: displayScale,
+            isHighQualityRenderingEnabled: isHighQualityRenderingEnabled,
+            isSharpnessEnabled: isSharpnessEnabled
+        ) {
+            renderedPageImage(displaySize: displaySize)
         }
     }
 
@@ -179,7 +280,7 @@ public struct PageView: View {
         filter.sharpness = 0.45
 
         guard let outputImage = filter.outputImage,
-              let cgImage = CIContext().createCGImage(outputImage, from: inputImage.extent) else {
+              let cgImage = Self.imageContext.createCGImage(outputImage, from: inputImage.extent) else {
             return nil
         }
 
