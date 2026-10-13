@@ -11,15 +11,16 @@
 // For the full license text, please see the LICENSE file in the root directory.
 //
 
-import Combine
 import Foundation
+import Observation
 import StoreKit
 import SwiftUI
 import UIKit
 
 /// 投げ銭（チップ）の購入と管理を行うマネージャー
 @MainActor
-public class TipManager: ObservableObject {
+@Observable
+public class TipManager {
     public static let shared = TipManager()
 
     public static let koyomiV2BadgeProductID = "supporter_badge_koyomi_v2"
@@ -32,17 +33,19 @@ public class TipManager: ObservableObject {
         koyomiV2BadgeProductID
     ]
     
-    @Published public private(set) var products: [Product] = []
-    @Published public var isPurchaseSuccess: Bool = false
-    @Published public var lastPurchasedProductID: String? = nil
-    @Published public private(set) var pendingAppIconName: String? = nil
-    @Published public private(set) var ownedProductIDs: Set<String> = []
-    @Published public private(set) var isRestoringPurchases = false
-    @Published public private(set) var restoreMessage: String? = nil
-    @Published public private(set) var currentAppIconName: String? = UIApplication.shared.alternateIconName
-    @Published public private(set) var errorMessage: String? = nil
+    public private(set) var products: [Product] = []
+    public var isPurchaseSuccess: Bool = false
+    public var lastPurchasedProductID: String? = nil
+    public private(set) var pendingAppIconName: String? = nil
+    public private(set) var ownedProductIDs: Set<String> = []
+    public private(set) var isRestoringPurchases = false
+    public private(set) var restoreMessage: String? = nil
+    public private(set) var currentAppIconName: String? = UIApplication.shared.alternateIconName
+    public private(set) var errorMessage: String? = nil
     
+    @ObservationIgnored
     private var transactionUpdates: Task<Void, Never>?
+    @ObservationIgnored
     private var purchaseIntentUpdates: Task<Void, Never>?
     
     private init() {

@@ -42,7 +42,7 @@ public struct MainView: View {
     @Environment(\.scenePhase) private var scenePhase
     @State private var didInitializeDocument = false
 
-    @StateObject private var tipManager = TipManager.shared
+    @State private var tipManager = TipManager.shared
     @State private var isShowingFilePicker = false
     @State private var isShowingErrorAlert = false
     @State private var isShowingSettings = false

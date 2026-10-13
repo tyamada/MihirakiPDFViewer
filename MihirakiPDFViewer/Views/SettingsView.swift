@@ -801,7 +801,7 @@ struct HelpView: View {
 }
 
 struct TipSelectionView: View {
-    @ObservedObject var tipManager: TipManager
+    let tipManager: TipManager
     @Environment(\.purchase) private var purchaseAction
     @Environment(\.colorScheme) private var colorScheme
     @State private var purchasingProductID: String?
