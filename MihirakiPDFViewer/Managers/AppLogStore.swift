@@ -8,14 +8,14 @@
 import Foundation
 import OSLog
 
-enum AppLogLevel: String, Codable, Sendable {
+nonisolated enum AppLogLevel: String, Codable, Sendable {
     case info
     case warning
     case error
     case fault
 }
 
-enum AppLogCategory: String, Codable, Sendable {
+nonisolated enum AppLogCategory: String, Codable, Sendable {
     case lifecycle
     case navigation
     case document
@@ -24,13 +24,13 @@ enum AppLogCategory: String, Codable, Sendable {
     case settings
 }
 
-enum AppLogNumericLabel: String, Codable, Sendable {
+nonisolated enum AppLogNumericLabel: String, Codable, Sendable {
     case page
     case pages
     case matches
 }
 
-enum AppLogEvent: String, Codable, Sendable {
+nonisolated enum AppLogEvent: String, Codable, Sendable {
     case appLaunched = "App launched"
     case appBecameActive = "App became active"
     case appBecameInactive = "App became inactive"
@@ -94,7 +94,7 @@ enum AppLogEvent: String, Codable, Sendable {
     }
 }
 
-struct AppLogEntry: Codable, Equatable, Identifiable, Sendable {
+nonisolated struct AppLogEntry: Codable, Equatable, Identifiable, Sendable {
     let id: UUID
     let timestamp: Date
     let level: AppLogLevel

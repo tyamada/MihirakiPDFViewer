@@ -9,7 +9,7 @@ import Foundation
 
 /// Persists the document bookmark and reader state without retaining a PDF password.
 struct ReadingSessionStore {
-    struct State: Codable, Equatable {
+    nonisolated struct State: Codable, Equatable, Sendable {
         var bookmark: Data
         var pageIndex: Int
         var searchQuery: String
@@ -18,7 +18,7 @@ struct ReadingSessionStore {
         var isRightToLeft: Bool
     }
 
-    struct Restoration: Equatable {
+    nonisolated struct Restoration: Equatable, Sendable {
         let url: URL
         let state: State
     }
