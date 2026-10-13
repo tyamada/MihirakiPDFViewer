@@ -19,6 +19,8 @@ public struct SettingsView: View {
     @ObservedObject var viewModel: PDFViewerViewModel
     @Environment(\.dismiss) var dismiss
     @Environment(\.colorScheme) private var colorScheme
+    @State private var isShowingPromotionCodeInstructions = false
+    @State private var isShowingTipSelection = false
     
     public init(viewModel: PDFViewerViewModel) {
         self.viewModel = viewModel
@@ -240,6 +242,16 @@ public struct SettingsView: View {
                     .frame(maxWidth: .infinity)
                     .accessibilityIdentifier("supportButton")
                     .accessibilityHint(String(localized: "supporter_icon_store_accessibility_hint", defaultValue: "Opens the supporter icon store."))
+
+                    Button {
+                        isShowingPromotionCodeInstructions = true
+                    } label: {
+                        Text(String(localized: "enter_promotion_code", defaultValue: "Enter Promotion Code"))
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(HighContrastSettingsButtonStyle())
+                    .frame(maxWidth: .infinity)
+                    .accessibilityIdentifier("enterPromotionCodeButton")
                 }
                 .padding(.vertical)
                 .background(settingsBackgroundColor)
@@ -251,6 +263,23 @@ public struct SettingsView: View {
         .background(settingsBackgroundColor)
         .accessibilityIdentifier("settingsScreen")
         .navigationTitle(String(localized: "settings"))
+        .navigationDestination(isPresented: $isShowingTipSelection) {
+            TipSelectionView(tipManager: TipManager.shared)
+        }
+        .alert(
+            String(localized: "enter_promotion_code", defaultValue: "Enter Promotion Code"),
+            isPresented: $isShowingPromotionCodeInstructions
+        ) {
+            Button(String(localized: "go_to_support_screen", defaultValue: "Go to Support Screen")) {
+                isShowingTipSelection = true
+            }
+            Button(String(localized: "cancel", defaultValue: "Cancel"), role: .cancel) {}
+        } message: {
+            Text(String(
+                localized: "promotion_code_instructions",
+                defaultValue: "To use a promotion code, go to the Support screen and enter the code from the promotion code option."
+            ))
+        }
     }
 }
 
@@ -776,6 +805,7 @@ struct TipSelectionView: View {
     @Environment(\.purchase) private var purchaseAction
     @Environment(\.colorScheme) private var colorScheme
     @State private var purchasingProductID: String?
+    @State private var isShowingPromotionCodeRedemption = false
 
     private var settingsTextColor: Color {
         colorScheme == .dark ? .white : .black
@@ -820,6 +850,12 @@ struct TipSelectionView: View {
                         }
                     }
                 }
+
+                Button(String(localized: "redeem_promotion_code", defaultValue: "Redeem Promotion Code")) {
+                    isShowingPromotionCodeRedemption = true
+                }
+                .disabled(purchasingProductID != nil)
+                .accessibilityIdentifier("redeemPromotionCodeButton")
 
                 Button {
                     Task { await tipManager.restorePurchases() }
@@ -874,6 +910,9 @@ struct TipSelectionView: View {
         }
         .accessibilityIdentifier("tipSelectionScreen")
         .navigationTitle(String(localized: "tip_selection_title", defaultValue: "Support"))
+        .offerCodeRedemption(isPresented: $isShowingPromotionCodeRedemption) { _ in
+            // The transaction listener in TipManager applies successful redemptions.
+        }
         .task {
             await tipManager.updateStorefront()
         }

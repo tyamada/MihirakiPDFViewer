@@ -1855,6 +1855,23 @@
         }
       }
     },
+    "enter_promotion_code" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Enter Promotion Code"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "プロモコードを入力"
+          }
+        }
+      }
+    },
     "error" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2109,6 +2126,23 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "失敗"
+          }
+        }
+      }
+    },
+    "go_to_support_screen" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Go to Support Screen"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "応援画面へ移動"
           }
         }
       }
@@ -6896,6 +6930,23 @@
         }
       }
     },
+    "promotion_code_instructions" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "To use a promotion code, go to the Support screen and enter the code from the promotion code option."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "プロモーションコードを利用するには、応援画面へ移動し、「プロモーションコードを使う」を選んでコードを入力してください。"
+          }
+        }
+      }
+    },
     "Protect your privacy" : {
       "localizations" : {
         "ja" : {
@@ -7142,7 +7193,7 @@
       }
     },
     "redeem_promotion_code" : {
-      "extractionState" : "stale",
+      "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
