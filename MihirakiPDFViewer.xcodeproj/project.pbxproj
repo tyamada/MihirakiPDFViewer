@@ -42,6 +42,7 @@
 		ECEE8DC2307F5E6B00ED7C76 /* PDFPageImageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8DC1307F5E6B00ED7C76 /* PDFPageImageRenderer.swift */; };
 		ECEE8DC4307F69D500ED7C76 /* SettingsSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8DC3307F69D500ED7C76 /* SettingsSections.swift */; };
 		ECEE8DC6307F6AAE00ED7C76 /* DeviceTestRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8DC5307F6AAE00ED7C76 /* DeviceTestRunner.swift */; };
+		ECEE8DC8307F6B5B00ED7C76 /* SamplePDFListComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8DC7307F6B5B00ED7C76 /* SamplePDFListComponents.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		ECEE8DC1307F5E6B00ED7C76 /* PDFPageImageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPageImageRenderer.swift; sourceTree = "<group>"; };
 		ECEE8DC3307F69D500ED7C76 /* SettingsSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSections.swift; sourceTree = "<group>"; };
 		ECEE8DC5307F6AAE00ED7C76 /* DeviceTestRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTestRunner.swift; sourceTree = "<group>"; };
+		ECEE8DC7307F6B5B00ED7C76 /* SamplePDFListComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePDFListComponents.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -210,6 +212,7 @@
 				ECEE8DBF307F313E00ED7C76 /* MainPresentationViews.swift */,
 				ECEE8DC1307F5E6B00ED7C76 /* PDFPageImageRenderer.swift */,
 				ECEE8DC3307F69D500ED7C76 /* SettingsSections.swift */,
+				ECEE8DC7307F6B5B00ED7C76 /* SamplePDFListComponents.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				ECEE8DA0307EDB6200ED7C76 /* ReadingSessionStore.swift in Sources */,
 				EC21F81230317A270062D47C /* TipManager.swift in Sources */,
 				EC58BDC730774AB40060F37C /* SamplePDFListView.swift in Sources */,
+				ECEE8DC8307F6B5B00ED7C76 /* SamplePDFListComponents.swift in Sources */,
 				EC23F6433074054900F32816 /* AppLogStore.swift in Sources */,
 				ECEE8D9E307ED9FD00ED7C76 /* IncomingPDFImporter.swift in Sources */,
 				ECEE8DAC307F168A00ED7C76 /* TipSelectionView.swift in Sources */,
