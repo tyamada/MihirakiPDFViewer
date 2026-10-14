@@ -384,12 +384,6 @@ public struct MainView: View {
                 .ignoresSafeArea(.container, edges: .top)
                 .accessibilityIdentifier("pdfViewerScreen")
 
-                if isPDFChromeVisible {
-                    pdfTopControls
-                        .frame(maxHeight: .infinity, alignment: .top)
-                        .transition(.move(edge: .top).combined(with: .opacity))
-                }
-
                 if isPDFChromeVisible && viewModel.pageGroups.count > 1 {
                     VStack(spacing: 8) {
                         Slider(value: Binding(
@@ -425,44 +419,49 @@ public struct MainView: View {
             }
             .navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar(.hidden, for: .navigationBar)
+            .toolbar {
+                pdfToolbar
+            }
+            .toolbarVisibility(isPDFChromeVisible ? .visible : .hidden, for: .navigationBar)
         } else {
             makeEmptyStateView()
         }
     }
 
-    private var pdfTopControls: some View {
-        HStack(spacing: 12) {
+    @ToolbarContentBuilder
+    private var pdfToolbar: some ToolbarContent {
+        ToolbarItem(placement: .topBarLeading) {
             Button {
                 AppDiagnostics.record(.settingsOpened)
                 isShowingSettings = true
             } label: {
                 Image(systemName: "gearshape")
-                    .frame(width: 32, height: 32)
             }
             .accessibilityLabel(String(localized: "settings"))
             .accessibilityIdentifier("settingsButton")
+        }
 
-            HStack {
+        ToolbarItem(placement: .principal) {
+            HStack(spacing: 6) {
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(.secondary)
                 TextField(String(localized: "search"), text: $viewModel.searchQuery)
                     .textFieldStyle(.roundedBorder)
                     .accessibilityIdentifier("searchField")
             }
+            .frame(minWidth: 140, idealWidth: 280, maxWidth: 420)
+        }
 
+        ToolbarItem(placement: .topBarTrailing) {
             Button {
                 isPDFChromeVisible = false
                 viewModel.closeDocument()
             } label: {
-                Text(String(localized: "close"))
-                    .frame(minWidth: 32, minHeight: 32)
+                Image(systemName: "xmark")
             }
+            .accessibilityLabel(String(localized: "close"))
             .accessibilityIdentifier("closeDocumentButton")
         }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 8)
-        .background(.regularMaterial)
     }
 
     @ViewBuilder
