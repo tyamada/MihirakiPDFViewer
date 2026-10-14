@@ -60,7 +60,28 @@ public struct MainView: View {
 
     public var body: some View {
         NavigationStack {
-            makeDetailView()
+            MainContentView(
+                viewModel: viewModel,
+                isPDFChromeVisible: $isPDFChromeVisible,
+                isScrollDirectionHintVisible: isScrollDirectionHintVisible,
+                selectPDF: {
+                    AppDiagnostics.record(.documentPickerOpened)
+                    isShowingFilePicker = true
+                },
+                openDocument: { url in
+                    openPDF(at: url)
+                },
+                didDeleteDocument: { url in
+                    viewModel.clearReadingSession(ifMatching: url)
+                },
+                openReaderSettings: {
+                    AppDiagnostics.record(.settingsOpened)
+                    isShowingSettings = true
+                },
+                openEmptyStateSettings: {
+                    isShowingSettings = true
+                }
+            )
                 .alert(String(localized: "error_title"), isPresented: $isShowingErrorAlert) {
                     Button(String(localized: "ok")) {
                         viewModel.errorMessage = nil
@@ -98,7 +119,10 @@ public struct MainView: View {
                         .accessibilityIdentifier("pdfPasswordMessage")
                 }
                 .sheet(isPresented: $isShowingSettings) {
-                    settingsSheet
+                    SettingsSheetView(
+                        viewModel: viewModel,
+                        isPresented: $isShowingSettings
+                    )
                 }
                 .alert(
                     String(localized: "tip_success_title", defaultValue: "Thank You for Your Support!"),
@@ -299,87 +323,5 @@ public struct MainView: View {
                 }
             }
         }
-    }
-
-    @ViewBuilder
-    private var settingsSheet: some View {
-        NavigationStack {
-            SettingsView(viewModel: viewModel)
-                .navigationTitle(String(localized: "settings"))
-                .toolbar {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Button {
-                            isShowingSettings = false
-                        } label: {
-                            Image(systemName: "xmark.circle.fill")
-                                .foregroundStyle(.primary)
-                        }
-                        .accessibilityLabel(String(localized: "close"))
-                        .accessibilityIdentifier("settingsCloseButton")
-                    }
-                }
-        }
-    }
-
-    @ViewBuilder
-    private func makeDetailView() -> some View {
-        if viewModel.document != nil {
-            ZStack(alignment: .bottom) {
-                PDFContainerView(
-                    viewModel: viewModel,
-                    isPDFChromeVisible: $isPDFChromeVisible,
-                    isScrollDirectionHintVisible: isScrollDirectionHintVisible
-                )
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .ignoresSafeArea(.container, edges: .top)
-                .accessibilityIdentifier("pdfViewerScreen")
-
-                if isPDFChromeVisible && viewModel.pageGroups.count > 1 {
-                    PDFPageSliderView(
-                        currentPageIndex: $viewModel.currentPageIndex,
-                        pageCount: viewModel.pageGroups.count,
-                        layoutDirection: viewModel.settings.layoutDirection
-                    )
-                    .transition(.move(edge: .bottom).combined(with: .opacity))
-                }
-            }
-            .navigationTitle("")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                PDFReaderToolbar(
-                    searchQuery: $viewModel.searchQuery,
-                    openSettings: {
-                        AppDiagnostics.record(.settingsOpened)
-                        isShowingSettings = true
-                    },
-                    closeDocument: {
-                        isPDFChromeVisible = false
-                        viewModel.closeDocument()
-                    }
-                )
-            }
-            .toolbarVisibility(isPDFChromeVisible ? .visible : .hidden, for: .navigationBar)
-        } else {
-            makeEmptyStateView()
-        }
-    }
-
-    @ViewBuilder
-    private func makeEmptyStateView() -> some View {
-        PDFEmptyStateView(
-            selectPDF: {
-                AppDiagnostics.record(.documentPickerOpened)
-                isShowingFilePicker = true
-            },
-            openDocument: { url in
-                openPDF(at: url)
-            },
-            didDeleteDocument: { url in
-                viewModel.clearReadingSession(ifMatching: url)
-            },
-            openSettings: {
-                isShowingSettings = true
-            }
-        )
     }
 }
