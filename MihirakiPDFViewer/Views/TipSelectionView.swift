@@ -2,76 +2,203 @@
 // TipSelectionView.swift
 // MihirakiPDFViewer
 //
-// Created by Cline on 2026/08/16.
+// Copyright 2026 Takuma Yamada.
 //
 
-import SwiftUI
 import StoreKit
+import SwiftUI
 
-/// 投げ銭（チップ）を選択するためのビュー
-public struct TipSelectionView: View {
-    @Environment(\.dismiss) var dismiss
-    @ObservedObject var tipManager: TipManager
-    
-    public var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack(spacing: 20) {
-                    Text(String(localized: "developer_support_title", defaultValue: "開発者への応援"))
-                        .font(.title2)
-                        .fontWeight(.bold)
-                    
-                    Text(String(localized: "developer_support_description", defaultValue: "あなたの応援が、アプリの継続的なアップデートに繋がります。購入しなくてもすべての機能を使用できます。"))
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
+struct TipSelectionView: View {
+    let tipManager: TipManager
+    @Environment(\.purchase) private var purchaseAction
+    @Environment(\.colorScheme) private var colorScheme
+    @State private var purchasingProductID: String?
+    @State private var isShowingPromotionCodeRedemption = false
+
+    private var settingsTextColor: Color {
+        colorScheme == .dark ? .white : .black
+    }
+
+    var body: some View {
+        List {
+            Section {
+                if let errorMessage = tipManager.errorMessage {
+                    Text(errorMessage)
+                        .font(.caption)
+                        .foregroundColor(settingsTextColor)
                         .multilineTextAlignment(.center)
-                        .padding(.horizontal)
-                    
-                    VStack(spacing: 12) {
-                        ForEach(tipManager.products) { product in
-                            Button(action: {
-                                Task {
-                                    await tipManager.purchase(product)
-                                }
-                            }) {
-                                HStack {
-                                    Text(product.displayPrice)
-                                        .fontWeight(.semibold)
-                                    Spacer()
-                                    Image(systemName: "heart.fill")
-                                        .foregroundColor(.red)
-                                }
-                                .padding()
-                                .frame(maxWidth: .infinity)
-                                .background(Color.blue.opacity(0.1))
-                                .cornerRadius(12)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 12)
-                                        .stroke(Color.blue, lineWidth: 1)
-                                )
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .padding(.vertical)
+                } else if tipManager.products.isEmpty {
+                    HStack {
+                        Spacer()
+                        ProgressView()
+                        Spacer()
+                    }
+                    .padding(.vertical)
+                } else {
+                    ForEach(
+                        tipManager.products.filter { $0.id != TipManager.koyomiV2BadgeProductID },
+                        id: \.id
+                    ) { product in
+                        HStack(spacing: 12) {
+                            Image(tipIconName(for: product.id))
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 44, height: 44)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                .accessibilityHidden(true)
+
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text(tipDisplayName(for: product.id))
+                                    .font(.headline)
+                                Text(tipDescription(for: product.id))
+                                    .font(.caption)
+                                    .foregroundColor(settingsTextColor)
                             }
+                            Spacer()
+                            productAction(for: product)
                         }
                     }
-                    .padding(.horizontal)
-                    
-                    if !tipManager.products.isEmpty {
-                        Text("※購入はApp Storeを通じて行われます。")
-                            .font(.caption2)
-                            .foregroundColor(.secondary)
-                            .padding(.top)
+                }
+
+                Button(String(localized: "redeem_promotion_code", defaultValue: "Redeem Promotion Code")) {
+                    isShowingPromotionCodeRedemption = true
+                }
+                .disabled(purchasingProductID != nil)
+                .accessibilityIdentifier("redeemPromotionCodeButton")
+
+                Button {
+                    Task { await tipManager.restorePurchases() }
+                } label: {
+                    if tipManager.isRestoringPurchases {
+                        HStack {
+                            ProgressView()
+                            Text(String(localized: "restoring_purchases", defaultValue: "Restoring Purchases…"))
+                        }
+                    } else {
+                        Text(String(localized: "restore_purchases", defaultValue: "Restore Purchases"))
                     }
                 }
-                .padding(.vertical)
+                .disabled(tipManager.isRestoringPurchases || purchasingProductID != nil)
+                .accessibilityIdentifier("restorePurchasesButton")
+
+                if let restoreMessage = tipManager.restoreMessage {
+                    Text(restoreMessage)
+                        .font(.footnote)
+                        .foregroundColor(settingsTextColor)
+                }
+            } footer: {
+                Text(String(localized: "supporter_icon_purchase_description", defaultValue: "Each purchase permanently unlocks its supporter icon. Restore purchases on another device using the same Apple Account."))
+                    .font(.body)
+                    .foregroundColor(settingsTextColor)
             }
-            .navigationTitle(String(localized: "tip_selection_title", defaultValue: "応援を選択"))
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("閉じる") {
-                        dismiss()
+
+            if tipManager.isPurchased(TipManager.koyomiV2BadgeProductID) {
+                Section {
+                    HStack(spacing: 16) {
+                        Image("KoyomiV2Badge")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 72, height: 72)
+                            .accessibilityHidden(true)
+
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(String(localized: "koyomi_v2_badge_name", defaultValue: "Ver. 2.0 Release Commemorative Koyomi Badge"))
+                                .font(.headline)
+                            Text(String(localized: "promotion_code_badge", defaultValue: "Promotion code badge"))
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
                     }
+                    .accessibilityElement(children: .combine)
+                    .accessibilityIdentifier("ownedBadge_koyomiV2")
+                } header: {
+                    Text(String(localized: "owned_badges", defaultValue: "Owned Badges"))
                 }
             }
+        }
+        .accessibilityIdentifier("tipSelectionScreen")
+        .navigationTitle(String(localized: "tip_selection_title", defaultValue: "Support"))
+        .offerCodeRedemption(isPresented: $isShowingPromotionCodeRedemption) { _ in
+            // The transaction listener in TipManager applies successful redemptions.
+        }
+        .task {
+            await tipManager.updateStorefront()
+        }
+    }
+
+    private func tipIconName(for productID: String) -> String {
+        switch productID {
+        case "supporter_icon_bronze":
+            "TipIconBronze"
+        case "supporter_icon_silver":
+            "TipIconSilver"
+        case "supporter_icon_gold":
+            "TipIconGold"
+        default:
+            "TipIconGold"
+        }
+    }
+
+    private func tipDisplayName(for productID: String) -> LocalizedStringResource {
+        switch productID {
+        case "supporter_icon_bronze":
+            "tip_100_name"
+        case "supporter_icon_silver":
+            "tip_500_name"
+        case "supporter_icon_gold":
+            "tip_1000_name"
+        default:
+            "tip_selection_title"
+        }
+    }
+
+    private func tipDescription(for productID: String) -> LocalizedStringResource {
+        switch productID {
+        case "supporter_icon_bronze":
+            "tip_100_description"
+        case "supporter_icon_silver":
+            "tip_500_description"
+        case "supporter_icon_gold":
+            "tip_1000_description"
+        default:
+            "developer_support_description"
+        }
+    }
+
+    private func purchase(_ product: Product) {
+        purchasingProductID = product.id
+        Task {
+            await tipManager.purchase(product, using: purchaseAction)
+            purchasingProductID = nil
+        }
+    }
+
+    @ViewBuilder
+    private func productAction(for product: Product) -> some View {
+        if purchasingProductID == product.id {
+            ProgressView()
+        } else if tipManager.isPurchased(product.id) {
+            let iconName = TipManager.appIconName(for: product.id)
+            if tipManager.currentAppIconName == iconName {
+                Text(String(localized: "supporter_icon_in_use", defaultValue: "In Use"))
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            } else {
+                Button(String(localized: "use_supporter_icon", defaultValue: "Use Icon")) {
+                    Task { _ = await tipManager.changeAppIcon(named: iconName) }
+                }
+                .buttonStyle(.bordered)
+                .accessibilityIdentifier("useSupporterIconButton_\(product.id)")
+            }
+        } else {
+            Button(product.displayPrice) {
+                purchase(product)
+            }
+            .buttonStyle(.borderedProminent)
+            .disabled(purchasingProductID != nil || tipManager.isRestoringPurchases)
+            .accessibilityIdentifier("tipProductButton_\(product.id)")
         }
     }
 }
