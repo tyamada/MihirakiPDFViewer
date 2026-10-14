@@ -231,7 +231,9 @@ public struct SettingsView: View {
                         .foregroundColor(settingsTextColor)
                         .multilineTextAlignment(.leading)
                     
-                    NavigationLink(destination: TipSelectionView(tipManager: TipManager.shared)) {
+                    Button {
+                        isShowingTipSelection = true
+                    } label: {
                         Text(String(localized: "tip_selection_title", defaultValue: "Support"))
                             .font(.subheadline)
                             .fontWeight(.semibold)

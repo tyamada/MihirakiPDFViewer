@@ -45,7 +45,6 @@ public struct MainView: View {
     @State private var isShowingFilePicker = false
     @State private var isShowingErrorAlert = false
     @State private var isShowingSettings = false
-    @State private var columnVisibility: NavigationSplitViewVisibility = .detailOnly
     @State private var isShowingTipSuccessAlert = false
     @State private var isShowingTipErrorAlert = false
     @State private var lastTipProductID: String? = nil
