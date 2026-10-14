@@ -281,3 +281,38 @@ struct PDFPageSliderView: View {
         .padding(.bottom, 8)
     }
 }
+
+struct PDFReaderToolbar: ToolbarContent {
+    @Binding var searchQuery: String
+    let openSettings: () -> Void
+    let closeDocument: () -> Void
+
+    var body: some ToolbarContent {
+        ToolbarItem(placement: .topBarLeading) {
+            Button(action: openSettings) {
+                Image(systemName: "gearshape")
+            }
+            .accessibilityLabel(String(localized: "settings"))
+            .accessibilityIdentifier("settingsButton")
+        }
+
+        ToolbarItem(placement: .principal) {
+            HStack(spacing: 6) {
+                Image(systemName: "magnifyingglass")
+                    .foregroundStyle(.secondary)
+                TextField(String(localized: "search"), text: $searchQuery)
+                    .textFieldStyle(.roundedBorder)
+                    .accessibilityIdentifier("searchField")
+            }
+            .frame(minWidth: 140, idealWidth: 280, maxWidth: 420)
+        }
+
+        ToolbarItem(placement: .topBarTrailing) {
+            Button(action: closeDocument) {
+                Image(systemName: "xmark")
+            }
+            .accessibilityLabel(String(localized: "close"))
+            .accessibilityIdentifier("closeDocumentButton")
+        }
+    }
+}

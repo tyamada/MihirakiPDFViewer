@@ -395,47 +395,21 @@ public struct MainView: View {
             .navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                pdfToolbar
+                PDFReaderToolbar(
+                    searchQuery: $viewModel.searchQuery,
+                    openSettings: {
+                        AppDiagnostics.record(.settingsOpened)
+                        isShowingSettings = true
+                    },
+                    closeDocument: {
+                        isPDFChromeVisible = false
+                        viewModel.closeDocument()
+                    }
+                )
             }
             .toolbarVisibility(isPDFChromeVisible ? .visible : .hidden, for: .navigationBar)
         } else {
             makeEmptyStateView()
-        }
-    }
-
-    @ToolbarContentBuilder
-    private var pdfToolbar: some ToolbarContent {
-        ToolbarItem(placement: .topBarLeading) {
-            Button {
-                AppDiagnostics.record(.settingsOpened)
-                isShowingSettings = true
-            } label: {
-                Image(systemName: "gearshape")
-            }
-            .accessibilityLabel(String(localized: "settings"))
-            .accessibilityIdentifier("settingsButton")
-        }
-
-        ToolbarItem(placement: .principal) {
-            HStack(spacing: 6) {
-                Image(systemName: "magnifyingglass")
-                    .foregroundColor(.secondary)
-                TextField(String(localized: "search"), text: $viewModel.searchQuery)
-                    .textFieldStyle(.roundedBorder)
-                    .accessibilityIdentifier("searchField")
-            }
-            .frame(minWidth: 140, idealWidth: 280, maxWidth: 420)
-        }
-
-        ToolbarItem(placement: .topBarTrailing) {
-            Button {
-                isPDFChromeVisible = false
-                viewModel.closeDocument()
-            } label: {
-                Image(systemName: "xmark")
-            }
-            .accessibilityLabel(String(localized: "close"))
-            .accessibilityIdentifier("closeDocumentButton")
         }
     }
 
