@@ -39,7 +39,7 @@ public struct SettingsView: View {
 
     private func documentInfoRow(label: String, value: String?) -> some View {
         Text("\(label): \(metadataDisplayValue(value))")
-            .foregroundColor(settingsTextColor)
+            .foregroundStyle(settingsTextColor)
             .padding(.horizontal, 2)
             .background(settingsBackgroundColor)
     }
@@ -91,23 +91,23 @@ public struct SettingsView: View {
                             documentInfoRow(label: String(localized: "pdf_keywords_label", defaultValue: "Keywords"), value: doc.keywords)
                             documentInfoRow(label: String(localized: "pdf_version_label", defaultValue: "PDF Version"), value: doc.pdfVersion)
                             Text(String(localized: "total_pages", defaultValue: "\(doc.totalPageCount)"))
-                                .foregroundColor(settingsTextColor)
+                                .foregroundStyle(settingsTextColor)
                                 .padding(.horizontal, 2)
                                 .background(settingsBackgroundColor)
                             Text("\(String(localized: "page_layout")): \(doc.pageLayout.displayName)")
-                                .foregroundColor(settingsTextColor)
+                                .foregroundStyle(settingsTextColor)
                                 .padding(.horizontal, 2)
                                 .background(settingsBackgroundColor)
                             Text("\(String(localized: "scroll_direction")): \(doc.layoutDirection == .rightToLeft ? "R2L" : "L2R")")
-                                .foregroundColor(settingsTextColor)
+                                .foregroundStyle(settingsTextColor)
                                 .padding(.horizontal, 2)
                                 .background(settingsBackgroundColor)
                         }
-                        .foregroundColor(settingsTextColor)
+                        .foregroundStyle(settingsTextColor)
                     } else {
                         Text(String(localized: "no_doc"))
                             .font(.caption)
-                            .foregroundColor(settingsTextColor)
+                            .foregroundStyle(settingsTextColor)
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -228,7 +228,7 @@ public struct SettingsView: View {
                     )
                     Text(String(localized: "developer_support_description", defaultValue: "Your support helps keep the app updated. You can use all features without making a purchase."))
                         .font(.body)
-                        .foregroundColor(settingsTextColor)
+                        .foregroundStyle(settingsTextColor)
                         .multilineTextAlignment(.leading)
                     
                     Button {
@@ -260,7 +260,7 @@ public struct SettingsView: View {
             .padding()
             .background(settingsBackgroundColor)
         }
-        .foregroundColor(settingsTextColor)
+        .foregroundStyle(settingsTextColor)
         .background(settingsBackgroundColor)
         .accessibilityIdentifier("settingsScreen")
         .navigationTitle(String(localized: "settings"))

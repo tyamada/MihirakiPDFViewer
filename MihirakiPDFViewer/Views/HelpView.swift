@@ -228,14 +228,14 @@ struct HelpView: View {
                             .padding(.leading, 16)
                         }
                     }
-                    .foregroundColor(textColor)
+                    .foregroundStyle(textColor)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
             }
             .padding()
             .background(backgroundColor)
         }
-        .foregroundColor(textColor)
+        .foregroundStyle(textColor)
         .background(backgroundColor)
         .accessibilityIdentifier("helpScreen")
         .navigationTitle(String(localized: "help_title", defaultValue: "Help"))

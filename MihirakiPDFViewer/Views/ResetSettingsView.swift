@@ -26,7 +26,7 @@ struct ResetSettingsView: View {
         VStack(alignment: .leading, spacing: 20) {
             Text(String(localized: "reset_settings_and_icon_message", defaultValue: "This resets viewing settings, restores the default app icon, and closes the current document. Purchased supporter icons remain available."))
                 .font(.body)
-                .foregroundColor(textColor)
+                .foregroundStyle(textColor)
 
             Spacer()
 
@@ -49,7 +49,7 @@ struct ResetSettingsView: View {
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-        .foregroundColor(textColor)
+        .foregroundStyle(textColor)
         .background(backgroundColor)
         .accessibilityIdentifier("resetSettingsScreen")
         .navigationTitle(String(localized: "reset_title", defaultValue: "Reset"))

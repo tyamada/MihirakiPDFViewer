@@ -212,7 +212,7 @@ struct ScrollDirectionHintView: View {
             VStack {
                 Text(String(localized: "tap_to_show_menu_hint", defaultValue: "Tap to show the menu"))
                     .font(.headline)
-                    .foregroundColor(.white)
+                    .foregroundStyle(.white)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 18)
                     .padding(.vertical, 10)
@@ -225,7 +225,7 @@ struct ScrollDirectionHintView: View {
 
             Image(systemName: symbolName)
                 .font(.system(size: 44, weight: .semibold))
-                .foregroundColor(.white)
+                .foregroundStyle(.white)
                 .frame(width: 96, height: 96)
                 .background(.black.opacity(0.62), in: Circle())
                 .shadow(radius: 8)

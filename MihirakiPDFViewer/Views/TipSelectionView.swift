@@ -25,7 +25,7 @@ struct TipSelectionView: View {
                 if let errorMessage = tipManager.errorMessage {
                     Text(errorMessage)
                         .font(.caption)
-                        .foregroundColor(settingsTextColor)
+                        .foregroundStyle(settingsTextColor)
                         .multilineTextAlignment(.center)
                         .frame(maxWidth: .infinity, alignment: .center)
                         .padding(.vertical)
@@ -54,7 +54,7 @@ struct TipSelectionView: View {
                                     .font(.headline)
                                 Text(tipDescription(for: product.id))
                                     .font(.caption)
-                                    .foregroundColor(settingsTextColor)
+                                    .foregroundStyle(settingsTextColor)
                             }
                             Spacer()
                             productAction(for: product)
@@ -86,12 +86,12 @@ struct TipSelectionView: View {
                 if let restoreMessage = tipManager.restoreMessage {
                     Text(restoreMessage)
                         .font(.footnote)
-                        .foregroundColor(settingsTextColor)
+                        .foregroundStyle(settingsTextColor)
                 }
             } footer: {
                 Text(String(localized: "supporter_icon_purchase_description", defaultValue: "Each purchase permanently unlocks its supporter icon. Restore purchases on another device using the same Apple Account."))
                     .font(.body)
-                    .foregroundColor(settingsTextColor)
+                    .foregroundStyle(settingsTextColor)
             }
 
             if tipManager.isPurchased(TipManager.koyomiV2BadgeProductID) {

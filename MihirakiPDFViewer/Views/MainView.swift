@@ -307,12 +307,12 @@ public struct MainView: View {
             SettingsView(viewModel: viewModel)
                 .navigationTitle(String(localized: "settings"))
                 .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
+                    ToolbarItem(placement: .topBarTrailing) {
                         Button {
                             isShowingSettings = false
                         } label: {
                             Image(systemName: "xmark.circle.fill")
-                                .foregroundColor(.primary)
+                                .foregroundStyle(.primary)
                         }
                         .accessibilityLabel(String(localized: "close"))
                         .accessibilityIdentifier("settingsCloseButton")
