@@ -621,7 +621,9 @@ final class MihirakiPDFViewerUITests: XCTestCase {
     }
 
     private func element(_ identifier: String) -> XCUIElement {
-        app.descendants(matching: .any)[identifier]
+        app.descendants(matching: .any)
+            .matching(identifier: identifier)
+            .firstMatch
     }
 
     private func largePDFLoadTestURL() throws -> URL {
