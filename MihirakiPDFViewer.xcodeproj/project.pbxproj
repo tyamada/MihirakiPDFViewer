@@ -46,6 +46,7 @@
 		ECEE8DCA307F6BE800ED7C76 /* PDFViewerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8DC9307F6BE800ED7C76 /* PDFViewerSettings.swift */; };
 		ECEE8DCC307F6CB600ED7C76 /* PDFReaderControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8DCB307F6CB600ED7C76 /* PDFReaderControls.swift */; };
 		ECEE8DCE307F6D9300ED7C76 /* HelpContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8DCD307F6D9300ED7C76 /* HelpContent.swift */; };
+		ECEE8DD0307F702D00ED7C76 /* AppLogExportFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8DCF307F702D00ED7C76 /* AppLogExportFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		ECEE8DC9307F6BE800ED7C76 /* PDFViewerSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewerSettings.swift; sourceTree = "<group>"; };
 		ECEE8DCB307F6CB600ED7C76 /* PDFReaderControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFReaderControls.swift; sourceTree = "<group>"; };
 		ECEE8DCD307F6D9300ED7C76 /* HelpContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpContent.swift; sourceTree = "<group>"; };
+		ECEE8DCF307F702D00ED7C76 /* AppLogExportFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogExportFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -159,6 +161,7 @@
 				ECEE8D9F307EDB6200ED7C76 /* ReadingSessionStore.swift */,
 				ECEE8DA5307EE04500ED7C76 /* SecurityScopedResourceManager.swift */,
 				ECEE8DC5307F6AAE00ED7C76 /* DeviceTestRunner.swift */,
+				ECEE8DCF307F702D00ED7C76 /* AppLogExportFormatter.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				ECEE8DC6307F6AAE00ED7C76 /* DeviceTestRunner.swift in Sources */,
 				EC23F641307400C500F32816 /* DeviceTestView.swift in Sources */,
 				EC5BB3E9302ECC0C00F4DE2E /* PDFDocumentWrapper.swift in Sources */,
+				ECEE8DD0307F702D00ED7C76 /* AppLogExportFormatter.swift in Sources */,
 				ECEE8DB0307F178400ED7C76 /* SettingsSupportViews.swift in Sources */,
 				EC5BB3EA302ECC0C00F4DE2E /* SettingsView.swift in Sources */,
 				ECEE8DC4307F69D500ED7C76 /* SettingsSections.swift in Sources */,

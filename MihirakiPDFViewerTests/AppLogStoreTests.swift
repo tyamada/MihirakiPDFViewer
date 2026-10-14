@@ -66,9 +66,71 @@ struct AppLogStoreTests {
         #expect(entries.count == 3)
     }
 
+    @MainActor
+    @Test
+    func exportIncludesInjectedMetadataAndOptionalMeasurements() {
+        let entry = AppLogEntry(
+            id: UUID(),
+            timestamp: Date(timeIntervalSince1970: 1_800_000_000),
+            level: .warning,
+            category: .rendering,
+            event: .pageRenderSlow,
+            durationMilliseconds: 250,
+            numericValue: 12,
+            numericLabel: .pages
+        )
+
+        let text = AppLogExportFormatter.text(
+            for: [entry],
+            appVersion: "1.2.3",
+            build: "4",
+            systemName: "TestOS",
+            systemVersion: "9.0"
+        )
+
+        #expect(text.contains("1.2.3"))
+        #expect(text.contains("4"))
+        #expect(text.contains("TestOS 9.0"))
+        #expect(text.contains("[WARNING] [rendering] Page rendering was slow"))
+        #expect(text.contains("duration_ms=250"))
+        #expect(text.contains("pages=12"))
+    }
+
+    @MainActor
+    @Test
+    func exportListsNewestEntryFirst() throws {
+        let olderEntry = makeEntry(event: .appLaunched, timestamp: 100)
+        let newerEntry = makeEntry(event: .appBecameActive, timestamp: 200)
+
+        let text = AppLogExportFormatter.text(
+            for: [olderEntry, newerEntry],
+            appVersion: "1",
+            build: "1",
+            systemName: "TestOS",
+            systemVersion: "1"
+        )
+        let newerRange = try #require(text.range(of: newerEntry.event.rawValue))
+        let olderRange = try #require(text.range(of: olderEntry.event.rawValue))
+
+        #expect(newerRange.lowerBound < olderRange.lowerBound)
+    }
+
     private func temporaryLogURL() -> URL {
         FileManager.default.temporaryDirectory
             .appendingPathComponent(UUID().uuidString, isDirectory: true)
             .appendingPathComponent("AppLog.json")
+    }
+
+    private func makeEntry(event: AppLogEvent, timestamp: TimeInterval) -> AppLogEntry {
+        AppLogEntry(
+            id: UUID(),
+            timestamp: Date(timeIntervalSince1970: timestamp),
+            level: event.level,
+            category: event.category,
+            event: event,
+            durationMilliseconds: nil,
+            numericValue: nil,
+            numericLabel: nil
+        )
     }
 }
