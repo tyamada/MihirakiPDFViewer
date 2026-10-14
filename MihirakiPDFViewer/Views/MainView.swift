@@ -13,7 +13,6 @@
 
 import SwiftUI
 import UniformTypeIdentifiers
-import UIKit
 
 private struct PDFPasswordPromptState {
     var isPresented = false
@@ -209,44 +208,26 @@ public struct MainView: View {
     private func initializeDocumentIfNeeded() {
         guard !didInitializeDocument else { return }
         didInitializeDocument = true
-        if ProcessInfo.processInfo.arguments.contains("-uiTestResetRenderingPreferences") {
+        let uiTestConfiguration = UITestLaunchConfiguration()
+
+        if uiTestConfiguration.shouldResetRenderingPreferences {
             viewModel.resetApplicationSettings()
         }
-        if ProcessInfo.processInfo.arguments.contains("-uiTestResetReadingSession") {
+        if uiTestConfiguration.shouldResetReadingSession {
             viewModel.clearReadingSession()
         }
         guard viewModel.document == nil, pdfPasswordPrompt.pendingURL == nil else { return }
 
-        if let url = uiTestIncomingPDFURLFromLaunchArguments() {
+        if let url = uiTestConfiguration.incomingPDFURL {
             handleIncomingPDFURL(url)
-        } else if let url = uiTestPDFURLFromLaunchArguments() {
+        } else if let url = uiTestConfiguration.pdfURL {
             openPDF(at: url)
-        } else if ProcessInfo.processInfo.arguments.contains("-uiTestLoadSamplePDF"),
-                  let url = makeSamplePDFForUITests() {
+        } else if uiTestConfiguration.shouldLoadSamplePDF,
+                  let url = uiTestConfiguration.makeSamplePDF() {
             openPDF(at: url)
         } else if let url = viewModel.documentURLForRestoration() {
             openPDF(at: url)
         }
-    }
-
-    private func uiTestPDFURLFromLaunchArguments() -> URL? {
-        let arguments = ProcessInfo.processInfo.arguments
-        guard let pathArgumentIndex = arguments.firstIndex(of: "-uiTestPDFPath"),
-              arguments.indices.contains(pathArgumentIndex + 1) else {
-            return nil
-        }
-
-        return URL(fileURLWithPath: arguments[pathArgumentIndex + 1])
-    }
-
-    private func uiTestIncomingPDFURLFromLaunchArguments() -> URL? {
-        let arguments = ProcessInfo.processInfo.arguments
-        guard let pathArgumentIndex = arguments.firstIndex(of: "-uiTestIncomingPDFPath"),
-              arguments.indices.contains(pathArgumentIndex + 1) else {
-            return nil
-        }
-
-        return URL(fileURLWithPath: arguments[pathArgumentIndex + 1])
     }
 
     private func openPDF(at url: URL, password: String? = nil) {
@@ -324,29 +305,6 @@ public struct MainView: View {
                     }
                 }
             }
-        }
-    }
-
-    private func makeSamplePDFForUITests() -> URL? {
-        let url = FileManager.default.temporaryDirectory
-            .appendingPathComponent("MihirakiPDFViewerUITest")
-            .appendingPathExtension("pdf")
-        let renderer = UIGraphicsPDFRenderer(bounds: CGRect(x: 0, y: 0, width: 320, height: 420))
-
-        do {
-            try renderer.writePDF(to: url) { context in
-                for pageNumber in 1...3 {
-                    context.beginPage()
-                    let text = "UI Test Page \(pageNumber)"
-                    text.draw(
-                        at: CGPoint(x: 32, y: 32),
-                        withAttributes: [.font: UIFont.systemFont(ofSize: 24)]
-                    )
-                }
-            }
-            return url
-        } catch {
-            return nil
         }
     }
 

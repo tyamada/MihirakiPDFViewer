@@ -37,6 +37,7 @@
 		ECEE8DB6307F249B00ED7C76 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8DB5307F249B00ED7C76 /* HelpView.swift */; };
 		ECEE8DB8307F25C900ED7C76 /* PDFPageLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8DB7307F25C900ED7C76 /* PDFPageLayoutView.swift */; };
 		ECEE8DBA307F274C00ED7C76 /* PDFEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8DB9307F274C00ED7C76 /* PDFEmptyStateView.swift */; };
+		ECEE8DBC307F294F00ED7C76 /* UITestLaunchConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8DBB307F294F00ED7C76 /* UITestLaunchConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		ECEE8DB5307F249B00ED7C76 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		ECEE8DB7307F25C900ED7C76 /* PDFPageLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPageLayoutView.swift; sourceTree = "<group>"; };
 		ECEE8DB9307F274C00ED7C76 /* PDFEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFEmptyStateView.swift; sourceTree = "<group>"; };
+		ECEE8DBB307F294F00ED7C76 /* UITestLaunchConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestLaunchConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				EC5BB3D9302ECC0C00F4DE2E /* PDFViewerApp.swift */,
+				ECEE8DBB307F294F00ED7C76 /* UITestLaunchConfiguration.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				EC5BB3EB302ECC0C00F4DE2E /* PDFViewerViewModel.swift in Sources */,
 				EC5BB3EC302ECC0C00F4DE2E /* MainView.swift in Sources */,
 				EC5BB3ED302ECC0C00F4DE2E /* PageView.swift in Sources */,
+				ECEE8DBC307F294F00ED7C76 /* UITestLaunchConfiguration.swift in Sources */,
 				ECEE8DA6307EE04500ED7C76 /* SecurityScopedResourceManager.swift in Sources */,
 				ECEE8DB6307F249B00ED7C76 /* HelpView.swift in Sources */,
 			);
