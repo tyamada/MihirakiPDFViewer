@@ -30,6 +30,8 @@
 		ECEE8DA6307EE04500ED7C76 /* SecurityScopedResourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8DA5307EE04500ED7C76 /* SecurityScopedResourceManager.swift */; };
 		ECEE8DAA307EE2C100ED7C76 /* PDFPageGrouping.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8DA9307EE2C100ED7C76 /* PDFPageGrouping.swift */; };
 		ECEE8DAC307F168A00ED7C76 /* TipSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8DAB307F168A00ED7C76 /* TipSelectionView.swift */; };
+		ECEE8DAE307F176500ED7C76 /* PDFReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8DAD307F176500ED7C76 /* PDFReaderView.swift */; };
+		ECEE8DB0307F178400ED7C76 /* SettingsSupportViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8DAF307F178400ED7C76 /* SettingsSupportViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		ECEE8DA5307EE04500ED7C76 /* SecurityScopedResourceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityScopedResourceManager.swift; sourceTree = "<group>"; };
 		ECEE8DA9307EE2C100ED7C76 /* PDFPageGrouping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPageGrouping.swift; sourceTree = "<group>"; };
 		ECEE8DAB307F168A00ED7C76 /* TipSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipSelectionView.swift; sourceTree = "<group>"; };
+		ECEE8DAD307F176500ED7C76 /* PDFReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFReaderView.swift; sourceTree = "<group>"; };
+		ECEE8DAF307F178400ED7C76 /* SettingsSupportViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSupportViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -174,6 +178,8 @@
 				EC23F6443074059B00F32816 /* AppLogView.swift */,
 				EC58BDC630774AB40060F37C /* SamplePDFListView.swift */,
 				ECEE8DAB307F168A00ED7C76 /* TipSelectionView.swift */,
+				ECEE8DAD307F176500ED7C76 /* PDFReaderView.swift */,
+				ECEE8DAF307F178400ED7C76 /* SettingsSupportViews.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -390,6 +396,7 @@
 			files = (
 				EC5BB3E8302ECC0C00F4DE2E /* PDFViewerApp.swift in Sources */,
 				EC23F6453074059B00F32816 /* AppLogView.swift in Sources */,
+				ECEE8DAE307F176500ED7C76 /* PDFReaderView.swift in Sources */,
 				ECEE8DAA307EE2C100ED7C76 /* PDFPageGrouping.swift in Sources */,
 				EC58BDC030774A950060F37C /* SamplePDF.swift in Sources */,
 				ECEE8DA0307EDB6200ED7C76 /* ReadingSessionStore.swift in Sources */,
@@ -400,6 +407,7 @@
 				ECEE8DAC307F168A00ED7C76 /* TipSelectionView.swift in Sources */,
 				EC23F641307400C500F32816 /* DeviceTestView.swift in Sources */,
 				EC5BB3E9302ECC0C00F4DE2E /* PDFDocumentWrapper.swift in Sources */,
+				ECEE8DB0307F178400ED7C76 /* SettingsSupportViews.swift in Sources */,
 				EC5BB3EA302ECC0C00F4DE2E /* SettingsView.swift in Sources */,
 				EC58BDC230774A960060F37C /* SamplePDFStore.swift in Sources */,
 				EC5BB3EB302ECC0C00F4DE2E /* PDFViewerViewModel.swift in Sources */,
