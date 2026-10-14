@@ -31,6 +31,7 @@ public struct PageView: View {
     let alignment: PageAlignment
     let isHighQualityRenderingEnabled: Bool
     let isSharpnessEnabled: Bool
+    let sharpnessAmount: Double?
 
     public init(
         page: PDFPage,
@@ -39,7 +40,8 @@ public struct PageView: View {
         searchMatches: [PDFViewerViewModel.PDFSearchMatch] = [],
         alignment: PageAlignment = .center,
         isHighQualityRenderingEnabled: Bool = false,
-        isSharpnessEnabled: Bool = false
+        isSharpnessEnabled: Bool = false,
+        sharpnessAmount: Double? = nil
     ) {
         self.page = page
         self.pageNumber = pageNumber
@@ -48,6 +50,7 @@ public struct PageView: View {
         self.alignment = alignment
         self.isHighQualityRenderingEnabled = isHighQualityRenderingEnabled
         self.isSharpnessEnabled = isSharpnessEnabled
+        self.sharpnessAmount = sharpnessAmount
     }
 
     public var body: some View {
@@ -97,7 +100,8 @@ public struct PageView: View {
             displaySize: displaySize,
             displayScale: displayScale,
             isHighQualityRenderingEnabled: isHighQualityRenderingEnabled,
-            isSharpnessEnabled: isSharpnessEnabled
+            isSharpnessEnabled: isSharpnessEnabled,
+            sharpnessAmount: sharpnessAmount
         )
     }
 

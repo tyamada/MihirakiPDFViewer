@@ -115,6 +115,7 @@ struct PDFPageSliderView: View {
 struct PDFReaderToolbar: ToolbarContent {
     @Binding var searchQuery: String
     let openSettings: () -> Void
+    let openOutline: () -> Void
     let closeDocument: () -> Void
 
     var body: some ToolbarContent {
@@ -137,7 +138,13 @@ struct PDFReaderToolbar: ToolbarContent {
             .frame(minWidth: 140, idealWidth: 280, maxWidth: 420)
         }
 
-        ToolbarItem(placement: .topBarTrailing) {
+        ToolbarItemGroup(placement: .topBarTrailing) {
+            Button(action: openOutline) {
+                Image(systemName: "list.bullet.indent")
+            }
+            .accessibilityLabel("Table of Contents")
+            .accessibilityIdentifier("tableOfContentsButton")
+
             Button(action: closeDocument) {
                 Image(systemName: "xmark")
             }

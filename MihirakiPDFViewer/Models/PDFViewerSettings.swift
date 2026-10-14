@@ -48,7 +48,11 @@ public struct PDFViewerSettings {
     public var layoutDirection: LayoutDirection
     public var coverPageSetting: CoverPageSetting
     public var isHighQualityRenderingEnabled: Bool
-    public var isSharpnessEnabled: Bool
+    public var sharpnessAmount: Double
+    public var isSharpnessEnabled: Bool {
+        get { sharpnessAmount > 0 }
+        set { sharpnessAmount = newValue ? 0.45 : 0 }
+    }
     public var isSinglePageInPortraitEnabled: Bool
 
     public init(
@@ -58,6 +62,7 @@ public struct PDFViewerSettings {
         coverPageSetting: CoverPageSetting = .typeA,
         isHighQualityRenderingEnabled: Bool = false,
         isSharpnessEnabled: Bool = false,
+        sharpnessAmount: Double? = nil,
         isSinglePageInPortraitEnabled: Bool = false
     ) {
         self.isSpreadViewEnabled = isSpreadViewEnabled
@@ -65,7 +70,7 @@ public struct PDFViewerSettings {
         self.layoutDirection = layoutDirection
         self.coverPageSetting = coverPageSetting
         self.isHighQualityRenderingEnabled = isHighQualityRenderingEnabled
-        self.isSharpnessEnabled = isSharpnessEnabled
+        self.sharpnessAmount = min(max(sharpnessAmount ?? (isSharpnessEnabled ? 0.45 : 0), 0), 1)
         self.isSinglePageInPortraitEnabled = isSinglePageInPortraitEnabled
     }
 }

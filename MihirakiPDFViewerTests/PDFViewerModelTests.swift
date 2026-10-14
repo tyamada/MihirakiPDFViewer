@@ -162,6 +162,23 @@ final class PDFViewerViewModelTests: XCTestCase {
         XCTAssertFalse(restored.settings.isSharpnessEnabled)
     }
 
+    func testSharpnessAmountPersistsAndMigratesLegacyPreference() throws {
+        let suiteName = "SharpnessPreference-\(UUID().uuidString)"
+        let preferences = try XCTUnwrap(UserDefaults(suiteName: suiteName))
+        defer { preferences.removePersistentDomain(forName: suiteName) }
+
+        preferences.set(true, forKey: "isSharpnessEnabled")
+        let migrated = PDFViewerViewModel(preferences: preferences)
+        XCTAssertEqual(migrated.settings.sharpnessAmount, 0.45, accuracy: 0.001)
+
+        migrated.settings.sharpnessAmount = 0.8
+        let restored = PDFViewerViewModel(preferences: preferences)
+        XCTAssertEqual(restored.settings.sharpnessAmount, 0.8, accuracy: 0.001)
+
+        restored.resetApplicationSettings()
+        XCTAssertEqual(PDFViewerViewModel(preferences: preferences).settings.sharpnessAmount, 0)
+    }
+
     func testPortraitDisplayDefaultsToSinglePage() throws {
         let suiteName = "PortraitPreferenceDefault-\(UUID().uuidString)"
         let preferences = try XCTUnwrap(UserDefaults(suiteName: suiteName))
@@ -372,6 +389,27 @@ final class PDFViewerViewModelTests: XCTestCase {
         XCTAssertEqual(groups.count, 3)
         XCTAssertEqual(groups.map(\.pages.count), [1, 2, 1])
         XCTAssertEqual(groups.map(\.startIndex), [0, 1, 3])
+    }
+
+    func testJumpToPDFPageSelectsContainingSpread() throws {
+        let viewModel = PDFViewerViewModel()
+        viewModel.document = try PDFDocumentWrapper(url: makeTemporaryPDF(pageCount: 6))
+        viewModel.settings.isSpreadViewEnabled = true
+        viewModel.settings.isCoverPageEnabled = true
+
+        viewModel.jumpToPDFPage(2)
+
+        XCTAssertEqual(viewModel.displayedPDFPageIndices, [1, 2])
+    }
+
+    func testJumpToPDFPageIgnoresOutOfRangePage() throws {
+        let viewModel = PDFViewerViewModel()
+        viewModel.document = try PDFDocumentWrapper(url: makeTemporaryPDF(pageCount: 3))
+        viewModel.currentPageIndex = 1
+
+        viewModel.jumpToPDFPage(99)
+
+        XCTAssertEqual(viewModel.currentPageIndex, 1)
     }
 
     func testLoadDocumentUpdatesDocumentAndResetsCurrentPage() throws {

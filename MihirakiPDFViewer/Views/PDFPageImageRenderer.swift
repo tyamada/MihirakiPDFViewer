@@ -29,6 +29,7 @@ final class PDFPageImageCache {
         displayScale: CGFloat,
         isHighQualityRenderingEnabled: Bool,
         isSharpnessEnabled: Bool,
+        sharpnessAmount: Double? = nil,
         render: () -> UIImage
     ) -> UIImage {
         let key = PDFPageRenderKey(
@@ -36,7 +37,7 @@ final class PDFPageImageCache {
             displaySize: displaySize,
             displayScale: displayScale,
             isHighQualityRenderingEnabled: isHighQualityRenderingEnabled,
-            isSharpnessEnabled: isSharpnessEnabled
+            sharpnessAmount: sharpnessAmount ?? (isSharpnessEnabled ? 0.45 : 0)
         )
         if let cachedImage = cache.object(forKey: key) {
             return cachedImage
@@ -61,21 +62,21 @@ private final class PDFPageRenderKey: NSObject {
     private let height: CGFloat
     private let displayScale: CGFloat
     private let isHighQualityRenderingEnabled: Bool
-    private let isSharpnessEnabled: Bool
+    private let sharpnessAmount: Double
 
     init(
         page: PDFPage,
         displaySize: CGSize,
         displayScale: CGFloat,
         isHighQualityRenderingEnabled: Bool,
-        isSharpnessEnabled: Bool
+        sharpnessAmount: Double
     ) {
         self.page = page
         self.width = displaySize.width
         self.height = displaySize.height
         self.displayScale = displayScale
         self.isHighQualityRenderingEnabled = isHighQualityRenderingEnabled
-        self.isSharpnessEnabled = isSharpnessEnabled
+        self.sharpnessAmount = sharpnessAmount
     }
 
     override var hash: Int {
@@ -85,7 +86,7 @@ private final class PDFPageRenderKey: NSObject {
         hasher.combine(height)
         hasher.combine(displayScale)
         hasher.combine(isHighQualityRenderingEnabled)
-        hasher.combine(isSharpnessEnabled)
+        hasher.combine(sharpnessAmount)
         return hasher.finalize()
     }
 
@@ -96,7 +97,7 @@ private final class PDFPageRenderKey: NSObject {
             && height == other.height
             && displayScale == other.displayScale
             && isHighQualityRenderingEnabled == other.isHighQualityRenderingEnabled
-            && isSharpnessEnabled == other.isSharpnessEnabled
+            && sharpnessAmount == other.sharpnessAmount
     }
 }
 
@@ -115,21 +116,23 @@ final class PDFPageImageRenderer {
         displaySize: CGSize,
         displayScale: CGFloat,
         isHighQualityRenderingEnabled: Bool,
-        isSharpnessEnabled: Bool
+        isSharpnessEnabled: Bool,
+        sharpnessAmount: Double? = nil
     ) -> UIImage {
         cache.image(
             for: page,
             displaySize: displaySize,
             displayScale: displayScale,
             isHighQualityRenderingEnabled: isHighQualityRenderingEnabled,
-            isSharpnessEnabled: isSharpnessEnabled
+            isSharpnessEnabled: isSharpnessEnabled,
+            sharpnessAmount: sharpnessAmount
         ) {
             render(
                 page: page,
                 displaySize: displaySize,
                 displayScale: displayScale,
                 isHighQualityRenderingEnabled: isHighQualityRenderingEnabled,
-                isSharpnessEnabled: isSharpnessEnabled
+                sharpnessAmount: sharpnessAmount ?? (isSharpnessEnabled ? 0.45 : 0)
             )
         }
     }
@@ -139,7 +142,7 @@ final class PDFPageImageRenderer {
         displaySize: CGSize,
         displayScale: CGFloat,
         isHighQualityRenderingEnabled: Bool,
-        isSharpnessEnabled: Bool
+        sharpnessAmount: Double
     ) -> UIImage {
         guard displaySize.width > 0, displaySize.height > 0 else {
             AppDiagnostics.record(.invalidRenderSize)
@@ -188,8 +191,8 @@ final class PDFPageImageRenderer {
         }
 
         let finalImage: UIImage
-        if isSharpnessEnabled {
-            if let sharpenedImage = sharpenedImage(image) {
+        if sharpnessAmount > 0 {
+            if let sharpenedImage = sharpenedImage(image, amount: sharpnessAmount) {
                 finalImage = sharpenedImage
             } else {
                 AppDiagnostics.record(.sharpeningFailed)
@@ -208,14 +211,14 @@ final class PDFPageImageRenderer {
         return finalImage
     }
 
-    private func sharpenedImage(_ image: UIImage) -> UIImage? {
+    private func sharpenedImage(_ image: UIImage, amount: Double) -> UIImage? {
         guard let inputImage = CIImage(image: image) else {
             return nil
         }
 
         let filter = CIFilter.sharpenLuminance()
         filter.inputImage = inputImage
-        filter.sharpness = 0.45
+        filter.sharpness = Float(min(max(amount, 0), 1))
 
         guard let outputImage = filter.outputImage,
               let cgImage = imageContext.createCGImage(outputImage, from: inputImage.extent) else {

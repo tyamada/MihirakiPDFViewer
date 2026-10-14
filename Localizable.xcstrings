@@ -126,17 +126,6 @@
       },
       "shouldTranslate" : false
     },
-    "%lld. %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$lld. %2$@"
-          }
-        }
-      },
-      "shouldTranslate" : false
-    },
     "A GitHub account is required. The information you submit may be publicly visible." : {
       "localizations" : {
         "ja" : {
@@ -259,7 +248,27 @@
         }
       }
     },
+    "App" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "アプリ"
+          }
+        }
+      }
+    },
     "App information" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "アプリ情報"
+          }
+        }
+      }
+    },
+    "App Information" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -663,12 +672,82 @@
         }
       }
     },
+    "Available memory" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "空きメモリ"
+          }
+        }
+      }
+    },
+    "Available memory: %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "空きメモリ: %@"
+          }
+        }
+      }
+    },
+    "Available storage" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "空きストレージ容量"
+          }
+        }
+      }
+    },
+    "Available storage could not be read." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "空きストレージ容量を読み取れませんでした。"
+          }
+        }
+      }
+    },
     "Before reporting" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "報告する前に"
+          }
+        }
+      }
+    },
+    "Bronze Supporter" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ブロンズサポーター"
+          }
+        }
+      }
+    },
+    "Build" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ビルド"
+          }
+        }
+      }
+    },
+    "Cache storage" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "キャッシュストレージ"
           }
         }
       }
@@ -930,6 +1009,16 @@
         }
       }
     },
+    "Comfortable Reading" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "快適な読書"
+          }
+        }
+      }
+    },
     "copyright" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1009,6 +1098,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "© 2026 Takuma Yamada"
+          }
+        }
+      }
+    },
+    "Copyright" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "著作権"
           }
         }
       }
@@ -1373,6 +1472,16 @@
         }
       }
     },
+    "Device Tests" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "実機テスト"
+          }
+        }
+      }
+    },
     "device_testing" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
@@ -1410,8 +1519,27 @@
         }
       }
     },
+    "Diagnostic results and logs remain on this device unless you explicitly share them." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "診断結果とログは、明示的に共有しない限り、この端末内にのみ保存されます。"
+          }
+        }
+      }
+    },
+    "Diagnostic Tools" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "診断ツール"
+          }
+        }
+      }
+    },
     "Diagnostics" : {
-      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -1845,6 +1973,16 @@
         }
       }
     },
+    "Done" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "完了"
+          }
+        }
+      }
+    },
     "Duration: %lld ms" : {
       "localizations" : {
         "ja" : {
@@ -2130,6 +2268,16 @@
         }
       }
     },
+    "Getting Started" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "はじめての使い方"
+          }
+        }
+      }
+    },
     "go_to_support_screen" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
@@ -2143,6 +2291,26 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "応援画面へ移動"
+          }
+        }
+      }
+    },
+    "Gold Supporter" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ゴールドサポーター"
+          }
+        }
+      }
+    },
+    "Help" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ヘルプ"
           }
         }
       }
@@ -4771,6 +4939,16 @@
         }
       }
     },
+    "Koyomi Supporter" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "こよみサポーター"
+          }
+        }
+      }
+    },
     "koyomi_v2_badge_name" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
@@ -4902,6 +5080,7 @@
       }
     },
     "Local storage" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -4961,6 +5140,46 @@
         }
       }
     },
+    "Model" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "モデル"
+          }
+        }
+      }
+    },
+    "Model: %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "モデル: %@"
+          }
+        }
+      }
+    },
+    "Name" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "名前"
+          }
+        }
+      }
+    },
+    "No Badges Yet" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "バッジはまだありません"
+          }
+        }
+      }
+    },
     "No logs" : {
       "localizations" : {
         "ja" : {
@@ -4977,6 +5196,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "個人情報や文書の内容は含まれていません。"
+          }
+        }
+      }
+    },
+    "No Table of Contents" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "目次はありません"
           }
         }
       }
@@ -5317,6 +5546,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "GitHub Issuesを開く"
+          }
+        }
+      }
+    },
+    "Open Source License" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "オープンソースライセンス"
           }
         }
       }
@@ -7956,6 +8195,16 @@
         }
       }
     },
+    "Run on-device checks, review privacy-safe logs, and prepare information for a problem report from the Diagnostics screen." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "診断画面では、端末内テストの実行、プライバシーに配慮したログの確認、問題報告に必要な情報の準備ができます。"
+          }
+        }
+      }
+    },
     "Run tests again" : {
       "localizations" : {
         "ja" : {
@@ -8926,6 +9175,16 @@
         }
       }
     },
+    "Settings Guide" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "設定ガイド"
+          }
+        }
+      }
+    },
     "Share" : {
       "localizations" : {
         "ja" : {
@@ -8937,6 +9196,7 @@
       }
     },
     "sharpness" : {
+      "comment" : "Label for the PDF rendering sharpness slider.",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -9014,6 +9274,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "銳利度"
+          }
+        }
+      }
+    },
+    "Silver Supporter" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "シルバーサポーター"
           }
         }
       }
@@ -9137,6 +9407,26 @@
         }
       }
     },
+    "Support the Developer" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "開発者を応援"
+          }
+        }
+      }
+    },
+    "Support the developer to unlock a supporter badge." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "開発者を応援すると、サポーターバッジを獲得できます。"
+          }
+        }
+      }
+    },
     "support_button_accessibility_hint" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -9216,6 +9506,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "開啟小費選擇畫面。"
+          }
+        }
+      }
+    },
+    "Supporter Badges" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "サポーターバッジ"
           }
         }
       }
@@ -9504,6 +9804,16 @@
         }
       }
     },
+    "Table of Contents" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "目次"
+          }
+        }
+      }
+    },
     "tap_to_show_menu_hint" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -9663,6 +9973,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "過去24時間のログはありません。"
+          }
+        }
+      }
+    },
+    "This PDF does not contain table of contents information." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "このPDFには目次情報が含まれていません。"
           }
         }
       }
@@ -10411,6 +10731,26 @@
         }
       }
     },
+    "Total memory" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "合計メモリ"
+          }
+        }
+      }
+    },
+    "Total memory: %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "合計メモリ: %@"
+          }
+        }
+      }
+    },
     "total_pages" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -10856,6 +11196,16 @@
         }
       }
     },
+    "Untitled" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "名称未設定"
+          }
+        }
+      }
+    },
     "use_supporter_icon" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
@@ -10923,6 +11273,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "使用圖像"
+          }
+        }
+      }
+    },
+    "Version" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "バージョン"
           }
         }
       }

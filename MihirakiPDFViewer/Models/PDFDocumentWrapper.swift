@@ -52,6 +52,7 @@ public struct PDFDocumentWrapper: Identifiable, Equatable {
     public let subtitle: String?
     public let keywords: String?
     public let pdfVersion: String?
+    let outline: [PDFOutlineNode]
 
     public init(url: URL, password: String? = nil) throws {
         try Self.validatePasswordIfNeeded(url: url, password: password)
@@ -80,6 +81,7 @@ public struct PDFDocumentWrapper: Identifiable, Equatable {
         self.subtitle = Self.metadataString(attributes?[PDFDocumentAttribute.subjectAttribute])
         self.keywords = Self.metadataString(attributes?[PDFDocumentAttribute.keywordsAttribute])
         self.pdfVersion = Self.pdfVersion(url: url, password: password)
+        self.outline = PDFOutlineTreeBuilder.nodes(from: document)
         
         let detected = PDFDocumentWrapper.detectLayoutSettings(url: url, password: password)
         self.layoutDirection = detected.direction

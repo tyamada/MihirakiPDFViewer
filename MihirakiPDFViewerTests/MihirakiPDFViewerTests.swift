@@ -34,7 +34,7 @@ struct DeviceTestReportTests {
     func runnerValidatesLocalStorageAndPDFEngine() throws {
         let report = DeviceTestRunner.run()
         let localStorage = try #require(
-            report.checks.first { $0.id == "localStorage" }
+            report.checks.first { $0.id == "cacheStorage" }
         )
         let pdfEngine = try #require(
             report.checks.first { $0.id == "pdfEngine" }
@@ -51,8 +51,11 @@ struct DeviceTestReportTests {
         DeviceTestReport(
             testedAt: Date(timeIntervalSince1970: 1_800_000_000),
             deviceName: "Example Device",
+            deviceModel: "Example Model",
             osVersion: "Example OS",
             appVersion: "1.2.3 (4)",
+            totalMemoryBytes: 1_000_000,
+            availableMemoryBytes: 500_000,
             checks: statuses.enumerated().map { index, status in
                 DeviceTestReport.Check(
                     id: "check-\(index)",

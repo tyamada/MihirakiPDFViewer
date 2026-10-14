@@ -116,7 +116,43 @@ final class MihirakiPDFViewerUITests: XCTestCase {
 
     @MainActor
     func testSharpnessSettingSurvivesTermination() throws {
-        try assertRenderingSettingSurvivesTermination(labels: ["シャープネス", "Sharpness"])
+        app.launchArguments.append("-uiTestLoadSamplePDF")
+        app.launch()
+        XCTAssertTrue(element("pdfViewerScreen").waitForExistence(timeout: 10))
+        tapPDFViewer()
+        app.buttons["settingsButton"].tap()
+        XCTAssertTrue(element("settingsScreen").waitForExistence(timeout: 5))
+
+        let slider = app.sliders["sharpnessSlider"]
+        XCTAssertTrue(slider.waitForExistence(timeout: 5))
+        slider.adjust(toNormalizedSliderPosition: 0.75)
+        let savedValue = slider.value as? String
+        XCTAssertNotNil(savedValue)
+
+        XCUIDevice.shared.press(.home)
+        app.terminate()
+        app.launchArguments = []
+        app.launch()
+        XCTAssertTrue(element("pdfViewerScreen").waitForExistence(timeout: 10))
+        tapPDFViewer()
+        app.buttons["settingsButton"].tap()
+        XCTAssertTrue(slider.waitForExistence(timeout: 5))
+        XCTAssertEqual(slider.value as? String, savedValue, "Sharpness was reset after termination")
+    }
+
+    @MainActor
+    func testTableOfContentsShowsEmptyStateForPDFWithoutOutline() throws {
+        app.launchArguments.append("-uiTestLoadSamplePDF")
+        app.launch()
+        XCTAssertTrue(element("pdfViewerScreen").waitForExistence(timeout: 10))
+
+        tapPDFViewer()
+        let tableOfContentsButton = app.buttons["tableOfContentsButton"]
+        XCTAssertTrue(tableOfContentsButton.waitForExistence(timeout: 5))
+        tableOfContentsButton.tap()
+
+        XCTAssertTrue(element("tableOfContentsScreen").waitForExistence(timeout: 5))
+        XCTAssertTrue(element("tableOfContentsEmptyState").waitForExistence(timeout: 5))
     }
 
     @MainActor

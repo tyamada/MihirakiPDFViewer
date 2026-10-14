@@ -6,49 +6,124 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct HelpView: View {
-    @Environment(\.colorScheme) private var colorScheme
-
-    private var backgroundColor: Color {
-        colorScheme == .dark ? .black : .white
-    }
-
-    private var textColor: Color {
-        colorScheme == .dark ? .white : .black
-    }
-
     var body: some View {
-        Form {
-            VStack(alignment: .leading, spacing: 16) {
-                ForEach(HelpContent.items) { item in
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("\(item.id). \(String(localized: item.title))")
-                            .font(.headline)
-                        Text(item.description)
-                            .font(.body)
-
-                        ForEach(item.details) { detail in
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text(detail.title)
-                                    .font(.subheadline)
-                                    .fontWeight(.semibold)
-                                Text(detail.description)
-                                    .font(.body)
-                            }
-                            .padding(.leading, 16)
-                        }
-                    }
-                    .foregroundStyle(textColor)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                }
+        ScrollView {
+            LazyVStack(alignment: .leading, spacing: 20) {
+                HelpCategorySection(
+                    title: "Getting Started",
+                    items: Array(HelpContent.items.prefix(2))
+                )
+                HelpCategorySection(
+                    title: "Comfortable Reading",
+                    items: Array(HelpContent.items.dropFirst(2).prefix(4))
+                )
+                HelpCategorySection(
+                    title: "Settings Guide",
+                    items: Array(HelpContent.items.dropFirst(6))
+                )
+                HelpDiagnosticSection()
             }
             .padding()
-            .background(backgroundColor)
         }
-        .foregroundStyle(textColor)
-        .background(backgroundColor)
+        .background(Color(uiColor: .systemGroupedBackground))
         .accessibilityIdentifier("helpScreen")
-        .navigationTitle(String(localized: "help_title", defaultValue: "Help"))
+        .navigationTitle("Help")
+    }
+}
+
+private struct HelpCategorySection: View {
+    let title: LocalizedStringResource
+    let items: [HelpItem]
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text(title)
+                .font(.title3.weight(.semibold))
+                .accessibilityAddTraits(.isHeader)
+
+            ForEach(items) { item in
+                HelpAccordionCard(item: item)
+            }
+        }
+    }
+}
+
+private struct HelpAccordionCard: View {
+    let item: HelpItem
+    @State private var isExpanded = false
+
+    var body: some View {
+        DisclosureGroup(isExpanded: $isExpanded) {
+            VStack(alignment: .leading, spacing: 12) {
+                HelpRichText(resource: item.description)
+
+                ForEach(item.details) { detail in
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(detail.title)
+                            .font(.subheadline.weight(.semibold))
+                        HelpRichText(resource: detail.description)
+                    }
+                }
+            }
+            .padding(.top, 8)
+        } label: {
+            Text(item.title)
+                .font(.headline)
+        }
+        .padding()
+        .background(.background, in: RoundedRectangle(cornerRadius: 14))
+        .shadow(color: .black.opacity(0.08), radius: 4, y: 2)
+        .accessibilityIdentifier("helpItem_\(item.id)")
+    }
+}
+
+private struct HelpDiagnosticSection: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("Diagnostics")
+                .font(.title3.weight(.semibold))
+                .accessibilityAddTraits(.isHeader)
+
+            VStack(alignment: .leading, spacing: 8) {
+                Label("Device Tests", systemImage: "stethoscope")
+                    .font(.headline)
+                Text("Run on-device checks, review privacy-safe logs, and prepare information for a problem report from the Diagnostics screen.")
+                    .foregroundStyle(.secondary)
+            }
+            .padding()
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(.background, in: RoundedRectangle(cornerRadius: 14))
+            .shadow(color: .black.opacity(0.08), radius: 4, y: 2)
+        }
+    }
+}
+
+private struct HelpRichText: View {
+    let resource: LocalizedStringResource
+
+    var body: some View {
+        Text(attributedText)
+            .font(.body)
+            .foregroundStyle(.secondary)
+    }
+
+    private var attributedText: AttributedString {
+        let source = String(localized: resource)
+        guard source.contains("<"),
+              let data = source.data(using: .utf8),
+              let richText = try? NSAttributedString(
+                data: data,
+                options: [
+                    .documentType: NSAttributedString.DocumentType.html,
+                    .characterEncoding: String.Encoding.utf8.rawValue
+                ],
+                documentAttributes: nil
+              ) else {
+            return AttributedString(source)
+        }
+        return AttributedString(richText)
     }
 }

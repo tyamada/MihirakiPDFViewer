@@ -27,8 +27,11 @@ struct DeviceTestView: View {
                 DeviceTestMetadataSection(
                     testedAt: report.testedAt,
                     deviceName: report.deviceName,
+                    deviceModel: report.deviceModel,
                     osVersion: report.osVersion,
-                    appVersion: report.appVersion
+                    appVersion: report.appVersion,
+                    totalMemoryBytes: report.totalMemoryBytes,
+                    availableMemoryBytes: report.availableMemoryBytes
                 )
                 DeviceTestChecksSection(checks: report.checks)
             }
@@ -83,8 +86,11 @@ private struct DeviceTestPrivacyNotice: View {
 private struct DeviceTestMetadataSection: View {
     let testedAt: Date
     let deviceName: String
+    let deviceModel: String
     let osVersion: String
     let appVersion: String
+    let totalMemoryBytes: UInt64
+    let availableMemoryBytes: UInt64
 
     var body: some View {
         Section("Test information") {
@@ -92,8 +98,17 @@ private struct DeviceTestMetadataSection: View {
                 Text(testedAt, format: .dateTime.year().month().day().hour().minute().second())
             }
             LabeledContent("Device name", value: deviceName)
+            LabeledContent("Model", value: deviceModel)
             LabeledContent("OS version", value: osVersion)
             LabeledContent("App version", value: appVersion)
+            LabeledContent(
+                "Total memory",
+                value: ByteCountFormatter.string(fromByteCount: Int64(totalMemoryBytes), countStyle: .memory)
+            )
+            LabeledContent(
+                "Available memory",
+                value: ByteCountFormatter.string(fromByteCount: Int64(availableMemoryBytes), countStyle: .memory)
+            )
         }
     }
 }

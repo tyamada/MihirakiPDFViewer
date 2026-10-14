@@ -24,13 +24,23 @@ struct DisplaySettingsSection: View {
                     set: { viewModel.settings.isHighQualityRenderingEnabled = $0 }
                 )
             )
-            Toggle(
-                String(localized: "sharpness", defaultValue: "Sharpness"),
-                isOn: Binding(
-                    get: { viewModel.settings.isSharpnessEnabled },
-                    set: { viewModel.settings.isSharpnessEnabled = $0 }
+            VStack(alignment: .leading, spacing: 8) {
+                LabeledContent {
+                    Text(viewModel.settings.sharpnessAmount, format: .percent.precision(.fractionLength(0)))
+                        .monospacedDigit()
+                } label: {
+                    Text("sharpness", comment: "Label for the PDF rendering sharpness slider.")
+                }
+                Slider(
+                    value: Binding(
+                        get: { viewModel.settings.sharpnessAmount },
+                        set: { viewModel.settings.sharpnessAmount = $0 }
+                    ),
+                    in: 0...1,
+                    step: 0.05
                 )
-            )
+                .accessibilityIdentifier("sharpnessSlider")
+            }
             Toggle(
                 String(localized: "is_spread_view"),
                 isOn: Binding(
@@ -207,18 +217,15 @@ struct SettingsHelpSection: View {
             .frame(maxWidth: .infinity)
             .accessibilityIdentifier("helpButton")
 
-            DeviceTestingSettingsSection()
-            AppLoggingSettingsSection()
-
             NavigationLink {
-                IssueReportingGuideView()
+                DiagnosticView()
             } label: {
-                Label("Report a Problem", systemImage: "exclamationmark.bubble")
+                Label("Diagnostics", systemImage: "stethoscope")
                     .frame(maxWidth: .infinity)
             }
             .buttonStyle(HighContrastSettingsButtonStyle())
             .frame(maxWidth: .infinity)
-            .accessibilityIdentifier("reportProblemButton")
+            .accessibilityIdentifier("diagnosticsButton")
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(1)
@@ -232,33 +239,15 @@ struct SettingsAppInformationSection: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             SettingsSectionHeader(title: "app_info")
-            VStack(alignment: .leading, spacing: 12) {
-                AppInformationRow(
-                    label: "app_name_label",
-                    value: Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
-                        ?? Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String
-                        ?? "PDFViewer"
-                )
-                AppInformationRow(
-                    label: "version_label",
-                    value: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-                        ?? "1.0.0"
-                )
-                AppInformationRow(
-                    label: "copyright_label",
-                    value: String(localized: "copyright")
-                )
-            }
-
             NavigationLink {
-                LicenseView()
+                AppInformationView()
             } label: {
-                Label("License", systemImage: "doc.plaintext")
+                Label("App Information", systemImage: "info.circle")
                     .frame(maxWidth: .infinity)
             }
             .buttonStyle(HighContrastSettingsButtonStyle())
             .frame(maxWidth: .infinity)
-            .accessibilityIdentifier("licenseButton")
+            .accessibilityIdentifier("appInformationButton")
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(1)

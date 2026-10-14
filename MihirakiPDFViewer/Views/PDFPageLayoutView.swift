@@ -16,6 +16,7 @@ struct PageContentContainer: View {
     let layoutDirection: LayoutDirection
     let isHighQualityRenderingEnabled: Bool
     let isSharpnessEnabled: Bool
+    let sharpnessAmount: Double
     let isFirstGroup: Bool
     let isLastGroup: Bool
 
@@ -41,6 +42,7 @@ struct PageContentContainer: View {
                 layoutDirection: layoutDirection,
                 isHighQualityRenderingEnabled: isHighQualityRenderingEnabled,
                 isSharpnessEnabled: isSharpnessEnabled,
+                sharpnessAmount: sharpnessAmount,
                 isFirstGroup: isFirstGroup,
                 isLastGroup: isLastGroup
             )
@@ -50,7 +52,8 @@ struct PageContentContainer: View {
                 size: containerSize,
                 searchMatches: searchMatches,
                 isHighQualityRenderingEnabled: isHighQualityRenderingEnabled,
-                isSharpnessEnabled: isSharpnessEnabled
+                isSharpnessEnabled: isSharpnessEnabled,
+                sharpnessAmount: sharpnessAmount
             )
         }
     }
@@ -71,6 +74,7 @@ struct SpreadLayoutView: View {
     let layoutDirection: LayoutDirection
     let isHighQualityRenderingEnabled: Bool
     let isSharpnessEnabled: Bool
+    let sharpnessAmount: Double
     let isFirstGroup: Bool
     let isLastGroup: Bool
 
@@ -107,7 +111,8 @@ struct SpreadLayoutView: View {
                                     searchMatches: searchMatches,
                                     alignment: .center,
                                     isHighQualityRenderingEnabled: isHighQualityRenderingEnabled,
-                                    isSharpnessEnabled: isSharpnessEnabled
+                                    isSharpnessEnabled: isSharpnessEnabled,
+                                    sharpnessAmount: sharpnessAmount
                                 )
                                 blankPage(size: targetSize)
                             } else {
@@ -119,7 +124,8 @@ struct SpreadLayoutView: View {
                                     searchMatches: searchMatches,
                                     alignment: .center,
                                     isHighQualityRenderingEnabled: isHighQualityRenderingEnabled,
-                                    isSharpnessEnabled: isSharpnessEnabled
+                                    isSharpnessEnabled: isSharpnessEnabled,
+                                    sharpnessAmount: sharpnessAmount
                                 )
                             }
                         }
@@ -137,7 +143,8 @@ struct SpreadLayoutView: View {
                             searchMatches: searchMatches,
                             alignment: .center,
                             isHighQualityRenderingEnabled: isHighQualityRenderingEnabled,
-                            isSharpnessEnabled: isSharpnessEnabled
+                            isSharpnessEnabled: isSharpnessEnabled,
+                            sharpnessAmount: sharpnessAmount
                         )
                         Spacer()
                     }
@@ -162,7 +169,8 @@ struct SpreadLayoutView: View {
                              searchMatches: searchMatches.filter { $0.pageIndex == group.pageIndices[0] },
                              alignment: .left,
                              isHighQualityRenderingEnabled: isHighQualityRenderingEnabled,
-                             isSharpnessEnabled: isSharpnessEnabled
+                             isSharpnessEnabled: isSharpnessEnabled,
+                             sharpnessAmount: sharpnessAmount
                          )
                          PageView(
                              page: p2,
@@ -171,7 +179,8 @@ struct SpreadLayoutView: View {
                              searchMatches: searchMatches.filter { $0.pageIndex == group.pageIndices[1] },
                              alignment: .right,
                              isHighQualityRenderingEnabled: isHighQualityRenderingEnabled,
-                             isSharpnessEnabled: isSharpnessEnabled
+                             isSharpnessEnabled: isSharpnessEnabled,
+                             sharpnessAmount: sharpnessAmount
                          )
                      }
                      .environment(\.layoutDirection, .leftToRight)
@@ -195,7 +204,8 @@ struct SpreadLayoutView: View {
                             searchMatches: searchMatches.filter { $0.pageIndex == group.pageIndices[0] },
                             alignment: .center,
                             isHighQualityRenderingEnabled: isHighQualityRenderingEnabled,
-                            isSharpnessEnabled: isSharpnessEnabled
+                            isSharpnessEnabled: isSharpnessEnabled,
+                            sharpnessAmount: sharpnessAmount
                         )
                         PageView(
                             page: p2,
@@ -204,7 +214,8 @@ struct SpreadLayoutView: View {
                             searchMatches: searchMatches.filter { $0.pageIndex == group.pageIndices[1] },
                             alignment: .center,
                             isHighQualityRenderingEnabled: isHighQualityRenderingEnabled,
-                            isSharpnessEnabled: isSharpnessEnabled
+                            isSharpnessEnabled: isSharpnessEnabled,
+                            sharpnessAmount: sharpnessAmount
                         )
                      }
                      .environment(\.layoutDirection, .leftToRight)
@@ -229,6 +240,7 @@ struct SinglePageView: View {
     let searchMatches: [PDFViewerViewModel.PDFSearchMatch]
     let isHighQualityRenderingEnabled: Bool
     let isSharpnessEnabled: Bool
+    let sharpnessAmount: Double
 
     var body: some View {
         GeometryReader { geometry in
@@ -249,7 +261,8 @@ struct SinglePageView: View {
                         searchMatches: searchMatches,
                         alignment: .center,
                         isHighQualityRenderingEnabled: isHighQualityRenderingEnabled,
-                        isSharpnessEnabled: isSharpnessEnabled
+                        isSharpnessEnabled: isSharpnessEnabled,
+                        sharpnessAmount: sharpnessAmount
                     )
                     Spacer()
                 }

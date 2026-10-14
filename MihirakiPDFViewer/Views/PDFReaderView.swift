@@ -164,6 +164,7 @@ struct PDFContainerView: View {
                 layoutDirection: viewModel.settings.layoutDirection,
                 isHighQualityRenderingEnabled: viewModel.settings.isHighQualityRenderingEnabled,
                 isSharpnessEnabled: viewModel.settings.isSharpnessEnabled,
+                sharpnessAmount: viewModel.settings.sharpnessAmount,
                 isFirstGroup: item.index == 0,
                 isLastGroup: item.index == item.groupCount - 1
             )

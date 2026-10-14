@@ -11,6 +11,7 @@
 import Foundation
 import PDFKit
 import UIKit
+import Darwin
 
 struct DeviceTestReport: Equatable {
     struct Check: Equatable, Identifiable {
@@ -27,8 +28,11 @@ struct DeviceTestReport: Equatable {
 
     let testedAt: Date
     let deviceName: String
+    let deviceModel: String
     let osVersion: String
     let appVersion: String
+    let totalMemoryBytes: UInt64
+    let availableMemoryBytes: UInt64
     let checks: [Check]
 
     var allPassed: Bool {
@@ -52,8 +56,11 @@ struct DeviceTestReport: Equatable {
             String(localized: "Result: \(result)"),
             String(localized: "Test date: \(testedAt.formatted(date: .numeric, time: .standard))"),
             String(localized: "Device: \(deviceName)"),
+            String(localized: "Model: \(deviceModel)"),
             String(localized: "OS version: \(osVersion)"),
             String(localized: "App version: \(appVersion)"),
+            String(localized: "Total memory: \(ByteCountFormatter.string(fromByteCount: Int64(totalMemoryBytes), countStyle: .memory))"),
+            String(localized: "Available memory: \(ByteCountFormatter.string(fromByteCount: Int64(availableMemoryBytes), countStyle: .memory))"),
             ""
         ] + checkLines).joined(separator: "\n")
     }
@@ -71,15 +78,19 @@ enum DeviceTestRunner {
         let version = appVersion(in: bundle)
         let checks = [
             bundleInformationCheck(version: version),
-            localStorageCheck(fileManager: fileManager),
+            cacheStorageCheck(fileManager: fileManager),
+            availableStorageCheck(fileManager: fileManager),
             pdfEngineCheck(fileManager: fileManager)
         ]
 
         return DeviceTestReport(
             testedAt: testedAt,
             deviceName: currentDevice.name,
+            deviceModel: deviceModelIdentifier(),
             osVersion: "\(currentDevice.systemName) \(currentDevice.systemVersion)",
             appVersion: version,
+            totalMemoryBytes: ProcessInfo.processInfo.physicalMemory,
+            availableMemoryBytes: UInt64(os_proc_available_memory()),
             checks: checks
         )
     }
@@ -112,10 +123,12 @@ enum DeviceTestRunner {
         )
     }
 
-    private static func localStorageCheck(
+    private static func cacheStorageCheck(
         fileManager: FileManager
     ) -> DeviceTestReport.Check {
-        let url = fileManager.temporaryDirectory
+        let cacheDirectory = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first
+            ?? fileManager.temporaryDirectory
+        let url = cacheDirectory
             .appendingPathComponent(UUID().uuidString)
             .appendingPathExtension("txt")
         let expectedData = Data("MihirakiPDFViewer device test".utf8)
@@ -126,20 +139,59 @@ enum DeviceTestRunner {
             let actualData = try Data(contentsOf: url)
             guard actualData == expectedData else {
                 return failedCheck(
-                    id: "localStorage",
-                    name: "Local storage",
+                    id: "cacheStorage",
+                    name: "Cache storage",
                     detail: String(
                         localized: "The saved data did not match the data that was read."
                     )
                 )
             }
-            return passedCheck(id: "localStorage", name: "Local storage")
+            return passedCheck(id: "cacheStorage", name: "Cache storage")
         } catch {
             return failedCheck(
-                id: "localStorage",
-                name: "Local storage",
+                id: "cacheStorage",
+                name: "Cache storage",
                 detail: error.localizedDescription
             )
+        }
+    }
+
+    private static func availableStorageCheck(
+        fileManager: FileManager
+    ) -> DeviceTestReport.Check {
+        do {
+            let values = try fileManager.temporaryDirectory.resourceValues(
+                forKeys: [.volumeAvailableCapacityForImportantUsageKey]
+            )
+            guard let capacity = values.volumeAvailableCapacityForImportantUsage else {
+                return failedCheck(
+                    id: "availableStorage",
+                    name: "Available storage",
+                    detail: String(localized: "Available storage could not be read.")
+                )
+            }
+            return DeviceTestReport.Check(
+                id: "availableStorage",
+                name: "Available storage",
+                status: .passed,
+                detail: ByteCountFormatter.string(fromByteCount: capacity, countStyle: .file)
+            )
+        } catch {
+            return failedCheck(
+                id: "availableStorage",
+                name: "Available storage",
+                detail: error.localizedDescription
+            )
+        }
+    }
+
+    private static func deviceModelIdentifier() -> String {
+        var systemInfo = utsname()
+        uname(&systemInfo)
+        let mirror = Mirror(reflecting: systemInfo.machine)
+        return mirror.children.reduce(into: "") { identifier, element in
+            guard let value = element.value as? Int8, value != 0 else { return }
+            identifier.append(Character(UnicodeScalar(UInt8(value))))
         }
     }
 

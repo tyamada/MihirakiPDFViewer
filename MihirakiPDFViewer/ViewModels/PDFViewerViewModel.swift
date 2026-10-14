@@ -26,8 +26,8 @@ public class PDFViewerViewModel: NSObject {
             if settings.isHighQualityRenderingEnabled != oldValue.isHighQualityRenderingEnabled {
                 preferences?.set(settings.isHighQualityRenderingEnabled, forKey: Self.highQualityPreferenceKey)
             }
-            if settings.isSharpnessEnabled != oldValue.isSharpnessEnabled {
-                preferences?.set(settings.isSharpnessEnabled, forKey: Self.sharpnessPreferenceKey)
+            if settings.sharpnessAmount != oldValue.sharpnessAmount {
+                preferences?.set(settings.sharpnessAmount, forKey: Self.sharpnessAmountPreferenceKey)
             }
             AppDiagnostics.record(.displaySettingsChanged)
             if settings.isSinglePageInPortraitEnabled != oldValue.isSinglePageInPortraitEnabled {
@@ -85,6 +85,7 @@ public class PDFViewerViewModel: NSObject {
     private let preferences: UserDefaults?
     private static let highQualityPreferenceKey = "isHighQualityRenderingEnabled"
     private static let sharpnessPreferenceKey = "isSharpnessEnabled"
+    private static let sharpnessAmountPreferenceKey = "sharpnessAmount"
     private static let singlePageInPortraitPreferenceKey = "isSinglePageInPortraitEnabled"
     private static let defaultSinglePageInPortraitEnabled = true
     private var documentBookmark: Data?
@@ -106,9 +107,14 @@ public class PDFViewerViewModel: NSObject {
             self.settings = settings
         } else {
             let savedPortraitPreference = preferences?.object(forKey: Self.singlePageInPortraitPreferenceKey) as? Bool
+            let savedSharpnessAmount = preferences?.object(
+                forKey: Self.sharpnessAmountPreferenceKey
+            ) as? Double
+            let legacySharpnessEnabled = preferences?.bool(forKey: Self.sharpnessPreferenceKey) ?? false
             self.settings = PDFViewerSettings(
                 isHighQualityRenderingEnabled: preferences?.bool(forKey: Self.highQualityPreferenceKey) ?? false,
-                isSharpnessEnabled: preferences?.bool(forKey: Self.sharpnessPreferenceKey) ?? false,
+                isSharpnessEnabled: legacySharpnessEnabled,
+                sharpnessAmount: savedSharpnessAmount,
                 isSinglePageInPortraitEnabled: savedPortraitPreference ?? Self.defaultSinglePageInPortraitEnabled
             )
         }
@@ -129,6 +135,27 @@ public class PDFViewerViewModel: NSObject {
 
     public var pageGroups: [PageGroup] {
         makePageGroups(settings: settings, viewportLayout: viewportLayout)
+    }
+
+    var outline: [PDFOutlineNode] {
+        document?.outline ?? []
+    }
+
+    var displayedPDFPageIndices: [Int] {
+        guard pageGroups.indices.contains(currentPageIndex) else { return [] }
+        return pageGroups[currentPageIndex].pageIndices
+    }
+
+    func jumpToPDFPage(_ pageIndex: Int) {
+        guard let document,
+              (0..<document.totalPageCount).contains(pageIndex),
+              let groupIndex = PDFPageGrouping.groupIndex(
+                containing: pageIndex,
+                in: pageGroups.map(\.pageIndices)
+              ) else {
+            return
+        }
+        currentPageIndex = groupIndex
     }
 
     public func updateViewportSize(
@@ -386,7 +413,7 @@ public class PDFViewerViewModel: NSObject {
         self.settings.isCoverPageEnabled = false
         self.settings.coverPageSetting = .typeA
         self.settings.isHighQualityRenderingEnabled = false
-        self.settings.isSharpnessEnabled = false
+        self.settings.sharpnessAmount = 0
         self.settings.isSinglePageInPortraitEnabled = Self.defaultSinglePageInPortraitEnabled
         closeDocument()
     }
@@ -404,6 +431,7 @@ public class PDFViewerViewModel: NSObject {
             coverPageSetting: self.settings.coverPageSetting,
             isHighQualityRenderingEnabled: self.settings.isHighQualityRenderingEnabled,
             isSharpnessEnabled: self.settings.isSharpnessEnabled,
+            sharpnessAmount: self.settings.sharpnessAmount,
             isSinglePageInPortraitEnabled: self.settings.isSinglePageInPortraitEnabled
         )
     }

@@ -19,6 +19,7 @@ struct MainContentView: View {
     let didDeleteDocument: (URL) -> Void
     let openReaderSettings: () -> Void
     let openEmptyStateSettings: () -> Void
+    @State private var isShowingOutline = false
 
     var body: some View {
         if viewModel.document != nil {
@@ -47,6 +48,9 @@ struct MainContentView: View {
                 PDFReaderToolbar(
                     searchQuery: $viewModel.searchQuery,
                     openSettings: openReaderSettings,
+                    openOutline: {
+                        isShowingOutline = true
+                    },
                     closeDocument: {
                         isPDFChromeVisible = false
                         viewModel.closeDocument()
@@ -54,6 +58,15 @@ struct MainContentView: View {
                 )
             }
             .toolbarVisibility(isPDFChromeVisible ? .visible : .hidden, for: .navigationBar)
+            .sheet(isPresented: $isShowingOutline) {
+                PDFOutlineView(
+                    nodes: viewModel.outline,
+                    currentPageIndices: Set(viewModel.displayedPDFPageIndices),
+                    onSelectPage: viewModel.jumpToPDFPage
+                )
+                .presentationDetents([.medium, .large])
+                .presentationDragIndicator(.visible)
+            }
         } else {
             PDFEmptyStateView(
                 selectPDF: selectPDF,

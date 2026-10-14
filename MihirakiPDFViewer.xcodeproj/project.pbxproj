@@ -11,6 +11,10 @@
 		EC23F641307400C500F32816 /* DeviceTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC23F640307400C500F32816 /* DeviceTestView.swift */; };
 		EC23F6433074054900F32816 /* AppLogStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC23F6423074054900F32816 /* AppLogStore.swift */; };
 		EC23F6453074059B00F32816 /* AppLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC23F6443074059B00F32816 /* AppLogView.swift */; };
+		EC24511430801ED1006C1AD5 /* AppInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24511330801ED1006C1AD5 /* AppInformationView.swift */; };
+		EC24511630801ED1006C1AD5 /* DiagnosticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24511530801ED1006C1AD5 /* DiagnosticView.swift */; };
+		EC245118308024FC006C1AD5 /* PDFOutlineNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC245117308024FC006C1AD5 /* PDFOutlineNode.swift */; };
+		EC24511C30802530006C1AD5 /* PDFOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24511B30802530006C1AD5 /* PDFOutlineView.swift */; };
 		EC58BDC030774A950060F37C /* SamplePDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC58BDBF30774A950060F37C /* SamplePDF.swift */; };
 		EC58BDC230774A960060F37C /* SamplePDFStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC58BDC130774A960060F37C /* SamplePDFStore.swift */; };
 		EC58BDC530774AB30060F37C /* SamplePDFCatalog.json in Resources */ = {isa = PBXBuildFile; fileRef = EC58BDC430774AB30060F37C /* SamplePDFCatalog.json */; };
@@ -71,6 +75,10 @@
 		EC23F640307400C500F32816 /* DeviceTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTestView.swift; sourceTree = "<group>"; };
 		EC23F6423074054900F32816 /* AppLogStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogStore.swift; sourceTree = "<group>"; };
 		EC23F6443074059B00F32816 /* AppLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogView.swift; sourceTree = "<group>"; };
+		EC24511330801ED1006C1AD5 /* AppInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInformationView.swift; sourceTree = "<group>"; };
+		EC24511530801ED1006C1AD5 /* DiagnosticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticView.swift; sourceTree = "<group>"; };
+		EC245117308024FC006C1AD5 /* PDFOutlineNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFOutlineNode.swift; sourceTree = "<group>"; };
+		EC24511B30802530006C1AD5 /* PDFOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFOutlineView.swift; sourceTree = "<group>"; };
 		EC58BDBF30774A950060F37C /* SamplePDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePDF.swift; sourceTree = "<group>"; };
 		EC58BDC130774A960060F37C /* SamplePDFStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePDFStore.swift; sourceTree = "<group>"; };
 		EC58BDC430774AB30060F37C /* SamplePDFCatalog.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SamplePDFCatalog.json; sourceTree = "<group>"; };
@@ -191,6 +199,7 @@
 				ECEE8DA9307EE2C100ED7C76 /* PDFPageGrouping.swift */,
 				ECEE8DC9307F6BE800ED7C76 /* PDFViewerSettings.swift */,
 				ECEE8DCD307F6D9300ED7C76 /* HelpContent.swift */,
+				EC245117308024FC006C1AD5 /* PDFOutlineNode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -225,6 +234,9 @@
 				ECEE8DC3307F69D500ED7C76 /* SettingsSections.swift */,
 				ECEE8DC7307F6B5B00ED7C76 /* SamplePDFListComponents.swift */,
 				ECEE8DCB307F6CB600ED7C76 /* PDFReaderControls.swift */,
+				EC24511330801ED1006C1AD5 /* AppInformationView.swift */,
+				EC24511530801ED1006C1AD5 /* DiagnosticView.swift */,
+				EC24511B30802530006C1AD5 /* PDFOutlineView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -440,6 +452,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC5BB3E8302ECC0C00F4DE2E /* PDFViewerApp.swift in Sources */,
+				EC24511C30802530006C1AD5 /* PDFOutlineView.swift in Sources */,
+				EC24511430801ED1006C1AD5 /* AppInformationView.swift in Sources */,
 				EC23F6453074059B00F32816 /* AppLogView.swift in Sources */,
 				ECEE8DAE307F176500ED7C76 /* PDFReaderView.swift in Sources */,
 				ECEE8DAA307EE2C100ED7C76 /* PDFPageGrouping.swift in Sources */,
@@ -447,6 +461,7 @@
 				ECEE8DB4307F249B00ED7C76 /* IssueReportingViews.swift in Sources */,
 				ECEE8DB2307F249B00ED7C76 /* ResetSettingsView.swift in Sources */,
 				ECEE8DBA307F274C00ED7C76 /* PDFEmptyStateView.swift in Sources */,
+				EC245118308024FC006C1AD5 /* PDFOutlineNode.swift in Sources */,
 				ECEE8DA0307EDB6200ED7C76 /* ReadingSessionStore.swift in Sources */,
 				ECEE8DCC307F6CB600ED7C76 /* PDFReaderControls.swift in Sources */,
 				EC21F81230317A270062D47C /* TipManager.swift in Sources */,
@@ -473,6 +488,7 @@
 				EC5BB3ED302ECC0C00F4DE2E /* PageView.swift in Sources */,
 				ECEE8DBC307F294F00ED7C76 /* UITestLaunchConfiguration.swift in Sources */,
 				ECEE8DA6307EE04500ED7C76 /* SecurityScopedResourceManager.swift in Sources */,
+				EC24511630801ED1006C1AD5 /* DiagnosticView.swift in Sources */,
 				ECEE8DB6307F249B00ED7C76 /* HelpView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

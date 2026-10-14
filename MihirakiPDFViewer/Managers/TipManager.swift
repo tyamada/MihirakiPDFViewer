@@ -17,6 +17,33 @@ import StoreKit
 import SwiftUI
 import UIKit
 
+enum SupporterTier: String, CaseIterable, Identifiable {
+    case bronze = "supporter_icon_bronze"
+    case silver = "supporter_icon_silver"
+    case gold = "supporter_icon_gold"
+    case koyomi = "supporter_badge_koyomi_v2"
+
+    var id: String { rawValue }
+
+    var name: LocalizedStringResource {
+        switch self {
+        case .bronze: "Bronze Supporter"
+        case .silver: "Silver Supporter"
+        case .gold: "Gold Supporter"
+        case .koyomi: "Koyomi Supporter"
+        }
+    }
+
+    var imageName: String {
+        switch self {
+        case .bronze: "TipIconBronze"
+        case .silver: "TipIconSilver"
+        case .gold: "TipIconGold"
+        case .koyomi: "KoyomiV2Badge"
+        }
+    }
+}
+
 /// 投げ銭（チップ）の購入と管理を行うマネージャー
 @MainActor
 @Observable
