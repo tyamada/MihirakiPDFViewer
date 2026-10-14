@@ -41,6 +41,7 @@
 		ECEE8DC0307F313E00ED7C76 /* MainPresentationViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8DBF307F313E00ED7C76 /* MainPresentationViews.swift */; };
 		ECEE8DC2307F5E6B00ED7C76 /* PDFPageImageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8DC1307F5E6B00ED7C76 /* PDFPageImageRenderer.swift */; };
 		ECEE8DC4307F69D500ED7C76 /* SettingsSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8DC3307F69D500ED7C76 /* SettingsSections.swift */; };
+		ECEE8DC6307F6AAE00ED7C76 /* DeviceTestRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8DC5307F6AAE00ED7C76 /* DeviceTestRunner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		ECEE8DBF307F313E00ED7C76 /* MainPresentationViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresentationViews.swift; sourceTree = "<group>"; };
 		ECEE8DC1307F5E6B00ED7C76 /* PDFPageImageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPageImageRenderer.swift; sourceTree = "<group>"; };
 		ECEE8DC3307F69D500ED7C76 /* SettingsSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSections.swift; sourceTree = "<group>"; };
+		ECEE8DC5307F6AAE00ED7C76 /* DeviceTestRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTestRunner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -148,6 +150,7 @@
 				ECEE8D9D307ED9FD00ED7C76 /* IncomingPDFImporter.swift */,
 				ECEE8D9F307EDB6200ED7C76 /* ReadingSessionStore.swift */,
 				ECEE8DA5307EE04500ED7C76 /* SecurityScopedResourceManager.swift */,
+				ECEE8DC5307F6AAE00ED7C76 /* DeviceTestRunner.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				ECEE8D9E307ED9FD00ED7C76 /* IncomingPDFImporter.swift in Sources */,
 				ECEE8DAC307F168A00ED7C76 /* TipSelectionView.swift in Sources */,
 				ECEE8DC2307F5E6B00ED7C76 /* PDFPageImageRenderer.swift in Sources */,
+				ECEE8DC6307F6AAE00ED7C76 /* DeviceTestRunner.swift in Sources */,
 				EC23F641307400C500F32816 /* DeviceTestView.swift in Sources */,
 				EC5BB3E9302ECC0C00F4DE2E /* PDFDocumentWrapper.swift in Sources */,
 				ECEE8DB0307F178400ED7C76 /* SettingsSupportViews.swift in Sources */,
