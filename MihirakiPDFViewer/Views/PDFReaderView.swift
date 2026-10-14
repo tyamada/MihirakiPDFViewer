@@ -239,3 +239,45 @@ struct ScrollDirectionHintView: View {
         }
     }
 }
+
+struct PDFPageSliderView: View {
+    @Binding var currentPageIndex: Int
+    let pageCount: Int
+    let layoutDirection: LayoutDirection
+
+    private var sliderValue: Binding<Double> {
+        Binding(
+            get: {
+                let maximumIndex = Double(max(1, pageCount - 1))
+                let currentRatio = Double(currentPageIndex) / maximumIndex
+                return layoutDirection == .leftToRight ? currentRatio : (1 - currentRatio)
+            },
+            set: { newValue in
+                let maximumIndex = Double(max(1, pageCount - 1))
+                let targetRatio = layoutDirection == .leftToRight ? newValue : (1 - newValue)
+                currentPageIndex = Int((targetRatio * maximumIndex).rounded())
+            }
+        )
+    }
+
+    var body: some View {
+        VStack(spacing: 8) {
+            Slider(value: sliderValue, in: 0...1)
+                .tint(.blue)
+                .accessibilityIdentifier("pageSlider")
+                .accessibilityLabel(String(localized: "page_slider_accessibility_label", defaultValue: "Page"))
+                .accessibilityValue("\(currentPageIndex + 1) / \(pageCount)")
+
+            Text("\(currentPageIndex + 1) / \(pageCount)")
+                .font(.caption.monospacedDigit())
+                .foregroundStyle(.primary)
+                .accessibilityIdentifier("pageIndicator")
+        }
+        .padding(.horizontal)
+        .padding(.vertical, 8)
+        .background(Color(uiColor: .secondarySystemBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .padding(.horizontal, 16)
+        .padding(.bottom, 8)
+    }
+}

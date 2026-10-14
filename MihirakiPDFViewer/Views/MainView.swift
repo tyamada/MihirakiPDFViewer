@@ -384,35 +384,11 @@ public struct MainView: View {
                 .accessibilityIdentifier("pdfViewerScreen")
 
                 if isPDFChromeVisible && viewModel.pageGroups.count > 1 {
-                    VStack(spacing: 8) {
-                        Slider(value: Binding(
-                            get: {
-                                let maxIdx = Double(max(1, viewModel.pageGroups.count - 1))
-                                let currentRatio = Double(viewModel.currentPageIndex) / maxIdx
-                                return viewModel.settings.layoutDirection == .leftToRight ? currentRatio : (1.0 - currentRatio)
-                            },
-                            set: { newValue in
-                                let maxIdx = Double(max(1, viewModel.pageGroups.count - 1))
-                                let targetRatio = viewModel.settings.layoutDirection == .leftToRight ? newValue : (1.0 - newValue)
-                                viewModel.currentPageIndex = Int((targetRatio * maxIdx).rounded())
-                            }
-                        ), in: 0...1)
-                        .accentColor(.blue)
-                        .accessibilityIdentifier("pageSlider")
-                        .accessibilityLabel(String(localized: "page_slider_accessibility_label", defaultValue: "Page"))
-                        .accessibilityValue("\(viewModel.currentPageIndex + 1) / \(viewModel.pageGroups.count)")
-
-                        Text("\(viewModel.currentPageIndex + 1) / \(viewModel.pageGroups.count)")
-                            .font(.caption.monospacedDigit())
-                            .accessibilityIdentifier("pageIndicator")
-                            .foregroundColor(.primary)
-                    }
-                    .padding(.horizontal)
-                    .padding(.vertical, 8)
-                    .background(Color(uiColor: .secondarySystemBackground))
-                    .cornerRadius(12)
-                    .padding(.horizontal, 16)
-                    .padding(.bottom, 8)
+                    PDFPageSliderView(
+                        currentPageIndex: $viewModel.currentPageIndex,
+                        pageCount: viewModel.pageGroups.count,
+                        layoutDirection: viewModel.settings.layoutDirection
+                    )
                     .transition(.move(edge: .bottom).combined(with: .opacity))
                 }
             }
