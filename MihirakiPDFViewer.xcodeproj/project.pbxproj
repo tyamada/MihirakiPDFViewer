@@ -32,6 +32,9 @@
 		ECEE8DAC307F168A00ED7C76 /* TipSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8DAB307F168A00ED7C76 /* TipSelectionView.swift */; };
 		ECEE8DAE307F176500ED7C76 /* PDFReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8DAD307F176500ED7C76 /* PDFReaderView.swift */; };
 		ECEE8DB0307F178400ED7C76 /* SettingsSupportViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8DAF307F178400ED7C76 /* SettingsSupportViews.swift */; };
+		ECEE8DB2307F249B00ED7C76 /* ResetSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8DB1307F249B00ED7C76 /* ResetSettingsView.swift */; };
+		ECEE8DB4307F249B00ED7C76 /* IssueReportingViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8DB3307F249B00ED7C76 /* IssueReportingViews.swift */; };
+		ECEE8DB6307F249B00ED7C76 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8DB5307F249B00ED7C76 /* HelpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +84,9 @@
 		ECEE8DAB307F168A00ED7C76 /* TipSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipSelectionView.swift; sourceTree = "<group>"; };
 		ECEE8DAD307F176500ED7C76 /* PDFReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFReaderView.swift; sourceTree = "<group>"; };
 		ECEE8DAF307F178400ED7C76 /* SettingsSupportViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSupportViews.swift; sourceTree = "<group>"; };
+		ECEE8DB1307F249B00ED7C76 /* ResetSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetSettingsView.swift; sourceTree = "<group>"; };
+		ECEE8DB3307F249B00ED7C76 /* IssueReportingViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueReportingViews.swift; sourceTree = "<group>"; };
+		ECEE8DB5307F249B00ED7C76 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -180,6 +186,9 @@
 				ECEE8DAB307F168A00ED7C76 /* TipSelectionView.swift */,
 				ECEE8DAD307F176500ED7C76 /* PDFReaderView.swift */,
 				ECEE8DAF307F178400ED7C76 /* SettingsSupportViews.swift */,
+				ECEE8DB1307F249B00ED7C76 /* ResetSettingsView.swift */,
+				ECEE8DB3307F249B00ED7C76 /* IssueReportingViews.swift */,
+				ECEE8DB5307F249B00ED7C76 /* HelpView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -399,6 +408,8 @@
 				ECEE8DAE307F176500ED7C76 /* PDFReaderView.swift in Sources */,
 				ECEE8DAA307EE2C100ED7C76 /* PDFPageGrouping.swift in Sources */,
 				EC58BDC030774A950060F37C /* SamplePDF.swift in Sources */,
+				ECEE8DB4307F249B00ED7C76 /* IssueReportingViews.swift in Sources */,
+				ECEE8DB2307F249B00ED7C76 /* ResetSettingsView.swift in Sources */,
 				ECEE8DA0307EDB6200ED7C76 /* ReadingSessionStore.swift in Sources */,
 				EC21F81230317A270062D47C /* TipManager.swift in Sources */,
 				EC58BDC730774AB40060F37C /* SamplePDFListView.swift in Sources */,
@@ -414,6 +425,7 @@
 				EC5BB3EC302ECC0C00F4DE2E /* MainView.swift in Sources */,
 				EC5BB3ED302ECC0C00F4DE2E /* PageView.swift in Sources */,
 				ECEE8DA6307EE04500ED7C76 /* SecurityScopedResourceManager.swift in Sources */,
+				ECEE8DB6307F249B00ED7C76 /* HelpView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
