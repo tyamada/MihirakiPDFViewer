@@ -46,7 +46,6 @@ public struct MainView: View {
     @State private var isShowingSettings = false
     @State private var isShowingTipSuccessAlert = false
     @State private var isShowingTipErrorAlert = false
-    @State private var lastTipProductID: String? = nil
     @State private var isPDFChromeVisible = false
     @State private var isScrollDirectionHintVisible = false
     @State private var scrollDirectionHintToken = UUID()
@@ -61,7 +60,7 @@ public struct MainView: View {
 
     public var body: some View {
         NavigationStack {
-            mainContent
+            makeDetailView()
                 .alert(String(localized: "error_title"), isPresented: $isShowingErrorAlert) {
                     Button(String(localized: "ok")) {
                         viewModel.errorMessage = nil
@@ -123,7 +122,6 @@ public struct MainView: View {
                 }
                 .onChange(of: tipManager.isPurchaseSuccess) { _, newValue in
                     if newValue {
-                        lastTipProductID = tipManager.lastPurchasedProductID
                         isShowingTipSuccessAlert = true
                     }
                 }
@@ -161,11 +159,6 @@ public struct MainView: View {
         .onOpenURL { url in
             handleIncomingPDFURL(url)
         }
-    }
-
-    @ViewBuilder
-    private var mainContent: some View {
-        makeDetailView()
     }
 
     private func handleFileSelection(result: Result<[URL], Error>) {
