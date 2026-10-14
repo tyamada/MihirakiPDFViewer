@@ -2,17 +2,65 @@
 //  MihirakiPDFViewerTests.swift
 //  MihirakiPDFViewerTests
 //
-//  Created by 山田 琢磨 on 2026/08/21.
+//  Copyright 2026 Takuma Yamada.
 //
 
+import Foundation
 import Testing
+@testable import MihirakiPDFViewer
 
-struct MihirakiPDFViewerTests {
+struct DeviceTestReportTests {
+    @Test
+    func reportsSuccessOnlyWhenEveryCheckPasses() {
+        let passedReport = makeReport(statuses: [.passed, .passed])
+        let failedReport = makeReport(statuses: [.passed, .failed])
 
-    @Test func example() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
-        // Swift Testing Documentation
-        // https://developer.apple.com/documentation/testing
+        #expect(passedReport.allPassed)
+        #expect(!failedReport.allPassed)
     }
 
+    @Test
+    func shareTextIncludesReportMetadataAndFailureDetail() {
+        let report = makeReport(statuses: [.failed], detail: "Example failure")
+
+        #expect(report.shareText.contains("Example Device"))
+        #expect(report.shareText.contains("Example OS"))
+        #expect(report.shareText.contains("1.2.3 (4)"))
+        #expect(report.shareText.contains("Example failure"))
+    }
+
+    @MainActor
+    @Test
+    func runnerValidatesLocalStorageAndPDFEngine() throws {
+        let report = DeviceTestRunner.run()
+        let localStorage = try #require(
+            report.checks.first { $0.id == "localStorage" }
+        )
+        let pdfEngine = try #require(
+            report.checks.first { $0.id == "pdfEngine" }
+        )
+
+        #expect(localStorage.status == .passed)
+        #expect(pdfEngine.status == .passed)
+    }
+
+    private func makeReport(
+        statuses: [DeviceTestReport.Check.Status],
+        detail: String? = nil
+    ) -> DeviceTestReport {
+        DeviceTestReport(
+            testedAt: Date(timeIntervalSince1970: 1_800_000_000),
+            deviceName: "Example Device",
+            osVersion: "Example OS",
+            appVersion: "1.2.3 (4)",
+            checks: statuses.enumerated().map { index, status in
+                DeviceTestReport.Check(
+                    id: "check-\(index)",
+                    name: "App information",
+                    status: status,
+                    detail: detail
+                )
+            }
+        )
+    }
 }
