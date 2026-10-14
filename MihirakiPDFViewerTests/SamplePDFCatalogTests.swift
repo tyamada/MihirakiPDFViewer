@@ -42,6 +42,49 @@ struct SamplePDFCatalogTests {
         }
     }
 
+    @Test(.timeLimit(.minutes(1)))
+    func hostedSamplesMatchBundledCatalogFileSizes() async throws {
+        let url = try #require(Bundle.main.url(forResource: "SamplePDFCatalog", withExtension: "json"))
+        let catalog = try JSONDecoder().decode(
+            SamplePDFCatalog.self,
+            from: Data(contentsOf: url)
+        )
+
+        try await withThrowingTaskGroup(of: (String, Int64, HTTPURLResponse).self) { group in
+            for sample in catalog.samples {
+                let sampleID = sample.id
+                let downloadURL = sample.downloadURL
+                let byteSize = sample.byteSize
+
+                group.addTask {
+                    var request = URLRequest(url: downloadURL)
+                    request.httpMethod = "HEAD"
+                    request.cachePolicy = .reloadIgnoringLocalCacheData
+                    request.timeoutInterval = 30
+
+                    let (_, response) = try await URLSession.shared.data(for: request)
+                    let httpResponse = try #require(response as? HTTPURLResponse)
+                    return (sampleID, byteSize, httpResponse)
+                }
+            }
+
+            for try await (sampleID, byteSize, response) in group {
+                #expect(
+                    (200...299).contains(response.statusCode),
+                    "\(sampleID) returned HTTP \(response.statusCode)"
+                )
+                #expect(
+                    response.mimeType == "application/pdf",
+                    "\(sampleID) returned \(response.mimeType ?? "no content type")"
+                )
+                #expect(
+                    response.expectedContentLength == byteSize,
+                    "\(sampleID) is \(response.expectedContentLength) bytes on the server, but the catalog declares \(byteSize)"
+                )
+            }
+        }
+    }
+
     @Test
     func maximumDownloadSizeIsOneHundredMebibytes() {
         #expect(SamplePDFStore.maximumFileSize == 104_857_600)
