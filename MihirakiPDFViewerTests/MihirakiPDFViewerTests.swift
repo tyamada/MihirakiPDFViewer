@@ -23,10 +23,28 @@ struct DeviceTestReportTests {
     func shareTextIncludesReportMetadataAndFailureDetail() {
         let report = makeReport(statuses: [.failed], detail: "Example failure")
 
-        #expect(report.shareText.contains("Example Device"))
+        #expect(report.shareText.contains("iPhone 16 Pro"))
+        #expect(report.shareText.contains("iPhone17,1"))
         #expect(report.shareText.contains("Example OS"))
         #expect(report.shareText.contains("1.2.3 (4)"))
         #expect(report.shareText.contains("Example failure"))
+    }
+
+    @MainActor
+    @Test
+    func resolvesKnownModelIdentifierAndFallsBackForUnknownModel() {
+        #expect(
+            DeviceTestRunner.deviceModelName(
+                for: "iPhone17,1",
+                fallback: "iPhone"
+            ) == "iPhone 16 Pro"
+        )
+        #expect(
+            DeviceTestRunner.deviceModelName(
+                for: "iPhone99,1",
+                fallback: "iPhone"
+            ) == "iPhone"
+        )
     }
 
     @MainActor
@@ -50,8 +68,8 @@ struct DeviceTestReportTests {
     ) -> DeviceTestReport {
         DeviceTestReport(
             testedAt: Date(timeIntervalSince1970: 1_800_000_000),
-            deviceName: "Example Device",
-            deviceModel: "Example Model",
+            deviceModelName: "iPhone 16 Pro",
+            deviceModelIdentifier: "iPhone17,1",
             osVersion: "Example OS",
             appVersion: "1.2.3 (4)",
             totalMemoryBytes: 1_000_000,

@@ -27,8 +27,8 @@ struct DeviceTestReport: Equatable {
     }
 
     let testedAt: Date
-    let deviceName: String
-    let deviceModel: String
+    let deviceModelName: String
+    let deviceModelIdentifier: String
     let osVersion: String
     let appVersion: String
     let totalMemoryBytes: UInt64
@@ -55,8 +55,8 @@ struct DeviceTestReport: Equatable {
             String(localized: "Device Test Results"),
             String(localized: "Result: \(result)"),
             String(localized: "Test date: \(testedAt.formatted(date: .numeric, time: .standard))"),
-            String(localized: "Device: \(deviceName)"),
-            String(localized: "Model: \(deviceModel)"),
+            String(localized: "Model name: \(deviceModelName)"),
+            String(localized: "Model identifier: \(deviceModelIdentifier)"),
             String(localized: "OS version: \(osVersion)"),
             String(localized: "App version: \(appVersion)"),
             String(localized: "Total memory: \(ByteCountFormatter.string(fromByteCount: Int64(totalMemoryBytes), countStyle: .memory))"),
@@ -76,6 +76,7 @@ enum DeviceTestRunner {
     ) -> DeviceTestReport {
         let currentDevice = device ?? .current
         let version = appVersion(in: bundle)
+        let modelIdentifier = deviceModelIdentifier()
         let checks = [
             bundleInformationCheck(version: version),
             cacheStorageCheck(fileManager: fileManager),
@@ -85,8 +86,11 @@ enum DeviceTestRunner {
 
         return DeviceTestReport(
             testedAt: testedAt,
-            deviceName: currentDevice.name,
-            deviceModel: deviceModelIdentifier(),
+            deviceModelName: deviceModelName(
+                for: modelIdentifier,
+                fallback: currentDevice.model
+            ),
+            deviceModelIdentifier: modelIdentifier,
             osVersion: "\(currentDevice.systemName) \(currentDevice.systemVersion)",
             appVersion: version,
             totalMemoryBytes: ProcessInfo.processInfo.physicalMemory,
@@ -186,6 +190,11 @@ enum DeviceTestRunner {
     }
 
     private static func deviceModelIdentifier() -> String {
+        if let simulatorIdentifier = ProcessInfo.processInfo.environment["SIMULATOR_MODEL_IDENTIFIER"],
+           !simulatorIdentifier.isEmpty {
+            return simulatorIdentifier
+        }
+
         var systemInfo = utsname()
         uname(&systemInfo)
         let mirror = Mirror(reflecting: systemInfo.machine)
@@ -194,6 +203,71 @@ enum DeviceTestRunner {
             identifier.append(Character(UnicodeScalar(UInt8(value))))
         }
     }
+
+    static func deviceModelName(for identifier: String, fallback: String) -> String {
+        modelNamesByIdentifier[identifier] ?? fallback
+    }
+
+    private static let modelNamesByIdentifier: [String: String] = [
+        "iPhone10,1": "iPhone 8",
+        "iPhone10,4": "iPhone 8",
+        "iPhone10,2": "iPhone 8 Plus",
+        "iPhone10,5": "iPhone 8 Plus",
+        "iPhone10,3": "iPhone X",
+        "iPhone10,6": "iPhone X",
+        "iPhone11,2": "iPhone XS",
+        "iPhone11,4": "iPhone XS Max",
+        "iPhone11,6": "iPhone XS Max",
+        "iPhone11,8": "iPhone XR",
+        "iPhone12,1": "iPhone 11",
+        "iPhone12,3": "iPhone 11 Pro",
+        "iPhone12,5": "iPhone 11 Pro Max",
+        "iPhone12,8": "iPhone SE (2nd generation)",
+        "iPhone13,1": "iPhone 12 mini",
+        "iPhone13,2": "iPhone 12",
+        "iPhone13,3": "iPhone 12 Pro",
+        "iPhone13,4": "iPhone 12 Pro Max",
+        "iPhone14,2": "iPhone 13 Pro",
+        "iPhone14,3": "iPhone 13 Pro Max",
+        "iPhone14,4": "iPhone 13 mini",
+        "iPhone14,5": "iPhone 13",
+        "iPhone14,6": "iPhone SE (3rd generation)",
+        "iPhone14,7": "iPhone 14",
+        "iPhone14,8": "iPhone 14 Plus",
+        "iPhone15,2": "iPhone 14 Pro",
+        "iPhone15,3": "iPhone 14 Pro Max",
+        "iPhone15,4": "iPhone 15",
+        "iPhone15,5": "iPhone 15 Plus",
+        "iPhone16,1": "iPhone 15 Pro",
+        "iPhone16,2": "iPhone 15 Pro Max",
+        "iPhone17,1": "iPhone 16 Pro",
+        "iPhone17,2": "iPhone 16 Pro Max",
+        "iPhone17,3": "iPhone 16",
+        "iPhone17,4": "iPhone 16 Plus",
+        "iPhone17,5": "iPhone 16e",
+        "iPad11,1": "iPad mini (5th generation)",
+        "iPad11,2": "iPad mini (5th generation)",
+        "iPad11,3": "iPad Air (3rd generation)",
+        "iPad11,4": "iPad Air (3rd generation)",
+        "iPad13,1": "iPad Air (4th generation)",
+        "iPad13,2": "iPad Air (4th generation)",
+        "iPad13,16": "iPad Air (5th generation)",
+        "iPad13,17": "iPad Air (5th generation)",
+        "iPad13,18": "iPad (10th generation)",
+        "iPad13,19": "iPad (10th generation)",
+        "iPad14,1": "iPad mini (6th generation)",
+        "iPad14,2": "iPad mini (6th generation)",
+        "iPad14,8": "iPad Air 11-inch (M2)",
+        "iPad14,9": "iPad Air 11-inch (M2)",
+        "iPad14,10": "iPad Air 13-inch (M2)",
+        "iPad14,11": "iPad Air 13-inch (M2)",
+        "iPad16,1": "iPad mini (A17 Pro)",
+        "iPad16,2": "iPad mini (A17 Pro)",
+        "iPad16,3": "iPad Pro 11-inch (M4)",
+        "iPad16,4": "iPad Pro 11-inch (M4)",
+        "iPad16,5": "iPad Pro 13-inch (M4)",
+        "iPad16,6": "iPad Pro 13-inch (M4)"
+    ]
 
     private static func pdfEngineCheck(
         fileManager: FileManager

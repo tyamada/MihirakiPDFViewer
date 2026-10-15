@@ -26,8 +26,8 @@ struct DeviceTestView: View {
             } else if let report {
                 DeviceTestMetadataSection(
                     testedAt: report.testedAt,
-                    deviceName: report.deviceName,
-                    deviceModel: report.deviceModel,
+                    deviceModelName: report.deviceModelName,
+                    deviceModelIdentifier: report.deviceModelIdentifier,
                     osVersion: report.osVersion,
                     appVersion: report.appVersion,
                     totalMemoryBytes: report.totalMemoryBytes,
@@ -85,8 +85,8 @@ private struct DeviceTestPrivacyNotice: View {
 
 private struct DeviceTestMetadataSection: View {
     let testedAt: Date
-    let deviceName: String
-    let deviceModel: String
+    let deviceModelName: String
+    let deviceModelIdentifier: String
     let osVersion: String
     let appVersion: String
     let totalMemoryBytes: UInt64
@@ -97,8 +97,8 @@ private struct DeviceTestMetadataSection: View {
             LabeledContent("Test date") {
                 Text(testedAt, format: .dateTime.year().month().day().hour().minute().second())
             }
-            LabeledContent("Device name", value: deviceName)
-            LabeledContent("Model", value: deviceModel)
+            LabeledContent("Model name", value: deviceModelName)
+            LabeledContent("Model identifier", value: deviceModelIdentifier)
             LabeledContent("OS version", value: osVersion)
             LabeledContent("App version", value: appVersion)
             LabeledContent(
