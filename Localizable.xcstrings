@@ -1483,7 +1483,7 @@
       }
     },
     "device_testing" : {
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2311,6 +2311,219 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "ヘルプ"
+          }
+        }
+      }
+    },
+    "help_diagnostic_privacy_description" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Diagnoseergebnisse und Protokolle bleiben auf diesem Gerät, sofern sie nicht ausdrücklich geteilt werden."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Diagnostic results and logs remain on this device unless you explicitly share them."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Los resultados de diagnóstico y los registros permanecen en este dispositivo salvo que los compartas explícitamente."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Nananatili sa device na ito ang mga resulta ng diagnostic at log maliban kung tahasan mong ibahagi ang mga ito."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Les résultats de diagnostic et les journaux restent sur cet appareil, sauf si vous les partagez explicitement."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "診断結果とログは、明示的に共有しない限り、この端末内にのみ保存されます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "진단 결과와 로그는 사용자가 명시적으로 공유하지 않는 한 이 기기에만 보관됩니다."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Os resultados do diagnóstico e os registros permanecem neste dispositivo, a menos que você os compartilhe explicitamente."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Kết quả chẩn đoán và nhật ký vẫn được lưu trên thiết bị này trừ khi bạn chủ động chia sẻ."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "除非你明确选择共享，否则诊断结果和日志只会保留在此设备上。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "除非你明確選擇分享，否則診斷結果和記錄只會保留在此裝置上。"
+          }
+        }
+      }
+    },
+    "help_diagnostic_report_problem_description" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Erläutert, welche Informationen ein Bericht enthalten sollte, enthält Links zu Gerätetests und App-Protokollen und öffnet nach einem Datenschutzhinweis GitHub Issues."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Explains what to include in a report, links to device tests and app logs, and opens GitHub Issues after a privacy reminder."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Explica qué incluir en un informe, enlaza con las pruebas del dispositivo y los registros de la app, y abre GitHub Issues después de mostrar un recordatorio sobre privacidad."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ipinapaliwanag kung ano ang isasama sa ulat, nagbibigay ng mga link sa mga test ng device at log ng app, at binubuksan ang GitHub Issues pagkatapos ng paalala tungkol sa privacy."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Explique les informations à inclure dans un rapport, fournit des liens vers les tests de l’appareil et les journaux de l’app, puis ouvre GitHub Issues après un rappel concernant la confidentialité."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "報告に含める内容を案内し、実機テストとアプリのログへのリンクを表示します。プライバシーに関する注意事項を確認したあと、GitHub Issuesを開きます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "문제 보고에 포함할 내용을 안내하고 기기 테스트 및 앱 로그 링크를 제공하며, 개인정보 보호 안내 후 GitHub Issues를 엽니다."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Explica o que incluir em um relato, fornece links para os testes do dispositivo e os registros do app e abre o GitHub Issues após um lembrete de privacidade."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Giải thích nội dung cần đưa vào báo cáo, cung cấp liên kết đến kiểm tra thiết bị và nhật ký ứng dụng, đồng thời mở GitHub Issues sau khi nhắc nhở về quyền riêng tư."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "说明报告中应包含的内容，提供设备测试和应用日志的链接，并在显示隐私提醒后打开 GitHub Issues。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "說明問題報告應包含的內容，提供裝置測試和App記錄的連結，並在顯示隱私權提醒後開啟GitHub Issues。"
+          }
+        }
+      }
+    },
+    "help_diagnostics_description" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Verwende die Diagnosewerkzeuge auf dem Gerät und prüfe die Datenschutzinformationen, bevor Ergebnisse geteilt werden."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Use on-device diagnostic tools and review privacy information before sharing results."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Usa las herramientas de diagnóstico del dispositivo y revisa la información sobre privacidad antes de compartir los resultados."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Gamitin ang mga diagnostic tool sa device at suriin ang impormasyon tungkol sa privacy bago ibahagi ang mga resulta."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Utilisez les outils de diagnostic de l’appareil et consultez les informations sur la confidentialité avant de partager les résultats."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "端末内の診断ツールを使用し、結果を共有する前にプライバシー情報を確認できます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "기기 내 진단 도구를 사용하고 결과를 공유하기 전에 개인정보 보호 정보를 확인합니다."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Use as ferramentas de diagnóstico no dispositivo e consulte as informações de privacidade antes de compartilhar os resultados."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Sử dụng các công cụ chẩn đoán trên thiết bị và xem lại thông tin về quyền riêng tư trước khi chia sẻ kết quả."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "使用设备上的诊断工具，并在共享结果前查看隐私信息。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "使用裝置上的診斷工具，並在分享結果前查看隱私權資訊。"
           }
         }
       }
@@ -3234,79 +3447,79 @@
         "de" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Zeigt App-Name, Version und Urheberrecht an."
+            "value" : "Zeigt App-Version, Build-Nummer, Lizenz, Unterstützerabzeichen und Supportoptionen an."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Shows the app name, version, and copyright."
+            "value" : "Shows the app version, build number, license, supporter badges, and support options."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Muestra el nombre de la app, la versión y el copyright."
+            "value" : "Muestra la versión de la app, el número de compilación, la licencia, las insignias de colaborador y las opciones de apoyo."
           }
         },
         "fil" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Ipinapakita ang pangalan ng app, bersyon, at karapatang-ari."
+            "value" : "Ipinapakita ang bersyon ng app, build number, lisensya, mga supporter badge, at mga opsyon sa pagsuporta."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Affiche le nom de l’app, sa version et le copyright."
+            "value" : "Affiche la version de l’app, le numéro de build, la licence, les badges de soutien et les options de soutien."
           }
         },
         "id" : {
           "stringUnit" : {
-            "state" : "machine_translated",
+            "state" : "needs_review",
             "value" : "Menampilkan nama app, versi, dan hak cipta."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "アプリ名、バージョン、著作権を表示します。"
+            "value" : "アプリのバージョン、ビルド番号、ライセンス、サポーターバッジ、および応援方法を表示します。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "앱 이름, 버전 및 저작권을 표시합니다."
+            "value" : "앱 버전, 빌드 번호, 라이선스, 후원자 배지 및 후원 옵션을 표시합니다."
           }
         },
         "ne" : {
           "stringUnit" : {
-            "state" : "machine_translated",
+            "state" : "needs_review",
             "value" : "एपको नाम, संस्करण र प्रतिलिपि अधिकार देखाउँछ।"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Mostra o nome do app, a versão e o copyright."
+            "value" : "Mostra a versão do app, o número da compilação, a licença, os selos de apoiador e as opções de apoio."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Hiển thị tên ứng dụng, phiên bản và bản quyền."
+            "value" : "Hiển thị phiên bản ứng dụng, số bản dựng, giấy phép, huy hiệu người ủng hộ và các tùy chọn ủng hộ."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "显示应用名称、版本和版权信息。"
+            "value" : "显示应用版本、构建号、许可证、支持者徽章和支持选项。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "顯示App名稱、版本和著作權。"
+            "value" : "顯示App版本、建置編號、授權、支持者徽章和支持選項。"
           }
         }
       }
@@ -3314,16 +3527,70 @@
     "help_setting_app_logs_description" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Zeigt datenschutzkonforme Protokolle der letzten 24 Stunden. Protokolle werden automatisch gelöscht und nur geteilt, wenn du auf „Teilen“ tippst."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Shows privacy-safe diagnostic logs for investigating crashes, slowdowns, operation issues, and display issues. Logs do not include personal information, file contents, file names or paths, search terms, or passwords. They are deleted after 24 hours and are shared only when you tap Share."
+            "value" : "Shows privacy-safe logs from the last 24 hours. Logs are deleted automatically and shared only when you tap Share."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Muestra registros respetuosos con la privacidad de las últimas 24 horas. Los registros se eliminan automáticamente y solo se comparten cuando tocas Compartir."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ipinapakita ang mga log na ligtas sa privacy mula sa nakaraang 24 na oras. Awtomatikong binubura ang mga log at ibinabahagi lamang kapag i-tap mo ang Ibahagi."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Affiche les journaux respectueux de la confidentialité des dernières 24 heures. Ils sont supprimés automatiquement et partagés uniquement lorsque vous touchez « Partager »."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "クラッシュ、スローダウン、操作の不具合、および表示の不具合を調査するための、プライバシーに配慮した診断ログを表示します。ログには個人情報、ファイルの内容、ファイル名やパス、検索語、またはパスワードは記録されません。ログは24時間後に削除され、“共有”をタップした場合にのみ共有されます。"
+            "value" : "過去24時間のプライバシーに配慮したログを表示します。ログは自動的に削除され、“共有”をタップした場合にのみ共有されます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "최근 24시간 동안의 개인정보 보호를 고려한 로그를 표시합니다. 로그는 자동으로 삭제되며 사용자가 ‘공유’를 탭한 경우에만 공유됩니다."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mostra registros sem dados pessoais das últimas 24 horas. Os registros são apagados automaticamente e compartilhados somente quando você toca em Compartilhar."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hiển thị nhật ký được thiết kế để bảo vệ quyền riêng tư trong 24 giờ qua. Nhật ký được tự động xóa và chỉ được chia sẻ khi bạn chạm vào Chia sẻ."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "显示过去24小时内不含隐私信息的日志。日志会自动删除，并且仅在你轻点“共享”时共享。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "顯示過去24小時內符合隱私保護的記錄。記錄會自動刪除，且只有在你點一下「分享」時才會分享。"
           }
         }
       }
@@ -3580,16 +3847,141 @@
     "help_setting_device_testing_description" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Prüft Geräte- und App-Informationen, Arbeitsspeicher, Cache-Speicher, verfügbaren Speicherplatz und die PDF-Darstellung. Ergebnisse werden nur geteilt, wenn du auf „Teilen“ tippst."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Runs app information, local storage, and PDF rendering checks on this device. Results include the test time, device, OS, and app version. Results are shared only when you tap Share and are never sent automatically."
+            "value" : "Checks device and app information, memory, cache storage, available storage, and PDF rendering. Results are shared only when you tap Share."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Comprueba la información del dispositivo y de la app, la memoria, el almacenamiento en caché, el espacio disponible y el renderizado de PDF. Los resultados solo se comparten cuando tocas Compartir."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Sinusuri ang impormasyon ng device at app, memory, cache storage, available na storage, at pag-render ng PDF. Ibinabahagi lamang ang mga resulta kapag i-tap mo ang Ibahagi."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Vérifie les informations sur l’appareil et l’app, la mémoire, le stockage du cache, l’espace disponible et le rendu des PDF. Les résultats sont partagés uniquement lorsque vous touchez « Partager »."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "この端末でアプリ情報、ローカルストレージ、およびPDF描画を検査します。結果にはテスト日時、端末名、OSとアプリのバージョンが含まれます。“共有”をタップした場合にのみ共有され、自動的に送信されることはありません。"
+            "value" : "端末とアプリの情報、メモリ、キャッシュ領域、空き容量、およびPDF描画を検査します。結果は“共有”をタップした場合にのみ共有されます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "기기 및 앱 정보, 메모리, 캐시 저장 공간, 사용 가능한 저장 공간 및 PDF 렌더링을 확인합니다. 결과는 사용자가 ‘공유’를 탭한 경우에만 공유됩니다."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Verifica informações do dispositivo e do app, memória, armazenamento em cache, espaço disponível e renderização de PDF. Os resultados são compartilhados somente quando você toca em Compartilhar."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Kiểm tra thông tin thiết bị và ứng dụng, bộ nhớ, bộ nhớ đệm, dung lượng lưu trữ khả dụng và khả năng hiển thị PDF. Kết quả chỉ được chia sẻ khi bạn chạm vào Chia sẻ."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "检查设备和应用信息、内存、缓存存储、可用存储空间及 PDF 渲染。仅当你轻点“共享”时才会共享结果。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "檢查裝置與App資訊、記憶體、快取儲存空間、可用儲存空間和PDF算繪。只有在你點一下「分享」時才會分享結果。"
+          }
+        }
+      }
+    },
+    "help_setting_diagnostics_description" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Öffnet Gerätetests, App-Protokolle und Werkzeuge zum Melden von Problemen."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Opens device tests, app logs, and problem reporting tools."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Abre las pruebas del dispositivo, los registros de la app y las herramientas para informar de problemas."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Binubuksan ang mga test ng device, log ng app, at mga tool para mag-ulat ng problema."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ouvre les tests de l’appareil, les journaux de l’app et les outils de signalement de problèmes."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "実機テスト、アプリのログ、および問題報告のツールを開きます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "기기 테스트, 앱 로그 및 문제 보고 도구를 엽니다."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Abre os testes do dispositivo, os registros do app e as ferramentas para relatar problemas."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mở các công cụ kiểm tra thiết bị, nhật ký ứng dụng và báo cáo sự cố."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "打开设备测试、应用日志和问题报告工具。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "開啟裝置測試、App記錄和問題報告工具。"
           }
         }
       }
@@ -3766,79 +4158,150 @@
         "de" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Rendert PDF-Seiten in höherer Qualität."
+            "value" : "Rendert PDF-Seiten mit höherer Auflösung."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Renders PDF pages at higher quality."
+            "value" : "Renders PDF pages at a higher resolution."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Renderiza las páginas del PDF con mayor calidad."
+            "value" : "Renderiza las páginas del PDF con una resolución más alta."
           }
         },
         "fil" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Nire-render ang mga pahina ng PDF sa mas mataas na kalidad."
+            "value" : "Nire-render ang mga pahina ng PDF sa mas mataas na resolution."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Affiche les pages PDF avec une qualité supérieure."
+            "value" : "Affiche les pages PDF dans une résolution supérieure."
           }
         },
         "id" : {
           "stringUnit" : {
-            "state" : "machine_translated",
+            "state" : "needs_review",
             "value" : "Merender halaman PDF dengan kualitas lebih tinggi."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "PDFページをより高画質で表示します。"
+            "value" : "PDFページをより高い解像度で描画します。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "PDF 페이지를 더 높은 화질로 렌더링합니다."
+            "value" : "PDF 페이지를 더 높은 해상도로 렌더링합니다."
           }
         },
         "ne" : {
           "stringUnit" : {
-            "state" : "machine_translated",
+            "state" : "needs_review",
             "value" : "PDF पृष्ठहरू उच्च गुणस्तरमा रेन्डर गर्छ।"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Renderiza as páginas do PDF com maior qualidade."
+            "value" : "Renderiza as páginas do PDF em uma resolução mais alta."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Hiển thị các trang PDF với chất lượng cao hơn."
+            "value" : "Hiển thị các trang PDF ở độ phân giải cao hơn."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "以更高画质渲染 PDF 页面。"
+            "value" : "以更高分辨率渲染 PDF 页面。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "以較高畫質算繪PDF頁面。"
+            "value" : "以較高解析度算繪PDF頁面。"
+          }
+        }
+      }
+    },
+    "help_setting_promotion_code_description" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Erläutert, wie ein Promotionscode im Bildschirm „Unterstützen“ eingelöst wird."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Explains how to redeem a promotion code from the Support screen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Explica cómo canjear un código promocional desde la pantalla de apoyo."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ipinapaliwanag kung paano mag-redeem ng promotion code mula sa screen ng Suporta."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Explique comment utiliser un code promotionnel depuis l’écran Soutien."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "応援画面でプロモーションコードを使う方法を案内します。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "후원 화면에서 프로모션 코드를 사용하는 방법을 안내합니다."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Explica como resgatar um código promocional na tela Apoiar."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Giải thích cách sử dụng mã khuyến mãi từ màn hình Ủng hộ."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "说明如何在“支持”屏幕中兑换促销代码。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "說明如何從「支持」畫面兌換促銷代碼。"
           }
         }
       }
@@ -4015,79 +4478,79 @@
         "de" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Stellt Text und Linien schärfer dar."
+            "value" : "Passt an, wie stark Text und Linien geschärft werden."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Makes text and lines appear sharper."
+            "value" : "Adjusts how strongly text and lines are sharpened."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Hace que el texto y las líneas se vean más nítidos."
+            "value" : "Ajusta el grado de nitidez del texto y las líneas."
           }
         },
         "fil" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Ginagawang mas malinaw ang teksto at mga linya."
+            "value" : "Ina-adjust kung gaano katindi ang pagpapatalas sa teksto at mga linya."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Améliore la netteté du texte et des lignes."
+            "value" : "Règle l’intensité d’accentuation de la netteté du texte et des lignes."
           }
         },
         "id" : {
           "stringUnit" : {
-            "state" : "machine_translated",
+            "state" : "needs_review",
             "value" : "Membuat teks dan garis tampak lebih tajam."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "文字や線をより鮮明に表示します。"
+            "value" : "文字や線を鮮明にする強さを調整します。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "텍스트와 선을 더 선명하게 표시합니다."
+            "value" : "텍스트와 선을 선명하게 처리하는 강도를 조절합니다."
           }
         },
         "ne" : {
           "stringUnit" : {
-            "state" : "machine_translated",
+            "state" : "needs_review",
             "value" : "पाठ र रेखाहरू अझ स्पष्ट देखाउँछ।"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Deixa o texto e as linhas mais nítidos."
+            "value" : "Ajusta a intensidade da nitidez do texto e das linhas."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Làm cho văn bản và đường nét hiển thị sắc nét hơn."
+            "value" : "Điều chỉnh mức độ làm sắc nét của văn bản và đường nét."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "使文字和线条显示得更清晰。"
+            "value" : "调整文字和线条的锐化强度。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "讓文字和線條看起來更清晰。"
+            "value" : "調整文字和線條的銳化強度。"
           }
         }
       }
@@ -4098,79 +4561,79 @@
         "de" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Zeigt standardmäßig jeweils eine Seite an, wenn der Bildschirm höher als breit ist – unabhängig vom Gerätetyp. Deaktiviere diese Option, um die Zweiseitenansicht im Hochformat beizubehalten."
+            "value" : "Zeigt jeweils eine Seite an, wenn der Bildschirm höher als breit ist."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Displays one page at a time by default when the screen is taller than it is wide, regardless of device type. Turn this off to keep spread view in portrait."
+            "value" : "Displays one page at a time when the screen is taller than it is wide."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Muestra una página a la vez de forma predeterminada cuando la pantalla es más alta que ancha, independientemente del tipo de dispositivo. Desactiva esta opción para mantener la vista de dos páginas en orientación vertical."
+            "value" : "Muestra una página cada vez cuando la pantalla es más alta que ancha."
           }
         },
         "fil" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Bilang default, nagpapakita ng isang pahina sa bawat pagkakataon kapag mas mataas kaysa malapad ang screen, anuman ang uri ng device. I-off ito para panatilihin ang view na dalawang pahina sa portrait."
+            "value" : "Nagpapakita ng isang pahina sa bawat pagkakataon kapag mas mataas kaysa malapad ang screen."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Affiche une page à la fois par défaut lorsque l’écran est plus haut que large, quel que soit le type d’appareil. Désactivez cette option pour conserver la vue en deux pages en orientation portrait."
+            "value" : "Affiche une seule page à la fois lorsque l’écran est plus haut que large."
           }
         },
         "id" : {
           "stringUnit" : {
-            "state" : "machine_translated",
+            "state" : "needs_review",
             "value" : "Menampilkan satu halaman dalam satu waktu secara default saat layar lebih tinggi daripada lebarnya, apa pun jenis perangkatnya. Nonaktifkan pengaturan ini agar tampilan dua halaman tetap digunakan dalam orientasi potret."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "端末の種類に関係なく、画面が縦長の場合はデフォルトで1ページずつ表示します。縦向きでも見開き表示を維持するには、この設定をオフにします。"
+            "value" : "画面が縦長の場合に、1ページずつ表示します。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "기기 종류와 관계없이 화면의 세로 길이가 가로보다 길면 기본적으로 한 번에 한 페이지를 표시합니다. 세로 방향에서도 두 페이지 보기를 유지하려면 이 설정을 끄십시오."
+            "value" : "화면의 세로 길이가 가로보다 길 때 한 번에 한 페이지를 표시합니다."
           }
         },
         "ne" : {
           "stringUnit" : {
-            "state" : "machine_translated",
+            "state" : "needs_review",
             "value" : "स्क्रिनको उचाइ चौडाइभन्दा बढी हुँदा, यन्त्रको प्रकार जेसुकै भए पनि, पूर्वनिर्धारित रूपमा एक पटकमा एउटा पृष्ठ देखाउँछ। पोर्ट्रेटमा दुई-पृष्ठ दृश्य कायम राख्न यसलाई बन्द गर्नुहोस्।"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Exibe uma página por vez por padrão quando a tela é mais alta do que larga, independentemente do tipo de dispositivo. Desative esta opção para manter a visualização de duas páginas na orientação vertical."
+            "value" : "Exibe uma página por vez quando a tela está mais alta do que larga."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Theo mặc định, hiển thị mỗi lần một trang khi màn hình có chiều cao lớn hơn chiều rộng, bất kể loại thiết bị. Tắt cài đặt này để duy trì chế độ xem hai trang theo hướng dọc."
+            "value" : "Hiển thị mỗi lần một trang khi chiều cao màn hình lớn hơn chiều rộng."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "无论设备类型如何，当屏幕高度大于宽度时，默认每次显示一页。关闭此设置可在竖屏方向下保持双页视图。"
+            "value" : "当屏幕高度大于宽度时，每次显示一页。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "無論裝置類型為何，當螢幕高度大於寬度時，預設一次顯示一頁。關閉此設定可在直向顯示時維持雙頁顯示。"
+            "value" : "當螢幕高度大於寬度時，一次顯示一頁。"
           }
         }
       }
@@ -4264,67 +4727,73 @@
         "de" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Öffnet den Store für Unterstützer-Symbole. Käufe können auf Geräten mit demselben Apple Account wiederhergestellt werden."
+            "value" : "Öffnet den Unterstützer-Store, um Unterstützersymbole und -abzeichen zu kaufen oder wiederherzustellen."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Opens the supporter icon store. Purchases can be restored on devices using the same Apple Account."
+            "value" : "Opens the supporter store to purchase or restore supporter icons and badges."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Abre la tienda de colaboradores para comprar o restaurar iconos e insignias de colaborador."
           }
         },
         "fil" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Binubuksan ang store ng supporter icon. Maaaring i-restore ang mga binili sa mga device gamit ang parehong Apple Account."
+            "value" : "Binubuksan ang supporter store para bumili o mag-restore ng mga supporter icon at badge."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Ouvre la boutique d’icônes de soutien. Les achats peuvent être restaurés sur les appareils utilisant le même compte Apple."
+            "value" : "Ouvre la boutique de soutien pour acheter ou restaurer des icônes et des badges de soutien."
           }
         },
         "id" : {
           "stringUnit" : {
-            "state" : "machine_translated",
+            "state" : "needs_review",
             "value" : "Membuka toko ikon pendukung. Pembelian dapat dipulihkan di perangkat yang menggunakan Akun Apple yang sama."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "サポーターアイコンストアを開きます。同じApple Accountを使っているデバイスでは、購入項目を復元できます。"
+            "value" : "サポーターアイコンやバッジを購入または復元できるストアを開きます。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "후원자 아이콘 스토어를 엽니다. 동일한 Apple Account를 사용하는 기기에서 구매 항목을 복원할 수 있습니다."
+            "value" : "후원자 아이콘과 배지를 구매하거나 복원할 수 있는 후원자 스토어를 엽니다."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Abre a loja de ícones de apoiador. É possível restaurar as compras em dispositivos que usam a mesma Conta Apple."
+            "value" : "Abre a loja de apoiadores para comprar ou restaurar ícones e selos de apoiador."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Mở cửa hàng biểu tượng ủng hộ. Có thể khôi phục các giao dịch mua trên những thiết bị sử dụng cùng một Tài khoản Apple."
+            "value" : "Mở cửa hàng dành cho người ủng hộ để mua hoặc khôi phục các biểu tượng và huy hiệu người ủng hộ."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "打开支持者应用图标商店。可在使用同一Apple Account的设备上恢复购买项目。"
+            "value" : "打开支持者商店，以购买或恢复支持者图标和徽章。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "開啟支持者App圖像商店。可在使用相同Apple Account的裝置上回復購買項目。"
+            "value" : "開啟支持者商店，以購買或回復支持者App圖像和徽章。"
           }
         }
       }
@@ -4334,32 +4803,32 @@
       "localizations" : {
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Passe im Bildschirm „Einstellungen“ die Darstellung an und prüfe Informationen zum aktuellen Dokument und zur App."
+            "state" : "machine_translated",
+            "value" : "Im Bildschirm „Einstellungen“ können die Darstellung angepasst, Dokumentinformationen geprüft, Hilfe und Diagnose aufgerufen, App-Informationen angezeigt und der Entwickler unterstützt werden."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Use the Settings screen to customize viewing, run on-device tests, review app logs, and check information about the current document and app."
+            "value" : "Use Settings to adjust viewing, review document information, access help and diagnostics, view app information, and support the developer."
           }
         },
         "es" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Usa la pantalla Ajustes para personalizar la visualización y consultar información sobre el documento actual y la app."
+            "state" : "machine_translated",
+            "value" : "Usa Ajustes para configurar la visualización, consultar la información del documento, acceder a la ayuda y los diagnósticos, ver información de la app y apoyar a la persona que la desarrolla."
           }
         },
         "fil" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Gamitin ang screen ng Mga Setting para i-customize ang pagtingin at tingnan ang impormasyon tungkol sa kasalukuyang dokumento at app."
+            "state" : "machine_translated",
+            "value" : "Gamitin ang Mga Setting para i-adjust ang pagtingin, suriin ang impormasyon ng dokumento, buksan ang tulong at diagnostics, tingnan ang impormasyon ng app, at suportahan ang developer."
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Utilisez l’écran Réglages pour personnaliser l’affichage et consulter les informations sur le document actuel et l’app."
+            "state" : "machine_translated",
+            "value" : "Utilisez Réglages pour personnaliser l’affichage, consulter les informations du document, accéder à l’aide et aux diagnostics, afficher les informations de l’app et soutenir le développeur."
           }
         },
         "id" : {
@@ -4371,13 +4840,13 @@
         "ja" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "設定画面で表示をカスタマイズし、端末内テストの実行、アプリログの確認、現在のドキュメントとアプリの情報の確認ができます。"
+            "value" : "“設定”では、表示の調整、文書情報の確認、ヘルプと診断へのアクセス、アプリ情報の表示、および開発者の応援ができます。"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "설정 화면에서 보기 방식을 사용자화하고 현재 문서와 앱 정보를 확인합니다."
+            "state" : "machine_translated",
+            "value" : "설정에서 보기 방식을 조절하고 문서 정보를 확인하며 도움말과 진단에 접근하고 앱 정보를 본 후 개발자를 후원할 수 있습니다."
           }
         },
         "ne" : {
@@ -4388,26 +4857,26 @@
         },
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Use a tela Ajustes para personalizar a visualização e consultar informações sobre o documento atual e o app."
+            "state" : "machine_translated",
+            "value" : "Use Ajustes para personalizar a visualização, consultar informações do documento, acessar a ajuda e os diagnósticos, ver informações do app e apoiar a pessoa que desenvolve o app."
           }
         },
         "vi" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Sử dụng màn hình Cài đặt để tùy chỉnh chế độ xem và kiểm tra thông tin về tài liệu hiện tại cũng như ứng dụng."
+            "state" : "machine_translated",
+            "value" : "Sử dụng Cài đặt để điều chỉnh chế độ xem, xem lại thông tin tài liệu, truy cập trợ giúp và chẩn đoán, xem thông tin ứng dụng và ủng hộ nhà phát triển."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "使用“设置”屏幕自定义查看方式，并查看当前文档和应用的信息。"
+            "state" : "machine_translated",
+            "value" : "使用“设置”调整阅读方式、查看文档信息、访问帮助和诊断、查看应用信息，以及支持开发者。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "使用「設定」畫面自訂顯示方式，並查看目前文件和App的資訊。"
+            "state" : "machine_translated",
+            "value" : "使用「設定」調整顯示方式、查看文件資訊、開啟輔助說明和診斷、查看App資訊，以及支持開發者。"
           }
         }
       }
@@ -8196,6 +8665,7 @@
       }
     },
     "Run on-device checks, review privacy-safe logs, and prepare information for a problem report from the Diagnostics screen." : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {

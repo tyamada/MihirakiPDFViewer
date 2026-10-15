@@ -20,6 +20,8 @@ This software was coded using generative AI.
   the document.
 - **Search and Zoom**: Search text within a PDF, pinch to zoom, and drag
   while zoomed in.
+- **Table of Contents**: Open a PDF's hierarchical outline from the reader,
+  browse long documents efficiently, and jump directly to a selected page.
 - **Password-Protected PDFs**: Open documents that require a user password.
 - **Rendering Options**: Enable high-quality rendering and sharpness from
   Settings when needed.
@@ -66,11 +68,14 @@ device, and logs older than 24 hours are deleted.
    Settings when the PDF needs clearer text and lines.
 10. **Close or Resume**: Close the current document from the toolbar, or
    leave it open to resume from the same page after relaunching the app.
-11. **Run Diagnostics**: In the **Options** section of Settings, choose
-    **Run tests on this device** to run checks on the current device or
-    **View app logs** to review recent
-    diagnostic events. Each results screen has a Share button for sharing only
-    when you choose to do so.
+11. **Use the Table of Contents**: Tap the list button in the reader to open
+    the PDF outline and jump directly to a chapter or section. An empty-state
+    message appears when the PDF does not contain an outline.
+12. **Run Diagnostics**: Open **Diagnostics** from Settings, then choose
+    **Device Tests** to check device and app information, memory, cache and
+    available storage, and PDF rendering. Choose **App Logs** to review recent
+    diagnostic events, or **Report a Problem** to prepare a GitHub Issues
+    report. Results and logs are shared only when you explicitly choose Share.
 
 ## Sample PDF
 
@@ -144,13 +149,17 @@ non-consumable in-app purchases through StoreKit. These purchases are
 voluntary and are not used to remove ads or unlock restricted viewer
 features.
 
-The following supporter icons are available:
+The following supporter items are available:
 
 - `supporter_icon_bronze`: Bronze icon
 - `supporter_icon_silver`: Silver icon
 - `supporter_icon_gold`: Gold icon
+- `supporter_badge_koyomi_v2`: Koyomi supporter badge
 
-Each purchase permanently unlocks its corresponding alternate app icon.
+Bronze, Silver, and Gold purchases permanently unlock their corresponding
+alternate app icons. Koyomi unlocks a supporter badge. Owned badges appear in
+App Information, and promotion codes can be redeemed through the App Store
+from the Support screen.
 Purchases can be restored on another supported device using the same Apple
 Account from the supporter icon screen in Settings.
 
@@ -260,7 +269,10 @@ Generative AI was used to create and translate the text and images in this work.
   updated them to the second edition, added language filtering, device
   diagnostics and privacy-safe logging, and clarified the sample PDF license
   and attribution. Fixed right-to-left documents opening on the last page and
-  reorganized Settings controls and Help content.
+  reorganized Settings controls and Help content. Added a hierarchical PDF
+  table of contents with direct page navigation, expanded Diagnostics with
+  problem-report guidance, and added supporter badges and promotion-code
+  guidance.
 - **v1.0.4** - 2026/10/02: Added restoration of supporter icon purchases and
   improved PDF layout stability when controls are shown.
 - **v1.0.3** - 2026/09/30: Fixed search highlight alignment on iPad and

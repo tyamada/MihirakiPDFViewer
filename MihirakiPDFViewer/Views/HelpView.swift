@@ -14,17 +14,20 @@ struct HelpView: View {
             LazyVStack(alignment: .leading, spacing: 20) {
                 HelpCategorySection(
                     title: "Getting Started",
-                    items: Array(HelpContent.items.prefix(2))
+                    items: HelpContent.gettingStarted
                 )
                 HelpCategorySection(
                     title: "Comfortable Reading",
-                    items: Array(HelpContent.items.dropFirst(2).prefix(4))
+                    items: HelpContent.comfortableReading
                 )
                 HelpCategorySection(
                     title: "Settings Guide",
-                    items: Array(HelpContent.items.dropFirst(6))
+                    items: HelpContent.settingsGuide
                 )
-                HelpDiagnosticSection()
+                HelpCategorySection(
+                    title: "Diagnostics",
+                    items: HelpContent.diagnostics
+                )
             }
             .padding()
         }
@@ -77,27 +80,6 @@ private struct HelpAccordionCard: View {
         .background(.background, in: RoundedRectangle(cornerRadius: 14))
         .shadow(color: .black.opacity(0.08), radius: 4, y: 2)
         .accessibilityIdentifier("helpItem_\(item.id)")
-    }
-}
-
-private struct HelpDiagnosticSection: View {
-    var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Text("Diagnostics")
-                .font(.title3.weight(.semibold))
-                .accessibilityAddTraits(.isHeader)
-
-            VStack(alignment: .leading, spacing: 8) {
-                Label("Device Tests", systemImage: "stethoscope")
-                    .font(.headline)
-                Text("Run on-device checks, review privacy-safe logs, and prepare information for a problem report from the Diagnostics screen.")
-                    .foregroundStyle(.secondary)
-            }
-            .padding()
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .background(.background, in: RoundedRectangle(cornerRadius: 14))
-            .shadow(color: .black.opacity(0.08), radius: 4, y: 2)
-        }
     }
 }
 
