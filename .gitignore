@@ -71,3 +71,6 @@ convpng.py
 # Keep app asset catalogs trackable even when a global Assets.* rule is present.
 !MihirakiPDFViewer/Assets.xcassets/
 !MihirakiPDFViewer/Assets.xcassets/**
+
+# Required build input, even when a global ignore excludes Info.plist.
+!MihirakiPDFViewer/Info.plist
