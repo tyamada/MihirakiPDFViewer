@@ -11,6 +11,12 @@
             "value" : "MihirakiPDFViewer"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mihiraki PDF Viewer"
+          }
+        },
         "fil" : {
           "stringUnit" : {
             "state" : "machine_translated",
@@ -59,6 +65,12 @@
             "value" : "MihirakiPDFViewer"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mihiraki PDF Viewer"
+          }
+        },
         "fil" : {
           "stringUnit" : {
             "state" : "machine_translated",
@@ -104,6 +116,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
+            "value" : ""
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
             "value" : ""
           }
         },

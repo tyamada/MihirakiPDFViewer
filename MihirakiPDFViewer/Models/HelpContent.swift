@@ -178,7 +178,7 @@ enum HelpContent {
                 detail(
                     id: "deviceTests",
                     title: LocalizedStringResource("Device Tests", defaultValue: "Device Tests"),
-                    description: LocalizedStringResource("help_setting_device_testing_description", defaultValue: "Checks device and app information, memory, cache storage, available storage, and PDF rendering. Results are shared only when you tap Share.")
+                    description: LocalizedStringResource("help_setting_device_testing_description", defaultValue: "Checks the device model name and identifier, app information, memory, cache storage, available storage, and PDF rendering. Results are shared only when you tap Share.")
                 ),
                 detail(
                     id: "appLogs",

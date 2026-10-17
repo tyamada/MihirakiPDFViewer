@@ -33,7 +33,7 @@ This software was coded using generative AI.
   confirmation.
 - **On-Device Diagnostics**: Run checks for app information, local storage,
   and PDF rendering, then optionally share a result that includes the test
-  time, device name, OS version, and app version.
+  time, device model name and identifier, OS version, and app version.
 - **Privacy-Safe App Logs**: Review and optionally share 24 hours of diagnostic
   events for investigating crashes, slowdowns, operation issues, and display
   issues. Logs exclude personal information, file contents, file names and
