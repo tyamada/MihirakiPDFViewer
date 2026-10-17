@@ -1,0 +1,85 @@
+name: iOS checks
+
+on:
+  push:
+    branches: [main, testing]
+    paths:
+      - 'MihirakiPDFViewer/**'
+      - 'MihirakiPDFViewerTests/**'
+      - 'MihirakiPDFViewerUITests/**'
+      - 'MihirakiPDFViewer.xcodeproj/**'
+      - '*.xcstrings'
+      - 'Products.storekit'
+      - 'scripts/ci_simulator.py'
+      - '.github/workflows/ios.yml'
+  pull_request:
+    branches: [main, testing]
+    paths:
+      - 'MihirakiPDFViewer/**'
+      - 'MihirakiPDFViewerTests/**'
+      - 'MihirakiPDFViewerUITests/**'
+      - 'MihirakiPDFViewer.xcodeproj/**'
+      - '*.xcstrings'
+      - 'Products.storekit'
+      - 'scripts/ci_simulator.py'
+      - '.github/workflows/ios.yml'
+  workflow_dispatch:
+    inputs:
+      ui_tests:
+        description: Also run primary-screen UI smoke tests
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ios-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: macos-26
+    timeout-minutes: 35
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.6.app/Contents/Developer
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Select compatible iPad simulator
+        run: |
+          xcodebuild -version
+          python3 scripts/ci_simulator.py >> "$GITHUB_ENV"
+      - name: Build and run unit tests
+        run: |
+          set -o pipefail
+          mkdir -p build
+          xcodebuild test -project MihirakiPDFViewer.xcodeproj -scheme CI \
+            -destination "platform=iOS Simulator,id=$SIMULATOR_ID" \
+            -parallel-testing-enabled NO \
+            -only-testing:MihirakiPDFViewerTests \
+            -resultBundlePath build/UnitTests.xcresult \
+            CODE_SIGNING_ALLOWED=NO 2>&1 | tee build/unit-tests.log
+      - name: Run primary-screen UI smoke tests
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.ui_tests }}
+        run: |
+          set -o pipefail
+          xcodebuild test -project MihirakiPDFViewer.xcodeproj -scheme CI \
+            -destination "platform=iOS Simulator,id=$SIMULATOR_ID" \
+            -parallel-testing-enabled NO \
+            -only-testing:MihirakiPDFViewerUITests/MihirakiPDFViewerUITests/testEmptyStateScreen \
+            -only-testing:MihirakiPDFViewerUITests/MihirakiPDFViewerUITests/testSettingsScreen \
+            -only-testing:MihirakiPDFViewerUITests/MihirakiPDFViewerUITests/testSamplePDFListScreen \
+            -resultBundlePath build/UITests.xcresult \
+            CODE_SIGNING_ALLOWED=NO 2>&1 | tee build/ui-tests.log
+      - name: Save test results and build logs
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-test-results-${{ github.run_attempt }}
+          path: |
+            build/*.xcresult
+            build/*.log
+          if-no-files-found: ignore
+          retention-days: 7

@@ -183,6 +183,28 @@ otherwise, no cover page.
 - macOS 26.6
 - Xcode 26.6
 
+### Continuous integration
+
+GitHub Actions checks changes pushed to `testing` and `main`, and pull requests
+targeting either branch. Documentation changes run offline HTML structure,
+local link, anchor, and image-reference checks. App, test, localization, and
+project changes run the shared `CI` scheme's unit tests on an iPad simulator
+(iOS 26.5 or newer), using Xcode 26.6 on `macos-26`.
+
+The `iOS checks` manual workflow can also run three primary-screen UI smoke
+tests by enabling `ui_tests`. Manual dispatch becomes available after the
+workflow is present on the default branch; select `testing` to test that branch.
+Logs and `.xcresult` bundles are retained for seven days. GitHub Pages continues
+to publish only from `main`'s `/docs` directory; these checks do not deploy.
+Path-filtered workflows should not be mandatory branch checks without accounting
+for runs skipped when unrelated files change.
+
+Run documentation checks locally with `python3 scripts/check_docs.py`.
+These checks validate the site's explicit tag nesting and local `href`/`src`
+references, not full HTML conformance or external website availability.
+Include the shared scheme and the app asset catalog when committing CI setup
+so a fresh checkout has the same build resources as the local project.
+
 ### Build Steps in Xcode
 
 #### 1. Create a New Project
