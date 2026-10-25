@@ -211,6 +211,10 @@ PDF閲覧機能の制限解除を目的としたものではありません。
 - コード変更とバグ修正（Xcode & Codex）
 - アプリアイコンとサポーターアイコン画像の作成（ChatGPT）
 
+## Qiitaの連載
+
+[Qiitaの連載ストックリスト](https://qiita.com/tyamada22/stocks/d4e7a344a6c04dc1115f)
+
 ## 参考資料
 
 1. [PDFのページ表示設定の謎を解く](https://qiita.com/TETSURO1999/items/e7a69026bdf8b5e8c631)
