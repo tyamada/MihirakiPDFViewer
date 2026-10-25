@@ -262,6 +262,10 @@ and add it again by dragging and dropping it.
 - Change code and bug fixes (Xcode & Codex)
 - Creating app icon and supporter icon images (ChatGPT)
 
+## Qiita Article Series
+
+[Qiita series stock list](https://qiita.com/tyamada22/stocks/d4e7a344a6c04dc1115f)
+
 ## References
 
 1. [Unraveling the Mystery of PDF Page Display Settings](https://qiita.com/TETSURO1999/items/e7a69026bdf8b5e8c631)
