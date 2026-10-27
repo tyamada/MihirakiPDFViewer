@@ -2,6 +2,7 @@
 
 ためし部 第１話 ひと息マップ (Japanese)<br>
 ためし部 第２話 机、ひろがる。 (Japanese)<br>
+ためし部 第３話 (Japanese) / THE TRY-IT CLUB EPISODE 3 (English)<br>
 © 2026 こまいろ日和
 
 本作品のうち、公開者が著作権その他の許諾対象となる権利を有する部分を、Creative Commons 表示 4.0 国際（CC BY 4.0）で提供します。<br>
