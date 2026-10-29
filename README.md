@@ -137,6 +137,82 @@ Try MihirakiPDFViewer with these sample PDFs.
 
 [Open episode 2](docs/sample/tameshibu_episode2_2_fr.pdf)
 
+### Episode 1 (Español)
+
+[Open sample PDF](docs/sample/tameshibu_episode1_es.pdf)
+
+### Episode 1 (Bahasa Indonesia)
+
+[Open sample PDF](docs/sample/tameshibu_episode1_id.pdf)
+
+### Episode 1 (Italiano)
+
+[Open sample PDF](docs/sample/tameshibu_episode1_it.pdf)
+
+### Episode 1 (नेपाली)
+
+[Open sample PDF](docs/sample/tameshibu_episode1_ne.pdf)
+
+### Episode 1 (Português)
+
+[Open sample PDF](docs/sample/tameshibu_episode1_pt.pdf)
+
+### Episode 1 (Filipino)
+
+[Open sample PDF](docs/sample/tameshibu_episode1_tl.pdf)
+
+### Episode 1 (Tiếng Việt)
+
+[Open sample PDF](docs/sample/tameshibu_episode1_vi.pdf)
+
+### Episode 2 (Español)
+
+[Open sample PDF](docs/sample/tameshibu_episode2_es.pdf)
+
+### Episode 2 (Bahasa Indonesia)
+
+[Open sample PDF](docs/sample/tameshibu_episode2_id.pdf)
+
+### Episode 2 (Italiano)
+
+[Open sample PDF](docs/sample/tameshibu_episode2_it.pdf)
+
+### Episode 2 (नेपाली)
+
+[Open sample PDF](docs/sample/tameshibu_episode2_ne.pdf)
+
+### Episode 2 (Português)
+
+[Open sample PDF](docs/sample/tameshibu_episode2_pt.pdf)
+
+### Episode 2 (Filipino)
+
+[Open sample PDF](docs/sample/tameshibu_episode2_tl.pdf)
+
+### Episode 2 (Tiếng Việt)
+
+[Open sample PDF](docs/sample/tameshibu_episode2_vi.pdf)
+
+### Episode 3 (한국어)
+
+[Open sample PDF](docs/sample/tameshibu_episode3_ko.pdf)
+
+### Episode 3 (简体中文)
+
+[Open sample PDF](docs/sample/tameshibu_episode3_zh_cn.pdf)
+
+### Episode 3 (繁體中文)
+
+[Open sample PDF](docs/sample/tameshibu_episode3_zh_tw.pdf)
+
+### Episode 3 (English)
+
+[Open sample PDF](docs/sample/tameshibu_episode3_en.pdf)
+
+### Episode 3 (日本語)
+
+[Open sample PDF](docs/sample/tameshibu_episode3_ja.pdf)
+
 ## Pricing and Supporting the Developer
 
 MihirakiPDFViewer is free to use and has no ads. Core features such as PDF

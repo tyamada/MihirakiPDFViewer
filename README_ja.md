@@ -119,6 +119,82 @@ MihirakiPDFViewerでお試しいただけるサンプルPDFです。
 
 [第1話を開く](docs/sample/tameshibu_episode1_2_fr.pdf) / [第2話を開く](docs/sample/tameshibu_episode2_2_fr.pdf)
 
+### 第1話 (スペイン語)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode1_es.pdf)
+
+### 第1話 (インドネシア語)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode1_id.pdf)
+
+### 第1話 (イタリア語)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode1_it.pdf)
+
+### 第1話 (ネパール語)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode1_ne.pdf)
+
+### 第1話 (ポルトガル語)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode1_pt.pdf)
+
+### 第1話 (フィリピノ語)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode1_tl.pdf)
+
+### 第1話 (ベトナム語)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode1_vi.pdf)
+
+### 第2話 (スペイン語)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode2_es.pdf)
+
+### 第2話 (インドネシア語)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode2_id.pdf)
+
+### 第2話 (イタリア語)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode2_it.pdf)
+
+### 第2話 (ネパール語)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode2_ne.pdf)
+
+### 第2話 (ポルトガル語)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode2_pt.pdf)
+
+### 第2話 (フィリピノ語)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode2_tl.pdf)
+
+### 第2話 (ベトナム語)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode2_vi.pdf)
+
+### 第3話 (韓国語)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode3_ko.pdf)
+
+### 第3話 (中国語・簡体字)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode3_zh_cn.pdf)
+
+### 第3話 (中国語・繁体字)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode3_zh_tw.pdf)
+
+### 第3話 (英語)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode3_en.pdf)
+
+### 第3話 (日本語)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode3_ja.pdf)
+
 ## 価格と開発者の応援
 
 MihirakiPDFViewerは無料で利用でき、広告はありません。PDFの閲覧、サンプルの
