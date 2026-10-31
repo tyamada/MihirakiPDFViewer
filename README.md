@@ -213,6 +213,42 @@ Try MihirakiPDFViewer with these sample PDFs.
 
 [Open sample PDF](docs/sample/tameshibu_episode3_ja.pdf)
 
+### Episode 3 (Deutsch)
+
+[Open sample PDF](docs/sample/tameshibu_episode3_de.pdf)
+
+### Episode 3 (Español)
+
+[Open sample PDF](docs/sample/tameshibu_episode3_es.pdf)
+
+### Episode 3 (Français)
+
+[Open sample PDF](docs/sample/tameshibu_episode3_fr.pdf)
+
+### Episode 3 (Bahasa Indonesia)
+
+[Open sample PDF](docs/sample/tameshibu_episode3_id.pdf)
+
+### Episode 3 (Italiano)
+
+[Open sample PDF](docs/sample/tameshibu_episode3_it.pdf)
+
+### Episode 3 (नेपाली)
+
+[Open sample PDF](docs/sample/tameshibu_episode3_ne.pdf)
+
+### Episode 3 (Português)
+
+[Open sample PDF](docs/sample/tameshibu_episode3_pt.pdf)
+
+### Episode 3 (Filipino)
+
+[Open sample PDF](docs/sample/tameshibu_episode3_tl.pdf)
+
+### Episode 3 (Tiếng Việt)
+
+[Open sample PDF](docs/sample/tameshibu_episode3_vi.pdf)
+
 ## Pricing and Supporting the Developer
 
 MihirakiPDFViewer is free to use and has no ads. Core features such as PDF

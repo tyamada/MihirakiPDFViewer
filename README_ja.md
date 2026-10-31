@@ -195,6 +195,42 @@ MihirakiPDFViewerでお試しいただけるサンプルPDFです。
 
 [サンプルPDFを開く](docs/sample/tameshibu_episode3_ja.pdf)
 
+### 第3話 (ドイツ語)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode3_de.pdf)
+
+### 第3話 (スペイン語)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode3_es.pdf)
+
+### 第3話 (フランス語)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode3_fr.pdf)
+
+### 第3話 (インドネシア語)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode3_id.pdf)
+
+### 第3話 (イタリア語)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode3_it.pdf)
+
+### 第3話 (ネパール語)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode3_ne.pdf)
+
+### 第3話 (ポルトガル語)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode3_pt.pdf)
+
+### 第3話 (フィリピノ語)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode3_tl.pdf)
+
+### 第3話 (ベトナム語)
+
+[サンプルPDFを開く](docs/sample/tameshibu_episode3_vi.pdf)
+
 ## 価格と開発者の応援
 
 MihirakiPDFViewerは無料で利用でき、広告はありません。PDFの閲覧、サンプルの
