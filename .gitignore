@@ -67,3 +67,8 @@ output/
 /build/
 /tmp/
 convpng.py
+
+# Required build inputs, including when global ignores exclude Assets.* / Info.plist.
+!MihirakiPDFViewer/Assets.xcassets/
+!MihirakiPDFViewer/Assets.xcassets/**
+!MihirakiPDFViewer/Info.plist
