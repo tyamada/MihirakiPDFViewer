@@ -35,7 +35,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -240,6 +240,10 @@
         }
 
         @media (max-width: 760px) {
+            .site-header {
+                position: static;
+            }
+
             .nav {
                 align-items: flex-start;
                 flex-direction: column;
@@ -399,18 +403,13 @@
                             tumugon o mag-imbestiga sa isyu.
                         </p>
                         <ul>
-                            <li>Huwag magpadala ng PDF na nilalaman o personal na impormasyon maliban kung ito ay kinakailangan.</li>
+                            <li>Huwag magpadala ng mga PDF file o ng nilalaman ng mga ito. Basahin muna ang gabay sa mga ulat at larawan sa ibaba bago makipag-ugnayan sa suporta.</li>
                             <li>Ang modelo ng device, bersyon ng OS, bersyon ng app, at mga hakbang sa pagpaparami ay nakakatulong sa pagsisiyasat.</li>
                         </ul>
                     </article>
                     <article class="card">
                         <h3>Pagbabahagi sa mga Third Party</h3>
-                        <p>
-                            Ang impormasyon ay hindi ibinibigay sa mga ikatlong partido maliban
-                            kung saan kinakailangan ng batas. Mga tampok na ibinigay ng Apple tulad ng
-                            Ang mga in-app na pagbili at iCloud Drive ay napapailalim din sa
-                            Patakaran sa privacy ng Apple.
-                        </p>
+                        <p>Ang impormasyong pinili mong ibahagi o ipadala sa suporta ay napupunta sa napiling tatanggap at maaari niyang panatilihin. Sinusunod ng StoreKit purchases at iCloud Drive ang paghawak ng Apple. Kumokonekta ang sample downloads at external links sa mga operator ng serbisyo; naaangkop ang kanilang privacy practices at ng napiling sharing destination. Hindi awtomatikong nagpapadala ng diagnostic sa developer ang app.</p>
                     </article>
                 </div>
             </div>
@@ -450,6 +449,14 @@
             </div>
         </section>
 
+<section class="section" id="diagnostics">
+    <div class="container">
+        <div class="section-heading">
+            <h2>On-device na diagnostic at mga log ng app</h2>
+            <p>Nananatili ang resulta ng diagnostic sa memory ng kasalukuyang screen. Kapag piniling ibahagi, kasama sa teksto ang oras ng pagsusuri, pangalan at identifier ng modelo (hindi natatanging device ID), bersyon ng OS at app, kabuuan at available na memory, at mga resulta maliban sa pagsusuri ng libreng storage. Nasa log ang uri ng pangyayari, oras, bilang at lumipas na oras ng pagproseso. Hanggang 2,000 entry ang log na nababasa at naibabahagi sa app; inaalis ang lampas 24 oras kapag binabasa o nagtatala, hindi sa pamamagitan ng timer habang nakahinto ang app. Sinusunod ng system logs ang patakaran ng OS. Hindi awtomatikong ipinapadala ang mga resulta at log.</p>
+        </div>
+    </div>
+</section>
         <section id="contact" class="section">
             <div class="container">
                 <div class="section-heading">
@@ -469,7 +476,33 @@
                 </article>
             </div>
         </section>
-    </main>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>Patakaran sa Privacy</h2>
+        <p>Buksan ang Patakaran sa Privacy sa itaas ng Settings o sa App Information. Maaari itong buksan bago pumili ng PDF o habang nagbabasa, nang walang pagbili o pag-login.</p>
+        <p>Sa device lang ipinapakita ang libreng storage. Hindi kasama sa ibinabahaging diagnostic text ang pagsusuri ng storage, halaga nito, o epekto nito sa kabuuang resulta. Maaaring kasama sa mga log ang tagal ng pagproseso, ngunit hindi ang raw system uptime.</p>
+        <p>Para maipagpatuloy ang pagbabasa, lokal na sine-save ang bookmark ng dokumento, pahina, mga setting, at teksto sa paghahanap; hindi sine-save ang password ng PDF. Kumokonekta sa GitHub Pages kapag hiniling ang sample download. Nagbubukas din ng panlabas na website ang patakarang ito at GitHub Issues; maaaring matanggap ng operator ang IP address at impormasyon ng request. Ibinabahagi ang ulat sa pinili mong destinasyon. May sariling patakaran sa privacy ang mga panlabas na serbisyo.</p>
+    <p data-policy-topic="local-retention">Sa device ginagawa ang pagpapakita at paghahanap sa PDF. Lokal na sine-save para sa pagpapanumbalik ang bookmark ng dokumento, posisyon ng pahina, teksto ng paghahanap at mga opsyon sa pagpapakita, ngunit hindi ang password ng PDF. Binubura ng pagsasara ng dokumento o pag-reset ng settings ang tala ng pagpapanumbalik, hindi ang PDF o diagnostic logs. Kinokopya ang ilang na-import na PDF sa Documents storage ng app. Para alisin ang lokal na datos, gamitin ang pag-delete ng app sa OS, hindi ang pag-offload na nag-iiwan ng datos. Hindi nito binubura ang mga orihinal sa labas o mga naibahaging kopya. Walang hiwalay na button para mag-delete ng logs.</p>
+    </div>
+</section>
+        <section class="section" id="support-retention">
+      <div class="container">
+        <h2>Impormasyon ng suporta at pagpapanatili</h2>
+        <p>Ginagamit lamang ang impormasyon ng suporta para sa pagtugon, pagsisiyasat ng problema, at teknikal na pagpapahusay ng pagganap. Hindi namin hinihingi ang tunay mong pangalan. Kung kasama ito sa ipinapakitang pangalan ng nagpadala, pinapanatili lamang ito sa orihinal na email hangga’t kailangan para sa pagtugon at pagsisiyasat. Hindi ito kinokopya sa Google Sheets ng bawat kaso o sa mga tala ng pagpapahusay.</p>
+        <p>Hindi karaniwang hinihingi ang mga screenshot. Tinatanggap lamang ang mga ito sa tyamada.support@gmail.com kung hindi maulit ang problema gamit ang teksto lamang at kailangan ang larawan. Bago ipadala, takpan ang nilalaman ng PDF, mga pangalan ng file, pangalan ng tao, notification, at iba pang impormasyong hindi kailangan sa pagsisiyasat. Karaniwang pinoproseso ang mga larawan sa loob ng orihinal na email. Sa Sheets ng bawat kaso, mga obserbasyong kailangan lamang sa pagsisiyasat ang itinatala, hindi ang mga larawan.</p>
+        <p>Hindi namin kinokopya ang pangalan o handle ng may-akda sa GitHub sa Sheets ng bawat kaso o sa mga tala ng pagpapahusay. Kung kailangan lamang para sa pagtugon o pagsisiyasat, nagtatago kami ng link sa orihinal na Issue sa Sheet ng kaso. Hangga’t matutukoy ang may-akda sa pamamagitan ng link, maaari pa ring iugnay sa kanya ang tala. Huwag mag-post ng personal na impormasyon, mga PDF file o ng nilalaman ng mga ito, mga pangalan ng file, o mga screenshot sa mga pampublikong Issue.</p>
+        <p>Magkaiba ang mga pampublikong post sa GitHub at ang email at tala ng kaso na aming pinamamahalaan. Hindi nabubura ang pampublikong Issue kapag binura ang link sa aming kaso. Hindi namin magagarantiya ang pagbura ng mga post o kopya ng serbisyo na wala sa aming kontrol. Hindi namin itinuturing na anonymous ang mga ulat at sanggunian ng kaso na matutunton pabalik sa nagpadala.</p>
+        <h3>Simula at mga takdang panahon ng pagbura</h3>
+        <p>A. Mga orihinal na email, kasama ang ipinapakitang tunay na pangalan, mga larawan at kopya para sa pagsisiyasat: kumpleto ang kaso kapag may tugon o konklusyon ng pagsisiyasat at kinumpirma ng developer na wala nang natitirang gawain. Hindi awtomatikong nagsasara ang kaso dahil lamang walang tugon. Lingguhang sinusuri ang mga takdang panahon. Nagsisimula ang pagbura mga 60 araw matapos makumpleto ang kaso, at kinukumpirma ang pagbura ng mga talang maaaring pamahalaan, kasama ang kaugnay na Trash, sa loob ng 90 araw. Hindi minimum na panahon ng pagpapanatili ang 60 araw; hindi maghihintay sa karaniwang takdang araw ang mas maagang kahilingan sa pagbura.</p>
+        <p>B. Sheets ng bawat kaso, mga obserbasyon, link sa Issue, at mga tala ng pagtanggap at pagbura: kinukumpirma ang pagbura ng file ng kaso at mga kaugnay na tala at sanggunian sa loob ng 90 araw matapos makumpleto ang pagbura ng orihinal na impormasyon. Hindi sapat ang pagbura ng mga row o cell lamang. Hindi nito pinahahaba ang A o pinapayagang ilipat dito ang mga orihinal. Hindi awtomatikong humahaba ang takdang panahon ng aming tala ng kaso dahil nananatiling online ang isang pampublikong Issue.</p>
+        <p>C. Mga pangkalahatang tala ng pagpapahusay: mga sanhi at buod ng pag-aayos lamang ang maaaring panatilihin, nang walang pangalan, larawan, URL ng post, ID ng kaso, o ibang impormasyong matutunton pabalik sa orihinal na ulat. Hindi ito alternatibong imbakan para sa A o B.</p>
+        <p>Ang mga pagbubukod ay para lamang sa patuloy na pagsisiyasat o legal na pangangailangan. Itinatala ang dahilan, saklaw, at kondisyon ng pagtatapos at sinusuri ang mga ito sa pagitan na hindi lalampas sa 30 araw at sa pagtatapos ng pagsisiyasat. Kapag wala na ang pangangailangan, karaniwang kinukumpirma ang pagbura sa loob ng 30 araw, o sa orihinal na 90-araw na takdang panahon kung umiiral pa ito at mas maaga. Hindi awtomatikong nagsisimula muli ang mga takdang panahon sa muling pagbubukas o pagbubukod. Mga araw sa kalendaryo sa Asia/Tokyo ang ginagamit.</p>
+        <p>Saklaw ng mga takdang panahong ito ang mga talang kayang pamahalaan ng developer. Hindi ginagarantiya ng pagbura sa interface ng serbisyo ang pisikal na pagbura ng mga internal na recovery copy ng provider o backup ng device sa parehong panahon. Iba ang mga kopyang iyon at ang mga limitasyon sa pagbura sa mga talang nasa aming kontrol. Hindi nabubura ang mga naipadalang ulat kapag binura ang mga lokal na log ng app.</p>
+        <p>Para sa mga tanong o kahilingan sa pagbura, makipag-ugnayan sa <a href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a>. Ibigay lamang ang impormasyong kailangan upang matukoy ang kaugnay na kaso; huwag itong ilathala sa publiko.</p>
+      </div>
+    </section>
+  </main>
 
     <footer class="site-footer">
         <div class="footer-inner">

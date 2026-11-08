@@ -36,7 +36,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -324,7 +324,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -462,8 +476,10 @@
                         <details>
                             <summary>Bisakah saya beralih antara tampilan satu halaman dan dua halaman?</summary>
                             <p>
-                                Ya. Anda dapat mengubah tampilan dari tampilan
-                                pengaturan, termasuk bagaimana halaman sampul ditangani.
+                                Ya. Pada semua jenis perangkat, tampilan satu halaman digunakan secara default
+                                saat layar lebih tinggi daripada lebarnya. Nonaktifkan pengaturan ini untuk
+                                mempertahankan tampilan dua halaman dalam orientasi potret. Anda juga dapat
+                                mengatur bagaimana halaman sampul ditangani.
                             </p>
                         </details>
                         <details>
@@ -475,11 +491,7 @@
                         </details>
                         <details>
                             <summary>Apa yang harus saya lakukan jika tampilan terlihat buram?</summary>
-                            <p>
-                                Aktifkan Kualitas Tinggi atau Ketajaman di pengaturan.
-                                Opsi ini mungkin meningkatkan beban rendering pada beberapa perangkat
-                                perangkat.
-                            </p>
+                            <p>Pada layar potret yang sempit, satu halaman ditampilkan secara default. Nonaktifkan opsi satu halaman dalam orientasi potret untuk mempertahankan tampilan dua halaman di sana. Pada tata letak yang lebih lebar, pengaturan dua halaman yang dipilih tetap berlaku. Penanganan sampul juga dapat diubah di pengaturan.</p>
                         </details>
                     </article>
 
@@ -504,8 +516,7 @@
                         <details>
                             <summary>Apakah pembelian dalam aplikasi diperlukan?</summary>
                             <p>
-                                Tidak. Tip adalah pembelian dukungan opsional. Aplikasinya
-                                fitur membaca dapat digunakan tanpa membeli tip.
+                                Tidak. Bronze, Silver, dan Gold adalah pembelian opsional yang tidak habis pakai dan membuka ikon app terkait secara permanen. Fitur membaca gratis. Harga ditampilkan pada tombol pembelian.
                             </p>
                         </details>
                     </article>
@@ -540,6 +551,14 @@
             </div>
         </section>
 
+<section class="section" id="diagnostics">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Diagnostik di perangkat dan log aplikasi</h2>
+            <p>Dari layar Diagnostik di Pengaturan, jalankan pengujian informasi aplikasi, penyimpanan lokal, dan perenderan PDF, atau lihat log diagnostik untuk menyelidiki crash, perlambatan, serta masalah operasi atau tampilan. Hasil mencakup waktu pengujian, nama dan pengenal model perangkat, versi OS, dan versi aplikasi. Log tidak memuat informasi pribadi, isi, nama atau jalur file, istilah pencarian, maupun kata sandi, dan entri yang lebih lama dari 24 jam dihapus saat log dibaca atau dicatat. Tidak ada pengiriman otomatis; data hanya keluar dari perangkat saat Anda secara tegas menggunakan Bagikan.</p>
+        </div>
+    </div>
+</section>
         <section class="section" id="troubleshooting" aria-labelledby="troubleshooting-title">
             <div class="container">
                 <div class="section-heading">
@@ -589,44 +608,23 @@
         </section>
 
         <section class="section" id="contact" aria-labelledby="contact-title">
-            <div class="container">
-                <div class="section-heading">
-                    <h2 id="contact-title">Laporan Bug dan Kontak</h2>
-                    <p>
-                        Jika masalah tetap ada, harap sertakan lingkungan Anda dan
-                        langkah reproduksi saat menghubungi dukungan.
-                    </p>
-                </div>
-                <div class="contact-grid">
-                    <article class="contact-card">
-                        <h3>Masalah GitHub</h3>
-                        <p>
-                            Gunakan Masalah GitHub untuk laporan bug dan permintaan fitur.
-                            Jangan lampirkan PDF yang berisi informasi pribadi atau rahasia
-                            informasi.
-                        </p>
-                        <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">Buka Masalah GitHub</a>
-                    </article>
-                    <article class="contact-card">
-                        <h3>Surel</h3>
-                        <p>
-                            Gunakan email untuk pertanyaan pribadi. Balasan mungkin memerlukan waktu beberapa saat
-                            waktu.
-                        </p>
-                        <a class="button secondary" href="mailto:takuma.yamada22@gmail.com">takuma.yamada22@gmail.com</a>
-                    </article>
-                </div>
-
-                <article class="notice" style="margin-top: 16px;">
-                    <h3>Informasi untuk Disertakan</h3>
-                    <p>
-                        Harap sertakan model perangkat, versi iOS/iPadOS, aplikasi
-                        versi, jenis PDF, langkah reproduksi, dan pesan kesalahan apa pun
-                        kamu melihat.
-                    </p>
-                </article>
-            </div>
-        </section>
+      <div class="container">
+        <h2 id="contact-title">Laporan masalah dan pertanyaan pribadi</h2>
+        <p>Mulai dengan penjelasan tertulis: ringkas masalahnya, jelaskan langkah untuk mereproduksinya, serta hasil yang diharapkan dan yang sebenarnya terjadi. Sertakan perangkat, versi OS, dan versi aplikasi bila relevan. Nama asli tidak diperlukan. Jangan kirim file PDF atau isinya.</p>
+        <div class="contact-grid">
+          <article class="contact-card"><h3>Laporan masalah publik (GitHub Issues)</h3>
+            <p>Jangan unggah informasi pribadi, file PDF atau isinya, nama file, maupun tangkapan layar ke Issue publik.</p>
+            <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">Laporan masalah publik (GitHub Issues)</a>
+          </article>
+          <article class="contact-card"><h3>Pertanyaan pribadi (email)</h3>
+            <p>Kami biasanya tidak meminta tangkapan layar. Hanya jika teks saja tidak dapat mereproduksi masalah dan gambar diperlukan, kami menerimanya di tyamada.support@gmail.com. Sebelum mengirim, sembunyikan isi PDF, nama file, nama orang, notifikasi, dan informasi lain yang tidak diperlukan untuk penyelidikan.</p>
+            <a class="button secondary" href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a>
+          </article>
+        </div>
+        <p>Jika menyertakan hasil diagnostik atau log aplikasi, periksa isinya dan penerimanya sebelum mengirim. Tidak ada yang dikirim otomatis. Petunjuk yang sama tersedia melalui Laporkan Masalah di Diagnostik dan Bantuan dalam aplikasi.</p>
+        <p><a href="privacy_id.html#support-retention">Penyimpanan informasi dukungan: penanganan email, gambar, dan catatan kasus</a></p>
+      </div>
+    </section>
 
         <section class="section" id="updates" aria-labelledby="updates-title">
             <div class="container">
@@ -642,6 +640,14 @@
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>Kebijakan Privasi</h2>
+        <p>Buka Kebijakan Privasi di bagian atas Pengaturan atau di Informasi Aplikasi. Tersedia sebelum memilih PDF dan saat membaca, tanpa pembelian atau login.</p>
+        <p>Ruang penyimpanan kosong hanya ditampilkan di perangkat ini. Teks diagnostik yang dibagikan tidak menyertakan pemeriksaan ruang, nilainya, atau pengaruhnya pada hasil keseluruhan. Log dapat memuat durasi pemrosesan, tetapi tidak memuat waktu aktif sistem mentah.</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">

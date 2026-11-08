@@ -35,7 +35,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -240,6 +240,10 @@
         }
 
         @media (max-width: 760px) {
+            .site-header {
+                position: static;
+            }
+
             .nav {
                 align-items: flex-start;
                 flex-direction: column;
@@ -399,18 +403,13 @@
                             um zu antworten oder das Problem zu untersuchen.
                         </p>
                         <ul>
-                            <li>Sende keine PDF-Inhalte oder personenbezogenen Daten, sofern es nicht erforderlich ist.</li>
+                            <li>Sende keine PDF-Dateien oder deren Inhalte. Lies vor einer Supportanfrage die untenstehenden Hinweise zu Berichten und Bildern.</li>
                             <li>Gerätemodell, OS-Version, App-Version und Reproduktionsschritte helfen bei der Untersuchung.</li>
                         </ul>
                     </article>
                     <article class="card">
                         <h3>Weitergabe an Dritte</h3>
-                        <p>
-                            Informationen werden nicht an Dritte weitergegeben, außer
-                            wenn dies gesetzlich erforderlich ist. Von Apple bereitgestellte Funktionen wie
-                            In-App-Käufe und iCloud Drive unterliegen ebenfalls
-                            Apples Datenschutzrichtlinie.
-                        </p>
+                        <p>Informationen, die Sie teilen oder an den Support senden, erreichen den gewählten Empfänger und können dort gespeichert werden. Für StoreKit-Käufe und iCloud Drive gelten Apples Verfahren. Beispieldownloads und externe Links kontaktieren die jeweiligen Betreiber; deren Datenschutzregeln und die Regeln der gewählten Freigabeziele gelten ebenfalls. Die App sendet Diagnoseberichte nicht automatisch an den Entwickler.</p>
                     </article>
                 </div>
             </div>
@@ -450,6 +449,14 @@
             </div>
         </section>
 
+<section class="section" id="diagnostics">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Diagnose auf dem Gerät und App-Protokolle</h2>
+            <p>Diagnoseergebnisse bleiben im Speicher der aktuellen Ansicht. Beim Teilen enthält der Text Testzeit, Modellname und Modellkennung (keine eindeutige Geräte-ID), Betriebssystem- und App-Version, gesamten und verfügbaren Arbeitsspeicher sowie Prüfergebnisse ohne Speicherplatzprüfung. Protokolle enthalten Ereignistypen, Zeiten, Anzahlen und verstrichene Verarbeitungszeiten. Das in der App lesbare und teilbare Protokoll umfasst höchstens 2.000 Einträge; beim Lesen oder Aufzeichnen werden Einträge entfernt, die älter als 24 Stunden sind. Bei beendeter App läuft dafür kein Timer. Systemprotokolle unterliegen den Regeln des Betriebssystems. Ergebnisse und Protokolle werden nicht automatisch gesendet.</p>
+        </div>
+    </div>
+</section>
         <section id="contact" class="section">
             <div class="container">
                 <div class="section-heading">
@@ -469,7 +476,33 @@
                 </article>
             </div>
         </section>
-    </main>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>Datenschutzerklärung</h2>
+        <p>Die Datenschutzerklärung ist oben in den Einstellungen und unter App-Informationen erreichbar – vor dem Öffnen einer PDF und beim Lesen, ohne Kauf oder Anmeldung.</p>
+        <p>Freier Speicherplatz wird nur auf diesem Gerät angezeigt. Geteilte Diagnoseberichte enthalten weder die Speicherprüfung noch ihren Wert oder ihren Einfluss auf das Gesamtergebnis. Protokolle können Verarbeitungsdauern enthalten, aber niemals die rohe Systemlaufzeit.</p>
+        <p>Zur Lesewiederherstellung werden Dokument-Lesezeichen, Seite, Anzeigeeinstellungen und Suchtext lokal gespeichert, keine PDF-Passwörter. Beispieldownloads verbinden sich auf Anfrage mit GitHub Pages. Auch diese Richtlinie und GitHub Issues öffnen externe Websites; deren Betreiber können IP-Adresse und Anfragedaten erhalten. Geteilte Berichte gehen an das gewählte Ziel. Für externe Dienste gelten eigene Datenschutzrichtlinien.</p>
+    <p data-policy-topic="local-retention">PDF-Anzeige und Suche erfolgen auf dem Gerät. Zur Wiederherstellung werden Dokumentlesezeichen, Seitenpositionen, Suchtext und Anzeigeoptionen lokal gespeichert, jedoch keine PDF-Passwörter. Das Schließen des Dokuments oder Zurücksetzen der Einstellungen löscht den Wiederherstellungsdatensatz, nicht aber die PDF oder Diagnoseprotokolle. Einige importierte PDFs werden in den Dokumentbereich der App kopiert. Lokale App-Daten lassen sich durch Löschen der App im Betriebssystem entfernen, nicht durch Auslagern. Externe Originale und bereits geteilte Kopien werden dabei nicht gelöscht. Eine eigene Schaltfläche zum Löschen der Protokolle gibt es nicht.</p>
+    </div>
+</section>
+        <section class="section" id="support-retention">
+      <div class="container">
+        <h2>Supportinformationen und Aufbewahrung</h2>
+        <p>Wir verwenden Supportinformationen nur für Antworten, die Untersuchung von Problemen und technische Leistungsverbesserungen. Wir fragen nicht nach deinem echten Namen. Enthält der angezeigte Absendername deinen echten Namen, bewahren wir ihn nur in der ursprünglichen E-Mail auf, solange dies für Antworten und die Untersuchung nötig ist. Wir übertragen ihn nicht in fallbezogene Google-Sheets-Dateien oder Verbesserungsnotizen.</p>
+        <p>Screenshots werden normalerweise nicht angefordert. Nur wenn sich das Problem allein mit Text nicht reproduzieren lässt und ein Bild nötig ist, nehmen wir es unter tyamada.support@gmail.com entgegen. Verdecke vor dem Senden PDF-Inhalte, Dateinamen, Namen, Benachrichtigungen und andere für die Untersuchung unnötige Informationen. Bilder werden in der Regel innerhalb der ursprünglichen E-Mail bearbeitet. In fallbezogenen Sheets werden nur die für die Untersuchung nötigen Erkenntnisse festgehalten, nicht die Bilder.</p>
+        <p>Wir übertragen Namen oder Nutzernamen von GitHub-Verfassern nicht in fallbezogene Sheets oder Verbesserungsnotizen. Nur wenn es für eine Antwort oder Untersuchung nötig ist, speichern wir einen Link zum ursprünglichen Issue im fallbezogenen Sheet. Solange der Verfasser über diesen Link ermittelt werden kann, bleibt die Unterlage ihm zuordenbar. Veröffentliche in öffentlichen Issues keine persönlichen Informationen, PDF-Dateien oder deren Inhalte, Dateinamen oder Screenshots.</p>
+        <p>Öffentliche GitHub-Beiträge sind von den E-Mails und Fallunterlagen zu unterscheiden, die wir verwalten. Das Löschen unseres Falllinks löscht nicht das öffentliche Issue. Die Löschung von Beiträgen oder Dienstkopien außerhalb unserer Kontrolle können wir nicht zusichern. Berichte und Fallverweise, die zum Absender zurückführen, behandeln wir nicht als anonym.</p>
+        <h3>Beginn und Fristen der Löschung</h3>
+        <p>A. Ursprüngliche E-Mails einschließlich angezeigter echter Namen, Untersuchungsbilder und Untersuchungskopien: Ein Fall ist abgeschlossen, wenn eine Antwort oder ein Untersuchungsergebnis vorliegt und der Entwickler bestätigt, dass keine Arbeit mehr offen ist. Ausbleibende Antworten schließen einen Fall nicht automatisch. Wir prüfen die Fristen wöchentlich, beginnen etwa 60 Tage nach Abschluss mit der Löschung und bestätigen innerhalb von 90 Tagen die Löschung der verwaltbaren Unterlagen einschließlich des betreffenden Papierkorbs. Die 60 Tage sind keine Mindestaufbewahrungsdauer; frühzeitige Löschanfragen warten nicht bis zur regulären Frist.</p>
+        <p>B. Fallbezogene Sheets, Erkenntnisse, Issue-Links sowie Eingangs- und Löschunterlagen: Innerhalb von 90 Tagen nach Abschluss der Löschung der ursprünglichen Informationen bestätigen wir die Löschung der Falldatei sowie zugehöriger Unterlagen und Verweise. Nur Zeilen oder Zellen zu löschen reicht nicht. Dies verlängert A nicht und erlaubt keine Verlagerung der Originale in diese Unterlagen. Ein weiterhin öffentliches Issue verlängert die Frist unserer Fallunterlagen nicht automatisch.</p>
+        <p>C. Verallgemeinerte Verbesserungsnotizen dürfen nur Ursachen und Zusammenfassungen von Korrekturen enthalten, ohne Namen, Bilder, Beitrags-URLs, Fall-IDs oder andere Informationen, die zum ursprünglichen Bericht führen. Sie dienen nicht als Ersatzspeicher für Unterlagen aus A oder B.</p>
+        <p>Ausnahmen sind auf fortgesetzte Untersuchungen oder rechtliche Notwendigkeiten begrenzt. Wir dokumentieren Grund, Umfang und Endbedingung und prüfen sie spätestens alle 30 Tage sowie am Ende der Untersuchung. Entfällt die Notwendigkeit, bestätigen wir die Löschung grundsätzlich innerhalb von 30 Tagen oder bis zur ursprünglichen 90-Tage-Frist, falls diese noch läuft und früher endet. Eine Wiederaufnahme oder Ausnahme setzt die Fristen nicht automatisch zurück. Es gelten Kalendertage in Asia/Tokyo.</p>
+        <p>Diese Fristen gelten für Unterlagen, die der Entwickler verwalten kann. Eine Löschung in der Benutzeroberfläche eines Dienstes garantiert nicht die physische Löschung interner Wiederherstellungskopien des Anbieters oder von Gerätesicherungen innerhalb derselben Frist. Solche Kopien und ihre Löschgrenzen sind von den Unterlagen unter unserer Kontrolle zu unterscheiden. Das Löschen lokaler App-Protokolle löscht keine bereits gesendeten Berichte.</p>
+        <p>Für Fragen oder Löschanfragen wende dich an <a href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a>. Gib nur die Informationen an, die zur Zuordnung des betreffenden Falls nötig sind, und veröffentliche sie nicht öffentlich.</p>
+      </div>
+    </section>
+  </main>
 
     <footer class="site-footer">
         <div class="footer-inner">

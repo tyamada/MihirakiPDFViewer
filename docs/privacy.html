@@ -35,7 +35,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -240,6 +240,10 @@
         }
 
         @media (max-width: 760px) {
+            .site-header {
+                position: static;
+            }
+
             .nav {
                 align-items: flex-start;
                 flex-direction: column;
@@ -399,18 +403,13 @@
                             reply or investigate the issue.
                         </p>
                         <ul>
-                            <li>Do not send PDF content or personal information unless it is necessary.</li>
+                            <li>Do not send PDF files or their contents. Review the reporting and image instructions below before contacting support.</li>
                             <li>Device model, OS version, app version, and reproduction steps help investigation.</li>
                         </ul>
                     </article>
                     <article class="card">
                         <h3>Sharing with Third Parties</h3>
-                        <p>
-                            Information is not provided to third parties except
-                            where required by law. Apple-provided features such as
-                            in-app purchases and iCloud Drive are also subject to
-                            Apple's privacy policy.
-                        </p>
+                        <p>Information you choose to share or send to support reaches the selected recipient and may be retained there. StoreKit purchases and iCloud Drive follow Apple&#x27;s handling. Sample downloads and external links contact their service operators; those operators and your selected sharing destinations apply their own privacy practices. The app does not automatically send diagnostic reports to the developer.</p>
                     </article>
                 </div>
             </div>
@@ -450,6 +449,14 @@
             </div>
         </section>
 
+<section class="section" id="diagnostics">
+    <div class="container">
+        <div class="section-heading">
+            <h2>On-device diagnostics and app logs</h2>
+            <p>Diagnostic results are held in the current screen&#x27;s memory. If you choose Share, the text includes the test time, model name and model identifier (not a unique device ID), OS and app versions, total and available memory, and non-storage check results. Logs contain event types, times, counts and elapsed processing times. The app&#x27;s readable/shareable log is limited to 2,000 entries; entries older than 24 hours are removed when logs are read or recorded, not by a timer while the app is stopped. System logs follow OS retention rules. Reports and logs are not sent automatically.</p>
+        </div>
+    </div>
+</section>
         <section id="contact" class="section">
             <div class="container">
                 <div class="section-heading">
@@ -462,14 +469,39 @@
                 <article class="notice">
                     <h3>Contact Method</h3>
                     <p>
-                        Use GitHub Issues or email. When posting in a public place,
-                        do not include personal information or PDF content.
+                        For private privacy questions or deletion requests, email
+                        <a href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a>.
+                        GitHub Issues is public; do not include personal information or PDF content.
                     </p>
                     <a class="button" href="support.html#contact">Open Support Page</a>
                 </article>
             </div>
         </section>
-    </main>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>Privacy Policy</h2>
+        <p>Open the Privacy Policy link at the top of Settings or in App Information. It is available before opening a PDF and while reading, without a purchase or login.</p>
+        <p>Available disk space is displayed only on this device. Shared diagnostic text excludes the storage check, its value, and its effect on the overall result. Logs may include elapsed processing times, but never raw system uptime.</p>
+        <p>Reading restoration stores the document bookmark, page, viewing settings, and search text locally; PDF passwords are not saved. Sample downloads contact GitHub Pages only when requested. Opening this policy or GitHub Issues also contacts an external website, whose operator may receive the IP address and request information. Shared reports go only to the destination you choose. These external services have their own privacy policies.</p>
+    <p data-policy-topic="local-retention">PDF viewing and search run on the device. Reading restoration stores a document bookmark, page positions, search text and viewing options locally; PDF passwords are not saved. Closing the document or resetting settings clears the restoration record, but does not delete the PDF or diagnostic logs. Some imported PDFs are copied into the app&#x27;s Documents storage. To remove local app data, use the OS option to delete the app, not offload it. External originals and copies already shared are not deleted by that operation. There is no dedicated log-delete button.</p>
+    </div>
+</section>
+    <section class="section" id="support-retention"><div class="container">
+<h2>Support information and retention</h2>
+<p>We use support information only to reply, investigate problems and make technical performance improvements. We do not request your real name. If your sender display name contains your real name, we retain it only in the original email for the period needed for replies and investigation; we do not copy it into case-specific Google Sheets or improvement notes.</p>
+<p>Screenshots are accepted only at tyamada.support@gmail.com when text alone cannot reproduce the problem and an image is needed. Before sending, hide PDF contents, file names, names, notifications and other unnecessary information. Images are normally handled within the original email. Case-specific Sheets contain only the observations needed for the investigation, not the images.</p>
+<p>We do not copy GitHub author names or handles into case-specific Sheets or improvement notes. Only when needed for a reply or investigation, we retain a link to the original Issue in the case Sheet. While the author can be reached through that link, the record remains linkable to them. Do not put personal information, PDF files or their contents, file names, or screenshots in public Issues.</p>
+<p>Public GitHub posts and the email and case records we manage are distinct. Deleting our case link does not delete the public Issue. We cannot promise deletion of posts or service copies outside our control. Support reports and case references that lead back to a sender are not treated as anonymous.</p>
+<h3>Deletion schedule</h3>
+<p>A. Original emails (including displayed real names), investigation images and investigation copies: a case is complete when a reply or investigation conclusion exists and the developer confirms no work remains. Silence alone does not close a case. We check deadlines weekly, begin deletion around 60 days after completion, and confirm deletion of manageable records, including the relevant Trash, within 90 days. The 60-day point is not a minimum retention period; early deletion requests do not wait for the normal deadline.</p>
+<p>B. Case-specific Sheets, observations, Issue links and intake/deletion records: we confirm deletion of the case file and related records and references within 90 days after deletion of the original information is completed. Deleting only rows or cells is insufficient. This does not extend A or allow originals to be moved into these records. A public Issue remaining online does not automatically extend our case-record deadline.</p>
+<p>C. Generalized improvement notes may retain only causes and fix summaries, without names, images, post URLs, case IDs or other information leading back to the original report. They are not an alternative storage location for A or B records.</p>
+<p>Exceptions are limited to continuing investigation or legal necessity. We record the reason, scope and end condition and review them at least every 30 days and when the investigation ends. Once the need ends, deletion is normally confirmed within 30 days, or by the original 90-day deadline if it remains and is earlier. Reopening or an exception does not automatically reset deadlines. Dates use calendar days in Asia/Tokyo.</p>
+<p>These deadlines cover records the developer can manage. Deletion in a service interface does not guarantee physical erasure of provider-internal recovery copies or device backups within the same period. Such copies and their deletion limits are distinct from the records under our control. Deleting local app logs does not delete reports already sent.</p>
+<p>For questions or deletion requests, contact <a href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a>. Provide only the information needed to identify the relevant case; do not post it publicly.</p>
+</div></section>
+</main>
 
     <footer class="site-footer">
         <div class="footer-inner">

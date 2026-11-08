@@ -35,7 +35,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -240,6 +240,10 @@
         }
 
         @media (max-width: 760px) {
+            .site-header {
+                position: static;
+            }
+
             .nav {
                 align-items: flex-start;
                 flex-direction: column;
@@ -399,18 +403,13 @@
                             trả lời hoặc điều tra vấn đề.
                         </p>
                         <ul>
-                            <li>Không gửi nội dung PDF hoặc thông tin cá nhân trừ khi cần thiết.</li>
+                            <li>Không gửi tệp PDF hoặc nội dung của tệp. Hãy đọc hướng dẫn về báo cáo và hình ảnh bên dưới trước khi liên hệ hỗ trợ.</li>
                             <li>Kiểu thiết bị, phiên bản hệ điều hành, phiên bản ứng dụng và các bước sao chép giúp điều tra.</li>
                         </ul>
                     </article>
                     <article class="card">
                         <h3>Chia sẻ với bên thứ ba</h3>
-                        <p>
-                            Thông tin không được cung cấp cho bên thứ ba ngoại trừ
-                            khi pháp luật yêu cầu. Các tính năng do Apple cung cấp như
-                            mua hàng trong ứng dụng và iCloud Drive cũng phải tuân theo
-                            Chính sách bảo mật của Apple.
-                        </p>
+                        <p>Thông tin bạn chọn chia sẻ hoặc gửi hỗ trợ được chuyển đến người nhận đã chọn và có thể được họ lưu giữ. Giao dịch StoreKit và iCloud Drive theo cách xử lý của Apple. Tải mẫu và mở liên kết ngoài sẽ kết nối với nhà vận hành dịch vụ; chính sách quyền riêng tư của họ và đích chia sẻ đã chọn được áp dụng. Ứng dụng không tự động gửi chẩn đoán cho nhà phát triển.</p>
                     </article>
                 </div>
             </div>
@@ -450,6 +449,14 @@
             </div>
         </section>
 
+<section class="section" id="diagnostics">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Chẩn đoán trên thiết bị và nhật ký ứng dụng</h2>
+            <p>Kết quả chẩn đoán được giữ trong bộ nhớ của màn hình hiện tại. Khi chọn chia sẻ, văn bản gồm thời gian kiểm tra, tên và mã kiểu máy (không phải ID duy nhất của thiết bị), phiên bản hệ điều hành và ứng dụng, tổng bộ nhớ và bộ nhớ khả dụng, cùng kết quả không bao gồm kiểm tra dung lượng lưu trữ trống. Nhật ký chứa loại sự kiện, thời gian, số lượng và thời gian xử lý đã trôi qua. Nhật ký có thể đọc và chia sẻ trong ứng dụng tối đa 2.000 mục; mục quá 24 giờ được xóa khi đọc hoặc ghi nhật ký, không phải bằng bộ hẹn giờ khi ứng dụng dừng. Nhật ký hệ thống theo quy tắc của hệ điều hành. Kết quả và nhật ký không tự động gửi đi.</p>
+        </div>
+    </div>
+</section>
         <section id="contact" class="section">
             <div class="container">
                 <div class="section-heading">
@@ -469,7 +476,33 @@
                 </article>
             </div>
         </section>
-    </main>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>Chính sách quyền riêng tư</h2>
+        <p>Mở chính sách quyền riêng tư ở đầu phần Cài đặt hoặc trong Thông tin ứng dụng. Bạn có thể mở trước khi chọn PDF hoặc trong khi đọc, không cần mua hay đăng nhập.</p>
+        <p>Dung lượng lưu trữ trống chỉ hiển thị trên thiết bị này. Văn bản chẩn đoán được chia sẻ không chứa kiểm tra dung lượng, giá trị hoặc ảnh hưởng của kiểm tra đó đến kết quả tổng thể. Nhật ký có thể chứa thời gian xử lý, nhưng không chứa thời gian hoạt động hệ thống thô.</p>
+        <p>Tính năng khôi phục việc đọc lưu dấu trang tài liệu, trang, cài đặt hiển thị và từ khóa tìm kiếm trên thiết bị, không lưu mật khẩu PDF. Tải mẫu sẽ kết nối GitHub Pages khi được yêu cầu. Mở chính sách này hoặc GitHub Issues cũng truy cập trang web bên ngoài; đơn vị vận hành có thể nhận địa chỉ IP và thông tin yêu cầu. Báo cáo được chia sẻ đến nơi bạn chọn. Dịch vụ bên ngoài có chính sách quyền riêng tư riêng.</p>
+    <p data-policy-topic="local-retention">Hiển thị và tìm kiếm PDF được xử lý trên thiết bị. Khôi phục việc đọc lưu cục bộ dấu trang tài liệu, vị trí trang, nội dung tìm kiếm và tùy chọn hiển thị, nhưng không lưu mật khẩu PDF. Đóng tài liệu hoặc đặt lại cài đặt xóa bản ghi khôi phục, không xóa PDF hay nhật ký chẩn đoán. Một số PDF nhập vào được sao chép vào vùng Documents của ứng dụng. Để xóa dữ liệu cục bộ, dùng tùy chọn xóa ứng dụng của hệ điều hành, không dùng tùy chọn gỡ bỏ mà giữ dữ liệu. Bản gốc bên ngoài và bản sao đã chia sẻ không bị xóa. Không có nút riêng để xóa nhật ký.</p>
+    </div>
+</section>
+        <section class="section" id="support-retention">
+      <div class="container">
+        <h2>Thông tin hỗ trợ và việc lưu giữ</h2>
+        <p>Thông tin hỗ trợ chỉ được dùng để trả lời, điều tra vấn đề và cải thiện hiệu năng về mặt kỹ thuật. Chúng tôi không yêu cầu tên thật. Nếu tên hiển thị của người gửi có chứa tên thật, tên đó chỉ được giữ trong email gốc trong thời gian cần thiết để trả lời và điều tra; không được chép vào tệp Google Sheets của từng vụ việc hoặc ghi chú cải tiến.</p>
+        <p>Thông thường, chúng tôi không yêu cầu ảnh chụp màn hình. Chỉ khi văn bản không đủ để tái hiện vấn đề và cần có hình ảnh, chúng tôi mới nhận ảnh qua tyamada.support@gmail.com. Trước khi gửi, hãy che nội dung PDF, tên tệp, tên người, thông báo và các thông tin không cần thiết cho việc điều tra. Về nguyên tắc, hình ảnh được xử lý trong email gốc. Sheets của từng vụ việc chỉ ghi các nhận xét cần thiết cho việc điều tra, không lưu hình ảnh.</p>
+        <p>Chúng tôi không chép tên hoặc tên tài khoản của người đăng trên GitHub vào Sheets của từng vụ việc hay ghi chú cải tiến. Chỉ khi cần để trả lời hoặc điều tra, chúng tôi mới giữ liên kết tới Issue gốc trong Sheet của vụ việc. Trong thời gian vẫn có thể xác định người đăng qua liên kết, hồ sơ vẫn được coi là có thể liên hệ với người đó. Không đăng thông tin cá nhân, tệp PDF hoặc nội dung của tệp, tên tệp hay ảnh chụp màn hình lên Issue công khai.</p>
+        <p>Bài đăng công khai trên GitHub khác với email và hồ sơ vụ việc do chúng tôi quản lý. Xóa liên kết trong hồ sơ của chúng tôi không xóa Issue công khai. Chúng tôi không thể đảm bảo xóa bài đăng hoặc bản sao dịch vụ ngoài phạm vi kiểm soát. Các báo cáo và tham chiếu vụ việc có thể truy ngược tới người gửi không được coi là ẩn danh.</p>
+        <h3>Mốc bắt đầu và thời hạn xóa</h3>
+        <p>A. Email gốc, bao gồm tên thật được hiển thị, hình ảnh và bản sao phục vụ điều tra: vụ việc hoàn tất khi đã có phản hồi hoặc kết luận điều tra và nhà phát triển xác nhận không còn công việc nào. Việc không có phản hồi không tự động đóng vụ việc. Thời hạn được kiểm tra hằng tuần. Việc xóa bắt đầu khoảng 60 ngày sau khi hoàn tất và việc xóa các hồ sơ có thể quản lý, bao gồm Thùng rác liên quan, được xác nhận trong vòng 90 ngày. 60 ngày không phải thời gian lưu giữ tối thiểu; yêu cầu xóa sớm không phải đợi đến hạn thông thường.</p>
+        <p>B. Sheets của từng vụ việc, nhận xét, liên kết Issue và hồ sơ tiếp nhận/xóa: việc xóa tệp vụ việc cùng hồ sơ và tham chiếu liên quan được xác nhận trong vòng 90 ngày kể từ khi hoàn tất xóa thông tin gốc. Chỉ xóa hàng hoặc ô là chưa đủ. Điều này không kéo dài thời hạn A hay cho phép chuyển bản gốc sang các hồ sơ này. Issue công khai vẫn tồn tại trên mạng không tự động kéo dài thời hạn hồ sơ của chúng tôi.</p>
+        <p>C. Ghi chú cải tiến đã khái quát hóa chỉ được giữ nguyên nhân và tóm tắt cách sửa, không chứa tên, hình ảnh, URL bài đăng, mã vụ việc hoặc thông tin khác dẫn về báo cáo gốc. Đây không phải nơi lưu thay thế cho hồ sơ A hoặc B.</p>
+        <p>Ngoại lệ chỉ áp dụng khi tiếp tục điều tra hoặc có sự cần thiết về pháp lý. Lý do, phạm vi và điều kiện kết thúc được ghi lại, xem xét lại ít nhất mỗi 30 ngày và khi điều tra kết thúc. Khi không còn cần thiết, việc xóa thường được xác nhận trong vòng 30 ngày, hoặc trước hạn 90 ngày ban đầu nếu hạn đó còn hiệu lực và đến sớm hơn. Mở lại vụ việc hay áp dụng ngoại lệ không tự động đặt lại thời hạn. Thời gian được tính theo ngày dương lịch tại Asia/Tokyo.</p>
+        <p>Các thời hạn này áp dụng cho hồ sơ nhà phát triển có thể quản lý. Xóa qua giao diện dịch vụ không đảm bảo xóa vật lý các bản sao khôi phục nội bộ của nhà cung cấp hay bản sao lưu thiết bị trong cùng thời hạn. Những bản sao và giới hạn xóa đó khác với hồ sơ thuộc quyền kiểm soát của chúng tôi. Xóa nhật ký cục bộ của ứng dụng không xóa các báo cáo đã gửi.</p>
+        <p>Nếu có câu hỏi hoặc yêu cầu xóa, hãy liên hệ <a href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a>. Chỉ cung cấp thông tin cần thiết để xác định vụ việc liên quan; không đăng công khai.</p>
+      </div>
+    </section>
+  </main>
 
     <footer class="site-footer">
         <div class="footer-inner">

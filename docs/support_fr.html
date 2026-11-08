@@ -36,7 +36,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -324,7 +324,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -462,8 +476,8 @@
                         <details>
                             <summary>Puis-je passer de l’affichage simple page à double page ?</summary>
                             <p>
-                                Oui. Vous pouvez modifier l’affichage dans les réglages
-                                d’affichage, y compris la façon dont la couverture est gérée.
+                                Oui. Sur tous les appareils, une page s’affiche par défaut lorsque l’écran est plus haut que large.
+                                Désactivez cette option dans les réglages d’affichage pour conserver l’affichage double page en orientation portrait. Vous pouvez aussi y modifier la gestion de la couverture.
                             </p>
                         </details>
                         <details>
@@ -475,11 +489,7 @@
                         </details>
                         <details>
                             <summary>Que faire si l’affichage paraît flou ?</summary>
-                            <p>
-                                Activez Haute qualité ou Netteté dans les réglages.
-                                Ces options peuvent augmenter la charge de rendu sur certains
-                                appareils.
-                            </p>
+                            <p>Sur les écrans étroits en portrait, une seule page s’affiche par défaut. Désactivez l’option de page unique en portrait pour y conserver la double page. Dans les dispositions plus larges, le réglage double page choisi reste actif. Vous pouvez aussi ajuster la couverture dans les réglages.</p>
                         </details>
                     </article>
 
@@ -504,8 +514,7 @@
                         <details>
                             <summary>Les achats intégrés sont-ils nécessaires ?</summary>
                             <p>
-                                Non. Les pourboires sont des achats de soutien facultatifs. Les fonctions
-                                de lecture de l’app peuvent être utilisées sans achat de pourboire.
+                                Non. Bronze, Silver et Gold sont des achats facultatifs non consommables qui déverrouillent définitivement les icônes d’app correspondantes. Les fonctions de lecture sont gratuites. Les prix sont affichés sur les boutons d’achat.
                             </p>
                         </details>
                     </article>
@@ -540,6 +549,14 @@
             </div>
         </section>
 
+<section class="section" id="diagnostics">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Diagnostic sur l’appareil et journaux</h2>
+            <p>Dans l’écran Diagnostic des Réglages, vous pouvez tester les informations de l’app, le stockage local et le rendu PDF, ou consulter les journaux de diagnostic des plantages, ralentissements et problèmes de fonctionnement ou d’affichage. Les résultats indiquent la date, le nom et l’identifiant du modèle de l’appareil, ainsi que les versions du système et de l’app. Les journaux excluent les données personnelles, le contenu, les noms et chemins de fichiers, les recherches et les mots de passe, et les entrées de plus de 24 heures sont supprimées lors de la lecture ou de l’enregistrement. Aucun envoi n’est automatique : les données ne quittent l’appareil que si vous utilisez explicitement Partager.</p>
+        </div>
+    </div>
+</section>
         <section class="section" id="troubleshooting" aria-labelledby="troubleshooting-title">
             <div class="container">
                 <div class="section-heading">
@@ -588,43 +605,23 @@
         </section>
 
         <section class="section" id="contact" aria-labelledby="contact-title">
-            <div class="container">
-                <div class="section-heading">
-                    <h2 id="contact-title">Rapports de bugs et contact</h2>
-                    <p>
-                        Si le problème persiste, indiquez votre environnement et
-                        les étapes de reproduction lorsque vous contactez l’assistance.
-                    </p>
-                </div>
-                <div class="contact-grid">
-                    <article class="contact-card">
-                        <h3>GitHub Issues</h3>
-                        <p>
-                            Utilisez GitHub Issues pour les rapports de bugs et les demandes de fonctionnalités.
-                            Ne joignez pas de PDF contenant des informations personnelles ou confidentielles.
-                        </p>
-                        <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">Ouvrir GitHub Issues</a>
-                    </article>
-                    <article class="contact-card">
-                        <h3>E-mail</h3>
-                        <p>
-                            Utilisez l’e-mail pour les demandes privées. Les réponses peuvent prendre un peu
-                            de temps.
-                        </p>
-                        <a class="button secondary" href="mailto:takuma.yamada22@gmail.com">takuma.yamada22@gmail.com</a>
-                    </article>
-                </div>
-
-                <article class="notice" style="margin-top: 16px;">
-                    <h3>Informations à inclure</h3>
-                    <p>
-                        Veuillez inclure le modèle de l’appareil, la version iOS/iPadOS, la version de l’app,
-                        le type de PDF, les étapes de reproduction et tout message d’erreur
-                        affiché.
-                    </p>
-                </article>
-            </div>
-        </section>
+      <div class="container">
+        <h2 id="contact-title">Signalements de problèmes et demandes privées</h2>
+        <p>Commencez par une description écrite : résumez le problème, indiquez les étapes pour le reproduire et expliquez le résultat attendu et celui obtenu. Précisez si nécessaire l’appareil et les versions du système et de l’app. Votre nom réel n’est pas requis. N’envoyez pas de fichiers PDF ni leur contenu.</p>
+        <div class="contact-grid">
+          <article class="contact-card"><h3>Signalement public de problème (GitHub Issues)</h3>
+            <p>Ne publiez pas d’informations personnelles, de fichiers PDF ou de leur contenu, de noms de fichiers ni de captures d’écran dans les Issues publiques.</p>
+            <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">Signalement public de problème (GitHub Issues)</a>
+          </article>
+          <article class="contact-card"><h3>Demandes privées (e-mail)</h3>
+            <p>Les captures d’écran ne sont normalement pas demandées. Nous les acceptons à tyamada.support@gmail.com uniquement lorsque le texte seul ne permet pas de reproduire le problème et qu’une image est nécessaire. Avant l’envoi, masquez le contenu des PDF, les noms de fichiers, les noms de personnes, les notifications et toute information inutile à l’enquête.</p>
+            <a class="button secondary" href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a>
+          </article>
+        </div>
+        <p>Si vous joignez des résultats de diagnostic ou des journaux de l’app, vérifiez leur contenu et le destinataire avant l’envoi. Rien n’est envoyé automatiquement. Les mêmes instructions figurent dans « Signaler un problème », depuis Diagnostic et Aide dans l’app.</p>
+        <p><a href="privacy_fr.html#support-retention">Conservation des informations d’assistance : traitement des e-mails, images et dossiers</a></p>
+      </div>
+    </section>
 
         <section class="section" id="updates" aria-labelledby="updates-title">
             <div class="container">
@@ -640,6 +637,14 @@
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>Politique de confidentialité</h2>
+        <p>La politique de confidentialité est accessible en haut des Réglages et dans Informations sur l’app, avant d’ouvrir un PDF ou pendant la lecture, sans achat ni connexion.</p>
+        <p>L’espace libre est affiché uniquement sur cet appareil. Le diagnostic partagé exclut le contrôle du stockage, sa valeur et son effet sur le résultat global. Les journaux peuvent inclure des durées de traitement, mais jamais la durée brute de fonctionnement du système.</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">

@@ -36,7 +36,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -324,7 +324,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -462,8 +476,10 @@
                         <details>
                             <summary>Can I switch between single-page and two-page view?</summary>
                             <p>
-                                Yes. You can change the view from the display
-                                settings, including how the cover page is handled.
+                                Yes. Portrait screens default to single-page view
+                                on every device. You can change the view and cover
+                                handling in display settings. Turn off Single Page
+                                in Portrait to keep two-page view in portrait.
                             </p>
                         </details>
                         <details>
@@ -475,11 +491,7 @@
                         </details>
                         <details>
                             <summary>What should I do if the display looks blurry?</summary>
-                            <p>
-                                Turn on High Quality or Sharpness in the settings.
-                                These options may increase rendering load on some
-                                devices.
-                            </p>
+                            <p>On narrow portrait screens, the app defaults to single-page view. Turn off the single-page-in-portrait option to keep two-page view there. On wider layouts, the selected two-page setting remains effective. You can also adjust cover handling in Settings.</p>
                         </details>
                     </article>
 
@@ -504,8 +516,7 @@
                         <details>
                             <summary>Are in-app purchases required?</summary>
                             <p>
-                                No. Tips are optional support purchases. The app's
-                                reading features can be used without purchasing a tip.
+                                No. Bronze, Silver, and Gold are optional non-consumable purchases that permanently unlock their corresponding app icons. Reading features are free. Prices are shown on the purchase buttons.
                             </p>
                         </details>
                     </article>
@@ -540,6 +551,14 @@
             </div>
         </section>
 
+<section class="section" id="diagnostics">
+    <div class="container">
+        <div class="section-heading">
+            <h2>On-device diagnostics and app logs</h2>
+            <p>From the Diagnostics screen in Settings, run app information, local storage, and PDF rendering checks, or review diagnostic logs for crashes, slowdowns, operation issues, and display issues. Test results include the test time, device model name and model identifier, OS version, and app version. Logs never include personal information, file contents, file names or paths, search terms, or passwords, and entries older than 24 hours are removed when logs are read or recorded. Nothing is sent automatically; results and logs leave the device only when you explicitly use Share.</p>
+        </div>
+    </div>
+</section>
         <section class="section" id="troubleshooting" aria-labelledby="troubleshooting-title">
             <div class="container">
                 <div class="section-heading">
@@ -589,44 +608,17 @@
         </section>
 
         <section class="section" id="contact" aria-labelledby="contact-title">
-            <div class="container">
-                <div class="section-heading">
-                    <h2 id="contact-title">Bug Reports and Contact</h2>
-                    <p>
-                        If the issue remains, please include your environment and
-                        reproduction steps when contacting support.
-                    </p>
-                </div>
-                <div class="contact-grid">
-                    <article class="contact-card">
-                        <h3>GitHub Issues</h3>
-                        <p>
-                            Use GitHub Issues for bug reports and feature requests.
-                            Do not attach PDFs that contain personal or confidential
-                            information.
-                        </p>
-                        <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">Open GitHub Issues</a>
-                    </article>
-                    <article class="contact-card">
-                        <h3>Email</h3>
-                        <p>
-                            Use email for private inquiries. Replies may take some
-                            time.
-                        </p>
-                        <a class="button secondary" href="mailto:takuma.yamada22@gmail.com">takuma.yamada22@gmail.com</a>
-                    </article>
-                </div>
-
-                <article class="notice" style="margin-top: 16px;">
-                    <h3>Information to Include</h3>
-                    <p>
-                        Please include the device model, iOS/iPadOS version, app
-                        version, PDF type, reproduction steps, and any error message
-                        you saw.
-                    </p>
-                </article>
-            </div>
-        </section>
+<div class="container"><h2 id="contact-title">Bug reports and private inquiries</h2>
+<p>Start with text: summarize the problem, give the steps to reproduce it, and explain what you expected and what actually happened. Include your device, OS and app versions when relevant. Your real name is not required.</p>
+<div class="contact-grid"><article class="contact-card"><h3>Public bug report (GitHub Issues)</h3>
+<p>Do not post personal information, PDF files or their contents, file names, or screenshots in public Issues.</p>
+<a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">Public bug report (GitHub Issues)</a></article>
+<article class="contact-card"><h3>Private inquiries (email)</h3>
+<p>Screenshots are not normally requested. Only when text alone cannot reproduce the problem and an image is needed, send it to the dedicated email address below. Before sending, hide PDF contents, file names, names, notifications, and other information not needed for the investigation.</p>
+<a class="button secondary" href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a></article></div>
+<p>If you include diagnostic results or app logs, review their contents and the recipient before sending. Nothing is sent automatically. The app offers the same instructions through Report a Problem in Diagnostics and Help.</p>
+<p>See the <a href="privacy.html#support-retention">support information retention policy</a> for how email, images and case records are handled.</p>
+</div></section>
 
         <section class="section" id="updates" aria-labelledby="updates-title">
             <div class="container">
@@ -642,6 +634,14 @@
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>Privacy Policy</h2>
+        <p>Open the Privacy Policy link at the top of Settings or in App Information. It is available before opening a PDF and while reading, without a purchase or login.</p>
+        <p>Available disk space is displayed only on this device. Shared diagnostic text excludes the storage check, its value, and its effect on the overall result. Logs may include elapsed processing times, but never raw system uptime.</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">

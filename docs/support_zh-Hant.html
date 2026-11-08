@@ -36,7 +36,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -324,7 +324,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -462,8 +476,8 @@
                         <details>
                             <summary>我可以在單頁視圖和兩頁視圖之間切換嗎？</summary>
                             <p>
-                                是的。您可以變更顯示器的視圖
-                                設置，包括如何處理封面頁。
+                                可以。在所有裝置上，螢幕為直向顯示時預設使用單頁顯示。
+                                若要在直向顯示時維持雙頁顯示，請關閉「直向顯示時使用單頁」設定。
                             </p>
                         </details>
                         <details>
@@ -475,11 +489,7 @@
                         </details>
                         <details>
                             <summary>如果顯示看起來模糊，我該怎麼辦？</summary>
-                            <p>
-                                在設定中開啟“高品質”或“清晰度”。
-                                這些選項可能會增加某些設備的渲染負載
-                                設備。
-                            </p>
+                            <p>在較窄的直向螢幕中，預設顯示單頁。關閉直向單頁選項即可在該情況下保留雙頁顯示。在較寬的版面配置中，所選的雙頁設定仍然有效。也可以在設定中調整封面的處理方式。</p>
                         </details>
                     </article>
 
@@ -504,8 +514,7 @@
                         <details>
                             <summary>是否需要應用程式內購？</summary>
                             <p>
-                                不會。小費是可選的支持購買。該應用程式的
-                                無需購買小費即可使用閱讀功能。
+                                不需要。Bronze、Silver 和 Gold 是可選的非消耗型商品，可永久解鎖對應的App圖像。閱讀功能免費。價格顯示於購買按鈕上。
                             </p>
                         </details>
                     </article>
@@ -540,6 +549,14 @@
             </div>
         </section>
 
+<section class="section" id="diagnostics">
+    <div class="container">
+        <div class="section-heading">
+            <h2>裝置端診斷與應用程式日誌</h2>
+            <p>您可在設定的「診斷」畫面中執行應用程式資訊、本機儲存空間和 PDF 算繪測試，或查看用於調查當機、速度變慢、操作及顯示問題的診斷日誌。測試結果包含測試時間、裝置型號名稱與型號識別碼、作業系統版本與應用程式版本。日誌不會記錄個人資訊、檔案內容、檔案名稱或路徑、搜尋詞與密碼，並會在讀取或記錄日誌時移除超過24小時的記錄。不會自動傳送任何資訊；只有您明確使用「分享」時，結果或日誌才會離開裝置。</p>
+        </div>
+    </div>
+</section>
         <section class="section" id="troubleshooting" aria-labelledby="troubleshooting-title">
             <div class="container">
                 <div class="section-heading">
@@ -589,44 +606,23 @@
         </section>
 
         <section class="section" id="contact" aria-labelledby="contact-title">
-            <div class="container">
-                <div class="section-heading">
-                    <h2 id="contact-title">錯誤報告和聯絡方式</h2>
-                    <p>
-                        如果問題仍然存在，請提供您的環境和
-                        聯繫支援時的重現步驟。
-                    </p>
-                </div>
-                <div class="contact-grid">
-                    <article class="contact-card">
-                        <h3>GitHub 問題</h3>
-                        <p>
-                            使用 GitHub Issues 取得錯誤報告和功能請求。
-                            請勿附加包含個人或機密資訊的 PDF
-                            資訊。
-                        </p>
-                        <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">開啟 GitHub 問題</a>
-                    </article>
-                    <article class="contact-card">
-                        <h3>電子郵件</h3>
-                        <p>
-                            使用電子郵件進行私人詢問。回覆可能需要一些時間
-                            時間。
-                        </p>
-                        <a class="button secondary" href="mailto:takuma.yamada22@gmail.com">takuma.yamada22@gmail.com</a>
-                    </article>
-                </div>
-
-                <article class="notice" style="margin-top: 16px;">
-                    <h3>要包含的訊息</h3>
-                    <p>
-                        請包含設備型號、iOS/iPadOS 版本、應用程式
-                        版本、PDF 類型、複製步驟以及任何錯誤訊息
-                        你看到了。
-                    </p>
-                </article>
-            </div>
-        </section>
+      <div class="container">
+        <h2 id="contact-title">問題回報與非公開諮詢</h2>
+        <p>請先用文字說明：概述問題、列出重現步驟，並說明預期行為與實際發生的情況。必要時請提供裝置、作業系統和App版本。無須填寫真實姓名。請勿傳送PDF檔案或其內容。</p>
+        <div class="contact-grid">
+          <article class="contact-card"><h3>公開回報問題（GitHub Issues）</h3>
+            <p>請勿在公開Issue中張貼個人資訊、PDF檔案或其內容、檔案名稱或螢幕截圖。</p>
+            <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">公開回報問題（GitHub Issues）</a>
+          </article>
+          <article class="contact-card"><h3>非公開諮詢（電子郵件）</h3>
+            <p>原則上不要求提供螢幕截圖。只有在文字無法重現問題且確實需要圖片時，才透過tyamada.support@gmail.com接收。傳送前請遮蔽PDF內容、檔案名稱、姓名、通知，以及調查不需要的其他資訊。</p>
+            <a class="button secondary" href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a>
+          </article>
+        </div>
+        <p>如附上診斷結果或App記錄，請在傳送前檢查內容與收件者。不會自動傳送任何資訊。也可從App的診斷和輔助說明中開啟「回報問題」，查看相同說明。</p>
+        <p><a href="privacy_zh-Hant.html#support-retention">支援資訊保留政策：郵件、圖片與案件記錄的處理方式</a></p>
+      </div>
+    </section>
 
         <section class="section" id="updates" aria-labelledby="updates-title">
             <div class="container">
@@ -642,6 +638,14 @@
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>隱私權政策</h2>
+        <p>可從設定頂端或「應用程式資訊」開啟隱私權政策。無論尚未選取 PDF 或正在閱讀，都不需要購買或登入。</p>
+        <p>可用儲存空間僅在本裝置上顯示。分享的診斷文字不包含儲存空間檢查、數值及其對整體結果的影響。日誌可能包含處理經過時間，但不包含原始系統運作時間。</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">

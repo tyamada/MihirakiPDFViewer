@@ -36,7 +36,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -324,7 +324,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -462,8 +476,8 @@
                         <details>
                             <summary>¿Puedo cambiar entre vista de una página y de dos páginas?</summary>
                             <p>
-                                Sí. Puedes cambiar la vista desde los ajustes de visualización,
-                                incluida la forma en que se gestiona la portada.
+                                Sí. En todos los dispositivos, se muestra una página de forma predeterminada cuando la pantalla es más alta que ancha.
+                                Desactiva esta opción en los ajustes de visualización para mantener la vista de dos páginas en orientación vertical. Allí también puedes cambiar cómo se gestiona la portada.
                             </p>
                         </details>
                         <details>
@@ -475,11 +489,7 @@
                         </details>
                         <details>
                             <summary>¿Qué hago si la pantalla se ve borrosa?</summary>
-                            <p>
-                                Activa Alta calidad o Nitidez en los ajustes.
-                                Estas opciones pueden aumentar la carga de renderizado en algunos
-                                dispositivos.
-                            </p>
+                            <p>En pantallas estrechas en vertical se muestra una página de forma predeterminada. Desactiva la opción de una página en vertical para mantener allí la vista de dos páginas. En diseños más anchos se mantiene el ajuste de dos páginas seleccionado. También puedes ajustar la portada en los ajustes.</p>
                         </details>
                     </article>
 
@@ -504,8 +514,7 @@
                         <details>
                             <summary>¿Son obligatorias las compras dentro de la app?</summary>
                             <p>
-                                No. Las propinas son compras de apoyo opcionales. Las funciones
-                                de lectura de la app pueden usarse sin comprar una propina.
+                                No. Bronze, Silver y Gold son compras opcionales no consumibles que desbloquean permanentemente sus respectivos iconos de la app. Las funciones de lectura son gratuitas. Los precios aparecen en los botones de compra.
                             </p>
                         </details>
                     </article>
@@ -540,6 +549,14 @@
             </div>
         </section>
 
+<section class="section" id="diagnostics">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Diagnóstico en el dispositivo y registros</h2>
+            <p>En la pantalla Diagnóstico de Ajustes puede ejecutar pruebas de información de la app, almacenamiento local y renderizado de PDF, o consultar registros de diagnóstico sobre cierres, lentitud y problemas de funcionamiento o visualización. Los resultados incluyen fecha y hora, nombre e identificador del modelo del dispositivo y versiones del sistema y de la app. Los registros no incluyen datos personales, contenido, nombres o rutas de archivos, búsquedas ni contraseñas, y las entradas de más de 24 horas se eliminan al leer o registrar. Nada se envía automáticamente; solo sale del dispositivo al usar Compartir de forma explícita.</p>
+        </div>
+    </div>
+</section>
         <section class="section" id="troubleshooting" aria-labelledby="troubleshooting-title">
             <div class="container">
                 <div class="section-heading">
@@ -588,43 +605,23 @@
         </section>
 
         <section class="section" id="contact" aria-labelledby="contact-title">
-            <div class="container">
-                <div class="section-heading">
-                    <h2 id="contact-title">Informes de errores y contacto</h2>
-                    <p>
-                        Si el problema persiste, incluye tu entorno y
-                        los pasos de reproducción al contactar con soporte.
-                    </p>
-                </div>
-                <div class="contact-grid">
-                    <article class="contact-card">
-                        <h3>GitHub Issues</h3>
-                        <p>
-                            Usa GitHub Issues para informes de errores y solicitudes de funciones.
-                            No adjuntes PDF que contengan información personal o confidencial.
-                        </p>
-                        <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">Abrir GitHub Issues</a>
-                    </article>
-                    <article class="contact-card">
-                        <h3>Correo electrónico</h3>
-                        <p>
-                            Usa el correo para consultas privadas. Las respuestas pueden tardar
-                            un poco.
-                        </p>
-                        <a class="button secondary" href="mailto:takuma.yamada22@gmail.com">takuma.yamada22@gmail.com</a>
-                    </article>
-                </div>
-
-                <article class="notice" style="margin-top: 16px;">
-                    <h3>Información que debes incluir</h3>
-                    <p>
-                        Incluye el modelo del dispositivo, la versión de iOS/iPadOS, la versión de la app,
-                        el tipo de PDF, los pasos de reproducción y cualquier mensaje de error
-                        que hayas visto.
-                    </p>
-                </article>
-            </div>
-        </section>
+      <div class="container">
+        <h2 id="contact-title">Informes de errores y consultas privadas</h2>
+        <p>Empieza con una descripción escrita: resume el problema, indica los pasos para reproducirlo y explica qué esperabas y qué ocurrió realmente. Incluye el dispositivo y las versiones del sistema y de la app cuando sea pertinente. No es necesario indicar tu nombre real. No envíes archivos PDF ni su contenido.</p>
+        <div class="contact-grid">
+          <article class="contact-card"><h3>Informe público de errores (GitHub Issues)</h3>
+            <p>No publiques información personal, archivos PDF o su contenido, nombres de archivo ni capturas de pantalla en Issues públicos.</p>
+            <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">Informe público de errores (GitHub Issues)</a>
+          </article>
+          <article class="contact-card"><h3>Consultas privadas (correo electrónico)</h3>
+            <p>Normalmente no pedimos capturas de pantalla. Solo cuando el texto no permita reproducir el problema y sea necesaria una imagen, la aceptamos en tyamada.support@gmail.com. Antes de enviarla, oculta el contenido del PDF, los nombres de archivo, los nombres de personas, las notificaciones y cualquier información innecesaria para la investigación.</p>
+            <a class="button secondary" href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a>
+          </article>
+        </div>
+        <p>Si adjuntas resultados de diagnóstico o registros de la app, revisa su contenido y el destinatario antes de enviarlos. No se envía nada automáticamente. Encontrarás las mismas instrucciones en «Informar de un problema», desde Diagnóstico y Ayuda en la app.</p>
+        <p><a href="privacy_es.html#support-retention">Conservación de la información de soporte: tratamiento de correos, imágenes y registros de casos</a></p>
+      </div>
+    </section>
 
         <section class="section" id="updates" aria-labelledby="updates-title">
             <div class="container">
@@ -640,6 +637,14 @@
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>Política de privacidad</h2>
+        <p>La política de privacidad está al principio de Ajustes y en Información de la app. Se puede abrir antes de elegir un PDF y durante la lectura, sin comprar ni iniciar sesión.</p>
+        <p>El espacio libre solo se muestra en este dispositivo. El texto de diagnóstico compartido excluye la comprobación de espacio, su valor y su efecto en el resultado global. Los registros pueden incluir la duración del procesamiento, pero nunca el tiempo de actividad del sistema sin procesar.</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">

@@ -36,7 +36,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -324,7 +324,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -462,8 +476,8 @@
                         <details>
                             <summary>Posso alternar entre visualização de uma página e de duas páginas?</summary>
                             <p>
-                                Sim. Você pode alterar a visualização nos ajustes de exibição,
-                                incluindo como a capa é tratada.
+                                Sim. Em todos os dispositivos, uma página é exibida por padrão quando a tela é mais alta do que larga.
+                                Desative essa opção nos ajustes de exibição para manter a visualização de duas páginas na orientação vertical. Você também pode alterar como a capa é tratada nesses ajustes.
                             </p>
                         </details>
                         <details>
@@ -475,11 +489,7 @@
                         </details>
                         <details>
                             <summary>O que devo fazer se a exibição parecer borrada?</summary>
-                            <p>
-                                Ative Alta qualidade ou Nitidez nos ajustes.
-                                Essas opções podem aumentar a carga de renderização em alguns
-                                dispositivos.
-                            </p>
+                            <p>Em telas estreitas na vertical, uma página é exibida por padrão. Desative a opção de página única na vertical para manter a visualização de duas páginas nessa situação. Em layouts mais largos, o ajuste de duas páginas selecionado continua ativo. Você também pode ajustar a capa nas configurações.</p>
                         </details>
                     </article>
 
@@ -504,8 +514,7 @@
                         <details>
                             <summary>Compras no app são obrigatórias?</summary>
                             <p>
-                                Não. Gorjetas são compras opcionais de apoio. Os recursos
-                                de leitura do app podem ser usados sem comprar uma gorjeta.
+                                Não. Bronze, Silver e Gold são compras opcionais não consumíveis que desbloqueiam permanentemente os respectivos ícones do app. Os recursos de leitura são gratuitos. Os preços aparecem nos botões de compra.
                             </p>
                         </details>
                     </article>
@@ -540,6 +549,14 @@
             </div>
         </section>
 
+<section class="section" id="diagnostics">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Diagnóstico no dispositivo e registros</h2>
+            <p>Na tela Diagnóstico dos Ajustes, execute testes de informações do app, armazenamento local e renderização de PDF ou consulte registros para investigar falhas, lentidão e problemas de operação ou exibição. Os resultados incluem data e hora, nome e identificador do modelo do dispositivo e versões do sistema e do app. Os registros não incluem dados pessoais, conteúdo, nomes ou caminhos de arquivos, termos de busca ou senhas e as entradas com mais de 24 horas são removidas ao ler ou registrar. Nada é enviado automaticamente; os dados só saem do dispositivo quando você usa Compartilhar de forma explícita.</p>
+        </div>
+    </div>
+</section>
         <section class="section" id="troubleshooting" aria-labelledby="troubleshooting-title">
             <div class="container">
                 <div class="section-heading">
@@ -588,43 +605,23 @@
         </section>
 
         <section class="section" id="contact" aria-labelledby="contact-title">
-            <div class="container">
-                <div class="section-heading">
-                    <h2 id="contact-title">Relatórios de bugs e contato</h2>
-                    <p>
-                        Se o problema continuar, inclua seu ambiente e
-                        os passos de reprodução ao entrar em contato com o suporte.
-                    </p>
-                </div>
-                <div class="contact-grid">
-                    <article class="contact-card">
-                        <h3>GitHub Issues</h3>
-                        <p>
-                            Use o GitHub Issues para relatórios de bugs e pedidos de recursos.
-                            Não anexe PDFs com informações pessoais ou confidenciais.
-                        </p>
-                        <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">Abrir GitHub Issues</a>
-                    </article>
-                    <article class="contact-card">
-                        <h3>E-mail</h3>
-                        <p>
-                            Use e-mail para consultas privadas. As respostas podem levar algum
-                            tempo.
-                        </p>
-                        <a class="button secondary" href="mailto:takuma.yamada22@gmail.com">takuma.yamada22@gmail.com</a>
-                    </article>
-                </div>
-
-                <article class="notice" style="margin-top: 16px;">
-                    <h3>Informações a incluir</h3>
-                    <p>
-                        Inclua o modelo do dispositivo, a versão do iOS/iPadOS, a versão do app,
-                        o tipo de PDF, os passos de reprodução e qualquer mensagem de erro
-                        exibida.
-                    </p>
-                </article>
-            </div>
-        </section>
+      <div class="container">
+        <h2 id="contact-title">Relatos de problemas e consultas privadas</h2>
+        <p>Comece com uma descrição por escrito: resuma o problema, informe os passos para reproduzi-lo e explique o que esperava e o que realmente aconteceu. Inclua o dispositivo e as versões do sistema e do app quando pertinente. Seu nome real não é necessário. Não envie arquivos PDF nem seu conteúdo.</p>
+        <div class="contact-grid">
+          <article class="contact-card"><h3>Relatar problema publicamente (GitHub Issues)</h3>
+            <p>Não publique informações pessoais, arquivos PDF ou seu conteúdo, nomes de arquivos nem capturas de tela em Issues públicas.</p>
+            <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">Relatar problema publicamente (GitHub Issues)</a>
+          </article>
+          <article class="contact-card"><h3>Entrar em contato em particular (e-mail)</h3>
+            <p>Normalmente não solicitamos capturas de tela. Elas são aceitas em tyamada.support@gmail.com somente quando o texto não permite reproduzir o problema e uma imagem é necessária. Antes de enviar, oculte o conteúdo do PDF, nomes de arquivos, nomes de pessoas, notificações e outras informações desnecessárias para a investigação.</p>
+            <a class="button secondary" href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a>
+          </article>
+        </div>
+        <p>Se incluir resultados de diagnóstico ou registros do app, confira o conteúdo e o destinatário antes de enviar. Nada é enviado automaticamente. As mesmas instruções estão disponíveis em Relatar um Problema, em Diagnóstico e Ajuda no app.</p>
+        <p><a href="privacy_pt.html#support-retention">Retenção de informações de suporte: tratamento de e-mails, imagens e registros de casos</a></p>
+      </div>
+    </section>
 
         <section class="section" id="updates" aria-labelledby="updates-title">
             <div class="container">
@@ -640,6 +637,14 @@
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>Política de privacidade</h2>
+        <p>Abra a política de privacidade no início dos Ajustes ou em Informações do app, antes de abrir um PDF ou durante a leitura, sem compra ou login.</p>
+        <p>O espaço livre é mostrado apenas neste dispositivo. O diagnóstico compartilhado exclui a verificação de armazenamento, seu valor e seu efeito no resultado geral. Os registros podem incluir durações de processamento, mas nunca o tempo bruto de atividade do sistema.</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">

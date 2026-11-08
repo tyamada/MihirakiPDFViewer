@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="MihirakiPDFViewer को लागि समर्थन पृष्ठ। PDF हरू खोल्न, दुई-पृष्ठ दृश्य, खोज, जुम, पासवर्ड-सुरक्षित PDF हरू, र समस्या निवारणका लागि मद्दत खोज्नुहोस्।">
-    <title>समर्थन | ७४१९२६०३५१७</title>
+    <title>समर्थन | MihirakiPDFViewer</title>
     <style>
         :root {
             color-scheme: light;
@@ -36,7 +36,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -324,7 +324,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -462,8 +476,8 @@
                         <details>
                             <summary>के म एकल-पृष्ठ र दुई-पृष्ठ दृश्य बीच स्विच गर्न सक्छु?</summary>
                             <p>
-                                हो। तपाईं प्रदर्शन देखि दृश्य परिवर्तन गर्न सक्नुहुन्छ
-                                कभर पृष्ठ कसरी ह्यान्डल गरिन्छ भन्ने सहित सेटिङहरू।
+                                हो। सबै यन्त्रमा स्क्रिन ठाडो हुँदा पूर्वनिर्धारित रूपमा एकल-पृष्ठ दृश्य प्रयोग हुन्छ।
+                                ठाडो अवस्थामा दुई-पृष्ठ दृश्य कायम राख्न “ठाडोमा एकल पृष्ठ” सेटिङ बन्द गर्नुहोस्।
                             </p>
                         </details>
                         <details>
@@ -475,11 +489,7 @@
                         </details>
                         <details>
                             <summary>यदि डिस्प्ले धमिलो देखिन्छ भने मैले के गर्नुपर्छ?</summary>
-                            <p>
-                                सेटिङहरूमा उच्च गुणस्तर वा तीक्ष्णता खोल्नुहोस्।
-                                यी विकल्पहरूले केहीमा रेन्डरिङ लोड बढाउन सक्छ
-                                उपकरणहरू।
-                            </p>
+                            <p>साँघुरो ठाडो स्क्रिनमा पूर्वनिर्धारित रूपमा एक पृष्ठ देखाइन्छ। त्यहाँ पनि दुई पृष्ठ देखाउन ठाडो अवस्थामा एकल पृष्ठ देखाउने विकल्प बन्द गर्नुहोस्। फराकिलो लेआउटमा छानिएको दुई-पृष्ठ सेटिङ लागू रहन्छ। सेटिङमा आवरण पृष्ठको व्यवहार पनि परिवर्तन गर्न सकिन्छ।</p>
                         </details>
                     </article>
 
@@ -504,8 +514,7 @@
                         <details>
                             <summary>के इन-एप खरिदहरू आवश्यक छ?</summary>
                             <p>
-                                होइन। सुझावहरू वैकल्पिक समर्थन खरिदहरू हुन्। एपको
-                                पढ्ने सुविधाहरू टिप खरिद नगरी प्रयोग गर्न सकिन्छ।
+                                होइन। Bronze, Silver र Gold सम्बन्धित एप आइकन स्थायी रूपमा अनलक गर्ने वैकल्पिक, प्रयोग गर्दा नसकिने खरिदहरू हुन्। पढ्ने सुविधाहरू निःशुल्क छन्। मूल्यहरू खरिद बटनहरूमा देखाइन्छन्।
                             </p>
                         </details>
                     </article>
@@ -540,6 +549,14 @@
             </div>
         </section>
 
+<section class="section" id="diagnostics">
+    <div class="container">
+        <div class="section-heading">
+            <h2>उपकरणमै निदान र एप लग</h2>
+            <p>सेटिङ्सको निदान स्क्रिनबाट एप जानकारी, स्थानीय भण्डारण र PDF रेन्डरिङ परीक्षण चलाउन वा क्र्यास, ढिलाइ, सञ्चालन र प्रदर्शन समस्याको कारण पत्ता लगाउन निदान लग हेर्न सकिन्छ। नतिजामा परीक्षण समय, उपकरणको मोडेल नाम र मोडेल पहिचानकर्ता, OS र एप संस्करण समावेश हुन्छ। लगमा व्यक्तिगत जानकारी, फाइलको सामग्री, नाम वा पथ, खोज शब्द वा पासवर्ड राखिँदैन र लग पढ्दा वा लेख्दा २४ घण्टाभन्दा पुराना प्रविष्टि हटाइन्छन्। केही पनि स्वचालित रूपमा पठाइँदैन; तपाईंले स्पष्ट रूपमा Share प्रयोग गर्दा मात्र नतिजा वा लग उपकरणबाट बाहिर जान्छ।</p>
+        </div>
+    </div>
+</section>
         <section class="section" id="troubleshooting" aria-labelledby="troubleshooting-title">
             <div class="container">
                 <div class="section-heading">
@@ -589,44 +606,23 @@
         </section>
 
         <section class="section" id="contact" aria-labelledby="contact-title">
-            <div class="container">
-                <div class="section-heading">
-                    <h2 id="contact-title">बग रिपोर्ट र सम्पर्क</h2>
-                    <p>
-                        यदि समस्या रहन्छ भने, कृपया आफ्नो वातावरण र समावेश गर्नुहोस्
-                        समर्थनलाई सम्पर्क गर्दा प्रजनन चरणहरू।
-                    </p>
-                </div>
-                <div class="contact-grid">
-                    <article class="contact-card">
-                        <h3>GitHub मुद्दाहरू</h3>
-                        <p>
-                            बग रिपोर्ट र सुविधा अनुरोधहरूको लागि GitHub मुद्दाहरू प्रयोग गर्नुहोस्।
-                            व्यक्तिगत वा गोप्य समावेश भएका PDFहरू संलग्न नगर्नुहोस्
-                            जानकारी।
-                        </p>
-                        <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">GitHub मुद्दाहरू खोल्नुहोस्</a>
-                    </article>
-                    <article class="contact-card">
-                        <h3>इमेल</h3>
-                        <p>
-                            निजी सोधपुछको लागि इमेल प्रयोग गर्नुहोस्। जवाफहरू केही लाग्न सक्छ
-                            समय।
-                        </p>
-                        <a class="button secondary" href="mailto:takuma.yamada22@gmail.com">takuma.yamada22@gmail.com</a>
-                    </article>
-                </div>
-
-                <article class="notice" style="margin-top: 16px;">
-                    <h3>समावेश गर्न जानकारी</h3>
-                    <p>
-                        कृपया यन्त्र मोडेल, iOS/iPadOS संस्करण, एप समावेश गर्नुहोस्
-                        संस्करण, PDF प्रकार, प्रजनन चरणहरू, र कुनै त्रुटि सन्देश
-                        तपाईंले देख्नुभयो।
-                    </p>
-                </article>
-            </div>
-        </section>
+      <div class="container">
+        <h2 id="contact-title">समस्या रिपोर्ट र निजी सोधपुछ</h2>
+        <p>पहिले लिखित रूपमा समस्या वर्णन गर्नुहोस्: समस्याको सार, त्यसलाई फेरि उत्पन्न गर्ने चरणहरू, अपेक्षित व्यवहार र वास्तवमा के भयो भन्ने खुलाउनुहोस्। आवश्यक भएमा यन्त्र, OS र एपको संस्करण पनि दिनुहोस्। वास्तविक नाम लेख्नु आवश्यक छैन। PDF फाइल वा त्यसको सामग्री नपठाउनुहोस्।</p>
+        <div class="contact-grid">
+          <article class="contact-card"><h3>सार्वजनिक त्रुटि रिपोर्ट (GitHub Issues)</h3>
+            <p>सार्वजनिक Issue मा व्यक्तिगत जानकारी, PDF फाइल वा त्यसको सामग्री, फाइलका नाम वा स्क्रिनसट पोस्ट नगर्नुहोस्।</p>
+            <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">सार्वजनिक त्रुटि रिपोर्ट (GitHub Issues)</a>
+          </article>
+          <article class="contact-card"><h3>निजी सोधपुछ (इमेल)</h3>
+            <p>सामान्यतया स्क्रिनसट मागिँदैन। पाठले मात्र समस्या पुनः उत्पन्न गर्न नसकिएमा र तस्बिर आवश्यक भएमा मात्र tyamada.support@gmail.com मा स्वीकार गरिन्छ। पठाउनुअघि PDF को सामग्री, फाइलका नाम, व्यक्तिका नाम, सूचनाहरू र अनुसन्धानलाई आवश्यक नपर्ने अन्य जानकारी छोप्नुहोस्।</p>
+            <a class="button secondary" href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a>
+          </article>
+        </div>
+        <p>निदानका नतिजा वा एप लग संलग्न गर्दा पठाउनुअघि तिनको सामग्री र प्रापक जाँच्नुहोस्। कुनै जानकारी स्वतः पठाइँदैन। एपको निदान र मद्दतबाट ‘समस्या रिपोर्ट गर्नुहोस्’ खोलेर यही निर्देशन पाउन सकिन्छ।</p>
+        <p><a href="privacy_ne.html#support-retention">सहायता जानकारीको संरक्षण: इमेल, तस्बिर र मामिलाका अभिलेखको व्यवस्थापन</a></p>
+      </div>
+    </section>
 
         <section class="section" id="updates" aria-labelledby="updates-title">
             <div class="container">
@@ -642,6 +638,14 @@
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>गोपनीयता नीति</h2>
+        <p>सेटिङ्सको माथिल्लो भाग वा एप जानकारीबाट गोपनीयता नीति खोल्नुहोस्। PDF छान्नुअघि र पढिरहेको बेला पनि खरिद वा लगइन बिना खोल्न सकिन्छ।</p>
+        <p>खाली भण्डारण क्षमता यस उपकरणमा मात्र देखाइन्छ। साझा गरिने निदान पाठमा भण्डारण जाँच, त्यसको मान वा समग्र नतिजामा त्यसको प्रभाव समावेश हुँदैन। लगमा प्रशोधनको अवधि हुन सक्छ, तर प्रणाली चलेको कच्चा समय हुँदैन।</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">

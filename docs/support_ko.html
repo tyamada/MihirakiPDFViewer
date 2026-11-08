@@ -36,7 +36,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -324,7 +324,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -462,8 +476,9 @@
                         <details>
                             <summary>단일 페이지 보기와 두 페이지 보기를 전환할 수 있나요?</summary>
                             <p>
-                                네. 표지 페이지 처리 방식을 포함해 표시
-                                설정에서 보기를 변경할 수 있습니다.
+                                네. 모든 기기에서 화면의 세로 길이가 가로보다 길면 기본적으로 단일 페이지 보기를
+                                사용합니다. 세로 방향에서도 두 페이지 보기를 유지하려면 이 설정을 끄십시오.
+                                표시 설정에서 표지 페이지 처리 방식도 변경할 수 있습니다.
                             </p>
                         </details>
                         <details>
@@ -475,11 +490,7 @@
                         </details>
                         <details>
                             <summary>화면이 흐릿해 보이면 어떻게 해야 하나요?</summary>
-                            <p>
-                                설정에서 고화질 또는 선명도를 켜세요.
-                                일부 기기에서는 이 옵션이 렌더링 부하를 높일 수
-                                있습니다.
-                            </p>
+                            <p>폭이 좁은 세로 화면에서는 기본적으로 한 페이지를 표시합니다. 해당 화면에서도 두 페이지 보기를 유지하려면 세로 방향의 단일 페이지 옵션을 끄세요. 폭이 넓은 레이아웃에서는 선택한 두 페이지 설정이 유지됩니다. 설정에서 표지 처리 방식도 변경할 수 있습니다.</p>
                         </details>
                     </article>
 
@@ -504,8 +515,7 @@
                         <details>
                             <summary>앱 내 구입이 필수인가요?</summary>
                             <p>
-                                아니요. 팁은 선택적인 후원 구입입니다. 앱의
-                                읽기 기능은 팁을 구입하지 않아도 사용할 수 있습니다.
+                                아니요. Bronze, Silver, Gold는 해당 앱 아이콘을 영구적으로 잠금 해제하는 선택적 비소모성 상품입니다. 읽기 기능은 무료입니다. 가격은 구매 버튼에 표시됩니다.
                             </p>
                         </details>
                     </article>
@@ -540,6 +550,14 @@
             </div>
         </section>
 
+<section class="section" id="diagnostics">
+    <div class="container">
+        <div class="section-heading">
+            <h2>기기 내 진단 및 앱 로그</h2>
+            <p>설정의 ‘진단’ 화면에서 앱 정보, 로컬 저장소 및 PDF 렌더링 테스트를 실행하거나 충돌, 속도 저하, 조작 및 표시 문제를 확인하기 위한 진단 로그를 볼 수 있습니다. 테스트 결과에는 테스트 일시, 기기 모델명과 모델 식별자, OS 및 앱 버전이 포함됩니다. 로그에는 개인정보, 파일 내용, 파일 이름이나 경로, 검색어, 비밀번호가 기록되지 않으며 로그를 읽거나 기록할 때 24시간이 지난 기록이 삭제됩니다. 자동 전송 기능은 없으며 사용자가 공유를 명시적으로 선택한 경우에만 기기 외부로 전달됩니다.</p>
+        </div>
+    </div>
+</section>
         <section class="section" id="troubleshooting" aria-labelledby="troubleshooting-title">
             <div class="container">
                 <div class="section-heading">
@@ -589,43 +607,23 @@
         </section>
 
         <section class="section" id="contact" aria-labelledby="contact-title">
-            <div class="container">
-                <div class="section-heading">
-                    <h2 id="contact-title">버그 신고 및 문의</h2>
-                    <p>
-                        문제가 계속되면 지원팀에 문의할 때 사용 환경과
-                        재현 절차를 포함해 주세요.
-                    </p>
-                </div>
-                <div class="contact-grid">
-                    <article class="contact-card">
-                        <h3>GitHub Issues</h3>
-                        <p>
-                            버그 신고와 기능 요청에는 GitHub Issues를 사용하세요.
-                            개인 정보나 기밀 정보가 포함된 PDF는 첨부하지 마세요.
-                        </p>
-                        <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">GitHub Issues 열기</a>
-                    </article>
-                    <article class="contact-card">
-                        <h3>이메일</h3>
-                        <p>
-                            비공개 문의에는 이메일을 사용하세요. 답변에는 시간이
-                            걸릴 수 있습니다.
-                        </p>
-                        <a class="button secondary" href="mailto:takuma.yamada22@gmail.com">takuma.yamada22@gmail.com</a>
-                    </article>
-                </div>
-
-                <article class="notice" style="margin-top: 16px;">
-                    <h3>포함할 정보</h3>
-                    <p>
-                        기기 모델, iOS/iPadOS 버전, 앱
-                        버전, PDF 유형, 재현 절차, 표시된 오류 메시지를
-                        포함해 주세요.
-                    </p>
-                </article>
-            </div>
-        </section>
+      <div class="container">
+        <h2 id="contact-title">문제 보고 및 비공개 문의</h2>
+        <p>먼저 글로 설명해 주세요. 문제를 요약하고 재현 단계를 제시한 뒤, 기대한 동작과 실제 동작을 설명해 주세요. 필요한 경우 기기, OS 및 앱 버전을 포함해 주세요. 실명은 필요하지 않습니다. PDF 파일이나 그 내용을 보내지 마세요.</p>
+        <div class="contact-grid">
+          <article class="contact-card"><h3>공개 버그 보고(GitHub Issues)</h3>
+            <p>공개 Issue에는 개인정보, PDF 파일이나 그 내용, 파일 이름, 스크린샷을 게시하지 마세요.</p>
+            <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">공개 버그 보고(GitHub Issues)</a>
+          </article>
+          <article class="contact-card"><h3>비공개 문의(이메일)</h3>
+            <p>스크린샷은 원칙적으로 요청하지 않습니다. 글만으로 문제를 재현할 수 없고 이미지가 필요한 경우에만 tyamada.support@gmail.com으로 받습니다. 보내기 전에 PDF 내용, 파일 이름, 사람 이름, 알림 등 조사에 필요하지 않은 정보를 가려 주세요.</p>
+            <a class="button secondary" href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a>
+          </article>
+        </div>
+        <p>진단 결과나 앱 로그를 첨부하는 경우 보내기 전에 내용과 수신자를 확인해 주세요. 자동으로 전송되는 정보는 없습니다. 앱의 진단 및 도움말에서 문제 보고를 열면 같은 안내를 확인할 수 있습니다.</p>
+        <p><a href="privacy_ko.html#support-retention">지원 정보 보관: 이메일, 이미지 및 사례 기록의 처리</a></p>
+      </div>
+    </section>
 
         <section class="section" id="updates" aria-labelledby="updates-title">
             <div class="container">
@@ -641,6 +639,14 @@
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>개인정보 처리방침</h2>
+        <p>설정 상단이나 앱 정보에서 개인정보 처리방침을 열 수 있습니다. PDF를 선택하기 전이나 읽는 중에도 구매나 로그인 없이 이용할 수 있습니다.</p>
+        <p>남은 저장 공간은 이 기기에만 표시됩니다. 공유하는 진단 텍스트에는 저장 공간 검사, 수치, 해당 검사가 종합 결과에 미치는 영향이 포함되지 않습니다. 로그에는 처리 경과 시간이 포함될 수 있지만 원시 시스템 가동 시간은 포함되지 않습니다.</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">

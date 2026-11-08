@@ -35,7 +35,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -240,6 +240,10 @@
         }
 
         @media (max-width: 760px) {
+            .site-header {
+                position: static;
+            }
+
             .nav {
                 align-items: flex-start;
                 flex-direction: column;
@@ -399,18 +403,13 @@
                             pour répondre ou analyser le problème.
                         </p>
                         <ul>
-                            <li>N’envoyez pas de contenu PDF ni d’informations personnelles sauf si nécessaire.</li>
+                            <li>N’envoyez pas de fichiers PDF ni leur contenu. Consultez les instructions ci-dessous concernant les rapports et les images avant de contacter l’assistance.</li>
                             <li>Le modèle d’appareil, la version de l’OS, la version de l’app et les étapes de reproduction facilitent l’analyse.</li>
                         </ul>
                     </article>
                     <article class="card">
                         <h3>Partage avec des tiers</h3>
-                        <p>
-                            Les informations ne sont pas fournies à des tiers, sauf
-                            lorsque la loi l’exige. Les fonctionnalités fournies par Apple, comme
-                            les achats intégrés et iCloud Drive, sont également soumises à
-                            la politique de confidentialité d’Apple.
-                        </p>
+                        <p>Les informations que vous partagez ou envoyez au support parviennent au destinataire choisi et peuvent y être conservées. Les achats StoreKit et iCloud Drive suivent les pratiques d’Apple. Les téléchargements d’exemples et liens externes contactent leurs opérateurs ; leurs règles de confidentialité et celles des destinations de partage s’appliquent. L’app n’envoie pas automatiquement de diagnostics au développeur.</p>
                     </article>
                 </div>
             </div>
@@ -450,6 +449,14 @@
             </div>
         </section>
 
+<section class="section" id="diagnostics">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Diagnostic sur l’appareil et journaux</h2>
+            <p>Les résultats de diagnostic restent dans la mémoire de l’écran actuel. Le partage inclut la date et l’heure du test, le nom et l’identifiant du modèle (pas un identifiant unique de l’appareil), les versions du système et de l’app, la mémoire totale et disponible et les résultats autres que le contrôle d’espace libre. Les journaux contiennent des types d’événements, heures, nombres et durées de traitement. Le journal consultable et partageable dans l’app contient au maximum 2 000 entrées ; celles de plus de 24 heures sont supprimées lors de la lecture ou de l’enregistrement, et non par une minuterie lorsque l’app est arrêtée. Les journaux système suivent les règles du système. Aucun résultat ni journal n’est envoyé automatiquement.</p>
+        </div>
+    </div>
+</section>
         <section id="contact" class="section">
             <div class="container">
                 <div class="section-heading">
@@ -469,7 +476,33 @@
                 </article>
             </div>
         </section>
-    </main>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>Politique de confidentialité</h2>
+        <p>La politique de confidentialité est accessible en haut des Réglages et dans Informations sur l’app, avant d’ouvrir un PDF ou pendant la lecture, sans achat ni connexion.</p>
+        <p>L’espace libre est affiché uniquement sur cet appareil. Le diagnostic partagé exclut le contrôle du stockage, sa valeur et son effet sur le résultat global. Les journaux peuvent inclure des durées de traitement, mais jamais la durée brute de fonctionnement du système.</p>
+        <p>La reprise de lecture conserve localement le signet du document, la page, les réglages et le texte recherché, sans mot de passe PDF. Les exemples sont téléchargés depuis GitHub Pages sur demande. Cette politique et GitHub Issues ouvrent aussi des sites externes dont les opérateurs peuvent recevoir l’adresse IP et les informations de requête. Les rapports sont partagés avec la destination choisie. Les services externes ont leurs propres politiques de confidentialité.</p>
+    <p data-policy-topic="local-retention">L’affichage et la recherche des PDF s’effectuent sur l’appareil. La restauration conserve localement le signet du document, les positions de page, le texte de recherche et les options d’affichage, mais pas les mots de passe PDF. Fermer le document ou réinitialiser les réglages efface ces données de restauration, sans supprimer le PDF ni les journaux de diagnostic. Certains PDF importés sont copiés dans le dossier Documents de l’app. Pour supprimer les données locales, utilisez la suppression de l’app dans le système, et non son déchargement. Les originaux externes et les copies déjà partagées ne sont pas supprimés. Il n’existe pas de bouton dédié à la suppression des journaux.</p>
+    </div>
+</section>
+        <section class="section" id="support-retention">
+      <div class="container">
+        <h2>Informations d’assistance et conservation</h2>
+        <p>Nous utilisons les informations d’assistance uniquement pour répondre, rechercher les causes des problèmes et apporter des améliorations techniques de performance. Nous ne demandons pas votre nom réel. Si le nom affiché de l’expéditeur le contient, nous le conservons uniquement dans l’e-mail d’origine pendant la durée nécessaire aux réponses et à l’enquête, sans le recopier dans les fichiers Google Sheets par dossier ni dans les notes d’amélioration.</p>
+        <p>Les captures d’écran ne sont normalement pas demandées. Nous les acceptons à tyamada.support@gmail.com uniquement lorsque le texte seul ne permet pas de reproduire le problème et qu’une image est nécessaire. Avant l’envoi, masquez le contenu des PDF, les noms de fichiers, les noms de personnes, les notifications et toute information inutile à l’enquête. Les images sont en principe traitées dans l’e-mail d’origine. Les Sheets de chaque dossier ne contiennent que les observations nécessaires à l’enquête, pas les images.</p>
+        <p>Nous ne recopions pas les noms ou pseudonymes des auteurs GitHub dans les Sheets par dossier ni dans les notes d’amélioration. Un lien vers l’Issue d’origine n’est conservé dans le Sheet du dossier que s’il est nécessaire pour répondre ou enquêter. Tant que ce lien permet de retrouver l’auteur, le dossier reste susceptible de lui être rattaché. Ne publiez pas d’informations personnelles, de fichiers PDF ou de leur contenu, de noms de fichiers ni de captures d’écran dans les Issues publiques.</p>
+        <p>Les publications publiques GitHub sont distinctes des e-mails et dossiers que nous gérons. Supprimer notre lien de dossier ne supprime pas l’Issue publique. Nous ne pouvons garantir la suppression des publications ou copies de services hors de notre contrôle. Les rapports et références de dossiers permettant de retrouver l’expéditeur ne sont pas considérés comme anonymes.</p>
+        <h3>Point de départ et délais de suppression</h3>
+        <p>A. E-mails d’origine, y compris les noms réels affichés, images et copies d’enquête : un dossier est terminé lorsqu’une réponse ou une conclusion d’enquête existe et que le développeur confirme qu’aucune tâche ne reste à effectuer. L’absence de réponse ne clôture pas automatiquement le dossier. Nous contrôlons les délais chaque semaine, commençons la suppression vers le 60e jour après la clôture et confirmons sous 90 jours la suppression des éléments gérables, y compris dans la corbeille concernée. Les 60 jours ne constituent pas une durée minimale de conservation ; les demandes anticipées de suppression n’attendent pas l’échéance normale.</p>
+        <p>B. Sheets par dossier, observations, liens vers les Issues et registres de réception et de suppression : nous confirmons la suppression du fichier du dossier et des documents et références associés dans les 90 jours suivant l’achèvement de la suppression des informations d’origine. Supprimer uniquement des lignes ou des cellules ne suffit pas. Ce délai ne prolonge pas A et ne permet pas de déplacer les originaux dans ces registres. Le maintien en ligne d’une Issue publique ne prolonge pas automatiquement le délai de nos dossiers.</p>
+        <p>C. Les notes d’amélioration généralisées ne peuvent conserver que les causes et résumés des corrections, sans noms, images, URL de publications, identifiants de dossier ni autre information permettant de retrouver le rapport d’origine. Elles ne servent pas de stockage de remplacement pour A ou B.</p>
+        <p>Les exceptions se limitent à la poursuite d’une enquête ou à une nécessité légale. Nous consignons le motif, le périmètre et la condition de fin, puis les réexaminons au plus tard tous les 30 jours et à la fin de l’enquête. Lorsque la nécessité cesse, la suppression est normalement confirmée sous 30 jours, ou à l’échéance initiale de 90 jours si elle reste applicable et intervient plus tôt. Une réouverture ou une exception ne réinitialise pas automatiquement les délais. Les dates sont calculées en jours calendaires dans Asia/Tokyo.</p>
+        <p>Ces délais concernent les documents que le développeur peut gérer. La suppression depuis l’interface d’un service ne garantit pas l’effacement physique des copies de récupération internes du fournisseur ou des sauvegardes de l’appareil dans le même délai. Ces copies et leurs limites de suppression sont distinctes des documents sous notre contrôle. Supprimer les journaux locaux de l’app ne supprime pas les rapports déjà envoyés.</p>
+        <p>Pour toute question ou demande de suppression, contactez <a href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a>. Fournissez uniquement les informations nécessaires pour identifier le dossier concerné, sans les publier dans un espace public.</p>
+      </div>
+    </section>
+  </main>
 
     <footer class="site-footer">
         <div class="footer-inner">

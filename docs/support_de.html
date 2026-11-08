@@ -36,7 +36,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -324,7 +324,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -462,8 +476,8 @@
                         <details>
                             <summary>Kann ich zwischen Einzel- und Doppelseitenansicht wechseln?</summary>
                             <p>
-                                Ja. Du kannst die Ansicht in den Anzeigeeinstellungen ändern,
-                                einschließlich der Behandlung des Titelblatts.
+                                Ja. Auf jedem Gerät wird bei einem höheren als breiten Bildschirm standardmäßig eine Seite angezeigt.
+                                Deaktiviere diese Option in den Anzeigeeinstellungen, um die Doppelseitenansicht im Hochformat beizubehalten. Dort kannst du auch die Behandlung des Titelblatts ändern.
                             </p>
                         </details>
                         <details>
@@ -475,10 +489,7 @@
                         </details>
                         <details>
                             <summary>Was kann ich tun, wenn die Anzeige unscharf wirkt?</summary>
-                            <p>
-                                Aktiviere in den Einstellungen Hohe Qualität oder Schärfe.
-                                Diese Optionen können auf manchen Geräten die Renderinglast erhöhen.
-                            </p>
+                            <p>Auf schmalen Bildschirmen im Hochformat wird standardmäßig eine Seite angezeigt. Deaktiviere die Einzelansicht im Hochformat, um dort die Doppelseitenansicht beizubehalten. In breiteren Layouts bleibt die gewählte Doppelseiteneinstellung wirksam. In den Einstellungen kannst du auch die Behandlung des Titelblatts ändern.</p>
                         </details>
                     </article>
 
@@ -503,8 +514,7 @@
                         <details>
                             <summary>Sind In-App-Käufe erforderlich?</summary>
                             <p>
-                                Nein. Trinkgelder sind optionale Unterstützungskäufe. Die
-                                Lesefunktionen der App können ohne Trinkgeldkauf verwendet werden.
+                                Nein. Bronze, Silver und Gold sind optionale, nicht verbrauchbare Käufe, die das jeweilige App-Symbol dauerhaft freischalten. Die Lesefunktionen sind kostenlos. Die Preise werden auf den Kaufbuttons angezeigt.
                             </p>
                         </details>
                     </article>
@@ -539,6 +549,14 @@
             </div>
         </section>
 
+<section class="section" id="diagnostics">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Diagnose auf dem Gerät und App-Protokolle</h2>
+            <p>Auf dem Diagnosebildschirm in den Einstellungen können Sie Tests für App-Informationen, lokalen Speicher und PDF-Darstellung ausführen oder Diagnoseprotokolle zu Abstürzen, Verlangsamungen sowie Bedienungs- und Darstellungsfehlern ansehen. Testergebnisse enthalten Zeitpunkt, Modellname und Modellkennung, OS- und App-Version. Protokolle enthalten keine personenbezogenen Daten, Dateiinhalte, Dateinamen oder -pfade, Suchbegriffe oder Passwörter und Einträge, die älter als 24 Stunden sind, werden beim Lesen oder Aufzeichnen entfernt. Nichts wird automatisch gesendet; Daten verlassen das Gerät nur, wenn Sie Teilen ausdrücklich verwenden.</p>
+        </div>
+    </div>
+</section>
         <section class="section" id="troubleshooting" aria-labelledby="troubleshooting-title">
             <div class="container">
                 <div class="section-heading">
@@ -588,44 +606,23 @@
         </section>
 
         <section class="section" id="contact" aria-labelledby="contact-title">
-            <div class="container">
-                <div class="section-heading">
-                    <h2 id="contact-title">Fehlerberichte und Kontakt</h2>
-                    <p>
-                        Wenn das Problem bestehen bleibt, gib beim Kontakt mit dem Support bitte deine Umgebung und
-                        Reproduktionsschritte an.
-                    </p>
-                </div>
-                <div class="contact-grid">
-                    <article class="contact-card">
-                        <h3>GitHub Issues</h3>
-                        <p>
-                            Nutze GitHub Issues für Fehlerberichte und Funktionswünsche.
-                            Hänge keine PDFs mit persönlichen oder vertraulichen
-                            Informationen an.
-                        </p>
-                        <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">GitHub Issues öffnen</a>
-                    </article>
-                    <article class="contact-card">
-                        <h3>E-Mail</h3>
-                        <p>
-                            Nutze E-Mail für private Anfragen. Antworten können etwas
-                            Zeit benötigen.
-                        </p>
-                        <a class="button secondary" href="mailto:takuma.yamada22@gmail.com">takuma.yamada22@gmail.com</a>
-                    </article>
-                </div>
-
-                <article class="notice" style="margin-top: 16px;">
-                    <h3>Anzugebende Informationen</h3>
-                    <p>
-                        Bitte gib Gerätemodell, iOS/iPadOS-Version, App-
-                        Version, PDF-Typ, Reproduktionsschritte und angezeigte Fehlermeldungen
-                        an.
-                    </p>
-                </article>
-            </div>
-        </section>
+      <div class="container">
+        <h2 id="contact-title">Fehlerberichte und private Anfragen</h2>
+        <p>Beschreibe das Problem zunächst schriftlich: Fasse es zusammen, nenne die Schritte zum Reproduzieren und erkläre, was du erwartet hast und was tatsächlich passiert ist. Gib bei Bedarf Gerät, Betriebssystem- und App-Version an. Dein echter Name ist nicht erforderlich. Sende keine PDF-Dateien oder deren Inhalte.</p>
+        <div class="contact-grid">
+          <article class="contact-card"><h3>Öffentlicher Fehlerbericht (GitHub Issues)</h3>
+            <p>Veröffentliche in öffentlichen Issues keine persönlichen Informationen, PDF-Dateien oder deren Inhalte, Dateinamen oder Screenshots.</p>
+            <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">Öffentlicher Fehlerbericht (GitHub Issues)</a>
+          </article>
+          <article class="contact-card"><h3>Private Anfragen (E-Mail)</h3>
+            <p>Screenshots werden normalerweise nicht angefordert. Nur wenn sich das Problem allein mit Text nicht reproduzieren lässt und ein Bild nötig ist, nehmen wir es unter tyamada.support@gmail.com entgegen. Verdecke vor dem Senden PDF-Inhalte, Dateinamen, Namen, Benachrichtigungen und andere für die Untersuchung unnötige Informationen.</p>
+            <a class="button secondary" href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a>
+          </article>
+        </div>
+        <p>Wenn du Diagnoseergebnisse oder App-Protokolle beifügst, prüfe vor dem Senden deren Inhalt und den Empfänger. Nichts wird automatisch gesendet. Dieselbe Anleitung findest du in der App unter „Problem melden“ in Diagnose und Hilfe.</p>
+        <p><a href="privacy_de.html#support-retention">Aufbewahrung von Supportinformationen: Umgang mit E-Mails, Bildern und Fallunterlagen</a></p>
+      </div>
+    </section>
 
         <section class="section" id="updates" aria-labelledby="updates-title">
             <div class="container">
@@ -641,6 +638,14 @@
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>Datenschutzerklärung</h2>
+        <p>Die Datenschutzerklärung ist oben in den Einstellungen und unter App-Informationen erreichbar – vor dem Öffnen einer PDF und beim Lesen, ohne Kauf oder Anmeldung.</p>
+        <p>Freier Speicherplatz wird nur auf diesem Gerät angezeigt. Geteilte Diagnoseberichte enthalten weder die Speicherprüfung noch ihren Wert oder ihren Einfluss auf das Gesamtergebnis. Protokolle können Verarbeitungsdauern enthalten, aber niemals die rohe Systemlaufzeit.</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">
