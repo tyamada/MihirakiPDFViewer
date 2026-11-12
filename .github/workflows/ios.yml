@@ -9,7 +9,7 @@ on:
       - 'MihirakiPDFViewerUITests/**'
       - 'MihirakiPDFViewer.xcodeproj/**'
       - '*.xcstrings'
-      - 'Products.storekit'
+      - 'Products.storekit/**'
       - 'scripts/ci_simulator.py'
       - '.github/workflows/ios.yml'
   pull_request:
@@ -20,7 +20,7 @@ on:
       - 'MihirakiPDFViewerUITests/**'
       - 'MihirakiPDFViewer.xcodeproj/**'
       - '*.xcstrings'
-      - 'Products.storekit'
+      - 'Products.storekit/**'
       - 'scripts/ci_simulator.py'
       - '.github/workflows/ios.yml'
   workflow_dispatch:

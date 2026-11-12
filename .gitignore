@@ -74,3 +74,24 @@ convpng.py
 
 # Required build input, even when a global ignore excludes Info.plist.
 !MihirakiPDFViewer/Info.plist
+
+# Local build/test products and Python intermediates
+*DerivedData/
+*.xcresult/
+*.xcarchive/
+.artifacts/
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# Local signing / API credentials
+*.p8
+*.p12
+*.key
+.env
+.env.*
+!.env.example
+client_secret*.json
+service-account*.json
+credentials.json
+token.json

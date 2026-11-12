@@ -293,7 +293,30 @@ otherwise, no cover page.
 
 ### Prerequisites
 - macOS 26.6
-- Xcode 26.6
+- Xcode 26.6 (CI configuration), or a compatible later version. Also verified locally with Xcode 27.1.
+
+### Command-line build and tests
+
+Install Xcode, its first-launch components, and an iOS simulator runtime. Verify that `xcode-select -p` points to the Xcode Developer directory. Python 3 is used for documentation checks and simulator selection. No external Swift packages or CocoaPods installation is required.
+
+```bash
+git clone https://github.com/tyamada/MihirakiPDFViewer.git
+cd MihirakiPDFViewer
+xcodebuild -list -project MihirakiPDFViewer.xcodeproj
+# Use a scheme listed above (CI when available; otherwise MihirakiPDFViewer).
+xcodebuild build -project MihirakiPDFViewer.xcodeproj -scheme CI \
+  -destination 'generic/platform=iOS Simulator' \
+  -derivedDataPath build/DerivedData CODE_SIGNING_ALLOWED=NO
+python3 scripts/ci_simulator.py
+# Replace SIMULATOR_UUID with the SIMULATOR_ID printed by the command above.
+xcodebuild test -project MihirakiPDFViewer.xcodeproj -scheme CI \
+  -destination 'platform=iOS Simulator,id=SIMULATOR_UUID' \
+  -only-testing:MihirakiPDFViewerTests CODE_SIGNING_ALLOWED=NO
+```
+
+Simulator builds do not require the author's certificate or private key. To install on a physical device, select your connected device in Xcode, choose your own Team and an available Bundle Identifier under Signing & Capabilities, then Run. Keep signing keys and profiles out of Git. `Products.storekit/Configuration.storekit` is a shareable local product-testing definition, not a production purchase credential.
+
+A fresh checkout missing `Assets.xcassets` or `AppIcon` cannot build from source alone. These are required repository inputs, not private credentials. Use a revision containing the asset fix. Publish `MihirakiPDFViewer/Assets.xcassets/`, `Info.plist`, the shared `CI.xcscheme`, `PrivacyInfo.xcprivacy`, and any added Swift sources together. Older revisions without the `CI` scheme or helper scripts cannot use all current commands unchanged.
 
 ### Continuous integration
 

@@ -106,6 +106,9 @@ final class SamplePDFStore {
             )
             request.allowsCellularAccess = allowsCellular
             let (temporaryURL, response) = try await session.download(for: request)
+            // A rejected response/checksum must not leave a downloaded temporary PDF behind.
+            // After a successful move the source no longer exists, so this is a no-op.
+            defer { try? fileManager.removeItem(at: temporaryURL) }
 
             guard let httpResponse = response as? HTTPURLResponse,
                   (200...299).contains(httpResponse.statusCode) else {

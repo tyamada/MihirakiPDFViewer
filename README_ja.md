@@ -275,7 +275,30 @@ Bronze、Silver、Goldを購入すると、対応する代替アプリアイコ�
 ### 前提条件
 
 - macOS 26.6
-- Xcode 26.6
+- Xcode 26.6（CI環境）または互換性のある新しい版。今回のローカル確認はXcode 27.1。
+
+### コマンドラインでのビルドとテスト
+
+Xcodeをインストールし、初回起動時の追加コンポーネント・iOSシミュレータを導入してください。`xcode-select -p`がXcodeのDeveloperディレクトリを示すことを確認します。Python 3は資料検査とシミュレータ選択に使用します。外部SwiftパッケージやCocoaPodsの取得は不要です。
+
+```bash
+git clone https://github.com/tyamada/MihirakiPDFViewer.git
+cd MihirakiPDFViewer
+xcodebuild -list -project MihirakiPDFViewer.xcodeproj
+# Use a scheme listed above (CI when available; otherwise MihirakiPDFViewer).
+xcodebuild build -project MihirakiPDFViewer.xcodeproj -scheme CI \
+  -destination 'generic/platform=iOS Simulator' \
+  -derivedDataPath build/DerivedData CODE_SIGNING_ALLOWED=NO
+python3 scripts/ci_simulator.py
+# Replace SIMULATOR_UUID with the SIMULATOR_ID printed by the command above.
+xcodebuild test -project MihirakiPDFViewer.xcodeproj -scheme CI \
+  -destination 'platform=iOS Simulator,id=SIMULATOR_UUID' \
+  -only-testing:MihirakiPDFViewerTests CODE_SIGNING_ALLOWED=NO
+```
+
+シミュレータ用ビルドは作者の証明書・秘密鍵がなくても実行できます。実機へのインストールはXcodeで接続した端末を選び、Signing & Capabilitiesに自分のTeamと利用可能なBundle Identifierを設定してRunします。署名鍵・プロファイルはGitに登録しません。`Products.storekit/Configuration.storekit`はローカル試験用の公開可能な製品定義で、実購入の認証情報ではありません。
+
+公開版を新規取得した際に`Assets.xcassets`や`AppIcon`が不足する場合、ソースだけではビルドできません。作者の秘密情報ではなく、リポジトリに含めるべき入力です。アセットを含む修正リビジョンを使用し、公開時には`MihirakiPDFViewer/Assets.xcassets/`、`Info.plist`、共有`CI.xcscheme`、`PrivacyInfo.xcprivacy`、追加したSwiftソースを同じコミットに含めてください。`CI`や検査スクリプトが存在しない古いリビジョンには、最新版のコマンドをそのまま適用できません。
 
 ### 継続的インテグレーション
 

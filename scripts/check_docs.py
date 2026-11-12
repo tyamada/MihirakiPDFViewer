@@ -5,6 +5,7 @@ External URLs are intentionally excluded to avoid network-dependent CI failures.
 """
 
 from html.parser import HTMLParser
+import re
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
@@ -81,8 +82,42 @@ def check(root):
     return errors
 
 
+class ReadmeLinks(HTMLParser):
+    def __init__(self, text):
+        super().__init__()
+        self.references = re.findall(r'\]\(([^\s)]+)(?:\s+"[^"]*")?\)', text)
+        self.feed(text)
+
+    def handle_starttag(self, tag, attrs):
+        for key, value in attrs:
+            if key in {"src", "href"} and value:
+                self.references.append(value)
+
+
+def check_readmes(repository):
+    """Check Markdown and embedded HTML local destinations without network access."""
+    repository = repository.resolve()
+    errors = []
+    for name in ("README.md", "README_ja.md"):
+        readme = repository / name
+        if not readme.is_file():
+            errors.append(f"Missing {name}")
+            continue
+        for reference in ReadmeLinks(readme.read_text(encoding="utf-8")).references:
+            url = urlsplit(reference)
+            if url.scheme or url.netloc or not url.path:
+                continue
+            target = (repository / unquote(url.path)).resolve()
+            if url.path.startswith("/") or not target.is_relative_to(repository):
+                errors.append(f"{name}: local link escapes repository: {reference}")
+            elif not target.exists():
+                errors.append(f"{name}: missing local target: {reference}")
+    return errors
+
+
 if __name__ == "__main__":
-    errors = check(Path(__file__).resolve().parents[1] / "docs")
+    repository = Path(__file__).resolve().parents[1]
+    errors = check(repository / "docs") + check_readmes(repository)
     if errors:
         raise SystemExit("\n".join(errors))
-    print("Documentation HTML structure and local references passed.")
+    print("Documentation HTML structure and README local references passed.")
