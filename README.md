@@ -157,59 +157,27 @@ otherwise, no cover page.
 
 ## Installation (Source)
 
-### Prerequisites
-- macOS 26.6
-- Xcode 26.6
+### Prerequisites and build
 
-### Build Steps in Xcode
+Use a compatible macOS and Xcode installation with an iOS simulator runtime. Python 3 is used for documentation checks. No external Swift packages or CocoaPods installation is required.
 
-#### 1. Create a New Project
-1. Launch **Xcode**.
-2. Select **"Create a new Xcode project..."** and click **"Next..."**.
-3. Select **"iOS"** as the platform and **"App"** as the application type,
-then click **"Next..."**.
-4. Enter the project settings:
-- **Product Name**: `MihirakiPDFViewer` (optional)
-- **Organization Identifier**: `com.yourname` (optional)
-- **Interface**: `SwiftUI`
-- **Language**: `Swift`
-- **Storage**: `None` (default)
-5. Choose a save location and click **"Create"**.
+```bash
+git clone https://github.com/tyamada/MihirakiPDFViewer.git
+cd MihirakiPDFViewer
+xcodebuild -list -project MihirakiPDFViewer.xcodeproj
+xcodebuild build-for-testing -project MihirakiPDFViewer.xcodeproj -scheme MihirakiPDFViewer \
+  -destination 'generic/platform=iOS Simulator' \
+  -derivedDataPath build/DerivedData CODE_SIGNING_ALLOWED=NO
+xcrun simctl list devices available
+# Replace SIMULATOR_UUID with an available simulator ID.
+xcodebuild test -project MihirakiPDFViewer.xcodeproj -scheme MihirakiPDFViewer \
+  -destination 'platform=iOS Simulator,id=SIMULATOR_UUID' \
+  -only-testing:MihirakiPDFViewerTests CODE_SIGNING_ALLOWED=NO
+python3 scripts/check_docs.py
+python3 -m unittest discover -s scripts -p 'test_check_docs.py'
+```
 
-#### 2. Import Source Files
-1. Download the source code from GitHub.
-2. **Drag and drop** the folders located inside the `Sources` folder (`App`,
-`Managers`, `Models`, `ViewModels`, `Views`) into the **Project Navigator**
-(file tree) on the left side of Xcode.
-3. In the dialog that appears (Add to "MihirakiPDFViewer"), configure
-the settings as follows:
-- **Destination**: Select `Create groups` (*Important: to maintain the
-folder structure*)
-- **Options**: Check the box for `Copy items if needed`
-
-#### 3. Modify the Entry Point (App File)
-By default, Xcode is configured to launch the project using an automatically
-generated file. You need to update this to use the provided code instead.
-
-1. In the Xcode Project Navigator, delete the automatically generated
-`[Project Name]App.swift` file.
-2. Ensure that `Sources/App/MihirakiPDFViewerApp.swift` is included in the
-project.
-
-#### 4. Build and Run
-1. Click the device selection menu to the right of the Run button (**▶️**)
-in the Xcode toolbar and select an **iPad simulator** (such as "iPad Pro").
-2. Click the **▶️ (Run)** button or press `Command + R` on your keyboard.
-3. If the simulator launches and displays the screen for selecting a PDF
-file, the setup was successful.
-
-### Troubleshooting
-*   **If an error occurs**: If you encounter an error with `import PDFKit`,
-check if `PDFKit` is included in the project's **Frameworks, Libraries,
-and Embedded Content** section (it is usually included by default).
-*   **"File not found" error**: If a file appears in red in the Xcode
-Project Navigator, the file path is not linked correctly. Delete the file
-and add it again by dragging and dropping it.
+In Xcode, open the included `MihirakiPDFViewer.xcodeproj`, select a simulator and Run. Creating a new project or manually importing source folders is unnecessary. Simulator builds do not require the author's certificate or private key. For a physical device, choose your own Team and an available Bundle Identifier under Signing & Capabilities. Keep signing keys and profiles out of Git.
 
 ## Key roles of AI
 

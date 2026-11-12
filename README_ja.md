@@ -140,69 +140,27 @@ PDF閲覧機能の制限解除を目的としたものではありません。
 
 ## インストール（ソース）
 
-### 前提条件
+### 前提条件とビルド
 
-- macOS 26.6
-- Xcode 26.6
+互換性のあるmacOSとXcode、iOSシミュレータランタイムが必要です。Python 3は資料検査に使用します。外部SwiftパッケージやCocoaPodsの取得は不要です。
 
-### Xcodeでのビルド手順
+```bash
+git clone https://github.com/tyamada/MihirakiPDFViewer.git
+cd MihirakiPDFViewer
+xcodebuild -list -project MihirakiPDFViewer.xcodeproj
+xcodebuild build-for-testing -project MihirakiPDFViewer.xcodeproj -scheme MihirakiPDFViewer \
+  -destination 'generic/platform=iOS Simulator' \
+  -derivedDataPath build/DerivedData CODE_SIGNING_ALLOWED=NO
+xcrun simctl list devices available
+# SIMULATOR_UUIDを利用可能なシミュレータのIDに置換
+xcodebuild test -project MihirakiPDFViewer.xcodeproj -scheme MihirakiPDFViewer \
+  -destination 'platform=iOS Simulator,id=SIMULATOR_UUID' \
+  -only-testing:MihirakiPDFViewerTests CODE_SIGNING_ALLOWED=NO
+python3 scripts/check_docs.py
+python3 -m unittest discover -s scripts -p 'test_check_docs.py'
+```
 
-#### 1. 新規プロジェクトを作成する
-
-1. **Xcode**を起動します。
-2. **"Create a new Xcode project..."**を選択し、**"Next..."**を
-   クリックします。
-3. プラットフォームに**"iOS"**、アプリケーション種別に**"App"**を
-   選択し、**"Next..."**をクリックします。
-4. プロジェクト設定を入力します。
-   - **Product Name**: `MihirakiPDFViewer`（任意）
-   - **Organization Identifier**: `com.yourname`（任意）
-   - **Interface**: `SwiftUI`
-   - **Language**: `Swift`
-   - **Storage**: `None`（デフォルト）
-5. 保存先を選択し、**"Create"**をクリックします。
-
-#### 2. ソースファイルを取り込む
-
-1. GitHubからソースコードをダウンロードします。
-2. `Sources`フォルダ内にあるフォルダ（`App`、`Managers`、`Models`、
-   `ViewModels`、`Views`）を、Xcode左側の**Project Navigator**
-   （ファイルツリー）へ**ドラッグ&ドロップ**します。
-3. 表示されるダイアログ（Add to "MihirakiPDFViewer"）で、以下の
-   ように設定します。
-   - **Destination**: `Create groups`を選択します
-     （*重要: フォルダ構成を維持するため*）
-   - **Options**: `Copy items if needed`にチェックを入れます
-
-#### 3. エントリポイント（Appファイル）を変更する
-
-デフォルトでは、Xcodeは自動生成されたファイルを使ってプロジェクトを
-起動するように設定されています。提供されたコードを使うように更新する
-必要があります。
-
-1. XcodeのProject Navigatorで、自動生成された`[Project Name]App.swift`
-   ファイルを削除します。
-2. `Sources/App/MihirakiPDFViewerApp.swift`がプロジェクトに含まれている
-   ことを確認します。
-
-#### 4. ビルドして実行する
-
-1. XcodeツールバーのRunボタン（**▶️**）右側にあるデバイス選択メニュー
-   をクリックし、**iPadシミュレータ**（例: "iPad Pro"）を選択します。
-2. **▶️（Run）**ボタンをクリックするか、キーボードで`Command + R`を
-   押します。
-3. シミュレータが起動し、PDFファイルを選択する画面が表示されれば、
-   セットアップは成功です。
-
-### トラブルシューティング
-
-- **エラーが発生する場合**: `import PDFKit`でエラーが出る場合は、
-  プロジェクトの**Frameworks, Libraries, and Embedded Content**に
-  `PDFKit`が含まれているか確認してください（通常はデフォルトで含まれ
-  ています）。
-- **"File not found"エラー**: XcodeのProject Navigatorでファイルが赤く
-  表示される場合、ファイルパスが正しくリンクされていません。その
-  ファイルを削除し、もう一度ドラッグ&ドロップで追加してください。
+Xcodeでは同梱の`MihirakiPDFViewer.xcodeproj`を開き、シミュレータを選んでRunします。新規プロジェクト作成やソースの手動取り込みは不要です。シミュレータ用ビルドは作者の証明書・秘密鍵を必要としません。実機ではSigning & Capabilitiesで自分のTeamと利用可能なBundle Identifierを設定します。署名鍵やプロファイルはGitに登録しません。
 
 ## AIの主な役割
 

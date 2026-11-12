@@ -163,7 +163,7 @@ public struct PDFDocumentWrapper: Identifiable, Equatable {
 
     private static func detectLayoutSettings(url: URL, password: String?) -> DetectedSettings {
         guard let pdfDocument = unlockedCGPDFDocument(url: url, password: password) else {
-            print("Failed to inspect PDF metadata. Falling back to default layout settings: \(url.lastPathComponent)")
+            print("Failed to inspect PDF metadata. Falling back to default layout settings.")
             return DetectedSettings(direction: .leftToRight, isSpread: false, isCover: false, pageLayout: .singlePage, coverPageSetting: .typeA)
         }
         
