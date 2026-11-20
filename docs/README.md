@@ -134,3 +134,5 @@ PDFを単ページ表示または見開き表示で表示します。
 - **v0.2.2** - 2026/08/21: 自動テストを追加。
 - **v0.3.0** - 2026/08/26: UIを更新し、ズーム中のドラッグ操作を追加。
   表紙サイズの調整も修正。
+
+サンプルPDFの案内は[日本語の集約ページ](https://tyamada.github.io/manga-prompt-kit/samples/ja/)、英語は[英語ページ](https://tyamada.github.io/manga-prompt-kit/samples/en/)をご利用ください。
