@@ -58,51 +58,10 @@ PDFを単ページ表示または見開き表示で表示します。
 
 ## サンプルPDF
 
+
+[サンプルPDFのダウンロード案内](https://tyamada.github.io/manga-prompt-kit/samples/ja/)
+
 MihirakiPDFViewerでお試しいただけるサンプルPDFです。
-
-### THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP (English)
-
-[英語版サンプルPDFを開く](docs/sample/tameshibu_episode1_2_en.pdf)
-
-### THE TRY-IT CLUB EPISODE 2 ROOM TO GROW (English)
-
-[英語版サンプルPDFを開く](docs/sample/tameshibu_episode2_2_en.pdf)
-
-### ためし部 第１話 ひと息マップ (Japanese)
-
-[日本語版サンプルPDFを開く](docs/sample/tameshibu_episode1_2_ja.pdf)
-
-### ためし部 第２話 机、ひろがる。 (Japanese)
-
-[日本語版サンプルPDFを開く](docs/sample/tameshibu_episode2_2_ja.pdf)
-
-### 해봄부 제1화 한숨 돌림 지도 (Korean)
-
-[韓国語版サンプルPDFを開く](docs/sample/tameshibu_episode1_2_ko.pdf)
-
-### 해봄부제2화 책상이 넓어지다 (Korean)
-
-[韓国語版サンプルPDFを開く](docs/sample/tameshibu_episode2_2_ko.pdf)
-
-### 试试社 第1话 歇口气地图 (Chinese (Simplified))
-
-[中国語（簡体字）版サンプルPDFを開く](docs/sample/tameshibu_episode1_2_zh_cn.pdf)
-
-### 试试社 第2话 桌子变大了 (Chinese (Simplified))
-
-[中国語（簡体字）版サンプルPDFを開く](docs/sample/tameshibu_episode2_2_zh_cn.pdf)
-
-### 試試社 第1話 / 第2話（中国語・繁体字）
-
-[第1話を開く](docs/sample/tameshibu_episode1_2_zh_tw.pdf) / [第2話を開く](docs/sample/tameshibu_episode2_2_zh_tw.pdf)
-
-### DER PROBIERCLUB FOLGE 1 / 2（ドイツ語）
-
-[第1話を開く](docs/sample/tameshibu_episode1_2_de.pdf) / [第2話を開く](docs/sample/tameshibu_episode2_2_de.pdf)
-
-### LE CLUB DES ESSAIS EPISODE 1 / 2（フランス語）
-
-[第1話を開く](docs/sample/tameshibu_episode1_2_fr.pdf) / [第2話を開く](docs/sample/tameshibu_episode2_2_fr.pdf)
 
 ## 価格と開発者の応援
 
