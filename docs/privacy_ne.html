@@ -266,6 +266,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -300,6 +315,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">संस्करण 1.1.0 को पूर्वावलोकन</h2>
+            <p>यस पृष्ठमा आगामी संस्करण 1.1.0 सम्बन्धी जानकारी समावेश छ। App Store को लिङ्कले हाल उपलब्ध संस्करण खोल्छ, त्यसैले उपलब्ध सुविधाहरू फरक हुन सक्छन्। सार्वजनिक गर्ने मिति अझै तय भएको छैन। एप हाल जापानको App Store मा उपलब्ध छ।</p>
+        </aside>
+
         <section class="hero">
             <div class="container">
                 <p class="eyebrow">गोपनीयता नीति</p>
@@ -482,11 +502,12 @@
         <h2>गोपनीयता नीति</h2>
         <p>सेटिङ्सको माथिल्लो भाग वा एप जानकारीबाट गोपनीयता नीति खोल्नुहोस्। PDF छान्नुअघि र पढिरहेको बेला पनि खरिद वा लगइन बिना खोल्न सकिन्छ।</p>
         <p>खाली भण्डारण क्षमता यस उपकरणमा मात्र देखाइन्छ। साझा गरिने निदान पाठमा भण्डारण जाँच, त्यसको मान वा समग्र नतिजामा त्यसको प्रभाव समावेश हुँदैन। लगमा प्रशोधनको अवधि हुन सक्छ, तर प्रणाली चलेको कच्चा समय हुँदैन।</p>
-        <p>पढाइ पुनःस्थापना गर्न कागजातको बुकमार्क, पृष्ठ, प्रदर्शन सेटिङ र खोज पाठ स्थानीय रूपमा राखिन्छ; PDF पासवर्ड राखिँदैन। अनुरोध गर्दा नमुना डाउनलोड GitHub Pages मा जडान हुन्छ। यो नीति वा GitHub Issues खोल्दा पनि बाह्य वेबसाइटमा जडान हुन्छ; सञ्चालकले IP ठेगाना र अनुरोध जानकारी प्राप्त गर्न सक्छ। प्रतिवेदन तपाईंले छानेको गन्तव्यमा साझा हुन्छ। बाह्य सेवाका आफ्नै गोपनीयता नीतिहरू हुन्छन्।</p>
+        <p>पढाइ पुनःस्थापना गर्न कागजातको बुकमार्क, पृष्ठ, प्रदर्शन सेटिङ र खोज पाठ स्थानीय रूपमा राखिन्छ; PDF पासवर्ड राखिँदैन। अनुरोध गर्दा नमुना डाउनलोड GitHub Releases मा जडान हुन्छ। यो नीति वा GitHub Issues खोल्दा पनि बाह्य वेबसाइटमा जडान हुन्छ; सञ्चालकले IP ठेगाना र अनुरोध जानकारी प्राप्त गर्न सक्छ। प्रतिवेदन तपाईंले छानेको गन्तव्यमा साझा हुन्छ। बाह्य सेवाका आफ्नै गोपनीयता नीतिहरू हुन्छन्।</p>
     <p data-policy-topic="local-retention">PDF प्रदर्शन र खोज यन्त्रमै हुन्छ। पढाइ पुनर्स्थापनाका लागि कागजात बुकमार्क, पृष्ठ स्थान, खोज पाठ र प्रदर्शन विकल्प स्थानीय रूपमा राखिन्छन्, तर PDF पासवर्ड राखिँदैन। कागजात बन्द गर्दा वा सेटिङ रिसेट गर्दा पुनर्स्थापना अभिलेख हट्छ, PDF वा निदान लग हट्दैनन्। केही आयातित PDF एपको Documents भण्डारणमा प्रतिलिपि गरिन्छन्। स्थानीय डेटा हटाउन OS को एप मेटाउने विकल्प प्रयोग गर्नुहोस्, डेटा राख्ने अफलोड विकल्प होइन। बाहिरी मूल फाइल वा पहिले साझा गरिएका प्रतिलिपि त्यसबाट हट्दैनन्। लग मेटाउने छुट्टै बटन छैन।</p>
     </div>
 </section>
-        <section class="section" id="support-retention">
+    <section class="section" id="sample-catalog-network"><div class="container"><p data-policy-topic="sample-catalog-network" style="overflow-wrap:anywhere">तपाईंले नमुना सूची खोल्दा, एपले GitHub मा सबैभन्दा नयाँ क्याटलग JSON छ कि छैन भनेर जाँच गर्छ। अद्यावधिक असफल भएमा, यसले पछिल्लो वैध रूपमा सुरक्षित गरिएको सूची वा एपसँगै आएको सूची प्रयोग गर्छ। तपाईंले डाउनलोड गर्न रोजेपछि मात्र PDF फाइलहरू डाउनलोड हुन्छन्। क्याटलग अनुरोधले raw.githubusercontent.com मा सम्पर्क गर्छ; PDF डाउनलोडहरूले GitHub Releases मा सम्पर्क गर्छन्। यी सेवाहरूले तपाईंको IP ठेगाना र अनुरोधसम्बन्धी जानकारी प्राप्त गर्न सक्छन्।</p></div></section>
+    <section class="section" id="support-retention">
       <div class="container">
         <h2>सहायता जानकारी र संरक्षण</h2>
         <p>सहायता जानकारी जवाफ दिन, समस्या अनुसन्धान गर्न र प्राविधिक कार्यसम्पादन सुधार गर्न मात्र प्रयोग गरिन्छ। वास्तविक नाम मागिँदैन। प्रेषकको देखाइने नाममा वास्तविक नाम भएमा, जवाफ र अनुसन्धानका लागि आवश्यक अवधिसम्म मूल इमेलभित्र मात्र राखिन्छ। यसलाई मामिलाअनुसारका Google Sheets वा सुधार टिपोटमा सारिँदैन।</p>

@@ -361,6 +361,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -395,6 +410,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">1.1.0 版本预告</h2>
+            <p>本页包含计划发布的 1.1.0 版本的相关说明。App Store 链接会打开当前已发布的版本，可用功能可能有所不同。发布日期尚未确定。目前本应用仅在日本 App Store 提供。</p>
+        </aside>
+
         <section class="hero">
             <div class="container hero-inner">
                 <div>
@@ -489,7 +509,7 @@
                         </details>
                         <details>
                             <summary>如果显示看起来模糊，该怎么办？</summary>
-                            <p>在较窄的竖屏中，默认显示单页。关闭竖屏单页选项即可在该情况下保留双页显示。在较宽的布局中，所选的双页设置仍然有效。也可以在设置中调整封面的处理方式。</p>
+                            <p>High Quality: 以更高分辨率渲染 PDF 页面。 Sharpness: 调整文字和线条的锐化强度。</p>
                         </details>
                     </article>
 

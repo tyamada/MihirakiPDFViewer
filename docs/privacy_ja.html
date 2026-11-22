@@ -268,6 +268,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -302,6 +317,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">バージョン1.1.0の予告</h2>
+            <p>このページには、次回公開予定のバージョン1.1.0についての説明が含まれます。App Storeのリンク先は現在配信中のバージョンのため、利用できる機能が異なる場合があります。公開日は未定です。現在の配信先は日本のApp Storeです。</p>
+        </aside>
+
         <section class="hero">
             <div class="container">
                 <p class="eyebrow">Privacy Policy</p>
@@ -480,10 +500,11 @@
         <h2>プライバシーポリシー</h2>
         <p>設定画面の先頭、または「アプリ情報」の「プライバシーポリシー」から開けます。PDF未選択時と閲覧中のどちらでも、購入やログインなしで利用できます。</p>
         <p>空き容量は端末内だけで表示します。診断の共有本文からは、空き容量のチェック、数値、その成否が総合結果に与える影響を除外します。ログに処理の経過時間を含む場合がありますが、生のシステム起動時間は含みません。</p>
-        <p>読書の復元用に文書のブックマーク、ページ、表示設定、検索語句を端末内に保存します。PDFのパスワードは保存しません。サンプルは操作したときにGitHub Pagesからダウンロードします。このポリシーやGitHub Issuesを開く際も外部サイトに接続し、運営者がIPアドレスやリクエスト情報を受け取る場合があります。共有する報告は選択した共有先に渡されます。外部サービスには各サービスのプライバシーポリシーが適用されます。</p>
+        <p>読書の復元用に文書のブックマーク、ページ、表示設定、検索語句を端末内に保存します。PDFのパスワードは保存しません。サンプルは操作したときにGitHub Releasesからダウンロードします。このポリシーやGitHub Issuesを開く際も外部サイトに接続し、運営者がIPアドレスやリクエスト情報を受け取る場合があります。共有する報告は選択した共有先に渡されます。外部サービスには各サービスのプライバシーポリシーが適用されます。</p>
     <p data-policy-topic="local-retention">PDFの表示・検索は端末内で処理します。読書位置復元用に文書ブックマーク、ページ位置、検索語、表示設定をローカル保存し、PDFパスワードは保存しません。文書を閉じる、または設定をリセットすると復元記録を削除しますが、PDF本体や診断ログは削除しません。取り込んだPDFの一部はアプリのDocuments領域へコピーします。ローカルのアプリデータを削除するには、OSの「Appを削除」を使用してください。「Appを取り除く」とは異なります。外部の原本や共有済みのコピーはこの操作では削除しません。ログ専用の削除ボタンはありません。</p>
     </div>
 </section>
+<section class="section" id="sample-catalog-network"><div class="container"><p data-policy-topic="sample-catalog-network" style="overflow-wrap:anywhere">サンプル一覧を開くと、GitHub上の最新の一覧JSONを確認します。更新に失敗した場合は、最後に保存した有効な一覧または同梱の一覧を使います。PDFファイルはダウンロードを選択した場合にのみ取得します。一覧の取得ではraw.githubusercontent.com、PDFの取得ではGitHub Releasesへ接続し、各サービスがIPアドレスやリクエスト情報を受け取る場合があります。</p></div></section>
     <section class="section" id="support-retention"><div class="container">
 <h2>サポート情報の保持と削除</h2>
 <p>サポート情報は返信、不具合調査、技術的な性能改善に限って利用します。実名の入力は求めません。差出人の表示名に実名が含まれる場合は、返信・調査に必要な期間、元メール内でのみ保持し、案件別Google Sheetsや改善メモへ転記しません。</p>

@@ -266,6 +266,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -300,6 +315,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">Prévia da versão 1.1.0</h2>
+            <p>Esta página inclui informações sobre a futura versão 1.1.0. O link da App Store abre a versão disponível no momento, por isso os recursos podem variar. A data de lançamento ainda não foi anunciada. O app está disponível atualmente na App Store do Japão.</p>
+        </aside>
+
         <section class="hero">
             <div class="container">
                 <p class="eyebrow">Política de Privacidade</p>
@@ -482,11 +502,12 @@
         <h2>Política de privacidade</h2>
         <p>Abra a política de privacidade no início dos Ajustes ou em Informações do app, antes de abrir um PDF ou durante a leitura, sem compra ou login.</p>
         <p>O espaço livre é mostrado apenas neste dispositivo. O diagnóstico compartilhado exclui a verificação de armazenamento, seu valor e seu efeito no resultado geral. Os registros podem incluir durações de processamento, mas nunca o tempo bruto de atividade do sistema.</p>
-        <p>A restauração de leitura salva localmente a referência ao documento, a página, os ajustes e o texto de busca; senhas de PDF não são salvas. Exemplos são baixados do GitHub Pages quando solicitados. Esta política e o GitHub Issues também abrem sites externos cujos operadores podem receber o endereço IP e informações da solicitação. Relatórios são enviados ao destino escolhido. Serviços externos têm suas próprias políticas de privacidade.</p>
+        <p>A restauração de leitura salva localmente a referência ao documento, a página, os ajustes e o texto de busca; senhas de PDF não são salvas. Exemplos são baixados do GitHub Releases quando solicitados. Esta política e o GitHub Issues também abrem sites externos cujos operadores podem receber o endereço IP e informações da solicitação. Relatórios são enviados ao destino escolhido. Serviços externos têm suas próprias políticas de privacidade.</p>
     <p data-policy-topic="local-retention">A exibição e a busca de PDFs ocorrem no dispositivo. A restauração salva localmente o marcador do documento, posições de página, texto de busca e opções de exibição, mas não senhas de PDF. Fechar o documento ou redefinir os ajustes apaga o registro de restauração, não o PDF nem os registros de diagnóstico. Alguns PDFs importados são copiados para a área Documents do app. Para remover os dados locais, use a opção do sistema para apagar o app, não a opção que preserva seus dados. Originais externos e cópias já compartilhadas não são apagados. Não há botão específico para excluir registros.</p>
     </div>
 </section>
-        <section class="section" id="support-retention">
+    <section class="section" id="sample-catalog-network"><div class="container"><p data-policy-topic="sample-catalog-network" style="overflow-wrap:anywhere">Ao abrir a lista de exemplos, o app verifica no GitHub se há um arquivo JSON mais recente do catálogo. Se a atualização falhar, ele usa a última lista válida salva ou a lista incluída no app. Os arquivos PDF só são baixados quando você escolhe baixá-los. A solicitação do catálogo acessa raw.githubusercontent.com; os downloads de PDF acessam GitHub Releases. Esses serviços podem receber seu endereço IP e informações sobre a solicitação.</p></div></section>
+    <section class="section" id="support-retention">
       <div class="container">
         <h2>Informações de suporte e retenção</h2>
         <p>Usamos informações de suporte apenas para responder, investigar problemas e realizar melhorias técnicas de desempenho. Não solicitamos seu nome real. Se o nome de exibição do remetente contiver seu nome real, ele será mantido somente no e-mail original pelo período necessário para respostas e investigação; não será copiado para arquivos do Google Sheets de cada caso nem para notas de melhoria.</p>

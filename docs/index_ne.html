@@ -36,7 +36,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -113,7 +113,7 @@
         }
 
         main {
-            overflow: hidden;
+            overflow: visible;
         }
 
         .hero {
@@ -336,7 +336,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -367,6 +381,21 @@
                 padding: 56px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -401,6 +430,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">संस्करण 1.1.0 को पूर्वावलोकन</h2>
+            <p>यस पृष्ठमा आगामी संस्करण 1.1.0 सम्बन्धी जानकारी समावेश छ। App Store को लिङ्कले हाल उपलब्ध संस्करण खोल्छ, त्यसैले उपलब्ध सुविधाहरू फरक हुन सक्छन्। सार्वजनिक गर्ने मिति अझै तय भएको छैन। एप हाल जापानको App Store मा उपलब्ध छ।</p>
+        </aside>
+
         <section class="hero">
             <div class="hero-copy">
                 <p class="eyebrow">दायाँ-देखि-बायाँ PDF र जापानी पुस्तकहरूका लागि दर्शक</p>
@@ -427,7 +461,7 @@
                     <h2>थप भ्रामक पृष्ठ क्रम छैन।</h2>
                     <p>
                         मानक PDF दर्शकहरूले सधैं दायाँ-देखि-बायाँ प्रदर्शन गर्दैनन्
-                        किताबहरू वा दुई-पृष्ठ PDF हरू तपाईंले अपेक्षा गरे अनुसार। ७४१९२६०३५१७
+                        किताबहरू वा दुई-पृष्ठ PDF हरू तपाईंले अपेक्षा गरे अनुसार। MihirakiPDFViewer
                         कागजात सेटिङहरू पढ्छ र प्रवाहमा पृष्ठहरू प्रस्तुत गर्दछ
                         जुन पुस्तक पढ्नु पर्ने तरिकासँग मेल खान्छ।
                     </p>
@@ -459,12 +493,12 @@
                     <article class="feature">
                         <div class="feature-badge">1</div>
                         <h3>दायाँ-देखि-बायाँ र बाँया-देखि-दायाँ समर्थन</h3>
-                        <p>PDF दिशामा आधारित L2R र R2L बीचको पृष्ठ आन्दोलन स्विच गर्दछ।</p>
+                        <p>PDF को दिशाअनुसार L2R र R2L बीच पृष्ठ सार्ने तरिका बदल्छ र दायाँ-देखि-बायाँ कागजातलाई पहिलो पृष्ठमा खोल्छ।</p>
                     </article>
                     <article class="feature">
                         <div class="feature-badge">2</div>
                         <h3>एकल-पृष्ठ र दुई-पृष्ठ दृश्यहरू</h3>
-                        <p>कागजातमा फिट हुने लेआउटको साथ पढ्नुहोस्, आवश्यक पर्दा कभर ह्यान्डलिंगको साथ।</p>
+                        <p>iPad का फराकिला लेआउटमा समेत ठाडो पढ्ने क्षेत्रमा एक पटकमा एउटा पृष्ठ देखाउँछ। ठाडो क्षेत्रमा छानिएको दुई-पृष्ठ सेटिङ कायम राख्न यो विकल्प बन्द गर्नुहोस्।</p>
                     </article>
                     <article class="feature">
                         <div class="feature-badge">3</div>
@@ -476,6 +510,11 @@
                         <h3>पासवर्ड-सुरक्षित PDF हरू</h3>
                         <p>प्रयोगकर्ता पासवर्ड चाहिने PDF हरू खोल्नुहोस् र अनलक पछि पढ्न जारी राख्नुहोस्।</p>
                     </article>
+                    <article class="feature">
+                        <div class="feature-badge">5</div>
+                        <h3>विषयसूची</h3>
+                        <p>रिडरबाट PDF को रूपरेखा खोल्नुहोस् र छानिएको अध्याय वा खण्डमा सिधै जानुहोस्।</p>
+                    </article>
                 </div>
             </div>
         </section>
@@ -484,7 +523,7 @@
     <div class="container">
         <div class="section-heading">
             <h2>उपकरणमै निदान र एप लग</h2>
-            <p>सेटिङ्सको अन्त्यबाट एप जानकारी, स्थानीय भण्डारण र PDF रेन्डरिङ परीक्षण चलाउन वा क्र्यास, ढिलाइ, सञ्चालन र प्रदर्शन समस्याको कारण पत्ता लगाउन निदान लग हेर्न सकिन्छ। नतिजामा परीक्षण समय, उपकरणको नाम, OS र एप संस्करण समावेश हुन्छ। लगमा व्यक्तिगत जानकारी, फाइलको सामग्री, नाम वा पथ, खोज शब्द वा पासवर्ड राखिँदैन र २४ घण्टापछि मेटाइन्छ। केही पनि स्वचालित रूपमा पठाइँदैन; तपाईंले स्पष्ट रूपमा Share प्रयोग गर्दा मात्र नतिजा वा लग उपकरणबाट बाहिर जान्छ।</p>
+            <p>सेटिङ्सको निदान स्क्रिनबाट एप जानकारी, स्थानीय भण्डारण र PDF रेन्डरिङ परीक्षण चलाउन वा क्र्यास, ढिलाइ, सञ्चालन र प्रदर्शन समस्याको कारण पत्ता लगाउन निदान लग हेर्न सकिन्छ। नतिजामा परीक्षण समय, उपकरणको मोडेल नाम र मोडेल पहिचानकर्ता, OS र एप संस्करण समावेश हुन्छ। लगमा व्यक्तिगत जानकारी, फाइलको सामग्री, नाम वा पथ, खोज शब्द वा पासवर्ड राखिँदैन र लग पढ्दा वा लेख्दा २४ घण्टाभन्दा पुराना प्रविष्टि हटाइन्छन्। केही पनि स्वचालित रूपमा पठाइँदैन; तपाईंले स्पष्ट रूपमा Share प्रयोग गर्दा मात्र नतिजा वा लग उपकरणबाट बाहिर जान्छ।</p>
         </div>
     </div>
 </section>
@@ -503,7 +542,7 @@
                         <figcaption>PDF भित्र पाठ खोज</figcaption>
                     </figure>
                     <figure class="screenshot-item">
-                        <img src="assets/screenshots/iphone/05_display_settings_en.png" srcset="assets/screenshots/iphone/05_display_settings_en.png 2622w, assets/screenshots/ipad/05_display_settings_en.png 2752w" sizes="(min-width: 900px) 264px, 100vw" alt="सेटिङ स्क्रिन प्रदर्शन गर्नुहोस्">
+                        <img src="assets/screenshots/iphone/05_display_settings_en.png" srcset="assets/screenshots/iphone/05_display_settings_en.png 1206w, assets/screenshots/ipad/05_display_settings_en.png 820w" sizes="(min-width: 900px) 264px, 100vw" alt="सेटिङ स्क्रिन प्रदर्शन गर्नुहोस्">
                         <figcaption>स्प्रेड र आवरण सेटिङहरू समायोजन गर्नुहोस्</figcaption>
                     </figure>
                     <figure class="screenshot-item">
@@ -557,16 +596,23 @@
                     <div>
                         <h2>MihirakiPDFViewer प्रयास गर्नुहोस्</h2>
                         <p>
-                            एप स्टोर रिलीज पछि, यो बटन बदल्नुहोस्
-                            एप स्टोर URL।
+                            यो एप हाल जापानको App Store मा उपलब्ध छ। यो बटन थिच्दा जापानको App Store मा रहेको एपको पृष्ठ खुल्छ।
                         </p>
                     </div>
-                    <a class="button" href="#" aria-label="एप स्टोरमा MihirakiPDFViewer डाउनलोड गर्नुहोस्">
+                    <a class="button" href="https://apps.apple.com/jp/app/id6802023530" aria-label="एप स्टोरमा MihirakiPDFViewer डाउनलोड गर्नुहोस्">
                         एप स्टोरमा जानुहोस्
                     </a>
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>गोपनीयता नीति</h2>
+        <p>सेटिङ्सको माथिल्लो भाग वा एप जानकारीबाट गोपनीयता नीति खोल्नुहोस्। PDF छान्नुअघि र पढिरहेको बेला पनि खरिद वा लगइन बिना खोल्न सकिन्छ।</p>
+        <p>खाली भण्डारण क्षमता यस उपकरणमा मात्र देखाइन्छ। साझा गरिने निदान पाठमा भण्डारण जाँच, त्यसको मान वा समग्र नतिजामा त्यसको प्रभाव समावेश हुँदैन। लगमा प्रशोधनको अवधि हुन सक्छ, तर प्रणाली चलेको कच्चा समय हुँदैन।</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">

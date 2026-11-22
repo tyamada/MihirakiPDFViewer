@@ -266,6 +266,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -300,6 +315,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">1.1.0 版本預告</h2>
+            <p>本頁包含預計發布的 1.1.0 版本相關說明。App Store 連結會開啟目前已發布的版本，可用功能可能有所不同。發布日期尚未確定。目前本 App 僅於日本 App Store 提供。</p>
+        </aside>
+
         <section class="hero">
             <div class="container">
                 <p class="eyebrow">隱私權政策</p>
@@ -482,11 +502,12 @@
         <h2>隱私權政策</h2>
         <p>可從設定頂端或「應用程式資訊」開啟隱私權政策。無論尚未選取 PDF 或正在閱讀，都不需要購買或登入。</p>
         <p>可用儲存空間僅在本裝置上顯示。分享的診斷文字不包含儲存空間檢查、數值及其對整體結果的影響。日誌可能包含處理經過時間，但不包含原始系統運作時間。</p>
-        <p>閱讀復原功能會在本機儲存文件書籤、頁碼、顯示設定和搜尋詞，不儲存 PDF 密碼。要求下載範例時會連線至 GitHub Pages。開啟本政策或 GitHub Issues 也會連線至外部網站，其營運者可能收到 IP 位址和要求資訊。報告僅分享到您選擇的目的地。外部服務適用各自的隱私權政策。</p>
+        <p>閱讀復原功能會在本機儲存文件書籤、頁碼、顯示設定和搜尋詞，不儲存 PDF 密碼。要求下載範例時會連線至 GitHub Releases。開啟本政策或 GitHub Issues 也會連線至外部網站，其營運者可能收到 IP 位址和要求資訊。報告僅分享到您選擇的目的地。外部服務適用各自的隱私權政策。</p>
     <p data-policy-topic="local-retention">PDF顯示及搜尋在裝置上處理。閱讀還原會在本機儲存文件書籤、頁面位置、搜尋文字及顯示選項，但不儲存PDF密碼。關閉文件或重設設定會刪除還原記錄，但不會刪除PDF或診斷日誌。部分輸入的PDF會複製到App的Documents儲存區。若要移除本機App資料，請使用系統的「刪除App」，而非保留資料的「卸載App」。外部原始檔及已分享的副本不會因此刪除。沒有專用的日誌刪除按鈕。</p>
     </div>
 </section>
-        <section class="section" id="support-retention">
+    <section class="section" id="sample-catalog-network"><div class="container"><p data-policy-topic="sample-catalog-network" style="overflow-wrap:anywhere">開啟範例清單時，應用程式會檢查 GitHub 上是否有最新的目錄 JSON。若更新失敗，應用程式會使用上一次有效儲存的清單或隨應用程式提供的清單。只有在您選擇下載時，才會下載 PDF 檔案。目錄請求會聯絡 raw.githubusercontent.com；PDF 下載會聯絡 GitHub Releases。這些服務可能會收到您的 IP 位址和請求資訊。</p></div></section>
+    <section class="section" id="support-retention">
       <div class="container">
         <h2>支援資訊的保留與刪除</h2>
         <p>支援資訊僅用於回覆、調查問題及技術性的效能改善。我們不要求填寫真實姓名。如果寄件者的顯示名稱包含真實姓名，只會在回覆與調查所需的期間內，將其保留在原始郵件中，不會抄錄到個別案件的Google Sheets或改善筆記。</p>

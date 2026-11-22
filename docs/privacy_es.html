@@ -266,6 +266,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -300,6 +315,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">Vista previa de la versión 1.1.0</h2>
+            <p>Esta página incluye información sobre la próxima versión 1.1.0. El enlace del App Store abre la versión disponible actualmente, por lo que las funciones pueden variar. Aún no se ha anunciado la fecha de lanzamiento. Actualmente, la app está disponible en el App Store de Japón.</p>
+        </aside>
+
         <section class="hero">
             <div class="container">
                 <p class="eyebrow">Política de privacidad</p>
@@ -482,11 +502,12 @@
         <h2>Política de privacidad</h2>
         <p>La política de privacidad está al principio de Ajustes y en Información de la app. Se puede abrir antes de elegir un PDF y durante la lectura, sin comprar ni iniciar sesión.</p>
         <p>El espacio libre solo se muestra en este dispositivo. El texto de diagnóstico compartido excluye la comprobación de espacio, su valor y su efecto en el resultado global. Los registros pueden incluir la duración del procesamiento, pero nunca el tiempo de actividad del sistema sin procesar.</p>
-        <p>La restauración de lectura guarda localmente la referencia al documento, la página, los ajustes y el texto de búsqueda; no guarda contraseñas de PDF. Las descargas de ejemplo contactan con GitHub Pages cuando se solicitan. Esta política y GitHub Issues abren sitios externos cuyos operadores pueden recibir la dirección IP y datos de la solicitud. Los informes se comparten con el destino elegido. Los servicios externos tienen sus propias políticas de privacidad.</p>
+        <p>La restauración de lectura guarda localmente la referencia al documento, la página, los ajustes y el texto de búsqueda; no guarda contraseñas de PDF. Las descargas de ejemplo contactan con GitHub Releases cuando se solicitan. Esta política y GitHub Issues abren sitios externos cuyos operadores pueden recibir la dirección IP y datos de la solicitud. Los informes se comparten con el destino elegido. Los servicios externos tienen sus propias políticas de privacidad.</p>
     <p data-policy-topic="local-retention">La visualización y búsqueda de PDF se procesan en el dispositivo. La restauración guarda localmente el marcador del documento, posiciones de página, texto de búsqueda y opciones de visualización; no guarda contraseñas de PDF. Cerrar el documento o restablecer los ajustes borra el registro de restauración, pero no el PDF ni los registros de diagnóstico. Algunos PDF importados se copian en el almacenamiento Documents de la app. Para borrar los datos locales, use la opción del sistema para eliminar la app, no para desinstalarla conservando datos. Esto no elimina originales externos ni copias ya compartidas. No hay un botón específico para borrar registros.</p>
     </div>
 </section>
-        <section class="section" id="support-retention">
+    <section class="section" id="sample-catalog-network"><div class="container"><p data-policy-topic="sample-catalog-network" style="overflow-wrap:anywhere">Al abrir la lista de ejemplos, la aplicación comprueba en GitHub si está disponible el archivo JSON más reciente del catálogo. Si la actualización falla, utiliza la última lista guardada que sea válida o la lista incluida con la aplicación. Los archivos PDF solo se descargan cuando eliges descargarlos. La solicitud del catálogo se comunica con raw.githubusercontent.com; las descargas de PDF se comunican con GitHub Releases. Estos servicios pueden recibir tu dirección IP e información sobre la solicitud.</p></div></section>
+    <section class="section" id="support-retention">
       <div class="container">
         <h2>Información de soporte y conservación</h2>
         <p>Usamos la información de soporte solo para responder, investigar problemas y realizar mejoras técnicas de rendimiento. No pedimos tu nombre real. Si el nombre mostrado del remitente contiene tu nombre real, lo conservamos únicamente en el correo original durante el tiempo necesario para responder e investigar; no lo copiamos a archivos de Google Sheets por caso ni a notas de mejora.</p>

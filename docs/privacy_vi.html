@@ -266,6 +266,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -300,6 +315,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">Xem trước phiên bản 1.1.0</h2>
+            <p>Trang này có thông tin về phiên bản 1.1.0 dự kiến phát hành. Liên kết App Store mở phiên bản hiện có, nên các tính năng có thể khác. Ngày phát hành chưa được xác định. Hiện ứng dụng được cung cấp trên App Store Nhật Bản.</p>
+        </aside>
+
         <section class="hero">
             <div class="container">
                 <p class="eyebrow">Chính sách bảo mật</p>
@@ -482,11 +502,12 @@
         <h2>Chính sách quyền riêng tư</h2>
         <p>Mở chính sách quyền riêng tư ở đầu phần Cài đặt hoặc trong Thông tin ứng dụng. Bạn có thể mở trước khi chọn PDF hoặc trong khi đọc, không cần mua hay đăng nhập.</p>
         <p>Dung lượng lưu trữ trống chỉ hiển thị trên thiết bị này. Văn bản chẩn đoán được chia sẻ không chứa kiểm tra dung lượng, giá trị hoặc ảnh hưởng của kiểm tra đó đến kết quả tổng thể. Nhật ký có thể chứa thời gian xử lý, nhưng không chứa thời gian hoạt động hệ thống thô.</p>
-        <p>Tính năng khôi phục việc đọc lưu dấu trang tài liệu, trang, cài đặt hiển thị và từ khóa tìm kiếm trên thiết bị, không lưu mật khẩu PDF. Tải mẫu sẽ kết nối GitHub Pages khi được yêu cầu. Mở chính sách này hoặc GitHub Issues cũng truy cập trang web bên ngoài; đơn vị vận hành có thể nhận địa chỉ IP và thông tin yêu cầu. Báo cáo được chia sẻ đến nơi bạn chọn. Dịch vụ bên ngoài có chính sách quyền riêng tư riêng.</p>
+        <p>Tính năng khôi phục việc đọc lưu dấu trang tài liệu, trang, cài đặt hiển thị và từ khóa tìm kiếm trên thiết bị, không lưu mật khẩu PDF. Tải mẫu sẽ kết nối GitHub Releases khi được yêu cầu. Mở chính sách này hoặc GitHub Issues cũng truy cập trang web bên ngoài; đơn vị vận hành có thể nhận địa chỉ IP và thông tin yêu cầu. Báo cáo được chia sẻ đến nơi bạn chọn. Dịch vụ bên ngoài có chính sách quyền riêng tư riêng.</p>
     <p data-policy-topic="local-retention">Hiển thị và tìm kiếm PDF được xử lý trên thiết bị. Khôi phục việc đọc lưu cục bộ dấu trang tài liệu, vị trí trang, nội dung tìm kiếm và tùy chọn hiển thị, nhưng không lưu mật khẩu PDF. Đóng tài liệu hoặc đặt lại cài đặt xóa bản ghi khôi phục, không xóa PDF hay nhật ký chẩn đoán. Một số PDF nhập vào được sao chép vào vùng Documents của ứng dụng. Để xóa dữ liệu cục bộ, dùng tùy chọn xóa ứng dụng của hệ điều hành, không dùng tùy chọn gỡ bỏ mà giữ dữ liệu. Bản gốc bên ngoài và bản sao đã chia sẻ không bị xóa. Không có nút riêng để xóa nhật ký.</p>
     </div>
 </section>
-        <section class="section" id="support-retention">
+    <section class="section" id="sample-catalog-network"><div class="container"><p data-policy-topic="sample-catalog-network" style="overflow-wrap:anywhere">Khi bạn mở danh sách mẫu, ứng dụng kiểm tra trên GitHub để tìm tệp JSON danh mục mới nhất. Nếu cập nhật không thành công, ứng dụng sẽ dùng danh sách hợp lệ gần nhất đã lưu hoặc danh sách được đóng gói cùng ứng dụng. Tệp PDF chỉ được tải xuống khi bạn chọn tải xuống. Yêu cầu danh mục liên hệ với raw.githubusercontent.com; các lượt tải PDF liên hệ với GitHub Releases. Các dịch vụ này có thể nhận được địa chỉ IP và thông tin yêu cầu của bạn.</p></div></section>
+    <section class="section" id="support-retention">
       <div class="container">
         <h2>Thông tin hỗ trợ và việc lưu giữ</h2>
         <p>Thông tin hỗ trợ chỉ được dùng để trả lời, điều tra vấn đề và cải thiện hiệu năng về mặt kỹ thuật. Chúng tôi không yêu cầu tên thật. Nếu tên hiển thị của người gửi có chứa tên thật, tên đó chỉ được giữ trong email gốc trong thời gian cần thiết để trả lời và điều tra; không được chép vào tệp Google Sheets của từng vụ việc hoặc ghi chú cải tiến.</p>

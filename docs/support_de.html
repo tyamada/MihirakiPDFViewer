@@ -361,6 +361,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -395,6 +410,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">Vorschau auf Version 1.1.0</h2>
+            <p>Diese Seite enthält Informationen zur geplanten Version 1.1.0. Der App Store-Link öffnet die derzeit verfügbare Version; die verfügbaren Funktionen können daher abweichen. Ein Veröffentlichungsdatum steht noch nicht fest. Die App ist derzeit im japanischen App Store erhältlich.</p>
+        </aside>
+
         <section class="hero">
             <div class="container hero-inner">
                 <div>
@@ -489,7 +509,7 @@
                         </details>
                         <details>
                             <summary>Was kann ich tun, wenn die Anzeige unscharf wirkt?</summary>
-                            <p>Auf schmalen Bildschirmen im Hochformat wird standardmäßig eine Seite angezeigt. Deaktiviere die Einzelansicht im Hochformat, um dort die Doppelseitenansicht beizubehalten. In breiteren Layouts bleibt die gewählte Doppelseiteneinstellung wirksam. In den Einstellungen kannst du auch die Behandlung des Titelblatts ändern.</p>
+                            <p>High Quality: Rendert PDF-Seiten mit höherer Auflösung. Sharpness: Passt an, wie stark Text und Linien geschärft werden.</p>
                         </details>
                     </article>
 

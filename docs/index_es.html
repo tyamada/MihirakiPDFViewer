@@ -36,7 +36,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -113,7 +113,7 @@
         }
 
         main {
-            overflow: hidden;
+            overflow: visible;
         }
 
         .hero {
@@ -336,7 +336,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -367,6 +381,21 @@
                 padding: 56px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -401,6 +430,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">Vista previa de la versión 1.1.0</h2>
+            <p>Esta página incluye información sobre la próxima versión 1.1.0. El enlace del App Store abre la versión disponible actualmente, por lo que las funciones pueden variar. Aún no se ha anunciado la fecha de lanzamiento. Actualmente, la app está disponible en el App Store de Japón.</p>
+        </aside>
+
         <section class="hero">
             <div class="hero-copy">
                 <p class="eyebrow">Un visor para PDF de derecha a izquierda y libros japoneses</p>
@@ -459,12 +493,12 @@
                     <article class="feature">
                         <div class="feature-badge">1</div>
                         <h3>Compatibilidad de derecha a izquierda e izquierda a derecha</h3>
-                        <p>Cambia el movimiento de páginas entre L2R y R2L según la dirección del PDF.</p>
+                        <p>Cambia el movimiento de páginas entre L2R y R2L según la dirección del PDF y abre los documentos de derecha a izquierda en su primera página.</p>
                     </article>
                     <article class="feature">
                         <div class="feature-badge">2</div>
                         <h3>Vista de una página y de dos páginas</h3>
-                        <p>Lee con un diseño que se adapta al documento, con gestión de portada cuando haga falta.</p>
+                        <p>Muestra una página a la vez en áreas de lectura verticales, incluso en diseños amplios de iPad. Desactiva esta opción para mantener el ajuste de dos páginas seleccionado en vertical.</p>
                     </article>
                     <article class="feature">
                         <div class="feature-badge">3</div>
@@ -476,6 +510,11 @@
                         <h3>PDF protegidos con contraseña</h3>
                         <p>Abre PDF que requieren contraseña de usuario y sigue leyendo tras desbloquearlos.</p>
                     </article>
+                    <article class="feature">
+                        <div class="feature-badge">5</div>
+                        <h3>Tabla de contenido</h3>
+                        <p>Abre el esquema del PDF desde el lector y salta directamente al capítulo o apartado seleccionado.</p>
+                    </article>
                 </div>
             </div>
         </section>
@@ -484,7 +523,7 @@
     <div class="container">
         <div class="section-heading">
             <h2>Diagnóstico en el dispositivo y registros</h2>
-            <p>Al final de Ajustes puede ejecutar pruebas de información de la app, almacenamiento local y renderizado de PDF, o consultar registros de diagnóstico sobre cierres, lentitud y problemas de funcionamiento o visualización. Los resultados incluyen fecha y hora, nombre del dispositivo y versiones del sistema y de la app. Los registros no incluyen datos personales, contenido, nombres o rutas de archivos, búsquedas ni contraseñas, y se eliminan tras 24 horas. Nada se envía automáticamente; solo sale del dispositivo al usar Compartir de forma explícita.</p>
+            <p>En la pantalla Diagnóstico de Ajustes puede ejecutar pruebas de información de la app, almacenamiento local y renderizado de PDF, o consultar registros de diagnóstico sobre cierres, lentitud y problemas de funcionamiento o visualización. Los resultados incluyen fecha y hora, nombre e identificador del modelo del dispositivo y versiones del sistema y de la app. Los registros no incluyen datos personales, contenido, nombres o rutas de archivos, búsquedas ni contraseñas, y las entradas de más de 24 horas se eliminan al leer o registrar. Nada se envía automáticamente; solo sale del dispositivo al usar Compartir de forma explícita.</p>
         </div>
     </div>
 </section>
@@ -503,7 +542,7 @@
                         <figcaption>Búsqueda de texto en PDF</figcaption>
                     </figure>
                     <figure class="screenshot-item">
-                        <img src="assets/screenshots/iphone/05_display_settings_en.png" srcset="assets/screenshots/iphone/05_display_settings_en.png 2622w, assets/screenshots/ipad/05_display_settings_en.png 2752w" sizes="(min-width: 900px) 264px, 100vw" alt="Pantalla de ajustes de visualización">
+                        <img src="assets/screenshots/iphone/05_display_settings_en.png" srcset="assets/screenshots/iphone/05_display_settings_en.png 1206w, assets/screenshots/ipad/05_display_settings_en.png 820w" sizes="(min-width: 900px) 264px, 100vw" alt="Pantalla de ajustes de visualización">
                         <figcaption>Ajusta dobles páginas y portada</figcaption>
                     </figure>
                     <figure class="screenshot-item">
@@ -557,16 +596,23 @@
                     <div>
                         <h2>Prueba MihirakiPDFViewer</h2>
                         <p>
-                            Después del lanzamiento en App Store, reemplaza este botón por
-                            la URL de App Store.
+                            La app está disponible actualmente en el App Store de Japón. Este botón abre su página en el App Store de Japón.
                         </p>
                     </div>
-                    <a class="button" href="#" aria-label="Descargar MihirakiPDFViewer en App Store">
+                    <a class="button" href="https://apps.apple.com/jp/app/id6802023530" aria-label="Descargar MihirakiPDFViewer en App Store">
                         Consíguelo en App Store
                     </a>
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>Política de privacidad</h2>
+        <p>La política de privacidad está al principio de Ajustes y en Información de la app. Se puede abrir antes de elegir un PDF y durante la lectura, sin comprar ni iniciar sesión.</p>
+        <p>El espacio libre solo se muestra en este dispositivo. El texto de diagnóstico compartido excluye la comprobación de espacio, su valor y su efecto en el resultado global. Los registros pueden incluir la duración del procesamiento, pero nunca el tiempo de actividad del sistema sin procesar.</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">

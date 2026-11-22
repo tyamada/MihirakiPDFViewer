@@ -36,7 +36,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -113,7 +113,7 @@
         }
 
         main {
-            overflow: hidden;
+            overflow: visible;
         }
 
         .hero {
@@ -336,7 +336,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -367,6 +381,21 @@
                 padding: 56px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -401,6 +430,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">Preview of version 1.1.0</h2>
+            <p>This page includes information about the planned version 1.1.0. The App Store link opens the currently released version, so available features may differ. The release date has not been announced. The app is currently available on the Japan App Store.</p>
+        </aside>
+
         <section class="hero">
             <div class="hero-copy">
                 <p class="eyebrow">A viewer for right-to-left PDFs and Japanese books</p>
@@ -459,12 +493,12 @@
                     <article class="feature">
                         <div class="feature-badge">1</div>
                         <h3>Right-to-left and left-to-right support</h3>
-                        <p>Switches page movement between L2R and R2L based on the PDF direction.</p>
+                        <p>Switches page movement between L2R and R2L based on the PDF direction, and opens right-to-left documents on their first page.</p>
                     </article>
                     <article class="feature">
                         <div class="feature-badge">2</div>
                         <h3>Single-page and two-page views</h3>
-                        <p>Read with a layout that fits the document, with cover handling when needed.</p>
+                        <p>Displays one page at a time in portrait-shaped reading areas, including wide iPad layouts. Turn this option off to keep the selected two-page setting in portrait.</p>
                     </article>
                     <article class="feature">
                         <div class="feature-badge">3</div>
@@ -476,6 +510,11 @@
                         <h3>Password-protected PDFs</h3>
                         <p>Open PDFs that require a user password and continue reading after unlock.</p>
                     </article>
+                    <article class="feature">
+                        <div class="feature-badge">5</div>
+                        <h3>Table of Contents</h3>
+                        <p>Open the PDF outline from the reader and jump directly to a selected chapter or section.</p>
+                    </article>
                 </div>
             </div>
         </section>
@@ -484,7 +523,7 @@
     <div class="container">
         <div class="section-heading">
             <h2>On-device diagnostics and app logs</h2>
-            <p>From the bottom of Settings, run app information, local storage, and PDF rendering checks, or review diagnostic logs for crashes, slowdowns, operation issues, and display issues. Test results include the test time, device name, OS version, and app version. Logs never include personal information, file contents, file names or paths, search terms, or passwords, and are deleted after 24 hours. Nothing is sent automatically; results and logs leave the device only when you explicitly use Share.</p>
+            <p>From the Diagnostics screen in Settings, run app information, local storage, and PDF rendering checks, or review diagnostic logs for crashes, slowdowns, operation issues, and display issues. Test results include the test time, device model name and model identifier, OS version, and app version. Logs never include personal information, file contents, file names or paths, search terms, or passwords, and entries older than 24 hours are removed when logs are read or recorded. Nothing is sent automatically; results and logs leave the device only when you explicitly use Share.</p>
         </div>
     </div>
 </section>
@@ -503,7 +542,7 @@
                         <figcaption>Text search inside PDFs</figcaption>
                     </figure>
                     <figure class="screenshot-item">
-                        <img src="assets/screenshots/iphone/05_display_settings_en.png" srcset="assets/screenshots/iphone/05_display_settings_en.png 2622w, assets/screenshots/ipad/05_display_settings_en.png 2752w" sizes="(min-width: 900px) 264px, 100vw" alt="Display settings screen">
+                        <img src="assets/screenshots/iphone/05_display_settings_en.png" srcset="assets/screenshots/iphone/05_display_settings_en.png 1206w, assets/screenshots/ipad/05_display_settings_en.png 820w" sizes="(min-width: 900px) 264px, 100vw" alt="Display settings screen">
                         <figcaption>Adjust spreads and cover settings</figcaption>
                     </figure>
                     <figure class="screenshot-item">
@@ -557,16 +596,23 @@
                     <div>
                         <h2>Try MihirakiPDFViewer</h2>
                         <p>
-                            After the App Store release, replace this button with
-                            the App Store URL.
+                            The app is currently available on the Japan App Store. This button opens the Japan App Store page.
                         </p>
                     </div>
-                    <a class="button" href="#" aria-label="Download MihirakiPDFViewer on the App Store">
+                    <a class="button" href="https://apps.apple.com/jp/app/id6802023530" aria-label="Download MihirakiPDFViewer on the App Store">
                         Get on the App Store
                     </a>
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>Privacy Policy</h2>
+        <p>Open the Privacy Policy link at the top of Settings or in App Information. It is available before opening a PDF and while reading, without a purchase or login.</p>
+        <p>Available disk space is displayed only on this device. Shared diagnostic text excludes the storage check, its value, and its effect on the overall result. Logs may include elapsed processing times, but never raw system uptime.</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">

@@ -361,6 +361,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -395,6 +410,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">Aperçu de la version 1.1.0</h2>
+            <p>Cette page contient des informations sur la version 1.1.0 à venir. Le lien App Store ouvre la version actuellement disponible ; les fonctionnalités peuvent donc différer. La date de sortie n’a pas encore été annoncée. L’app est actuellement disponible sur l’App Store japonais.</p>
+        </aside>
+
         <section class="hero">
             <div class="container hero-inner">
                 <div>
@@ -489,7 +509,7 @@
                         </details>
                         <details>
                             <summary>Que faire si l’affichage paraît flou ?</summary>
-                            <p>Sur les écrans étroits en portrait, une seule page s’affiche par défaut. Désactivez l’option de page unique en portrait pour y conserver la double page. Dans les dispositions plus larges, le réglage double page choisi reste actif. Vous pouvez aussi ajuster la couverture dans les réglages.</p>
+                            <p>High Quality: Affiche les pages PDF dans une résolution supérieure. Sharpness: Règle l’intensité d’accentuation de la netteté du texte et des lignes.</p>
                         </details>
                     </article>
 

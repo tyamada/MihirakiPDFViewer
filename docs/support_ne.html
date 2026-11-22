@@ -361,6 +361,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -395,6 +410,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">संस्करण 1.1.0 को पूर्वावलोकन</h2>
+            <p>यस पृष्ठमा आगामी संस्करण 1.1.0 सम्बन्धी जानकारी समावेश छ। App Store को लिङ्कले हाल उपलब्ध संस्करण खोल्छ, त्यसैले उपलब्ध सुविधाहरू फरक हुन सक्छन्। सार्वजनिक गर्ने मिति अझै तय भएको छैन। एप हाल जापानको App Store मा उपलब्ध छ।</p>
+        </aside>
+
         <section class="hero">
             <div class="container hero-inner">
                 <div>
@@ -489,7 +509,7 @@
                         </details>
                         <details>
                             <summary>यदि डिस्प्ले धमिलो देखिन्छ भने मैले के गर्नुपर्छ?</summary>
-                            <p>साँघुरो ठाडो स्क्रिनमा पूर्वनिर्धारित रूपमा एक पृष्ठ देखाइन्छ। त्यहाँ पनि दुई पृष्ठ देखाउन ठाडो अवस्थामा एकल पृष्ठ देखाउने विकल्प बन्द गर्नुहोस्। फराकिलो लेआउटमा छानिएको दुई-पृष्ठ सेटिङ लागू रहन्छ। सेटिङमा आवरण पृष्ठको व्यवहार पनि परिवर्तन गर्न सकिन्छ।</p>
+                            <p>High Quality: PDF पृष्ठहरू अझ उच्च रिजोल्युसनमा रेन्डर गर्छ। Sharpness: पाठ र रेखाहरूको तीक्ष्णता कति बढाउने भन्ने समायोजन गर्छ।</p>
                         </details>
                     </article>
 

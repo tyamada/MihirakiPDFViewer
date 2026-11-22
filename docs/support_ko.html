@@ -361,6 +361,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -395,6 +410,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">버전 1.1.0 미리 보기</h2>
+            <p>이 페이지에는 출시 예정인 버전 1.1.0에 대한 설명이 포함되어 있습니다. App Store 링크는 현재 배포 중인 버전을 열므로 이용할 수 있는 기능은 다를 수 있습니다. 출시일은 아직 정해지지 않았습니다. 현재 앱은 일본 App Store에서 이용할 수 있습니다.</p>
+        </aside>
+
         <section class="hero">
             <div class="container hero-inner">
                 <div>
@@ -490,7 +510,7 @@
                         </details>
                         <details>
                             <summary>화면이 흐릿해 보이면 어떻게 해야 하나요?</summary>
-                            <p>폭이 좁은 세로 화면에서는 기본적으로 한 페이지를 표시합니다. 해당 화면에서도 두 페이지 보기를 유지하려면 세로 방향의 단일 페이지 옵션을 끄세요. 폭이 넓은 레이아웃에서는 선택한 두 페이지 설정이 유지됩니다. 설정에서 표지 처리 방식도 변경할 수 있습니다.</p>
+                            <p>High Quality: PDF 페이지를 더 높은 해상도로 렌더링합니다. Sharpness: 텍스트와 선을 선명하게 처리하는 강도를 조절합니다.</p>
                         </details>
                     </article>
 

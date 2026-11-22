@@ -361,6 +361,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -395,6 +410,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">Xem trước phiên bản 1.1.0</h2>
+            <p>Trang này có thông tin về phiên bản 1.1.0 dự kiến phát hành. Liên kết App Store mở phiên bản hiện có, nên các tính năng có thể khác. Ngày phát hành chưa được xác định. Hiện ứng dụng được cung cấp trên App Store Nhật Bản.</p>
+        </aside>
+
         <section class="hero">
             <div class="container hero-inner">
                 <div>
@@ -491,7 +511,7 @@
                         </details>
                         <details>
                             <summary>Tôi nên làm gì nếu màn hình hiển thị bị mờ?</summary>
-                            <p>Trên màn hình dọc hẹp, ứng dụng mặc định hiển thị một trang. Tắt tùy chọn một trang khi màn hình dọc để giữ chế độ hai trang trong trường hợp này. Với bố cục rộng hơn, cài đặt hai trang đã chọn vẫn có hiệu lực. Bạn cũng có thể điều chỉnh cách hiển thị bìa trong phần cài đặt.</p>
+                            <p>High Quality: Hiển thị các trang PDF ở độ phân giải cao hơn. Sharpness: Điều chỉnh mức độ làm sắc nét của văn bản và đường nét.</p>
                         </details>
                     </article>
 

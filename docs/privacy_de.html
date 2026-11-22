@@ -266,6 +266,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -300,6 +315,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">Vorschau auf Version 1.1.0</h2>
+            <p>Diese Seite enthält Informationen zur geplanten Version 1.1.0. Der App Store-Link öffnet die derzeit verfügbare Version; die verfügbaren Funktionen können daher abweichen. Ein Veröffentlichungsdatum steht noch nicht fest. Die App ist derzeit im japanischen App Store erhältlich.</p>
+        </aside>
+
         <section class="hero">
             <div class="container">
                 <p class="eyebrow">Datenschutzerklärung</p>
@@ -482,11 +502,12 @@
         <h2>Datenschutzerklärung</h2>
         <p>Die Datenschutzerklärung ist oben in den Einstellungen und unter App-Informationen erreichbar – vor dem Öffnen einer PDF und beim Lesen, ohne Kauf oder Anmeldung.</p>
         <p>Freier Speicherplatz wird nur auf diesem Gerät angezeigt. Geteilte Diagnoseberichte enthalten weder die Speicherprüfung noch ihren Wert oder ihren Einfluss auf das Gesamtergebnis. Protokolle können Verarbeitungsdauern enthalten, aber niemals die rohe Systemlaufzeit.</p>
-        <p>Zur Lesewiederherstellung werden Dokument-Lesezeichen, Seite, Anzeigeeinstellungen und Suchtext lokal gespeichert, keine PDF-Passwörter. Beispieldownloads verbinden sich auf Anfrage mit GitHub Pages. Auch diese Richtlinie und GitHub Issues öffnen externe Websites; deren Betreiber können IP-Adresse und Anfragedaten erhalten. Geteilte Berichte gehen an das gewählte Ziel. Für externe Dienste gelten eigene Datenschutzrichtlinien.</p>
+        <p>Zur Lesewiederherstellung werden Dokument-Lesezeichen, Seite, Anzeigeeinstellungen und Suchtext lokal gespeichert, keine PDF-Passwörter. Beispieldownloads verbinden sich auf Anfrage mit GitHub Releases. Auch diese Richtlinie und GitHub Issues öffnen externe Websites; deren Betreiber können IP-Adresse und Anfragedaten erhalten. Geteilte Berichte gehen an das gewählte Ziel. Für externe Dienste gelten eigene Datenschutzrichtlinien.</p>
     <p data-policy-topic="local-retention">PDF-Anzeige und Suche erfolgen auf dem Gerät. Zur Wiederherstellung werden Dokumentlesezeichen, Seitenpositionen, Suchtext und Anzeigeoptionen lokal gespeichert, jedoch keine PDF-Passwörter. Das Schließen des Dokuments oder Zurücksetzen der Einstellungen löscht den Wiederherstellungsdatensatz, nicht aber die PDF oder Diagnoseprotokolle. Einige importierte PDFs werden in den Dokumentbereich der App kopiert. Lokale App-Daten lassen sich durch Löschen der App im Betriebssystem entfernen, nicht durch Auslagern. Externe Originale und bereits geteilte Kopien werden dabei nicht gelöscht. Eine eigene Schaltfläche zum Löschen der Protokolle gibt es nicht.</p>
     </div>
 </section>
-        <section class="section" id="support-retention">
+    <section class="section" id="sample-catalog-network"><div class="container"><p data-policy-topic="sample-catalog-network" style="overflow-wrap:anywhere">Wenn Sie die Beispielliste öffnen, prüft die App auf GitHub, ob die neueste Katalog-JSON-Datei verfügbar ist. Wenn die Aktualisierung fehlschlägt, verwendet sie die zuletzt gültige gespeicherte Liste oder die mitgelieferte Liste. PDF-Dateien werden nur heruntergeladen, wenn Sie den Download auswählen. Bei der Kataloganfrage wird raw.githubusercontent.com kontaktiert; PDF-Downloads kontaktieren GitHub Releases. Diese Dienste können Ihre IP-Adresse und Informationen zur Anfrage erhalten.</p></div></section>
+    <section class="section" id="support-retention">
       <div class="container">
         <h2>Supportinformationen und Aufbewahrung</h2>
         <p>Wir verwenden Supportinformationen nur für Antworten, die Untersuchung von Problemen und technische Leistungsverbesserungen. Wir fragen nicht nach deinem echten Namen. Enthält der angezeigte Absendername deinen echten Namen, bewahren wir ihn nur in der ursprünglichen E-Mail auf, solange dies für Antworten und die Untersuchung nötig ist. Wir übertragen ihn nicht in fallbezogene Google-Sheets-Dateien oder Verbesserungsnotizen.</p>

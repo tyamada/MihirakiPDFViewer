@@ -361,6 +361,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -395,6 +410,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">Paunang tingin sa bersyon 1.1.0</h2>
+            <p>May impormasyon sa pahinang ito tungkol sa planong bersyon 1.1.0. Binubuksan ng link sa App Store ang kasalukuyang bersyon, kaya maaaring iba ang mga feature na magagamit. Wala pang itinakdang petsa ng paglabas. Kasalukuyang available ang app sa App Store ng Japan.</p>
+        </aside>
+
         <section class="hero">
             <div class="container hero-inner">
                 <div>
@@ -491,7 +511,7 @@
                         </details>
                         <details>
                             <summary>Ano ang dapat kong gawin kung mukhang malabo ang display?</summary>
-                            <p>Sa makitid na screen na patayo, isang pahina ang ipinapakita bilang default. I-off ang opsyon ng isang pahina sa patayong screen upang mapanatili ang dalawang-pahinang view doon. Sa mas malapad na layout, nananatiling epektibo ang napiling setting ng dalawang pahina. Maaari ring ayusin ang cover page sa mga setting.</p>
+                            <p>High Quality: Nire-render ang mga pahina ng PDF sa mas mataas na resolution. Sharpness: Ina-adjust kung gaano katindi ang pagpapatalas sa teksto at mga linya.</p>
                         </details>
                     </article>
 

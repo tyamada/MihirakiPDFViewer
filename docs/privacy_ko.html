@@ -266,6 +266,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -300,6 +315,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">버전 1.1.0 미리 보기</h2>
+            <p>이 페이지에는 출시 예정인 버전 1.1.0에 대한 설명이 포함되어 있습니다. App Store 링크는 현재 배포 중인 버전을 열므로 이용할 수 있는 기능은 다를 수 있습니다. 출시일은 아직 정해지지 않았습니다. 현재 앱은 일본 App Store에서 이용할 수 있습니다.</p>
+        </aside>
+
         <section class="hero">
             <div class="container">
                 <p class="eyebrow">개인정보 처리방침</p>
@@ -482,11 +502,12 @@
         <h2>개인정보 처리방침</h2>
         <p>설정 상단이나 앱 정보에서 개인정보 처리방침을 열 수 있습니다. PDF를 선택하기 전이나 읽는 중에도 구매나 로그인 없이 이용할 수 있습니다.</p>
         <p>남은 저장 공간은 이 기기에만 표시됩니다. 공유하는 진단 텍스트에는 저장 공간 검사, 수치, 해당 검사가 종합 결과에 미치는 영향이 포함되지 않습니다. 로그에는 처리 경과 시간이 포함될 수 있지만 원시 시스템 가동 시간은 포함되지 않습니다.</p>
-        <p>읽기 복원을 위해 문서 북마크, 페이지, 표시 설정, 검색어를 기기에 저장하며 PDF 비밀번호는 저장하지 않습니다. 샘플 다운로드를 요청하면 GitHub Pages에 연결합니다. 이 방침이나 GitHub Issues를 열 때도 외부 사이트에 연결하며 운영자가 IP 주소와 요청 정보를 받을 수 있습니다. 보고서는 사용자가 선택한 대상으로 공유됩니다. 외부 서비스에는 해당 서비스의 개인정보 처리방침이 적용됩니다.</p>
+        <p>읽기 복원을 위해 문서 북마크, 페이지, 표시 설정, 검색어를 기기에 저장하며 PDF 비밀번호는 저장하지 않습니다. 샘플 다운로드를 요청하면 GitHub Releases에 연결합니다. 이 방침이나 GitHub Issues를 열 때도 외부 사이트에 연결하며 운영자가 IP 주소와 요청 정보를 받을 수 있습니다. 보고서는 사용자가 선택한 대상으로 공유됩니다. 외부 서비스에는 해당 서비스의 개인정보 처리방침이 적용됩니다.</p>
     <p data-policy-topic="local-retention">PDF 표시와 검색은 기기에서 처리합니다. 읽기 복원용 문서 북마크, 페이지 위치, 검색어, 표시 옵션은 로컬에 저장하지만 PDF 암호는 저장하지 않습니다. 문서를 닫거나 설정을 재설정하면 복원 기록이 삭제되지만 PDF와 진단 로그는 삭제되지 않습니다. 일부 가져온 PDF는 앱의 Documents 저장 공간에 복사됩니다. 로컬 앱 데이터를 삭제하려면 OS의 앱 삭제를 사용하고, 데이터를 유지하는 앱 정리 기능과 구분하세요. 외부 원본과 이미 공유한 사본은 삭제되지 않습니다. 로그 전용 삭제 버튼은 없습니다.</p>
     </div>
 </section>
-        <section class="section" id="support-retention">
+    <section class="section" id="sample-catalog-network"><div class="container"><p data-policy-topic="sample-catalog-network" style="overflow-wrap:anywhere">샘플 목록을 열면 앱이 GitHub에서 최신 카탈로그 JSON을 확인합니다. 업데이트에 실패하면 마지막으로 저장된 유효한 목록이나 앱에 포함된 목록을 사용합니다. PDF 파일은 사용자가 다운로드를 선택한 경우에만 다운로드됩니다. 카탈로그 요청은 raw.githubusercontent.com에 연결하고, PDF 다운로드는 GitHub Releases에 연결합니다. 이러한 서비스는 사용자의 IP 주소와 요청 정보를 받을 수 있습니다.</p></div></section>
+    <section class="section" id="support-retention">
       <div class="container">
         <h2>지원 정보의 보관</h2>
         <p>지원 정보는 답변, 문제 조사 및 기술적 성능 개선에만 사용합니다. 실명 입력을 요구하지 않습니다. 발신자의 표시 이름에 실명이 포함된 경우 답변과 조사에 필요한 기간 동안 원본 이메일 안에서만 보관하며, 사례별 Google Sheets나 개선 메모에 옮겨 적지 않습니다.</p>

@@ -36,7 +36,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -113,7 +113,7 @@
         }
 
         main {
-            overflow: hidden;
+            overflow: visible;
         }
 
         .hero {
@@ -336,7 +336,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -367,6 +381,21 @@
                 padding: 56px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -401,6 +430,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">Paunang tingin sa bersyon 1.1.0</h2>
+            <p>May impormasyon sa pahinang ito tungkol sa planong bersyon 1.1.0. Binubuksan ng link sa App Store ang kasalukuyang bersyon, kaya maaaring iba ang mga feature na magagamit. Wala pang itinakdang petsa ng paglabas. Kasalukuyang available ang app sa App Store ng Japan.</p>
+        </aside>
+
         <section class="hero">
             <div class="hero-copy">
                 <p class="eyebrow">Isang manonood para sa kanan-pakaliwa na mga PDF at Japanese na aklat</p>
@@ -459,12 +493,12 @@
                     <article class="feature">
                         <div class="feature-badge">1</div>
                         <h3>Kanan-papuntang-kaliwa at kaliwa-papuntang-kanang suporta</h3>
-                        <p>Pinapalitan ang paggalaw ng page sa pagitan ng L2R at R2L batay sa direksyon ng PDF.</p>
+                        <p>Pinapalitan ang paggalaw ng page sa pagitan ng L2R at R2L batay sa direksyon ng PDF, at binubuksan ang mga right-to-left na dokumento sa unang page.</p>
                     </article>
                     <article class="feature">
                         <div class="feature-badge">2</div>
                         <h3>Single-page at two-page view</h3>
-                        <p>Magbasa nang may layout na akma sa dokumento, na may paghawak sa takip kapag kinakailangan.</p>
+                        <p>Nagpapakita ng tig-isang pahina sa patayong lugar ng pagbabasa, kasama ang malalapad na layout ng iPad. I-off ang opsyong ito para mapanatili ang napiling setting para sa dalawang pahina sa patayong layout.</p>
                     </article>
                     <article class="feature">
                         <div class="feature-badge">3</div>
@@ -476,6 +510,11 @@
                         <h3>Mga PDF na protektado ng password</h3>
                         <p>Buksan ang mga PDF na nangangailangan ng password ng user at magpatuloy sa pagbabasa pagkatapos ng pag-unlock.</p>
                     </article>
+                    <article class="feature">
+                        <div class="feature-badge">5</div>
+                        <h3>Talaan ng Nilalaman</h3>
+                        <p>Buksan ang outline ng PDF mula sa reader at direktang pumunta sa napiling kabanata o seksyon.</p>
+                    </article>
                 </div>
             </div>
         </section>
@@ -484,7 +523,7 @@
     <div class="container">
         <div class="section-heading">
             <h2>On-device na diagnostic at mga log ng app</h2>
-            <p>Sa ibaba ng Settings, magpatakbo ng mga pagsusuri sa impormasyon ng app, lokal na storage, at PDF rendering, o tingnan ang mga diagnostic log para siyasatin ang pag-crash, pagbagal, at mga problema sa paggamit o display. Kasama sa resulta ang oras ng pagsubok, pangalan ng device, OS version, at app version. Hindi kasama sa log ang personal na impormasyon, nilalaman, pangalan o path ng file, mga termino sa paghahanap, o password, at binubura ito pagkalipas ng 24 oras. Walang awtomatikong pagpapadala; aalis lang ang data sa device kapag tahasan mong ginamit ang Share.</p>
+            <p>Sa screen ng Diagnostics sa Settings, magpatakbo ng mga pagsusuri sa impormasyon ng app, lokal na storage, at PDF rendering, o tingnan ang mga diagnostic log para siyasatin ang pag-crash, pagbagal, at mga problema sa paggamit o display. Kasama sa resulta ang oras ng pagsubok, pangalan at identifier ng modelo ng device, OS version, at app version. Hindi kasama sa log ang personal na impormasyon, nilalaman, pangalan o path ng file, mga termino sa paghahanap, o password, at inaalis ang mga entry na lampas 24 oras kapag binabasa o nagtatala ng log. Walang awtomatikong pagpapadala; aalis lang ang data sa device kapag tahasan mong ginamit ang Share.</p>
         </div>
     </div>
 </section>
@@ -503,7 +542,7 @@
                         <figcaption>Paghahanap ng teksto sa loob ng mga PDF</figcaption>
                     </figure>
                     <figure class="screenshot-item">
-                        <img src="assets/screenshots/iphone/05_display_settings_en.png" srcset="assets/screenshots/iphone/05_display_settings_en.png 2622w, assets/screenshots/ipad/05_display_settings_en.png 2752w" sizes="(min-width: 900px) 264px, 100vw" alt="Screen ng mga setting ng display">
+                        <img src="assets/screenshots/iphone/05_display_settings_en.png" srcset="assets/screenshots/iphone/05_display_settings_en.png 1206w, assets/screenshots/ipad/05_display_settings_en.png 820w" sizes="(min-width: 900px) 264px, 100vw" alt="Screen ng mga setting ng display">
                         <figcaption>Isaayos ang mga setting ng spread at cover</figcaption>
                     </figure>
                     <figure class="screenshot-item">
@@ -557,16 +596,23 @@
                     <div>
                         <h2>Subukan ang MihirakiPDFViewer</h2>
                         <p>
-                            Pagkatapos ng paglabas ng App Store, palitan ang button na ito ng
-                            ang URL ng App Store.
+                            Available na ngayon ang app sa App Store ng Japan. Bubuksan ng button na ito ang page ng app sa App Store ng Japan.
                         </p>
                     </div>
-                    <a class="button" href="#" aria-label="I-download ang MihirakiPDFViewer sa App Store">
+                    <a class="button" href="https://apps.apple.com/jp/app/id6802023530" aria-label="I-download ang MihirakiPDFViewer sa App Store">
                         Kunin sa App Store
                     </a>
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>Patakaran sa Privacy</h2>
+        <p>Buksan ang Patakaran sa Privacy sa itaas ng Settings o sa App Information. Maaari itong buksan bago pumili ng PDF o habang nagbabasa, nang walang pagbili o pag-login.</p>
+        <p>Sa device lang ipinapakita ang libreng storage. Hindi kasama sa ibinabahaging diagnostic text ang pagsusuri ng storage, halaga nito, o epekto nito sa kabuuang resulta. Maaaring kasama sa mga log ang tagal ng pagproseso, ngunit hindi ang raw system uptime.</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">

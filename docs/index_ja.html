@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="MihirakiPDFViewerは、右綴じPDFや日本語書籍を自然なページ順で読めるシンプルなPDFビューアです。">
-    <title>MihirakiPDFViewer</title>
+    <meta name="description" content="見開きPDFビューアは、右綴じPDFや日本語書籍を自然なページ順で読めるシンプルなPDFビューアです。">
+    <title>見開きPDFビューア</title>
     <style>
         :root {
             color-scheme: light;
@@ -39,7 +39,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -115,7 +115,7 @@
         }
 
         main {
-            overflow: hidden;
+            overflow: visible;
         }
 
         .hero {
@@ -371,7 +371,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -402,6 +416,21 @@
                 padding: 56px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -409,7 +438,7 @@
         <nav class="nav" aria-label="メインナビゲーション">
             <a class="brand" href="#">
                 <img src="assets/icons/MihirakiPDFViewer-AppIcon.png" alt="" width="38" height="38">
-                <span>MihirakiPDFViewer</span>
+                <span>見開きPDFビューア</span>
             </a>
             <div class="nav-links">
                 <a href="#features">機能</a>
@@ -437,12 +466,17 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">バージョン1.1.0の予告</h2>
+            <p>このページには、次回公開予定のバージョン1.1.0についての説明が含まれます。App Storeのリンク先は現在配信中のバージョンのため、利用できる機能が異なる場合があります。公開日は未定です。現在の配信先は日本のApp Storeです。</p>
+        </aside>
+
         <section class="hero">
             <div class="hero-copy">
                 <p class="eyebrow">右綴じPDF・日本語書籍向けビューア</p>
                 <h1>見開きのPDFを、自然なページ順で。</h1>
                 <p>
-                    MihirakiPDFViewerは、右綴じの本や日本語書籍を読みやすく
+                    見開きPDFビューアは、右綴じの本や日本語書籍を読みやすく
                     表示するためのシンプルなPDFビューアです。ページレイアウトと
                     スクロール方向を読み取り、単ページ表示と見開き表示を快適に
                     切り替えられます。
@@ -452,8 +486,19 @@
                     <a class="button secondary" href="#screenshots">画面を見る</a>
                 </div>
             </div>
-            <div class="hero-media" aria-label="MihirakiPDFViewerの画面例">
-                <img class="phone-shot" src="assets/screenshots/iphone/02_spread_r2l.png" srcset="assets/screenshots/iphone/02_spread_r2l.png 2622w, assets/screenshots/ipad/02_spread_r2l.png 2752w" sizes="(min-width: 900px) 360px, 330px" alt="右綴じPDFを見開き表示しているMihirakiPDFViewerの画面">
+            <div class="hero-media" aria-label="見開きPDFビューアの画面例">
+                <img class="phone-shot" src="assets/screenshots/iphone/02_spread_r2l.png" srcset="assets/screenshots/iphone/02_spread_r2l.png 2622w, assets/screenshots/ipad/02_spread_r2l.png 2752w" sizes="(min-width: 900px) 360px, 330px" alt="右綴じPDFを見開き表示している見開きPDFビューアの画面">
+            </div>
+        </section>
+
+        <section class="section" id="next-update-preview" aria-labelledby="next-update-preview-title">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 id="next-update-preview-title">バージョン1.1.0予告｜日本語紹介ショート</h2>
+                    <p>開発中のバージョンを使った紹介動画です。公開中のバージョンとは内容が異なる場合があります。仕様・提供時期は変更になることがあります。</p>
+                    <p><a href="https://www.youtube.com/shorts/Dhs44gH1pRo">日本語紹介ショートを見る（YouTube）</a></p>
+                    <p>日本語ナレーション：VOICEVOX 春日部つむぎ（ノーマル）</p>
+                </div>
             </div>
         </section>
 
@@ -463,7 +508,7 @@
                     <h2>PDFのページ順に悩まない。</h2>
                     <p>
                         一般的なPDFビューアでは、右綴じの本や見開きPDFが
-                        期待どおりに並ばないことがあります。MihirakiPDFViewerは、
+                        期待どおりに並ばないことがあります。見開きPDFビューアは、
                         PDFの設定を読み取り、読む流れに合う表示へ整えます。
                     </p>
                 </div>
@@ -494,12 +539,12 @@
                     <article class="feature">
                         <div class="feature-badge">1</div>
                         <h3>右綴じ・左綴じに対応</h3>
-                        <p>PDFの方向設定をもとに、L2R/R2Lのページ移動を切り替えます。</p>
+                        <p>PDFの方向設定をもとにL2R/R2Lのページ移動を切り替え、右綴じの文書も最初のページから開きます。</p>
                     </article>
                     <article class="feature">
                         <div class="feature-badge">2</div>
                         <h3>単ページ・見開き表示</h3>
-                        <p>表紙あり/なしを調整しながら、文書に合うレイアウトで閲覧できます。</p>
+                        <p>縦長の閲覧領域では、iPadの幅広いレイアウトでも1ページずつ表示します。縦長でも選択した見開き設定を維持するには、この設定をオフにします。</p>
                     </article>
                     <article class="feature">
                         <div class="feature-badge">3</div>
@@ -511,6 +556,11 @@
                         <h3>パスワード付きPDF</h3>
                         <p>閲覧パスワードが必要なPDFも、入力後にそのまま読み進められます。</p>
                     </article>
+                    <article class="feature">
+                        <div class="feature-badge">5</div>
+                        <h3>目次</h3>
+                        <p>リーダーからPDFのアウトラインを開き、選択した章や節のページへ直接移動できます。</p>
+                    </article>
                 </div>
             </div>
         </section>
@@ -519,7 +569,7 @@
     <div class="container">
         <div class="section-heading">
             <h2>端末内診断とアプリログ</h2>
-            <p>設定画面の末尾から、アプリ情報、ローカルストレージ、PDF描画の実機テストを実行し、クラッシュ、スローダウン、操作や表示の不具合を調べる診断ログを確認できます。テスト結果には日時、端末名、OSとアプリのバージョンが含まれます。ログには個人情報、ファイル内容、ファイル名やパス、検索語句、パスワードを記録せず、24時間後に削除します。自動送信機能はなく、共有を明示的に操作した場合にのみ端末外へ渡されます。</p>
+            <p>設定画面の「診断」から、アプリ情報、ローカルストレージ、PDF描画の実機テストを実行し、クラッシュ、スローダウン、操作や表示の不具合を調べる診断ログを確認できます。テスト結果には日時、端末のモデル名とモデル識別子、OSとアプリのバージョンが含まれます。ログには個人情報、ファイル内容、ファイル名やパス、検索語句、パスワードを記録せず、読込・記録時に24時間を超えた記録を削除します。自動送信機能はなく、共有を明示的に操作した場合にのみ端末外へ渡されます。</p>
         </div>
     </div>
 </section>
@@ -538,7 +588,7 @@
                         <figcaption>PDF内のテキスト検索</figcaption>
                     </figure>
                     <figure class="screenshot-item">
-                        <img src="assets/screenshots/iphone/05_display_settings.png" srcset="assets/screenshots/iphone/05_display_settings.png 2622w, assets/screenshots/ipad/05_display_settings.png 2752w" sizes="(min-width: 900px) 264px, 100vw" alt="表示設定画面">
+                        <img src="assets/screenshots/iphone/05_display_settings.png" srcset="assets/screenshots/iphone/05_display_settings.png 402w, assets/screenshots/ipad/05_display_settings.png 820w" sizes="(min-width: 900px) 264px, 100vw" alt="表示設定画面">
                         <figcaption>見開きや表紙設定の調整</figcaption>
                     </figure>
                     <figure class="screenshot-item">
@@ -585,8 +635,8 @@
                 <div class="pricing-panel">
                     <p><strong>基本無料</strong>（広告なし）</p>
                     <p>
-                        MihirakiPDFViewerは無料でご利用いただけます。PDFの閲覧、
-                        見開き表示、右綴じ対応、検索といった主要機能は、
+                        見開きPDFビューアは無料かつ広告なしでご利用いただけます。PDFの閲覧、
+                        サンプルのダウンロード、見開き表示、右綴じ対応、検索といった主要機能は、
                         購入の有無にかかわらず制限なくお使いいただけます。
                     </p>
                     <p>
@@ -615,18 +665,25 @@
             <div class="container">
                 <div class="download">
                     <div>
-                        <h2>MihirakiPDFViewerを使ってみる</h2>
+                        <h2>見開きPDFビューアを使ってみる</h2>
                         <p>
-                            App Store公開後、このボタンのリンクをApp Store URLへ
-                            差し替えてください。
+                            アプリは現在、日本のApp Storeで配信中です。このボタンで日本のApp Storeのアプリページが開きます。
                         </p>
                     </div>
-                    <a class="button" href="#" aria-label="App StoreでMihirakiPDFViewerをダウンロード">
+                    <a class="button" href="https://apps.apple.com/jp/app/id6802023530" aria-label="App Storeで見開きPDFビューアをダウンロード">
                         App Storeで入手
                     </a>
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>プライバシーポリシー</h2>
+        <p>設定画面の先頭、または「アプリ情報」の「プライバシーポリシー」から開けます。PDF未選択時と閲覧中のどちらでも、購入やログインなしで利用できます。</p>
+        <p>空き容量は端末内だけで表示します。診断の共有本文からは、空き容量のチェック、数値、その成否が総合結果に与える影響を除外します。ログに処理の経過時間を含む場合がありますが、生のシステム起動時間は含みません。</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">

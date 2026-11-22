@@ -361,6 +361,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -395,6 +410,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">Prévia da versão 1.1.0</h2>
+            <p>Esta página inclui informações sobre a futura versão 1.1.0. O link da App Store abre a versão disponível no momento, por isso os recursos podem variar. A data de lançamento ainda não foi anunciada. O app está disponível atualmente na App Store do Japão.</p>
+        </aside>
+
         <section class="hero">
             <div class="container hero-inner">
                 <div>
@@ -489,7 +509,7 @@
                         </details>
                         <details>
                             <summary>O que devo fazer se a exibição parecer borrada?</summary>
-                            <p>Em telas estreitas na vertical, uma página é exibida por padrão. Desative a opção de página única na vertical para manter a visualização de duas páginas nessa situação. Em layouts mais largos, o ajuste de duas páginas selecionado continua ativo. Você também pode ajustar a capa nas configurações.</p>
+                            <p>High Quality: Renderiza as páginas do PDF em uma resolução mais alta. Sharpness: Ajusta a intensidade da nitidez do texto e das linhas.</p>
                         </details>
                     </article>
 

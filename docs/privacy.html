@@ -266,6 +266,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -300,6 +315,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">Preview of version 1.1.0</h2>
+            <p>This page includes information about the planned version 1.1.0. The App Store link opens the currently released version, so available features may differ. The release date has not been announced. The app is currently available on the Japan App Store.</p>
+        </aside>
+
         <section class="hero">
             <div class="container">
                 <p class="eyebrow">Privacy Policy</p>
@@ -483,10 +503,11 @@
         <h2>Privacy Policy</h2>
         <p>Open the Privacy Policy link at the top of Settings or in App Information. It is available before opening a PDF and while reading, without a purchase or login.</p>
         <p>Available disk space is displayed only on this device. Shared diagnostic text excludes the storage check, its value, and its effect on the overall result. Logs may include elapsed processing times, but never raw system uptime.</p>
-        <p>Reading restoration stores the document bookmark, page, viewing settings, and search text locally; PDF passwords are not saved. Sample downloads contact GitHub Pages only when requested. Opening this policy or GitHub Issues also contacts an external website, whose operator may receive the IP address and request information. Shared reports go only to the destination you choose. These external services have their own privacy policies.</p>
+        <p>Reading restoration stores the document bookmark, page, viewing settings, and search text locally; PDF passwords are not saved. Sample downloads contact GitHub Releases only when requested. Opening this policy or GitHub Issues also contacts an external website, whose operator may receive the IP address and request information. Shared reports go only to the destination you choose. These external services have their own privacy policies.</p>
     <p data-policy-topic="local-retention">PDF viewing and search run on the device. Reading restoration stores a document bookmark, page positions, search text and viewing options locally; PDF passwords are not saved. Closing the document or resetting settings clears the restoration record, but does not delete the PDF or diagnostic logs. Some imported PDFs are copied into the app&#x27;s Documents storage. To remove local app data, use the OS option to delete the app, not offload it. External originals and copies already shared are not deleted by that operation. There is no dedicated log-delete button.</p>
     </div>
 </section>
+<section class="section" id="sample-catalog-network"><div class="container"><p data-policy-topic="sample-catalog-network" style="overflow-wrap:anywhere">When you open the sample list, the app checks GitHub for the latest catalog JSON. If the update fails, it uses the last valid saved list or the bundled list. PDF files are downloaded only when you choose to download them. The catalog request contacts raw.githubusercontent.com; PDF downloads contact GitHub Releases. These services may receive your IP address and request information.</p></div></section>
     <section class="section" id="support-retention"><div class="container">
 <h2>Support information and retention</h2>
 <p>We use support information only to reply, investigate problems and make technical performance improvements. We do not request your real name. If your sender display name contains your real name, we retain it only in the original email for the period needed for replies and investigation; we do not copy it into case-specific Google Sheets or improvement notes.</p>

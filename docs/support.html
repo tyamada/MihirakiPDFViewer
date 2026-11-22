@@ -361,6 +361,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -395,6 +410,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">Preview of version 1.1.0</h2>
+            <p>This page includes information about the planned version 1.1.0. The App Store link opens the currently released version, so available features may differ. The release date has not been announced. The app is currently available on the Japan App Store.</p>
+        </aside>
+
         <section class="hero">
             <div class="container hero-inner">
                 <div>
@@ -491,7 +511,7 @@
                         </details>
                         <details>
                             <summary>What should I do if the display looks blurry?</summary>
-                            <p>On narrow portrait screens, the app defaults to single-page view. Turn off the single-page-in-portrait option to keep two-page view there. On wider layouts, the selected two-page setting remains effective. You can also adjust cover handling in Settings.</p>
+                            <p>High Quality: Renders PDF pages at a higher resolution. Sharpness: Adjusts how strongly text and lines are sharpened.</p>
                         </details>
                     </article>
 

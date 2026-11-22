@@ -36,7 +36,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -113,7 +113,7 @@
         }
 
         main {
-            overflow: hidden;
+            overflow: visible;
         }
 
         .hero {
@@ -336,7 +336,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -367,6 +381,21 @@
                 padding: 56px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -401,6 +430,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">Prévia da versão 1.1.0</h2>
+            <p>Esta página inclui informações sobre a futura versão 1.1.0. O link da App Store abre a versão disponível no momento, por isso os recursos podem variar. A data de lançamento ainda não foi anunciada. O app está disponível atualmente na App Store do Japão.</p>
+        </aside>
+
         <section class="hero">
             <div class="hero-copy">
                 <p class="eyebrow">Um visualizador para PDFs da direita para a esquerda e livros japoneses</p>
@@ -459,12 +493,12 @@
                     <article class="feature">
                         <div class="feature-badge">1</div>
                         <h3>Suporte da direita para a esquerda e da esquerda para a direita</h3>
-                        <p>Alterna o movimento das páginas entre L2R e R2L conforme a direção do PDF.</p>
+                        <p>Alterna o movimento das páginas entre L2R e R2L conforme a direção do PDF e abre documentos da direita para a esquerda na primeira página.</p>
                     </article>
                     <article class="feature">
                         <div class="feature-badge">2</div>
                         <h3>Visualização de uma página e de duas páginas</h3>
-                        <p>Leia com um layout adequado ao documento, com tratamento de capa quando necessário.</p>
+                        <p>Exibe uma página por vez em áreas de leitura na vertical, inclusive em layouts amplos do iPad. Desative esta opção para manter a configuração de duas páginas selecionada na vertical.</p>
                     </article>
                     <article class="feature">
                         <div class="feature-badge">3</div>
@@ -476,6 +510,11 @@
                         <h3>PDFs protegidos por senha</h3>
                         <p>Abra PDFs que exigem senha de usuário e continue lendo após desbloquear.</p>
                     </article>
+                    <article class="feature">
+                        <div class="feature-badge">5</div>
+                        <h3>Sumário</h3>
+                        <p>Abra a estrutura do PDF no leitor e vá diretamente para o capítulo ou seção selecionada.</p>
+                    </article>
                 </div>
             </div>
         </section>
@@ -484,7 +523,7 @@
     <div class="container">
         <div class="section-heading">
             <h2>Diagnóstico no dispositivo e registros</h2>
-            <p>No fim dos Ajustes, execute testes de informações do app, armazenamento local e renderização de PDF ou consulte registros para investigar falhas, lentidão e problemas de operação ou exibição. Os resultados incluem data e hora, nome do dispositivo e versões do sistema e do app. Os registros não incluem dados pessoais, conteúdo, nomes ou caminhos de arquivos, termos de busca ou senhas e são apagados após 24 horas. Nada é enviado automaticamente; os dados só saem do dispositivo quando você usa Compartilhar de forma explícita.</p>
+            <p>Na tela Diagnóstico dos Ajustes, execute testes de informações do app, armazenamento local e renderização de PDF ou consulte registros para investigar falhas, lentidão e problemas de operação ou exibição. Os resultados incluem data e hora, nome e identificador do modelo do dispositivo e versões do sistema e do app. Os registros não incluem dados pessoais, conteúdo, nomes ou caminhos de arquivos, termos de busca ou senhas e as entradas com mais de 24 horas são removidas ao ler ou registrar. Nada é enviado automaticamente; os dados só saem do dispositivo quando você usa Compartilhar de forma explícita.</p>
         </div>
     </div>
 </section>
@@ -503,7 +542,7 @@
                         <figcaption>Busca de texto em PDFs</figcaption>
                     </figure>
                     <figure class="screenshot-item">
-                        <img src="assets/screenshots/iphone/05_display_settings_en.png" srcset="assets/screenshots/iphone/05_display_settings_en.png 2622w, assets/screenshots/ipad/05_display_settings_en.png 2752w" sizes="(min-width: 900px) 264px, 100vw" alt="Tela de ajustes de exibição">
+                        <img src="assets/screenshots/iphone/05_display_settings_en.png" srcset="assets/screenshots/iphone/05_display_settings_en.png 1206w, assets/screenshots/ipad/05_display_settings_en.png 820w" sizes="(min-width: 900px) 264px, 100vw" alt="Tela de ajustes de exibição">
                         <figcaption>Ajuste páginas duplas e capa</figcaption>
                     </figure>
                     <figure class="screenshot-item">
@@ -557,16 +596,23 @@
                     <div>
                         <h2>Experimente o MihirakiPDFViewer</h2>
                         <p>
-                            Após o lançamento na App Store, substitua este botão pela
-                            URL da App Store.
+                            O app está disponível atualmente na App Store do Japão. Este botão abre a página do app na App Store do Japão.
                         </p>
                     </div>
-                    <a class="button" href="#" aria-label="Baixar MihirakiPDFViewer na App Store">
+                    <a class="button" href="https://apps.apple.com/jp/app/id6802023530" aria-label="Baixar MihirakiPDFViewer na App Store">
                         Obter na App Store
                     </a>
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>Política de privacidade</h2>
+        <p>Abra a política de privacidade no início dos Ajustes ou em Informações do app, antes de abrir um PDF ou durante a leitura, sem compra ou login.</p>
+        <p>O espaço livre é mostrado apenas neste dispositivo. O diagnóstico compartilhado exclui a verificação de armazenamento, seu valor e seu efeito no resultado geral. Os registros podem incluir durações de processamento, mas nunca o tempo bruto de atividade do sistema.</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">

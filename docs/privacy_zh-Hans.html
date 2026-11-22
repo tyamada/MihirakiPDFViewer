@@ -266,6 +266,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -300,6 +315,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">1.1.0 版本预告</h2>
+            <p>本页包含计划发布的 1.1.0 版本的相关说明。App Store 链接会打开当前已发布的版本，可用功能可能有所不同。发布日期尚未确定。目前本应用仅在日本 App Store 提供。</p>
+        </aside>
+
         <section class="hero">
             <div class="container">
                 <p class="eyebrow">隐私政策</p>
@@ -482,11 +502,12 @@
         <h2>隐私政策</h2>
         <p>可从设置顶部或“应用信息”打开隐私政策。无论尚未选择 PDF 还是正在阅读，都无需购买或登录。</p>
         <p>可用存储空间仅在本设备上显示。共享的诊断文本不包含存储空间检查、数值及其对总体结果的影响。日志可能包含处理耗时，但不包含原始系统运行时间。</p>
-        <p>阅读恢复功能在本地保存文档书签、页码、显示设置和搜索词，不保存 PDF 密码。请求下载示例时会连接 GitHub Pages。打开本政策或 GitHub Issues 也会访问外部网站，其运营者可能收到 IP 地址和请求信息。报告仅共享到您选择的目标。外部服务适用各自的隐私政策。</p>
+        <p>阅读恢复功能在本地保存文档书签、页码、显示设置和搜索词，不保存 PDF 密码。请求下载示例时会连接 GitHub Releases。打开本政策或 GitHub Issues 也会访问外部网站，其运营者可能收到 IP 地址和请求信息。报告仅共享到您选择的目标。外部服务适用各自的隐私政策。</p>
     <p data-policy-topic="local-retention">PDF显示和搜索在设备上处理。阅读恢复会在本地保存文档书签、页面位置、搜索文本和显示选项，但不保存PDF密码。关闭文档或重置设置会删除恢复记录，但不会删除PDF或诊断日志。部分导入的PDF会复制到应用的Documents存储区。要移除本地应用数据，请使用系统的“删除App”，而不是保留数据的“卸载App”。外部原件和已共享的副本不会因此删除。没有专门删除日志的按钮。</p>
     </div>
 </section>
-        <section class="section" id="support-retention">
+    <section class="section" id="sample-catalog-network"><div class="container"><p data-policy-topic="sample-catalog-network" style="overflow-wrap:anywhere">打开示例列表时，应用会检查 GitHub 上是否有最新的目录 JSON。若更新失败，应用会使用上一次有效保存的列表或随应用提供的列表。只有在您选择下载时，才会下载 PDF 文件。目录请求会联系 raw.githubusercontent.com；PDF 下载会联系 GitHub Releases。这些服务可能会收到您的 IP 地址和请求信息。</p></div></section>
+    <section class="section" id="support-retention">
       <div class="container">
         <h2>支持信息的保留与删除</h2>
         <p>支持信息仅用于回复、调查问题和技术性性能改进。我们不要求填写真实姓名。如果发件人的显示名称包含真实姓名，仅在回复和调查所需的期间内将其保留在原始邮件中，不会抄录到每个个案的Google Sheets或改进笔记中。</p>

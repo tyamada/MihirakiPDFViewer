@@ -36,7 +36,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -113,7 +113,7 @@
         }
 
         main {
-            overflow: hidden;
+            overflow: visible;
         }
 
         .hero {
@@ -336,7 +336,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -367,6 +381,21 @@
                 padding: 56px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -401,6 +430,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">Xem trước phiên bản 1.1.0</h2>
+            <p>Trang này có thông tin về phiên bản 1.1.0 dự kiến phát hành. Liên kết App Store mở phiên bản hiện có, nên các tính năng có thể khác. Ngày phát hành chưa được xác định. Hiện ứng dụng được cung cấp trên App Store Nhật Bản.</p>
+        </aside>
+
         <section class="hero">
             <div class="hero-copy">
                 <p class="eyebrow">Trình xem các tệp PDF từ phải sang trái và sách tiếng Nhật</p>
@@ -459,12 +493,12 @@
                     <article class="feature">
                         <div class="feature-badge">1</div>
                         <h3>Hỗ trợ từ phải sang trái và từ trái sang phải</h3>
-                        <p>Chuyển đổi chuyển động của trang giữa L2R và R2L dựa trên hướng PDF.</p>
+                        <p>Chuyển đổi chuyển động của trang giữa L2R và R2L dựa trên hướng PDF, đồng thời mở tài liệu từ phải sang trái ở trang đầu tiên.</p>
                     </article>
                     <article class="feature">
                         <div class="feature-badge">2</div>
                         <h3>Chế độ xem một trang và hai trang</h3>
-                        <p>Đọc với bố cục phù hợp với tài liệu và xử lý bìa khi cần.</p>
+                        <p>Hiển thị từng trang trong vùng đọc theo chiều dọc, kể cả trên bố cục rộng của iPad. Tắt tùy chọn này để giữ cài đặt hai trang đã chọn khi đọc theo chiều dọc.</p>
                     </article>
                     <article class="feature">
                         <div class="feature-badge">3</div>
@@ -476,6 +510,11 @@
                         <h3>Tệp PDF được bảo vệ bằng mật khẩu</h3>
                         <p>Mở các tệp PDF yêu cầu mật khẩu người dùng và tiếp tục đọc sau khi mở khóa.</p>
                     </article>
+                    <article class="feature">
+                        <div class="feature-badge">5</div>
+                        <h3>Mục lục</h3>
+                        <p>Mở dàn ý PDF từ trình đọc và chuyển thẳng đến chương hoặc phần đã chọn.</p>
+                    </article>
                 </div>
             </div>
         </section>
@@ -484,7 +523,7 @@
     <div class="container">
         <div class="section-heading">
             <h2>Chẩn đoán trên thiết bị và nhật ký ứng dụng</h2>
-            <p>Ở cuối phần Cài đặt, bạn có thể chạy kiểm tra thông tin ứng dụng, bộ nhớ cục bộ và kết xuất PDF, hoặc xem nhật ký chẩn đoán để tìm nguyên nhân sự cố, chậm, lỗi thao tác hay hiển thị. Kết quả gồm thời gian kiểm tra, tên thiết bị, phiên bản hệ điều hành và ứng dụng. Nhật ký không chứa thông tin cá nhân, nội dung, tên hoặc đường dẫn tệp, từ khóa tìm kiếm hay mật khẩu và được xóa sau 24 giờ. Không có dữ liệu nào được tự động gửi; dữ liệu chỉ rời thiết bị khi bạn chủ động dùng Chia sẻ.</p>
+            <p>Trong màn hình Chẩn đoán của phần Cài đặt, bạn có thể chạy kiểm tra thông tin ứng dụng, bộ nhớ cục bộ và kết xuất PDF, hoặc xem nhật ký chẩn đoán để tìm nguyên nhân sự cố, chậm, lỗi thao tác hay hiển thị. Kết quả gồm thời gian kiểm tra, tên và mã định danh kiểu máy, phiên bản hệ điều hành và ứng dụng. Nhật ký không chứa thông tin cá nhân, nội dung, tên hoặc đường dẫn tệp, từ khóa tìm kiếm hay mật khẩu và các mục quá 24 giờ được xóa khi đọc hoặc ghi nhật ký. Không có dữ liệu nào được tự động gửi; dữ liệu chỉ rời thiết bị khi bạn chủ động dùng Chia sẻ.</p>
         </div>
     </div>
 </section>
@@ -503,7 +542,7 @@
                         <figcaption>Tìm kiếm văn bản bên trong tệp PDF</figcaption>
                     </figure>
                     <figure class="screenshot-item">
-                        <img src="assets/screenshots/iphone/05_display_settings_en.png" srcset="assets/screenshots/iphone/05_display_settings_en.png 2622w, assets/screenshots/ipad/05_display_settings_en.png 2752w" sizes="(min-width: 900px) 264px, 100vw" alt="Hiển thị màn hình cài đặt">
+                        <img src="assets/screenshots/iphone/05_display_settings_en.png" srcset="assets/screenshots/iphone/05_display_settings_en.png 1206w, assets/screenshots/ipad/05_display_settings_en.png 820w" sizes="(min-width: 900px) 264px, 100vw" alt="Hiển thị màn hình cài đặt">
                         <figcaption>Điều chỉnh cài đặt chênh lệch và bìa</figcaption>
                     </figure>
                     <figure class="screenshot-item">
@@ -557,16 +596,23 @@
                     <div>
                         <h2>Hãy thử MihirakiPDFViewer</h2>
                         <p>
-                            Sau khi phát hành App Store, hãy thay thế nút này bằng
-                            URL của Cửa hàng ứng dụng.
+                            Ứng dụng hiện có trên App Store Nhật Bản. Nút này mở trang ứng dụng trên App Store Nhật Bản.
                         </p>
                     </div>
-                    <a class="button" href="#" aria-label="Tải xuống MihirakiPDFViewer trên App Store">
+                    <a class="button" href="https://apps.apple.com/jp/app/id6802023530" aria-label="Tải xuống MihirakiPDFViewer trên App Store">
                         Truy cập App Store
                     </a>
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>Chính sách quyền riêng tư</h2>
+        <p>Mở chính sách quyền riêng tư ở đầu phần Cài đặt hoặc trong Thông tin ứng dụng. Bạn có thể mở trước khi chọn PDF hoặc trong khi đọc, không cần mua hay đăng nhập.</p>
+        <p>Dung lượng lưu trữ trống chỉ hiển thị trên thiết bị này. Văn bản chẩn đoán được chia sẻ không chứa kiểm tra dung lượng, giá trị hoặc ảnh hưởng của kiểm tra đó đến kết quả tổng thể. Nhật ký có thể chứa thời gian xử lý, nhưng không chứa thời gian hoạt động hệ thống thô.</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">

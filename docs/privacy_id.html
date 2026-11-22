@@ -266,6 +266,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -300,6 +315,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">Pratinjau versi 1.1.0</h2>
+            <p>Halaman ini mencakup informasi tentang versi 1.1.0 yang direncanakan. Tautan App Store membuka versi yang saat ini tersedia, sehingga fiturnya mungkin berbeda. Tanggal rilis belum ditentukan. Aplikasi saat ini tersedia di App Store Jepang.</p>
+        </aside>
+
         <section class="hero">
             <div class="container">
                 <p class="eyebrow">Kebijakan Privasi</p>
@@ -482,11 +502,12 @@
         <h2>Kebijakan Privasi</h2>
         <p>Buka Kebijakan Privasi di bagian atas Pengaturan atau di Informasi Aplikasi. Tersedia sebelum memilih PDF dan saat membaca, tanpa pembelian atau login.</p>
         <p>Ruang penyimpanan kosong hanya ditampilkan di perangkat ini. Teks diagnostik yang dibagikan tidak menyertakan pemeriksaan ruang, nilainya, atau pengaruhnya pada hasil keseluruhan. Log dapat memuat durasi pemrosesan, tetapi tidak memuat waktu aktif sistem mentah.</p>
-        <p>Pemulihan bacaan menyimpan bookmark dokumen, halaman, pengaturan tampilan, dan teks pencarian secara lokal; kata sandi PDF tidak disimpan. Unduhan contoh menghubungi GitHub Pages saat diminta. Membuka kebijakan ini atau GitHub Issues juga menghubungi situs eksternal yang pengelolanya dapat menerima alamat IP dan informasi permintaan. Laporan dibagikan ke tujuan yang Anda pilih. Layanan eksternal memiliki kebijakan privasi masing-masing.</p>
+        <p>Pemulihan bacaan menyimpan bookmark dokumen, halaman, pengaturan tampilan, dan teks pencarian secara lokal; kata sandi PDF tidak disimpan. Unduhan contoh menghubungi GitHub Releases saat diminta. Membuka kebijakan ini atau GitHub Issues juga menghubungi situs eksternal yang pengelolanya dapat menerima alamat IP dan informasi permintaan. Laporan dibagikan ke tujuan yang Anda pilih. Layanan eksternal memiliki kebijakan privasi masing-masing.</p>
     <p data-policy-topic="local-retention">Tampilan dan pencarian PDF diproses di perangkat. Pemulihan membaca menyimpan penanda dokumen, posisi halaman, teks pencarian dan opsi tampilan secara lokal, tetapi tidak menyimpan kata sandi PDF. Menutup dokumen atau mengatur ulang pengaturan menghapus catatan pemulihan, bukan PDF atau log diagnostik. Beberapa PDF yang diimpor disalin ke penyimpanan Documents aplikasi. Untuk menghapus data lokal, gunakan penghapusan aplikasi pada OS, bukan penghapusan aplikasi sementara yang mempertahankan data. Dokumen asli eksternal dan salinan yang sudah dibagikan tidak ikut dihapus. Tidak ada tombol khusus untuk menghapus log.</p>
     </div>
 </section>
-        <section class="section" id="support-retention">
+    <section class="section" id="sample-catalog-network"><div class="container"><p data-policy-topic="sample-catalog-network" style="overflow-wrap:anywhere">Saat Anda membuka daftar contoh, aplikasi memeriksa GitHub untuk mengetahui apakah JSON katalog terbaru tersedia. Jika pembaruan gagal, aplikasi menggunakan daftar tersimpan terakhir yang valid atau daftar bawaan aplikasi. File PDF hanya diunduh jika Anda memilih untuk mengunduhnya. Permintaan katalog menghubungi raw.githubusercontent.com; unduhan PDF menghubungi GitHub Releases. Layanan ini dapat menerima alamat IP dan informasi permintaan Anda.</p></div></section>
+    <section class="section" id="support-retention">
       <div class="container">
         <h2>Informasi dukungan dan penyimpanan</h2>
         <p>Informasi dukungan hanya digunakan untuk membalas, menyelidiki masalah, dan melakukan perbaikan teknis pada kinerja. Kami tidak meminta nama asli. Jika nama tampilan pengirim memuat nama asli, nama itu disimpan hanya di email asli selama diperlukan untuk balasan dan penyelidikan; tidak disalin ke Google Sheets per kasus atau catatan perbaikan.</p>

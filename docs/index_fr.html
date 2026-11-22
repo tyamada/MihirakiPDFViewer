@@ -36,7 +36,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -113,7 +113,7 @@
         }
 
         main {
-            overflow: hidden;
+            overflow: visible;
         }
 
         .hero {
@@ -336,7 +336,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -367,6 +381,21 @@
                 padding: 56px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -401,6 +430,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">Aperçu de la version 1.1.0</h2>
+            <p>Cette page contient des informations sur la version 1.1.0 à venir. Le lien App Store ouvre la version actuellement disponible ; les fonctionnalités peuvent donc différer. La date de sortie n’a pas encore été annoncée. L’app est actuellement disponible sur l’App Store japonais.</p>
+        </aside>
+
         <section class="hero">
             <div class="hero-copy">
                 <p class="eyebrow">Un lecteur pour les PDF de droite à gauche et les livres japonais</p>
@@ -459,12 +493,12 @@
                     <article class="feature">
                         <div class="feature-badge">1</div>
                         <h3>Prise en charge droite-gauche et gauche-droite</h3>
-                        <p>Change le mouvement des pages entre L2R et R2L selon la direction du PDF.</p>
+                        <p>Change le mouvement des pages entre L2R et R2L selon la direction du PDF et ouvre les documents de droite à gauche à leur première page.</p>
                     </article>
                     <article class="feature">
                         <div class="feature-badge">2</div>
                         <h3>Affichage simple page et double page</h3>
-                        <p>Lisez avec une mise en page adaptée au document, avec gestion de la couverture si nécessaire.</p>
+                        <p>Affiche une page à la fois dans les zones de lecture en orientation portrait, y compris dans les dispositions larges sur iPad. Désactivez cette option pour conserver le réglage double page choisi en orientation portrait.</p>
                     </article>
                     <article class="feature">
                         <div class="feature-badge">3</div>
@@ -476,6 +510,11 @@
                         <h3>PDF protégés par mot de passe</h3>
                         <p>Ouvrez les PDF nécessitant un mot de passe utilisateur et poursuivez la lecture après déverrouillage.</p>
                     </article>
+                    <article class="feature">
+                        <div class="feature-badge">5</div>
+                        <h3>Table des matières</h3>
+                        <p>Ouvrez le plan du PDF depuis le lecteur et accédez directement au chapitre ou à la section sélectionnée.</p>
+                    </article>
                 </div>
             </div>
         </section>
@@ -484,7 +523,7 @@
     <div class="container">
         <div class="section-heading">
             <h2>Diagnostic sur l’appareil et journaux</h2>
-            <p>En bas des Réglages, vous pouvez tester les informations de l’app, le stockage local et le rendu PDF, ou consulter les journaux de diagnostic des plantages, ralentissements et problèmes de fonctionnement ou d’affichage. Les résultats indiquent la date, l’appareil et les versions du système et de l’app. Les journaux excluent les données personnelles, le contenu, les noms et chemins de fichiers, les recherches et les mots de passe, puis sont supprimés après 24 heures. Aucun envoi n’est automatique : les données ne quittent l’appareil que si vous utilisez explicitement Partager.</p>
+            <p>Dans l’écran Diagnostic des Réglages, vous pouvez tester les informations de l’app, le stockage local et le rendu PDF, ou consulter les journaux de diagnostic des plantages, ralentissements et problèmes de fonctionnement ou d’affichage. Les résultats indiquent la date, le nom et l’identifiant du modèle de l’appareil, ainsi que les versions du système et de l’app. Les journaux excluent les données personnelles, le contenu, les noms et chemins de fichiers, les recherches et les mots de passe, et les entrées de plus de 24 heures sont supprimées lors de la lecture ou de l’enregistrement. Aucun envoi n’est automatique : les données ne quittent l’appareil que si vous utilisez explicitement Partager.</p>
         </div>
     </div>
 </section>
@@ -503,7 +542,7 @@
                         <figcaption>Recherche de texte dans les PDF</figcaption>
                     </figure>
                     <figure class="screenshot-item">
-                        <img src="assets/screenshots/iphone/05_display_settings_en.png" srcset="assets/screenshots/iphone/05_display_settings_en.png 2622w, assets/screenshots/ipad/05_display_settings_en.png 2752w" sizes="(min-width: 900px) 264px, 100vw" alt="Écran des réglages d’affichage">
+                        <img src="assets/screenshots/iphone/05_display_settings_en.png" srcset="assets/screenshots/iphone/05_display_settings_en.png 1206w, assets/screenshots/ipad/05_display_settings_en.png 820w" sizes="(min-width: 900px) 264px, 100vw" alt="Écran des réglages d’affichage">
                         <figcaption>Ajuster les doubles pages et la couverture</figcaption>
                     </figure>
                     <figure class="screenshot-item">
@@ -557,16 +596,23 @@
                     <div>
                         <h2>Essayez MihirakiPDFViewer</h2>
                         <p>
-                            Après la sortie sur l’App Store, remplacez ce bouton par
-                            l’URL de l’App Store.
+                            L’app est actuellement disponible sur l’App Store japonais. Ce bouton ouvre la fiche de l’app sur l’App Store japonais.
                         </p>
                     </div>
-                    <a class="button" href="#" aria-label="Télécharger MihirakiPDFViewer sur l’App Store">
+                    <a class="button" href="https://apps.apple.com/jp/app/id6802023530" aria-label="Télécharger MihirakiPDFViewer sur l’App Store">
                         Obtenir sur l’App Store
                     </a>
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>Politique de confidentialité</h2>
+        <p>La politique de confidentialité est accessible en haut des Réglages et dans Informations sur l’app, avant d’ouvrir un PDF ou pendant la lecture, sans achat ni connexion.</p>
+        <p>L’espace libre est affiché uniquement sur cet appareil. Le diagnostic partagé exclut le contrôle du stockage, sa valeur et son effet sur le résultat global. Les journaux peuvent inclure des durées de traitement, mais jamais la durée brute de fonctionnement du système.</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">

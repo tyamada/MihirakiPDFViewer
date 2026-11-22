@@ -365,6 +365,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -399,6 +414,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">バージョン1.1.0の予告</h2>
+            <p>このページには、次回公開予定のバージョン1.1.0についての説明が含まれます。App Storeのリンク先は現在配信中のバージョンのため、利用できる機能が異なる場合があります。公開日は未定です。現在の配信先は日本のApp Storeです。</p>
+        </aside>
+
         <section class="hero">
             <div class="container hero-inner">
                 <div>
@@ -430,6 +450,16 @@
                     <a class="quick-link" href="#viewing">表示と操作</a>
                     <a class="quick-link" href="#security">データ・セキュリティ</a>
                     <a class="quick-link" href="#troubleshooting">不具合対応</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="next-update-preview-guide" aria-labelledby="next-update-preview-guide-title">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 id="next-update-preview-guide-title">バージョン1.1.0予告</h2>
+                    <p>開発版による次回更新予告の日本語紹介ショートをご案内しています。公開中のバージョンとは内容が異なる場合があります。</p>
+                    <p><a href="index_ja.html#next-update-preview">日本語紹介ショートの予告案内を見る</a></p>
                 </div>
             </div>
         </section>
@@ -493,7 +523,7 @@
                         </details>
                         <details>
                             <summary>表示がぼやける場合はどうすればよいですか？</summary>
-                            <p>幅の狭い縦長画面では、単ページ表示がデフォルトです。その画面でも見開き表示を維持するには、縦向き時の単ページ表示をオフにします。幅に余裕のあるレイアウトでは、選択した見開き設定が有効です。設定で表紙の扱いも変更できます。</p>
+                            <p>High Quality: PDFページをより高い解像度で描画します。 Sharpness: 文字や線を鮮明にする強さを調整します。</p>
                         </details>
                     </article>
 

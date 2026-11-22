@@ -36,7 +36,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -113,7 +113,7 @@
         }
 
         main {
-            overflow: hidden;
+            overflow: visible;
         }
 
         .hero {
@@ -336,7 +336,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -367,6 +381,21 @@
                 padding: 56px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -401,6 +430,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">1.1.0 版本预告</h2>
+            <p>本页包含计划发布的 1.1.0 版本的相关说明。App Store 链接会打开当前已发布的版本，可用功能可能有所不同。发布日期尚未确定。目前本应用仅在日本 App Store 提供。</p>
+        </aside>
+
         <section class="hero">
             <div class="hero-copy">
                 <p class="eyebrow">适合从右到左 PDF 和日文书籍的阅读器</p>
@@ -459,12 +493,12 @@
                     <article class="feature">
                         <div class="feature-badge">1</div>
                         <h3>支持从右到左和从左到右</h3>
-                        <p>根据 PDF 方向在 L2R 和 R2L 页面移动之间切换。</p>
+                        <p>根据 PDF 方向在 L2R 和 R2L 页面移动之间切换，并从第一页打开从右到左的文档。</p>
                     </article>
                     <article class="feature">
                         <div class="feature-badge">2</div>
                         <h3>单页和双页视图</h3>
-                        <p>使用适合文档的布局阅读，并在需要时处理封面。</p>
+                        <p>在纵向阅读区域中每次显示一页，较宽的 iPad 布局也适用。关闭此选项可在纵向阅读区域中保留所选的双页设置。</p>
                     </article>
                     <article class="feature">
                         <div class="feature-badge">3</div>
@@ -476,6 +510,11 @@
                         <h3>受密码保护的 PDF</h3>
                         <p>打开需要用户密码的 PDF，并在解锁后继续阅读。</p>
                     </article>
+                    <article class="feature">
+                        <div class="feature-badge">5</div>
+                        <h3>目录</h3>
+                        <p>从阅读器打开 PDF 大纲，并直接跳转到所选章节。</p>
+                    </article>
                 </div>
             </div>
         </section>
@@ -484,7 +523,7 @@
     <div class="container">
         <div class="section-heading">
             <h2>设备端诊断与应用日志</h2>
-            <p>可在设置页面底部运行应用信息、本地存储和 PDF 渲染测试，或查看用于排查崩溃、变慢、操作和显示问题的诊断日志。测试结果包含测试时间、设备名称、系统版本和应用版本。日志不记录个人信息、文件内容、文件名或路径、搜索词和密码，并会在24小时后删除。应用不会自动发送这些信息；只有您明确使用“共享”时，结果或日志才会离开设备。</p>
+            <p>可在设置的“诊断”页面中运行应用信息、本地存储和 PDF 渲染测试，或查看用于排查崩溃、变慢、操作和显示问题的诊断日志。测试结果包含测试时间、设备型号名称和型号标识符、系统版本和应用版本。日志不记录个人信息、文件内容、文件名或路径、搜索词和密码，并会在读取或记录日志时移除超过24小时的记录。应用不会自动发送这些信息；只有您明确使用“共享”时，结果或日志才会离开设备。</p>
         </div>
     </div>
 </section>
@@ -503,7 +542,7 @@
                         <figcaption>PDF 内文本搜索</figcaption>
                     </figure>
                     <figure class="screenshot-item">
-                        <img src="assets/screenshots/iphone/05_display_settings_en.png" srcset="assets/screenshots/iphone/05_display_settings_en.png 2622w, assets/screenshots/ipad/05_display_settings_en.png 2752w" sizes="(min-width: 900px) 264px, 100vw" alt="显示设置界面">
+                        <img src="assets/screenshots/iphone/05_display_settings_en.png" srcset="assets/screenshots/iphone/05_display_settings_en.png 1206w, assets/screenshots/ipad/05_display_settings_en.png 820w" sizes="(min-width: 900px) 264px, 100vw" alt="显示设置界面">
                         <figcaption>调整跨页和封面设置</figcaption>
                     </figure>
                     <figure class="screenshot-item">
@@ -557,16 +596,23 @@
                     <div>
                         <h2>试用 MihirakiPDFViewer</h2>
                         <p>
-                            App Store 发布后，请将此按钮替换为
-                            App Store URL。
+                            此应用目前已在日本的 App Store 上架。点击此按钮可打开该应用在日本 App Store 的页面。
                         </p>
                     </div>
-                    <a class="button" href="#" aria-label="在 App Store 下载 MihirakiPDFViewer">
+                    <a class="button" href="https://apps.apple.com/jp/app/id6802023530" aria-label="在 App Store 下载 MihirakiPDFViewer">
                         在 App Store 获取
                     </a>
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>隐私政策</h2>
+        <p>可从设置顶部或“应用信息”打开隐私政策。无论尚未选择 PDF 还是正在阅读，都无需购买或登录。</p>
+        <p>可用存储空间仅在本设备上显示。共享的诊断文本不包含存储空间检查、数值及其对总体结果的影响。日志可能包含处理耗时，但不包含原始系统运行时间。</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">

@@ -36,7 +36,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -113,7 +113,7 @@
         }
 
         main {
-            overflow: hidden;
+            overflow: visible;
         }
 
         .hero {
@@ -336,7 +336,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -367,6 +381,21 @@
                 padding: 56px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -401,6 +430,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">Vorschau auf Version 1.1.0</h2>
+            <p>Diese Seite enthält Informationen zur geplanten Version 1.1.0. Der App Store-Link öffnet die derzeit verfügbare Version; die verfügbaren Funktionen können daher abweichen. Ein Veröffentlichungsdatum steht noch nicht fest. Die App ist derzeit im japanischen App Store erhältlich.</p>
+        </aside>
+
         <section class="hero">
             <div class="hero-copy">
                 <p class="eyebrow">Ein Viewer für PDFs von rechts nach links und japanische Bücher</p>
@@ -459,12 +493,12 @@
                     <article class="feature">
                         <div class="feature-badge">1</div>
                         <h3>Unterstützung für rechts nach links und links nach rechts</h3>
-                        <p>Wechselt die Seitenbewegung je nach PDF-Richtung zwischen L2R und R2L.</p>
+                        <p>Wechselt die Seitenbewegung je nach PDF-Richtung zwischen L2R und R2L und öffnet Dokumente mit Leserichtung von rechts nach links auf ihrer ersten Seite.</p>
                     </article>
                     <article class="feature">
                         <div class="feature-badge">2</div>
                         <h3>Einzelseiten- und Doppelseitenansicht</h3>
-                        <p>Lies mit einem Layout, das zum Dokument passt, bei Bedarf mit Titelblattbehandlung.</p>
+                        <p>Zeigt im Hochformat jeweils eine Seite an, auch in breiten iPad-Layouts. Deaktiviere diese Option, um die gewählte Doppelseiteneinstellung auch im Hochformat beizubehalten.</p>
                     </article>
                     <article class="feature">
                         <div class="feature-badge">3</div>
@@ -476,6 +510,11 @@
                         <h3>Passwortgeschützte PDFs</h3>
                         <p>Öffne PDFs mit Benutzerpasswort und lies nach dem Entsperren weiter.</p>
                     </article>
+                    <article class="feature">
+                        <div class="feature-badge">5</div>
+                        <h3>Inhaltsverzeichnis</h3>
+                        <p>Öffnen Sie die PDF-Gliederung im Reader und springen Sie direkt zu einem ausgewählten Kapitel oder Abschnitt.</p>
+                    </article>
                 </div>
             </div>
         </section>
@@ -484,7 +523,7 @@
     <div class="container">
         <div class="section-heading">
             <h2>Diagnose auf dem Gerät und App-Protokolle</h2>
-            <p>Am Ende der Einstellungen können Sie Tests für App-Informationen, lokalen Speicher und PDF-Darstellung ausführen oder Diagnoseprotokolle zu Abstürzen, Verlangsamungen sowie Bedienungs- und Darstellungsfehlern ansehen. Testergebnisse enthalten Zeitpunkt, Gerätename, OS- und App-Version. Protokolle enthalten keine personenbezogenen Daten, Dateiinhalte, Dateinamen oder -pfade, Suchbegriffe oder Passwörter und werden nach 24 Stunden gelöscht. Nichts wird automatisch gesendet; Daten verlassen das Gerät nur, wenn Sie Teilen ausdrücklich verwenden.</p>
+            <p>Auf dem Diagnosebildschirm in den Einstellungen können Sie Tests für App-Informationen, lokalen Speicher und PDF-Darstellung ausführen oder Diagnoseprotokolle zu Abstürzen, Verlangsamungen sowie Bedienungs- und Darstellungsfehlern ansehen. Testergebnisse enthalten Zeitpunkt, Modellname und Modellkennung, OS- und App-Version. Protokolle enthalten keine personenbezogenen Daten, Dateiinhalte, Dateinamen oder -pfade, Suchbegriffe oder Passwörter und Einträge, die älter als 24 Stunden sind, werden beim Lesen oder Aufzeichnen entfernt. Nichts wird automatisch gesendet; Daten verlassen das Gerät nur, wenn Sie Teilen ausdrücklich verwenden.</p>
         </div>
     </div>
 </section>
@@ -503,7 +542,7 @@
                         <figcaption>Textsuche in PDFs</figcaption>
                     </figure>
                     <figure class="screenshot-item">
-                        <img src="assets/screenshots/iphone/05_display_settings_en.png" srcset="assets/screenshots/iphone/05_display_settings_en.png 2622w, assets/screenshots/ipad/05_display_settings_en.png 2752w" sizes="(min-width: 900px) 264px, 100vw" alt="Anzeigeeinstellungen">
+                        <img src="assets/screenshots/iphone/05_display_settings_en.png" srcset="assets/screenshots/iphone/05_display_settings_en.png 1206w, assets/screenshots/ipad/05_display_settings_en.png 820w" sizes="(min-width: 900px) 264px, 100vw" alt="Anzeigeeinstellungen">
                         <figcaption>Doppelseiten und Titelblatteinstellungen anpassen</figcaption>
                     </figure>
                     <figure class="screenshot-item">
@@ -557,16 +596,23 @@
                     <div>
                         <h2>MihirakiPDFViewer ausprobieren</h2>
                         <p>
-                            Ersetze diese Schaltfläche nach der Veröffentlichung im App Store
-                            durch die App-Store-URL.
+                            Die App ist derzeit im japanischen App Store verfügbar. Diese Schaltfläche öffnet die App-Seite im japanischen App Store.
                         </p>
                     </div>
-                    <a class="button" href="#" aria-label="MihirakiPDFViewer im App Store laden">
+                    <a class="button" href="https://apps.apple.com/jp/app/id6802023530" aria-label="MihirakiPDFViewer im App Store laden">
                         Im App Store laden
                     </a>
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>Datenschutzerklärung</h2>
+        <p>Die Datenschutzerklärung ist oben in den Einstellungen und unter App-Informationen erreichbar – vor dem Öffnen einer PDF und beim Lesen, ohne Kauf oder Anmeldung.</p>
+        <p>Freier Speicherplatz wird nur auf diesem Gerät angezeigt. Geteilte Diagnoseberichte enthalten weder die Speicherprüfung noch ihren Wert oder ihren Einfluss auf das Gesamtergebnis. Protokolle können Verarbeitungsdauern enthalten, aber niemals die rohe Systemlaufzeit.</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">
