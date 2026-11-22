@@ -1,5 +1,7 @@
 # MihirakiPDFViewer
 
+公開状況・X案内の確認結果（2026-11-23）は[公開準備記録](docs/PUBLICATION_STATUS_20261123.ja.md)を参照してください。既存の保留事項は維持しています。
+
 [English](README.md) | 日本語
 
 右綴じの本（日本語の書籍など）の表示に適した、シンプルで直感的に
