@@ -36,7 +36,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -324,7 +324,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -347,6 +361,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -381,6 +410,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">Phiên bản 1.1.0 đã có mặt</h2>
+            <p>Phiên bản 1.1.0 được phát hành trên App Store Nhật Bản vào ngày 23 tháng 11 năm 2026. Hiện tại, ứng dụng chỉ có tại Nhật Bản.</p>
+        </aside>
+
         <section class="hero">
             <div class="container hero-inner">
                 <div>
@@ -477,11 +511,7 @@
                         </details>
                         <details>
                             <summary>Tôi nên làm gì nếu màn hình hiển thị bị mờ?</summary>
-                            <p>
-                                Bật Chất lượng cao hoặc Độ sắc nét trong cài đặt.
-                                Các tùy chọn này có thể tăng tải hiển thị trên một số
-                                thiết bị.
-                            </p>
+                            <p>High Quality: Hiển thị các trang PDF ở độ phân giải cao hơn. Sharpness: Điều chỉnh mức độ làm sắc nét của văn bản và đường nét.</p>
                         </details>
                     </article>
 
@@ -506,8 +536,7 @@
                         <details>
                             <summary>Mua hàng trong ứng dụng có cần thiết không?</summary>
                             <p>
-                                Không. Mẹo là mua hàng hỗ trợ tùy chọn. ứng dụng của
-                                tính năng đọc có thể được sử dụng mà không cần mua tiền boa.
+                                Không. Bronze, Silver và Gold là các sản phẩm mua tùy chọn không tiêu hao, mở khóa vĩnh viễn biểu tượng ứng dụng tương ứng. Các tính năng đọc đều miễn phí. Giá được hiển thị trên các nút mua.
                             </p>
                         </details>
                     </article>
@@ -546,7 +575,7 @@
     <div class="container">
         <div class="section-heading">
             <h2>Chẩn đoán trên thiết bị và nhật ký ứng dụng</h2>
-            <p>Trong màn hình Chẩn đoán của phần Cài đặt, bạn có thể chạy kiểm tra thông tin ứng dụng, bộ nhớ cục bộ và kết xuất PDF, hoặc xem nhật ký chẩn đoán để tìm nguyên nhân sự cố, chậm, lỗi thao tác hay hiển thị. Kết quả gồm thời gian kiểm tra, tên và mã định danh kiểu máy, phiên bản hệ điều hành và ứng dụng. Nhật ký không chứa thông tin cá nhân, nội dung, tên hoặc đường dẫn tệp, từ khóa tìm kiếm hay mật khẩu và được xóa sau 24 giờ. Không có dữ liệu nào được tự động gửi; dữ liệu chỉ rời thiết bị khi bạn chủ động dùng Chia sẻ.</p>
+            <p>Trong màn hình Chẩn đoán của phần Cài đặt, bạn có thể chạy kiểm tra thông tin ứng dụng, bộ nhớ cục bộ và kết xuất PDF, hoặc xem nhật ký chẩn đoán để tìm nguyên nhân sự cố, chậm, lỗi thao tác hay hiển thị. Kết quả gồm thời gian kiểm tra, tên và mã định danh kiểu máy, phiên bản hệ điều hành và ứng dụng. Nhật ký không chứa thông tin cá nhân, nội dung, tên hoặc đường dẫn tệp, từ khóa tìm kiếm hay mật khẩu và các mục quá 24 giờ được xóa khi đọc hoặc ghi nhật ký. Không có dữ liệu nào được tự động gửi; dữ liệu chỉ rời thiết bị khi bạn chủ động dùng Chia sẻ.</p>
         </div>
     </div>
 </section>
@@ -599,44 +628,23 @@
         </section>
 
         <section class="section" id="contact" aria-labelledby="contact-title">
-            <div class="container">
-                <div class="section-heading">
-                    <h2 id="contact-title">Báo cáo lỗi và liên hệ</h2>
-                    <p>
-                        Nếu vấn đề vẫn còn, vui lòng bao gồm môi trường của bạn và
-                        các bước sao chép khi liên hệ với bộ phận hỗ trợ.
-                    </p>
-                </div>
-                <div class="contact-grid">
-                    <article class="contact-card">
-                        <h3>Sự cố GitHub</h3>
-                        <p>
-                            Sử dụng Sự cố GitHub để báo cáo lỗi và yêu cầu tính năng.
-                            Không đính kèm các tệp PDF có chứa thông tin cá nhân hoặc bí mật
-                            thông tin.
-                        </p>
-                        <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">Các vấn đề về GitHub mở</a>
-                    </article>
-                    <article class="contact-card">
-                        <h3>Email</h3>
-                        <p>
-                            Sử dụng email cho các yêu cầu riêng tư. Trả lời có thể mất một số
-                            thời gian.
-                        </p>
-                        <a class="button secondary" href="mailto:takuma.yamada22@gmail.com">takuma.yamada22@gmail.com</a>
-                    </article>
-                </div>
-
-                <article class="notice" style="margin-top: 16px;">
-                    <h3>Thông tin cần bao gồm</h3>
-                    <p>
-                        Vui lòng bao gồm model thiết bị, phiên bản iOS/iPadOS, ứng dụng
-                        phiên bản, loại PDF, các bước sao chép và bất kỳ thông báo lỗi nào
-                        bạn đã thấy.
-                    </p>
-                </article>
-            </div>
-        </section>
+      <div class="container">
+        <h2 id="contact-title">Báo cáo sự cố và liên hệ riêng tư</h2>
+        <p>Trước tiên, hãy mô tả bằng văn bản: tóm tắt vấn đề, nêu các bước tái hiện, giải thích kết quả mong đợi và điều thực tế đã xảy ra. Cung cấp thiết bị, phiên bản hệ điều hành và ứng dụng khi có liên quan. Không cần ghi tên thật. Không gửi tệp PDF hoặc nội dung của tệp.</p>
+        <div class="contact-grid">
+          <article class="contact-card"><h3>Báo cáo lỗi công khai (GitHub Issues)</h3>
+            <p>Không đăng thông tin cá nhân, tệp PDF hoặc nội dung của tệp, tên tệp hay ảnh chụp màn hình lên Issue công khai.</p>
+            <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">Báo cáo lỗi công khai (GitHub Issues)</a>
+          </article>
+          <article class="contact-card"><h3>Liên hệ riêng tư (email)</h3>
+            <p>Thông thường, chúng tôi không yêu cầu ảnh chụp màn hình. Chỉ khi văn bản không đủ để tái hiện vấn đề và cần có hình ảnh, chúng tôi mới nhận ảnh qua tyamada.support@gmail.com. Trước khi gửi, hãy che nội dung PDF, tên tệp, tên người, thông báo và các thông tin không cần thiết cho việc điều tra.</p>
+            <a class="button secondary" href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a>
+          </article>
+        </div>
+        <p>Nếu đính kèm kết quả chẩn đoán hoặc nhật ký ứng dụng, hãy kiểm tra nội dung và người nhận trước khi gửi. Không có thông tin nào được gửi tự động. Bạn có thể xem cùng hướng dẫn qua Báo cáo sự cố trong Chẩn đoán và Trợ giúp của ứng dụng.</p>
+        <p><a href="privacy_vi.html#support-retention">Lưu giữ thông tin hỗ trợ: cách xử lý email, hình ảnh và hồ sơ vụ việc</a></p>
+      </div>
+    </section>
 
         <section class="section" id="updates" aria-labelledby="updates-title">
             <div class="container">
@@ -652,12 +660,21 @@
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>Chính sách quyền riêng tư</h2>
+        <p>Mở chính sách quyền riêng tư ở đầu phần Cài đặt hoặc trong Thông tin ứng dụng. Bạn có thể mở trước khi chọn PDF hoặc trong khi đọc, không cần mua hay đăng nhập.</p>
+        <p>Dung lượng lưu trữ trống chỉ hiển thị trên thiết bị này. Văn bản chẩn đoán được chia sẻ không chứa kiểm tra dung lượng, giá trị hoặc ảnh hưởng của kiểm tra đó đến kết quả tổng thể. Nhật ký có thể chứa thời gian xử lý, nhưng không chứa thời gian hoạt động hệ thống thô.</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">
         <div class="footer-inner">
             <small>© 2026 Takuma Yamada. Mọi quyền được bảo lưu.</small>
             <div class="footer-links">
+                <a href="https://tyamada.github.io/manga-prompt-kit/samples/vi/">PDF mẫu</a>
                 <a href="index_vi.html">Trang chủ</a>
                 <a href="support_vi.html">Hỗ trợ</a>
                 <a href="privacy_vi.html">Chính sách bảo mật</a>

@@ -36,7 +36,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -324,7 +324,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -347,6 +361,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -381,6 +410,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">Available na ang bersyon 1.1.0</h2>
+            <p>Inilabas ang bersyon 1.1.0 sa App Store ng Japan noong Nobyembre 23, 2026. Sa ngayon, sa Japan lang available ang app.</p>
+        </aside>
+
         <section class="hero">
             <div class="container hero-inner">
                 <div>
@@ -477,11 +511,7 @@
                         </details>
                         <details>
                             <summary>Ano ang dapat kong gawin kung mukhang malabo ang display?</summary>
-                            <p>
-                                I-on ang High Quality o Sharpness sa mga setting.
-                                Maaaring mapataas ng mga opsyong ito ang pag-load ng pag-render sa ilan
-                                mga device.
-                            </p>
+                            <p>High Quality: Nire-render ang mga pahina ng PDF sa mas mataas na resolution. Sharpness: Ina-adjust kung gaano katindi ang pagpapatalas sa teksto at mga linya.</p>
                         </details>
                     </article>
 
@@ -506,8 +536,7 @@
                         <details>
                             <summary>Kinakailangan ba ang mga in-app na pagbili?</summary>
                             <p>
-                                Hindi. Ang mga tip ay mga opsyonal na pagbili ng suporta. Ang app
-                                Maaaring gamitin ang mga feature sa pagbabasa nang hindi bumibili ng tip.
+                                Hindi. Ang Bronze, Silver, at Gold ay mga opsyonal na pagbiling hindi nauubos at permanenteng nag-a-unlock sa kani-kanilang icon ng app. Libre ang mga feature sa pagbabasa. Ipinapakita ang mga presyo sa mga button ng pagbili.
                             </p>
                         </details>
                     </article>
@@ -546,7 +575,7 @@
     <div class="container">
         <div class="section-heading">
             <h2>On-device na diagnostic at mga log ng app</h2>
-            <p>Sa screen ng Diagnostics sa Settings, magpatakbo ng mga pagsusuri sa impormasyon ng app, lokal na storage, at PDF rendering, o tingnan ang mga diagnostic log para siyasatin ang pag-crash, pagbagal, at mga problema sa paggamit o display. Kasama sa resulta ang oras ng pagsubok, pangalan at identifier ng modelo ng device, OS version, at app version. Hindi kasama sa log ang personal na impormasyon, nilalaman, pangalan o path ng file, mga termino sa paghahanap, o password, at binubura ito pagkalipas ng 24 oras. Walang awtomatikong pagpapadala; aalis lang ang data sa device kapag tahasan mong ginamit ang Share.</p>
+            <p>Sa screen ng Diagnostics sa Settings, magpatakbo ng mga pagsusuri sa impormasyon ng app, lokal na storage, at PDF rendering, o tingnan ang mga diagnostic log para siyasatin ang pag-crash, pagbagal, at mga problema sa paggamit o display. Kasama sa resulta ang oras ng pagsubok, pangalan at identifier ng modelo ng device, OS version, at app version. Hindi kasama sa log ang personal na impormasyon, nilalaman, pangalan o path ng file, mga termino sa paghahanap, o password, at inaalis ang mga entry na lampas 24 oras kapag binabasa o nagtatala ng log. Walang awtomatikong pagpapadala; aalis lang ang data sa device kapag tahasan mong ginamit ang Share.</p>
         </div>
     </div>
 </section>
@@ -599,44 +628,23 @@
         </section>
 
         <section class="section" id="contact" aria-labelledby="contact-title">
-            <div class="container">
-                <div class="section-heading">
-                    <h2 id="contact-title">Mga Ulat sa Bug at Contact</h2>
-                    <p>
-                        Kung mananatili ang isyu, mangyaring isama ang iyong kapaligiran at
-                        mga hakbang sa pagpaparami kapag nakikipag-ugnayan sa suporta.
-                    </p>
-                </div>
-                <div class="contact-grid">
-                    <article class="contact-card">
-                        <h3>Mga Isyu sa GitHub</h3>
-                        <p>
-                            Gumamit ng Mga Isyu sa GitHub para sa mga ulat ng bug at mga kahilingan sa feature.
-                            Huwag mag-attach ng mga PDF na naglalaman ng personal o kumpidensyal
-                            impormasyon.
-                        </p>
-                        <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">Buksan ang Mga Isyu sa GitHub</a>
-                    </article>
-                    <article class="contact-card">
-                        <h3>Email</h3>
-                        <p>
-                            Gumamit ng email para sa mga pribadong katanungan. Maaaring tumagal ang mga tugon
-                            oras.
-                        </p>
-                        <a class="button secondary" href="mailto:takuma.yamada22@gmail.com">takuma.yamada22@gmail.com</a>
-                    </article>
-                </div>
-
-                <article class="notice" style="margin-top: 16px;">
-                    <h3>Impormasyong Isasama</h3>
-                    <p>
-                        Pakisama ang modelo ng device, bersyon ng iOS/iPadOS, app
-                        bersyon, uri ng PDF, mga hakbang sa pagpaparami, at anumang mensahe ng error
-                        nakita mo.
-                    </p>
-                </article>
-            </div>
-        </section>
+      <div class="container">
+        <h2 id="contact-title">Mga ulat ng problema at pribadong tanong</h2>
+        <p>Magsimula sa nakasulat na paliwanag: ibuod ang problema, ilahad ang mga hakbang upang maulit ito, at ipaliwanag ang inaasahan at ang aktuwal na nangyari. Isama ang device at mga bersyon ng OS at app kung may kaugnayan. Hindi kailangan ang tunay mong pangalan. Huwag magpadala ng mga PDF file o ng nilalaman ng mga ito.</p>
+        <div class="contact-grid">
+          <article class="contact-card"><h3>Pampublikong ulat ng bug (GitHub Issues)</h3>
+            <p>Huwag mag-post ng personal na impormasyon, mga PDF file o ng nilalaman ng mga ito, mga pangalan ng file, o mga screenshot sa mga pampublikong Issue.</p>
+            <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">Pampublikong ulat ng bug (GitHub Issues)</a>
+          </article>
+          <article class="contact-card"><h3>Mga pribadong tanong (email)</h3>
+            <p>Hindi karaniwang hinihingi ang mga screenshot. Tinatanggap lamang ang mga ito sa tyamada.support@gmail.com kung hindi maulit ang problema gamit ang teksto lamang at kailangan ang larawan. Bago ipadala, takpan ang nilalaman ng PDF, mga pangalan ng file, pangalan ng tao, notification, at iba pang impormasyong hindi kailangan sa pagsisiyasat.</p>
+            <a class="button secondary" href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a>
+          </article>
+        </div>
+        <p>Kung magsasama ng mga resulta ng diagnostic o log ng app, suriin ang nilalaman at ang tatanggap bago magpadala. Walang awtomatikong ipinapadala. Makikita ang parehong gabay sa Mag-ulat ng Problema mula sa Diagnostics at Tulong sa app.</p>
+        <p><a href="privacy_fil.html#support-retention">Pagpapanatili ng impormasyon ng suporta: paghawak sa email, larawan, at tala ng kaso</a></p>
+      </div>
+    </section>
 
         <section class="section" id="updates" aria-labelledby="updates-title">
             <div class="container">
@@ -652,12 +660,21 @@
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>Patakaran sa Privacy</h2>
+        <p>Buksan ang Patakaran sa Privacy sa itaas ng Settings o sa App Information. Maaari itong buksan bago pumili ng PDF o habang nagbabasa, nang walang pagbili o pag-login.</p>
+        <p>Sa device lang ipinapakita ang libreng storage. Hindi kasama sa ibinabahaging diagnostic text ang pagsusuri ng storage, halaga nito, o epekto nito sa kabuuang resulta. Maaaring kasama sa mga log ang tagal ng pagproseso, ngunit hindi ang raw system uptime.</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">
         <div class="footer-inner">
             <small>© 2026 Takuma Yamada. Lahat ng karapatan ay nakalaan.</small>
             <div class="footer-links">
+                <a href="https://tyamada.github.io/manga-prompt-kit/samples/fil/">Sample PDF</a>
                 <a href="index_fil.html">Bahay</a>
                 <a href="support_fil.html">Suporta</a>
                 <a href="privacy_fil.html">Patakaran sa Privacy</a>

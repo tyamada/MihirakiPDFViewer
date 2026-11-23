@@ -1,0 +1,19 @@
+name: Sample hub and fixture checks
+on:
+  push:
+    branches: [main, testing]
+    paths: ['README*.md', 'docs/**', 'scripts/*sample*', '.github/workflows/sample-hub-check.yml']
+  pull_request:
+    paths: ['README*.md', 'docs/**', 'scripts/*sample*', '.github/workflows/sample-hub-check.yml']
+permissions:
+  contents: read
+jobs:
+  offline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - run: python3 scripts/check_sample_hub_links.py
+      - run: python3 scripts/check_docs.py
+      - run: python3 -m unittest discover -s scripts -p 'test_prepare_sample_fixtures.py'

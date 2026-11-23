@@ -36,7 +36,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -324,7 +324,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -347,6 +361,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -381,6 +410,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">Versi 1.1.0 sudah tersedia</h2>
+            <p>Versi 1.1.0 dirilis di App Store Jepang pada 23 November 2026. Saat ini, aplikasi hanya tersedia di Jepang.</p>
+        </aside>
+
         <section class="hero">
             <div class="container hero-inner">
                 <div>
@@ -477,11 +511,7 @@
                         </details>
                         <details>
                             <summary>Apa yang harus saya lakukan jika tampilan terlihat buram?</summary>
-                            <p>
-                                Aktifkan Kualitas Tinggi atau Ketajaman di pengaturan.
-                                Opsi ini mungkin meningkatkan beban rendering pada beberapa perangkat
-                                perangkat.
-                            </p>
+                            <p>High Quality: Merender halaman PDF dengan resolusi lebih tinggi. Sharpness: Menyesuaikan tingkat penajaman teks dan garis.</p>
                         </details>
                     </article>
 
@@ -506,8 +536,7 @@
                         <details>
                             <summary>Apakah pembelian dalam aplikasi diperlukan?</summary>
                             <p>
-                                Tidak. Tip adalah pembelian dukungan opsional. Aplikasinya
-                                fitur membaca dapat digunakan tanpa membeli tip.
+                                Tidak. Bronze, Silver, dan Gold adalah pembelian opsional yang tidak habis pakai dan membuka ikon app terkait secara permanen. Fitur membaca gratis. Harga ditampilkan pada tombol pembelian.
                             </p>
                         </details>
                     </article>
@@ -546,7 +575,7 @@
     <div class="container">
         <div class="section-heading">
             <h2>Diagnostik di perangkat dan log aplikasi</h2>
-            <p>Dari layar Diagnostik di Pengaturan, jalankan pengujian informasi aplikasi, penyimpanan lokal, dan perenderan PDF, atau lihat log diagnostik untuk menyelidiki crash, perlambatan, serta masalah operasi atau tampilan. Hasil mencakup waktu pengujian, nama dan pengenal model perangkat, versi OS, dan versi aplikasi. Log tidak memuat informasi pribadi, isi, nama atau jalur file, istilah pencarian, maupun kata sandi, dan dihapus setelah 24 jam. Tidak ada pengiriman otomatis; data hanya keluar dari perangkat saat Anda secara tegas menggunakan Bagikan.</p>
+            <p>Dari layar Diagnostik di Pengaturan, jalankan pengujian informasi aplikasi, penyimpanan lokal, dan perenderan PDF, atau lihat log diagnostik untuk menyelidiki crash, perlambatan, serta masalah operasi atau tampilan. Hasil mencakup waktu pengujian, nama dan pengenal model perangkat, versi OS, dan versi aplikasi. Log tidak memuat informasi pribadi, isi, nama atau jalur file, istilah pencarian, maupun kata sandi, dan entri yang lebih lama dari 24 jam dihapus saat log dibaca atau dicatat. Tidak ada pengiriman otomatis; data hanya keluar dari perangkat saat Anda secara tegas menggunakan Bagikan.</p>
         </div>
     </div>
 </section>
@@ -599,44 +628,23 @@
         </section>
 
         <section class="section" id="contact" aria-labelledby="contact-title">
-            <div class="container">
-                <div class="section-heading">
-                    <h2 id="contact-title">Laporan Bug dan Kontak</h2>
-                    <p>
-                        Jika masalah tetap ada, harap sertakan lingkungan Anda dan
-                        langkah reproduksi saat menghubungi dukungan.
-                    </p>
-                </div>
-                <div class="contact-grid">
-                    <article class="contact-card">
-                        <h3>Masalah GitHub</h3>
-                        <p>
-                            Gunakan Masalah GitHub untuk laporan bug dan permintaan fitur.
-                            Jangan lampirkan PDF yang berisi informasi pribadi atau rahasia
-                            informasi.
-                        </p>
-                        <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">Buka Masalah GitHub</a>
-                    </article>
-                    <article class="contact-card">
-                        <h3>Surel</h3>
-                        <p>
-                            Gunakan email untuk pertanyaan pribadi. Balasan mungkin memerlukan waktu beberapa saat
-                            waktu.
-                        </p>
-                        <a class="button secondary" href="mailto:takuma.yamada22@gmail.com">takuma.yamada22@gmail.com</a>
-                    </article>
-                </div>
-
-                <article class="notice" style="margin-top: 16px;">
-                    <h3>Informasi untuk Disertakan</h3>
-                    <p>
-                        Harap sertakan model perangkat, versi iOS/iPadOS, aplikasi
-                        versi, jenis PDF, langkah reproduksi, dan pesan kesalahan apa pun
-                        kamu melihat.
-                    </p>
-                </article>
-            </div>
-        </section>
+      <div class="container">
+        <h2 id="contact-title">Laporan masalah dan pertanyaan pribadi</h2>
+        <p>Mulai dengan penjelasan tertulis: ringkas masalahnya, jelaskan langkah untuk mereproduksinya, serta hasil yang diharapkan dan yang sebenarnya terjadi. Sertakan perangkat, versi OS, dan versi aplikasi bila relevan. Nama asli tidak diperlukan. Jangan kirim file PDF atau isinya.</p>
+        <div class="contact-grid">
+          <article class="contact-card"><h3>Laporan masalah publik (GitHub Issues)</h3>
+            <p>Jangan unggah informasi pribadi, file PDF atau isinya, nama file, maupun tangkapan layar ke Issue publik.</p>
+            <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">Laporan masalah publik (GitHub Issues)</a>
+          </article>
+          <article class="contact-card"><h3>Pertanyaan pribadi (email)</h3>
+            <p>Kami biasanya tidak meminta tangkapan layar. Hanya jika teks saja tidak dapat mereproduksi masalah dan gambar diperlukan, kami menerimanya di tyamada.support@gmail.com. Sebelum mengirim, sembunyikan isi PDF, nama file, nama orang, notifikasi, dan informasi lain yang tidak diperlukan untuk penyelidikan.</p>
+            <a class="button secondary" href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a>
+          </article>
+        </div>
+        <p>Jika menyertakan hasil diagnostik atau log aplikasi, periksa isinya dan penerimanya sebelum mengirim. Tidak ada yang dikirim otomatis. Petunjuk yang sama tersedia melalui Laporkan Masalah di Diagnostik dan Bantuan dalam aplikasi.</p>
+        <p><a href="privacy_id.html#support-retention">Penyimpanan informasi dukungan: penanganan email, gambar, dan catatan kasus</a></p>
+      </div>
+    </section>
 
         <section class="section" id="updates" aria-labelledby="updates-title">
             <div class="container">
@@ -652,12 +660,21 @@
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>Kebijakan Privasi</h2>
+        <p>Buka Kebijakan Privasi di bagian atas Pengaturan atau di Informasi Aplikasi. Tersedia sebelum memilih PDF dan saat membaca, tanpa pembelian atau login.</p>
+        <p>Ruang penyimpanan kosong hanya ditampilkan di perangkat ini. Teks diagnostik yang dibagikan tidak menyertakan pemeriksaan ruang, nilainya, atau pengaruhnya pada hasil keseluruhan. Log dapat memuat durasi pemrosesan, tetapi tidak memuat waktu aktif sistem mentah.</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">
         <div class="footer-inner">
             <small>© 2026 Takuma Yamada. Semua hak dilindungi undang-undang.</small>
             <div class="footer-links">
+                <a href="https://tyamada.github.io/manga-prompt-kit/samples/id/">Contoh PDF</a>
                 <a href="index_id.html">Rumah</a>
                 <a href="support_id.html">Dukungan</a>
                 <a href="privacy_id.html">Kebijakan Privasi</a>

@@ -35,7 +35,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -240,6 +240,10 @@
         }
 
         @media (max-width: 760px) {
+            .site-header {
+                position: static;
+            }
+
             .nav {
                 align-items: flex-start;
                 flex-direction: column;
@@ -262,6 +266,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -296,6 +315,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">1.1.0 版已上线</h2>
+            <p>1.1.0 版已于 2026 年 11 月 23 日在日本区 App Store 上线。该应用目前仅在日本提供。</p>
+        </aside>
+
         <section class="hero">
             <div class="container">
                 <p class="eyebrow">隐私政策</p>
@@ -399,17 +423,13 @@
                             用于回复或调查问题。
                         </p>
                         <ul>
-                            <li>除非必要，请不要发送 PDF 内容或个人信息。</li>
+                            <li>请勿发送PDF文件或其内容。联系支持前，请先阅读下方的报告与图片说明。</li>
                             <li>设备型号、OS 版本、应用版本和复现步骤有助于调查。</li>
                         </ul>
                     </article>
                     <article class="card">
                         <h3>与第三方共享</h3>
-                        <p>
-                            除法律要求外，信息不会提供给第三方。
-                            Apple 提供的功能，例如 App 内购买和 iCloud Drive，
-                            也受 Apple 隐私政策约束。
-                        </p>
+                        <p>您选择共享或发送给支持人员的信息会送达所选接收者，并可能被其保留。StoreKit购买和iCloud Drive遵循Apple的处理方式。下载示例和打开外部链接会连接相应服务运营者；其隐私规则以及您所选共享目标的隐私规则均适用。应用不会自动向开发者发送诊断结果。</p>
                     </article>
                 </div>
             </div>
@@ -453,7 +473,7 @@
     <div class="container">
         <div class="section-heading">
             <h2>设备端诊断与应用日志</h2>
-            <p>可在设置的“诊断”页面中运行应用信息、本地存储和 PDF 渲染测试，或查看用于排查崩溃、变慢、操作和显示问题的诊断日志。测试结果包含测试时间、设备型号名称和型号标识符、系统版本和应用版本。日志不记录个人信息、文件内容、文件名或路径、搜索词和密码，并会在24小时后删除。应用不会自动发送这些信息；只有您明确使用“共享”时，结果或日志才会离开设备。</p>
+            <p>诊断结果保存在当前屏幕的内存中。选择共享后，文本包含测试时间、机型名称和机型标识符（不是设备唯一ID）、系统与应用版本、总内存与可用内存，以及不含可用存储空间检查的结果。日志记录事件类型、时间、数量和处理耗时。应用内可查看和共享的日志最多保留2,000条；读取或记录日志时移除超过24小时的记录，并非在应用停止时通过定时器删除。系统日志遵循操作系统的保留规则。结果和日志不会自动发送。</p>
         </div>
     </div>
 </section>
@@ -476,7 +496,34 @@
                 </article>
             </div>
         </section>
-    </main>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>隐私政策</h2>
+        <p>可从设置顶部或“应用信息”打开隐私政策。无论尚未选择 PDF 还是正在阅读，都无需购买或登录。</p>
+        <p>可用存储空间仅在本设备上显示。共享的诊断文本不包含存储空间检查、数值及其对总体结果的影响。日志可能包含处理耗时，但不包含原始系统运行时间。</p>
+        <p>阅读恢复功能在本地保存文档书签、页码、显示设置和搜索词，不保存 PDF 密码。请求下载示例时会连接 GitHub Releases。打开本政策或 GitHub Issues 也会访问外部网站，其运营者可能收到 IP 地址和请求信息。报告仅共享到您选择的目标。外部服务适用各自的隐私政策。</p>
+    <p data-policy-topic="local-retention">PDF显示和搜索在设备上处理。阅读恢复会在本地保存文档书签、页面位置、搜索文本和显示选项，但不保存PDF密码。关闭文档或重置设置会删除恢复记录，但不会删除PDF或诊断日志。部分导入的PDF会复制到应用的Documents存储区。要移除本地应用数据，请使用系统的“删除App”，而不是保留数据的“卸载App”。外部原件和已共享的副本不会因此删除。没有专门删除日志的按钮。</p>
+    </div>
+</section>
+    <section class="section" id="sample-catalog-network"><div class="container"><p data-policy-topic="sample-catalog-network" style="overflow-wrap:anywhere">打开示例列表时，应用会检查 GitHub 上是否有最新的目录 JSON。若更新失败，应用会使用上一次有效保存的列表或随应用提供的列表。只有在您选择下载时，才会下载 PDF 文件。目录请求会联系 raw.githubusercontent.com；PDF 下载会联系 GitHub Releases。这些服务可能会收到您的 IP 地址和请求信息。</p></div></section>
+    <section class="section" id="support-retention">
+      <div class="container">
+        <h2>支持信息的保留与删除</h2>
+        <p>支持信息仅用于回复、调查问题和技术性性能改进。我们不要求填写真实姓名。如果发件人的显示名称包含真实姓名，仅在回复和调查所需的期间内将其保留在原始邮件中，不会抄录到每个个案的Google Sheets或改进笔记中。</p>
+        <p>原则上不要求提供屏幕截图。仅在文字无法复现问题且确实需要图片时，通过tyamada.support@gmail.com接收。发送前请遮挡PDF内容、文件名、姓名、通知以及调查不需要的其他信息。 图片原则上在原始邮件内处理。每个个案的Sheets只记录调查所需的观察结果，不保存图片。</p>
+        <p>不会将GitHub发帖者的姓名或用户名抄录到个案Sheets或改进笔记中。仅在回复或调查需要时，才在个案Sheet中保留原始Issue的链接。在仍能通过链接确认发帖者期间，该记录被视为可与其关联的信息。 请勿在公开Issue中发布个人信息、PDF文件或其内容、文件名或屏幕截图。</p>
+        <p>GitHub上的公开帖子与开发者管理的邮件和个案记录不同。删除我们保存的个案链接并不会删除公开Issue。对于不在管理范围内的帖子或服务副本，我们无法保证删除。能够追溯到发件人的报告和个案引用不会被视为匿名信息。</p>
+        <h3>删除的起算点与期限</h3>
+        <p>A. 包含显示的真实姓名的原始邮件、调查图片及调查副本：已有回复或调查结论，且开发者确认没有剩余工作之日，视为个案完成日。不会仅因没有回复而自动结案。每周检查期限，在完成后约60天开始删除，并在90天内确认删除可管理的记录，包括相关回收站中的内容。60天不是最低保留期；提前提出的删除请求不会等到常规期限才处理。</p>
+        <p>B. 个案Sheets、观察结果、Issue链接及接收／删除记录：自原始信息删除完成之日起90天内，确认删除个案文件及相关记录和引用。仅删除行或单元格不算完成。这不会延长A的期限，也不允许将原始信息转存到这些记录中。公开Issue仍在线不会自动延长我们的个案记录期限。</p>
+        <p>C. 一般化的改进笔记只保留原因和修正要点，不包含姓名、图片、帖子URL、个案ID或其他能够追溯到原始报告的信息。不得将其用作A或B记录的替代保存位置。</p>
+        <p>例外仅限于持续调查或法律必要性。我们记录原因、范围和结束条件，最迟每30天以及调查结束时重新审查。必要性消失后，原则上在30天内确认删除；如果原来的90天期限仍有效且更早到期，则以该期限为准。重新开启个案或适用例外不会自动重置期限。按Asia/Tokyo时区的日历日计算。</p>
+        <p>这些期限适用于开发者能够管理的记录。在服务界面删除并不保证服务提供商内部的恢复副本或设备备份会在相同期限内被物理删除。这些副本及其删除限制与我们管理的记录分开处理。删除应用的本地日志不会删除已经发送的报告。</p>
+        <p>如需咨询或请求删除，请联系<a href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a>。请仅提供识别相关个案所需的信息，不要将其公开发布。</p>
+      </div>
+    </section>
+  </main>
 
     <footer class="site-footer">
         <div class="footer-inner">

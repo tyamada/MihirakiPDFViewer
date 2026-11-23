@@ -36,7 +36,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -324,7 +324,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -347,6 +361,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -381,6 +410,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">Version 1.1.0 is available</h2>
+            <p>Version 1.1.0 was released on the Japan App Store on November 23, 2026. The app is currently available only in Japan.</p>
+        </aside>
+
         <section class="hero">
             <div class="container hero-inner">
                 <div>
@@ -477,11 +511,7 @@
                         </details>
                         <details>
                             <summary>What should I do if the display looks blurry?</summary>
-                            <p>
-                                Turn on High Quality or Sharpness in the settings.
-                                These options may increase rendering load on some
-                                devices.
-                            </p>
+                            <p>High Quality: Renders PDF pages at a higher resolution. Sharpness: Adjusts how strongly text and lines are sharpened.</p>
                         </details>
                     </article>
 
@@ -506,8 +536,7 @@
                         <details>
                             <summary>Are in-app purchases required?</summary>
                             <p>
-                                No. Tips are optional support purchases. The app's
-                                reading features can be used without purchasing a tip.
+                                No. Bronze, Silver, and Gold are optional non-consumable purchases that permanently unlock their corresponding app icons. Reading features are free. Prices are shown on the purchase buttons.
                             </p>
                         </details>
                     </article>
@@ -546,7 +575,7 @@
     <div class="container">
         <div class="section-heading">
             <h2>On-device diagnostics and app logs</h2>
-            <p>From the Diagnostics screen in Settings, run app information, local storage, and PDF rendering checks, or review diagnostic logs for crashes, slowdowns, operation issues, and display issues. Test results include the test time, device model name and model identifier, OS version, and app version. Logs never include personal information, file contents, file names or paths, search terms, or passwords, and are deleted after 24 hours. Nothing is sent automatically; results and logs leave the device only when you explicitly use Share.</p>
+            <p>From the Diagnostics screen in Settings, run app information, local storage, and PDF rendering checks, or review diagnostic logs for crashes, slowdowns, operation issues, and display issues. Test results include the test time, device model name and model identifier, OS version, and app version. Logs never include personal information, file contents, file names or paths, search terms, or passwords, and entries older than 24 hours are removed when logs are read or recorded. Nothing is sent automatically; results and logs leave the device only when you explicitly use Share.</p>
         </div>
     </div>
 </section>
@@ -599,44 +628,17 @@
         </section>
 
         <section class="section" id="contact" aria-labelledby="contact-title">
-            <div class="container">
-                <div class="section-heading">
-                    <h2 id="contact-title">Bug Reports and Contact</h2>
-                    <p>
-                        If the issue remains, please include your environment and
-                        reproduction steps when contacting support.
-                    </p>
-                </div>
-                <div class="contact-grid">
-                    <article class="contact-card">
-                        <h3>GitHub Issues</h3>
-                        <p>
-                            Use GitHub Issues for bug reports and feature requests.
-                            Do not attach PDFs that contain personal or confidential
-                            information.
-                        </p>
-                        <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">Open GitHub Issues</a>
-                    </article>
-                    <article class="contact-card">
-                        <h3>Email</h3>
-                        <p>
-                            Use email for private inquiries. Replies may take some
-                            time.
-                        </p>
-                        <a class="button secondary" href="mailto:takuma.yamada22@gmail.com">takuma.yamada22@gmail.com</a>
-                    </article>
-                </div>
-
-                <article class="notice" style="margin-top: 16px;">
-                    <h3>Information to Include</h3>
-                    <p>
-                        Please include the device model name and model identifier, iOS/iPadOS version, app
-                        version, PDF type, reproduction steps, and any error message
-                        you saw.
-                    </p>
-                </article>
-            </div>
-        </section>
+<div class="container"><h2 id="contact-title">Bug reports and private inquiries</h2>
+<p>Start with text: summarize the problem, give the steps to reproduce it, and explain what you expected and what actually happened. Include your device, OS and app versions when relevant. Your real name is not required.</p>
+<div class="contact-grid"><article class="contact-card"><h3>Public bug report (GitHub Issues)</h3>
+<p>Do not post personal information, PDF files or their contents, file names, or screenshots in public Issues.</p>
+<a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">Public bug report (GitHub Issues)</a></article>
+<article class="contact-card"><h3>Private inquiries (email)</h3>
+<p>Screenshots are not normally requested. Only when text alone cannot reproduce the problem and an image is needed, send it to the dedicated email address below. Before sending, hide PDF contents, file names, names, notifications, and other information not needed for the investigation.</p>
+<a class="button secondary" href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a></article></div>
+<p>If you include diagnostic results or app logs, review their contents and the recipient before sending. Nothing is sent automatically. The app offers the same instructions through Report a Problem in Diagnostics and Help.</p>
+<p>See the <a href="privacy.html#support-retention">support information retention policy</a> for how email, images and case records are handled.</p>
+</div></section>
 
         <section class="section" id="updates" aria-labelledby="updates-title">
             <div class="container">
@@ -652,12 +654,21 @@
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>Privacy Policy</h2>
+        <p>Open the Privacy Policy link at the top of Settings or in App Information. It is available before opening a PDF and while reading, without a purchase or login.</p>
+        <p>Available disk space is displayed only on this device. Shared diagnostic text excludes the storage check, its value, and its effect on the overall result. Logs may include elapsed processing times, but never raw system uptime.</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">
         <div class="footer-inner">
             <small>&copy; 2026 Takuma Yamada. All rights reserved.</small>
             <div class="footer-links">
+                <a href="https://tyamada.github.io/manga-prompt-kit/samples/en/">Sample PDF</a>
                 <a href="index.html">Home</a>
                 <a href="support.html">Support</a>
                 <a href="privacy.html">Privacy Policy</a>

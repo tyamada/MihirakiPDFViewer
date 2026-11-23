@@ -36,7 +36,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -324,7 +324,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -347,6 +361,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -381,6 +410,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">Ya está disponible la versión 1.1.0</h2>
+            <p>La versión 1.1.0 se publicó en el App Store de Japón el 23 de noviembre de 2026. La aplicación solo está disponible en Japón por el momento.</p>
+        </aside>
+
         <section class="hero">
             <div class="container hero-inner">
                 <div>
@@ -475,11 +509,7 @@
                         </details>
                         <details>
                             <summary>¿Qué hago si la pantalla se ve borrosa?</summary>
-                            <p>
-                                Activa Alta calidad o Nitidez en los ajustes.
-                                Estas opciones pueden aumentar la carga de renderizado en algunos
-                                dispositivos.
-                            </p>
+                            <p>High Quality: Renderiza las páginas del PDF con una resolución más alta. Sharpness: Ajusta el grado de nitidez del texto y las líneas.</p>
                         </details>
                     </article>
 
@@ -504,8 +534,7 @@
                         <details>
                             <summary>¿Son obligatorias las compras dentro de la app?</summary>
                             <p>
-                                No. Las propinas son compras de apoyo opcionales. Las funciones
-                                de lectura de la app pueden usarse sin comprar una propina.
+                                No. Bronze, Silver y Gold son compras opcionales no consumibles que desbloquean permanentemente sus respectivos iconos de la app. Las funciones de lectura son gratuitas. Los precios aparecen en los botones de compra.
                             </p>
                         </details>
                     </article>
@@ -544,7 +573,7 @@
     <div class="container">
         <div class="section-heading">
             <h2>Diagnóstico en el dispositivo y registros</h2>
-            <p>En la pantalla Diagnóstico de Ajustes puede ejecutar pruebas de información de la app, almacenamiento local y renderizado de PDF, o consultar registros de diagnóstico sobre cierres, lentitud y problemas de funcionamiento o visualización. Los resultados incluyen fecha y hora, nombre e identificador del modelo del dispositivo y versiones del sistema y de la app. Los registros no incluyen datos personales, contenido, nombres o rutas de archivos, búsquedas ni contraseñas, y se eliminan tras 24 horas. Nada se envía automáticamente; solo sale del dispositivo al usar Compartir de forma explícita.</p>
+            <p>En la pantalla Diagnóstico de Ajustes puede ejecutar pruebas de información de la app, almacenamiento local y renderizado de PDF, o consultar registros de diagnóstico sobre cierres, lentitud y problemas de funcionamiento o visualización. Los resultados incluyen fecha y hora, nombre e identificador del modelo del dispositivo y versiones del sistema y de la app. Los registros no incluyen datos personales, contenido, nombres o rutas de archivos, búsquedas ni contraseñas, y las entradas de más de 24 horas se eliminan al leer o registrar. Nada se envía automáticamente; solo sale del dispositivo al usar Compartir de forma explícita.</p>
         </div>
     </div>
 </section>
@@ -596,43 +625,23 @@
         </section>
 
         <section class="section" id="contact" aria-labelledby="contact-title">
-            <div class="container">
-                <div class="section-heading">
-                    <h2 id="contact-title">Informes de errores y contacto</h2>
-                    <p>
-                        Si el problema persiste, incluye tu entorno y
-                        los pasos de reproducción al contactar con soporte.
-                    </p>
-                </div>
-                <div class="contact-grid">
-                    <article class="contact-card">
-                        <h3>GitHub Issues</h3>
-                        <p>
-                            Usa GitHub Issues para informes de errores y solicitudes de funciones.
-                            No adjuntes PDF que contengan información personal o confidencial.
-                        </p>
-                        <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">Abrir GitHub Issues</a>
-                    </article>
-                    <article class="contact-card">
-                        <h3>Correo electrónico</h3>
-                        <p>
-                            Usa el correo para consultas privadas. Las respuestas pueden tardar
-                            un poco.
-                        </p>
-                        <a class="button secondary" href="mailto:takuma.yamada22@gmail.com">takuma.yamada22@gmail.com</a>
-                    </article>
-                </div>
-
-                <article class="notice" style="margin-top: 16px;">
-                    <h3>Información que debes incluir</h3>
-                    <p>
-                        Incluye el modelo del dispositivo, la versión de iOS/iPadOS, la versión de la app,
-                        el tipo de PDF, los pasos de reproducción y cualquier mensaje de error
-                        que hayas visto.
-                    </p>
-                </article>
-            </div>
-        </section>
+      <div class="container">
+        <h2 id="contact-title">Informes de errores y consultas privadas</h2>
+        <p>Empieza con una descripción escrita: resume el problema, indica los pasos para reproducirlo y explica qué esperabas y qué ocurrió realmente. Incluye el dispositivo y las versiones del sistema y de la app cuando sea pertinente. No es necesario indicar tu nombre real. No envíes archivos PDF ni su contenido.</p>
+        <div class="contact-grid">
+          <article class="contact-card"><h3>Informe público de errores (GitHub Issues)</h3>
+            <p>No publiques información personal, archivos PDF o su contenido, nombres de archivo ni capturas de pantalla en Issues públicos.</p>
+            <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">Informe público de errores (GitHub Issues)</a>
+          </article>
+          <article class="contact-card"><h3>Consultas privadas (correo electrónico)</h3>
+            <p>Normalmente no pedimos capturas de pantalla. Solo cuando el texto no permita reproducir el problema y sea necesaria una imagen, la aceptamos en tyamada.support@gmail.com. Antes de enviarla, oculta el contenido del PDF, los nombres de archivo, los nombres de personas, las notificaciones y cualquier información innecesaria para la investigación.</p>
+            <a class="button secondary" href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a>
+          </article>
+        </div>
+        <p>Si adjuntas resultados de diagnóstico o registros de la app, revisa su contenido y el destinatario antes de enviarlos. No se envía nada automáticamente. Encontrarás las mismas instrucciones en «Informar de un problema», desde Diagnóstico y Ayuda en la app.</p>
+        <p><a href="privacy_es.html#support-retention">Conservación de la información de soporte: tratamiento de correos, imágenes y registros de casos</a></p>
+      </div>
+    </section>
 
         <section class="section" id="updates" aria-labelledby="updates-title">
             <div class="container">
@@ -648,12 +657,21 @@
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>Política de privacidad</h2>
+        <p>La política de privacidad está al principio de Ajustes y en Información de la app. Se puede abrir antes de elegir un PDF y durante la lectura, sin comprar ni iniciar sesión.</p>
+        <p>El espacio libre solo se muestra en este dispositivo. El texto de diagnóstico compartido excluye la comprobación de espacio, su valor y su efecto en el resultado global. Los registros pueden incluir la duración del procesamiento, pero nunca el tiempo de actividad del sistema sin procesar.</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">
         <div class="footer-inner">
             <small>&copy; 2026 Takuma Yamada. Todos los derechos reservados.</small>
             <div class="footer-links">
+                <a href="https://tyamada.github.io/manga-prompt-kit/samples/es/">PDF de muestra</a>
                 <a href="index_es.html">Inicio</a>
                 <a href="support_es.html">Soporte</a>
                 <a href="privacy_es.html">Política de privacidad</a>

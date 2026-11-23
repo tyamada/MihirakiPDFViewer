@@ -36,7 +36,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -113,7 +113,7 @@
         }
 
         main {
-            overflow: hidden;
+            overflow: visible;
         }
 
         .hero {
@@ -336,7 +336,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -367,6 +381,21 @@
                 padding: 56px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -401,6 +430,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">1.1.0 버전이 출시되었습니다</h2>
+            <p>2026년 11월 23일 일본 App Store에 1.1.0 버전이 출시되었습니다. 현재 이 앱은 일본에서만 이용할 수 있습니다.</p>
+        </aside>
+
         <section class="hero">
             <div class="hero-copy">
                 <p class="eyebrow">오른쪽에서 왼쪽으로 읽는 PDF와 일본어 책을 위한 뷰어</p>
@@ -464,7 +498,7 @@
                     <article class="feature">
                         <div class="feature-badge">2</div>
                         <h3>단일 페이지 및 두 페이지 보기</h3>
-                        <p>모든 기기에서 화면의 세로 길이가 가로보다 길면 기본적으로 단일 페이지 보기를 사용합니다. 세로 방향에서도 두 페이지 보기를 유지하려면 이 설정을 끄십시오.</p>
+                        <p>세로형 읽기 영역에서는 iPad의 넓은 레이아웃에서도 한 페이지씩 표시합니다. 세로형 영역에서 선택한 두 페이지 설정을 유지하려면 이 옵션을 끄세요.</p>
                     </article>
                     <article class="feature">
                         <div class="feature-badge">3</div>
@@ -489,7 +523,7 @@
     <div class="container">
         <div class="section-heading">
             <h2>기기 내 진단 및 앱 로그</h2>
-            <p>설정의 ‘진단’ 화면에서 앱 정보, 로컬 저장소 및 PDF 렌더링 테스트를 실행하거나 충돌, 속도 저하, 조작 및 표시 문제를 확인하기 위한 진단 로그를 볼 수 있습니다. 테스트 결과에는 테스트 일시, 기기 모델명과 모델 식별자, OS 및 앱 버전이 포함됩니다. 로그에는 개인정보, 파일 내용, 파일 이름이나 경로, 검색어, 비밀번호가 기록되지 않으며 24시간 후 삭제됩니다. 자동 전송 기능은 없으며 사용자가 공유를 명시적으로 선택한 경우에만 기기 외부로 전달됩니다.</p>
+            <p>설정의 ‘진단’ 화면에서 앱 정보, 로컬 저장소 및 PDF 렌더링 테스트를 실행하거나 충돌, 속도 저하, 조작 및 표시 문제를 확인하기 위한 진단 로그를 볼 수 있습니다. 테스트 결과에는 테스트 일시, 기기 모델명과 모델 식별자, OS 및 앱 버전이 포함됩니다. 로그에는 개인정보, 파일 내용, 파일 이름이나 경로, 검색어, 비밀번호가 기록되지 않으며 로그를 읽거나 기록할 때 24시간이 지난 기록이 삭제됩니다. 자동 전송 기능은 없으며 사용자가 공유를 명시적으로 선택한 경우에만 기기 외부로 전달됩니다.</p>
         </div>
     </div>
 </section>
@@ -508,7 +542,7 @@
                         <figcaption>PDF 내부 텍스트 검색</figcaption>
                     </figure>
                     <figure class="screenshot-item">
-                        <img src="assets/screenshots/iphone/05_display_settings_en.png" srcset="assets/screenshots/iphone/05_display_settings_en.png 2622w, assets/screenshots/ipad/05_display_settings_en.png 2752w" sizes="(min-width: 900px) 264px, 100vw" alt="표시 설정 화면">
+                        <img src="assets/screenshots/iphone/05_display_settings_en.png" srcset="assets/screenshots/iphone/05_display_settings_en.png 1206w, assets/screenshots/ipad/05_display_settings_en.png 820w" sizes="(min-width: 900px) 264px, 100vw" alt="표시 설정 화면">
                         <figcaption>펼침면과 표지 설정 조정</figcaption>
                     </figure>
                     <figure class="screenshot-item">
@@ -543,188 +577,13 @@
         </section>
 
         <section class="section" id="samples">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>샘플 PDF</h2>
-                    <p>다음 샘플 PDF로 MihirakiPDFViewer를 사용해 보세요. 앱에서는 카탈로그를 언어별로 필터링하고 PDF를 다운로드해 열거나 로컬 사본을 삭제할 수 있습니다. 모바일 데이터로 다운로드할 때는 확인을 요청합니다.</p>
-                </div>
-                <div class="usecase-grid">
-                    <article class="usecase">
-                        <h3>THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP (English)</h3>
-                        <p><a href="sample/tameshibu_episode1_2_en.pdf">영어 샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>THE TRY-IT CLUB EPISODE 2 ROOM TO GROW (English)</h3>
-                        <p><a href="sample/tameshibu_episode2_2_en.pdf">영어 샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>ためし部 第１話 ひと息マップ (Japanese)</h3>
-                        <p><a href="sample/tameshibu_episode1_2_ja.pdf">일본어 샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>ためし部 第２話 机、ひろがる。 (Japanese)</h3>
-                        <p><a href="sample/tameshibu_episode2_2_ja.pdf">일본어 샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>해봄부 제1화 한숨 돌림 지도 (Korean)</h3>
-                        <p><a href="sample/tameshibu_episode1_2_ko.pdf">한국어 샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>해봄부제2화 책상이 넓어지다 (Korean)</h3>
-                        <p><a href="sample/tameshibu_episode2_2_ko.pdf">한국어 샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>试试社 第1话 歇口气地图 (Chinese (Simplified))</h3>
-                        <p><a href="sample/tameshibu_episode1_2_zh_cn.pdf">중국어 간체 샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>试试社 第2话 桌子变大了 (Chinese (Simplified))</h3>
-                        <p><a href="sample/tameshibu_episode2_2_zh_cn.pdf">중국어 간체 샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>試試社 第1話 (Chinese (Traditional))</h3>
-                        <p><a href="sample/tameshibu_episode1_2_zh_tw.pdf">Open the Traditional Chinese sample PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>試試社 第2話 (Chinese (Traditional))</h3>
-                        <p><a href="sample/tameshibu_episode2_2_zh_tw.pdf">Open the Traditional Chinese sample PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>DER PROBIERCLUB FOLGE 1 (German)</h3>
-                        <p><a href="sample/tameshibu_episode1_2_de.pdf">Open the German sample PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>DER PROBIERCLUB FOLGE 2 (German)</h3>
-                        <p><a href="sample/tameshibu_episode2_2_de.pdf">Open the German sample PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>LE CLUB DES ESSAIS EPISODE 1 (French)</h3>
-                        <p><a href="sample/tameshibu_episode1_2_fr.pdf">Open the French sample PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>LE CLUB DES ESSAIS EPISODE 2 (French)</h3>
-                        <p><a href="sample/tameshibu_episode2_2_fr.pdf">Open the French sample PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>THE TRY-IT CLUB EPISODE 3 (English)</h3>
-                        <p><a href="sample/tameshibu_episode3_en.pdf">영어 샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>ためし部 第3話 (Japanese)</h3>
-                        <p><a href="sample/tameshibu_episode3_ja.pdf">일본어 샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>제1화 (Español)</h3>
-                        <p><a href="sample/tameshibu_episode1_es.pdf">샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>제1화 (Bahasa Indonesia)</h3>
-                        <p><a href="sample/tameshibu_episode1_id.pdf">샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>제1화 (Italiano)</h3>
-                        <p><a href="sample/tameshibu_episode1_it.pdf">샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>제1화 (नेपाली)</h3>
-                        <p><a href="sample/tameshibu_episode1_ne.pdf">샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>제1화 (Português)</h3>
-                        <p><a href="sample/tameshibu_episode1_pt.pdf">샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>제1화 (Filipino)</h3>
-                        <p><a href="sample/tameshibu_episode1_tl.pdf">샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>제1화 (Tiếng Việt)</h3>
-                        <p><a href="sample/tameshibu_episode1_vi.pdf">샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>제2화 (Español)</h3>
-                        <p><a href="sample/tameshibu_episode2_es.pdf">샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>제2화 (Bahasa Indonesia)</h3>
-                        <p><a href="sample/tameshibu_episode2_id.pdf">샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>제2화 (Italiano)</h3>
-                        <p><a href="sample/tameshibu_episode2_it.pdf">샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>제2화 (नेपाली)</h3>
-                        <p><a href="sample/tameshibu_episode2_ne.pdf">샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>제2화 (Português)</h3>
-                        <p><a href="sample/tameshibu_episode2_pt.pdf">샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>제2화 (Filipino)</h3>
-                        <p><a href="sample/tameshibu_episode2_tl.pdf">샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>제2화 (Tiếng Việt)</h3>
-                        <p><a href="sample/tameshibu_episode2_vi.pdf">샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>제3화 (한국어)</h3>
-                        <p><a href="sample/tameshibu_episode3_ko.pdf">샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>제3화 (简体中文)</h3>
-                        <p><a href="sample/tameshibu_episode3_zh_cn.pdf">샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>제3화 (繁體中文)</h3>
-                        <p><a href="sample/tameshibu_episode3_zh_tw.pdf">샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>제3화 (Deutsch)</h3>
-                        <p><a href="sample/tameshibu_episode3_de.pdf">샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>제3화 (Español)</h3>
-                        <p><a href="sample/tameshibu_episode3_es.pdf">샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>제3화 (Français)</h3>
-                        <p><a href="sample/tameshibu_episode3_fr.pdf">샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>제3화 (Bahasa Indonesia)</h3>
-                        <p><a href="sample/tameshibu_episode3_id.pdf">샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>제3화 (Italiano)</h3>
-                        <p><a href="sample/tameshibu_episode3_it.pdf">샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>제3화 (नेपाली)</h3>
-                        <p><a href="sample/tameshibu_episode3_ne.pdf">샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>제3화 (Português)</h3>
-                        <p><a href="sample/tameshibu_episode3_pt.pdf">샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>제3화 (Filipino)</h3>
-                        <p><a href="sample/tameshibu_episode3_tl.pdf">샘플 PDF 열기</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>제3화 (Tiếng Việt)</h3>
-                        <p><a href="sample/tameshibu_episode3_vi.pdf">샘플 PDF 열기</a></p>
-                    </article>
-                </div>
-            </div>
-        </section>
+<div class="container"><div class="section-heading"><h2>샘플 PDF</h2></div><p><a class="button" href="https://tyamada.github.io/manga-prompt-kit/samples/ko/">샘플 PDF</a></p></div>
+</section>
 
         <section class="section" id="sample-license">
             <div class="container">
                 <h2>샘플 PDF 라이선스</h2>
-                <p>해봄부 제1화 한숨 돌림 지도 (Korean)<br>해봄부제2화 책상이 넓어지다 (Korean)<br>© 2026 코마이로 히요리</p>
+                <p>해봄부 제1화 한숨 돌림 지도 (Korean)<br>해봄부제2화 책상이 넓어지다 (Korean)<br>THE TRY-IT CLUB EPISODE 3 (English)<br>© 2026 코마이로 히요리</p>
                 <p>본 작품 중 공개자가 저작권 또는 그 밖의 이용 허락 대상 권리를 보유한 부분은 크리에이티브 커먼즈 저작자표시 4.0 국제(CC BY 4.0)에 따라 제공됩니다.<br><a href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></p>
                 <p>재이용할 때는 작품명, 작가명 ‘코마이로 히요리’, 원작의 공개 출처 및 라이선스 링크를 표시하고, 변경한 경우에는 그 사실을 명시하십시오.</p>
                 <p>본 작품은 글과 이미지의 제작 및 번역에 생성형 AI를 사용했습니다. 글꼴 등 제3자가 권리를 보유한 자료에는 각각의 라이선스가 적용됩니다. 저작권 등의 보호를 받지 않는 부분의 이용을 이 표시로 제한하지 않습니다.</p>
@@ -737,16 +596,23 @@
                     <div>
                         <h2>MihirakiPDFViewer를 사용해 보세요</h2>
                         <p>
-                            App Store 출시 후 이 버튼을
-                            App Store URL로 바꾸세요.
+                            앱은 현재 일본 App Store에서 이용할 수 있습니다. 이 버튼을 누르면 일본 App Store의 앱 페이지가 열립니다.
                         </p>
                     </div>
-                    <a class="button" href="#" aria-label="App Store에서 MihirakiPDFViewer 다운로드">
+                    <a class="button" href="https://apps.apple.com/jp/app/id6802023530" aria-label="App Store에서 MihirakiPDFViewer 다운로드">
                         App Store에서 받기
                     </a>
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>개인정보 처리방침</h2>
+        <p>설정 상단이나 앱 정보에서 개인정보 처리방침을 열 수 있습니다. PDF를 선택하기 전이나 읽는 중에도 구매나 로그인 없이 이용할 수 있습니다.</p>
+        <p>남은 저장 공간은 이 기기에만 표시됩니다. 공유하는 진단 텍스트에는 저장 공간 검사, 수치, 해당 검사가 종합 결과에 미치는 영향이 포함되지 않습니다. 로그에는 처리 경과 시간이 포함될 수 있지만 원시 시스템 가동 시간은 포함되지 않습니다.</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">

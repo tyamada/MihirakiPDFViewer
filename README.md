@@ -1,4 +1,8 @@
+> **Status (2026-11-23):** **1.1.0 (16)** is available in Japan and the United States. **1.1.1 (17)** was submitted at **10:05 JST** for Korean App Store localization and is waiting for review. Korea distribution remains on hold. [Release and review record](release-notes/2026-11-23.md).
+
 # MihirakiPDFViewer
+
+The English display name is **Mihiraki: Two-Page PDF Reader**, Japanese is **見開きPDFビューア**, and Korean remains **미히라키 PDF 뷰어**. Other localized names follow `InfoPlist.xcstrings`; unsupported languages fall back to English. The project name and repository URLs remain unchanged.
 
 English | [日本語](README_ja.md)
 
@@ -15,9 +19,8 @@ This software was coded using generative AI.
 - **Right-to-Left and Left-to-Right Support**: Uses the PDF direction to
   provide natural page movement for both reading directions. Right-to-left
   documents open on their first page instead of jumping to the last page.
-- **Single-Page and Two-Page Views**: Portrait screens default to single-page
-  view on every device. Switch layouts and adjust cover-page handling to match
-  the document.
+- **Single-Page and Two-Page Views**: Portrait-shaped reading areas default to
+  single-page view. Switch layouts and adjust cover-page handling to match the document.
 - **Search and Zoom**: Search text within a PDF, pinch to zoom, and drag
   while zoomed in.
 - **Table of Contents**: Open a PDF's hierarchical outline from the reader,
@@ -27,7 +30,7 @@ This software was coded using generative AI.
   Settings when needed.
 - **Reading Session Restoration**: Reopen the last document and continue
   from the previous page after relaunching the app.
-- **Downloadable Sample PDFs**: Browse the bundled catalog by language,
+- **Downloadable Sample PDFs**: Browse samples by language using a validated online catalog, the last valid saved list, or the bundled 51-entry fallback (PDF files are downloaded on demand, not bundled),
   download a sample to the device, open it in the viewer, and delete the local
   copy when it is no longer needed. Downloads over mobile data require
   confirmation.
@@ -36,12 +39,25 @@ This software was coded using generative AI.
   time, device model name and identifier, OS version, and app version.
 - **Privacy-Safe App Logs**: Review and optionally share 24 hours of diagnostic
   events for investigating crashes, slowdowns, operation issues, and display
-  issues. Logs exclude personal information, file contents, file names and
+  issues. Generated logs exclude document contents, file names and
   paths, search terms, and passwords.
 
 Diagnostic test results and app logs remain on the device unless you explicitly
 use the Share button. The app does not automatically send them outside the
-device, and logs older than 24 hours are deleted.
+device. Logs are limited to 2,000 entries; entries older than 24 hours are removed
+when logs are read or recorded, not by a timer while the app is stopped.
+
+## Privacy
+
+Open **Privacy Policy** at the top of Settings or in App Information, before
+selecting a PDF or while reading. No purchase or login is required.
+Disk-space values and the storage check are excluded from shared diagnostic
+results. Processing logs contain elapsed durations, never raw system uptime.
+The Privacy Manifest retains the reasons for app-only preferences, elapsed-time
+measurement, and on-device disk-space display. It also declares diagnostic,
+performance, product-interaction, and search-history data when users send generated
+reports to the support address and the developer retains them: App Functionality,
+linked to the user, and not used for tracking. This does not add automatic sending.
 
 ## How to Use
 
@@ -61,9 +77,9 @@ device, and logs older than 24 hours are deleted.
 7. **Search**: Enter text in the search field. Matching text is highlighted
    in the document.
 8. **Adjust the Layout**: In Settings, select single-page or two-page view,
-   reading direction, and cover-page handling. When the screen is taller than
-   it is wide, single-page view is enabled by default on every device; turn off
-   **Single Page in Portrait** to keep two-page view.
+   reading direction, and cover-page handling. **Single Page in Portrait** is on by default
+   and displays one page at a time in portrait-shaped reading areas, including wide
+   iPad layouts. Turn it off to keep the selected two-page setting in portrait.
 9. **Adjust Rendering**: Enable high-quality rendering or sharpness in
    Settings when the PDF needs clearer text and lines.
 10. **Close or Resume**: Close the current document from the toolbar, or
@@ -79,175 +95,14 @@ device, and logs older than 24 hours are deleted.
 
 ## Sample PDF
 
+
+[Browse sample PDF downloads](https://tyamada.github.io/manga-prompt-kit/samples/en/)
+
+Development-source catalog updates: opening the sample list checks the [latest manifest](https://raw.githubusercontent.com/tyamada/manga-prompt-kit/main/releases/pdf-manifest.json) without downloading PDFs automatically. Only a completely validated list is saved atomically. Network or validation failures retain the previous valid list or bundled fallback. Each PDF uses its entry’s fixed Release URL, size and SHA-256. Existing IDs, language filters, local filenames and downloaded PDFs are preserved. This source change is not yet distributed in the App Store.
+
+The 51 PDFs (episodes 1–3, 17 language/region variants) use the fixed [manga-pdf-20261103-v1 Release](https://github.com/tyamada/manga-prompt-kit/releases/tag/manga-pdf-20261103-v1). Creator: こまいろ日和 / Komairo Hiyori (Takuma Yamada). CC BY 4.0 and embedded third-party notices apply. Existing downloads keep their local filenames and offline access; legacy URLs remain available during migration.
+
 Try MihirakiPDFViewer with these sample PDFs.
-
-### THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP (English)
-
-[Open the English sample PDF](docs/sample/tameshibu_episode1_2_en.pdf)
-
-### THE TRY-IT CLUB EPISODE 2 ROOM TO GROW (English)
-
-[Open the English sample PDF](docs/sample/tameshibu_episode2_2_en.pdf)
-
-### ためし部 第１話 ひと息マップ (Japanese)
-
-[Open the Japanese sample PDF](docs/sample/tameshibu_episode1_2_ja.pdf)
-
-### ためし部 第２話 机、ひろがる。 (Japanese)
-
-[Open the Japanese sample PDF](docs/sample/tameshibu_episode2_2_ja.pdf)
-
-### 해봄부 제1화 한숨 돌림 지도 (Korean)
-
-[Open the Korean sample PDF](docs/sample/tameshibu_episode1_2_ko.pdf)
-
-### 해봄부제2화 책상이 넓어지다 (Korean)
-
-[Open the Korean sample PDF](docs/sample/tameshibu_episode2_2_ko.pdf)
-
-### 试试社 第1话 歇口气地图 (Chinese (Simplified))
-
-[Open the Simplified Chinese sample PDF](docs/sample/tameshibu_episode1_2_zh_cn.pdf)
-
-### 试试社 第2话 桌子变大了 (Chinese (Simplified))
-
-[Open the Simplified Chinese sample PDF](docs/sample/tameshibu_episode2_2_zh_cn.pdf)
-
-### 試試社 第1話 (Chinese (Traditional))
-
-[Open episode 1](docs/sample/tameshibu_episode1_2_zh_tw.pdf)
-
-### 試試社 第2話 (Chinese (Traditional))
-
-[Open episode 2](docs/sample/tameshibu_episode2_2_zh_tw.pdf)
-
-### DER PROBIERCLUB FOLGE 1 (German)
-
-[Open episode 1](docs/sample/tameshibu_episode1_2_de.pdf)
-
-### DER PROBIERCLUB FOLGE 2 (German)
-
-[Open episode 2](docs/sample/tameshibu_episode2_2_de.pdf)
-
-### LE CLUB DES ESSAIS EPISODE 1 (French)
-
-[Open episode 1](docs/sample/tameshibu_episode1_2_fr.pdf)
-
-### LE CLUB DES ESSAIS EPISODE 2 (French)
-
-[Open episode 2](docs/sample/tameshibu_episode2_2_fr.pdf)
-
-### Episode 1 (Español)
-
-[Open sample PDF](docs/sample/tameshibu_episode1_es.pdf)
-
-### Episode 1 (Bahasa Indonesia)
-
-[Open sample PDF](docs/sample/tameshibu_episode1_id.pdf)
-
-### Episode 1 (Italiano)
-
-[Open sample PDF](docs/sample/tameshibu_episode1_it.pdf)
-
-### Episode 1 (नेपाली)
-
-[Open sample PDF](docs/sample/tameshibu_episode1_ne.pdf)
-
-### Episode 1 (Português)
-
-[Open sample PDF](docs/sample/tameshibu_episode1_pt.pdf)
-
-### Episode 1 (Filipino)
-
-[Open sample PDF](docs/sample/tameshibu_episode1_tl.pdf)
-
-### Episode 1 (Tiếng Việt)
-
-[Open sample PDF](docs/sample/tameshibu_episode1_vi.pdf)
-
-### Episode 2 (Español)
-
-[Open sample PDF](docs/sample/tameshibu_episode2_es.pdf)
-
-### Episode 2 (Bahasa Indonesia)
-
-[Open sample PDF](docs/sample/tameshibu_episode2_id.pdf)
-
-### Episode 2 (Italiano)
-
-[Open sample PDF](docs/sample/tameshibu_episode2_it.pdf)
-
-### Episode 2 (नेपाली)
-
-[Open sample PDF](docs/sample/tameshibu_episode2_ne.pdf)
-
-### Episode 2 (Português)
-
-[Open sample PDF](docs/sample/tameshibu_episode2_pt.pdf)
-
-### Episode 2 (Filipino)
-
-[Open sample PDF](docs/sample/tameshibu_episode2_tl.pdf)
-
-### Episode 2 (Tiếng Việt)
-
-[Open sample PDF](docs/sample/tameshibu_episode2_vi.pdf)
-
-### Episode 3 (한국어)
-
-[Open sample PDF](docs/sample/tameshibu_episode3_ko.pdf)
-
-### Episode 3 (简体中文)
-
-[Open sample PDF](docs/sample/tameshibu_episode3_zh_cn.pdf)
-
-### Episode 3 (繁體中文)
-
-[Open sample PDF](docs/sample/tameshibu_episode3_zh_tw.pdf)
-
-### Episode 3 (English)
-
-[Open sample PDF](docs/sample/tameshibu_episode3_en.pdf)
-
-### Episode 3 (日本語)
-
-[Open sample PDF](docs/sample/tameshibu_episode3_ja.pdf)
-
-### Episode 3 (Deutsch)
-
-[Open sample PDF](docs/sample/tameshibu_episode3_de.pdf)
-
-### Episode 3 (Español)
-
-[Open sample PDF](docs/sample/tameshibu_episode3_es.pdf)
-
-### Episode 3 (Français)
-
-[Open sample PDF](docs/sample/tameshibu_episode3_fr.pdf)
-
-### Episode 3 (Bahasa Indonesia)
-
-[Open sample PDF](docs/sample/tameshibu_episode3_id.pdf)
-
-### Episode 3 (Italiano)
-
-[Open sample PDF](docs/sample/tameshibu_episode3_it.pdf)
-
-### Episode 3 (नेपाली)
-
-[Open sample PDF](docs/sample/tameshibu_episode3_ne.pdf)
-
-### Episode 3 (Português)
-
-[Open sample PDF](docs/sample/tameshibu_episode3_pt.pdf)
-
-### Episode 3 (Filipino)
-
-[Open sample PDF](docs/sample/tameshibu_episode3_tl.pdf)
-
-### Episode 3 (Tiếng Việt)
-
-[Open sample PDF](docs/sample/tameshibu_episode3_vi.pdf)
 
 ## Pricing and Supporting the Developer
 
@@ -261,19 +116,18 @@ non-consumable in-app purchases through StoreKit. These purchases are
 voluntary and are not used to remove ads or unlock restricted viewer
 features.
 
-The following supporter items are available:
+The purchase-screen headings are Bronze, Silver, and Gold in all 13 languages. Prices come from StoreKit and appear only on the purchase buttons.
+
+The app supports the following non-consumable items:
 
 - `supporter_icon_bronze`: Bronze icon
 - `supporter_icon_silver`: Silver icon
 - `supporter_icon_gold`: Gold icon
-- `supporter_badge_koyomi_v2`: Koyomi supporter badge
+- `supporter_badge_koyomi_v2`: Release Commemorative Koyomi Badge
 
-Bronze, Silver, and Gold purchases permanently unlock their corresponding
-alternate app icons. Koyomi unlocks a supporter badge. Owned badges appear in
-App Information, and promotion codes can be redeemed through the App Store
-from the Support screen.
-Purchases can be restored on another supported device using the same Apple
-Account from the supporter icon screen in Settings.
+Bronze, Silver, and Gold purchases permanently unlock their corresponding alternate app icons. Koyomi is excluded from the purchase list and does not change the app icon. In the next development version, both existing and new users receive it free when eligibility is evaluated before January 1, 2028 at 00:00 JST (through December 31, 2027), using the device clock. No purchase, redemption code, account lookup, or network connection is required. The grant is saved locally and remains after the deadline; a new grant shows an acquisition notice. Tap a badge in App Information to view its enlarged image, name, and description.
+
+Existing StoreKit badge rights remain valid and produce one badge together with a local free grant. Settings → Support → Restore Purchases restores eligible StoreKit purchases using the same Apple Account; it does not recover a lost local free grant after the deadline. Deleting the app may remove the local grant. Support still provides code redemption for eligible purchased items.
 
 ## Options
 
@@ -342,53 +196,13 @@ so a fresh checkout has the same build resources as the local project.
 
 ### Build Steps in Xcode
 
-#### 1. Create a New Project
-1. Launch **Xcode**.
-2. Select **"Create a new Xcode project..."** and click **"Next..."**.
-3. Select **"iOS"** as the platform and **"App"** as the application type,
-then click **"Next..."**.
-4. Enter the project settings:
-- **Product Name**: `MihirakiPDFViewer` (optional)
-- **Organization Identifier**: `com.yourname` (optional)
-- **Interface**: `SwiftUI`
-- **Language**: `Swift`
-- **Storage**: `None` (default)
-5. Choose a save location and click **"Create"**.
+1. Clone this repository, including the assets and resource catalogs.
+2. Open `MihirakiPDFViewer.xcodeproj` and select the shared `CI` scheme.
+3. Select an iPhone or iPad simulator running iOS/iPadOS 26.5 or later.
+4. Build and run. Use your own development team when signing for a device.
 
-#### 2. Import Source Files
-1. Download the source code from GitHub.
-2. **Drag and drop** the folders located inside the `Sources` folder (`App`,
-`Managers`, `Models`, `ViewModels`, `Views`) into the **Project Navigator**
-(file tree) on the left side of Xcode.
-3. In the dialog that appears (Add to "MihirakiPDFViewer"), configure
-the settings as follows:
-- **Destination**: Select `Create groups` (*Important: to maintain the
-folder structure*)
-- **Options**: Check the box for `Copy items if needed`
-
-#### 3. Modify the Entry Point (App File)
-By default, Xcode is configured to launch the project using an automatically
-generated file. You need to update this to use the provided code instead.
-
-1. In the Xcode Project Navigator, delete the automatically generated
-`[Project Name]App.swift` file.
-2. Ensure that `Sources/App/MihirakiPDFViewerApp.swift` is included in the
-project.
-
-#### 4. Build and Run
-1. Click the device selection menu to the right of the Run button (**▶️**)
-in the Xcode toolbar and select an **iPad simulator** (such as "iPad Pro").
-2. Click the **▶️ (Run)** button or press `Command + R` on your keyboard.
-3. If the simulator launches and displays the screen for selecting a PDF
-file, the setup was successful.
-
-### Troubleshooting
-*   **If an error occurs**: If you encounter an error with `import PDFKit`,
-check if `PDFKit` is included in the project's **Frameworks, Libraries,
-and Embedded Content** section (it is usually included by default).
-*   **"File not found" error**: If a file appears in red in the Xcode
-Project Navigator, the file path is not linked correctly. Delete the file
-and add it again by dragging and dropping it.
+The app target must include `PrivacyInfo.xcprivacy` in its resources. For a
+release, inspect both the archive and exported IPA for the manifest.
 
 ## Key roles of AI
 
@@ -425,6 +239,21 @@ When reusing this work, provide the title of the work, the author name “Komair
 Generative AI was used to create and translate the text and images in this work. Materials owned by third parties, such as fonts, are subject to their respective licenses. This notice does not restrict the use of any parts that are not protected by copyright or other rights.
 
 ## Version History
+
+- **1.0.4 build 14 — local source candidate, 2026/11/07**: Uses price-free
+  Bronze, Silver and Gold headings in all 13 languages; purchase buttons retain
+  StoreKit prices. Retains the four ShareLink-related collected-data declarations.
+  No Archive, IPA export, upload or submission has been performed for build 14.
+  Build 13 Archive, exported IPA and Privacy Report are retained separately;
+  their checks and the reported iPhone/Sandbox results do not validate build 14.
+  Final build 14 artifact, device and purchase/restoration checks remain pending.
+
+- **1.0.4 build 12 — local candidate, 2026/10/24**: Added accessible,
+  localized privacy-policy links and a Privacy Manifest; excluded disk-space
+  information from diagnostic sharing. Includes the development features below.
+  Standardized app names and renamed the Release Commemorative Koyomi Badge.
+  This candidate has not been exported, uploaded, or submitted; device, VoiceOver,
+  Privacy Report, and new IPA checks remain pending.
 
 - **Unreleased** - 2026/10/09: Added downloadable multilingual sample PDFs,
   updated them to the second edition, added language filtering, device

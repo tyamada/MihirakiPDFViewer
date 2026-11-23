@@ -35,7 +35,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -240,6 +240,10 @@
         }
 
         @media (max-width: 760px) {
+            .site-header {
+                position: static;
+            }
+
             .nav {
                 align-items: flex-start;
                 flex-direction: column;
@@ -262,6 +266,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -296,6 +315,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">Versi 1.1.0 sudah tersedia</h2>
+            <p>Versi 1.1.0 dirilis di App Store Jepang pada 23 November 2026. Saat ini, aplikasi hanya tersedia di Jepang.</p>
+        </aside>
+
         <section class="hero">
             <div class="container">
                 <p class="eyebrow">Kebijakan Privasi</p>
@@ -399,18 +423,13 @@
                             membalas atau menyelidiki masalah tersebut.
                         </p>
                         <ul>
-                            <li>Jangan mengirim konten PDF atau informasi pribadi kecuali diperlukan.</li>
+                            <li>Jangan kirim file PDF atau isinya. Baca petunjuk laporan dan gambar di bawah sebelum menghubungi dukungan.</li>
                             <li>Model perangkat, versi OS, versi aplikasi, dan langkah-langkah reproduksi membantu penyelidikan.</li>
                         </ul>
                     </article>
                     <article class="card">
                         <h3>Berbagi dengan Pihak Ketiga</h3>
-                        <p>
-                            Informasi tidak diberikan kepada pihak ketiga kecuali
-                            jika diwajibkan oleh hukum. Fitur-fitur yang disediakan Apple seperti
-                            pembelian dalam aplikasi dan iCloud Drive juga tunduk pada
-                            Kebijakan privasi Apple.
-                        </p>
+                        <p>Informasi yang Anda pilih untuk dibagikan atau dikirim ke dukungan diterima oleh penerima pilihan Anda dan dapat disimpan di sana. Pembelian StoreKit dan iCloud Drive mengikuti penanganan Apple. Unduhan contoh dan tautan eksternal menghubungi operator layanan; kebijakan privasi mereka dan tujuan berbagi yang Anda pilih berlaku. Aplikasi tidak mengirim diagnostik otomatis kepada pengembang.</p>
                     </article>
                 </div>
             </div>
@@ -454,7 +473,7 @@
     <div class="container">
         <div class="section-heading">
             <h2>Diagnostik di perangkat dan log aplikasi</h2>
-            <p>Dari layar Diagnostik di Pengaturan, jalankan pengujian informasi aplikasi, penyimpanan lokal, dan perenderan PDF, atau lihat log diagnostik untuk menyelidiki crash, perlambatan, serta masalah operasi atau tampilan. Hasil mencakup waktu pengujian, nama dan pengenal model perangkat, versi OS, dan versi aplikasi. Log tidak memuat informasi pribadi, isi, nama atau jalur file, istilah pencarian, maupun kata sandi, dan dihapus setelah 24 jam. Tidak ada pengiriman otomatis; data hanya keluar dari perangkat saat Anda secara tegas menggunakan Bagikan.</p>
+            <p>Hasil diagnostik disimpan dalam memori layar saat ini. Jika Anda memilih berbagi, teks mencakup waktu pengujian, nama dan pengenal model (bukan ID unik perangkat), versi OS dan aplikasi, memori total dan tersedia, serta hasil selain pemeriksaan ruang penyimpanan kosong. Log berisi jenis peristiwa, waktu, jumlah, dan durasi pemrosesan. Log yang dapat dibaca dan dibagikan di aplikasi dibatasi 2.000 entri; entri lebih dari 24 jam dihapus saat log dibaca atau dicatat, bukan oleh pengatur waktu ketika aplikasi berhenti. Log sistem mengikuti aturan OS. Hasil dan log tidak dikirim otomatis.</p>
         </div>
     </div>
 </section>
@@ -477,7 +496,34 @@
                 </article>
             </div>
         </section>
-    </main>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>Kebijakan Privasi</h2>
+        <p>Buka Kebijakan Privasi di bagian atas Pengaturan atau di Informasi Aplikasi. Tersedia sebelum memilih PDF dan saat membaca, tanpa pembelian atau login.</p>
+        <p>Ruang penyimpanan kosong hanya ditampilkan di perangkat ini. Teks diagnostik yang dibagikan tidak menyertakan pemeriksaan ruang, nilainya, atau pengaruhnya pada hasil keseluruhan. Log dapat memuat durasi pemrosesan, tetapi tidak memuat waktu aktif sistem mentah.</p>
+        <p>Pemulihan bacaan menyimpan bookmark dokumen, halaman, pengaturan tampilan, dan teks pencarian secara lokal; kata sandi PDF tidak disimpan. Unduhan contoh menghubungi GitHub Releases saat diminta. Membuka kebijakan ini atau GitHub Issues juga menghubungi situs eksternal yang pengelolanya dapat menerima alamat IP dan informasi permintaan. Laporan dibagikan ke tujuan yang Anda pilih. Layanan eksternal memiliki kebijakan privasi masing-masing.</p>
+    <p data-policy-topic="local-retention">Tampilan dan pencarian PDF diproses di perangkat. Pemulihan membaca menyimpan penanda dokumen, posisi halaman, teks pencarian dan opsi tampilan secara lokal, tetapi tidak menyimpan kata sandi PDF. Menutup dokumen atau mengatur ulang pengaturan menghapus catatan pemulihan, bukan PDF atau log diagnostik. Beberapa PDF yang diimpor disalin ke penyimpanan Documents aplikasi. Untuk menghapus data lokal, gunakan penghapusan aplikasi pada OS, bukan penghapusan aplikasi sementara yang mempertahankan data. Dokumen asli eksternal dan salinan yang sudah dibagikan tidak ikut dihapus. Tidak ada tombol khusus untuk menghapus log.</p>
+    </div>
+</section>
+    <section class="section" id="sample-catalog-network"><div class="container"><p data-policy-topic="sample-catalog-network" style="overflow-wrap:anywhere">Saat Anda membuka daftar contoh, aplikasi memeriksa GitHub untuk mengetahui apakah JSON katalog terbaru tersedia. Jika pembaruan gagal, aplikasi menggunakan daftar tersimpan terakhir yang valid atau daftar bawaan aplikasi. File PDF hanya diunduh jika Anda memilih untuk mengunduhnya. Permintaan katalog menghubungi raw.githubusercontent.com; unduhan PDF menghubungi GitHub Releases. Layanan ini dapat menerima alamat IP dan informasi permintaan Anda.</p></div></section>
+    <section class="section" id="support-retention">
+      <div class="container">
+        <h2>Informasi dukungan dan penyimpanan</h2>
+        <p>Informasi dukungan hanya digunakan untuk membalas, menyelidiki masalah, dan melakukan perbaikan teknis pada kinerja. Kami tidak meminta nama asli. Jika nama tampilan pengirim memuat nama asli, nama itu disimpan hanya di email asli selama diperlukan untuk balasan dan penyelidikan; tidak disalin ke Google Sheets per kasus atau catatan perbaikan.</p>
+        <p>Kami biasanya tidak meminta tangkapan layar. Hanya jika teks saja tidak dapat mereproduksi masalah dan gambar diperlukan, kami menerimanya di tyamada.support@gmail.com. Sebelum mengirim, sembunyikan isi PDF, nama file, nama orang, notifikasi, dan informasi lain yang tidak diperlukan untuk penyelidikan. Gambar pada prinsipnya ditangani di dalam email asli. Sheets per kasus hanya berisi temuan yang diperlukan untuk penyelidikan, bukan gambar.</p>
+        <p>Nama atau nama pengguna penulis GitHub tidak disalin ke Sheets per kasus atau catatan perbaikan. Tautan ke Issue asli disimpan di Sheet kasus hanya jika diperlukan untuk membalas atau menyelidiki. Selama penulis dapat ditemukan melalui tautan tersebut, catatan itu tetap dapat dikaitkan dengannya. Jangan unggah informasi pribadi, file PDF atau isinya, nama file, maupun tangkapan layar ke Issue publik.</p>
+        <p>Postingan publik di GitHub berbeda dari email dan catatan kasus yang kami kelola. Menghapus tautan kasus kami tidak menghapus Issue publik. Kami tidak menjamin penghapusan postingan atau salinan layanan di luar kendali kami. Laporan dan referensi kasus yang dapat ditelusuri kembali ke pengirim tidak diperlakukan sebagai anonim.</p>
+        <h3>Titik awal dan tenggat penghapusan</h3>
+        <p>A. Email asli, termasuk nama asli yang ditampilkan, gambar dan salinan penyelidikan: kasus dinyatakan selesai bila sudah ada balasan atau kesimpulan penyelidikan dan pengembang memastikan tidak ada pekerjaan tersisa. Tidak adanya balasan saja tidak otomatis menutup kasus. Tenggat diperiksa setiap minggu. Penghapusan dimulai sekitar 60 hari setelah penyelesaian, dan penghapusan catatan yang dapat dikelola, termasuk Sampah terkait, dikonfirmasi dalam 90 hari. Masa 60 hari bukan batas minimum penyimpanan; permintaan penghapusan lebih awal tidak menunggu tenggat normal.</p>
+        <p>B. Sheets per kasus, temuan, tautan Issue, serta catatan penerimaan dan penghapusan: penghapusan file kasus dan catatan serta referensi terkait dikonfirmasi dalam 90 hari setelah penghapusan informasi asli selesai. Menghapus baris atau sel saja tidak cukup. Ini tidak memperpanjang A atau mengizinkan pemindahan data asli ke catatan ini. Issue publik yang masih tersedia tidak otomatis memperpanjang tenggat catatan kasus kami.</p>
+        <p>C. Catatan perbaikan yang digeneralisasi hanya menyimpan penyebab dan ringkasan perbaikan, tanpa nama, gambar, URL postingan, ID kasus, atau informasi lain yang dapat ditelusuri ke laporan asli. Catatan ini bukan tempat penyimpanan pengganti untuk A atau B.</p>
+        <p>Pengecualian hanya untuk penyelidikan yang berlanjut atau keperluan hukum. Alasan, cakupan, dan kondisi berakhir dicatat dan ditinjau paling lambat setiap 30 hari serta saat penyelidikan berakhir. Setelah kebutuhan itu berakhir, penghapusan biasanya dikonfirmasi dalam 30 hari, atau pada tenggat awal 90 hari jika masih berlaku dan lebih awal. Pembukaan kembali atau pengecualian tidak otomatis mengatur ulang tenggat. Perhitungan menggunakan hari kalender di Asia/Tokyo.</p>
+        <p>Tenggat ini berlaku untuk catatan yang dapat dikelola pengembang. Penghapusan melalui antarmuka layanan tidak menjamin penghapusan fisik salinan pemulihan internal penyedia atau cadangan perangkat dalam periode yang sama. Salinan dan batas penghapusannya berbeda dari catatan di bawah kendali kami. Menghapus log aplikasi lokal tidak menghapus laporan yang sudah dikirim.</p>
+        <p>Untuk pertanyaan atau permintaan penghapusan, hubungi <a href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a>. Berikan hanya informasi yang diperlukan untuk mengidentifikasi kasus terkait; jangan mempostingnya secara publik.</p>
+      </div>
+    </section>
+  </main>
 
     <footer class="site-footer">
         <div class="footer-inner">

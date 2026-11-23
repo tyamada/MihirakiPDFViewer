@@ -36,7 +36,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -324,7 +324,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -347,6 +361,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -381,6 +410,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">1.1.0 版已上线</h2>
+            <p>1.1.0 版已于 2026 年 11 月 23 日在日本区 App Store 上线。该应用目前仅在日本提供。</p>
+        </aside>
+
         <section class="hero">
             <div class="container hero-inner">
                 <div>
@@ -475,11 +509,7 @@
                         </details>
                         <details>
                             <summary>如果显示看起来模糊，该怎么办？</summary>
-                            <p>
-                                在设置中开启高质量或锐化。
-                                这些选项可能会增加某些设备的
-                                渲染负载。
-                            </p>
+                            <p>High Quality: 以更高分辨率渲染 PDF 页面。 Sharpness: 调整文字和线条的锐化强度。</p>
                         </details>
                     </article>
 
@@ -504,8 +534,7 @@
                         <details>
                             <summary>必须进行 App 内购买吗？</summary>
                             <p>
-                                不需要。打赏是可选的支持购买。应用的
-                                阅读功能无需购买打赏即可使用。
+                                不需要。Bronze、Silver 和 Gold 是可选的非消耗型商品，可永久解锁对应的应用图标。阅读功能免费。价格显示在购买按钮上。
                             </p>
                         </details>
                     </article>
@@ -544,7 +573,7 @@
     <div class="container">
         <div class="section-heading">
             <h2>设备端诊断与应用日志</h2>
-            <p>可在设置的“诊断”页面中运行应用信息、本地存储和 PDF 渲染测试，或查看用于排查崩溃、变慢、操作和显示问题的诊断日志。测试结果包含测试时间、设备型号名称和型号标识符、系统版本和应用版本。日志不记录个人信息、文件内容、文件名或路径、搜索词和密码，并会在24小时后删除。应用不会自动发送这些信息；只有您明确使用“共享”时，结果或日志才会离开设备。</p>
+            <p>可在设置的“诊断”页面中运行应用信息、本地存储和 PDF 渲染测试，或查看用于排查崩溃、变慢、操作和显示问题的诊断日志。测试结果包含测试时间、设备型号名称和型号标识符、系统版本和应用版本。日志不记录个人信息、文件内容、文件名或路径、搜索词和密码，并会在读取或记录日志时移除超过24小时的记录。应用不会自动发送这些信息；只有您明确使用“共享”时，结果或日志才会离开设备。</p>
         </div>
     </div>
 </section>
@@ -597,43 +626,23 @@
         </section>
 
         <section class="section" id="contact" aria-labelledby="contact-title">
-            <div class="container">
-                <div class="section-heading">
-                    <h2 id="contact-title">错误报告和联系</h2>
-                    <p>
-                        如果问题仍然存在，联系支持时请提供你的环境和
-                        复现步骤。
-                    </p>
-                </div>
-                <div class="contact-grid">
-                    <article class="contact-card">
-                        <h3>GitHub Issues</h3>
-                        <p>
-                            请使用 GitHub Issues 提交错误报告和功能请求。
-                            不要附加包含个人或机密
-                            信息的 PDF。
-                        </p>
-                        <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">打开 GitHub Issues</a>
-                    </article>
-                    <article class="contact-card">
-                        <h3>电子邮件</h3>
-                        <p>
-                            私人咨询请使用电子邮件。回复可能需要一些
-                            时间。
-                        </p>
-                        <a class="button secondary" href="mailto:takuma.yamada22@gmail.com">takuma.yamada22@gmail.com</a>
-                    </article>
-                </div>
-
-                <article class="notice" style="margin-top: 16px;">
-                    <h3>需要包含的信息</h3>
-                    <p>
-                        请包含设备型号、iOS/iPadOS 版本、应用
-                        版本、PDF 类型、复现步骤以及你看到的任何错误消息。
-                    </p>
-                </article>
-            </div>
-        </section>
+      <div class="container">
+        <h2 id="contact-title">问题报告与非公开咨询</h2>
+        <p>请先用文字说明：概述问题、列出复现步骤，并说明预期行为与实际发生的情况。需要时请提供设备、操作系统和应用版本。无需填写真实姓名。请勿发送PDF文件或其内容。</p>
+        <div class="contact-grid">
+          <article class="contact-card"><h3>公开报告问题（GitHub Issues）</h3>
+            <p>请勿在公开Issue中发布个人信息、PDF文件或其内容、文件名或屏幕截图。</p>
+            <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">公开报告问题（GitHub Issues）</a>
+          </article>
+          <article class="contact-card"><h3>非公开咨询（电子邮件）</h3>
+            <p>原则上不要求提供屏幕截图。仅在文字无法复现问题且确实需要图片时，通过tyamada.support@gmail.com接收。发送前请遮挡PDF内容、文件名、姓名、通知以及调查不需要的其他信息。</p>
+            <a class="button secondary" href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a>
+          </article>
+        </div>
+        <p>如附上诊断结果或应用日志，请在发送前检查内容和收件人。不会自动发送任何信息。也可从应用的诊断和帮助中打开“报告问题”，查看相同说明。</p>
+        <p><a href="privacy_zh-Hans.html#support-retention">支持信息的保留政策：邮件、图片与个案记录的处理方式</a></p>
+      </div>
+    </section>
 
         <section class="section" id="updates" aria-labelledby="updates-title">
             <div class="container">
@@ -649,12 +658,21 @@
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>隐私政策</h2>
+        <p>可从设置顶部或“应用信息”打开隐私政策。无论尚未选择 PDF 还是正在阅读，都无需购买或登录。</p>
+        <p>可用存储空间仅在本设备上显示。共享的诊断文本不包含存储空间检查、数值及其对总体结果的影响。日志可能包含处理耗时，但不包含原始系统运行时间。</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">
         <div class="footer-inner">
             <small>&copy; 2026 Takuma Yamada. 保留所有权利。</small>
             <div class="footer-links">
+                <a href="https://tyamada.github.io/manga-prompt-kit/samples/zh-Hans/">示例 PDF</a>
                 <a href="index_zh-Hans.html">主页</a>
                 <a href="support_zh-Hans.html">支持</a>
                 <a href="privacy_zh-Hans.html">隐私政策</a>

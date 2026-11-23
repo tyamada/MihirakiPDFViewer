@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="MihirakiPDFViewerのサポートページです。使い方、FAQ、トラブルシューティング、お問い合わせ方法を確認できます。">
-    <title>サポート | MihirakiPDFViewer</title>
+    <meta name="description" content="見開きPDFビューアのサポートページです。使い方、FAQ、トラブルシューティング、お問い合わせ方法を確認できます。">
+    <title>サポート | 見開きPDFビューア</title>
     <style>
         :root {
             color-scheme: light;
@@ -38,7 +38,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -328,7 +328,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -351,6 +365,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -358,7 +387,7 @@
         <nav class="nav" aria-label="メインナビゲーション">
             <a class="brand" href="index_ja.html">
                 <img src="assets/icons/MihirakiPDFViewer-AppIcon.png" alt="" width="38" height="38">
-                <span>MihirakiPDFViewer</span>
+                <span>見開きPDFビューア</span>
             </a>
             <div class="nav-links">
                 <a href="#faq">FAQ</a>
@@ -385,13 +414,18 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">バージョン1.1.0を公開</h2>
+            <p>2026年11月23日に、日本のApp Storeでバージョン1.1.0を公開しました。現在の配信先は日本のみです。</p>
+        </aside>
+
         <section class="hero">
             <div class="container hero-inner">
                 <div>
                     <p class="eyebrow">ヘルプ＆よくある質問</p>
-                    <h1>MihirakiPDFViewer サポート</h1>
+                    <h1>見開きPDFビューア サポート</h1>
                     <p>
-                        MihirakiPDFViewerをご利用いただきありがとうございます。
+                        見開きPDFビューアをご利用いただきありがとうございます。
                         このページでは、PDFの開き方、見開き表示、検索、ズーム、
                         パスワード付きPDFなど、よくある質問と対処方法をまとめています。
                     </p>
@@ -416,6 +450,16 @@
                     <a class="quick-link" href="#viewing">表示と操作</a>
                     <a class="quick-link" href="#security">データ・セキュリティ</a>
                     <a class="quick-link" href="#troubleshooting">不具合対応</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="next-update-preview-guide" aria-labelledby="next-update-preview-guide-title">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 id="next-update-preview-guide-title">バージョン1.1.0｜日本語紹介ショート</h2>
+                    <p>1.1.0の開発版で収録した日本語紹介ショートをご案内しています。1.1.0は日本のApp Storeで公開しています。収録時の画面は公開版と一部異なる場合があります。</p>
+                    <p><a href="index_ja.html#next-update-preview">日本語紹介ショートの案内を見る</a></p>
                 </div>
             </div>
         </section>
@@ -479,10 +523,7 @@
                         </details>
                         <details>
                             <summary>表示がぼやける場合はどうすればよいですか？</summary>
-                            <p>
-                                設定画面で「高画質化」や「シャープネス」を有効にしてください。
-                                ただし、端末によっては描画負荷が上がる場合があります。
-                            </p>
+                            <p>High Quality: PDFページをより高い解像度で描画します。 Sharpness: 文字や線を鮮明にする強さを調整します。</p>
                         </details>
                     </article>
 
@@ -506,8 +547,7 @@
                         <details>
                             <summary>アプリ内課金は必須ですか？</summary>
                             <p>
-                                必須ではありません。チップ購入は開発を応援するための任意の
-                                機能で、購入しなくてもアプリの機能は利用できます。
+                                必須ではありません。Bronze・Silver・Goldは、対応するアプリアイコンを恒久的に利用できる任意の非消耗型商品です。閲覧機能は無料です。価格は購入ボタンに表示されます。
                             </p>
                         </details>
                     </article>
@@ -544,7 +584,7 @@
     <div class="container">
         <div class="section-heading">
             <h2>端末内診断とアプリログ</h2>
-            <p>設定画面の「診断」から、アプリ情報、ローカルストレージ、PDF描画の実機テストを実行し、クラッシュ、スローダウン、操作や表示の不具合を調べる診断ログを確認できます。テスト結果には日時、端末のモデル名とモデル識別子、OSとアプリのバージョンが含まれます。ログには個人情報、ファイル内容、ファイル名やパス、検索語句、パスワードを記録せず、24時間後に削除します。自動送信機能はなく、共有を明示的に操作した場合にのみ端末外へ渡されます。</p>
+            <p>設定画面の「診断」から、アプリ情報、ローカルストレージ、PDF描画の実機テストを実行し、クラッシュ、スローダウン、操作や表示の不具合を調べる診断ログを確認できます。テスト結果には日時、端末のモデル名とモデル識別子、OSとアプリのバージョンが含まれます。ログには個人情報、ファイル内容、ファイル名やパス、検索語句、パスワードを記録せず、読込・記録時に24時間を超えた記録を削除します。自動送信機能はなく、共有を明示的に操作した場合にのみ端末外へ渡されます。</p>
         </div>
     </div>
 </section>
@@ -595,42 +635,17 @@
         </section>
 
         <section class="section" id="contact" aria-labelledby="contact-title">
-            <div class="container">
-                <div class="section-heading">
-                    <h2 id="contact-title">不具合報告・お問い合わせ</h2>
-                    <p>
-                        解決しない場合は、再現手順と利用環境を添えてお問い合わせください。
-                    </p>
-                </div>
-                <div class="contact-grid">
-                    <article class="contact-card">
-                        <h3>GitHub Issues</h3>
-                        <p>
-                            不具合報告や改善要望はGitHub Issuesへ登録してください。
-                            PDFファイルの内容に個人情報が含まれる場合は、添付しないでください。
-                        </p>
-                        <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">GitHub Issuesを開く</a>
-                    </article>
-                    <article class="contact-card">
-                        <h3>メール</h3>
-                        <p>
-                            個別に連絡したい内容はメールでお問い合わせください。
-                            返信には時間がかかる場合があります。
-                        </p>
-                        <a class="button secondary" href="mailto:takuma.yamada22@gmail.com">takuma.yamada22@gmail.com</a>
-                    </article>
-                </div>
-
-                <article class="notice" style="margin-top: 16px;">
-                    <h3>報告時に含めてほしい情報</h3>
-                    <p>
-                        端末のモデル名とモデル識別子、iOS/iPadOSのバージョン、アプリのバージョン、
-                        問題が起きたPDFの種類、再現手順、表示されたエラーメッセージを
-                        分かる範囲で記載してください。
-                    </p>
-                </article>
-            </div>
-        </section>
+<div class="container"><h2 id="contact-title">不具合報告と非公開のお問い合わせ</h2>
+<p>まず文章で、問題の概要、再現手順、期待した動作と実際の動作を説明してください。必要に応じて端末、OS、アプリの版を添えてください。実名の記入は不要です。</p>
+<div class="contact-grid"><article class="contact-card"><h3>公開の不具合報告（GitHub Issues）</h3>
+<p>公開Issueには、個人情報、PDFファイルやその内容、ファイル名、スクリーンショットを投稿しないでください。</p>
+<a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">公開の不具合報告（GitHub Issues）</a></article>
+<article class="contact-card"><h3>非公開のお問い合わせ（メール）</h3>
+<p>スクリーンショットは原則として求めません。文章だけでは問題を再現できず、画像が必要な場合に限り、以下の専用メール窓口で受け付けます。送付前に、PDFの内容、ファイル名、氏名、通知など、調査に不要な情報を隠してください。</p>
+<a class="button secondary" href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a></article></div>
+<p>診断結果やアプリログを添える場合は、送信前に内容と宛先を確認してください。自動送信はしません。アプリの「診断」と「ヘルプ」にある「問題を報告」からも同じ案内を確認できます。</p>
+<p>メール・画像・案件記録の扱いは<a href="privacy_ja.html#support-retention">サポート情報の保持方針</a>をご確認ください。</p>
+</div></section>
 
         <section class="section" id="updates" aria-labelledby="updates-title">
             <div class="container">
@@ -645,12 +660,21 @@
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>プライバシーポリシー</h2>
+        <p>設定画面の先頭、または「アプリ情報」の「プライバシーポリシー」から開けます。PDF未選択時と閲覧中のどちらでも、購入やログインなしで利用できます。</p>
+        <p>空き容量は端末内だけで表示します。診断の共有本文からは、空き容量のチェック、数値、その成否が総合結果に与える影響を除外します。ログに処理の経過時間を含む場合がありますが、生のシステム起動時間は含みません。</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">
         <div class="footer-inner">
             <small>&copy; 2026 Takuma Yamada. All rights reserved.</small>
             <div class="footer-links">
+                <a href="https://tyamada.github.io/manga-prompt-kit/samples/ja/">サンプルPDF</a>
                 <a href="index_ja.html">トップ</a>
                 <a href="support_ja.html">サポート</a>
                 <a href="privacy_ja.html">プライバシーポリシー</a>

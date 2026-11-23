@@ -1,4 +1,8 @@
-# MihirakiPDFViewer
+**状況（2026年11月23日）:** **1.1.0（16）** は日本・米国で配信中です。韓国語ストア情報を追加した **1.1.1（17）** は同日 **10:05 JST** に提出し、審査待ちです。韓国追加は保留しています。[公開・審査記録](release-notes/2026-11-23.md)。
+
+# 見開きPDFビューア
+
+次回開発版の英語表示名は **Mihiraki: Two-Page PDF Reader**、日本語は **見開きPDFビューア**、韓国語は **미히라키 PDF 뷰어** です。他の言語名は `InfoPlist.xcstrings` に従い、未対応言語では英語へフォールバックします。プロジェクト名やURLは変更していません。
 
 [English](README.md) | 日本語
 
@@ -15,7 +19,7 @@ PDFを単ページ表示または見開き表示で表示します。
 - **右綴じ・左綴じに対応**: PDFの方向設定に応じて、左右それぞれの
   読書方向に合ったページ移動ができます。右綴じ（R2L）の文書も、末尾へ
   ジャンプせず最初のページから開きます。
-- **単ページ・見開き表示**: 端末の種類に関係なく、縦長画面では単ページ表示が
+- **単ページ・見開き表示**: 縦長の閲覧領域では単ページ表示が
   デフォルトです。表示方法を切り替え、文書に合わせて表紙の扱いを調整できます。
 - **検索とズーム**: PDF内のテキストを検索し、ピンチ操作で拡大して、
   拡大中のページをドラッグできます。
@@ -26,24 +30,25 @@ PDFを単ページ表示または見開き表示で表示します。
   設定できます。
 - **読書位置の復元**: アプリを再起動したとき、最後に開いていた文書と
   ページから閲覧を再開できます。
-- **ダウンロード可能なサンプルPDF**: アプリ内でカタログを言語別に絞り込み、
+- **ダウンロード可能なサンプルPDF**: 検証済みオンライン一覧、前回正常な保存済み一覧、同梱51件の一覧（PDF本体は同梱せず、利用時にダウンロード）を言語別に絞り込み、
   サンプルを端末へダウンロードして開いたり、不要なローカルコピーを削除したり
   できます。モバイルデータ通信でのダウンロード時には確認画面を表示します。
 - **実機診断**: アプリ情報、ローカルストレージ、PDF描画のテストを端末上で
   実行できます。結果にはテスト日時、端末のモデル名とモデル識別子、OSとアプリの
   バージョンが含まれます。
 - **プライバシーに配慮したアプリログ**: クラッシュ、スローダウン、操作や表示の
-  不具合を調査するため、直近24時間の診断ログを表示・共有できます。個人情報、
-  ファイル内容、ファイル名やパス、検索語句、パスワードは記録しません。
+  不具合を調査するため、直近24時間の診断ログを表示・共有できます。生成ログに
+  PDF本文、ファイル名やパス、検索語句、パスワードは記録しません。
 
 テスト結果とアプリログは、共有ボタンを明示的に操作しない限り端末外へ送信されません。
-自動送信機能はなく、24時間を経過したログは削除されます。
+自動送信機能はありません。ログは最大2,000件で、読込・記録時に24時間を超える記録を削除します。
+アプリ停止中にタイマーで削除する仕組みではありません。
 
 ## 使い方
 
 1. **PDFを開く**: ファイルピッカーを使って、端末またはiCloud Drive
    からPDFを選択します。他のアプリから送られたPDFも開けます。
-2. **サンプルPDFを試す**: **サンプルPDFを閲覧**を選び、言語で絞り込んで
+2. **サンプルPDFを試す**: **サンプルPDFを見る**を選び、言語で絞り込んで
    サンプルをダウンロードします。同じ画面から開くことも削除することもでき、
    モバイルデータ通信でダウンロードする場合は事前に確認します。
 3. **保護されたPDFを開く**: 閲覧用パスワードが必要な場合は、表示された
@@ -57,9 +62,9 @@ PDFを単ページ表示または見開き表示で表示します。
 7. **検索する**: 検索欄にテキストを入力します。一致する文字列が文書内で
    強調表示されます。
 8. **レイアウトを調整する**: 設定画面で単ページ／見開き表示、読書方向、
-   表紙の扱いを選択します。端末の種類に関係なく、画面が縦長の場合は単ページ表示が
-   デフォルトです。縦長でも見開き表示を維持するには「縦向き時に単一ページ表示」を
-   オフにします。
+   表紙の扱いを選択します。「縦向きでは単一ページ表示」はデフォルトでオンです。
+   縦長の閲覧領域では、iPadの幅広いレイアウトでも1ページずつ表示します。
+   縦長の閲覧領域でも選択した見開き設定を維持するには、この設定をオフにします。
 9. **描画を調整する**: PDFの文字や線を見やすくしたい場合は、設定画面で
    高画質レンダリングまたはシャープネスを有効にします。
 10. **閉じる・再開する**: ツールバーから現在の文書を閉じられます。開いた
@@ -73,167 +78,18 @@ PDFを単ページ表示または見開き表示で表示します。
 
 ## サンプルPDF
 
-MihirakiPDFViewerでお試しいただけるサンプルPDFです。
 
-### THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP (English)
+[サンプルPDFのダウンロード案内](https://tyamada.github.io/manga-prompt-kit/samples/ja/)
 
-[英語版サンプルPDFを開く](docs/sample/tameshibu_episode1_2_en.pdf)
+開発ソースでは一覧を開くと[最新版JSON](https://raw.githubusercontent.com/tyamada/manga-prompt-kit/main/releases/pdf-manifest.json)を確認します。PDF本体を自動取得する処理ではありません。一覧全体の検証成功後だけ原子的に保存し、通信・検証失敗時は前回正常な一覧または同梱一覧を維持します。PDFの取得先は各項目の固定Release URLで、容量・SHA-256検証を保持します。既存ID・言語フィルター・保存名・取得済みPDFは変更しません。この変更はApp Store配信前の開発ソースに対するものです。
 
-### THE TRY-IT CLUB EPISODE 2 ROOM TO GROW (English)
+サンプルPDFは固定タグ [manga-pdf-20261103-v1](https://github.com/tyamada/manga-prompt-kit/releases/tag/manga-pdf-20261103-v1) から配信します。第1〜3話・17言語地域の計51冊です。作者はこまいろ日和 / Komairo Hiyori (Takuma Yamada)、CC BY 4.0と各PDF内の第三者素材の条件を維持します。取得済みファイルの保存名とオフライン利用を保持し、移行中は旧版アプリ向けURLも維持します。
 
-[英語版サンプルPDFを開く](docs/sample/tameshibu_episode2_2_en.pdf)
-
-### ためし部 第１話 ひと息マップ (Japanese)
-
-[日本語版サンプルPDFを開く](docs/sample/tameshibu_episode1_2_ja.pdf)
-
-### ためし部 第２話 机、ひろがる。 (Japanese)
-
-[日本語版サンプルPDFを開く](docs/sample/tameshibu_episode2_2_ja.pdf)
-
-### 해봄부 제1화 한숨 돌림 지도 (Korean)
-
-[韓国語版サンプルPDFを開く](docs/sample/tameshibu_episode1_2_ko.pdf)
-
-### 해봄부제2화 책상이 넓어지다 (Korean)
-
-[韓国語版サンプルPDFを開く](docs/sample/tameshibu_episode2_2_ko.pdf)
-
-### 试试社 第1话 歇口气地图 (Chinese (Simplified))
-
-[中国語（簡体字）版サンプルPDFを開く](docs/sample/tameshibu_episode1_2_zh_cn.pdf)
-
-### 试试社 第2话 桌子变大了 (Chinese (Simplified))
-
-[中国語（簡体字）版サンプルPDFを開く](docs/sample/tameshibu_episode2_2_zh_cn.pdf)
-
-### 試試社 第1話 / 第2話（中国語・繁体字）
-
-[第1話を開く](docs/sample/tameshibu_episode1_2_zh_tw.pdf) / [第2話を開く](docs/sample/tameshibu_episode2_2_zh_tw.pdf)
-
-### DER PROBIERCLUB FOLGE 1 / 2（ドイツ語）
-
-[第1話を開く](docs/sample/tameshibu_episode1_2_de.pdf) / [第2話を開く](docs/sample/tameshibu_episode2_2_de.pdf)
-
-### LE CLUB DES ESSAIS EPISODE 1 / 2（フランス語）
-
-[第1話を開く](docs/sample/tameshibu_episode1_2_fr.pdf) / [第2話を開く](docs/sample/tameshibu_episode2_2_fr.pdf)
-
-### 第1話 (スペイン語)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode1_es.pdf)
-
-### 第1話 (インドネシア語)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode1_id.pdf)
-
-### 第1話 (イタリア語)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode1_it.pdf)
-
-### 第1話 (ネパール語)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode1_ne.pdf)
-
-### 第1話 (ポルトガル語)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode1_pt.pdf)
-
-### 第1話 (フィリピノ語)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode1_tl.pdf)
-
-### 第1話 (ベトナム語)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode1_vi.pdf)
-
-### 第2話 (スペイン語)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode2_es.pdf)
-
-### 第2話 (インドネシア語)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode2_id.pdf)
-
-### 第2話 (イタリア語)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode2_it.pdf)
-
-### 第2話 (ネパール語)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode2_ne.pdf)
-
-### 第2話 (ポルトガル語)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode2_pt.pdf)
-
-### 第2話 (フィリピノ語)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode2_tl.pdf)
-
-### 第2話 (ベトナム語)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode2_vi.pdf)
-
-### 第3話 (韓国語)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode3_ko.pdf)
-
-### 第3話 (中国語・簡体字)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode3_zh_cn.pdf)
-
-### 第3話 (中国語・繁体字)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode3_zh_tw.pdf)
-
-### 第3話 (英語)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode3_en.pdf)
-
-### 第3話 (日本語)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode3_ja.pdf)
-
-### 第3話 (ドイツ語)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode3_de.pdf)
-
-### 第3話 (スペイン語)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode3_es.pdf)
-
-### 第3話 (フランス語)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode3_fr.pdf)
-
-### 第3話 (インドネシア語)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode3_id.pdf)
-
-### 第3話 (イタリア語)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode3_it.pdf)
-
-### 第3話 (ネパール語)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode3_ne.pdf)
-
-### 第3話 (ポルトガル語)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode3_pt.pdf)
-
-### 第3話 (フィリピノ語)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode3_tl.pdf)
-
-### 第3話 (ベトナム語)
-
-[サンプルPDFを開く](docs/sample/tameshibu_episode3_vi.pdf)
+見開きPDFビューアでお試しいただけるサンプルPDFです。
 
 ## 価格と開発者の応援
 
-MihirakiPDFViewerは無料で利用でき、広告はありません。PDFの閲覧、サンプルの
+見開きPDFビューアは無料で利用でき、広告はありません。PDFの閲覧、サンプルの
 ダウンロード、ズーム、検索、
 単ページ表示、見開き表示などの主要機能は、購入の有無にかかわらず
 制限なく使えます。
@@ -242,19 +98,18 @@ App Store配布版では、StoreKitを使った非消耗型アプリ内購入と
 サポーターアイコンを用意しています。購入は任意で、広告の非表示や
 PDF閲覧機能の制限解除を目的としたものではありません。
 
-用意している応援アイテムは次の4種類です。
+応援画面の見出しは13言語共通でBronze・Silver・Goldです。価格はStoreKitから取得し、購入ボタンにだけ表示します。
+
+実装で対応する非消耗型の応援アイテムは次の4種類です。
 
 - `supporter_icon_bronze`: Bronzeアイコン
 - `supporter_icon_silver`: Silverアイコン
 - `supporter_icon_gold`: Goldアイコン
-- `supporter_badge_koyomi_v2`: Koyomiサポーターバッジ
+- `supporter_badge_koyomi_v2`: リリース記念こよみバッジ
 
-Bronze、Silver、Goldを購入すると、対応する代替アプリアイコンを継続して
-利用できます。Koyomiではサポーターバッジを利用でき、購入済みバッジは
-アプリ情報画面に表示されます。プロモーションコードは応援画面からApp Storeで
-引き換えられます。
-同じApple Accountを使用する対応端末では、設定のサポーターアイコン
-画面から購入を復元できます。
+Bronze・Silver・Goldを購入すると、対応する代替アプリアイコンを恒久利用できます。こよみは購入一覧に表示せず、代替アイコンは付属しません。次回開発版では既存・新規利用者を対象に、2028年1月1日00:00（日本時間）より前、すなわち2027年12月31日中までに端末時刻で判定して無料付与します。購入・コード・アカウント照会・通信は不要です。結果は端末内に保存し、期限後も保持します。新たな付与時に取得通知を表示し、アプリ情報の各バッジをタップすると拡大画像・名称・説明を表示します。
+
+既存の有効なStoreKitバッジ権利は維持し、無料付与と合わせて1個だけ表示します。「設定 → 応援 → 購入を復元」は同じApple Accountの対象StoreKit購入を復元しますが、期限後に失った端末内の無料付与記録は復元しません。アプリ削除で端末内記録が失われる場合があります。対象購入のコード引換は応援画面から利用できます。
 
 ## オプション
 
@@ -323,62 +178,13 @@ CI 設定をコミットする際は、共有 Scheme とアセットカタログ
 
 ### Xcodeでのビルド手順
 
-#### 1. 新規プロジェクトを作成する
+1. アセットとリソースカタログを含めてリポジトリを取得します。
+2. `MihirakiPDFViewer.xcodeproj` を開き、共有 `CI` スキームを選択します。
+3. iOS/iPadOS 26.5以降のiPhoneまたはiPadシミュレータを選択して実行します。
+4. 実機向けに署名する場合は開発チームを設定します。
 
-1. **Xcode**を起動します。
-2. **"Create a new Xcode project..."**を選択し、**"Next..."**を
-   クリックします。
-3. プラットフォームに**"iOS"**、アプリケーション種別に**"App"**を
-   選択し、**"Next..."**をクリックします。
-4. プロジェクト設定を入力します。
-   - **Product Name**: `MihirakiPDFViewer`（任意）
-   - **Organization Identifier**: `com.yourname`（任意）
-   - **Interface**: `SwiftUI`
-   - **Language**: `Swift`
-   - **Storage**: `None`（デフォルト）
-5. 保存先を選択し、**"Create"**をクリックします。
-
-#### 2. ソースファイルを取り込む
-
-1. GitHubからソースコードをダウンロードします。
-2. `Sources`フォルダ内にあるフォルダ（`App`、`Managers`、`Models`、
-   `ViewModels`、`Views`）を、Xcode左側の**Project Navigator**
-   （ファイルツリー）へ**ドラッグ&ドロップ**します。
-3. 表示されるダイアログ（Add to "MihirakiPDFViewer"）で、以下の
-   ように設定します。
-   - **Destination**: `Create groups`を選択します
-     （*重要: フォルダ構成を維持するため*）
-   - **Options**: `Copy items if needed`にチェックを入れます
-
-#### 3. エントリポイント（Appファイル）を変更する
-
-デフォルトでは、Xcodeは自動生成されたファイルを使ってプロジェクトを
-起動するように設定されています。提供されたコードを使うように更新する
-必要があります。
-
-1. XcodeのProject Navigatorで、自動生成された`[Project Name]App.swift`
-   ファイルを削除します。
-2. `Sources/App/MihirakiPDFViewerApp.swift`がプロジェクトに含まれている
-   ことを確認します。
-
-#### 4. ビルドして実行する
-
-1. XcodeツールバーのRunボタン（**▶️**）右側にあるデバイス選択メニュー
-   をクリックし、**iPadシミュレータ**（例: "iPad Pro"）を選択します。
-2. **▶️（Run）**ボタンをクリックするか、キーボードで`Command + R`を
-   押します。
-3. シミュレータが起動し、PDFファイルを選択する画面が表示されれば、
-   セットアップは成功です。
-
-### トラブルシューティング
-
-- **エラーが発生する場合**: `import PDFKit`でエラーが出る場合は、
-  プロジェクトの**Frameworks, Libraries, and Embedded Content**に
-  `PDFKit`が含まれているか確認してください（通常はデフォルトで含まれ
-  ています）。
-- **"File not found"エラー**: XcodeのProject Navigatorでファイルが赤く
-  表示される場合、ファイルパスが正しくリンクされていません。その
-  ファイルを削除し、もう一度ドラッグ&ドロップで追加してください。
+アプリターゲットのリソースに `PrivacyInfo.xcprivacy` が含まれる必要があります。
+ReleaseではArchiveと書き出したIPAの両方を確認してください。
 
 ## AIの主な役割
 
@@ -432,3 +238,27 @@ https://creativecommons.org/licenses/by/4.0/
 - **v0.2.1** - 2026/08/20: README.mdを日本語版へ変更。
 - **v0.2.0** - 2026/08/19: 投げ銭機能を追加。
 - **v0.1.0** - 2026/08/16: 初回リリース。
+
+
+## プライバシーと修正版候補
+
+以下の2026年11月7日・ビルド14の候補記録は履歴です。現在の検証候補は冒頭の1.1.0（16）を参照してください。
+
+この履歴記録作成時点のローカルソース候補は1.0.4・ビルド14（2026/11/07）でした。
+ビルド14のArchive・IPA書き出し・アップロード・提出は行っていません。
+13言語の応援画面見出しをBronze・Silver・Goldに統一し、価格ボタンはStoreKitの実価格を表示します。
+ビルド13のArchive・IPA・Privacy Reportと本人によるiPhone／Sandbox確認は別の証跡として保持し、ビルド14の確認済みには転記しません。
+以前のビルド12（2026/10/24）の候補記録と既存成果物は別に保持します。
+ビルド10以降の開発機能も含み、アプリ名を統一し「リリース記念こよみバッジ」へ改名しました。
+ビルド14の実機・VoiceOver・Privacy Report・新IPA検証は未完了です。
+設定画面の先頭と「アプリ情報」から「プライバシーポリシー」を開けます。
+PDF未選択時も閲覧中も、購入・ログインは不要です。
+空き容量の数値とチェック結果は共有本文から除外し、ログには生のシステム起動時間を含めません。
+Privacy Manifestでは、アプリ専用設定・処理時間計測・端末内空き容量表示の理由コードを維持しています。
+利用者が生成した診断・ログを専用窓口へ送り、開発者が保持する経路について、
+診断情報・性能情報・製品操作・検索履歴の4型を宣言しています。用途はアプリの機能、
+ユーザーとの関連付けあり、追跡なしです。自動送信を追加する変更ではありません。
+
+ソースから実行する場合は `MihirakiPDFViewer.xcodeproj` を開き、共有 `CI` スキームと
+ iOS/iPadOS 26.5以降のシミュレータを選択します。実機署名には開発チームの設定が必要です。
+ReleaseのArchiveとIPAには `PrivacyInfo.xcprivacy` が含まれていることを確認してください。

@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="MihirakiPDFViewerは、右綴じPDFや日本語書籍を自然なページ順で読めるシンプルなPDFビューアです。">
-    <title>MihirakiPDFViewer</title>
+    <meta name="description" content="見開きPDFビューアは、右綴じPDFや日本語書籍を自然なページ順で読めるシンプルなPDFビューアです。">
+    <title>見開きPDFビューア</title>
     <style>
         :root {
             color-scheme: light;
@@ -39,7 +39,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -115,7 +115,7 @@
         }
 
         main {
-            overflow: hidden;
+            overflow: visible;
         }
 
         .hero {
@@ -371,7 +371,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -402,6 +416,21 @@
                 padding: 56px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -409,7 +438,7 @@
         <nav class="nav" aria-label="メインナビゲーション">
             <a class="brand" href="#">
                 <img src="assets/icons/MihirakiPDFViewer-AppIcon.png" alt="" width="38" height="38">
-                <span>MihirakiPDFViewer</span>
+                <span>見開きPDFビューア</span>
             </a>
             <div class="nav-links">
                 <a href="#features">機能</a>
@@ -437,12 +466,19 @@
     </header>
 
     <main>
+<section id="publication-status-20261123"><p><a href="https://github.com/tyamada/MihirakiPDFViewer/blob/main/docs/PUBLICATION_STATUS_20261123.ja.md">公開状況・X案内の確認記録（2026-11-23）</a> 以下の従来案内には開発・検証当時の記述も含まれます。</p></section>
+
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">バージョン1.1.0を公開</h2>
+            <p>2026年11月23日に、日本のApp Storeでバージョン1.1.0を公開しました。現在の配信先は日本のみです。</p>
+        </aside>
+
         <section class="hero">
             <div class="hero-copy">
                 <p class="eyebrow">右綴じPDF・日本語書籍向けビューア</p>
                 <h1>見開きのPDFを、自然なページ順で。</h1>
                 <p>
-                    MihirakiPDFViewerは、右綴じの本や日本語書籍を読みやすく
+                    見開きPDFビューアは、右綴じの本や日本語書籍を読みやすく
                     表示するためのシンプルなPDFビューアです。ページレイアウトと
                     スクロール方向を読み取り、単ページ表示と見開き表示を快適に
                     切り替えられます。
@@ -452,8 +488,19 @@
                     <a class="button secondary" href="#screenshots">画面を見る</a>
                 </div>
             </div>
-            <div class="hero-media" aria-label="MihirakiPDFViewerの画面例">
-                <img class="phone-shot" src="assets/screenshots/iphone/02_spread_r2l.png" srcset="assets/screenshots/iphone/02_spread_r2l.png 2622w, assets/screenshots/ipad/02_spread_r2l.png 2752w" sizes="(min-width: 900px) 360px, 330px" alt="右綴じPDFを見開き表示しているMihirakiPDFViewerの画面">
+            <div class="hero-media" aria-label="見開きPDFビューアの画面例">
+                <img class="phone-shot" src="assets/screenshots/iphone/02_spread_r2l.png" srcset="assets/screenshots/iphone/02_spread_r2l.png 2622w, assets/screenshots/ipad/02_spread_r2l.png 2752w" sizes="(min-width: 900px) 360px, 330px" alt="右綴じPDFを見開き表示している見開きPDFビューアの画面">
+            </div>
+        </section>
+
+        <section class="section" id="next-update-preview" aria-labelledby="next-update-preview-title">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 id="next-update-preview-title">バージョン1.1.0｜日本語紹介ショート</h2>
+                    <p>1.1.0の開発版で収録した紹介動画です。1.1.0は日本のApp Storeで公開しています。収録時の画面は公開版と一部異なる場合があります。</p>
+                    <p><a href="https://www.youtube.com/shorts/Dhs44gH1pRo">日本語紹介ショートを見る（YouTube）</a></p>
+                    <p>日本語ナレーション：VOICEVOX 春日部つむぎ（ノーマル）</p>
+                </div>
             </div>
         </section>
 
@@ -463,7 +510,7 @@
                     <h2>PDFのページ順に悩まない。</h2>
                     <p>
                         一般的なPDFビューアでは、右綴じの本や見開きPDFが
-                        期待どおりに並ばないことがあります。MihirakiPDFViewerは、
+                        期待どおりに並ばないことがあります。見開きPDFビューアは、
                         PDFの設定を読み取り、読む流れに合う表示へ整えます。
                     </p>
                 </div>
@@ -499,7 +546,7 @@
                     <article class="feature">
                         <div class="feature-badge">2</div>
                         <h3>単ページ・見開き表示</h3>
-                        <p>端末の種類に関係なく、縦長画面では単ページ表示がデフォルトです。必要に応じて見開き表示や表紙の扱いを調整できます。</p>
+                        <p>縦長の閲覧領域では、iPadの幅広いレイアウトでも1ページずつ表示します。縦長でも選択した見開き設定を維持するには、この設定をオフにします。</p>
                     </article>
                     <article class="feature">
                         <div class="feature-badge">3</div>
@@ -524,7 +571,7 @@
     <div class="container">
         <div class="section-heading">
             <h2>端末内診断とアプリログ</h2>
-            <p>設定画面の「診断」から、アプリ情報、ローカルストレージ、PDF描画の実機テストを実行し、クラッシュ、スローダウン、操作や表示の不具合を調べる診断ログを確認できます。テスト結果には日時、端末のモデル名とモデル識別子、OSとアプリのバージョンが含まれます。ログには個人情報、ファイル内容、ファイル名やパス、検索語句、パスワードを記録せず、24時間後に削除します。自動送信機能はなく、共有を明示的に操作した場合にのみ端末外へ渡されます。</p>
+            <p>設定画面の「診断」から、アプリ情報、ローカルストレージ、PDF描画の実機テストを実行し、クラッシュ、スローダウン、操作や表示の不具合を調べる診断ログを確認できます。テスト結果には日時、端末のモデル名とモデル識別子、OSとアプリのバージョンが含まれます。ログには個人情報、ファイル内容、ファイル名やパス、検索語句、パスワードを記録せず、読込・記録時に24時間を超えた記録を削除します。自動送信機能はなく、共有を明示的に操作した場合にのみ端末外へ渡されます。</p>
         </div>
     </div>
 </section>
@@ -543,7 +590,7 @@
                         <figcaption>PDF内のテキスト検索</figcaption>
                     </figure>
                     <figure class="screenshot-item">
-                        <img src="assets/screenshots/iphone/05_display_settings.png" srcset="assets/screenshots/iphone/05_display_settings.png 2622w, assets/screenshots/ipad/05_display_settings.png 2752w" sizes="(min-width: 900px) 264px, 100vw" alt="表示設定画面">
+                        <img src="assets/screenshots/iphone/05_display_settings.png" srcset="assets/screenshots/iphone/05_display_settings.png 402w, assets/screenshots/ipad/05_display_settings.png 820w" sizes="(min-width: 900px) 264px, 100vw" alt="表示設定画面">
                         <figcaption>見開きや表紙設定の調整</figcaption>
                     </figure>
                     <figure class="screenshot-item">
@@ -578,183 +625,8 @@
         </section>
 
         <section class="section" id="samples">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>サンプルPDF</h2>
-                    <p>MihirakiPDFViewerでお試しいただけるサンプルPDFです。アプリ内では、カタログを言語別に絞り込み、PDFをダウンロードして開いたり、ローカルコピーを削除したりできます。モバイルデータ通信でのダウンロード時には確認画面を表示します。</p>
-                </div>
-                <div class="usecase-grid">
-                    <article class="usecase">
-                        <h3>THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP (English)</h3>
-                        <p><a href="sample/tameshibu_episode1_2_en.pdf">英語版サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>THE TRY-IT CLUB EPISODE 2 ROOM TO GROW (English)</h3>
-                        <p><a href="sample/tameshibu_episode2_2_en.pdf">英語版サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>ためし部 第１話 ひと息マップ (Japanese)</h3>
-                        <p><a href="sample/tameshibu_episode1_2_ja.pdf">日本語版サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>ためし部 第２話 机、ひろがる。 (Japanese)</h3>
-                        <p><a href="sample/tameshibu_episode2_2_ja.pdf">日本語版サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>해봄부 제1화 한숨 돌림 지도 (Korean)</h3>
-                        <p><a href="sample/tameshibu_episode1_2_ko.pdf">韓国語版サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>해봄부제2화 책상이 넓어지다 (Korean)</h3>
-                        <p><a href="sample/tameshibu_episode2_2_ko.pdf">韓国語版サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>试试社 第1话 歇口气地图 (Chinese (Simplified))</h3>
-                        <p><a href="sample/tameshibu_episode1_2_zh_cn.pdf">中国語（簡体字）版サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>试试社 第2话 桌子变大了 (Chinese (Simplified))</h3>
-                        <p><a href="sample/tameshibu_episode2_2_zh_cn.pdf">中国語（簡体字）版サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>試試社 第1話 (Chinese (Traditional))</h3>
-                        <p><a href="sample/tameshibu_episode1_2_zh_tw.pdf">Open the Traditional Chinese sample PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>試試社 第2話 (Chinese (Traditional))</h3>
-                        <p><a href="sample/tameshibu_episode2_2_zh_tw.pdf">Open the Traditional Chinese sample PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>DER PROBIERCLUB FOLGE 1 (German)</h3>
-                        <p><a href="sample/tameshibu_episode1_2_de.pdf">Open the German sample PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>DER PROBIERCLUB FOLGE 2 (German)</h3>
-                        <p><a href="sample/tameshibu_episode2_2_de.pdf">Open the German sample PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>LE CLUB DES ESSAIS EPISODE 1 (French)</h3>
-                        <p><a href="sample/tameshibu_episode1_2_fr.pdf">Open the French sample PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>LE CLUB DES ESSAIS EPISODE 2 (French)</h3>
-                        <p><a href="sample/tameshibu_episode2_2_fr.pdf">Open the French sample PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>THE TRY-IT CLUB EPISODE 3 (English)</h3>
-                        <p><a href="sample/tameshibu_episode3_en.pdf">英語版サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>ためし部 第3話 (Japanese)</h3>
-                        <p><a href="sample/tameshibu_episode3_ja.pdf">日本語版サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第1話 (スペイン語)</h3>
-                        <p><a href="sample/tameshibu_episode1_es.pdf">サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第1話 (インドネシア語)</h3>
-                        <p><a href="sample/tameshibu_episode1_id.pdf">サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第1話 (イタリア語)</h3>
-                        <p><a href="sample/tameshibu_episode1_it.pdf">サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第1話 (ネパール語)</h3>
-                        <p><a href="sample/tameshibu_episode1_ne.pdf">サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第1話 (ポルトガル語)</h3>
-                        <p><a href="sample/tameshibu_episode1_pt.pdf">サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第1話 (フィリピノ語)</h3>
-                        <p><a href="sample/tameshibu_episode1_tl.pdf">サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第1話 (ベトナム語)</h3>
-                        <p><a href="sample/tameshibu_episode1_vi.pdf">サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第2話 (スペイン語)</h3>
-                        <p><a href="sample/tameshibu_episode2_es.pdf">サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第2話 (インドネシア語)</h3>
-                        <p><a href="sample/tameshibu_episode2_id.pdf">サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第2話 (イタリア語)</h3>
-                        <p><a href="sample/tameshibu_episode2_it.pdf">サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第2話 (ネパール語)</h3>
-                        <p><a href="sample/tameshibu_episode2_ne.pdf">サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第2話 (ポルトガル語)</h3>
-                        <p><a href="sample/tameshibu_episode2_pt.pdf">サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第2話 (フィリピノ語)</h3>
-                        <p><a href="sample/tameshibu_episode2_tl.pdf">サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第2話 (ベトナム語)</h3>
-                        <p><a href="sample/tameshibu_episode2_vi.pdf">サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第3話 (韓国語)</h3>
-                        <p><a href="sample/tameshibu_episode3_ko.pdf">サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第3話 (中国語・簡体字)</h3>
-                        <p><a href="sample/tameshibu_episode3_zh_cn.pdf">サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第3話 (中国語・繁体字)</h3>
-                        <p><a href="sample/tameshibu_episode3_zh_tw.pdf">サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第3話 (ドイツ語)</h3>
-                        <p><a href="sample/tameshibu_episode3_de.pdf">サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第3話 (スペイン語)</h3>
-                        <p><a href="sample/tameshibu_episode3_es.pdf">サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第3話 (フランス語)</h3>
-                        <p><a href="sample/tameshibu_episode3_fr.pdf">サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第3話 (インドネシア語)</h3>
-                        <p><a href="sample/tameshibu_episode3_id.pdf">サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第3話 (イタリア語)</h3>
-                        <p><a href="sample/tameshibu_episode3_it.pdf">サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第3話 (ネパール語)</h3>
-                        <p><a href="sample/tameshibu_episode3_ne.pdf">サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第3話 (ポルトガル語)</h3>
-                        <p><a href="sample/tameshibu_episode3_pt.pdf">サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第3話 (フィリピノ語)</h3>
-                        <p><a href="sample/tameshibu_episode3_tl.pdf">サンプルPDFを開く</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第3話 (ベトナム語)</h3>
-                        <p><a href="sample/tameshibu_episode3_vi.pdf">サンプルPDFを開く</a></p>
-                    </article>
-                </div>
-            </div>
-        </section>
+<div class="container"><div class="section-heading"><h2>サンプルPDF</h2></div><p><a class="button" href="https://tyamada.github.io/manga-prompt-kit/samples/ja/">サンプルPDF</a></p></div>
+</section>
 
         <section class="section" id="pricing">
             <div class="container">
@@ -765,7 +637,7 @@
                 <div class="pricing-panel">
                     <p><strong>基本無料</strong>（広告なし）</p>
                     <p>
-                        MihirakiPDFViewerは無料かつ広告なしでご利用いただけます。PDFの閲覧、
+                        見開きPDFビューアは無料かつ広告なしでご利用いただけます。PDFの閲覧、
                         サンプルのダウンロード、見開き表示、右綴じ対応、検索といった主要機能は、
                         購入の有無にかかわらず制限なくお使いいただけます。
                     </p>
@@ -784,7 +656,7 @@
         <section class="section" id="sample-license">
             <div class="container">
                 <h2>サンプルPDFのライセンス</h2>
-                <p>ためし部 第１話 ひと息マップ (Japanese)<br>ためし部 第２話 机、ひろがる。 (Japanese)<br>© 2026 こまいろ日和</p>
+                <p>ためし部 第１話 ひと息マップ (Japanese)<br>ためし部 第２話 机、ひろがる。 (Japanese)<br>ためし部 第3話 (Japanese)<br>© 2026 こまいろ日和</p>
                 <p>本作品のうち、公開者が著作権その他の許諾対象となる権利を有する部分を、Creative Commons 表示 4.0 国際（CC BY 4.0）で提供します。<br><a href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></p>
                 <p>再利用時は、作品名、作者名「こまいろ日和」、原作品の公開元、ライセンスへのリンクを表示し、変更した場合はその旨を明示してください。</p>
                 <p>本作品は、文章・画像の制作および翻訳に生成AIを使用しています。フォントなど第三者に権利がある素材には、それぞれのライセンスが適用されます。著作権等による保護を受けない部分の利用を、この表示によって制限するものではありません。</p>
@@ -795,18 +667,25 @@
             <div class="container">
                 <div class="download">
                     <div>
-                        <h2>MihirakiPDFViewerを使ってみる</h2>
+                        <h2>見開きPDFビューアを使ってみる</h2>
                         <p>
-                            App Store公開後、このボタンのリンクをApp Store URLへ
-                            差し替えてください。
+                            アプリは現在、日本のApp Storeで配信中です。このボタンで日本のApp Storeのアプリページが開きます。
                         </p>
                     </div>
-                    <a class="button" href="#" aria-label="App StoreでMihirakiPDFViewerをダウンロード">
+                    <a class="button" href="https://apps.apple.com/jp/app/id6802023530" aria-label="App Storeで見開きPDFビューアをダウンロード">
                         App Storeで入手
                     </a>
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>プライバシーポリシー</h2>
+        <p>設定画面の先頭、または「アプリ情報」の「プライバシーポリシー」から開けます。PDF未選択時と閲覧中のどちらでも、購入やログインなしで利用できます。</p>
+        <p>空き容量は端末内だけで表示します。診断の共有本文からは、空き容量のチェック、数値、その成否が総合結果に与える影響を除外します。ログに処理の経過時間を含む場合がありますが、生のシステム起動時間は含みません。</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">

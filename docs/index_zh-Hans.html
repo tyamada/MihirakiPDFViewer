@@ -36,7 +36,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -113,7 +113,7 @@
         }
 
         main {
-            overflow: hidden;
+            overflow: visible;
         }
 
         .hero {
@@ -336,7 +336,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -367,6 +381,21 @@
                 padding: 56px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -401,6 +430,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">1.1.0 版已上线</h2>
+            <p>1.1.0 版已于 2026 年 11 月 23 日在日本区 App Store 上线。该应用目前仅在日本提供。</p>
+        </aside>
+
         <section class="hero">
             <div class="hero-copy">
                 <p class="eyebrow">适合从右到左 PDF 和日文书籍的阅读器</p>
@@ -464,7 +498,7 @@
                     <article class="feature">
                         <div class="feature-badge">2</div>
                         <h3>单页和双页视图</h3>
-                        <p>在所有设备上，屏幕为竖屏时默认使用单页视图。若要在竖屏方向下保持双页视图，请关闭此设置。</p>
+                        <p>在纵向阅读区域中每次显示一页，较宽的 iPad 布局也适用。关闭此选项可在纵向阅读区域中保留所选的双页设置。</p>
                     </article>
                     <article class="feature">
                         <div class="feature-badge">3</div>
@@ -489,7 +523,7 @@
     <div class="container">
         <div class="section-heading">
             <h2>设备端诊断与应用日志</h2>
-            <p>可在设置的“诊断”页面中运行应用信息、本地存储和 PDF 渲染测试，或查看用于排查崩溃、变慢、操作和显示问题的诊断日志。测试结果包含测试时间、设备型号名称和型号标识符、系统版本和应用版本。日志不记录个人信息、文件内容、文件名或路径、搜索词和密码，并会在24小时后删除。应用不会自动发送这些信息；只有您明确使用“共享”时，结果或日志才会离开设备。</p>
+            <p>可在设置的“诊断”页面中运行应用信息、本地存储和 PDF 渲染测试，或查看用于排查崩溃、变慢、操作和显示问题的诊断日志。测试结果包含测试时间、设备型号名称和型号标识符、系统版本和应用版本。日志不记录个人信息、文件内容、文件名或路径、搜索词和密码，并会在读取或记录日志时移除超过24小时的记录。应用不会自动发送这些信息；只有您明确使用“共享”时，结果或日志才会离开设备。</p>
         </div>
     </div>
 </section>
@@ -508,7 +542,7 @@
                         <figcaption>PDF 内文本搜索</figcaption>
                     </figure>
                     <figure class="screenshot-item">
-                        <img src="assets/screenshots/iphone/05_display_settings_en.png" srcset="assets/screenshots/iphone/05_display_settings_en.png 2622w, assets/screenshots/ipad/05_display_settings_en.png 2752w" sizes="(min-width: 900px) 264px, 100vw" alt="显示设置界面">
+                        <img src="assets/screenshots/iphone/05_display_settings_en.png" srcset="assets/screenshots/iphone/05_display_settings_en.png 1206w, assets/screenshots/ipad/05_display_settings_en.png 820w" sizes="(min-width: 900px) 264px, 100vw" alt="显示设置界面">
                         <figcaption>调整跨页和封面设置</figcaption>
                     </figure>
                     <figure class="screenshot-item">
@@ -543,188 +577,13 @@
         </section>
 
         <section class="section" id="samples">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>示例 PDF</h2>
-                    <p>使用这些示例 PDF 体验 MihirakiPDFViewer。在应用内可按语言筛选目录、下载并打开 PDF，或删除本地副本。使用移动数据下载时，应用会请求确认。</p>
-                </div>
-                <div class="usecase-grid">
-                    <article class="usecase">
-                        <h3>THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP (English)</h3>
-                        <p><a href="sample/tameshibu_episode1_2_en.pdf">打开英文示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>THE TRY-IT CLUB EPISODE 2 ROOM TO GROW (English)</h3>
-                        <p><a href="sample/tameshibu_episode2_2_en.pdf">打开英文示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>ためし部 第１話 ひと息マップ (Japanese)</h3>
-                        <p><a href="sample/tameshibu_episode1_2_ja.pdf">打开日文示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>ためし部 第２話 机、ひろがる。 (Japanese)</h3>
-                        <p><a href="sample/tameshibu_episode2_2_ja.pdf">打开日文示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>해봄부 제1화 한숨 돌림 지도 (Korean)</h3>
-                        <p><a href="sample/tameshibu_episode1_2_ko.pdf">打开韩文示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>해봄부제2화 책상이 넓어지다 (Korean)</h3>
-                        <p><a href="sample/tameshibu_episode2_2_ko.pdf">打开韩文示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>试试社 第1话 歇口气地图 (Chinese (Simplified))</h3>
-                        <p><a href="sample/tameshibu_episode1_2_zh_cn.pdf">打开简体中文示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>试试社 第2话 桌子变大了 (Chinese (Simplified))</h3>
-                        <p><a href="sample/tameshibu_episode2_2_zh_cn.pdf">打开简体中文示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>試試社 第1話 (Chinese (Traditional))</h3>
-                        <p><a href="sample/tameshibu_episode1_2_zh_tw.pdf">Open the Traditional Chinese sample PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>試試社 第2話 (Chinese (Traditional))</h3>
-                        <p><a href="sample/tameshibu_episode2_2_zh_tw.pdf">Open the Traditional Chinese sample PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>DER PROBIERCLUB FOLGE 1 (German)</h3>
-                        <p><a href="sample/tameshibu_episode1_2_de.pdf">Open the German sample PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>DER PROBIERCLUB FOLGE 2 (German)</h3>
-                        <p><a href="sample/tameshibu_episode2_2_de.pdf">Open the German sample PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>LE CLUB DES ESSAIS EPISODE 1 (French)</h3>
-                        <p><a href="sample/tameshibu_episode1_2_fr.pdf">Open the French sample PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>LE CLUB DES ESSAIS EPISODE 2 (French)</h3>
-                        <p><a href="sample/tameshibu_episode2_2_fr.pdf">Open the French sample PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>THE TRY-IT CLUB EPISODE 3 (English)</h3>
-                        <p><a href="sample/tameshibu_episode3_en.pdf">打开英文示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>ためし部 第3話 (Japanese)</h3>
-                        <p><a href="sample/tameshibu_episode3_ja.pdf">打开日文示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第1话 (Español)</h3>
-                        <p><a href="sample/tameshibu_episode1_es.pdf">打开示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第1话 (Bahasa Indonesia)</h3>
-                        <p><a href="sample/tameshibu_episode1_id.pdf">打开示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第1话 (Italiano)</h3>
-                        <p><a href="sample/tameshibu_episode1_it.pdf">打开示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第1话 (नेपाली)</h3>
-                        <p><a href="sample/tameshibu_episode1_ne.pdf">打开示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第1话 (Português)</h3>
-                        <p><a href="sample/tameshibu_episode1_pt.pdf">打开示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第1话 (Filipino)</h3>
-                        <p><a href="sample/tameshibu_episode1_tl.pdf">打开示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第1话 (Tiếng Việt)</h3>
-                        <p><a href="sample/tameshibu_episode1_vi.pdf">打开示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第2话 (Español)</h3>
-                        <p><a href="sample/tameshibu_episode2_es.pdf">打开示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第2话 (Bahasa Indonesia)</h3>
-                        <p><a href="sample/tameshibu_episode2_id.pdf">打开示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第2话 (Italiano)</h3>
-                        <p><a href="sample/tameshibu_episode2_it.pdf">打开示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第2话 (नेपाली)</h3>
-                        <p><a href="sample/tameshibu_episode2_ne.pdf">打开示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第2话 (Português)</h3>
-                        <p><a href="sample/tameshibu_episode2_pt.pdf">打开示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第2话 (Filipino)</h3>
-                        <p><a href="sample/tameshibu_episode2_tl.pdf">打开示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第2话 (Tiếng Việt)</h3>
-                        <p><a href="sample/tameshibu_episode2_vi.pdf">打开示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第3话 (한국어)</h3>
-                        <p><a href="sample/tameshibu_episode3_ko.pdf">打开示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第3话 (简体中文)</h3>
-                        <p><a href="sample/tameshibu_episode3_zh_cn.pdf">打开示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第3话 (繁體中文)</h3>
-                        <p><a href="sample/tameshibu_episode3_zh_tw.pdf">打开示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第3话 (Deutsch)</h3>
-                        <p><a href="sample/tameshibu_episode3_de.pdf">打开示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第3话 (Español)</h3>
-                        <p><a href="sample/tameshibu_episode3_es.pdf">打开示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第3话 (Français)</h3>
-                        <p><a href="sample/tameshibu_episode3_fr.pdf">打开示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第3话 (Bahasa Indonesia)</h3>
-                        <p><a href="sample/tameshibu_episode3_id.pdf">打开示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第3话 (Italiano)</h3>
-                        <p><a href="sample/tameshibu_episode3_it.pdf">打开示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第3话 (नेपाली)</h3>
-                        <p><a href="sample/tameshibu_episode3_ne.pdf">打开示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第3话 (Português)</h3>
-                        <p><a href="sample/tameshibu_episode3_pt.pdf">打开示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第3话 (Filipino)</h3>
-                        <p><a href="sample/tameshibu_episode3_tl.pdf">打开示例 PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>第3话 (Tiếng Việt)</h3>
-                        <p><a href="sample/tameshibu_episode3_vi.pdf">打开示例 PDF</a></p>
-                    </article>
-                </div>
-            </div>
-        </section>
+<div class="container"><div class="section-heading"><h2>示例 PDF</h2></div><p><a class="button" href="https://tyamada.github.io/manga-prompt-kit/samples/zh-Hans/">示例 PDF</a></p></div>
+</section>
 
         <section class="section" id="sample-license">
             <div class="container">
                 <h2>示例PDF的许可协议</h2>
-                <p>试试社 第1话 歇口气地图 (Chinese (Simplified))<br>试试社 第2话 桌子变大了 (Chinese (Simplified))<br>© 2026 小真彩日和</p>
+                <p>试试社 第1话 歇口气地图 (Chinese (Simplified))<br>试试社 第2话 桌子变大了 (Chinese (Simplified))<br>THE TRY-IT CLUB EPISODE 3 (English)<br>© 2026 小真彩日和</p>
                 <p>本作品中，发布者拥有著作权或其他可授权权利的部分，采用知识共享署名 4.0 国际许可协议（CC BY 4.0）提供。<br><a href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></p>
                 <p>再利用时，请注明作品名称、作者名“小真彩日和”、原作品的发布来源以及许可协议链接；如有修改，还须明确说明。</p>
                 <p>本作品在文字、图像的制作及翻译过程中使用了生成式AI。字体等由第三方享有权利的素材分别适用其各自的许可协议。本声明并不限制对不受著作权等权利保护部分的使用。</p>
@@ -737,16 +596,23 @@
                     <div>
                         <h2>试用 MihirakiPDFViewer</h2>
                         <p>
-                            App Store 发布后，请将此按钮替换为
-                            App Store URL。
+                            此应用目前已在日本的 App Store 上架。点击此按钮可打开该应用在日本 App Store 的页面。
                         </p>
                     </div>
-                    <a class="button" href="#" aria-label="在 App Store 下载 MihirakiPDFViewer">
+                    <a class="button" href="https://apps.apple.com/jp/app/id6802023530" aria-label="在 App Store 下载 MihirakiPDFViewer">
                         在 App Store 获取
                     </a>
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>隐私政策</h2>
+        <p>可从设置顶部或“应用信息”打开隐私政策。无论尚未选择 PDF 还是正在阅读，都无需购买或登录。</p>
+        <p>可用存储空间仅在本设备上显示。共享的诊断文本不包含存储空间检查、数值及其对总体结果的影响。日志可能包含处理耗时，但不包含原始系统运行时间。</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">

@@ -35,7 +35,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -240,6 +240,10 @@
         }
 
         @media (max-width: 760px) {
+            .site-header {
+                position: static;
+            }
+
             .nav {
                 align-items: flex-start;
                 flex-direction: column;
@@ -262,6 +266,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -296,6 +315,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">A versão 1.1.0 já está disponível</h2>
+            <p>A versão 1.1.0 foi lançada na App Store do Japão em 23 de novembro de 2026. No momento, o app está disponível apenas no Japão.</p>
+        </aside>
+
         <section class="hero">
             <div class="container">
                 <p class="eyebrow">Política de Privacidade</p>
@@ -399,18 +423,13 @@
                             para responder ou investigar o problema.
                         </p>
                         <ul>
-                            <li>Não envie conteúdo de PDF ou informações pessoais a menos que seja necessário.</li>
+                            <li>Não envie arquivos PDF nem seu conteúdo. Leia as instruções sobre relatos e imagens abaixo antes de entrar em contato com o suporte.</li>
                             <li>Modelo do dispositivo, versão do OS, versão do app e passos de reprodução ajudam na investigação.</li>
                         </ul>
                     </article>
                     <article class="card">
                         <h3>Compartilhamento com terceiros</h3>
-                        <p>
-                            As informações não são fornecidas a terceiros, exceto
-                            quando exigido por lei. Recursos fornecidos pela Apple, como
-                            compras no app e iCloud Drive, também estão sujeitos à
-                            política de privacidade da Apple.
-                        </p>
+                        <p>As informações que você compartilha ou envia ao suporte chegam ao destinatário escolhido e podem ser mantidas por ele. Compras StoreKit e iCloud Drive seguem as práticas da Apple. Downloads de exemplos e links externos contatam seus operadores; aplicam-se as práticas de privacidade deles e dos destinos de compartilhamento escolhidos. O app não envia diagnósticos automaticamente ao desenvolvedor.</p>
                     </article>
                 </div>
             </div>
@@ -454,7 +473,7 @@
     <div class="container">
         <div class="section-heading">
             <h2>Diagnóstico no dispositivo e registros</h2>
-            <p>Na tela Diagnóstico dos Ajustes, execute testes de informações do app, armazenamento local e renderização de PDF ou consulte registros para investigar falhas, lentidão e problemas de operação ou exibição. Os resultados incluem data e hora, nome e identificador do modelo do dispositivo e versões do sistema e do app. Os registros não incluem dados pessoais, conteúdo, nomes ou caminhos de arquivos, termos de busca ou senhas e são apagados após 24 horas. Nada é enviado automaticamente; os dados só saem do dispositivo quando você usa Compartilhar de forma explícita.</p>
+            <p>Os resultados de diagnóstico ficam na memória da tela atual. Ao compartilhar, o texto inclui data e hora, nome e identificador do modelo (não um ID único do dispositivo), versões do sistema e do app, memória total e disponível e resultados que não sejam da verificação de espaço livre. Os registros contêm tipos de eventos, horários, quantidades e tempos decorridos de processamento. O registro que pode ser lido e compartilhado no app tem até 2.000 entradas; as com mais de 24 horas são removidas ao ler ou registrar, não por um temporizador com o app parado. Os registros do sistema seguem as regras do sistema operacional. Resultados e registros não são enviados automaticamente.</p>
         </div>
     </div>
 </section>
@@ -477,7 +496,34 @@
                 </article>
             </div>
         </section>
-    </main>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>Política de privacidade</h2>
+        <p>Abra a política de privacidade no início dos Ajustes ou em Informações do app, antes de abrir um PDF ou durante a leitura, sem compra ou login.</p>
+        <p>O espaço livre é mostrado apenas neste dispositivo. O diagnóstico compartilhado exclui a verificação de armazenamento, seu valor e seu efeito no resultado geral. Os registros podem incluir durações de processamento, mas nunca o tempo bruto de atividade do sistema.</p>
+        <p>A restauração de leitura salva localmente a referência ao documento, a página, os ajustes e o texto de busca; senhas de PDF não são salvas. Exemplos são baixados do GitHub Releases quando solicitados. Esta política e o GitHub Issues também abrem sites externos cujos operadores podem receber o endereço IP e informações da solicitação. Relatórios são enviados ao destino escolhido. Serviços externos têm suas próprias políticas de privacidade.</p>
+    <p data-policy-topic="local-retention">A exibição e a busca de PDFs ocorrem no dispositivo. A restauração salva localmente o marcador do documento, posições de página, texto de busca e opções de exibição, mas não senhas de PDF. Fechar o documento ou redefinir os ajustes apaga o registro de restauração, não o PDF nem os registros de diagnóstico. Alguns PDFs importados são copiados para a área Documents do app. Para remover os dados locais, use a opção do sistema para apagar o app, não a opção que preserva seus dados. Originais externos e cópias já compartilhadas não são apagados. Não há botão específico para excluir registros.</p>
+    </div>
+</section>
+    <section class="section" id="sample-catalog-network"><div class="container"><p data-policy-topic="sample-catalog-network" style="overflow-wrap:anywhere">Ao abrir a lista de exemplos, o app verifica no GitHub se há um arquivo JSON mais recente do catálogo. Se a atualização falhar, ele usa a última lista válida salva ou a lista incluída no app. Os arquivos PDF só são baixados quando você escolhe baixá-los. A solicitação do catálogo acessa raw.githubusercontent.com; os downloads de PDF acessam GitHub Releases. Esses serviços podem receber seu endereço IP e informações sobre a solicitação.</p></div></section>
+    <section class="section" id="support-retention">
+      <div class="container">
+        <h2>Informações de suporte e retenção</h2>
+        <p>Usamos informações de suporte apenas para responder, investigar problemas e realizar melhorias técnicas de desempenho. Não solicitamos seu nome real. Se o nome de exibição do remetente contiver seu nome real, ele será mantido somente no e-mail original pelo período necessário para respostas e investigação; não será copiado para arquivos do Google Sheets de cada caso nem para notas de melhoria.</p>
+        <p>Normalmente não solicitamos capturas de tela. Elas são aceitas em tyamada.support@gmail.com somente quando o texto não permite reproduzir o problema e uma imagem é necessária. Antes de enviar, oculte o conteúdo do PDF, nomes de arquivos, nomes de pessoas, notificações e outras informações desnecessárias para a investigação. Em regra, as imagens são tratadas dentro do e-mail original. Os Sheets de cada caso contêm apenas as observações necessárias para a investigação, não as imagens.</p>
+        <p>Não copiamos nomes ou identificadores dos autores do GitHub para os Sheets de cada caso nem para notas de melhoria. Somente quando necessário para responder ou investigar, mantemos um link para a Issue original no Sheet do caso. Enquanto o link permitir identificar o autor, o registro continuará sendo vinculável a ele. Não publique informações pessoais, arquivos PDF ou seu conteúdo, nomes de arquivos nem capturas de tela em Issues públicas.</p>
+        <p>As publicações públicas no GitHub são distintas dos e-mails e registros de casos que gerenciamos. Excluir nosso link do caso não exclui a Issue pública. Não podemos garantir a exclusão de publicações ou cópias de serviços fora do nosso controle. Relatos e referências de casos que permitem chegar ao remetente não são tratados como anônimos.</p>
+        <h3>Marco inicial e prazos de exclusão</h3>
+        <p>A. E-mails originais, incluindo nomes reais exibidos, imagens e cópias de investigação: um caso é concluído quando existe uma resposta ou conclusão da investigação e o desenvolvedor confirma que não há trabalho pendente. A ausência de resposta não encerra automaticamente o caso. Verificamos os prazos semanalmente, iniciamos a exclusão por volta de 60 dias após a conclusão e confirmamos a exclusão dos registros gerenciáveis, incluindo a Lixeira correspondente, em até 90 dias. Os 60 dias não são um período mínimo de retenção; pedidos antecipados de exclusão não esperam o prazo normal.</p>
+        <p>B. Sheets de cada caso, observações, links de Issues e registros de recebimento e exclusão: confirmamos a exclusão do arquivo do caso e dos registros e referências relacionados em até 90 dias após a conclusão da exclusão das informações originais. Excluir apenas linhas ou células não basta. Isso não estende A nem permite transferir os originais para esses registros. A permanência de uma Issue pública online não estende automaticamente o prazo dos nossos registros do caso.</p>
+        <p>C. Notas de melhoria generalizadas podem manter apenas causas e resumos de correções, sem nomes, imagens, URLs de publicações, IDs de casos ou outras informações que levem ao relato original. Elas não são um local alternativo para armazenar registros de A ou B.</p>
+        <p>As exceções se limitam à continuidade de uma investigação ou à necessidade legal. Registramos o motivo, o escopo e a condição de encerramento, revisando-os no máximo a cada 30 dias e ao término da investigação. Quando a necessidade termina, normalmente confirmamos a exclusão em até 30 dias, ou até o prazo original de 90 dias se ainda estiver vigente e terminar antes. A reabertura ou uma exceção não reinicia automaticamente os prazos. Usamos dias corridos no fuso Asia/Tokyo.</p>
+        <p>Esses prazos cobrem registros que o desenvolvedor pode gerenciar. A exclusão pela interface de um serviço não garante o apagamento físico de cópias internas de recuperação do provedor ou de backups do dispositivo no mesmo período. Essas cópias e seus limites de exclusão são distintos dos registros sob nosso controle. Excluir registros locais do app não exclui relatos já enviados.</p>
+        <p>Para dúvidas ou pedidos de exclusão, entre em contato pelo endereço <a href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a>. Forneça apenas as informações necessárias para identificar o caso correspondente; não as publique em um espaço público.</p>
+      </div>
+    </section>
+  </main>
 
     <footer class="site-footer">
         <div class="footer-inner">

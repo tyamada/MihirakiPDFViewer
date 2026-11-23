@@ -36,7 +36,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -113,7 +113,7 @@
         }
 
         main {
-            overflow: hidden;
+            overflow: visible;
         }
 
         .hero {
@@ -336,7 +336,21 @@
         }
 
         @media (max-width: 860px) {
-            .nav-links {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
                 display: none;
             }
 
@@ -367,6 +381,21 @@
                 padding: 56px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -401,6 +430,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">संस्करण 1.1.0 उपलब्ध छ</h2>
+            <p>संस्करण 1.1.0 सन् २०२६ नोभेम्बर २३ मा जापानको App Store मा सार्वजनिक गरिएको हो। यो एप हाल जापानमा मात्र उपलब्ध छ।</p>
+        </aside>
+
         <section class="hero">
             <div class="hero-copy">
                 <p class="eyebrow">दायाँ-देखि-बायाँ PDF र जापानी पुस्तकहरूका लागि दर्शक</p>
@@ -427,7 +461,7 @@
                     <h2>थप भ्रामक पृष्ठ क्रम छैन।</h2>
                     <p>
                         मानक PDF दर्शकहरूले सधैं दायाँ-देखि-बायाँ प्रदर्शन गर्दैनन्
-                        किताबहरू वा दुई-पृष्ठ PDF हरू तपाईंले अपेक्षा गरे अनुसार। ७४१९२६०३५१७
+                        किताबहरू वा दुई-पृष्ठ PDF हरू तपाईंले अपेक्षा गरे अनुसार। MihirakiPDFViewer
                         कागजात सेटिङहरू पढ्छ र प्रवाहमा पृष्ठहरू प्रस्तुत गर्दछ
                         जुन पुस्तक पढ्नु पर्ने तरिकासँग मेल खान्छ।
                     </p>
@@ -464,7 +498,7 @@
                     <article class="feature">
                         <div class="feature-badge">2</div>
                         <h3>एकल-पृष्ठ र दुई-पृष्ठ दृश्यहरू</h3>
-                        <p>सबै यन्त्रमा स्क्रिन ठाडो हुँदा पूर्वनिर्धारित रूपमा एकल-पृष्ठ दृश्य प्रयोग हुन्छ। ठाडो अवस्थामा दुई-पृष्ठ दृश्य कायम राख्न सेटिङ बन्द गर्नुहोस्।</p>
+                        <p>iPad का फराकिला लेआउटमा समेत ठाडो पढ्ने क्षेत्रमा एक पटकमा एउटा पृष्ठ देखाउँछ। ठाडो क्षेत्रमा छानिएको दुई-पृष्ठ सेटिङ कायम राख्न यो विकल्प बन्द गर्नुहोस्।</p>
                     </article>
                     <article class="feature">
                         <div class="feature-badge">3</div>
@@ -489,7 +523,7 @@
     <div class="container">
         <div class="section-heading">
             <h2>उपकरणमै निदान र एप लग</h2>
-            <p>सेटिङ्सको निदान स्क्रिनबाट एप जानकारी, स्थानीय भण्डारण र PDF रेन्डरिङ परीक्षण चलाउन वा क्र्यास, ढिलाइ, सञ्चालन र प्रदर्शन समस्याको कारण पत्ता लगाउन निदान लग हेर्न सकिन्छ। नतिजामा परीक्षण समय, उपकरणको मोडेल नाम र मोडेल पहिचानकर्ता, OS र एप संस्करण समावेश हुन्छ। लगमा व्यक्तिगत जानकारी, फाइलको सामग्री, नाम वा पथ, खोज शब्द वा पासवर्ड राखिँदैन र २४ घण्टापछि मेटाइन्छ। केही पनि स्वचालित रूपमा पठाइँदैन; तपाईंले स्पष्ट रूपमा Share प्रयोग गर्दा मात्र नतिजा वा लग उपकरणबाट बाहिर जान्छ।</p>
+            <p>सेटिङ्सको निदान स्क्रिनबाट एप जानकारी, स्थानीय भण्डारण र PDF रेन्डरिङ परीक्षण चलाउन वा क्र्यास, ढिलाइ, सञ्चालन र प्रदर्शन समस्याको कारण पत्ता लगाउन निदान लग हेर्न सकिन्छ। नतिजामा परीक्षण समय, उपकरणको मोडेल नाम र मोडेल पहिचानकर्ता, OS र एप संस्करण समावेश हुन्छ। लगमा व्यक्तिगत जानकारी, फाइलको सामग्री, नाम वा पथ, खोज शब्द वा पासवर्ड राखिँदैन र लग पढ्दा वा लेख्दा २४ घण्टाभन्दा पुराना प्रविष्टि हटाइन्छन्। केही पनि स्वचालित रूपमा पठाइँदैन; तपाईंले स्पष्ट रूपमा Share प्रयोग गर्दा मात्र नतिजा वा लग उपकरणबाट बाहिर जान्छ।</p>
         </div>
     </div>
 </section>
@@ -508,7 +542,7 @@
                         <figcaption>PDF भित्र पाठ खोज</figcaption>
                     </figure>
                     <figure class="screenshot-item">
-                        <img src="assets/screenshots/iphone/05_display_settings_en.png" srcset="assets/screenshots/iphone/05_display_settings_en.png 2622w, assets/screenshots/ipad/05_display_settings_en.png 2752w" sizes="(min-width: 900px) 264px, 100vw" alt="सेटिङ स्क्रिन प्रदर्शन गर्नुहोस्">
+                        <img src="assets/screenshots/iphone/05_display_settings_en.png" srcset="assets/screenshots/iphone/05_display_settings_en.png 1206w, assets/screenshots/ipad/05_display_settings_en.png 820w" sizes="(min-width: 900px) 264px, 100vw" alt="सेटिङ स्क्रिन प्रदर्शन गर्नुहोस्">
                         <figcaption>स्प्रेड र आवरण सेटिङहरू समायोजन गर्नुहोस्</figcaption>
                     </figure>
                     <figure class="screenshot-item">
@@ -543,188 +577,13 @@
         </section>
 
         <section class="section" id="samples">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>नमुना PDF</h2>
-                    <p>यी नमुना PDF हरूसँग MihirakiPDFViewer प्रयोग गर्नुहोस्। एपमा नमुना PDF ब्राउज गर्नुहोस् चयन गरेर भाषाअनुसार सूची फिल्टर गर्न, PDF डाउनलोड गरी खोल्न वा यसको स्थानीय प्रतिलिपि मेटाउन सकिन्छ। मोबाइल डेटा प्रयोग गरी डाउनलोड गर्न पुष्टि आवश्यक हुन्छ।</p>
-                </div>
-                <div class="usecase-grid">
-                    <article class="usecase">
-                        <h3>THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP (English)</h3>
-                        <p><a href="sample/tameshibu_episode1_2_en.pdf">अङ्ग्रेजी नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>THE TRY-IT CLUB EPISODE 2 ROOM TO GROW (English)</h3>
-                        <p><a href="sample/tameshibu_episode2_2_en.pdf">अङ्ग्रेजी नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>ためし部 第１話 ひと息マップ (Japanese)</h3>
-                        <p><a href="sample/tameshibu_episode1_2_ja.pdf">जापानी नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>ためし部 第２話 机、ひろがる。 (Japanese)</h3>
-                        <p><a href="sample/tameshibu_episode2_2_ja.pdf">जापानी नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>해봄부 제1화 한숨 돌림 지도 (Korean)</h3>
-                        <p><a href="sample/tameshibu_episode1_2_ko.pdf">कोरियाली नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>해봄부제2화 책상이 넓어지다 (Korean)</h3>
-                        <p><a href="sample/tameshibu_episode2_2_ko.pdf">कोरियाली नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>试试社 第1话 歇口气地图 (Chinese (Simplified))</h3>
-                        <p><a href="sample/tameshibu_episode1_2_zh_cn.pdf">सरलीकृत चिनियाँ नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>试试社 第2话 桌子变大了 (Chinese (Simplified))</h3>
-                        <p><a href="sample/tameshibu_episode2_2_zh_cn.pdf">सरलीकृत चिनियाँ नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>試試社 第1話 (Chinese (Traditional))</h3>
-                        <p><a href="sample/tameshibu_episode1_2_zh_tw.pdf">Open the Traditional Chinese sample PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>試試社 第2話 (Chinese (Traditional))</h3>
-                        <p><a href="sample/tameshibu_episode2_2_zh_tw.pdf">Open the Traditional Chinese sample PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>DER PROBIERCLUB FOLGE 1 (German)</h3>
-                        <p><a href="sample/tameshibu_episode1_2_de.pdf">Open the German sample PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>DER PROBIERCLUB FOLGE 2 (German)</h3>
-                        <p><a href="sample/tameshibu_episode2_2_de.pdf">Open the German sample PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>LE CLUB DES ESSAIS EPISODE 1 (French)</h3>
-                        <p><a href="sample/tameshibu_episode1_2_fr.pdf">Open the French sample PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>LE CLUB DES ESSAIS EPISODE 2 (French)</h3>
-                        <p><a href="sample/tameshibu_episode2_2_fr.pdf">Open the French sample PDF</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>THE TRY-IT CLUB EPISODE 3 (English)</h3>
-                        <p><a href="sample/tameshibu_episode3_en.pdf">अङ्ग्रेजी नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>ためし部 第3話 (Japanese)</h3>
-                        <p><a href="sample/tameshibu_episode3_ja.pdf">जापानी नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>भाग 1 (Español)</h3>
-                        <p><a href="sample/tameshibu_episode1_es.pdf">नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>भाग 1 (Bahasa Indonesia)</h3>
-                        <p><a href="sample/tameshibu_episode1_id.pdf">नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>भाग 1 (Italiano)</h3>
-                        <p><a href="sample/tameshibu_episode1_it.pdf">नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>भाग 1 (नेपाली)</h3>
-                        <p><a href="sample/tameshibu_episode1_ne.pdf">नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>भाग 1 (Português)</h3>
-                        <p><a href="sample/tameshibu_episode1_pt.pdf">नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>भाग 1 (Filipino)</h3>
-                        <p><a href="sample/tameshibu_episode1_tl.pdf">नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>भाग 1 (Tiếng Việt)</h3>
-                        <p><a href="sample/tameshibu_episode1_vi.pdf">नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>भाग 2 (Español)</h3>
-                        <p><a href="sample/tameshibu_episode2_es.pdf">नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>भाग 2 (Bahasa Indonesia)</h3>
-                        <p><a href="sample/tameshibu_episode2_id.pdf">नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>भाग 2 (Italiano)</h3>
-                        <p><a href="sample/tameshibu_episode2_it.pdf">नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>भाग 2 (नेपाली)</h3>
-                        <p><a href="sample/tameshibu_episode2_ne.pdf">नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>भाग 2 (Português)</h3>
-                        <p><a href="sample/tameshibu_episode2_pt.pdf">नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>भाग 2 (Filipino)</h3>
-                        <p><a href="sample/tameshibu_episode2_tl.pdf">नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>भाग 2 (Tiếng Việt)</h3>
-                        <p><a href="sample/tameshibu_episode2_vi.pdf">नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>भाग 3 (한국어)</h3>
-                        <p><a href="sample/tameshibu_episode3_ko.pdf">नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>भाग 3 (简体中文)</h3>
-                        <p><a href="sample/tameshibu_episode3_zh_cn.pdf">नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>भाग 3 (繁體中文)</h3>
-                        <p><a href="sample/tameshibu_episode3_zh_tw.pdf">नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>भाग 3 (Deutsch)</h3>
-                        <p><a href="sample/tameshibu_episode3_de.pdf">नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>भाग 3 (Español)</h3>
-                        <p><a href="sample/tameshibu_episode3_es.pdf">नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>भाग 3 (Français)</h3>
-                        <p><a href="sample/tameshibu_episode3_fr.pdf">नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>भाग 3 (Bahasa Indonesia)</h3>
-                        <p><a href="sample/tameshibu_episode3_id.pdf">नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>भाग 3 (Italiano)</h3>
-                        <p><a href="sample/tameshibu_episode3_it.pdf">नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>भाग 3 (नेपाली)</h3>
-                        <p><a href="sample/tameshibu_episode3_ne.pdf">नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>भाग 3 (Português)</h3>
-                        <p><a href="sample/tameshibu_episode3_pt.pdf">नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>भाग 3 (Filipino)</h3>
-                        <p><a href="sample/tameshibu_episode3_tl.pdf">नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                    <article class="usecase">
-                        <h3>भाग 3 (Tiếng Việt)</h3>
-                        <p><a href="sample/tameshibu_episode3_vi.pdf">नमुना PDF खोल्नुहोस्</a></p>
-                    </article>
-                </div>
-            </div>
-        </section>
+<div class="container"><div class="section-heading"><h2>नमुना PDF</h2></div><p><a class="button" href="https://tyamada.github.io/manga-prompt-kit/samples/ne/">नमुना PDF</a></p></div>
+</section>
 
         <section class="section" id="sample-license">
             <div class="container">
                 <h2>नमुना PDF को इजाजतपत्र</h2>
-                <p>THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP (English)<br>THE TRY-IT CLUB EPISODE 2 ROOM TO GROW (English)<br>© 2026 Komairo Hiyori</p>
+                <p>THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP (English)<br>THE TRY-IT CLUB EPISODE 2 ROOM TO GROW (English)<br>THE TRY-IT CLUB EPISODE 3 (English)<br>© 2026 Komairo Hiyori</p>
                 <p>यस कृतिका जुन अंशहरूमा प्रकाशकसँग प्रतिलिपि अधिकार वा अनुमति दिन मिल्ने अन्य अधिकारहरू छन्, ती अंशहरू Creative Commons Attribution 4.0 International (CC BY 4.0) अन्तर्गत उपलब्ध गराइएका छन्।<br><a href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></p>
                 <p>पुनः प्रयोग गर्दा कृतिको नाम, लेखकको नाम “Komairo Hiyori”, मूल कृति प्रकाशित भएको स्रोत र इजाजतपत्रको लिङ्क उल्लेख गर्नुहोस्। परिवर्तन गरिएको छ भने त्यसबारे पनि स्पष्ट रूपमा जनाउनुहोस्।</p>
                 <p>यस कृतिका पाठ तथा तस्बिर सिर्जना गर्न र अनुवाद गर्न जेनेरेटिभ AI प्रयोग गरिएको छ। फन्टजस्ता तेस्रो पक्षको अधिकार भएका सामग्रीमा तिनका आ-आफ्ना इजाजतपत्र लागू हुन्छन्। प्रतिलिपि अधिकार वा अन्य अधिकारद्वारा संरक्षित नभएका अंशहरूको प्रयोगलाई यस सूचनाले सीमित गर्दैन।</p>
@@ -737,16 +596,23 @@
                     <div>
                         <h2>MihirakiPDFViewer प्रयास गर्नुहोस्</h2>
                         <p>
-                            एप स्टोर रिलीज पछि, यो बटन बदल्नुहोस्
-                            एप स्टोर URL।
+                            यो एप हाल जापानको App Store मा उपलब्ध छ। यो बटन थिच्दा जापानको App Store मा रहेको एपको पृष्ठ खुल्छ।
                         </p>
                     </div>
-                    <a class="button" href="#" aria-label="एप स्टोरमा MihirakiPDFViewer डाउनलोड गर्नुहोस्">
+                    <a class="button" href="https://apps.apple.com/jp/app/id6802023530" aria-label="एप स्टोरमा MihirakiPDFViewer डाउनलोड गर्नुहोस्">
                         एप स्टोरमा जानुहोस्
                     </a>
                 </div>
             </div>
         </section>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>गोपनीयता नीति</h2>
+        <p>सेटिङ्सको माथिल्लो भाग वा एप जानकारीबाट गोपनीयता नीति खोल्नुहोस्। PDF छान्नुअघि र पढिरहेको बेला पनि खरिद वा लगइन बिना खोल्न सकिन्छ।</p>
+        <p>खाली भण्डारण क्षमता यस उपकरणमा मात्र देखाइन्छ। साझा गरिने निदान पाठमा भण्डारण जाँच, त्यसको मान वा समग्र नतिजामा त्यसको प्रभाव समावेश हुँदैन। लगमा प्रशोधनको अवधि हुन सक्छ, तर प्रणाली चलेको कच्चा समय हुँदैन।</p>
+    </div>
+</section>
     </main>
 
     <footer class="site-footer">

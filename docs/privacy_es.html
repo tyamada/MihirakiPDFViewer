@@ -35,7 +35,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -240,6 +240,10 @@
         }
 
         @media (max-width: 760px) {
+            .site-header {
+                position: static;
+            }
+
             .nav {
                 align-items: flex-start;
                 flex-direction: column;
@@ -262,6 +266,21 @@
                 padding: 46px 0;
             }
         }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
     </style>
 </head>
 <body>
@@ -296,6 +315,11 @@
     </header>
 
     <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">Ya está disponible la versión 1.1.0</h2>
+            <p>La versión 1.1.0 se publicó en el App Store de Japón el 23 de noviembre de 2026. La aplicación solo está disponible en Japón por el momento.</p>
+        </aside>
+
         <section class="hero">
             <div class="container">
                 <p class="eyebrow">Política de privacidad</p>
@@ -399,18 +423,13 @@
                             para responder o investigar el problema.
                         </p>
                         <ul>
-                            <li>No envíes contenido de PDF ni información personal salvo que sea necesario.</li>
+                            <li>No envíes archivos PDF ni su contenido. Revisa las instrucciones sobre informes e imágenes que figuran a continuación antes de contactar con soporte.</li>
                             <li>El modelo del dispositivo, versión del SO, versión de la app y pasos de reproducción ayudan a investigar.</li>
                         </ul>
                     </article>
                     <article class="card">
                         <h3>Compartir con terceros</h3>
-                        <p>
-                            La información no se proporciona a terceros salvo
-                            cuando lo exige la ley. Las funciones proporcionadas por Apple, como
-                            compras dentro de la app e iCloud Drive, también están sujetas a
-                            la política de privacidad de Apple.
-                        </p>
+                        <p>La información que decide compartir o enviar al soporte llega al destinatario elegido y puede conservarse allí. Las compras de StoreKit e iCloud Drive siguen las prácticas de Apple. Las descargas de muestras y los enlaces externos contactan con sus operadores; se aplican sus prácticas de privacidad y las del destino elegido para compartir. La app no envía automáticamente diagnósticos al desarrollador.</p>
                     </article>
                 </div>
             </div>
@@ -454,7 +473,7 @@
     <div class="container">
         <div class="section-heading">
             <h2>Diagnóstico en el dispositivo y registros</h2>
-            <p>En la pantalla Diagnóstico de Ajustes puede ejecutar pruebas de información de la app, almacenamiento local y renderizado de PDF, o consultar registros de diagnóstico sobre cierres, lentitud y problemas de funcionamiento o visualización. Los resultados incluyen fecha y hora, nombre e identificador del modelo del dispositivo y versiones del sistema y de la app. Los registros no incluyen datos personales, contenido, nombres o rutas de archivos, búsquedas ni contraseñas, y se eliminan tras 24 horas. Nada se envía automáticamente; solo sale del dispositivo al usar Compartir de forma explícita.</p>
+            <p>Los resultados de diagnóstico se mantienen en la memoria de la pantalla actual. Al compartir, el texto incluye fecha y hora, nombre e identificador del modelo (no un ID único del dispositivo), versiones del sistema y de la app, memoria total y disponible y resultados distintos de la comprobación de espacio libre. Los registros contienen tipos de eventos, horas, cantidades y tiempos de procesamiento transcurridos. El registro que la app permite leer y compartir tiene un máximo de 2.000 entradas; las de más de 24 horas se eliminan al leer o registrar, no mediante un temporizador con la app detenida. Los registros del sistema siguen las reglas del sistema operativo. No se envían automáticamente resultados ni registros.</p>
         </div>
     </div>
 </section>
@@ -477,7 +496,34 @@
                 </article>
             </div>
         </section>
-    </main>
+
+<section class="section" id="privacy-access">
+    <div class="container">
+        <h2>Política de privacidad</h2>
+        <p>La política de privacidad está al principio de Ajustes y en Información de la app. Se puede abrir antes de elegir un PDF y durante la lectura, sin comprar ni iniciar sesión.</p>
+        <p>El espacio libre solo se muestra en este dispositivo. El texto de diagnóstico compartido excluye la comprobación de espacio, su valor y su efecto en el resultado global. Los registros pueden incluir la duración del procesamiento, pero nunca el tiempo de actividad del sistema sin procesar.</p>
+        <p>La restauración de lectura guarda localmente la referencia al documento, la página, los ajustes y el texto de búsqueda; no guarda contraseñas de PDF. Las descargas de ejemplo contactan con GitHub Releases cuando se solicitan. Esta política y GitHub Issues abren sitios externos cuyos operadores pueden recibir la dirección IP y datos de la solicitud. Los informes se comparten con el destino elegido. Los servicios externos tienen sus propias políticas de privacidad.</p>
+    <p data-policy-topic="local-retention">La visualización y búsqueda de PDF se procesan en el dispositivo. La restauración guarda localmente el marcador del documento, posiciones de página, texto de búsqueda y opciones de visualización; no guarda contraseñas de PDF. Cerrar el documento o restablecer los ajustes borra el registro de restauración, pero no el PDF ni los registros de diagnóstico. Algunos PDF importados se copian en el almacenamiento Documents de la app. Para borrar los datos locales, use la opción del sistema para eliminar la app, no para desinstalarla conservando datos. Esto no elimina originales externos ni copias ya compartidas. No hay un botón específico para borrar registros.</p>
+    </div>
+</section>
+    <section class="section" id="sample-catalog-network"><div class="container"><p data-policy-topic="sample-catalog-network" style="overflow-wrap:anywhere">Al abrir la lista de ejemplos, la aplicación comprueba en GitHub si está disponible el archivo JSON más reciente del catálogo. Si la actualización falla, utiliza la última lista guardada que sea válida o la lista incluida con la aplicación. Los archivos PDF solo se descargan cuando eliges descargarlos. La solicitud del catálogo se comunica con raw.githubusercontent.com; las descargas de PDF se comunican con GitHub Releases. Estos servicios pueden recibir tu dirección IP e información sobre la solicitud.</p></div></section>
+    <section class="section" id="support-retention">
+      <div class="container">
+        <h2>Información de soporte y conservación</h2>
+        <p>Usamos la información de soporte solo para responder, investigar problemas y realizar mejoras técnicas de rendimiento. No pedimos tu nombre real. Si el nombre mostrado del remitente contiene tu nombre real, lo conservamos únicamente en el correo original durante el tiempo necesario para responder e investigar; no lo copiamos a archivos de Google Sheets por caso ni a notas de mejora.</p>
+        <p>Normalmente no pedimos capturas de pantalla. Solo cuando el texto no permita reproducir el problema y sea necesaria una imagen, la aceptamos en tyamada.support@gmail.com. Antes de enviarla, oculta el contenido del PDF, los nombres de archivo, los nombres de personas, las notificaciones y cualquier información innecesaria para la investigación. Las imágenes se tratan, por regla general, dentro del correo original. En los Sheets de cada caso solo se anotan las observaciones necesarias para la investigación, no las imágenes.</p>
+        <p>No copiamos los nombres ni los identificadores de los autores de GitHub a los Sheets de cada caso ni a las notas de mejora. Solo cuando es necesario para responder o investigar, guardamos un enlace al Issue original en el Sheet del caso. Mientras ese enlace permita identificar al autor, el registro seguirá siendo vinculable a esa persona. No publiques información personal, archivos PDF o su contenido, nombres de archivo ni capturas de pantalla en Issues públicos.</p>
+        <p>Las publicaciones públicas de GitHub son distintas de los correos y registros de casos que gestionamos. Eliminar nuestro enlace del caso no elimina el Issue público. No podemos garantizar la eliminación de publicaciones o copias de servicios fuera de nuestro control. No tratamos como anónimos los informes y referencias de casos que permiten volver al remitente.</p>
+        <h3>Inicio y plazos de eliminación</h3>
+        <p>A. Correos originales, incluidos los nombres reales mostrados, imágenes y copias de investigación: un caso se completa cuando existe una respuesta o conclusión de la investigación y el desarrollador confirma que no quedan tareas pendientes. La falta de respuesta no cierra el caso automáticamente. Revisamos los plazos semanalmente, iniciamos la eliminación alrededor de 60 días después de completarlo y confirmamos la eliminación de los registros gestionables, incluida la papelera correspondiente, dentro de 90 días. Los 60 días no son un período mínimo de conservación; las solicitudes anticipadas de eliminación no esperan al plazo normal.</p>
+        <p>B. Sheets por caso, observaciones, enlaces a Issues y registros de recepción y eliminación: confirmamos la eliminación del archivo del caso y de los registros y referencias relacionados dentro de 90 días después de completar la eliminación de la información original. Eliminar solo filas o celdas no basta. Esto no amplía A ni permite trasladar los originales a estos registros. Que un Issue público siga en línea no amplía automáticamente el plazo de nuestros registros del caso.</p>
+        <p>C. Las notas de mejora generalizadas solo pueden conservar causas y resúmenes de correcciones, sin nombres, imágenes, URL de publicaciones, identificadores de casos ni otra información que lleve al informe original. No son un lugar alternativo para almacenar registros de A o B.</p>
+        <p>Las excepciones se limitan a investigaciones en curso o necesidades legales. Registramos el motivo, el alcance y la condición de finalización, y los revisamos como máximo cada 30 días y al terminar la investigación. Cuando desaparece la necesidad, normalmente confirmamos la eliminación dentro de 30 días, o antes del plazo original de 90 días si sigue vigente y vence antes. Reabrir un caso o aplicar una excepción no reinicia automáticamente los plazos. Se usan días naturales en Asia/Tokyo.</p>
+        <p>Estos plazos cubren los registros que el desarrollador puede gestionar. Eliminar datos desde la interfaz de un servicio no garantiza el borrado físico de las copias internas de recuperación del proveedor o de las copias de seguridad del dispositivo dentro del mismo período. Esas copias y sus límites de eliminación son distintos de los registros bajo nuestro control. Eliminar registros locales de la app no elimina informes ya enviados.</p>
+        <p>Para consultas o solicitudes de eliminación, contacta con <a href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a>. Proporciona solo la información necesaria para identificar el caso correspondiente; no la publiques en un espacio público.</p>
+      </div>
+    </section>
+  </main>
 
     <footer class="site-footer">
         <div class="footer-inner">
