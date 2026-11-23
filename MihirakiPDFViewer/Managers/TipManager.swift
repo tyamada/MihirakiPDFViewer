@@ -11,38 +11,92 @@
 // For the full license text, please see the LICENSE file in the root directory.
 //
 
-import Combine
 import Foundation
+import Observation
 import StoreKit
 import SwiftUI
 import UIKit
 
+enum SupporterTier: String, CaseIterable, Identifiable {
+    case bronze = "supporter_icon_bronze"
+    case silver = "supporter_icon_silver"
+    case gold = "supporter_icon_gold"
+    case koyomi = "supporter_badge_koyomi_v2"
+
+    var id: String { rawValue }
+
+    var name: LocalizedStringResource {
+        switch self {
+        case .bronze: "Bronze Supporter"
+        case .silver: "Silver Supporter"
+        case .gold: "Gold Supporter"
+        case .koyomi: LocalizedStringResource("koyomi_v2_badge_name", defaultValue: "Release Commemorative Koyomi Badge")
+        }
+    }
+
+    var imageName: String {
+        switch self {
+        case .bronze: "TipIconBronze"
+        case .silver: "TipIconSilver"
+        case .gold: "TipIconGold"
+        case .koyomi: "KoyomiV2Badge"
+        }
+    }
+}
+
 /// 投げ銭（チップ）の購入と管理を行うマネージャー
 @MainActor
-public class TipManager: ObservableObject {
+@Observable
+public class TipManager {
     public static let shared = TipManager()
+
+    public static let koyomiV2BadgeProductID = "supporter_badge_koyomi_v2"
     
     // 定義された商品ID
     public static let productIDs = [
         "supporter_icon_bronze",
         "supporter_icon_silver",
-        "supporter_icon_gold"
+        "supporter_icon_gold",
+        koyomiV2BadgeProductID
     ]
     
-    @Published public private(set) var products: [Product] = []
-    @Published public var isPurchaseSuccess: Bool = false
-    @Published public var lastPurchasedProductID: String? = nil
-    @Published public private(set) var pendingAppIconName: String? = nil
-    @Published public private(set) var ownedProductIDs: Set<String> = []
-    @Published public private(set) var isRestoringPurchases = false
-    @Published public private(set) var restoreMessage: String? = nil
-    @Published public private(set) var currentAppIconName: String? = UIApplication.shared.alternateIconName
-    @Published public private(set) var errorMessage: String? = nil
+    public private(set) var products: [Product] = []
+    public var isPurchaseSuccess: Bool = false
+    public var lastPurchasedProductID: String? = nil
+    public private(set) var pendingAppIconName: String? = nil
+    public private(set) var ownedProductIDs: Set<String> = []
+    public private(set) var isRestoringPurchases = false
+    public private(set) var restoreMessage: String? = nil
+    public private(set) var currentAppIconName: String? = UIApplication.shared.alternateIconName
+    public private(set) var errorMessage: String? = nil
     
+    @ObservationIgnored
     private var transactionUpdates: Task<Void, Never>?
+    @ObservationIgnored
     private var purchaseIntentUpdates: Task<Void, Never>?
     
+    // Test hosts and UI tests opt in only on a Debug simulator. Release behavior
+    // is unchanged; local validation never starts StoreKit account operations.
+    private static var isOfflineValidation: Bool {
+#if DEBUG && targetEnvironment(simulator)
+        ProcessInfo.processInfo.environment["MIHIRAKI_OFFLINE_VALIDATION"] == "1"
+#else
+        false
+#endif
+    }
+
+    private let skipsStoreOperations: Bool
+    private let koyomiGrant: KoyomiGrantController
+    private let synchronizePurchases: @MainActor () async throws -> Void
+    private let readOwnedProducts: @MainActor () async -> Set<String>
+
     private init() {
+        skipsStoreOperations = Self.isOfflineValidation
+        koyomiGrant = KoyomiGrantController(
+            deadline: KoyomiGrantDeadline.production, store: UserDefaultsKoyomiGrantStore())
+        synchronizePurchases = { try await AppStore.sync() }
+        readOwnedProducts = { await Self.currentOwnedProducts() }
+        guard !skipsStoreOperations else { return }
         Task {
             await updateStorefront()
             await refreshEntitlements()
@@ -51,8 +105,47 @@ public class TipManager: ObservableObject {
         }
     }
     
+    // Fixture construction is absent from Release and never selected by launch settings.
+#if DEBUG
+    init(testGrant: KoyomiGrantController, ownedProductIDs: Set<String> = [],
+         synchronizePurchases: @escaping @MainActor () async throws -> Void = {},
+         readOwnedProducts: @escaping @MainActor () async -> Set<String> = { [] }) {
+        skipsStoreOperations = false
+        koyomiGrant = testGrant
+        self.ownedProductIDs = ownedProductIDs
+        self.synchronizePurchases = synchronizePurchases
+        self.readOwnedProducts = readOwnedProducts
+    }
+#endif
+
+    var isShowingKoyomiGrantNotification: Bool { koyomiGrant.hasNewGrantNotification }
+
+    func dismissKoyomiGrantNotification() { koyomiGrant.dismissNotification() }
+
+    var hasKoyomiBadge: Bool {
+        koyomiGrant.state == .eligible || isPurchased(Self.koyomiV2BadgeProductID)
+    }
+
+    var displayedSupporterTiers: [SupporterTier] {
+        SupporterTier.allCases.filter { tier in
+            tier == .koyomi ? hasKoyomiBadge : isPurchased(tier.rawValue)
+        }
+    }
+
+    func recheckKoyomiEligibility() async {
+        guard !skipsStoreOperations else { return }
+        await koyomiGrant.recheck()
+    }
+
+    // Rechecks only the local grant; this never refreshes the App Store transaction.
+    func refreshKoyomiEligibilityByUserRequest() async {
+        guard !skipsStoreOperations else { return }
+        await koyomiGrant.refreshByUserRequest()
+    }
+
     /// 商品情報を取得して更新する
     public func updateStorefront() async {
+        guard !skipsStoreOperations else { return }
         do {
             let storeProducts = try await Product.products(for: Self.productIDs)
             self.products = storeProducts.sorted(by: { $0.price < $1.price })
@@ -77,9 +170,27 @@ public class TipManager: ObservableObject {
         }
     }
 
+    // This gate applies to direct, SwiftUI, and external PurchaseIntent starts.
+    // Entitlement recognition, transaction updates and restoration do not use it.
+    static func isNewPurchaseAllowed(for productID: String) -> Bool {
+        [SupporterTier.bronze.rawValue, SupporterTier.silver.rawValue,
+         SupporterTier.gold.rawValue].contains(productID)
+    }
+
+    static func performPurchaseIfAllowed<Result>(
+        productID: String,
+        purchaseAction: () async throws -> Result
+    ) async rethrows -> Result? {
+        guard isNewPurchaseAllowed(for: productID) else { return nil }
+        return try await purchaseAction()
+    }
+
     private func purchase(_ product: Product, purchaseAction: () async throws -> Product.PurchaseResult) async {
+        guard !skipsStoreOperations else { return }
         do {
-            let result = try await purchaseAction()
+            guard let result = try await Self.performPurchaseIfAllowed(
+                productID: product.id, purchaseAction: purchaseAction
+            ) else { return }
             
             switch result {
             case .success(let verification):
@@ -140,7 +251,7 @@ public class TipManager: ObservableObject {
         case "supporter_icon_gold":
             return "AppIconGold"
         default:
-            return "AppIcon"
+            return nil
         }
     }
     
@@ -223,6 +334,11 @@ public class TipManager: ObservableObject {
     }
 
     public func refreshEntitlements() async {
+        guard !skipsStoreOperations else { return }
+        ownedProductIDs = await readOwnedProducts()
+    }
+
+    private static func currentOwnedProducts() async -> Set<String> {
         var currentProductIDs: Set<String> = []
 
         for await result in StoreKit.Transaction.currentEntitlements {
@@ -234,10 +350,11 @@ public class TipManager: ObservableObject {
             currentProductIDs.insert(transaction.productID)
         }
 
-        ownedProductIDs = currentProductIDs
+        return currentProductIDs
     }
 
     public func restorePurchases() async {
+        guard !skipsStoreOperations else { return }
         guard !isRestoringPurchases else { return }
 
         isRestoringPurchases = true
@@ -245,7 +362,7 @@ public class TipManager: ObservableObject {
         let previousProductIDs = ownedProductIDs
 
         do {
-            try await AppStore.sync()
+            try await synchronizePurchases()
             await refreshEntitlements()
             restoreMessage = ownedProductIDs.isEmpty
                 ? String(localized: "no_purchases_to_restore", defaultValue: "No purchases were available to restore.")
@@ -261,5 +378,98 @@ public class TipManager: ObservableObject {
 
     public func clearRestoreMessage() {
         restoreMessage = nil
+    }
+}
+
+// The free badge is a device-local claim, separate from StoreKit purchases.
+// It needs no account/acquisition lookup and no network to grant or redisplay.
+struct KoyomiGrantDeadline: Equatable {
+    let end: Date
+
+    // Last claim day: 2027-12-31 JST (exclusive end: 2028-01-01 00:00 JST).
+    static let production = KoyomiGrantDeadline(
+        end: Date(timeIntervalSince1970: 1_830_265_200))
+
+    init?(end: Date) {
+        guard end.timeIntervalSince1970.isFinite else { return nil }
+        self.end = end
+    }
+
+    func contains(_ date: Date) -> Bool {
+        date.timeIntervalSince1970.isFinite && date < end
+    }
+}
+
+@MainActor
+protocol KoyomiGrantStoring {
+    var isGranted: Bool { get }
+    func saveGrant() -> Bool
+}
+
+@MainActor
+final class UserDefaultsKoyomiGrantStore: KoyomiGrantStoring {
+    private let defaults: UserDefaults
+    private let key = "koyomi_auto_granted_v1"
+
+    init(defaults: UserDefaults = .standard) {
+        self.defaults = defaults
+    }
+
+    var isGranted: Bool { defaults.bool(forKey: key) }
+
+    func saveGrant() -> Bool {
+        defaults.set(true, forKey: key)
+        return isGranted
+    }
+}
+
+@MainActor
+@Observable
+final class KoyomiGrantController {
+    enum State: Equatable {
+        case disabled
+        case pending
+        case eligible
+        case ineligible
+    }
+
+    private(set) var state: State
+    private(set) var isChecking = false
+    private(set) var hasNewGrantNotification = false
+    private let deadline: KoyomiGrantDeadline?
+    private let store: any KoyomiGrantStoring
+    private let now: @MainActor () -> Date
+
+    init(deadline: KoyomiGrantDeadline?, store: any KoyomiGrantStoring,
+         now: @escaping @MainActor () -> Date = { Date() }) {
+        self.deadline = deadline
+        self.store = store
+        self.now = now
+        state = store.isGranted ? .eligible : (deadline == nil ? .disabled : .pending)
+    }
+
+    func recheck() async {
+        guard !isChecking else { return }
+        isChecking = true
+        defer { isChecking = false }
+        // A saved badge never expires, including when the clock or deadline changes.
+        guard !store.isGranted else { state = .eligible; return }
+        guard let deadline else { state = .disabled; return }
+        let date = now()
+        guard date.timeIntervalSince1970.isFinite else { state = .pending; return }
+        guard deadline.contains(date) else { state = .ineligible; return }
+        // Do not claim durable success until the local store reads the saved value.
+        if store.saveGrant() {
+            state = .eligible
+            hasNewGrantNotification = true
+        } else {
+            state = .pending
+        }
+    }
+
+    func dismissNotification() { hasNewGrantNotification = false }
+
+    func refreshByUserRequest() async {
+        await recheck()
     }
 }

@@ -1,0 +1,40 @@
+{
+  "description": "Synthetic eight-page PDF fixtures with numbered pages; no manga or user documents.",
+  "fixtures": [
+    {
+      "name": "Regression8_L2R_Single.pdf",
+      "bytes": 2554,
+      "sha256": "efbdac72ac3705094d66e27d7def4ab9de5a53b0af7327386c6784e0d216da65",
+      "direction": "L2R",
+      "layout": "SinglePage"
+    },
+    {
+      "name": "Regression8_L2R_TwoPageLeft.pdf",
+      "bytes": 2555,
+      "sha256": "20eab7eac557d15b84442e3c5311cdbfda786600dd317c94cfb96f8ada82395d",
+      "direction": "L2R",
+      "layout": "TwoPageLeft"
+    },
+    {
+      "name": "Regression8_R2L_Single.pdf",
+      "bytes": 2554,
+      "sha256": "e2d6b33131c34f1c6cb84c3b9d13471f7679e132a7bab247d864e0dfad87d420",
+      "direction": "R2L",
+      "layout": "SinglePage"
+    },
+    {
+      "name": "Regression8_R2L_TwoPageLeft.pdf",
+      "bytes": 2555,
+      "sha256": "eec4fb283ffc2b214350271ee347e7824ab115947d3a49db9de76fc221a5fc97",
+      "direction": "R2L",
+      "layout": "TwoPageLeft"
+    },
+    {
+      "name": "Regression8_R2L_TwoPageRight.pdf",
+      "bytes": 2556,
+      "sha256": "61893132e7f124d78d5e76771b10c4ae50d5a5b49fe58415ebe767bbc63316b8",
+      "direction": "R2L",
+      "layout": "TwoPageRight"
+    }
+  ]
+}

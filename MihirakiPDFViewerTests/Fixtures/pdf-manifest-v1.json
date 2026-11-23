@@ -1,0 +1,1343 @@
+{
+  "schema_version": 1,
+  "license": "CC-BY-4.0",
+  "status": "published",
+  "target": "this_documentation_repository_releases",
+  "repository": "tyamada/manga-prompt-kit",
+  "tag_candidate": "manga-pdf-20261103-v1",
+  "repository_url": "https://github.com/tyamada/manga-prompt-kit",
+  "pdf_count": 51,
+  "unique_bytes": 1254726790,
+  "local_hashes_match_legacy_release_metadata": true,
+  "entries": [
+    {
+      "sample_id": "ep1_ja",
+      "episode": 1,
+      "language_key": "ja",
+      "locale": "ja-JP",
+      "title": "ためし部 第1話 ひと息マップ",
+      "filename": "tameshibu_episode1_2_ja.pdf",
+      "pages": 8,
+      "bytes": 24217661,
+      "sha256": "b84e714206e569318e31ee6255595649decdc57563933fb6d6453d96570de85a",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_2_ja.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode1_2_ja.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode1_2_ja.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode1_2_ja.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode1_2_ja.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep1_ko",
+      "episode": 1,
+      "language_key": "ko",
+      "locale": "ko-KR",
+      "title": "해봄부 제1화 한숨 돌림 지도",
+      "filename": "tameshibu_episode1_2_ko.pdf",
+      "pages": 8,
+      "bytes": 24105557,
+      "sha256": "fd2dfda658ae68d02f099f6315d255df163a5cb3251a5ba220e0086ae05c118d",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_2_ko.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode1_2_ko.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode1_2_ko.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode1_2_ko.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode1_2_ko.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep1_zh_cn",
+      "episode": 1,
+      "language_key": "zh_cn",
+      "locale": "zh-Hans-CN",
+      "title": "试试社 第1话 歇口气地图",
+      "filename": "tameshibu_episode1_2_zh_cn.pdf",
+      "pages": 8,
+      "bytes": 24176113,
+      "sha256": "29ae2a200730a50dc58d310de5f71e75af9c378b5c2fa21b56d431637cbf2049",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_2_zh_cn.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode1_2_zh_cn.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode1_2_zh_cn.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode1_2_zh_cn.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode1_2_zh_cn.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep1_zh_tw",
+      "episode": 1,
+      "language_key": "zh_tw",
+      "locale": "zh-Hant-TW",
+      "title": "試試社 第1話 歇口氣地圖",
+      "filename": "tameshibu_episode1_2_zh_tw.pdf",
+      "pages": 8,
+      "bytes": 24190869,
+      "sha256": "91bbf0811957692eaae3aacf2633b49ffd2b42aa7787cc7f47f939d73a70d085",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_2_zh_tw.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode1_2_zh_tw.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode1_2_zh_tw.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode1_2_zh_tw.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode1_2_zh_tw.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep1_de",
+      "episode": 1,
+      "language_key": "de",
+      "locale": "de-DE",
+      "title": "Der Probierclub - Folge 1: Die Pausenkarte",
+      "filename": "tameshibu_episode1_3_de.pdf",
+      "pages": 8,
+      "bytes": 24157992,
+      "sha256": "5a6a3ed7d0bdd8cf59a8f61768599377010bfeefc6efda0e235ac60f75a40e82",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_3_de.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode1_3_de.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode1_3_de.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode1_3_de.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode1_3_de.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep1_en",
+      "episode": 1,
+      "language_key": "en",
+      "locale": "en-US",
+      "title": "The Try-It Club - Episode 1: The Break-Time Map",
+      "filename": "tameshibu_episode1_3_en.pdf",
+      "pages": 8,
+      "bytes": 24171133,
+      "sha256": "d375ae5bdf0de6b2c88ea65c4219b59390be84b7da162ff7eaaf9cdaefa75416",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_3_en.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode1_3_en.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode1_3_en.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode1_3_en.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode1_3_en.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep1_es",
+      "episode": 1,
+      "language_key": "es",
+      "locale": "es-ES",
+      "title": "EL CLUB DE LOS EXPERIMENTOS - EPISODIO 1 / MAPA DE DESCANSOS",
+      "filename": "tameshibu_episode1_3_es.pdf",
+      "pages": 8,
+      "bytes": 24156910,
+      "sha256": "16fa00bac3cf7891c7331d0337e9bb545f87b1b6746553ebb008c833a211437b",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_3_es.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode1_3_es.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode1_3_es.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode1_3_es.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode1_3_es.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep1_es_419",
+      "episode": 1,
+      "language_key": "es_419",
+      "locale": "es-419",
+      "title": "EL CLUB DE LOS EXPERIMENTOS - EPISODIO 1 / MAPA DE DESCANSOS [es-419]",
+      "filename": "tameshibu_episode1_3_es_419.pdf",
+      "pages": 8,
+      "bytes": 24254110,
+      "sha256": "8c0c45c85639be440436ecc65ab2146368f52f9ebdaf0d2bc60304993fce1ca8",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_3_es_419.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode1_3_es_419.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode1_3_es_419.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode1_3_es_419.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode1_3_es_419.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep1_fr",
+      "episode": 1,
+      "language_key": "fr",
+      "locale": "fr-FR",
+      "title": "Le Club des essais - Épisode 1 : Le plan des coins détente",
+      "filename": "tameshibu_episode1_3_fr.pdf",
+      "pages": 8,
+      "bytes": 24143308,
+      "sha256": "bb98cd6b113bac4a2b90382b2728171fe16f4a8d62e26bf84f84ee4b06511c9d",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_3_fr.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode1_3_fr.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode1_3_fr.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode1_3_fr.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode1_3_fr.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep1_id",
+      "episode": 1,
+      "language_key": "id",
+      "locale": "id-ID",
+      "title": "KLUB COBA-COBA - EPISODE 1 / PETA TEMPAT ISTIRAHAT",
+      "filename": "tameshibu_episode1_3_id.pdf",
+      "pages": 8,
+      "bytes": 25271260,
+      "sha256": "5cabd1d07766aedbee504f7b1cd13c084e8d54f3800a2a46c9f6e2a605d21261",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_3_id.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode1_3_id.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode1_3_id.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode1_3_id.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode1_3_id.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep1_it",
+      "episode": 1,
+      "language_key": "it",
+      "locale": "it-IT",
+      "title": "IL CLUB DEGLI ESPERIMENTI - EPISODIO 1 / LA MAPPA DELLE PAUSE",
+      "filename": "tameshibu_episode1_3_it.pdf",
+      "pages": 8,
+      "bytes": 24172615,
+      "sha256": "bd3100590786ec0f082c53075d0878b93d016ff86500d7a400335743012f4a06",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_3_it.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode1_3_it.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode1_3_it.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode1_3_it.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode1_3_it.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep1_ne",
+      "episode": 1,
+      "language_key": "ne",
+      "locale": "ne-NP",
+      "title": "प्रयोग क्लब - भाग 1 / आरामको नक्सा",
+      "filename": "tameshibu_episode1_3_ne.pdf",
+      "pages": 8,
+      "bytes": 26921889,
+      "sha256": "e5808f2345f15b1d9d04ce7a8a5982839c3eebd87c7e4168b5d636b9b78e01a6",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_3_ne.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode1_3_ne.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode1_3_ne.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode1_3_ne.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode1_3_ne.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep1_pt",
+      "episode": 1,
+      "language_key": "pt",
+      "locale": "pt-BR",
+      "title": "O CLUBE DAS EXPERIÊNCIAS - EPISÓDIO 1 / MAPA DO DESCANSO",
+      "filename": "tameshibu_episode1_3_pt.pdf",
+      "pages": 8,
+      "bytes": 24177415,
+      "sha256": "3bee185631c0db3dcf611a81fc109b7e625ddac9b0ae054babaed69574b14c53",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_3_pt.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode1_3_pt.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode1_3_pt.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode1_3_pt.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode1_3_pt.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep1_pt_pt",
+      "episode": 1,
+      "language_key": "pt_pt",
+      "locale": "pt-PT",
+      "title": "O CLUBE DAS EXPERIÊNCIAS - EPISÓDIO 1 / MAPA DO DESCANSO [pt-PT]",
+      "filename": "tameshibu_episode1_3_pt_pt.pdf",
+      "pages": 8,
+      "bytes": 24280745,
+      "sha256": "65c1afa54eef821547b6c6c7c90bb2557b772a32138f35ea14e15fa9823ff1ae",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_3_pt_pt.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode1_3_pt_pt.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode1_3_pt_pt.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode1_3_pt_pt.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode1_3_pt_pt.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep1_fil",
+      "episode": 1,
+      "language_key": "fil",
+      "locale": "fil-PH",
+      "title": "CLUB NG MGA PAGSUBOK - KABANATA 1 / MAPA NG PAHINGAHAN",
+      "filename": "tameshibu_episode1_3_tl.pdf",
+      "pages": 8,
+      "bytes": 25656921,
+      "sha256": "05d13e9ece34625de5973fabc5bfce2e0131c5e955aed32972ac0fa38f4d7455",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_3_tl.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode1_3_tl.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode1_3_tl.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode1_3_fil.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode1_3_fil.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep1_vi",
+      "episode": 1,
+      "language_key": "vi",
+      "locale": "vi-VN",
+      "title": "CÂU LẠC BỘ THỬ NGHIỆM - TẬP 1 / BẢN ĐỒ CHỖ NGHỈ",
+      "filename": "tameshibu_episode1_3_vi.pdf",
+      "pages": 8,
+      "bytes": 26004239,
+      "sha256": "bb7676e50b5a6659972f4ea8614567e41fd56e9bc0e200287576b300f4f3812c",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_3_vi.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode1_3_vi.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode1_3_vi.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode1_3_vi.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode1_3_vi.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep1_zh_hk",
+      "episode": 1,
+      "language_key": "zh_hk",
+      "locale": "zh-Hant-HK",
+      "title": "試試社 第1話 歇口氣地圖 [zh-Hant-HK]",
+      "filename": "tameshibu_episode1_3_zh_hk.pdf",
+      "pages": 8,
+      "bytes": 24218401,
+      "sha256": "a337dff4adbb4d1c86e8df5077e90c4ccd09e8123f585c22b3f01b3b46510812",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_3_zh_hk.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode1_3_zh_hk.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode1_3_zh_hk.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode1_3_zh_hk.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode1_3_zh_hk.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep2_ja",
+      "episode": 2,
+      "language_key": "ja",
+      "locale": "ja-JP",
+      "title": "ためし部 第2話 机、ひろがる。",
+      "filename": "tameshibu_episode2_2_ja.pdf",
+      "pages": 8,
+      "bytes": 25039091,
+      "sha256": "758fc91d87acb3de9e1fd006f5cc4decf51a0d0c5136b736f4d598b963c0cf2d",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_2_ja.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode2_2_ja.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode2_2_ja.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode2_2_ja.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode2_2_ja.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep2_ko",
+      "episode": 2,
+      "language_key": "ko",
+      "locale": "ko-KR",
+      "title": "해봄부 제2화 책상이 넓어지다",
+      "filename": "tameshibu_episode2_2_ko.pdf",
+      "pages": 8,
+      "bytes": 24976048,
+      "sha256": "f21bfe8f1cf9e8e242a719ace06119cea3934e73800f4989d217a9373b41f55f",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_2_ko.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode2_2_ko.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode2_2_ko.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode2_2_ko.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode2_2_ko.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep2_zh_cn",
+      "episode": 2,
+      "language_key": "zh_cn",
+      "locale": "zh-Hans-CN",
+      "title": "试试社 第2话 桌子变大了",
+      "filename": "tameshibu_episode2_2_zh_cn.pdf",
+      "pages": 8,
+      "bytes": 25042963,
+      "sha256": "499870a2919840bb1758b85bcdfbe311a50c92fc47c4778c7966b080f875ca44",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_2_zh_cn.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode2_2_zh_cn.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode2_2_zh_cn.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode2_2_zh_cn.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode2_2_zh_cn.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep2_zh_tw",
+      "episode": 2,
+      "language_key": "zh_tw",
+      "locale": "zh-Hant-TW",
+      "title": "試試社 第2話 桌子變大了",
+      "filename": "tameshibu_episode2_2_zh_tw.pdf",
+      "pages": 8,
+      "bytes": 25062567,
+      "sha256": "5a9e3d12a0f6b287e72916e21cfac22cdb24de534e1d1c73cdcc37413fdca8ad",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_2_zh_tw.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode2_2_zh_tw.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode2_2_zh_tw.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode2_2_zh_tw.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode2_2_zh_tw.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep2_de",
+      "episode": 2,
+      "language_key": "de",
+      "locale": "de-DE",
+      "title": "Der Probierclub - Folge 2: Mehr Platz am Tisch",
+      "filename": "tameshibu_episode2_3_de.pdf",
+      "pages": 8,
+      "bytes": 25023530,
+      "sha256": "fb6deb88fd1f01f2c6cec45dd31f02949690c59f6017857f475880b7b59263d7",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_3_de.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode2_3_de.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode2_3_de.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode2_3_de.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode2_3_de.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep2_en",
+      "episode": 2,
+      "language_key": "en",
+      "locale": "en-US",
+      "title": "The Try-It Club - Episode 2: Room to Grow",
+      "filename": "tameshibu_episode2_3_en.pdf",
+      "pages": 8,
+      "bytes": 25044735,
+      "sha256": "116ebc328a0d62e36a28f8fc208b40c3597a2baa53ec09ac792a898bfe290ff9",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_3_en.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode2_3_en.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode2_3_en.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode2_3_en.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode2_3_en.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep2_es",
+      "episode": 2,
+      "language_key": "es",
+      "locale": "es-ES",
+      "title": "EL CLUB DE LOS EXPERIMENTOS - EPISODIO 2 / LA MESA CRECE",
+      "filename": "tameshibu_episode2_3_es.pdf",
+      "pages": 8,
+      "bytes": 25019208,
+      "sha256": "aedf4d6b716deaeb67d4ab4d9716c9a60359435071202b9033ebc5c389a2e42c",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_3_es.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode2_3_es.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode2_3_es.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode2_3_es.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode2_3_es.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep2_es_419",
+      "episode": 2,
+      "language_key": "es_419",
+      "locale": "es-419",
+      "title": "EL CLUB DE LOS EXPERIMENTOS - EPISODIO 2 / LA MESA CRECE [es-419]",
+      "filename": "tameshibu_episode2_3_es_419.pdf",
+      "pages": 8,
+      "bytes": 25099528,
+      "sha256": "d021139d63f1c7b42e1e7cd25716a14aab93ba7cb453117fc2b232dccfc7db3d",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_3_es_419.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode2_3_es_419.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode2_3_es_419.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode2_3_es_419.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode2_3_es_419.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep2_fr",
+      "episode": 2,
+      "language_key": "fr",
+      "locale": "fr-FR",
+      "title": "Le Club des essais - Épisode 2 : La table s’agrandit",
+      "filename": "tameshibu_episode2_3_fr.pdf",
+      "pages": 8,
+      "bytes": 25026854,
+      "sha256": "057e3685aa480dba19eccccdff2abb1f1a6150b254857c9ea481b85bc691bb8e",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_3_fr.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode2_3_fr.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode2_3_fr.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode2_3_fr.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode2_3_fr.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep2_id",
+      "episode": 2,
+      "language_key": "id",
+      "locale": "id-ID",
+      "title": "KLUB COBA-COBA - EPISODE 2 / MEJANYA MAKIN LUAS",
+      "filename": "tameshibu_episode2_3_id.pdf",
+      "pages": 8,
+      "bytes": 26162578,
+      "sha256": "0cc8211b42ffe5901b4f732b10c8806c95781baac16bb17c2c0d789abefc2865",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_3_id.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode2_3_id.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode2_3_id.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode2_3_id.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode2_3_id.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep2_it",
+      "episode": 2,
+      "language_key": "it",
+      "locale": "it-IT",
+      "title": "IL CLUB DEGLI ESPERIMENTI - EPISODIO 2 / IL TAVOLO SI ALLARGA",
+      "filename": "tameshibu_episode2_3_it.pdf",
+      "pages": 8,
+      "bytes": 25037473,
+      "sha256": "88af574b5bd78afcc97ab3fbf753bdf3580fd4542d07a7c20837a3c75168aa89",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_3_it.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode2_3_it.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode2_3_it.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode2_3_it.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode2_3_it.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep2_ne",
+      "episode": 2,
+      "language_key": "ne",
+      "locale": "ne-NP",
+      "title": "प्रयोग क्लब - भाग 2 / टेबुल फराकिलो भयो",
+      "filename": "tameshibu_episode2_3_ne.pdf",
+      "pages": 8,
+      "bytes": 27892591,
+      "sha256": "b51240e1cdbaf80c6c5111ec3a43471a4f8d7546206c1c177f6f616831213863",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_3_ne.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode2_3_ne.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode2_3_ne.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode2_3_ne.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode2_3_ne.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep2_pt",
+      "episode": 2,
+      "language_key": "pt",
+      "locale": "pt-BR",
+      "title": "O CLUBE DAS EXPERIÊNCIAS - EPISÓDIO 2 / A MESA CRESCE",
+      "filename": "tameshibu_episode2_3_pt.pdf",
+      "pages": 8,
+      "bytes": 25020408,
+      "sha256": "8346916986db916e39fe50ae76f11d77c1028567c5cdd38aa2ed71f449d89071",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_3_pt.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode2_3_pt.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode2_3_pt.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode2_3_pt.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode2_3_pt.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep2_pt_pt",
+      "episode": 2,
+      "language_key": "pt_pt",
+      "locale": "pt-PT",
+      "title": "O CLUBE DAS EXPERIÊNCIAS - EPISÓDIO 2 / A MESA CRESCE [pt-PT]",
+      "filename": "tameshibu_episode2_3_pt_pt.pdf",
+      "pages": 8,
+      "bytes": 25146858,
+      "sha256": "0d2515497c44b8741d2409e8b7defe6067a1740211789db78dcdeb3a5ac0fc8a",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_3_pt_pt.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode2_3_pt_pt.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode2_3_pt_pt.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode2_3_pt_pt.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode2_3_pt_pt.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep2_fil",
+      "episode": 2,
+      "language_key": "fil",
+      "locale": "fil-PH",
+      "title": "CLUB NG MGA PAGSUBOK - KABANATA 2 / LUMUWANG ANG MESA",
+      "filename": "tameshibu_episode2_3_tl.pdf",
+      "pages": 8,
+      "bytes": 26167032,
+      "sha256": "572167796788b2951bdee6f527a4234e801d7750836459c97589cfde6659031f",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_3_tl.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode2_3_tl.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode2_3_tl.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode2_3_fil.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode2_3_fil.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep2_vi",
+      "episode": 2,
+      "language_key": "vi",
+      "locale": "vi-VN",
+      "title": "CÂU LẠC BỘ THỬ NGHIỆM - TẬP 2 / CHIẾC BÀN RỘNG HƠN",
+      "filename": "tameshibu_episode2_3_vi.pdf",
+      "pages": 8,
+      "bytes": 26777713,
+      "sha256": "f9c78f36d545590b2ab473e3bc5e4374612d3a5e9c3bdf05705bc23e843c9d6d",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_3_vi.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode2_3_vi.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode2_3_vi.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode2_3_vi.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode2_3_vi.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep2_zh_hk",
+      "episode": 2,
+      "language_key": "zh_hk",
+      "locale": "zh-Hant-HK",
+      "title": "試試社 第2話 桌子變大了 [zh-Hant-HK]",
+      "filename": "tameshibu_episode2_3_zh_hk.pdf",
+      "pages": 8,
+      "bytes": 25139899,
+      "sha256": "cd2d5a59cdb6ed692171333466f4ab6a0a78f56912997d39f0da34f4f5c24407",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_3_zh_hk.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode2_3_zh_hk.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode2_3_zh_hk.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode2_3_zh_hk.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode2_3_zh_hk.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep3_de",
+      "episode": 3,
+      "language_key": "de",
+      "locale": "de-DE",
+      "title": "Der Probierclub - Folge 3: Unterwegs",
+      "filename": "tameshibu_episode3_2_de.pdf",
+      "pages": 8,
+      "bytes": 23293422,
+      "sha256": "154c2bcfda947a8cfd9c29242db1203b234b6e4e0e3cceebac7fdb163e810a9d",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_de.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode3_2_de.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_de.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode3_2_de.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_de.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep3_en",
+      "episode": 3,
+      "language_key": "en",
+      "locale": "en-US",
+      "title": "The Try-It Club - Episode 3: Out and About",
+      "filename": "tameshibu_episode3_2_en.pdf",
+      "pages": 8,
+      "bytes": 23350041,
+      "sha256": "b158c185ee06258401a811d7203d4a17f504c695eec6c029fe488b4297feb8a5",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_en.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode3_2_en.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_en.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode3_2_en.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_en.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep3_es",
+      "episode": 3,
+      "language_key": "es",
+      "locale": "es-ES",
+      "title": "EL CLUB DE LOS EXPERIMENTOS - EPISODIO 3 / DE SALIDA",
+      "filename": "tameshibu_episode3_2_es.pdf",
+      "pages": 8,
+      "bytes": 23340573,
+      "sha256": "0b4cb3338dfa1c10b379f06f3fcb5e22e95dd3b55985f5dfa8924f3153866be1",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_es.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode3_2_es.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_es.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode3_2_es.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_es.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep3_es_419",
+      "episode": 3,
+      "language_key": "es_419",
+      "locale": "es-419",
+      "title": "EL CLUB DE LOS EXPERIMENTOS - EPISODIO 3 / DE SALIDA [es-419]",
+      "filename": "tameshibu_episode3_2_es_419.pdf",
+      "pages": 8,
+      "bytes": 23341407,
+      "sha256": "ce3768015f0900b3ca39185cbe15c93291b0469a197425a02c91d333046e290d",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_es_419.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode3_2_es_419.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_es_419.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode3_2_es_419.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_es_419.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep3_fr",
+      "episode": 3,
+      "language_key": "fr",
+      "locale": "fr-FR",
+      "title": "Le Club des essais - Épisode 3 : Le club en sortie",
+      "filename": "tameshibu_episode3_2_fr.pdf",
+      "pages": 8,
+      "bytes": 23317021,
+      "sha256": "0db9c86d971148c614113f8688c443dfdb9fac1df8bf251db7d58aeb114b76bc",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_fr.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode3_2_fr.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_fr.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode3_2_fr.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_fr.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep3_id",
+      "episode": 3,
+      "language_key": "id",
+      "locale": "id-ID",
+      "title": "KLUB COBA-COBA - EPISODE 3 / KLUB JALAN-JALAN",
+      "filename": "tameshibu_episode3_2_id.pdf",
+      "pages": 8,
+      "bytes": 25422842,
+      "sha256": "7b2397e14ab42ebe13529f2932384fc436a20c64dd61b0b0d369f82f023912c6",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_id.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode3_2_id.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_id.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode3_2_id.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_id.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep3_it",
+      "episode": 3,
+      "language_key": "it",
+      "locale": "it-IT",
+      "title": "IL CLUB DEGLI ESPERIMENTI - EPISODIO 3 / IL CLUB IN TRASFERTA",
+      "filename": "tameshibu_episode3_2_it.pdf",
+      "pages": 8,
+      "bytes": 23359485,
+      "sha256": "6dd3120e02b9f54550b3f2aa86106b9e09894b89264b62084e4bb119f2202415",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_it.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode3_2_it.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_it.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode3_2_it.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_it.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep3_ko",
+      "episode": 3,
+      "language_key": "ko",
+      "locale": "ko-KR",
+      "title": "제3화 / 해봄부, 출장!",
+      "filename": "tameshibu_episode3_2_ko.pdf",
+      "pages": 8,
+      "bytes": 23239536,
+      "sha256": "68608db2b0b82d5e9a4a32bea21dc9d0aec12cf7cb827639f67d1c9c129b1402",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_ko.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode3_2_ko.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_ko.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode3_2_ko.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_ko.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep3_ne",
+      "episode": 3,
+      "language_key": "ne",
+      "locale": "ne-NP",
+      "title": "प्रयोग क्लब - भाग 3 / क्लबको पहिलो भ्रमण",
+      "filename": "tameshibu_episode3_2_ne.pdf",
+      "pages": 8,
+      "bytes": 24865140,
+      "sha256": "35b214440b9a62c2952b76298fd652ab2cf8c363ed6a9b5534d5758925fc49f7",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_ne.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode3_2_ne.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_ne.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode3_2_ne.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_ne.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep3_pt",
+      "episode": 3,
+      "language_key": "pt",
+      "locale": "pt-BR",
+      "title": "O CLUBE DAS EXPERIÊNCIAS - EPISÓDIO 3 / O CLUBE VAI À BIBLIOTECA",
+      "filename": "tameshibu_episode3_2_pt.pdf",
+      "pages": 8,
+      "bytes": 23343998,
+      "sha256": "fb4897fe05f8266320eaf4af63ed4c8eb648ddd834f98260f145041998b606df",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_pt.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode3_2_pt.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_pt.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode3_2_pt.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_pt.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep3_pt_pt",
+      "episode": 3,
+      "language_key": "pt_pt",
+      "locale": "pt-PT",
+      "title": "O CLUBE DAS EXPERIÊNCIAS - EPISÓDIO 3 / O CLUBE VAI À BIBLIOTECA [pt-PT]",
+      "filename": "tameshibu_episode3_2_pt_pt.pdf",
+      "pages": 8,
+      "bytes": 23388655,
+      "sha256": "2f435b10432795956ab47007f4895ac9501a0960ff880312972ee4793fe3753a",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_pt_pt.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode3_2_pt_pt.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_pt_pt.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode3_2_pt_pt.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_pt_pt.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep3_fil",
+      "episode": 3,
+      "language_key": "fil",
+      "locale": "fil-PH",
+      "title": "CLUB NG MGA PAGSUBOK - KABANATA 3 / LUMABAS ANG CLUB",
+      "filename": "tameshibu_episode3_2_tl.pdf",
+      "pages": 8,
+      "bytes": 24986228,
+      "sha256": "f7fc208d9750fb5577c638817a10854546617e7bfeb3b9187b287b0fd07681d5",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_tl.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode3_2_tl.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_tl.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode3_2_tl.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_tl.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep3_vi",
+      "episode": 3,
+      "language_key": "vi",
+      "locale": "vi-VN",
+      "title": "CÂU LẠC BỘ THỬ NGHIỆM - TẬP 3 / CÂU LẠC BỘ ĐI CÔNG TÁC",
+      "filename": "tameshibu_episode3_2_vi.pdf",
+      "pages": 8,
+      "bytes": 25454591,
+      "sha256": "6d018b311275fb0cf13ce3268f0b24175830d77e123699e50bfb06bf1bd6a639",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_vi.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode3_2_vi.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_vi.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode3_2_vi.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_vi.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep3_zh_cn",
+      "episode": 3,
+      "language_key": "zh_cn",
+      "locale": "zh-Hans-CN",
+      "title": "第3话 / 试试社，出差啦！",
+      "filename": "tameshibu_episode3_2_zh_cn.pdf",
+      "pages": 8,
+      "bytes": 23259855,
+      "sha256": "ca5b8c8eec3e34695ac02cd75ca66aaf83433e6eae09aa2943962ec918f61dcc",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_zh_cn.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode3_2_zh_cn.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_zh_cn.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode3_2_zh_cn.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_zh_cn.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep3_zh_hk",
+      "episode": 3,
+      "language_key": "zh_hk",
+      "locale": "zh-Hant-HK",
+      "title": "第3話 / 試試社，出差啦！ [zh-Hant-HK]",
+      "filename": "tameshibu_episode3_2_zh_hk.pdf",
+      "pages": 8,
+      "bytes": 23295086,
+      "sha256": "70c2e74f550e5142f350097cdb1276fda881181013c06d7fa06437149090c705",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_zh_hk.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode3_2_zh_hk.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_zh_hk.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode3_2_zh_hk.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_zh_hk.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep3_zh_tw",
+      "episode": 3,
+      "language_key": "zh_tw",
+      "locale": "zh-Hant-TW",
+      "title": "第3話 / 試試社，出差啦！",
+      "filename": "tameshibu_episode3_2_zh_tw.pdf",
+      "pages": 8,
+      "bytes": 23274083,
+      "sha256": "4df74ee6fb021bdcb947e4580996421ad2e250fa7036e97811a9f14913744946",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_zh_tw.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode3_2_zh_tw.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_zh_tw.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode3_2_zh_tw.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode3_2_zh_tw.pdf"
+        }
+      ]
+    },
+    {
+      "sample_id": "ep3_ja",
+      "episode": 3,
+      "language_key": "ja",
+      "locale": "ja-JP",
+      "title": "ためし部 第3話 出張、ためし部！",
+      "filename": "tameshibu_episode3_ja.pdf",
+      "pages": 8,
+      "bytes": 23238613,
+      "sha256": "4abfe0f4a028bbac280c7629cd64c72e5df1faac8348695e0277dfc5a9154558",
+      "license": "CC-BY-4.0",
+      "status": "published_new_repository_release",
+      "new_download_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_ja.pdf",
+      "legacy": [
+        {
+          "repository": "tyamada/MihirakiPDFViewer_Android",
+          "filename": "tameshibu_episode3_ja.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFViewer_Android/releases/download/sample-manga-v2/tameshibu_episode3_ja.pdf"
+        },
+        {
+          "repository": "tyamada/MihirakiPDFUtility_Android",
+          "filename": "tameshibu_episode3_ja.pdf",
+          "url": "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode3_ja.pdf"
+        }
+      ]
+    }
+  ],
+  "fixed_tag": "manga-pdf-20261103-v1",
+  "release_url": "https://github.com/tyamada/manga-prompt-kit/releases/tag/manga-pdf-20261103-v1",
+  "verification_scope": "Same bytes as legacy published PDFs; local signature, size, SHA-256 and eight-page structure verified before transfer."
+}

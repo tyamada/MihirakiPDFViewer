@@ -14,7 +14,6 @@ final class MihirakiPDFViewerUITests: XCTestCase {
     override func setUpWithError() throws {
         continueAfterFailure = false
         app = XCUIApplication()
-        app.launchArguments.append("-uiTestDisableAutoFilePicker")
         app.launchArguments.append("-uiTestResetReadingSession")
         app.launchArguments.append("-uiTestResetRenderingPreferences")
     }
@@ -24,11 +23,43 @@ final class MihirakiPDFViewerUITests: XCTestCase {
     }
 
     @MainActor
+    func testPrivacyPolicyFromEmptyStateAndReader() throws {
+        app.launchArguments += ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
+        for reading in [false, true] {
+            if reading { app.launchArguments.append("-uiTestLoadSamplePDF") }
+            app.launch()
+            if reading {
+                XCTAssertTrue(element("pdfViewerScreen").waitForExistence(timeout: 10))
+                tapPDFViewer()
+            } else {
+                XCTAssertTrue(element("emptyStateView").waitForExistence(timeout: 10))
+            }
+            let settings = app.buttons["settingsButton"]
+            XCTAssertTrue(settings.waitForExistence(timeout: 5))
+            settings.tap()
+            let policy = element("privacyPolicyLink")
+            XCTAssertTrue(policy.waitForExistence(timeout: 5))
+            XCTAssertTrue(policy.isHittable)
+            XCTAssertEqual(policy.label, "Privacy Policy")
+            let attachment = XCTAttachment(screenshot: app.screenshot())
+            attachment.name = reading ? "Privacy policy from reader" : "Privacy policy without PDF"
+            attachment.lifetime = .keepAlways
+            add(attachment)
+            policy.tap()
+            let safari = XCUIApplication(bundleIdentifier: "com.apple.mobilesafari")
+            XCTAssertTrue(safari.wait(for: .runningForeground, timeout: 15))
+            app.terminate()
+        }
+    }
+
+    @MainActor
     func testEmptyStateScreen() throws {
         app.launch()
 
         XCTAssertTrue(element("emptyStateView").waitForExistence(timeout: 5))
         XCTAssertGreaterThanOrEqual(app.buttons.count, 2)
+        XCTAssertTrue(app.buttons["selectPDFButton"].isHittable)
+        XCTAssertTrue(app.buttons["samplePDFsButton"].isHittable)
         XCTAssertTrue(app.buttons["settingsButton"].waitForExistence(timeout: 5))
     }
 
@@ -115,7 +146,43 @@ final class MihirakiPDFViewerUITests: XCTestCase {
 
     @MainActor
     func testSharpnessSettingSurvivesTermination() throws {
-        try assertRenderingSettingSurvivesTermination(labels: ["シャープネス", "Sharpness"])
+        app.launchArguments.append("-uiTestLoadSamplePDF")
+        app.launch()
+        XCTAssertTrue(element("pdfViewerScreen").waitForExistence(timeout: 10))
+        tapPDFViewer()
+        app.buttons["settingsButton"].tap()
+        XCTAssertTrue(element("settingsScreen").waitForExistence(timeout: 5))
+
+        let slider = app.sliders["sharpnessSlider"]
+        XCTAssertTrue(slider.waitForExistence(timeout: 5))
+        slider.adjust(toNormalizedSliderPosition: 0.75)
+        let savedValue = slider.value as? String
+        XCTAssertNotNil(savedValue)
+
+        XCUIDevice.shared.press(.home)
+        app.terminate()
+        app.launchArguments = []
+        app.launch()
+        XCTAssertTrue(element("pdfViewerScreen").waitForExistence(timeout: 10))
+        tapPDFViewer()
+        app.buttons["settingsButton"].tap()
+        XCTAssertTrue(slider.waitForExistence(timeout: 5))
+        XCTAssertEqual(slider.value as? String, savedValue, "Sharpness was reset after termination")
+    }
+
+    @MainActor
+    func testTableOfContentsShowsEmptyStateForPDFWithoutOutline() throws {
+        app.launchArguments.append("-uiTestLoadSamplePDF")
+        app.launch()
+        XCTAssertTrue(element("pdfViewerScreen").waitForExistence(timeout: 10))
+
+        tapPDFViewer()
+        let tableOfContentsButton = app.buttons["tableOfContentsButton"]
+        XCTAssertTrue(tableOfContentsButton.waitForExistence(timeout: 5))
+        tableOfContentsButton.tap()
+
+        XCTAssertTrue(element("tableOfContentsScreen").waitForExistence(timeout: 5))
+        XCTAssertTrue(element("tableOfContentsEmptyState").waitForExistence(timeout: 5))
     }
 
     @MainActor
@@ -135,7 +202,7 @@ final class MihirakiPDFViewerUITests: XCTestCase {
         XCUIDevice.shared.press(.home)
         app.terminate()
         XCTAssertEqual(app.state, .notRunning)
-        app.launchArguments = ["-uiTestDisableAutoFilePicker"]
+        app.launchArguments = []
         app.launch()
         XCTAssertTrue(element("pdfViewerScreen").waitForExistence(timeout: 10))
         tapPDFViewer()
@@ -147,6 +214,29 @@ final class MihirakiPDFViewerUITests: XCTestCase {
     }
 
     @MainActor
+    func testSamplePDFListScreen() throws {
+        app.launch()
+
+        let samplesButton = app.buttons["samplePDFsButton"]
+        XCTAssertTrue(samplesButton.waitForExistence(timeout: 5))
+        samplesButton.tap()
+
+        XCTAssertTrue(element("samplePDFListScreen").waitForExistence(timeout: 5))
+        XCTAssertTrue(element("samplePDFLanguageFilter").waitForExistence(timeout: 5))
+        let englishTitle = app.staticTexts["THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP"]
+        let japaneseTitle = app.staticTexts["ためし部 第１話 ひと息マップ"]
+        let hasEnglishSample = englishTitle.waitForExistence(timeout: 2)
+        let hasJapaneseSample = japaneseTitle.waitForExistence(timeout: 2)
+        XCTAssertTrue(hasEnglishSample || hasJapaneseSample)
+        XCTAssertTrue(
+            element("samplePDFDownload_tameshibu-episode1-en").exists
+                || element("samplePDFDownload_tameshibu-episode1-ja").exists
+                || element("samplePDFOpen_tameshibu-episode1-en").exists
+                || element("samplePDFOpen_tameshibu-episode1-ja").exists
+        )
+    }
+
+    @MainActor
     func testSettingsScreen() throws {
         app.launch()
 
@@ -155,12 +245,84 @@ final class MihirakiPDFViewerUITests: XCTestCase {
 
         XCTAssertTrue(element("settingsScreen").waitForExistence(timeout: 5))
         XCTAssertTrue(app.buttons["settingsCloseButton"].exists)
+        XCTAssertFalse(app.buttons["samplePDFsButton"].isHittable)
         XCTAssertTrue(app.buttons["helpButton"].waitForExistence(timeout: 5))
 
         app.buttons["helpButton"].tap()
 
         XCTAssertTrue(element("helpScreen").waitForExistence(timeout: 5))
         XCTAssertFalse(element("tipSelectionScreen").exists)
+    }
+
+    @MainActor
+    func testLicenseScreen() throws {
+        app.launch()
+
+        XCTAssertTrue(app.buttons["settingsButton"].waitForExistence(timeout: 5))
+        app.buttons["settingsButton"].tap()
+        XCTAssertTrue(element("settingsScreen").waitForExistence(timeout: 5))
+
+        let licenseButton = app.buttons["licenseButton"]
+        for _ in 0..<6 where !licenseButton.exists {
+            app.swipeUp()
+        }
+
+        XCTAssertTrue(licenseButton.waitForExistence(timeout: 5))
+        licenseButton.tap()
+
+        XCTAssertTrue(element("licenseScreen").waitForExistence(timeout: 5))
+        let licenseText = app.staticTexts.matching(
+            NSPredicate(format: "label BEGINSWITH %@", "MIT License")
+        ).firstMatch
+        XCTAssertTrue(licenseText.exists)
+    }
+
+    @MainActor
+    func testIssueReportingGuide() throws {
+        app.launch()
+
+        XCTAssertTrue(app.buttons["settingsButton"].waitForExistence(timeout: 5))
+        app.buttons["settingsButton"].tap()
+        XCTAssertTrue(element("settingsScreen").waitForExistence(timeout: 5))
+
+        let reportButton = app.buttons["reportProblemButton"]
+        for _ in 0..<4 where !reportButton.exists {
+            app.swipeUp()
+        }
+
+        XCTAssertTrue(reportButton.waitForExistence(timeout: 5))
+        reportButton.tap()
+
+        XCTAssertTrue(element("issueReportingGuideScreen").waitForExistence(timeout: 5))
+        XCTAssertTrue(app.buttons["reportProblemAppLogsButton"].exists)
+        XCTAssertTrue(app.buttons["reportProblemDeviceTestsButton"].exists)
+
+        let githubIssuesButton = element("openGitHubIssuesButton")
+        for _ in 0..<4 where !githubIssuesButton.exists {
+            app.swipeUp()
+        }
+        XCTAssertTrue(githubIssuesButton.waitForExistence(timeout: 5))
+    }
+
+    @MainActor
+    func testAppLogScreen() throws {
+        app.launch()
+
+        XCTAssertTrue(app.buttons["settingsButton"].waitForExistence(timeout: 5))
+        app.buttons["settingsButton"].tap()
+        XCTAssertTrue(element("settingsScreen").waitForExistence(timeout: 5))
+
+        let logsButton = app.buttons["viewAppLogsButton"]
+        for _ in 0..<4 where !logsButton.exists {
+            app.swipeUp()
+        }
+
+        XCTAssertTrue(logsButton.waitForExistence(timeout: 5))
+        logsButton.tap()
+
+        XCTAssertTrue(element("appLogScreen").waitForExistence(timeout: 5))
+        XCTAssertTrue(element("appLogNoAutomaticSendingNotice").waitForExistence(timeout: 5))
+        XCTAssertTrue(app.buttons["shareAppLogsButton"].waitForExistence(timeout: 5))
     }
 
     @MainActor
@@ -280,7 +442,7 @@ final class MihirakiPDFViewerUITests: XCTestCase {
         XCTAssertFalse(expectedPage.hasPrefix("1 / "))
         XCUIDevice.shared.press(.home)
         app.terminate()
-        app.launchArguments = ["-uiTestDisableAutoFilePicker"]
+        app.launchArguments = []
         app.launch()
         unlock()
         XCTAssertTrue(showPageIndicatorIfNeeded().waitForExistence(timeout: 5))
@@ -315,7 +477,7 @@ final class MihirakiPDFViewerUITests: XCTestCase {
         app.terminate()
         XCTAssertEqual(app.state, .notRunning)
         // Do not let the test-only PDF loader mask missing restoration.
-        app.launchArguments = ["-uiTestDisableAutoFilePicker"]
+        app.launchArguments = []
         app.launch()
         let restored = element("pdfViewerScreen").waitForExistence(timeout: 10)
         recordResumeScreen("After relaunch, expected page \(expectedPage)")
@@ -525,7 +687,9 @@ final class MihirakiPDFViewerUITests: XCTestCase {
     }
 
     private func element(_ identifier: String) -> XCUIElement {
-        app.descendants(matching: .any)[identifier]
+        app.descendants(matching: .any)
+            .matching(identifier: identifier)
+            .firstMatch
     }
 
     private func largePDFLoadTestURL() throws -> URL {

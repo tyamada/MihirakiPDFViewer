@@ -114,8 +114,9 @@ final class TipManagerTests: XCTestCase {
         XCTAssertEqual(TipManager.appIconName(for: "supporter_icon_gold"), "AppIconGold")
     }
 
-    func testUnknownProductIDMapsToPrimaryAppIcon() {
-        XCTAssertEqual(TipManager.appIconName(for: "unknown_product"), "AppIcon")
+    func testProductsWithoutAlternateIconsDoNotMapToAnIcon() {
+        XCTAssertNil(TipManager.appIconName(for: "unknown_product"))
+        XCTAssertNil(TipManager.appIconName(for: TipManager.koyomiV2BadgeProductID))
     }
 }
 
@@ -161,6 +162,104 @@ final class PDFViewerViewModelTests: XCTestCase {
         XCTAssertFalse(restored.settings.isSharpnessEnabled)
     }
 
+    func testSharpnessAmountPersistsAndMigratesLegacyPreference() throws {
+        let suiteName = "SharpnessPreference-\(UUID().uuidString)"
+        let preferences = try XCTUnwrap(UserDefaults(suiteName: suiteName))
+        defer { preferences.removePersistentDomain(forName: suiteName) }
+
+        preferences.set(true, forKey: "isSharpnessEnabled")
+        let migrated = PDFViewerViewModel(preferences: preferences)
+        XCTAssertEqual(migrated.settings.sharpnessAmount, 0.45, accuracy: 0.001)
+
+        migrated.settings.sharpnessAmount = 0.8
+        let restored = PDFViewerViewModel(preferences: preferences)
+        XCTAssertEqual(restored.settings.sharpnessAmount, 0.8, accuracy: 0.001)
+
+        restored.resetApplicationSettings()
+        XCTAssertEqual(PDFViewerViewModel(preferences: preferences).settings.sharpnessAmount, 0)
+    }
+
+    func testPortraitDisplayDefaultsToSinglePage() throws {
+        let suiteName = "PortraitPreferenceDefault-\(UUID().uuidString)"
+        let preferences = try XCTUnwrap(UserDefaults(suiteName: suiteName))
+        defer { preferences.removePersistentDomain(forName: suiteName) }
+
+        XCTAssertTrue(PDFViewerViewModel(preferences: preferences).settings.isSinglePageInPortraitEnabled)
+    }
+
+    func testPortraitDisplayPreferencePersistsAndOverridesDefault() throws {
+        let suiteName = "PortraitPreference-\(UUID().uuidString)"
+        let preferences = try XCTUnwrap(UserDefaults(suiteName: suiteName))
+        defer { preferences.removePersistentDomain(forName: suiteName) }
+        let model = PDFViewerViewModel(preferences: preferences)
+        model.settings.isSinglePageInPortraitEnabled = false
+
+        let restored = PDFViewerViewModel(preferences: preferences)
+        XCTAssertFalse(restored.settings.isSinglePageInPortraitEnabled)
+    }
+
+    func testPortraitSinglePageModePreservesDisplayedPDFPageAcrossRotation() throws {
+        var settings = PDFViewerSettings(
+            isSpreadViewEnabled: true,
+            isSinglePageInPortraitEnabled: true
+        )
+        settings.isCoverPageEnabled = false
+        let model = PDFViewerViewModel(settings: settings)
+        model.document = try PDFDocumentWrapper(url: makeTemporaryPDF(pageCount: 5))
+        model.updateViewportSize(CGSize(width: 800, height: 600))
+        model.currentPageIndex = 1
+        XCTAssertEqual(model.pageGroups[model.currentPageIndex].startIndex, 2)
+
+        model.updateViewportSize(CGSize(width: 600, height: 800))
+        XCTAssertFalse(model.isSpreadLayoutEnabled)
+        XCTAssertEqual(model.pageGroups.count, 5)
+        XCTAssertEqual(model.currentPageIndex, 2)
+        XCTAssertEqual(model.pageGroups[model.currentPageIndex].startIndex, 2)
+
+        model.updateViewportSize(CGSize(width: 800, height: 600))
+        XCTAssertTrue(model.isSpreadLayoutEnabled)
+        XCTAssertEqual(model.currentPageIndex, 1)
+        XCTAssertEqual(model.pageGroups[model.currentPageIndex].startIndex, 2)
+    }
+
+    func testPortraitModeUsesSpreadWhenSinglePagePreferenceIsDisabled() throws {
+        let settings = PDFViewerSettings(
+            isSpreadViewEnabled: true,
+            isSinglePageInPortraitEnabled: false
+        )
+        let model = PDFViewerViewModel(settings: settings)
+        model.document = try PDFDocumentWrapper(url: makeTemporaryPDF(pageCount: 3))
+
+        model.updateViewportSize(CGSize(width: 600, height: 800))
+
+        XCTAssertTrue(model.isSpreadLayoutEnabled)
+        XCTAssertEqual(model.pageGroups.map(\.pages.count), [2, 1])
+    }
+
+    func testRegularWidthPortraitUsesSinglePageAndPreservesDisplayedPage() throws {
+        let settings = PDFViewerSettings(
+            isSpreadViewEnabled: true,
+            isSinglePageInPortraitEnabled: true
+        )
+        let model = PDFViewerViewModel(settings: settings)
+        model.document = try PDFDocumentWrapper(url: makeTemporaryPDF(pageCount: 5))
+        model.updateViewportSize(
+            CGSize(width: 600, height: 800),
+            horizontalSizeClass: .compact
+        )
+        model.currentPageIndex = 2
+
+        model.updateViewportSize(
+            CGSize(width: 800, height: 1000),
+            horizontalSizeClass: .regular
+        )
+
+        XCTAssertFalse(model.isSpreadLayoutEnabled)
+        XCTAssertEqual(model.pageGroups.map(\.pages.count), [1, 1, 1, 1, 1])
+        XCTAssertEqual(model.currentPageIndex, 2)
+        XCTAssertEqual(model.pageGroups[model.currentPageIndex].startIndex, 2)
+    }
+
     func testReadingSessionRestoresPDFPageLayoutAndQuery() throws {
         let sessionURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
         defer { try? FileManager.default.removeItem(at: sessionURL) }
@@ -190,6 +289,25 @@ final class PDFViewerViewModelTests: XCTestCase {
         model.currentPageIndex = 1
         model.closeDocument()
         XCTAssertNil(PDFViewerViewModel(sessionURL: sessionURL).documentURLForRestoration())
+    }
+
+    func testDeletingMatchingPDFClearsReadingSession() throws {
+        let sessionURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+        defer { try? FileManager.default.removeItem(at: sessionURL) }
+        let pdfURL = try makeTemporaryPDF(pageCount: 3)
+        let model = PDFViewerViewModel(sessionURL: sessionURL)
+        XCTAssertEqual(model.loadDocument(from: pdfURL), .loaded)
+        model.currentPageIndex = 2
+
+        try FileManager.default.removeItem(at: pdfURL)
+        model.clearReadingSession(ifMatching: pdfURL)
+
+        let replacementURL = try makeTemporaryPDF(pageCount: 3)
+        try FileManager.default.moveItem(at: replacementURL, to: pdfURL)
+        let reopened = PDFViewerViewModel(sessionURL: sessionURL)
+        XCTAssertNil(reopened.documentURLForRestoration())
+        XCTAssertEqual(reopened.loadDocument(from: pdfURL), .loaded)
+        XCTAssertEqual(reopened.currentPageIndex, 0)
     }
 
     func testProtectedReadingSessionRestoresAfterPasswordRetry() throws {
@@ -271,6 +389,27 @@ final class PDFViewerViewModelTests: XCTestCase {
         XCTAssertEqual(groups.count, 3)
         XCTAssertEqual(groups.map(\.pages.count), [1, 2, 1])
         XCTAssertEqual(groups.map(\.startIndex), [0, 1, 3])
+    }
+
+    func testJumpToPDFPageSelectsContainingSpread() throws {
+        let viewModel = PDFViewerViewModel()
+        viewModel.document = try PDFDocumentWrapper(url: makeTemporaryPDF(pageCount: 6))
+        viewModel.settings.isSpreadViewEnabled = true
+        viewModel.settings.isCoverPageEnabled = true
+
+        viewModel.jumpToPDFPage(2)
+
+        XCTAssertEqual(viewModel.displayedPDFPageIndices, [1, 2])
+    }
+
+    func testJumpToPDFPageIgnoresOutOfRangePage() throws {
+        let viewModel = PDFViewerViewModel()
+        viewModel.document = try PDFDocumentWrapper(url: makeTemporaryPDF(pageCount: 3))
+        viewModel.currentPageIndex = 1
+
+        viewModel.jumpToPDFPage(99)
+
+        XCTAssertEqual(viewModel.currentPageIndex, 1)
     }
 
     func testLoadDocumentUpdatesDocumentAndResetsCurrentPage() throws {
@@ -362,6 +501,47 @@ final class PDFViewerViewModelTests: XCTestCase {
         viewModel.performSearch(query: "")
 
         XCTAssertTrue(viewModel.searchMatches.isEmpty)
+        XCTAssertFalse(viewModel.isSearching)
+    }
+
+    func testAsynchronousSearchReturnsMatchesWithStablePageIdentity() async throws {
+        let viewModel = PDFViewerViewModel()
+        XCTAssertEqual(viewModel.loadDocument(from: try makeTemporaryPDF(pageCount: 3)), .loaded)
+
+        viewModel.performSearch(query: "Page")
+
+        await fulfillment(
+            of: [searchCompletionExpectation(for: viewModel)],
+            timeout: 5
+        )
+        XCTAssertEqual(viewModel.searchMatches.map(\.pageIndex), [0, 1, 2])
+        XCTAssertEqual(viewModel.searchMatches.map(\.id), [0, 1, 2])
+    }
+
+    func testStartingANewSearchOnlyPublishesTheLatestQuery() async throws {
+        let viewModel = PDFViewerViewModel()
+        XCTAssertEqual(viewModel.loadDocument(from: try makeTemporaryPDF(pageCount: 30)), .loaded)
+
+        viewModel.performSearch(query: "Page")
+        viewModel.performSearch(query: "30")
+
+        await fulfillment(
+            of: [searchCompletionExpectation(for: viewModel)],
+            timeout: 5
+        )
+        XCTAssertEqual(viewModel.searchMatches.map(\.pageIndex), [29])
+    }
+
+    func testClosingDocumentCancelsSearchAndClearsResults() throws {
+        let viewModel = PDFViewerViewModel()
+        XCTAssertEqual(viewModel.loadDocument(from: try makeTemporaryPDF(pageCount: 30)), .loaded)
+
+        viewModel.performSearch(query: "Page")
+        viewModel.closeDocument()
+
+        XCTAssertNil(viewModel.document)
+        XCTAssertTrue(viewModel.searchMatches.isEmpty)
+        XCTAssertFalse(viewModel.isSearching)
     }
 
     func testSearchLoadTestPDFsFindExpectedHitCounts() throws {
@@ -439,6 +619,65 @@ final class PDFViewerViewModelTests: XCTestCase {
     func testTrailingSinglePageBlankPositionFollowsLayoutDirection() {
         XCTAssertTrue(SpreadLayoutView.pageComesBeforeBlankPage(layoutDirection: .leftToRight))
         XCTAssertFalse(SpreadLayoutView.pageComesBeforeBlankPage(layoutDirection: .rightToLeft))
+    }
+
+    func testPageImageCacheReusesMatchingRenderingConfiguration() {
+        let cache = PDFPageImageCache(countLimit: 2, totalCostLimit: 1_024)
+        let page = PDFPage()
+        let expectedImage = UIImage()
+        var renderCount = 0
+
+        let render: () -> UIImage = {
+            renderCount += 1
+            return expectedImage
+        }
+        let firstImage = cache.image(
+            for: page,
+            displaySize: CGSize(width: 100, height: 200),
+            displayScale: 2,
+            isHighQualityRenderingEnabled: false,
+            isSharpnessEnabled: false,
+            render: render
+        )
+        let secondImage = cache.image(
+            for: page,
+            displaySize: CGSize(width: 100, height: 200),
+            displayScale: 2,
+            isHighQualityRenderingEnabled: false,
+            isSharpnessEnabled: false,
+            render: render
+        )
+
+        XCTAssertTrue(firstImage === secondImage)
+        XCTAssertEqual(renderCount, 1)
+    }
+
+    func testPageImageCacheSeparatesRenderingSettings() {
+        let cache = PDFPageImageCache(countLimit: 2, totalCostLimit: 1_024)
+        let page = PDFPage()
+        var renderCount = 0
+
+        for sharpnessEnabled in [false, true] {
+            _ = cache.image(
+                for: page,
+                displaySize: CGSize(width: 100, height: 200),
+                displayScale: 2,
+                isHighQualityRenderingEnabled: false,
+                isSharpnessEnabled: sharpnessEnabled
+            ) {
+                renderCount += 1
+                return UIImage()
+            }
+        }
+
+        XCTAssertEqual(renderCount, 2)
+    }
+
+    private func searchCompletionExpectation(for viewModel: PDFViewerViewModel) -> XCTestExpectation {
+        XCTNSPredicateExpectation(
+            predicate: NSPredicate { _, _ in !viewModel.isSearching },
+            object: nil
+        )
     }
 }
 

@@ -1,0 +1,211 @@
+//
+// HelpContent.swift
+// MihirakiPDFViewer
+//
+// Copyright 2026 Takuma Yamada.
+//
+// This software is released under the MIT License.
+// For the full license text, please see the LICENSE file in the root directory.
+//
+
+import Foundation
+
+struct HelpDetail: Identifiable {
+    let id: String
+    let title: LocalizedStringResource
+    let description: LocalizedStringResource
+}
+
+struct HelpItem: Identifiable {
+    let id: Int
+    let title: LocalizedStringResource
+    let description: LocalizedStringResource
+    var details: [HelpDetail] = []
+}
+
+enum HelpContent {
+    static let gettingStarted: [HelpItem] = [
+        HelpItem(
+            id: 1,
+            title: LocalizedStringResource("help_open_pdf_title", defaultValue: "Open PDF"),
+            description: LocalizedStringResource(
+                "help_open_pdf_description",
+                defaultValue: "Use the file picker to select a PDF file from your device or iCloud Drive."
+            )
+        ),
+        HelpItem(
+            id: 2,
+            title: LocalizedStringResource("sample_pdf_navigation_title", defaultValue: "Sample PDFs"),
+            description: LocalizedStringResource(
+                "help_sample_pdfs_description",
+                defaultValue: "Browse sample PDFs by language, download one to this device, open it in the viewer, or delete the local copy when you no longer need it. Mobile-data downloads ask for confirmation. When you open the sample list, the app checks GitHub for the latest catalog JSON. If the update fails, it uses the last valid saved list or the bundled list. PDF files are downloaded only when you choose to download them. The catalog request contacts raw.githubusercontent.com; PDF downloads contact GitHub Releases. These services may receive your IP address and request information."
+            )
+        )
+    ]
+
+    static let comfortableReading: [HelpItem] = [
+        HelpItem(
+            id: 3,
+            title: LocalizedStringResource("help_navigate_pages_title", defaultValue: "Navigate Pages"),
+            description: LocalizedStringResource(
+                "help_navigate_pages_description",
+                defaultValue: "Switch pages by swiping or using the slider."
+            )
+        ),
+        HelpItem(
+            id: 4,
+            title: LocalizedStringResource("help_menu_title", defaultValue: "Menu"),
+            description: LocalizedStringResource(
+                "help_menu_description",
+                defaultValue: "Tap the screen to toggle the visibility of the toolbar and slider."
+            )
+        ),
+        HelpItem(
+            id: 5,
+            title: LocalizedStringResource("help_zoom_title", defaultValue: "Zoom"),
+            description: LocalizedStringResource(
+                "help_zoom_description",
+                defaultValue: "Pinch to zoom in or out. Long-press and drag to scroll while zoomed in."
+            )
+        ),
+        HelpItem(
+            id: 6,
+            title: LocalizedStringResource("help_search_title", defaultValue: "Search"),
+            description: LocalizedStringResource(
+                "help_search_description",
+                defaultValue: "Enter text into the search bar to find specific content within the PDF."
+            )
+        )
+    ]
+
+    static let settingsGuide: [HelpItem] = [
+        HelpItem(
+            id: 7,
+            title: LocalizedStringResource("settings", defaultValue: "Settings"),
+            description: LocalizedStringResource(
+                "help_settings_description",
+                defaultValue: "Use Settings to adjust viewing, review document information, access help and diagnostics, view app information, and support the developer."
+            ),
+            details: [
+                detail(
+                    id: "highQualityRendering",
+                    title: LocalizedStringResource("high_quality_rendering", defaultValue: "High Quality"),
+                    description: LocalizedStringResource("help_setting_high_quality_description", defaultValue: "Renders PDF pages at a higher resolution.")
+                ),
+                detail(
+                    id: "sharpness",
+                    title: LocalizedStringResource("sharpness", defaultValue: "Sharpness"),
+                    description: LocalizedStringResource("help_setting_sharpness_description", defaultValue: "Adjusts how strongly text and lines are sharpened.")
+                ),
+                detail(
+                    id: "spreadView",
+                    title: LocalizedStringResource("is_spread_view", defaultValue: "Spread View"),
+                    description: LocalizedStringResource("help_setting_spread_view_description", defaultValue: "Displays two pages side by side.")
+                ),
+                detail(
+                    id: "coverPage",
+                    title: LocalizedStringResource("is_cover_page", defaultValue: "Cover Page"),
+                    description: LocalizedStringResource("help_setting_cover_page_description", defaultValue: "Displays the first page separately as the cover in spread view.")
+                ),
+                detail(
+                    id: "scrollDirection",
+                    title: LocalizedStringResource("scroll_direction", defaultValue: "Scroll Direction"),
+                    description: LocalizedStringResource("help_setting_scroll_direction_description", defaultValue: "Selects whether pages advance from left to right or right to left.")
+                ),
+                detail(
+                    id: "documentInformation",
+                    title: LocalizedStringResource("doc_info", defaultValue: "Document Information"),
+                    description: LocalizedStringResource("help_setting_document_info_description", defaultValue: "Shows metadata, page count, page layout, and reading direction for the open PDF.")
+                ),
+                detail(
+                    id: "singlePageInPortrait",
+                    title: LocalizedStringResource("single_page_in_portrait", defaultValue: "Single Page in Portrait"),
+                    description: LocalizedStringResource("help_setting_single_page_in_portrait_description", defaultValue: "Displays one page at a time in portrait-shaped reading areas, including wide iPad layouts. Turn this option off to keep the selected two-page setting in portrait.")
+                ),
+                detail(
+                    id: "coverPageSetting",
+                    title: LocalizedStringResource("cover_page_setting_label", defaultValue: "Cover Page Setting"),
+                    description: LocalizedStringResource("help_setting_cover_page_type_description", defaultValue: "Selects how the cover page is positioned for each reading direction.")
+                ),
+                detail(
+                    id: "reset",
+                    title: LocalizedStringResource("reset_title", defaultValue: "Reset"),
+                    description: LocalizedStringResource("help_setting_reset_description", defaultValue: "Resets app settings and closes the current document.")
+                ),
+                detail(
+                    id: "help",
+                    title: LocalizedStringResource("help_title", defaultValue: "Help"),
+                    description: LocalizedStringResource("help_setting_help_description", defaultValue: "Opens this help screen.")
+                ),
+                detail(
+                    id: "diagnostics",
+                    title: LocalizedStringResource("Diagnostics", defaultValue: "Diagnostics"),
+                    description: LocalizedStringResource("help_setting_diagnostics_description", defaultValue: "Opens device tests, app logs, and problem reporting tools.")
+                ),
+                detail(
+                    id: "appInformation",
+                    title: LocalizedStringResource("app_info", defaultValue: "App Information"),
+                    description: LocalizedStringResource("help_setting_app_info_description", defaultValue: "Shows the app version, build number, license, supporter badges, and support options.")
+                ),
+                detail(
+                    id: "developerSupport",
+                    title: LocalizedStringResource("developer_support_title", defaultValue: "Support the Developer"),
+                    description: LocalizedStringResource("help_setting_supporter_icons_description", defaultValue: "Bronze, Silver, and Gold icons are optional purchases. Eligible codes and existing purchases can be redeemed or restored in Support. Koyomi is granted free on this device through December 31, 2027 JST, including for existing users. The grant is saved locally and remains after the deadline. It requires no purchase or account lookup. Restore Purchases restores existing StoreKit rights, but cannot restore a lost local free grant after the deadline.")
+                ),
+                detail(
+                    id: "promotionCode",
+                    title: LocalizedStringResource("enter_promotion_code", defaultValue: "Enter Promotion Code"),
+                    description: LocalizedStringResource("help_setting_promotion_code_description", defaultValue: "Bronze, Silver, and Gold icons are optional purchases. Eligible codes and existing purchases can be redeemed or restored in Support. Koyomi is granted free on this device through December 31, 2027 JST, including for existing users. The grant is saved locally and remains after the deadline. It requires no purchase or account lookup. Restore Purchases restores existing StoreKit rights, but cannot restore a lost local free grant after the deadline.")
+                )
+            ]
+        )
+    ]
+
+    static let diagnostics: [HelpItem] = [
+        HelpItem(
+            id: 8,
+            title: LocalizedStringResource("Diagnostics", defaultValue: "Diagnostics"),
+            description: LocalizedStringResource(
+                "help_diagnostics_description",
+                defaultValue: "Use on-device diagnostic tools and review privacy information before sharing results."
+            ),
+            details: [
+                detail(
+                    id: "diagnosticPrivacy",
+                    title: LocalizedStringResource("Privacy", defaultValue: "Privacy"),
+                    description: LocalizedStringResource("help_diagnostic_privacy_description", defaultValue: "Choose the recipient and whether to send. Review the text and any added images. Support messages may be linked to your case; sharing does not make them anonymous.")
+                ),
+                detail(
+                    id: "deviceTests",
+                    title: LocalizedStringResource("Device Tests", defaultValue: "Device Tests"),
+                    description: LocalizedStringResource("help_setting_device_testing_description", defaultValue: "Device tests show app, device, memory, storage, and PDF checks. Shared results exclude available storage and its effect on the overall result. Choose the recipient and whether to send.")
+                ),
+                detail(
+                    id: "appLogs",
+                    title: LocalizedStringResource("app_logs", defaultValue: "App Logs"),
+                    description: LocalizedStringResource("help_setting_app_logs_description", defaultValue: "Shows up to 2,000 entries from the last 24 hours, trimmed when read or recorded. Shared logs contain app and OS versions, event types, timestamps, counts, and durations. Choose the recipient and whether to send.")
+                ),
+                detail(
+                    id: "reportProblem",
+                    title: LocalizedStringResource("Report a Problem", defaultValue: "Report a Problem"),
+                    description: LocalizedStringResource("help_diagnostic_report_problem_description", defaultValue: "Open Report a Problem from Help for the same reporting instructions. Start with text; use public GitHub Issues or private email. Screenshots are accepted only by private email when text is insufficient. Your real name is not required. Review diagnostics, logs, and the recipient before sending.")
+                )
+            ]
+        )
+    ]
+
+    static let items: [HelpItem] =
+        gettingStarted + comfortableReading + settingsGuide + diagnostics
+
+    private static func detail(
+        id: String,
+        title: LocalizedStringResource,
+        description: LocalizedStringResource
+    ) -> HelpDetail {
+        HelpDetail(
+            id: id,
+            title: title,
+            description: description
+        )
+    }
+}

@@ -3,12 +3,23 @@
   "strings" : {
     "CFBundleDisplayName" : {
       "comment" : "Bundle display name",
-      "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mihiraki: Doppelseitiger PDF-Reader"
+          }
+        },
         "en" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "MihirakiPDFViewer"
+            "state" : "machine_translated",
+            "value" : "Mihiraki: Two-Page PDF Reader"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mihiraki: Lector PDF de Doble Página"
           }
         },
         "fil" : {
@@ -17,13 +28,37 @@
             "value" : "MihirakiPDFViewer"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mihiraki : Lecteur PDF Double Page"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "MihirakiPDFViewer"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "見開きPDFビューア"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "미히라키 PDF 뷰어"
+          }
+        },
         "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "MihirakiPDFViewer"
+          }
+        },
+        "pt-BR" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "MihirakiPDFViewer"
@@ -35,52 +70,99 @@
             "value" : "MihirakiPDFViewer"
           }
         },
-        "zh-Hant" : {
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "MihirakiPDFViewer"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "MihirakiPDFViewer: 雙頁 PDF 閱讀器"
           }
         }
       }
     },
     "CFBundleName" : {
       "comment" : "Bundle name",
-      "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "MihirakiPDF"
+          }
+        },
         "en" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "MihirakiPDFViewer"
+            "state" : "machine_translated",
+            "value" : "MihirakiPDF"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "MihirakiPDF"
           }
         },
         "fil" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "MihirakiPDFViewer"
+            "value" : "MihirakiPDF"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "MihirakiPDF"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "MihirakiPDFViewer"
+            "value" : "MihirakiPDF"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "MihirakiPDF"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "MihirakiPDF"
           }
         },
         "ne" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "MihirakiPDFViewer"
+            "value" : "MihirakiPDF"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "MihirakiPDF"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "MihirakiPDFViewer"
+            "value" : "MihirakiPDF"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "MihirakiPDF"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "MihirakiPDFViewer"
+            "value" : "MihirakiPDF"
           }
         }
       }
@@ -95,6 +177,12 @@
             "value" : ""
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : ""
+          }
+        },
         "fil" : {
           "stringUnit" : {
             "state" : "machine_translated",
@@ -102,6 +190,12 @@
           }
         },
         "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : ""
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : ""

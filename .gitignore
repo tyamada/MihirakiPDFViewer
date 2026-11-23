@@ -68,11 +68,12 @@ output/
 /tmp/
 convpng.py
 
-# Required build inputs, including when global ignores exclude Assets.* / Info.plist.
+# Keep app asset catalogs trackable even when a global Assets.* rule is present.
 !MihirakiPDFViewer/Assets.xcassets/
 !MihirakiPDFViewer/Assets.xcassets/**
-!MihirakiPDFViewer/Info.plist
 
+# Required build input, even when a global ignore excludes Info.plist.
+!MihirakiPDFViewer/Info.plist
 
 # Local build/test products and Python intermediates
 *DerivedData/
@@ -94,3 +95,41 @@ client_secret*.json
 service-account*.json
 credentials.json
 token.json
+
+# Private working evidence and generated device builds (keep files locally)
+/planning/
+/R/
+*.app/
+*.mobileprovision
+module-cache/
+ModuleCache.noindex/
+# Internal drafts; publish reviewed summaries under release-notes instead.
+/APP-NAME-ROLLOUT-ja.md
+/CONNECT-FUTURE-SETUP-ja.md
+/MANUAL-RELEASE-CHECKS-ja.md
+/PRIVACY-REVIEW-20261024-ja.md
+/RELEASE-PREPARATION-ja.md
+
+# Shared project workspace input, without per-user state
+!MihirakiPDFViewer.xcodeproj/project.xcworkspace/
+!MihirakiPDFViewer.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+
+# Keep video production and export files outside public Git.
+*.mp4
+*.mov
+*.m4v
+
+# Required project inputs despite machine-wide project/workspace exclusions
+!MihirakiPDFViewer.xcodeproj/
+!MihirakiPDFViewer.xcodeproj/project.pbxproj
+!MihirakiPDFViewer.xcodeproj/xcshareddata/
+!MihirakiPDFViewer.xcodeproj/xcshareddata/xcschemes/
+!MihirakiPDFViewer.xcodeproj/xcshareddata/xcschemes/*.xcscheme
+!MihirakiPDFViewer.xcodeproj/project.xcworkspace/
+!MihirakiPDFViewer.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+
+# Track only required synthetic regression fixtures, even with a global TestData rule.
+!/testdata/
+/testdata/*
+!/testdata/Regression8_*.pdf
+!/testdata/Regression8-fixtures.json
