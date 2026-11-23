@@ -14,6 +14,6 @@ Small generated Regression8 fixtures cover the local selection unit tests. Actua
 
 ## Legacy compatibility
 
-Published iOS 1.0.4 (14) embeds 14 https://tyamada.github.io/MihirakiPDFViewer/sample/tameshibu...pdf URLs (episodes 1/2, en/ja/ko/zh_cn/zh_tw/de/fr). Keep all these Pages PDFs available until compatible distributed apps and old-version availability are verified. The 42 docs/sample and 42 local testdata manga PDFs are individually inventoried; identical local copies alone do not authorize removing a published endpoint. No deletion in this change: legacy dependencies, differing fixed-Release hashes, or outstanding build/integration validation remain release gates. SEASIDE_LIVING, other regression PDFs, catalog JSON, downloaded user PDFs and old Releases are retained.
+Apply the current distribution-based retirement policy in [the cleanup record](sample-pdf-retirement-2026-11-24.md). The 14 Pages URLs embedded in historical 1.0.4 (14) are retired with the redundant Pages copies; current Release inputs, catalog JSON, user downloads and regression fixtures remain unchanged. An old installation using a retired Pages URL must update before downloading that sample again. Historical inventories remain evidence of their own date, not a permanent retention requirement.
 
 Maintenance: https://github.com/tyamada/manga-prompt-kit/blob/main/docs/sample-download-maintenance.md

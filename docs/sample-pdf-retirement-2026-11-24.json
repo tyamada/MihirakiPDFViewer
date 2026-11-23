@@ -1,0 +1,120 @@
+{
+  "date_jst": "2026-11-24",
+  "repository": "tyamada/MihirakiPDFViewer",
+  "base_commit": "f75a408986fefd25d144807e01411ad1c0286228",
+  "deleted": [
+    {
+      "path": "docs/sample/tameshibu_episode1_2_de.pdf",
+      "sha": "f1e953bebc6d40bb7363f368c6a1167a2714e532",
+      "bytes": 24107143,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode1_2_en.pdf",
+      "sha": "ac7adf4bc15711e133a82c3bdfa591b4ca0709a9",
+      "bytes": 24108800,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode1_2_fr.pdf",
+      "sha": "56db2880eb9e344f340c9bcf85ddb5dd1c3dc969",
+      "bytes": 24111899,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode1_2_ja.pdf",
+      "sha": "d6ceae80be6ef35c4b86afd443d4501bcc1c4b9e",
+      "bytes": 24217661,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode1_2_ko.pdf",
+      "sha": "a91885b1865709b2dcfb840f83975577724b852f",
+      "bytes": 24105557,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode1_2_zh_cn.pdf",
+      "sha": "c58241b23dc4e04e5179c7fa91a495582b70a092",
+      "bytes": 24176113,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode1_2_zh_tw.pdf",
+      "sha": "8bfd43cc5eac0975e231e5864a73f287ac500ef6",
+      "bytes": 24191145,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode2_2_de.pdf",
+      "sha": "b6ff1405b516e14bbdbe7a8a87f91b30e0a1485b",
+      "bytes": 24972620,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode2_2_en.pdf",
+      "sha": "698b0f5dd24a2353a2e0d5df0797a3469f0dd8bf",
+      "bytes": 24975916,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode2_2_fr.pdf",
+      "sha": "640a113503e82be987d6c7bdce04767b3a964ed8",
+      "bytes": 24975808,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode2_2_ja.pdf",
+      "sha": "0fd8ae2c41e69193f7a440670b06c1efdc05be83",
+      "bytes": 25039091,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode2_2_ko.pdf",
+      "sha": "2c4017d2336ab7ddf0491a08b7ac11d5dbdd1885",
+      "bytes": 24976048,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode2_2_zh_cn.pdf",
+      "sha": "6b024917d45b3694fc3d92330cb278bf1de9bf9d",
+      "bytes": 25042963,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode2_2_zh_tw.pdf",
+      "sha": "86f958ee6b8e53fef56cb22cf5004ab711c48a95",
+      "bytes": 25062567,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode3_en.pdf",
+      "sha": "4b572d9b14b38084df427324d4eca98443c75edb",
+      "bytes": 23200060,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode3_ja.pdf",
+      "sha": "0f1330592916907dedf191f897d78aa09e99cd4d",
+      "bytes": 23238613,
+      "mode": "100644",
+      "type": "blob"
+    }
+  ],
+  "preserved": "Release assets, machine catalogs/manifests, technical regression PDFs, original working copies and Git history"
+}
