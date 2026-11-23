@@ -127,3 +127,9 @@ ModuleCache.noindex/
 !MihirakiPDFViewer.xcodeproj/xcshareddata/xcschemes/*.xcscheme
 !MihirakiPDFViewer.xcodeproj/project.xcworkspace/
 !MihirakiPDFViewer.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+
+# Track only required synthetic regression fixtures, even with a global TestData rule.
+!/testdata/
+/testdata/*
+!/testdata/Regression8_*.pdf
+!/testdata/Regression8-fixtures.json

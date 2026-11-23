@@ -1,0 +1,2 @@
+# PDFs must retain exact bytes, including cross-reference record spacing.
+*.pdf binary
