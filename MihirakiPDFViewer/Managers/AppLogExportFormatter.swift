@@ -28,7 +28,7 @@ enum AppLogExportFormatter {
             String(localized: "App version: \(appVersion) (\(build))"),
             String(localized: "OS version: \(systemName) \(systemVersion)"),
             String(localized: "Retention: 24 hours"),
-            String(localized: "No personal information or document contents are included."),
+            String(localized: "No personal information or document contents are included.", defaultValue: "Generated fields: app and OS versions, event types, timestamps, counts, and processing durations."),
             ""
         ]
         let lines = entries.reversed().map { entry in

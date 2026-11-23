@@ -30,6 +30,11 @@ struct LicenseView: View {
         .accessibilityIdentifier("licenseScreen")
     }
 }
+enum SupportContact {
+    static let emailAddress = "tyamada.support@gmail.com"
+    static let emailURL = URL(string: "mailto:\(emailAddress)")
+}
+
 struct IssueReportingGuideView: View {
     private let newIssueURL = URL(
         string: "https://github.com/tyamada/MihirakiPDFViewer/issues/new?template=bug_report.yml"
@@ -57,6 +62,24 @@ struct IssueReportingGuideView: View {
             }
 
             IssueReportingPrivacySection()
+
+            if let emailURL = SupportContact.emailURL {
+                Section {
+                    Link(destination: emailURL) {
+                        Label {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("Private inquiries (email)")
+                                Text(verbatim: SupportContact.emailAddress)
+                                    .font(.footnote)
+                            }
+                            .accessibilityElement(children: .combine)
+                        } icon: {
+                            Image(systemName: "envelope")
+                        }
+                    }
+                    .accessibilityIdentifier("contactSupportEmailButton")
+                }
+            }
 
             if let newIssueURL {
                 Section {

@@ -23,6 +23,36 @@ final class MihirakiPDFViewerUITests: XCTestCase {
     }
 
     @MainActor
+    func testPrivacyPolicyFromEmptyStateAndReader() throws {
+        app.launchArguments += ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
+        for reading in [false, true] {
+            if reading { app.launchArguments.append("-uiTestLoadSamplePDF") }
+            app.launch()
+            if reading {
+                XCTAssertTrue(element("pdfViewerScreen").waitForExistence(timeout: 10))
+                tapPDFViewer()
+            } else {
+                XCTAssertTrue(element("emptyStateView").waitForExistence(timeout: 10))
+            }
+            let settings = app.buttons["settingsButton"]
+            XCTAssertTrue(settings.waitForExistence(timeout: 5))
+            settings.tap()
+            let policy = element("privacyPolicyLink")
+            XCTAssertTrue(policy.waitForExistence(timeout: 5))
+            XCTAssertTrue(policy.isHittable)
+            XCTAssertEqual(policy.label, "Privacy Policy")
+            let attachment = XCTAttachment(screenshot: app.screenshot())
+            attachment.name = reading ? "Privacy policy from reader" : "Privacy policy without PDF"
+            attachment.lifetime = .keepAlways
+            add(attachment)
+            policy.tap()
+            let safari = XCUIApplication(bundleIdentifier: "com.apple.mobilesafari")
+            XCTAssertTrue(safari.wait(for: .runningForeground, timeout: 15))
+            app.terminate()
+        }
+    }
+
+    @MainActor
     func testEmptyStateScreen() throws {
         app.launch()
 

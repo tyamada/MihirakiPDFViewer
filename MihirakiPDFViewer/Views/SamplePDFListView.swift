@@ -73,6 +73,7 @@ struct SamplePDFListView: View {
         .task {
             store.loadCatalog()
             initializeLanguageFilterIfNeeded()
+            await store.refreshCatalog()
         }
         .onChange(of: store.errorMessage) { _, newValue in
             isShowingError = newValue != nil

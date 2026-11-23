@@ -187,15 +187,7 @@ final class AppStorePreviewTests: XCTestCase {
     }
 
     private func previewPDFURL(named fileName: String) throws -> URL {
-        let projectRoot = URL(fileURLWithPath: #filePath)
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-        let url = projectRoot
-            .appendingPathComponent("testdata", isDirectory: true)
-            .appendingPathComponent(fileName)
-            .appendingPathExtension("pdf")
-        XCTAssertTrue(FileManager.default.fileExists(atPath: url.path))
-        return url
+        try SamplePDFFixture.url(named: fileName)
     }
 
     @MainActor

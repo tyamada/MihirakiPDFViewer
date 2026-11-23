@@ -12,6 +12,15 @@ struct HelpView: View {
     var body: some View {
         ScrollView {
             LazyVStack(alignment: .leading, spacing: 20) {
+                NavigationLink {
+                    IssueReportingGuideView()
+                } label: {
+                    Label("Report a Problem", systemImage: "questionmark.bubble")
+                }
+                .accessibilityIdentifier("helpReportProblemButton")
+                PrivacyPolicyLink()
+                Text("The privacy policy is available from Settings and App Information without opening a PDF or making a purchase.")
+                Text("Available storage is shown only on this device and is excluded from shared diagnostic results.")
                 HelpCategorySection(
                     title: "Getting Started",
                     items: HelpContent.gettingStarted

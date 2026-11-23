@@ -36,6 +36,8 @@ public struct SettingsView: View {
     public var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
+                PrivacyPolicyLink()
+                    .padding(.vertical, 8)
                 DisplaySettingsSection(
                     viewModel: viewModel,
                     backgroundColor: settingsBackgroundColor
@@ -79,7 +81,7 @@ public struct SettingsView: View {
         } message: {
             Text(String(
                 localized: "promotion_code_instructions",
-                defaultValue: "To use a promotion code, go to the Support screen and enter the code from the promotion code option."
+                defaultValue: "Eligible Bronze, Silver, and Gold codes can be redeemed from Support. New Koyomi badge offers are deferred. Existing badge purchases can be restored."
             ))
         }
     }

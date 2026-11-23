@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="MihirakiPDFViewerのプライバシーポリシーです。アプリで扱う情報、PDFファイル、アプリ内購入、問い合わせ時の情報について説明します。">
-    <title>プライバシーポリシー | MihirakiPDFViewer</title>
+    <meta name="description" content="見開きPDFビューアのプライバシーポリシーです。アプリで扱う情報、PDFファイル、アプリ内購入、問い合わせ時の情報について説明します。">
+    <title>プライバシーポリシー | 見開きPDFビューア</title>
     <style>
         :root {
             color-scheme: light;
@@ -37,7 +37,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -231,6 +231,10 @@
         }
 
         @media (max-width: 760px) {
+            .site-header {
+                position: static;
+            }
+
             .nav {
                 align-items: flex-start;
                 flex-direction: column;
@@ -253,14 +257,29 @@
                 padding: 46px 0;
             }
         }
-    </style>
+    
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
+</style>
 </head>
 <body>
     <header class="site-header">
         <nav class="nav" aria-label="メインナビゲーション">
             <a class="brand" href="index.html">
                 <img src="assets/icons/MihirakiPDFViewer-AppIcon.png" alt="" width="38" height="38">
-                <span>MihirakiPDFViewer</span>
+                <span>見開きPDFビューア</span>
             </a>
             <div class="nav-links" aria-label="ページ内リンク">
                 <a href="#summary">概要</a>
@@ -277,7 +296,7 @@
                 <p class="eyebrow">Privacy Policy</p>
                 <h1>プライバシーポリシー</h1>
                 <p class="lead">
-                    MihirakiPDFViewerは、PDFを端末内で快適に閲覧するためのアプリです。
+                    見開きPDFビューアは、PDFを端末内で快適に閲覧するためのアプリです。
                     このページでは、アプリが扱う情報と、その取り扱い方針を説明します。
                 </p>
             </div>
@@ -370,17 +389,13 @@
                             必要な範囲で、ユーザーが送信した情報を確認します。
                         </p>
                         <ul>
-                            <li>PDF本文や個人情報は、必要がない限り送信しないでください。</li>
+                            <li>PDFファイルやその内容は送信せず、以下の報告・画像の案内を確認してからお問い合わせください。</li>
                             <li>不具合報告には、端末名、OSバージョン、アプリバージョン、再現手順を含めると調査しやすくなります。</li>
                         </ul>
                     </article>
                     <article class="card">
                         <h3>第三者提供</h3>
-                        <p>
-                            法令に基づく場合を除き、取得した情報を第三者へ提供しません。
-                            アプリ内購入やiCloud Driveなど、Appleが提供する機能については
-                            Appleのプライバシーポリシーも適用されます。
-                        </p>
+                        <p>ユーザーが共有またはサポートへ送信した情報は、選択した相手に届き、相手側で保持される場合があります。StoreKitの購入とiCloud DriveはAppleの取扱いに従います。サンプル取得・外部リンクでは各サービス運営者へ接続し、共有先を含む各サービスのプライバシー方針が適用されます。アプリが診断結果を開発者へ自動送信することはありません。</p>
                     </article>
                 </div>
             </div>
@@ -439,7 +454,22 @@
                 </article>
             </div>
         </section>
-    </main>
+<section class="section" id="sample-catalog-network"><div class="container"><p data-policy-topic="sample-catalog-network" style="overflow-wrap:anywhere">サンプル一覧を開くと、GitHub上の最新の一覧JSONを確認します。更新に失敗した場合は、最後に保存した有効な一覧または同梱の一覧を使います。PDFファイルはダウンロードを選択した場合にのみ取得します。一覧の取得ではraw.githubusercontent.com、PDFの取得ではGitHub Releasesへ接続し、各サービスがIPアドレスやリクエスト情報を受け取る場合があります。</p></div></section>
+    <section class="section" id="support-retention"><div class="container">
+<h2>サポート情報の保持と削除</h2>
+<p>サポート情報は返信、不具合調査、技術的な性能改善に限って利用します。実名の入力は求めません。差出人の表示名に実名が含まれる場合は、返信・調査に必要な期間、元メール内でのみ保持し、案件別Google Sheetsや改善メモへ転記しません。</p>
+<p>スクリーンショットは、文章だけでは問題を再現できず画像が必要な場合に限り、tyamada.support@gmail.comで受け付けます。送付前にPDFの内容、ファイル名、氏名、通知など不要な情報を隠してください。画像は原則として元メール内で扱い、案件別Sheetsには画像ではなく調査に必要な所見だけを記録します。</p>
+<p>GitHubの投稿者名・ハンドルは案件別Sheetsや改善メモに転記しません。返信・調査に必要な場合に限り、元Issueへのリンクを案件別Sheetsに残します。リンクから投稿者を確認できる間は関連付け可能な情報として扱います。公開Issueには個人情報、PDFファイルやその内容、ファイル名、スクリーンショットを投稿しないでください。</p>
+<p>GitHub上の公開投稿と、開発者が管理するメール・案件記録は別です。案件リンクを削除しても公開Issueは削除されません。管理外の投稿やサービス側コピーの削除は保証しません。送信者に戻れる報告・案件参照を匿名化済みとは扱いません。</p>
+<h3>削除の起算点と期限</h3>
+<p>A. 実名を含む元メール・調査画像・調査コピー：返信または調査結論があり、開発者が残作業なしを確認した日を対応完了日とします。無返信だけでは自動完了しません。週次点検し、完了後60日頃から削除に着手、90日以内に対象ゴミ箱を含む管理可能な対象の削除確認を終えます。60日は最低保持期間ではなく、早期削除依頼を通常期限まで待たせません。</p>
+<p>B. 案件別Sheets・所見・Issueリンク・受付／削除記録：原情報の削除完了日起点90日以内に案件ファイルと関連記録・参照の削除確認を終えます。行・セルだけの削除では完了にしません。Aの期限延長や原情報の退避先とはせず、公開Issueが残っていることによって自分の案件記録の期限を自動延長しません。</p>
+<p>C. 一般化した改善メモには原因と修正要点だけを残し、氏名・画像・投稿URL・案件IDなど元報告にたどれる情報は含めません。AやBの情報の退避先にはしません。</p>
+<p>例外は継続調査または法的必要性に限り、理由・対象・終了条件を記録し、30日以内ごとと調査終了時に見直します。必要性がなくなった後は原則30日以内、元の90日期限が残っていて早ければその期限までに削除確認します。再開・例外による期限の自動リセットはしません。Asia/Tokyoの暦日で扱います。</p>
+<p>この期限は開発者が管理可能な記録を対象とします。サービス画面での削除は、提供者内部の復旧コピーや端末バックアップが同じ期限内に物理消去されることを保証しません。これらのコピーと削除上の限界は、開発者が管理する記録とは区別します。端末のログ整理で送信済みの報告は削除されません。</p>
+<p>問い合わせ・削除依頼は<a href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a>へ、対象の案件を特定するために必要な情報だけをお知らせください。公開の場には記載しないでください。</p>
+</div></section>
+</main>
 
     <footer class="site-footer">
         <div class="footer-inner">

@@ -40,10 +40,12 @@ struct DeviceTestReport: Equatable {
     }
 
     var shareText: String {
-        let result = allPassed
+        // Disk-space information and derived results stay on device (85F4.1).
+        let sharedChecks = checks.filter { $0.id != "availableStorage" }
+        let result = sharedChecks.allSatisfy { $0.status == .passed }
             ? String(localized: "All tests passed.")
             : String(localized: "Some tests failed.")
-        let checkLines = checks.map { check in
+        let checkLines = sharedChecks.map { check in
             let status = check.status == .passed
                 ? String(localized: "Passed")
                 : String(localized: "Failed")
@@ -127,6 +129,43 @@ enum DeviceTestRunner {
         )
     }
 
+    enum CheckKind: String, CaseIterable {
+        case cacheStorage, availableStorage, pdfEngine
+
+        var name: LocalizedStringResource {
+            switch self {
+            case .cacheStorage: "Cache storage"
+            case .availableStorage: "Available storage"
+            case .pdfEngine: "PDF rendering"
+            }
+        }
+
+        var failureDetail: String {
+            switch self {
+            case .cacheStorage:
+                String(localized: "The saved data did not match the data that was read.",
+                       defaultValue: "Cache storage could not be checked.")
+            case .availableStorage:
+                String(localized: "Available storage could not be read.")
+            case .pdfEngine:
+                String(localized: "The generated PDF could not be read.")
+            }
+        }
+    }
+
+    // OS errors may contain file paths or other unrestricted text. Only fixed
+    // check-specific messages cross the boundary into a display/shareable report.
+    static func performCheck(
+        _ kind: CheckKind,
+        operation: () throws -> DeviceTestReport.Check
+    ) -> DeviceTestReport.Check {
+        do {
+            return try operation()
+        } catch {
+            return failedCheck(id: kind.rawValue, name: kind.name, detail: kind.failureDetail)
+        }
+    }
+
     private static func cacheStorageCheck(
         fileManager: FileManager
     ) -> DeviceTestReport.Check {
@@ -137,7 +176,7 @@ enum DeviceTestRunner {
             .appendingPathExtension("txt")
         let expectedData = Data("MihirakiPDFViewer device test".utf8)
 
-        do {
+        return performCheck(.cacheStorage) {
             try expectedData.write(to: url, options: .atomic)
             defer { try? fileManager.removeItem(at: url) }
             let actualData = try Data(contentsOf: url)
@@ -145,25 +184,17 @@ enum DeviceTestRunner {
                 return failedCheck(
                     id: "cacheStorage",
                     name: "Cache storage",
-                    detail: String(
-                        localized: "The saved data did not match the data that was read."
-                    )
+                    detail: CheckKind.cacheStorage.failureDetail
                 )
             }
             return passedCheck(id: "cacheStorage", name: "Cache storage")
-        } catch {
-            return failedCheck(
-                id: "cacheStorage",
-                name: "Cache storage",
-                detail: error.localizedDescription
-            )
         }
     }
 
     private static func availableStorageCheck(
         fileManager: FileManager
     ) -> DeviceTestReport.Check {
-        do {
+        return performCheck(.availableStorage) {
             let values = try fileManager.temporaryDirectory.resourceValues(
                 forKeys: [.volumeAvailableCapacityForImportantUsageKey]
             )
@@ -179,12 +210,6 @@ enum DeviceTestRunner {
                 name: "Available storage",
                 status: .passed,
                 detail: ByteCountFormatter.string(fromByteCount: capacity, countStyle: .file)
-            )
-        } catch {
-            return failedCheck(
-                id: "availableStorage",
-                name: "Available storage",
-                detail: error.localizedDescription
             )
         }
     }
@@ -276,7 +301,7 @@ enum DeviceTestRunner {
             .appendingPathComponent(UUID().uuidString)
             .appendingPathExtension("pdf")
 
-        do {
+        return performCheck(.pdfEngine) {
             let renderer = UIGraphicsPDFRenderer(
                 bounds: CGRect(x: 0, y: 0, width: 100, height: 100)
             )
@@ -294,12 +319,6 @@ enum DeviceTestRunner {
                 )
             }
             return passedCheck(id: "pdfEngine", name: "PDF rendering")
-        } catch {
-            return failedCheck(
-                id: "pdfEngine",
-                name: "PDF rendering",
-                detail: error.localizedDescription
-            )
         }
     }
 

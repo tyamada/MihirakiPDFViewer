@@ -14,6 +14,7 @@ struct TipSelectionView: View {
     @Environment(\.colorScheme) private var colorScheme
     @State private var purchasingProductID: String?
     @State private var isShowingPromotionCodeRedemption = false
+    @State private var isShowingKoyomiDetails = false
 
     private var settingsTextColor: Color {
         colorScheme == .dark ? .white : .black
@@ -94,8 +95,9 @@ struct TipSelectionView: View {
                     .foregroundStyle(settingsTextColor)
             }
 
-            if tipManager.isPurchased(TipManager.koyomiV2BadgeProductID) {
+            if tipManager.hasKoyomiBadge {
                 Section {
+                    Button { isShowingKoyomiDetails = true } label: {
                     HStack(spacing: 16) {
                         Image("KoyomiV2Badge")
                             .resizable()
@@ -104,14 +106,19 @@ struct TipSelectionView: View {
                             .accessibilityHidden(true)
 
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(String(localized: "koyomi_v2_badge_name", defaultValue: "Ver. 2.0 Release Commemorative Koyomi Badge"))
+                            Text(String(localized: "koyomi_v2_badge_name", defaultValue: "Release Commemorative Koyomi Badge"))
                                 .font(.headline)
-                            Text(String(localized: "promotion_code_badge", defaultValue: "Promotion code badge"))
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
+                            if tipManager.isPurchased(TipManager.koyomiV2BadgeProductID) {
+                                Text(String(localized: "promotion_code_badge", defaultValue: "Previously acquired badge"))
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
                         }
                     }
                     .accessibilityElement(children: .combine)
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityHint(String(localized: "badge_view_details_hint", defaultValue: "View badge details"))
                     .accessibilityIdentifier("ownedBadge_koyomiV2")
                 } header: {
                     Text(String(localized: "owned_badges", defaultValue: "Owned Badges"))
@@ -119,12 +126,19 @@ struct TipSelectionView: View {
             }
         }
         .accessibilityIdentifier("tipSelectionScreen")
+        .sheet(isPresented: $isShowingKoyomiDetails) { KoyomiBadgeDetailView() }
         .navigationTitle(String(localized: "tip_selection_title", defaultValue: "Support"))
         .offerCodeRedemption(isPresented: $isShowingPromotionCodeRedemption) { _ in
             // The transaction listener in TipManager applies successful redemptions.
         }
         .task {
             await tipManager.updateStorefront()
+        }
+        .task {
+            await tipManager.recheckKoyomiEligibility()
+        }
+        .refreshable {
+            await tipManager.refreshKoyomiEligibilityByUserRequest()
         }
     }
 

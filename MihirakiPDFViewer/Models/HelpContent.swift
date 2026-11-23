@@ -38,7 +38,7 @@ enum HelpContent {
             title: LocalizedStringResource("sample_pdf_navigation_title", defaultValue: "Sample PDFs"),
             description: LocalizedStringResource(
                 "help_sample_pdfs_description",
-                defaultValue: "Browse sample PDFs by language, download one to this device, open it in the viewer, or delete the local copy when you no longer need it. Mobile-data downloads ask for confirmation."
+                defaultValue: "Browse sample PDFs by language, download one to this device, open it in the viewer, or delete the local copy when you no longer need it. Mobile-data downloads ask for confirmation. When you open the sample list, the app checks GitHub for the latest catalog JSON. If the update fails, it uses the last valid saved list or the bundled list. PDF files are downloaded only when you choose to download them. The catalog request contacts raw.githubusercontent.com; PDF downloads contact GitHub Releases. These services may receive your IP address and request information."
             )
         )
     ]
@@ -120,7 +120,7 @@ enum HelpContent {
                 detail(
                     id: "singlePageInPortrait",
                     title: LocalizedStringResource("single_page_in_portrait", defaultValue: "Single Page in Portrait"),
-                    description: LocalizedStringResource("help_setting_single_page_in_portrait_description", defaultValue: "Displays one page at a time when the screen is taller than it is wide.")
+                    description: LocalizedStringResource("help_setting_single_page_in_portrait_description", defaultValue: "Displays one page at a time in portrait-shaped reading areas, including wide iPad layouts. Turn this option off to keep the selected two-page setting in portrait.")
                 ),
                 detail(
                     id: "coverPageSetting",
@@ -150,12 +150,12 @@ enum HelpContent {
                 detail(
                     id: "developerSupport",
                     title: LocalizedStringResource("developer_support_title", defaultValue: "Support the Developer"),
-                    description: LocalizedStringResource("help_setting_supporter_icons_description", defaultValue: "Opens the supporter store to purchase or restore supporter icons and badges.")
+                    description: LocalizedStringResource("help_setting_supporter_icons_description", defaultValue: "Bronze, Silver, and Gold icons are optional purchases. Eligible codes and existing purchases can be redeemed or restored in Support. Koyomi is granted free on this device through December 31, 2027 JST, including for existing users. The grant is saved locally and remains after the deadline. It requires no purchase or account lookup. Restore Purchases restores existing StoreKit rights, but cannot restore a lost local free grant after the deadline.")
                 ),
                 detail(
                     id: "promotionCode",
                     title: LocalizedStringResource("enter_promotion_code", defaultValue: "Enter Promotion Code"),
-                    description: LocalizedStringResource("help_setting_promotion_code_description", defaultValue: "Explains how to redeem a promotion code from the Support screen.")
+                    description: LocalizedStringResource("help_setting_promotion_code_description", defaultValue: "Bronze, Silver, and Gold icons are optional purchases. Eligible codes and existing purchases can be redeemed or restored in Support. Koyomi is granted free on this device through December 31, 2027 JST, including for existing users. The grant is saved locally and remains after the deadline. It requires no purchase or account lookup. Restore Purchases restores existing StoreKit rights, but cannot restore a lost local free grant after the deadline.")
                 )
             ]
         )
@@ -173,22 +173,22 @@ enum HelpContent {
                 detail(
                     id: "diagnosticPrivacy",
                     title: LocalizedStringResource("Privacy", defaultValue: "Privacy"),
-                    description: LocalizedStringResource("help_diagnostic_privacy_description", defaultValue: "Diagnostic results and logs remain on this device unless you explicitly share them.")
+                    description: LocalizedStringResource("help_diagnostic_privacy_description", defaultValue: "Choose the recipient and whether to send. Review the text and any added images. Support messages may be linked to your case; sharing does not make them anonymous.")
                 ),
                 detail(
                     id: "deviceTests",
                     title: LocalizedStringResource("Device Tests", defaultValue: "Device Tests"),
-                    description: LocalizedStringResource("help_setting_device_testing_description", defaultValue: "Checks the device model name and identifier, app information, memory, cache storage, available storage, and PDF rendering. Results are shared only when you tap Share.")
+                    description: LocalizedStringResource("help_setting_device_testing_description", defaultValue: "Device tests show app, device, memory, storage, and PDF checks. Shared results exclude available storage and its effect on the overall result. Choose the recipient and whether to send.")
                 ),
                 detail(
                     id: "appLogs",
                     title: LocalizedStringResource("app_logs", defaultValue: "App Logs"),
-                    description: LocalizedStringResource("help_setting_app_logs_description", defaultValue: "Shows privacy-safe logs from the last 24 hours. Logs are deleted automatically and shared only when you tap Share.")
+                    description: LocalizedStringResource("help_setting_app_logs_description", defaultValue: "Shows up to 2,000 entries from the last 24 hours, trimmed when read or recorded. Shared logs contain app and OS versions, event types, timestamps, counts, and durations. Choose the recipient and whether to send.")
                 ),
                 detail(
                     id: "reportProblem",
                     title: LocalizedStringResource("Report a Problem", defaultValue: "Report a Problem"),
-                    description: LocalizedStringResource("help_diagnostic_report_problem_description", defaultValue: "Explains what to include in a report, links to device tests and app logs, and opens GitHub Issues after a privacy reminder.")
+                    description: LocalizedStringResource("help_diagnostic_report_problem_description", defaultValue: "Open Report a Problem from Help for the same reporting instructions. Start with text; use public GitHub Issues or private email. Screenshots are accepted only by private email when text is insufficient. Your real name is not required. Review diagnostics, logs, and the recipient before sending.")
                 )
             ]
         )

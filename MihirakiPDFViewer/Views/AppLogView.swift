@@ -47,6 +47,7 @@ struct AppLogView: View {
                     Label("Share", systemImage: "square.and.arrow.up")
                 }
                 .accessibilityIdentifier("shareAppLogsButton")
+                .accessibilityHint(Text("App Logs"))
             }
 
             Button {
@@ -74,14 +75,14 @@ private struct AppLogPrivacySection: View {
     var body: some View {
         Section("Privacy") {
             Label {
-                Text("Logs never include personal information, file names, file paths, search terms, passwords, or document contents.")
+                Text(String(localized: "Logs never include personal information, file names, file paths, search terms, passwords, or document contents.", defaultValue: "Generated fields: app and OS versions, event types, timestamps, counts, and processing durations."))
             } icon: {
                 Image(systemName: "hand.raised.fill")
                     .foregroundStyle(.green)
             }
 
             Label {
-                Text("Logs are stored only on this device and are never sent externally automatically. Sharing occurs only when you tap Share.")
+                Text(String(localized: "Logs are stored only on this device and are never sent externally automatically. Sharing occurs only when you tap Share.", defaultValue: "Choose the recipient and whether to send. Review the text and any added images. Support messages may be linked to your case; sharing does not make them anonymous."))
             } icon: {
                 Image(systemName: "lock.shield")
                     .foregroundStyle(.green)

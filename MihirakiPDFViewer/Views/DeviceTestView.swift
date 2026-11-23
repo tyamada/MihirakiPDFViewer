@@ -55,6 +55,7 @@ struct DeviceTestView: View {
                     Label("Share", systemImage: "square.and.arrow.up")
                 }
                 .accessibilityIdentifier("shareDeviceTestResultsButton")
+                .accessibilityHint(Text("Device Test Results"))
             }
         }
         .task {
@@ -73,8 +74,9 @@ struct DeviceTestView: View {
 private struct DeviceTestPrivacyNotice: View {
     var body: some View {
         Section("Privacy") {
+            Text("Available storage is shown only on this device and is excluded from shared diagnostic results.")
             Label {
-                Text("Test results are stored only on this device and are never sent externally automatically.")
+                Text(String(localized: "Test results are stored only on this device and are never sent externally automatically.", defaultValue: "Shared results contain app and OS versions, device model, memory, test date, and check results. Choose the recipient and whether to send. Review any added text or images; support messages may be linked to your case."))
             } icon: {
                 Image(systemName: "lock.shield")
                     .foregroundStyle(.green)

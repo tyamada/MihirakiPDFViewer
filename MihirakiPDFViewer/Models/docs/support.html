@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="MihirakiPDFViewerのサポートページです。使い方、FAQ、トラブルシューティング、お問い合わせ方法を確認できます。">
-    <title>サポート | MihirakiPDFViewer</title>
+    <meta name="description" content="見開きPDFビューアのサポートページです。使い方、FAQ、トラブルシューティング、お問い合わせ方法を確認できます。">
+    <title>サポート | 見開きPDFビューア</title>
     <style>
         :root {
             color-scheme: light;
@@ -38,7 +38,7 @@
         }
 
         .site-header {
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 10;
             backdrop-filter: blur(18px);
@@ -317,6 +317,10 @@
         }
 
         @media (max-width: 860px) {
+            .site-header {
+                position: static;
+            }
+
             .nav-links {
                 display: none;
             }
@@ -347,7 +351,7 @@
         <nav class="nav" aria-label="メインナビゲーション">
             <a class="brand" href="index.html">
                 <img src="assets/icons/MihirakiPDFViewer-AppIcon.png" alt="" width="38" height="38">
-                <span>MihirakiPDFViewer</span>
+                <span>見開きPDFビューア</span>
             </a>
             <div class="nav-links">
                 <a href="#faq">FAQ</a>
@@ -363,9 +367,9 @@
             <div class="container hero-inner">
                 <div>
                     <p class="eyebrow">ヘルプ＆よくある質問</p>
-                    <h1>MihirakiPDFViewer サポート</h1>
+                    <h1>見開きPDFビューア サポート</h1>
                     <p>
-                        MihirakiPDFViewerをご利用いただきありがとうございます。
+                        見開きPDFビューアをご利用いただきありがとうございます。
                         このページでは、PDFの開き方、見開き表示、検索、ズーム、
                         パスワード付きPDFなど、よくある質問と対処方法をまとめています。
                     </p>
@@ -453,10 +457,7 @@
                         </details>
                         <details>
                             <summary>表示がぼやける場合はどうすればよいですか？</summary>
-                            <p>
-                                設定画面で「高画質化」や「シャープネス」を有効にしてください。
-                                ただし、端末によっては描画負荷が上がる場合があります。
-                            </p>
+                            <p>幅の狭い縦長画面では、単ページ表示がデフォルトです。その画面でも見開き表示を維持するには、縦向き時の単ページ表示をオフにします。幅に余裕のあるレイアウトでは、選択した見開き設定が有効です。設定で表紙の扱いも変更できます。</p>
                         </details>
                     </article>
 
@@ -480,8 +481,7 @@
                         <details>
                             <summary>アプリ内課金は必須ですか？</summary>
                             <p>
-                                必須ではありません。チップ購入は開発を応援するための任意の
-                                機能で、購入しなくてもアプリの機能は利用できます。
+                                必須ではありません。Bronze・Silver・Goldは、対応するアプリアイコンを恒久的に利用できる任意の非消耗型商品です。閲覧機能は無料です。価格は購入ボタンに表示されます。
                             </p>
                         </details>
                     </article>
@@ -561,50 +561,17 @@
         </section>
 
         <section class="section" id="contact" aria-labelledby="contact-title">
-            <div class="container">
-                <div class="section-heading">
-                    <h2 id="contact-title">不具合報告・お問い合わせ</h2>
-                    <p>
-                        解決しない場合は、再現手順と利用環境を添えてお問い合わせください。
-                    </p>
-                </div>
-                <div class="contact-grid">
-                    <article class="contact-card">
-                        <h3>GitHub Issues</h3>
-                        <p>
-                            不具合報告や改善要望はGitHub Issuesへ登録してください。
-                            PDFファイルの内容に個人情報が含まれる場合は、添付しないでください。
-                        </p>
-                        <a class="button" href="https://github.com/" rel="noopener">GitHub Issuesを開く</a>
-                        <p class="note">
-                            公開リポジトリのURLが決まったら、このリンクをIssuesのURLへ
-                            差し替えてください。
-                        </p>
-                    </article>
-                    <article class="contact-card">
-                        <h3>メール</h3>
-                        <p>
-                            個別に連絡したい内容はメールでお問い合わせください。
-                            返信には時間がかかる場合があります。
-                        </p>
-                        <a class="button secondary" href="mailto:support@example.com">support@example.com</a>
-                        <p class="note">
-                            送信先メールアドレスが決まったら、実際のサポート用アドレスへ
-                            差し替えてください。
-                        </p>
-                    </article>
-                </div>
-
-                <article class="notice" style="margin-top: 16px;">
-                    <h3>報告時に含めてほしい情報</h3>
-                    <p>
-                        端末名、iOS/iPadOSのバージョン、アプリのバージョン、
-                        問題が起きたPDFの種類、再現手順、表示されたエラーメッセージを
-                        分かる範囲で記載してください。
-                    </p>
-                </article>
-            </div>
-        </section>
+<div class="container"><h2 id="contact-title">不具合報告と非公開のお問い合わせ</h2>
+<p>まず文章で、問題の概要、再現手順、期待した動作と実際の動作を説明してください。必要に応じて端末、OS、アプリの版を添えてください。実名の記入は不要です。</p>
+<div class="contact-grid"><article class="contact-card"><h3>公開の不具合報告（GitHub Issues）</h3>
+<p>公開Issueには、個人情報、PDFファイルやその内容、ファイル名、スクリーンショットを投稿しないでください。</p>
+<a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">公開の不具合報告（GitHub Issues）</a></article>
+<article class="contact-card"><h3>非公開のお問い合わせ（メール）</h3>
+<p>スクリーンショットは原則として求めません。文章だけでは問題を再現できず、画像が必要な場合に限り、以下の専用メール窓口で受け付けます。送付前に、PDFの内容、ファイル名、氏名、通知など、調査に不要な情報を隠してください。</p>
+<a class="button secondary" href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a></article></div>
+<p>診断結果やアプリログを添える場合は、送信前に内容と宛先を確認してください。自動送信はしません。アプリの「診断」と「ヘルプ」にある「問題を報告」からも同じ案内を確認できます。</p>
+<p>メール・画像・案件記録の扱いは<a href="privacy.html#support-retention">サポート情報の保持方針</a>をご確認ください。</p>
+</div></section>
 
         <section class="section" id="updates" aria-labelledby="updates-title">
             <div class="container">
@@ -623,7 +590,7 @@
                     <article class="contact-card">
                         <h3>GitHub Releases</h3>
                         <p>公開後のリリースノートや既知の問題の掲載先として使えます。</p>
-                        <a class="button secondary" href="https://github.com/" rel="noopener">Releasesを開く</a>
+                        <a class="button secondary" href="https://github.com/tyamada/MihirakiPDFViewer/releases" rel="noopener">Releasesを開く</a>
                     </article>
                 </div>
             </div>

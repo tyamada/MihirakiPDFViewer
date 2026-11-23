@@ -109,3 +109,21 @@ ModuleCache.noindex/
 /MANUAL-RELEASE-CHECKS-ja.md
 /PRIVACY-REVIEW-20261024-ja.md
 /RELEASE-PREPARATION-ja.md
+
+# Shared project workspace input, without per-user state
+!MihirakiPDFViewer.xcodeproj/project.xcworkspace/
+!MihirakiPDFViewer.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+
+# Keep video production and export files outside public Git.
+*.mp4
+*.mov
+*.m4v
+
+# Required project inputs despite machine-wide project/workspace exclusions
+!MihirakiPDFViewer.xcodeproj/
+!MihirakiPDFViewer.xcodeproj/project.pbxproj
+!MihirakiPDFViewer.xcodeproj/xcshareddata/
+!MihirakiPDFViewer.xcodeproj/xcshareddata/xcschemes/
+!MihirakiPDFViewer.xcodeproj/xcshareddata/xcschemes/*.xcscheme
+!MihirakiPDFViewer.xcodeproj/project.xcworkspace/
+!MihirakiPDFViewer.xcodeproj/project.xcworkspace/contents.xcworkspacedata

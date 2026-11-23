@@ -24,7 +24,7 @@ struct SamplePDFLanguageFilterPicker: View {
                     .tag(nil as String?)
 
                 ForEach(languageCodes, id: \.self) { languageCode in
-                    Text(Locale.current.localizedString(forLanguageCode: languageCode) ?? languageCode)
+                    Text(SamplePDFLanguageFilter.displayName(for: languageCode))
                         .tag(Optional(languageCode))
                 }
             }

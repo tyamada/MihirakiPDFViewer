@@ -174,12 +174,12 @@
       "localizations" : [
         {
           "description" : "A commemorative badge available with a promotion code.",
-          "displayName" : "Ver. 2.0 Release Commemorative Koyomi Badge",
+          "displayName" : "Release Commemorative Koyomi Badge",
           "locale" : "en_US"
         },
         {
           "description" : "プロモーションコードで取得できる記念バッジです。",
-          "displayName" : "Ver.2.0公開記念こよみバッジ",
+          "displayName" : "リリース記念こよみバッジ",
           "locale" : "ja"
         }
       ],

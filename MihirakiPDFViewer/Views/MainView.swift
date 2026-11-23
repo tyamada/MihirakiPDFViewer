@@ -58,6 +58,13 @@ public struct MainView: View {
         String(localized: "tip_success_message", defaultValue: "Thank you for your support.")
     }
 
+    // Keep a newly granted notice queued while a sheet/alert covers the reader.
+    // Its dismissal timer starts only after the notice can actually be seen.
+    private var canShowKoyomiGrantNotice: Bool {
+        !isShowingSettings && !isShowingFilePicker && !pdfPasswordPrompt.isPresented
+            && !isShowingErrorAlert && !isShowingTipSuccessAlert && !isShowingTipErrorAlert
+    }
+
     public var body: some View {
         NavigationStack {
             MainContentView(
@@ -164,6 +171,15 @@ public struct MainView: View {
                 .onAppear {
                     initializeDocumentIfNeeded()
                 }
+        }
+        .overlay(alignment: .top) {
+            if tipManager.isShowingKoyomiGrantNotification && canShowKoyomiGrantNotice {
+                KoyomiBadgeClaimToast {
+                    tipManager.dismissKoyomiGrantNotification()
+                }
+                .padding(.horizontal, 16)
+                .padding(.top, 8)
+            }
         }
         .onChange(of: scenePhase) { _, phase in
             if phase == .active {

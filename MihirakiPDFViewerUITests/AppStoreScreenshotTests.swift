@@ -367,19 +367,7 @@ final class AppStoreScreenshotTests: XCTestCase {
     }
 
     private func screenshotPDFURL(named fileName: String) throws -> URL {
-        let projectRoot = URL(fileURLWithPath: #filePath)
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-        let url = projectRoot
-            .appendingPathComponent("testdata")
-            .appendingPathComponent(fileName)
-            .appendingPathExtension("pdf")
-
-        XCTAssertTrue(
-            FileManager.default.fileExists(atPath: url.path),
-            "Missing App Store screenshot material: \(url.path)"
-        )
-        return url
+        try SamplePDFFixture.url(named: fileName)
     }
 
     private func firstPDFPageIsBlank(at url: URL) -> Bool {

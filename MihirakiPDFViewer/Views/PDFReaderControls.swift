@@ -142,7 +142,7 @@ struct PDFReaderToolbar: ToolbarContent {
             Button(action: openOutline) {
                 Image(systemName: "list.bullet.indent")
             }
-            .accessibilityLabel("Table of Contents")
+            .accessibilityLabel(String(localized: "Table of Contents"))
             .accessibilityIdentifier("tableOfContentsButton")
 
             Button(action: closeDocument) {

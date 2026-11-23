@@ -13,6 +13,7 @@
 
 import Foundation
 import Observation
+import OSLog
 import PDFKit
 import SwiftUI
 
@@ -20,9 +21,14 @@ import SwiftUI
 @MainActor
 @Observable
 public class PDFViewerViewModel: NSObject {
-    public var document: PDFDocumentWrapper?
+    public var document: PDFDocumentWrapper? {
+        didSet { readingPageIndex = nil }
+    }
+    // Keep the exact PDF page when a viewport change temporarily pairs it with another page.
+    private var readingPageIndex: Int?
     public var settings: PDFViewerSettings {
         didSet {
+            accessibilitySelectionRevision += 1
             if settings.isHighQualityRenderingEnabled != oldValue.isHighQualityRenderingEnabled {
                 preferences?.set(settings.isHighQualityRenderingEnabled, forKey: Self.highQualityPreferenceKey)
             }
@@ -40,7 +46,10 @@ public class PDFViewerViewModel: NSObject {
     public var errorMessage: String?
     public var currentPageIndex: Int = 0 {
         didSet {
+            readingPageIndex = displayedPageIndex(in: pageGroups)
             if currentPageIndex != oldValue {
+                accessibilitySelectionRevision += 1
+                tracePaging("changed", detail: "previousGroup=\(oldValue)")
                 AppDiagnostics.record(
                     .pageChanged,
                     numericValue: currentPageIndex + 1,
@@ -137,8 +146,187 @@ public class PDFViewerViewModel: NSObject {
         makePageGroups(settings: settings, viewportLayout: viewportLayout)
     }
 
+    /// A pager callback is only meaningful for the document and grouping that created it.
+    struct PagerIdentity: Hashable {
+        let documentID: UUID?
+        let pages: [[Int]]
+        let isRightToLeft: Bool
+    }
+
+    var pagerIdentity: PagerIdentity {
+        PagerIdentity(
+            documentID: document?.id,
+            pages: pageGroups.map(\.pageIndices),
+            isRightToLeft: settings.layoutDirection == .rightToLeft
+        )
+    }
+
+    // Tab tags are PDF page identities, not positions in a reversed collection.
+    subscript(pager identity: PagerIdentity) -> Int {
+        get {
+            let groups = pageGroups
+            guard groups.indices.contains(currentPageIndex) else { return 0 }
+            return groups[currentPageIndex].id
+        }
+        set {
+            tracePaging("selection", detail: "requestedTag=\(newValue) validIdentity=\(identity == pagerIdentity)")
+            guard identity == pagerIdentity,
+                  let index = pageGroups.firstIndex(where: { $0.id == newValue }),
+                  index != currentPageIndex else { return }
+            currentPageIndex = index
+        }
+    }
+
+    struct AccessibilityScrollRequest {
+        let number: UInt64
+        let pager: PagerIdentity
+        let selectionRevision: UInt64
+        let sourceGroupID: Int
+        let edge: Edge
+    }
+
+    @ObservationIgnored private var accessibilityRequestNumber: UInt64 = 0
+    @ObservationIgnored private var lastConsumedAccessibilityRequest: UInt64 = 0
+    @ObservationIgnored private var accessibilitySelectionRevision: UInt64 = 0
+
+    // This snapshot is made when the stable surface receives an action, never
+    // captured by a page view. The number identifies a request, not a gesture.
+    func makeAccessibilityScrollRequest(toward edge: Edge, pager identity: PagerIdentity) -> AccessibilityScrollRequest {
+        accessibilityRequestNumber += 1
+        return AccessibilityScrollRequest(
+            number: accessibilityRequestNumber, pager: identity,
+            selectionRevision: accessibilitySelectionRevision,
+            sourceGroupID: self[pager: pagerIdentity], edge: edge
+        )
+    }
+
+    func scrollAccessibilityPage(toward edge: Edge, pager identity: PagerIdentity) {
+        applyAccessibilityScroll(makeAccessibilityScrollRequest(toward: edge, pager: identity))
+    }
+
+    @discardableResult
+    func applyAccessibilityScroll(_ request: AccessibilityScrollRequest) -> Bool {
+        let before = currentPageIndex
+        var result = "rejected"
+        tracePaging("scroll.begin", detail: "request=\(request.number) edge=\(request.edge) sourceTag=\(request.sourceGroupID) validIdentity=\(request.pager == pagerIdentity) revision=\(request.selectionRevision)")
+        defer {
+            tracePaging("scroll.end", detail: "request=\(request.number) result=\(result) beforeGroup=\(before) afterGroup=\(currentPageIndex)")
+        }
+        guard request.pager == pagerIdentity else {
+            result = "stalePager"
+            return false
+        }
+        guard request.number > lastConsumedAccessibilityRequest else {
+            result = "duplicateOrSupersededRequest"
+            return false
+        }
+        lastConsumedAccessibilityRequest = request.number
+        guard request.selectionRevision == accessibilitySelectionRevision,
+              request.sourceGroupID == self[pager: pagerIdentity] else {
+            result = "staleSelection"
+            return false
+        }
+        // The owner reported reversed physical-finger movement for BOTH bindings
+        // on the fixed, unmirrored surface. Reverse the previous Edge policy only;
+        // do not reintroduce the mirrored pager or page-captured source tags.
+        // Logs establish Edge -> delta, not individual gesture -> Edge pairs.
+        // This candidate still requires paired physical-gesture testing on SE.
+        let step: Int
+        switch request.edge {
+        case .leading:
+            step = request.pager.isRightToLeft ? -1 : 1
+        case .trailing:
+            step = request.pager.isRightToLeft ? 1 : -1
+        case .top, .bottom:
+            result = "unsupportedAxis"
+            return false
+        }
+        let groups = pageGroups
+        let destination = currentPageIndex + step
+        guard groups.indices.contains(currentPageIndex),
+              groups.indices.contains(destination) else {
+            result = "boundary"
+            return false
+        }
+        self[pager: request.pager] = groups[destination].id
+        result = "moved"
+        return true
+    }
+
+    #if DEBUG
+    @ObservationIgnored private var pagingTraceSequence = 0
+    private static let pagingLogger = Logger(
+        subsystem: "com.takumayamada22.PDFViewer", category: "AccessibilityPaging"
+    )
+    #endif
+
+    // Debug-only local unified logging: no document identifiers, paths or text.
+    // Sequence numbers count log events, not gestures. Pair begin/end to count requests.
+    private func tracePaging(_ event: String, detail: String = "") {
+        #if DEBUG
+        pagingTraceSequence += 1
+        let pages = displayedPDFPageIndices.map { String($0 + 1) }.joined(separator: ",")
+        Self.pagingLogger.notice("seq=\(self.pagingTraceSequence) event=\(event, privacy: .public) rtl=\(self.settings.layoutDirection == .rightToLeft) group=\(self.currentPageIndex) pdf=\(pages, privacy: .public) \(detail, privacy: .public)")
+        #endif
+    }
+
     var outline: [PDFOutlineNode] {
         document?.outline ?? []
+    }
+
+    struct AccessibilityFocusRequest: Equatable {
+        let pager: PagerIdentity
+        let viewport: PDFViewportLayout
+        let pageNumber: Int?
+
+        func reason(after previous: Self?) -> String {
+            guard let previous else { return "surfaceMounted" }
+            if pager.documentID != previous.pager.documentID { return "documentChanged" }
+            if viewport != previous.viewport { return "viewportChanged" }
+            if pager != previous.pager { return "groupingChanged" }
+            return "pageChanged"
+        }
+    }
+
+    var accessibilityFocusRequest: AccessibilityFocusRequest {
+        AccessibilityFocusRequest(pager: pagerIdentity, viewport: viewportLayout,
+                                  pageNumber: accessibilityFocusPageNumber)
+    }
+
+    @ObservationIgnored private(set) var accessibilityFocusEventGeneration = 0
+    #if DEBUG
+    @ObservationIgnored private(set) var accessibilityFocusObservation = PDFFocusObservation()
+    @ObservationIgnored private(set) var lastIssuedAccessibilityFocusRequest: AccessibilityFocusRequest?
+    @ObservationIgnored private(set) var accessibilityFocusRequestCount = 0
+    #endif
+
+    // Records an app request, never proof of OS focus or speech completion.
+    func recordAccessibilityFocusRequest(_ request: AccessibilityFocusRequest, reason: String) {
+        #if DEBUG
+        accessibilityFocusObservation.begin(target: request.pageNumber)
+        lastIssuedAccessibilityFocusRequest = request
+        accessibilityFocusRequestCount += 1
+        tracePaging("focus.request", detail: "focusRequest=\(accessibilityFocusRequestCount) targetPDF=\(request.pageNumber ?? 0) retainedPDF=\(accessibilityFocusPageNumber ?? 0) reason=\(reason)")
+        #endif
+    }
+
+    func recordAccessibilityImageFocus(event: String, page: Int, posted: Bool = false, detail: String = "") {
+        if event == "focus.elementFocused" {
+            accessibilityFocusEventGeneration += 1
+            #if DEBUG
+            accessibilityFocusObservation.acquired(page)
+            #endif
+        }
+        tracePaging(event, detail: "elementPDF=\(page) retainedPDF=\(accessibilityFocusPageNumber ?? 0) posted=\(posted) focusGeneration=\(accessibilityFocusEventGeneration) \(detail)")
+        #if DEBUG
+        if event == "focus.elementFocused", accessibilityFocusObservation.departedAfterTarget {
+            tracePaging("focus.departureObserved", detail: "elementPDF=\(page) targetPDF=\(accessibilityFocusObservation.target ?? 0)")
+        }
+        #endif
+    }
+
+    var accessibilityFocusPageNumber: Int? {
+        displayedPageIndex(in: pageGroups).map { $0 + 1 }
     }
 
     var displayedPDFPageIndices: [Int] {
@@ -155,6 +343,7 @@ public class PDFViewerViewModel: NSObject {
               ) else {
             return
         }
+        readingPageIndex = pageIndex
         currentPageIndex = groupIndex
     }
 
@@ -168,6 +357,7 @@ public class PDFViewerViewModel: NSObject {
             horizontalSizeClass: horizontalSizeClass
         )
         guard newLayout != viewportLayout else { return }
+        accessibilitySelectionRevision += 1
 
         let oldGroups = pageGroups
         let displayedPageIndex = displayedPageIndex(in: oldGroups)
@@ -203,7 +393,11 @@ public class PDFViewerViewModel: NSObject {
 
     private func displayedPageIndex(in groups: [PageGroup]) -> Int? {
         guard groups.indices.contains(currentPageIndex) else { return nil }
-        return groups[currentPageIndex].startIndex
+        let group = groups[currentPageIndex]
+        if let readingPageIndex, group.pageIndices.contains(readingPageIndex) {
+            return readingPageIndex
+        }
+        return group.startIndex
     }
 
     private func restoreDisplayedPage(_ pageIndex: Int?, in groups: [PageGroup]) {
@@ -219,6 +413,7 @@ public class PDFViewerViewModel: NSObject {
             }
             return
         }
+        readingPageIndex = pageIndex
         currentPageIndex = groupIndex
     }
 
@@ -280,14 +475,20 @@ public class PDFViewerViewModel: NSObject {
             self.settings.layoutDirection = loadedDocument.layoutDirection
             self.settings.isSpreadViewEnabled = loadedDocument.isSpreadViewEnabled
             self.settings.isCoverPageEnabled = loadedDocument.isCoverPageEnabled
-            self.currentPageIndex = 0
+            self.readingPageIndex = nil
+            self.jumpToPDFPage(0)
             self.searchQuery = ""
             self.searchMatches = []
             if let restored = pendingSession?.state {
                 settings.isSpreadViewEnabled = restored.isSpread
                 settings.isCoverPageEnabled = restored.isCover
                 settings.layoutDirection = restored.isRightToLeft ? .rightToLeft : .leftToRight
-                currentPageIndex = min(max(0, restored.pageIndex), max(0, pageGroups.count - 1))
+                if let pdfPageIndex = restored.pdfPageIndex {
+                    jumpToPDFPage(min(max(0, pdfPageIndex), max(0, loadedDocument.totalPageCount - 1)))
+                } else {
+                    // Older sessions stored only a page-group index.
+                    currentPageIndex = min(max(0, restored.pageIndex), max(0, pageGroups.count - 1))
+                }
                 searchQuery = restored.searchQuery
                 performSearch(query: searchQuery)
             }
@@ -356,7 +557,8 @@ public class PDFViewerViewModel: NSObject {
         let state = ReadingSessionStore.State(
             bookmark: bookmark, pageIndex: currentPageIndex, searchQuery: searchQuery,
             isSpread: settings.isSpreadViewEnabled, isCover: settings.isCoverPageEnabled,
-            isRightToLeft: settings.layoutDirection == .rightToLeft
+            isRightToLeft: settings.layoutDirection == .rightToLeft,
+            pdfPageIndex: displayedPageIndex(in: pageGroups)
         )
         do {
             try sessionStore.save(state)

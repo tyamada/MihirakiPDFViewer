@@ -236,7 +236,7 @@ final class PDFViewerViewModelTests: XCTestCase {
         XCTAssertEqual(model.pageGroups.map(\.pages.count), [2, 1])
     }
 
-    func testRegularWidthPortraitUsesSpreadAndPreservesDisplayedPage() throws {
+    func testRegularWidthPortraitUsesSinglePageAndPreservesDisplayedPage() throws {
         let settings = PDFViewerSettings(
             isSpreadViewEnabled: true,
             isSinglePageInPortraitEnabled: true
@@ -254,9 +254,9 @@ final class PDFViewerViewModelTests: XCTestCase {
             horizontalSizeClass: .regular
         )
 
-        XCTAssertTrue(model.isSpreadLayoutEnabled)
-        XCTAssertEqual(model.pageGroups.map(\.pages.count), [2, 2, 1])
-        XCTAssertEqual(model.currentPageIndex, 1)
+        XCTAssertFalse(model.isSpreadLayoutEnabled)
+        XCTAssertEqual(model.pageGroups.map(\.pages.count), [1, 1, 1, 1, 1])
+        XCTAssertEqual(model.currentPageIndex, 2)
         XCTAssertEqual(model.pageGroups[model.currentPageIndex].startIndex, 2)
     }
 

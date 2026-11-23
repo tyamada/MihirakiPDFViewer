@@ -22,6 +22,10 @@ struct PDFViewerApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
+                .task {
+                    // Independent of PDF loading and StoreKit product/restoration work.
+                    await TipManager.shared.recheckKoyomiEligibility()
+                }
         }
     }
 }

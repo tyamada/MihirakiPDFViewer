@@ -16,6 +16,7 @@ struct ReadingSessionStore {
         var isSpread: Bool
         var isCover: Bool
         var isRightToLeft: Bool
+        var pdfPageIndex: Int? = nil
     }
 
     nonisolated struct Restoration: Equatable, Sendable {

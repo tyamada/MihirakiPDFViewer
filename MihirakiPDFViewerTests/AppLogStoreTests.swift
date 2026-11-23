@@ -94,6 +94,13 @@ struct AppLogStoreTests {
         #expect(text.contains("[WARNING] [rendering] Page rendering was slow"))
         #expect(text.contains("duration_ms=250"))
         #expect(text.contains("pages=12"))
+        // The exported body has a fixed schema: no UUID, raw uptime, or extra
+        // unrestricted fields are added alongside the elapsed duration.
+        let lines = text.components(separatedBy: "\n")
+        #expect(lines.count == 7)
+        #expect(lines.last == "\(entry.timestamp.formatted(.iso8601)) [WARNING] [rendering] Page rendering was slow duration_ms=250 pages=12")
+        #expect(!text.contains(entry.id.uuidString))
+        #expect(!text.localizedCaseInsensitiveContains("uptime"))
     }
 
     @MainActor

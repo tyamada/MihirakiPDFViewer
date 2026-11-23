@@ -30,6 +30,30 @@ struct DeviceTestReportTests {
         #expect(report.shareText.contains("Example failure"))
     }
 
+    @Test
+    func sharedReportDoesNotDiscloseStorageOrStorageDerivedResult() {
+        func report(storageStatus: DeviceTestReport.Check.Status, detail: String) -> DeviceTestReport {
+            DeviceTestReport(
+                testedAt: Date(timeIntervalSince1970: 1_800_000_000),
+                deviceModelName: "iPhone", deviceModelIdentifier: "iPhone17,1",
+                osVersion: "iOS", appVersion: "1.0.4",
+                totalMemoryBytes: 1_000, availableMemoryBytes: 500,
+                checks: [
+                    .init(id: "pdfEngine", name: "PDF rendering", status: .passed, detail: nil),
+                    .init(id: "availableStorage", name: "Available storage",
+                          status: storageStatus, detail: detail)
+                ]
+            )
+        }
+        let passed = report(storageStatus: .passed, detail: "123.45 GB PRIVATE")
+        let failed = report(storageStatus: .failed, detail: "PRIVATE storage error")
+        #expect(passed.allPassed)
+        #expect(!failed.allPassed)
+        #expect(passed.shareText == failed.shareText)
+        #expect(!passed.shareText.contains("PRIVATE"))
+        #expect(!passed.shareText.contains(String(localized: "Available storage")))
+    }
+
     @MainActor
     @Test
     func resolvesKnownModelIdentifierAndFallsBackForUnknownModel() {
@@ -50,7 +74,11 @@ struct DeviceTestReportTests {
     @MainActor
     @Test
     func runnerValidatesLocalStorageAndPDFEngine() throws {
-        let report = DeviceTestRunner.run()
+        let directory = FileManager.default.temporaryDirectory
+            .appendingPathComponent("DeviceTests-\(UUID().uuidString)", isDirectory: true)
+        try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+        defer { try? FileManager.default.removeItem(at: directory) }
+        let report = DeviceTestRunner.run(fileManager: IsolatedDiagnosticFileManager(directory: directory))
         let localStorage = try #require(
             report.checks.first { $0.id == "cacheStorage" }
         )
@@ -83,5 +111,21 @@ struct DeviceTestReportTests {
                 )
             }
         )
+    }
+}
+
+private final class IsolatedDiagnosticFileManager: FileManager, @unchecked Sendable {
+    let directory: URL
+
+    init(directory: URL) {
+        self.directory = directory
+        super.init()
+    }
+
+    override var temporaryDirectory: URL { directory }
+
+    override func urls(for directory: FileManager.SearchPathDirectory,
+                       in domainMask: FileManager.SearchPathDomainMask) -> [URL] {
+        [self.directory]
     }
 }

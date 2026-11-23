@@ -27,6 +27,8 @@
 		EC5BB3EC302ECC0C00F4DE2E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5BB3DF302ECC0C00F4DE2E /* MainView.swift */; };
 		EC5BB3ED302ECC0C00F4DE2E /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5BB3E0302ECC0C00F4DE2E /* PageView.swift */; };
 		EC5E08D830252C8000DB308F /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EC5E08D730252C8000DB308F /* Localizable.xcstrings */; };
+		EC6500A0308B56DD009A377C /* PrivacyPolicyLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC65009F308B56DD009A377C /* PrivacyPolicyLink.swift */; };
+		EC6500A2308B571B009A377C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = EC6500A1308B571B009A377C /* PrivacyInfo.xcprivacy */; };
 		EC7A7124305C812F00D40C37 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EC7A7123305C812F00D40C37 /* InfoPlist.xcstrings */; };
 		ECAB9B6330329C5100F232B3 /* Products.storekit in Resources */ = {isa = PBXBuildFile; fileRef = ECAB9B6230329C5100F232B3 /* Products.storekit */; };
 		ECEE8D9E307ED9FD00ED7C76 /* IncomingPDFImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE8D9D307ED9FD00ED7C76 /* IncomingPDFImporter.swift */; };
@@ -92,6 +94,8 @@
 		EC5BB3E3302ECC0C00F4DE2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC5BB3E4302ECC0C00F4DE2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC5E08D730252C8000DB308F /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		EC65009F308B56DD009A377C /* PrivacyPolicyLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyLink.swift; sourceTree = "<group>"; };
+		EC6500A1308B571B009A377C /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		EC6C75C53037B33D00CD7229 /* MihirakiPDFViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MihirakiPDFViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6C75E53037BD9A00CD7229 /* MihirakiPDFViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MihirakiPDFViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC719B1D2FF7726400CEB2F9 /* MihirakiPDFViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MihirakiPDFViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -237,6 +241,7 @@
 				EC24511330801ED1006C1AD5 /* AppInformationView.swift */,
 				EC24511530801ED1006C1AD5 /* DiagnosticView.swift */,
 				EC24511B30802530006C1AD5 /* PDFOutlineView.swift */,
+				EC65009F308B56DD009A377C /* PrivacyPolicyLink.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 				EC5BB3E3302ECC0C00F4DE2E /* Assets.xcassets */,
 				EC5BB3E4302ECC0C00F4DE2E /* Info.plist */,
 				EC58BDC330774AB30060F37C /* Resources */,
+				EC6500A1308B571B009A377C /* PrivacyInfo.xcprivacy */,
 			);
 			path = MihirakiPDFViewer;
 			sourceTree = "<group>";
@@ -422,6 +428,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC6500A2308B571B009A377C /* PrivacyInfo.xcprivacy in Resources */,
 				EC5BB3E6302ECC0C00F4DE2E /* Assets.xcassets in Resources */,
 				EC58BDC530774AB30060F37C /* SamplePDFCatalog.json in Resources */,
 				ECAB9B6330329C5100F232B3 /* Products.storekit in Resources */,
@@ -489,6 +496,7 @@
 				ECEE8DBC307F294F00ED7C76 /* UITestLaunchConfiguration.swift in Sources */,
 				ECEE8DA6307EE04500ED7C76 /* SecurityScopedResourceManager.swift in Sources */,
 				EC24511630801ED1006C1AD5 /* DiagnosticView.swift in Sources */,
+				EC6500A0308B56DD009A377C /* PrivacyPolicyLink.swift in Sources */,
 				ECEE8DB6307F249B00ED7C76 /* HelpView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -723,11 +731,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 15;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_SOURCE_FILE_NAMES = (
+					"$(inherited)",
+					Products.storekit,
+				);
+				EXECUTABLE_NAME = MihirakiPDFViewer;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MihirakiPDFViewer/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = MihirakiPDFViewer;
+				INFOPLIST_KEY_CFBundleDisplayName = "Mihiraki: Two-Page PDF Reader";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
@@ -741,9 +754,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.takumayamada22.PDFViewer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = MihirakiPDFViewer;
+				PRODUCT_NAME = MihirakiPDF;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
@@ -751,6 +765,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_NAME = MihirakiPDFViewer.app;
 			};
 			name = Debug;
 		};
@@ -761,11 +776,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 15;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_SOURCE_FILE_NAMES = (
+					"$(inherited)",
+					Products.storekit,
+				);
+				EXECUTABLE_NAME = MihirakiPDFViewer;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MihirakiPDFViewer/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = MihirakiPDFViewer;
+				INFOPLIST_KEY_CFBundleDisplayName = "Mihiraki: Two-Page PDF Reader";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
@@ -779,9 +799,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.takumayamada22.PDFViewer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = MihirakiPDFViewer;
+				PRODUCT_NAME = MihirakiPDF;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
@@ -789,6 +810,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_NAME = MihirakiPDFViewer.app;
 			};
 			name = Release;
 		};
