@@ -4,13 +4,14 @@ import UIKit
 @testable import MihirakiPDFViewer
 
 struct ReleaseIdentityTests {
-    private let locales = ["de", "en", "es", "fil", "fr", "id", "ja", "ko", "ne", "pt-BR", "vi", "zh-Hans", "zh-Hant"]
+    private let locales = ["de", "en", "es", "fil", "fr", "id", "it", "ja", "ko", "ne", "pt-BR", "vi", "zh-Hans", "zh-Hant"]
     // Adopted Android naming policy; expectations are independent of the catalogs.
     private let displayNames = [
         "de": "Mihiraki: Doppelseitiger PDF-Reader",
         "en": "Mihiraki: Two-Page PDF Reader",
         "es": "Mihiraki: Lector PDF de Doble Página",
         "fr": "Mihiraki : Lecteur PDF Double Page",
+        "it": "Mihiraki: PDF Doppia Pagina",
         "ja": "見開きPDFビューア",
         "ko": "미히라키 PDF 뷰어",
         "zh-Hant": "MihirakiPDFViewer: 雙頁 PDF 閱讀器"
@@ -39,7 +40,8 @@ struct ReleaseIdentityTests {
 
     @Test
     func languagePreferencesSelectFirstSupportedLanguage() {
-        #expect(Bundle.preferredLocalizations(from: locales, forPreferences: ["it", "ja", "en"]).first == "ja")
+        #expect(Bundle.preferredLocalizations(from: locales, forPreferences: ["nl", "ja", "en"]).first == "ja")
+        #expect(Bundle.preferredLocalizations(from: locales, forPreferences: ["it", "ja", "en"]).first == "it")
         #expect(Bundle.preferredLocalizations(from: locales, forPreferences: ["de", "ja", "en"]).first == "de")
         #expect(Bundle.preferredLocalizations(from: locales, forPreferences: ["en-US"]).first == "en")
         #expect(Bundle.preferredLocalizations(from: locales, forPreferences: ["ja-JP"]).first == "ja")

@@ -1,226 +1,238 @@
 {
-  "sourceLanguage" : "en",
-  "strings" : {
-    "CFBundleDisplayName" : {
-      "comment" : "Bundle display name",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Mihiraki: Doppelseitiger PDF-Reader"
+  "sourceLanguage": "en",
+  "strings": {
+    "CFBundleDisplayName": {
+      "comment": "Bundle display name",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": "Mihiraki: Doppelseitiger PDF-Reader"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Mihiraki: Two-Page PDF Reader"
+        "en": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": "Mihiraki: Two-Page PDF Reader"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Mihiraki: Lector PDF de Doble Página"
+        "es": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": "Mihiraki: Lector PDF de Doble Página"
           }
         },
-        "fil" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "MihirakiPDFViewer"
+        "fil": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": "MihirakiPDFViewer"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Mihiraki : Lecteur PDF Double Page"
+        "fr": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": "Mihiraki : Lecteur PDF Double Page"
           }
         },
-        "id" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "MihirakiPDFViewer"
+        "id": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": "MihirakiPDFViewer"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "見開きPDFビューア"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mihiraki: PDF Doppia Pagina"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "미히라키 PDF 뷰어"
+        "ja": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": "見開きPDFビューア"
           }
         },
-        "ne" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "MihirakiPDFViewer"
+        "ko": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": "미히라키 PDF 뷰어"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "MihirakiPDFViewer"
+        "ne": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": "MihirakiPDFViewer"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "MihirakiPDFViewer"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": "MihirakiPDFViewer"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "MihirakiPDFViewer"
+        "vi": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": "MihirakiPDFViewer"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "MihirakiPDFViewer: 雙頁 PDF 閱讀器"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": "MihirakiPDFViewer"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": "MihirakiPDFViewer: 雙頁 PDF 閱讀器"
           }
         }
       }
     },
-    "CFBundleName" : {
-      "comment" : "Bundle name",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "MihirakiPDF"
+    "CFBundleName": {
+      "comment": "Bundle name",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": "MihirakiPDF"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "MihirakiPDF"
+        "en": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": "MihirakiPDF"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "MihirakiPDF"
+        "es": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": "MihirakiPDF"
           }
         },
-        "fil" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "MihirakiPDF"
+        "fil": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": "MihirakiPDF"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "MihirakiPDF"
+        "fr": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": "MihirakiPDF"
           }
         },
-        "id" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "MihirakiPDF"
+        "id": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": "MihirakiPDF"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "MihirakiPDF"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MihirakiPDF"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "MihirakiPDF"
+        "ja": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": "MihirakiPDF"
           }
         },
-        "ne" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "MihirakiPDF"
+        "ko": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": "MihirakiPDF"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "MihirakiPDF"
+        "ne": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": "MihirakiPDF"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "MihirakiPDF"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": "MihirakiPDF"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "MihirakiPDF"
+        "vi": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": "MihirakiPDF"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "MihirakiPDF"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": "MihirakiPDF"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": "MihirakiPDF"
           }
         }
       }
     },
-    "NSHumanReadableCopyright" : {
-      "comment" : "Copyright (human-readable)",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
+    "NSHumanReadableCopyright": {
+      "comment": "Copyright (human-readable)",
+      "extractionState": "extracted_with_value",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": ""
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : ""
+        "es": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": ""
           }
         },
-        "fil" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : ""
+        "fil": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": ""
           }
         },
-        "id" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : ""
+        "id": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": ""
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : ""
+        "ja": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": ""
           }
         },
-        "ne" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : ""
+        "ne": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": ""
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : ""
+        "vi": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": ""
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : ""
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "machine_translated",
+            "value": ""
           }
         }
       }
     }
   },
-  "version" : "1.3"
+  "version": "1.3"
 }

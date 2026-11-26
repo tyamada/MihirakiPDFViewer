@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Informativa sulla privacy di Mihiraki: PDF Doppia Pagina.">
+    <title>Informativa sulla privacy | Mihiraki: PDF Doppia Pagina</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #f4f7fb;
+            --surface: #ffffff;
+            --surface-soft: #eef3f8;
+            --text: #172033;
+            --muted: #607085;
+            --line: #d7e0ea;
+            --accent: #1f61c4;
+            --accent-dark: #184b96;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.75;
+        }
+
+        a {
+            color: var(--accent);
+        }
+
+        .site-header {
+            position: static;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(18px);
+            background: rgba(244, 247, 251, 0.88);
+            border-bottom: 1px solid rgba(215, 224, 234, 0.8);
+        }
+
+        .nav,
+        .container,
+        .footer-inner {
+            width: min(1040px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 68px;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text);
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 0;
+        }
+
+        .brand img {
+            width: 38px;
+            height: 38px;
+            border-radius: 9px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .hero {
+            padding: 72px 0 54px;
+        }
+
+        .eyebrow {
+            margin: 0 0 14px;
+            color: var(--accent-dark);
+            font-weight: 700;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.3rem, 5vw, 4rem);
+            line-height: 1.12;
+            letter-spacing: 0;
+        }
+
+        .lead {
+            max-width: 760px;
+            margin: 20px 0 0;
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        .section {
+            padding: 58px 0;
+            border-top: 1px solid rgba(215, 224, 234, 0.72);
+        }
+
+        .section:nth-child(even) {
+            background: var(--surface);
+        }
+
+        .section-heading {
+            margin-bottom: 24px;
+        }
+
+        .section-heading h2 {
+            margin: 0;
+            font-size: clamp(1.6rem, 3vw, 2.35rem);
+            line-height: 1.25;
+            letter-spacing: 0;
+        }
+
+        .section-heading p {
+            margin: 10px 0 0;
+            color: var(--muted);
+        }
+
+        .summary-grid,
+        .policy-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .summary-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .policy-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .card,
+        .notice {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 22px;
+        }
+
+        .section:nth-child(even) .card,
+        .section:nth-child(even) .notice {
+            background: var(--surface-soft);
+        }
+
+        .card h3,
+        .notice h3 {
+            margin: 0 0 12px;
+            font-size: 1.16rem;
+            letter-spacing: 0;
+        }
+
+        .card p,
+        .notice p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .card ul,
+        .notice ul {
+            margin: 10px 0 0;
+            padding-left: 1.2em;
+            color: var(--muted);
+        }
+
+        .card li + li,
+        .notice li + li {
+            margin-top: 6px;
+        }
+
+        .language-switcher {
+            min-height: 36px;
+            padding: 0 34px 0 12px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--surface);
+            color: var(--text);
+            font: inherit;
+            font-weight: 600;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            margin-top: 16px;
+            padding: 0 18px;
+            border-radius: 8px;
+            border: 1px solid var(--accent);
+            background: var(--accent);
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .site-footer {
+            padding: 30px 0;
+            color: var(--muted);
+            border-top: 1px solid rgba(215, 224, 234, 0.9);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        @media (max-width: 760px) {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .footer-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .summary-grid,
+            .policy-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero,
+            .section {
+                padding: 46px 0;
+            }
+        }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav" aria-label="Navigazione principale">
+            <a class="brand" href="index_it.html">
+                <img src="assets/icons/MihirakiPDFViewer-AppIcon.png" alt="" width="38" height="38">
+                <span>Mihiraki: PDF Doppia Pagina</span>
+            </a>
+            <div class="nav-links" aria-label="Link pagina">
+                <a href="#summary">Riepilogo</a>
+                <a href="#policy">Gestione dati</a>
+                <a href="#contact">Contatti</a>
+                <a href="support_it.html">Supporto</a>
+                <select class="language-switcher" aria-label="Lingua" onchange="if (this.value) window.location.href = this.value;">
+                    <option value="privacy.html">English</option>
+                    <option value="privacy_fr.html">Français</option>
+                    <option value="privacy_de.html">Deutsch</option>
+                    <option value="privacy_it.html" selected>Italiano</option>
+                    <option value="privacy_pt.html">Português</option>
+                    <option value="privacy_es.html">Español</option>
+                    <option value="privacy_ja.html">日本語</option>
+                    <option value="privacy_zh-Hans.html">简体中文</option>
+                    <option value="privacy_zh-Hant.html">繁體中文</option>
+                    <option value="privacy_ko.html">한국어</option>
+                    <option value="privacy_vi.html">Tiếng Việt</option>
+                    <option value="privacy_fil.html">Filipino</option>
+                    <option value="privacy_ne.html">नेपाली</option>
+                    <option value="privacy_id.html">Bahasa Indonesia</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">La versione 1.1.2 è disponibile</h2>
+            <p>La versione 1.1.2 è disponibile sull’App Store in 11 paesi e regioni, tra cui Giappone, Stati Uniti, Corea del Sud, Taiwan, Hong Kong, Macao, Canada, Regno Unito, Australia, Nuova Zelanda e Singapore.</p>
+        </aside>
+
+        <section class="hero">
+            <div class="container">
+                <p class="eyebrow">Informativa sulla privacy</p>
+                <h1>Informativa sulla privacy</h1>
+                <p class="lead">
+                    Mihiraki: PDF Doppia Pagina è un’app per leggere comodamente i PDF sul tuo dispositivo.
+                    Questa pagina spiega quali informazioni tratta l’app e come vengono utilizzate.
+                </p>
+            </div>
+        </section>
+
+        <section id="summary" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Riepilogo</h2>
+                    <p>L’approccio di base dell’app alla privacy.</p>
+                </div>
+                <div class="summary-grid">
+                    <article class="card">
+                        <h3>I contenuti PDF non vengono inviati all’esterno</h3>
+                        <p>Visualizzazione, ricerca e rilevamento delle pagine avvengono localmente sul dispositivo.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Nessuna pubblicità né SDK di tracciamento</h3>
+                        <p>L’app non include SDK di terze parti per pubblicità o analisi comportamentale.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Acquisti gestiti da Apple</h3>
+                        <p>Gli acquisti in-app avvengono tramite Apple StoreKit. L’app non riceve dati di pagamento.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="policy" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Informazioni gestite dall’app</h2>
+                    <p>Dettagli sul trattamento locale e sulle richieste di rete opzionali.</p>
+                </div>
+                <div class="policy-grid">
+                    <article class="card">
+                        <h3>File PDF e impostazioni</h3>
+                        <p>I PDF selezionati e le impostazioni di visualizzazione (inclusa la posizione di lettura) restano sul dispositivo. Le password dei PDF protetti non vengono salvate.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Diagnostica e log dell’app</h3>
+                        <p>I log sono limitati a 2.000 voci delle ultime 24 ore (rimosse in lettura o registrazione) e non includono contenuti PDF, nomi file, password o termini di ricerca. Lo spazio disponibile è escluso dai risultati condivisi. Nulla viene inviato automaticamente.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Catalogo PDF di esempio</h3>
+                        <p>All’apertura dell’elenco esempi l’app contatta raw.githubusercontent.com per il catalogo JSON; i download di PDF contattano GitHub Releases solo su tua scelta.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Contatti</h2>
+                    <p>Per domande sulla privacy o richieste di eliminazione, scrivi a <a href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a>.</p>
+                </div>
+                <article class="notice">
+                    <a class="button" href="support_it.html#contact">Apri pagina Supporto</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="support-retention">
+            <div class="container">
+                <h2>Informazioni di supporto e conservazione</h2>
+                <p>Le informazioni inviate al supporto vengono usate solo per rispondere, indagare problemi e migliorare l’app. Le e-mail originali e le eventuali immagini diagnostiche vengono eliminate normalmente entro 60–90 giorni dalla chiusura del caso (su richiesta anche prima). I post pubblici su GitHub Issues sono distinti dai record privati gestiti dallo sviluppatore.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <span>&copy; 2026 Takuma Yamada. Tutti i diritti riservati.</span>
+            <div class="footer-links" aria-label="Link piè di pagina">
+                <a href="index_it.html">Home</a>
+                <a href="support_it.html">Supporto</a>
+                <a href="privacy_it.html">Informativa sulla privacy</a>
+                <a href="README.md">README</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -932,4 +932,65 @@ final class MihirakiPDFViewerUITests: XCTestCase {
         }
     }
 
+    @MainActor
+    func testItalianLocalizationScreens() throws {
+        XCUIDevice.shared.orientation = .portrait
+        func attach(_ name: String) {
+            let attachment = XCTAttachment(screenshot: app.screenshot())
+            attachment.name = name
+            attachment.lifetime = .keepAlways
+            add(attachment)
+        }
+
+        app = XCUIApplication()
+        app.launchArguments = [
+            "-uiTestResetReadingSession",
+            "-uiTestResetRenderingPreferences",
+            "-AppleLanguages", "(it)",
+            "-AppleLocale", "it_IT"
+        ]
+        app.launch()
+
+        XCTAssertTrue(element("emptyStateView").waitForExistence(timeout: 10))
+        attach("it_01_empty_state")
+
+        let samplesButton = app.buttons["samplePDFsButton"]
+        XCTAssertTrue(samplesButton.waitForExistence(timeout: 5))
+        samplesButton.tap()
+        XCTAssertTrue(element("samplePDFListScreen").waitForExistence(timeout: 5))
+        sleep(1)
+        attach("it_02_sample_pdfs")
+        app.navigationBars.buttons.element(boundBy: 0).tap()
+        XCTAssertTrue(element("emptyStateView").waitForExistence(timeout: 5))
+
+        let settingsButton = app.buttons["settingsButton"]
+        XCTAssertTrue(settingsButton.waitForExistence(timeout: 5))
+        settingsButton.tap()
+        XCTAssertTrue(element("settingsScreen").waitForExistence(timeout: 5))
+        attach("it_03_settings_top")
+
+        let helpButton = app.buttons["helpButton"]
+        XCTAssertTrue(helpButton.waitForExistence(timeout: 5))
+        helpButton.tap()
+        XCTAssertTrue(element("helpScreen").waitForExistence(timeout: 5))
+        attach("it_04_help")
+        app.navigationBars.buttons.element(boundBy: 0).tap()
+        XCTAssertTrue(element("settingsScreen").waitForExistence(timeout: 5))
+
+        app.swipeUp()
+        attach("it_05_settings_mid")
+
+        let supportButton = app.buttons["supportButton"]
+        for _ in 0..<4 where !(supportButton.exists && supportButton.isHittable) {
+            app.swipeUp()
+        }
+        XCTAssertTrue(supportButton.waitForExistence(timeout: 5))
+        supportButton.tap()
+        _ = app.buttons["restorePurchasesButton"].waitForExistence(timeout: 5)
+        sleep(1)
+        attach("it_06_tip_selection")
+
+        app.terminate()
+    }
+
 }

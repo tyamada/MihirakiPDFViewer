@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Domande frequenti, risoluzione dei problemi e contatti di supporto per Mihiraki: PDF Doppia Pagina.">
+    <title>Supporto | Mihiraki: PDF Doppia Pagina</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #f4f7fb;
+            --surface: #ffffff;
+            --surface-soft: #eef3f8;
+            --text: #172033;
+            --muted: #607085;
+            --line: #d7e0ea;
+            --accent: #1f61c4;
+            --accent-dark: #184b96;
+            --shadow: 0 18px 50px rgba(23, 32, 51, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.75;
+        }
+
+        a {
+            color: var(--accent);
+        }
+
+        .site-header {
+            position: static;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(18px);
+            background: rgba(244, 247, 251, 0.88);
+            border-bottom: 1px solid rgba(215, 224, 234, 0.8);
+        }
+
+        .nav,
+        .container,
+        .footer-inner {
+            width: min(1040px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 68px;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text);
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 0;
+        }
+
+        .brand img {
+            width: 38px;
+            height: 38px;
+            border-radius: 9px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .hero {
+            padding: 72px 0 54px;
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 260px;
+            align-items: center;
+            gap: 42px;
+        }
+
+        .eyebrow {
+            margin: 0 0 14px;
+            color: var(--accent-dark);
+            font-weight: 700;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.3rem, 5vw, 4rem);
+            line-height: 1.12;
+            letter-spacing: 0;
+        }
+
+        .hero p:last-child {
+            max-width: 720px;
+            margin: 20px 0 0;
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        .hero-card,
+        .quick-link,
+        .faq-category,
+        .step,
+        .contact-card,
+        .notice {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 22px;
+        }
+
+        .hero-card {
+            padding: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-card img {
+            display: block;
+            width: 92px;
+            height: 92px;
+            margin-bottom: 18px;
+            border-radius: 20px;
+        }
+
+        .hero-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .section {
+            padding: 58px 0;
+            border-top: 1px solid rgba(215, 224, 234, 0.72);
+        }
+
+        .section:nth-child(even) {
+            background: var(--surface);
+        }
+
+        .section:nth-child(even) .quick-link,
+        .section:nth-child(even) .faq-category,
+        .section:nth-child(even) .step,
+        .section:nth-child(even) .contact-card,
+        .section:nth-child(even) .notice {
+            background: var(--surface-soft);
+        }
+
+        .section-heading {
+            margin-bottom: 24px;
+        }
+
+        .section-heading h2 {
+            margin: 0;
+            font-size: clamp(1.6rem, 3vw, 2.35rem);
+            line-height: 1.25;
+            letter-spacing: 0;
+        }
+
+        .section-heading p {
+            margin: 10px 0 0;
+            color: var(--muted);
+        }
+
+        .quick-links,
+        .faq-grid,
+        .steps,
+        .contact-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .quick-links {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .faq-grid,
+        .contact-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .quick-link {
+            color: var(--text);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .faq-category h3,
+        .step h3,
+        .contact-card h3,
+        .notice h3 {
+            margin: 0 0 14px;
+            font-size: 1.16rem;
+            letter-spacing: 0;
+        }
+
+        details {
+            padding: 14px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        details:first-of-type {
+            border-top: 0;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        details p,
+        .step p,
+        .contact-card p,
+        .notice p {
+            margin: 10px 0 0;
+            color: var(--muted);
+        }
+
+        .steps {
+            counter-reset: steps;
+        }
+
+        .step {
+            position: relative;
+            padding-left: 72px;
+        }
+
+        .step::before {
+            counter-increment: steps;
+            content: counter(steps);
+            position: absolute;
+            left: 22px;
+            top: 22px;
+            display: grid;
+            place-items: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            background: var(--accent);
+            color: #fff;
+            font-weight: 800;
+        }
+
+        .language-switcher {
+            min-height: 36px;
+            padding: 0 34px 0 12px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--surface);
+            color: var(--text);
+            font: inherit;
+            font-weight: 600;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            margin-top: 16px;
+            padding: 0 18px;
+            border-radius: 8px;
+            border: 1px solid var(--accent);
+            background: var(--accent);
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .button.secondary {
+            background: transparent;
+            color: var(--accent);
+        }
+
+        .note {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .site-footer {
+            padding: 34px 0;
+            color: var(--muted);
+            border-top: 1px solid var(--line);
+            background: var(--surface);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        @media (max-width: 860px) {
+            .site-header {
+                position: static;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            .nav-links,
+            .language-switcher {
+                max-width: 100%;
+            }
+
+            .nav-links > a {
+                display: none;
+            }
+
+            .hero-inner,
+            .quick-links,
+            .faq-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 46px 0 42px;
+            }
+
+            .hero-card {
+                display: none;
+            }
+
+            .section {
+                padding: 46px 0;
+            }
+        }
+
+        /* Keep text and controls reachable at narrow widths and larger text sizes. */
+        body { overflow-wrap: anywhere; }
+        .nav, .nav-links, .brand, .hero-actions { flex-wrap: wrap; }
+        .nav > *, .nav-links > *, .brand > *, .hero > *, .hero-inner > *,
+        .download > *, .footer-inner > *, .container > *,
+        .feature-grid > *, .problem-grid > *, .usecase-grid > *,
+        .summary-grid > *, .policy-grid > * { min-width: 0; }
+        .brand img { flex-shrink: 0; }
+        .language-switcher { max-width: 100%; min-width: 0; }
+        .button { max-width: 100%; white-space: normal; text-align: center; padding-top: 10px; padding-bottom: 10px; }
+        img { max-width: 100%; }
+        .release-preview { width: min(1040px, calc(100% - 32px)); margin: 24px auto; padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+        .release-preview h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+        .release-preview p { margin: 0; }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav" aria-label="Navigazione principale">
+            <a class="brand" href="index_it.html">
+                <img src="assets/icons/MihirakiPDFViewer-AppIcon.png" alt="" width="38" height="38">
+                <span>Mihiraki: PDF Doppia Pagina</span>
+            </a>
+            <div class="nav-links">
+                <a href="#faq">FAQ</a>
+                <a href="#troubleshooting">Risoluzione problemi</a>
+                <a href="#contact">Contatti</a>
+                <a href="index_it.html">Home</a>
+                <select class="language-switcher" aria-label="Lingua" onchange="if (this.value) window.location.href = this.value;">
+                    <option value="support.html">English</option>
+                    <option value="support_fr.html">Français</option>
+                    <option value="support_de.html">Deutsch</option>
+                    <option value="support_it.html" selected>Italiano</option>
+                    <option value="support_pt.html">Português</option>
+                    <option value="support_es.html">Español</option>
+                    <option value="support_ja.html">日本語</option>
+                    <option value="support_zh-Hans.html">简体中文</option>
+                    <option value="support_zh-Hant.html">繁體中文</option>
+                    <option value="support_ko.html">한국어</option>
+                    <option value="support_vi.html">Tiếng Việt</option>
+                    <option value="support_fil.html">Filipino</option>
+                    <option value="support_ne.html">नेपाली</option>
+                    <option value="support_id.html">Bahasa Indonesia</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <aside class="release-preview" id="release-preview-notice" aria-labelledby="release-preview-heading">
+            <h2 id="release-preview-heading">La versione 1.1.2 è disponibile</h2>
+            <p>La versione 1.1.2 è disponibile sull’App Store in 11 paesi e regioni, tra cui Giappone, Stati Uniti, Corea del Sud, Taiwan, Hong Kong, Macao, Canada, Regno Unito, Australia, Nuova Zelanda e Singapore.</p>
+        </aside>
+
+        <section class="hero">
+            <div class="container hero-inner">
+                <div>
+                    <p class="eyebrow">Aiuto e domande frequenti</p>
+                    <h1>Supporto Mihiraki: PDF Doppia Pagina</h1>
+                    <p>
+                        Grazie per aver scelto Mihiraki: PDF Doppia Pagina. Questa pagina spiega
+                        come aprire i PDF, usare la doppia pagina, cercare, ingrandire, gestire
+                        PDF protetti da password e risolvere i problemi più comuni.
+                    </p>
+                </div>
+                <aside class="hero-card" aria-label="Panoramica app">
+                    <img src="assets/icons/MihirakiPDFViewer-AppIcon.png" alt="">
+                    <p>
+                        Un lettore PDF semplice per libri, fumetti, manga e documenti a doppia pagina.
+                    </p>
+                </aside>
+            </div>
+        </section>
+
+        <section class="section" id="faq" aria-labelledby="faq-title">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 id="faq-title">Domande frequenti (FAQ)</h2>
+                    <p>Risposte alle domande più comuni.</p>
+                </div>
+                <div class="faq-grid">
+                    <article class="faq-category" id="basic">
+                        <h3>Funzioni di base</h3>
+                        <details open>
+                            <summary>Da dove posso aprire i file PDF?</summary>
+                            <p>Usa il selettore file mostrato all’avvio per scegliere un PDF dal dispositivo o da iCloud Drive.</p>
+                        </details>
+                        <details>
+                            <summary>Come mostro o nascondo il menu e il cursore?</summary>
+                            <p>Tocca lo schermo del PDF per mostrare o nascondere barra degli strumenti, ricerca e cursore.</p>
+                        </details>
+                    </article>
+
+                    <article class="faq-category" id="viewing">
+                        <h3>Visualizzazione e controlli</h3>
+                        <details open>
+                            <summary>Supporta PDF con lettura da destra a sinistra?</summary>
+                            <p>Sì. L’app legge direzione e layout del PDF e mostra le pagine nell’ordine naturale, sia da sinistra a destra sia da destra a sinistra.</p>
+                        </details>
+                        <details>
+                            <summary>Gli acquisti in-app sono obbligatori?</summary>
+                            <p>No. Tutte le funzioni di lettura PDF sono gratuite e senza pubblicità. Bronze, Silver e Gold sono acquisti una tantum non consumabili e facoltativi che sbloccano le relative icone app. Puoi ripristinare gli acquisti con lo stesso Apple Account.</p>
+                        </details>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="troubleshooting" aria-labelledby="troubleshooting-title">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 id="troubleshooting-title">Risoluzione dei problemi</h2>
+                    <p>Se l’app non funziona come previsto, verifica questi passaggi in ordine.</p>
+                </div>
+                <div class="steps">
+                    <article class="step">
+                        <h3>Riavvia l’app</h3>
+                        <p>Se la visualizzazione si blocca temporaneamente, chiudi l’app e riaprila.</p>
+                    </article>
+                    <article class="step">
+                        <h3>Verifica il file PDF</h3>
+                        <p>Prova ad aprire un altro PDF per escludere file danneggiati o non ancora scaricati da iCloud Drive.</p>
+                    </article>
+                    <article class="step">
+                        <h3>Ripristina le impostazioni</h3>
+                        <p>Usa Ripristina in Impostazioni per tornare ai valori predefiniti (le icone acquistate restano disponibili).</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contact" aria-labelledby="contact-title">
+            <div class="container">
+                <h2 id="contact-title">Segnalazione bug e richieste private</h2>
+                <p>Inizia con il testo: riassumi il problema, indica i passaggi per riprodurlo e cosa ti aspettavi rispetto a quanto accaduto. Non è necessario indicare il tuo vero nome.</p>
+                <div class="contact-grid">
+                    <article class="contact-card">
+                        <h3>Segnalazione pubblica (GitHub Issues)</h3>
+                        <p>Non pubblicare informazioni personali, file PDF o loro contenuti, nomi di file o screenshot su GitHub Issues pubblico.</p>
+                        <a class="button" href="https://github.com/tyamada/MihirakiPDFViewer/issues" rel="noopener">Segnalazione pubblica (GitHub Issues)</a>
+                    </article>
+                    <article class="contact-card">
+                        <h3>Richieste private (e-mail)</h3>
+                        <p>Gli screenshot sono accettati solo via e-mail privata quando il solo testo non basta per riprodurre il problema. Prima dell’invio, nascondi contenuti PDF, nomi di file e dati non necessari.</p>
+                        <a class="button secondary" href="mailto:tyamada.support@gmail.com">tyamada.support@gmail.com</a>
+                    </article>
+                </div>
+                <p>Consulta la <a href="privacy_it.html#support-retention">politica di conservazione dei dati di supporto</a> per i dettagli su e-mail, immagini e segnalazioni.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <small>&copy; 2026 Takuma Yamada. Tutti i diritti riservati.</small>
+            <div class="footer-links">
+                <a href="index_it.html">Home</a>
+                <a href="privacy_it.html">Informativa sulla privacy</a>
+                <a href="README.md">README</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

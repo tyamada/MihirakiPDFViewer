@@ -10,7 +10,7 @@ import Testing
 
 struct LocalizationCompletenessTests {
     private let supportedLocales = [
-        "ja", "zh-Hans", "ko", "es", "fr", "de", "pt-BR", "zh-Hant", "vi", "fil"
+        "ja", "zh-Hans", "ko", "es", "fr", "de", "it", "pt-BR", "zh-Hant", "vi", "fil"
     ]
     private let updatedHelpKeys = [
         "help_diagnostic_privacy_description",
