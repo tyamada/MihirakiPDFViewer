@@ -1,4 +1,4 @@
-> **Status (2026-11-23):** **1.1.0 (16)** is available in Japan and the United States. **1.1.1 (17)** was submitted at **10:05 JST** for Korean App Store localization and is waiting for review. Korea distribution remains on hold. [Release and review record](release-notes/2026-11-23.md).
+> **Status (2026-11-26):** **1.1.2 (18)** is available on the App Store in 11 countries and regions (Japan, the United States, South Korea, Taiwan, Hong Kong, Macau, Canada, the United Kingdom, Australia, New Zealand, and Singapore). **1.1.3 (19)** is a local release candidate completing German and French localizations and fixing iPhone SE layout truncation; Germany and France distribution remains on hold pending EU DSA review approval and 1.1.3 release. [Prior release record (2026-11-23)](release-notes/2026-11-23.md).
 
 # MihirakiPDFViewer
 
@@ -240,6 +240,13 @@ Generative AI was used to create and translate the text and images in this work.
 
 ## Version History
 
+- **1.1.3 build 19 — local release candidate, 2026/11/26**: Completed German
+  and French localizations (`Localizable.xcstrings`), shortened German reading-direction
+  segment labels and supporter-icon apply button to prevent truncation on iPhone SE,
+  and verified German/French primary screens on a physical iPhone SE (3rd generation).
+- **1.1.2 build 18 — released**: Expanded distribution to 11 countries and regions
+  (Japan, the United States, South Korea, Taiwan, Hong Kong, Macau, Canada, the United Kingdom,
+  Australia, New Zealand, and Singapore).
 - **1.0.4 build 14 — local source candidate, 2026/11/07**: Uses price-free
   Bronze, Silver and Gold headings in all 13 languages; purchase buttons retain
   StoreKit prices. Retains the four ShareLink-related collected-data declarations.
