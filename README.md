@@ -1,4 +1,4 @@
-> **Status (2026-11-26):** **1.1.2 (18)** is available on the App Store in 11 countries and regions (Japan, the United States, South Korea, Taiwan, Hong Kong, Macau, Canada, the United Kingdom, Australia, New Zealand, and Singapore). **1.1.3 (19)** is a local release candidate completing German and French localizations and fixing iPhone SE layout truncation; Germany and France distribution remains on hold pending EU DSA review approval and 1.1.3 release. [Prior release record (2026-11-23)](release-notes/2026-11-23.md).
+> **Status (2026-11-27):** **1.1.3 (19)** is approved and available on the App Store in 11 countries and regions (Japan, the United States, South Korea, Taiwan, Hong Kong, Macau, Canada, the United Kingdom, Australia, New Zealand, and Singapore). **1.1.4 (20)** is a local release candidate adding full Italian localization (14 languages) and Italian web documentation; EU distribution (Germany, France, Italy) remains on hold pending EU DSA review approval. [Prior release record (2026-11-23)](release-notes/2026-11-23.md).
 
 # MihirakiPDFViewer
 
@@ -116,7 +116,7 @@ non-consumable in-app purchases through StoreKit. These purchases are
 voluntary and are not used to remove ads or unlock restricted viewer
 features.
 
-The purchase-screen headings are Bronze, Silver, and Gold in all 13 languages. Prices come from StoreKit and appear only on the purchase buttons.
+The purchase-screen headings are Bronze, Silver, and Gold in all 14 languages. Prices come from StoreKit and appear only on the purchase buttons.
 
 The app supports the following non-consumable items:
 
@@ -240,7 +240,11 @@ Generative AI was used to create and translate the text and images in this work.
 
 ## Version History
 
-- **1.1.3 build 19 — local release candidate, 2026/11/26**: Completed German
+- **1.1.4 build 20 — local release candidate, 2026/11/27**: Added full Italian
+  localization (`Localizable.xcstrings`, `InfoPlist.xcstrings`, 14 supported languages),
+  Italian web documentation (`docs/*_it.html`), and verified Italian primary screens on
+  iPhone SE (3rd generation) simulator.
+- **1.1.3 build 19 — released, 2026/11/27**: Completed German
   and French localizations (`Localizable.xcstrings`), shortened German reading-direction
   segment labels and supporter-icon apply button to prevent truncation on iPhone SE,
   and verified German/French primary screens on a physical iPhone SE (3rd generation).
