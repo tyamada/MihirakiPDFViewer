@@ -996,6 +996,12 @@
             "value": "Registros de la app"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Journaux de l’app"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "machine_translated",
@@ -2564,6 +2570,12 @@
             "value": "Pruebas del dispositivo"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tests de l’appareil"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "machine_translated",
@@ -2773,7 +2785,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Von links nach rechts (L2R)"
+            "value": "Links → Rechts (L2R)"
           }
         },
         "en": {
@@ -2856,7 +2868,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Von rechts nach links (R2L)"
+            "value": "Rechts → Links (R2L)"
           }
         },
         "en": {
@@ -3370,6 +3382,12 @@
             "value": "Introducir código promocional"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saisir un code promotionnel"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "machine_translated",
@@ -3731,6 +3749,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "Ir a la pantalla Apoyo"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aller à l’écran Soutenir"
           }
         },
         "ja": {
@@ -11008,8 +11032,8 @@
         },
         "fr": {
           "stringUnit": {
-            "state": "machine_translated",
-            "value": "Les codes admissibles Bronze, Silver et Gold peuvent être utilisés depuis Soutien. Les nouvelles offres du badge Koyomi sont reportées. Les achats existants de badges peuvent être restaurés."
+            "state": "translated",
+            "value": "Les codes admissibles Bronze, Silver et Gold peuvent être utilisés depuis l’écran Soutenir. Les nouvelles offres du badge Koyomi sont reportées. Les achats existants de badges peuvent être restaurés."
           }
         },
         "id": {
@@ -12535,6 +12559,12 @@
     "sample_pdf_browse_button": {
       "extractionState": "extracted_with_value",
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beispiel-PDFs durchsuchen"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "new",
@@ -12545,6 +12575,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "Explorar PDF de muestra"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Parcourir les PDF d’exemple"
           }
         },
         "ja": {
@@ -12570,6 +12606,12 @@
     "sample_pdf_catalog_error": {
       "extractionState": "extracted_with_value",
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die Liste der Beispiel-PDFs konnte nicht geladen werden."
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "new",
@@ -12580,6 +12622,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "No se ha podido cargar la lista de PDF de muestra."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impossible de charger la liste des PDF d’exemple."
           }
         },
         "ja": {
@@ -12605,6 +12653,12 @@
     "sample_pdf_cellular_message": {
       "extractionState": "extracted_with_value",
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diese PDF-Datei ist %@ groß. Zum Laden werden mobile Daten verwendet."
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "new",
@@ -12615,6 +12669,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "Este PDF ocupa %@. Al descargarlo se usarán datos móviles."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ce PDF pèse %@. Le téléchargement utilisera les données cellulaires."
           }
         },
         "ja": {
@@ -12640,6 +12700,12 @@
     "sample_pdf_cellular_title": {
       "extractionState": "extracted_with_value",
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Über mobile Daten laden?"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "new",
@@ -12650,6 +12716,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "¿Descargar con datos móviles?"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Télécharger via les données cellulaires ?"
           }
         },
         "ja": {
@@ -12675,6 +12747,12 @@
     "sample_pdf_checksum_error": {
       "extractionState": "extracted_with_value",
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die Integritätsprüfung der geladenen PDF-Datei ist fehlgeschlagen."
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "new",
@@ -12685,6 +12763,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "El PDF descargado no ha superado la comprobación de integridad."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La vérification d’intégrité du PDF téléchargé a échoué."
           }
         },
         "ja": {
@@ -12710,6 +12794,12 @@
     "sample_pdf_close_before_delete": {
       "extractionState": "extracted_with_value",
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schließe diese PDF-Datei, bevor du sie löschst."
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "new",
@@ -12720,6 +12810,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "Cierra este PDF antes de eliminarlo."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fermez ce PDF avant de le supprimer."
           }
         },
         "ja": {
@@ -12745,6 +12841,12 @@
     "sample_pdf_delete_button": {
       "extractionState": "extracted_with_value",
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Löschen"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "new",
@@ -12755,6 +12857,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "Eliminar"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Supprimer"
           }
         },
         "ja": {
@@ -12780,6 +12888,12 @@
     "sample_pdf_delete_error": {
       "extractionState": "extracted_with_value",
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die Beispiel-PDF konnte nicht gelöscht werden."
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "new",
@@ -12790,6 +12904,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "No se ha podido eliminar el PDF de muestra."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impossible de supprimer le PDF d’exemple."
           }
         },
         "ja": {
@@ -12815,6 +12935,12 @@
     "sample_pdf_delete_message": {
       "extractionState": "extracted_with_value",
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "„%@“ aus „Dokumente“ löschen?"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "new",
@@ -12825,6 +12951,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "¿Eliminar %@ de Documentos?"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Supprimer %@ de Documents ?"
           }
         },
         "ja": {
@@ -12850,6 +12982,12 @@
     "sample_pdf_delete_title": {
       "extractionState": "extracted_with_value",
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beispiel-PDF löschen?"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "new",
@@ -12860,6 +12998,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "¿Eliminar el PDF de muestra?"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Supprimer le PDF d’exemple ?"
           }
         },
         "ja": {
@@ -12885,6 +13029,12 @@
     "sample_pdf_deleting": {
       "extractionState": "extracted_with_value",
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Löschen …"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "new",
@@ -12895,6 +13045,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "Eliminando…"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suppression…"
           }
         },
         "ja": {
@@ -12920,6 +13076,12 @@
     "sample_pdf_download_button": {
       "extractionState": "extracted_with_value",
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laden"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "new",
@@ -12930,6 +13092,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "Descargar"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Télécharger"
           }
         },
         "ja": {
@@ -12955,6 +13123,12 @@
     "sample_pdf_download_error": {
       "extractionState": "extracted_with_value",
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die Beispiel-PDF konnte nicht geladen werden."
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "new",
@@ -12965,6 +13139,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "No se ha podido descargar el PDF de muestra."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impossible de télécharger le PDF d’exemple."
           }
         },
         "ja": {
@@ -12990,6 +13170,12 @@
     "sample_pdf_downloaded": {
       "extractionState": "extracted_with_value",
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geladen"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "new",
@@ -13000,6 +13186,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "Descargado"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Téléchargé"
           }
         },
         "ja": {
@@ -13025,6 +13217,12 @@
     "sample_pdf_downloading": {
       "extractionState": "extracted_with_value",
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laden …"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "new",
@@ -13035,6 +13233,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "Descargando…"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Téléchargement…"
           }
         },
         "ja": {
@@ -13060,6 +13264,12 @@
     "sample_pdf_format_error": {
       "extractionState": "extracted_with_value",
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die geladene Datei ist keine gültige PDF-Datei."
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "new",
@@ -13070,6 +13280,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "El archivo descargado no es un PDF válido."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le fichier téléchargé n’est pas un PDF valide."
           }
         },
         "ja": {
@@ -13095,6 +13311,12 @@
     "sample_pdf_language_filter_all": {
       "extractionState": "extracted_with_value",
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alle"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "new",
@@ -13105,6 +13327,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "Todos"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toutes"
           }
         },
         "ja": {
@@ -13130,6 +13358,12 @@
     "sample_pdf_language_filter_label": {
       "extractionState": "extracted_with_value",
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sprache"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "new",
@@ -13140,6 +13374,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "Idioma"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Langue"
           }
         },
         "ja": {
@@ -13165,6 +13405,12 @@
     "sample_pdf_license_title": {
       "extractionState": "extracted_with_value",
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lizenz"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "new",
@@ -13175,6 +13421,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "Licencia"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Licence"
           }
         },
         "ja": {
@@ -13283,6 +13535,12 @@
     "sample_pdf_open_button": {
       "extractionState": "extracted_with_value",
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Öffnen"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "new",
@@ -13293,6 +13551,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "Abrir"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrir"
           }
         },
         "ja": {
@@ -13318,6 +13582,12 @@
     "sample_pdf_open_instructions": {
       "extractionState": "extracted_with_value",
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tippe neben einer geladenen Beispiel-PDF auf „Öffnen“, um sie anzuzeigen."
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "new",
@@ -13328,6 +13598,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "Toca Abrir junto a un PDF de muestra descargado para verlo."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Touchez Ouvrir à côté d’un PDF d’exemple téléchargé pour l’afficher."
           }
         },
         "ja": {
@@ -13353,6 +13629,12 @@
     "sample_pdf_server_error": {
       "extractionState": "extracted_with_value",
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die Beispiel-PDF konnte nicht vom Server geladen werden."
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "new",
@@ -13363,6 +13645,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "No se ha podido descargar el PDF de muestra del servidor."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impossible de télécharger le PDF d’exemple depuis le serveur."
           }
         },
         "ja": {
@@ -13388,6 +13676,12 @@
     "sample_pdf_settings_description": {
       "extractionState": "stale",
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lade Beispiel-PDFs in „Dokumente“ und öffne sie über die Dateiauswahl."
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "new",
@@ -13398,6 +13692,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "Descarga PDF de muestra en Documentos y ábrelos con el selector de archivos."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Téléchargez des PDF d’exemple dans Documents et ouvrez-les via le sélecteur de fichiers."
           }
         },
         "ja": {
@@ -13411,6 +13711,12 @@
     "sample_pdf_size_error": {
       "extractionState": "extracted_with_value",
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die Größe der geladenen Datei ist ungültig."
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "new",
@@ -13421,6 +13727,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "El tamaño del archivo descargado no es válido."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La taille du fichier téléchargé n’est pas valide."
           }
         },
         "ja": {
@@ -13446,6 +13758,12 @@
     "sample_pdf_title": {
       "extractionState": "extracted_with_value",
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beispiel-PDFs"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "new",
@@ -13456,6 +13774,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "PDF de muestra"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PDF d’exemple"
           }
         },
         "ja": {
@@ -13481,6 +13805,12 @@
     "sample_pdf_url_error": {
       "extractionState": "extracted_with_value",
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die Download-URL der Beispiel-PDF ist ungültig."
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "new",
@@ -13491,6 +13821,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "La URL de descarga del PDF de muestra no es válida."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "L’URL de téléchargement du PDF d’exemple n’est pas valide."
           }
         },
         "ja": {
@@ -13519,7 +13855,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Blickrichtung"
+            "value": "Leserichtung"
           }
         },
         "en": {
@@ -13543,7 +13879,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Direction de mouvement à l'écran"
+            "value": "Sens de lecture"
           }
         },
         "id": {
@@ -14116,6 +14452,12 @@
     "single_page_in_portrait": {
       "extractionState": "extracted_with_value",
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Einzelseite im Hochformat"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "new",
@@ -14126,6 +14468,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "Página única en vertical"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Page unique en mode portrait"
           }
         },
         "ja": {
@@ -14980,6 +15328,12 @@
             "value": "Fecha de la prueba: %@"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Date du test : %@"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "machine_translated",
@@ -15006,6 +15360,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "Información de la prueba"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Informations de test"
           }
         },
         "ja": {
@@ -15118,6 +15478,12 @@
             "value": "No se ha podido leer la versión de la app."
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impossible de lire la version de l’app."
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "machine_translated",
@@ -15144,6 +15510,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "No se ha podido leer el PDF generado."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impossible de lire le PDF généré."
           }
         },
         "ja": {
@@ -15332,6 +15704,12 @@
             "value": "No hay registros de las últimas 24 horas."
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun journal au cours des dernières 24 heures."
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "machine_translated",
@@ -15358,6 +15736,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "Este PDF no contiene información del índice."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ce PDF ne contient pas de table des matières."
           }
         },
         "ja": {
@@ -16138,6 +16522,12 @@
             "value": "Memoria total"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mémoire totale"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "machine_translated",
@@ -16164,6 +16554,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "Memoria total: %@"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mémoire totale : %@"
           }
         },
         "ja": {
@@ -16639,6 +17035,12 @@
             "value": "Sin título"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sans titre"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "machine_translated",
@@ -16652,8 +17054,8 @@
       "localizations": {
         "de": {
           "stringUnit": {
-            "state": "machine_translated",
-            "value": "Symbol verwenden"
+            "state": "translated",
+            "value": "Anwenden"
           }
         },
         "en": {
@@ -16742,6 +17144,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "Versión"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Version"
           }
         },
         "ja": {
@@ -16855,6 +17263,12 @@
             "value": "Ver los registros de la app"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afficher les journaux de l’app"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "machine_translated",
@@ -16883,6 +17297,12 @@
             "value": "Lo que esperabas y lo que ha ocurrido realmente"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Résultat attendu et comportement observé"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "machine_translated",
@@ -16909,6 +17329,12 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "La versión de la app, la versión del sistema operativo, el dispositivo y los ajustes de visualización pertinentes"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Version de l’app, version d’OS, appareil et réglages d’affichage concernés"
           }
         },
         "ja": {
@@ -17179,10 +17605,22 @@
     },
     "sample_pdf_language_chinese_simplified": {
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chinesisch (Vereinfacht)"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
             "value": "Chinese (Simplified)"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chinois (simplifié)"
           }
         },
         "ja": {
@@ -17197,26 +17635,38 @@
             "value": "중국어(간체)"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "簡體中文"
-          }
-        },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "简体中文"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "簡體中文"
           }
         }
       }
     },
     "sample_pdf_language_chinese_traditional": {
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chinesisch (Traditionell)"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
             "value": "Chinese (Traditional)"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chinois (traditionnel)"
           }
         },
         "ja": {
@@ -17231,26 +17681,38 @@
             "value": "중국어(번체)"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "繁體中文"
-          }
-        },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "繁体中文"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "繁體中文"
           }
         }
       }
     },
     "sample_pdf_language_chinese_hong_kong": {
       "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chinesisch (Traditionell, Hongkong)"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
             "value": "Chinese (Traditional, Hong Kong)"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chinois (traditionnel, Hong Kong)"
           }
         },
         "ja": {
@@ -17265,16 +17727,16 @@
             "value": "중국어(번체, 홍콩)"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "繁體中文（香港）"
-          }
-        },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "繁体中文（香港）"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "繁體中文（香港）"
           }
         }
       }

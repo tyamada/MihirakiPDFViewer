@@ -843,4 +843,93 @@ final class MihirakiPDFViewerUITests: XCTestCase {
         return auditTypes
     }
 
+    @MainActor
+    func testGermanAndFrenchLocalizationScreens() throws {
+        XCUIDevice.shared.orientation = .portrait
+        let configs: [(code: String, locale: String)] = [
+            ("de", "de_DE"),
+            ("fr", "fr_FR")
+        ]
+
+        func attach(_ name: String) {
+            let attachment = XCTAttachment(screenshot: app.screenshot())
+            attachment.name = name
+            attachment.lifetime = .keepAlways
+            add(attachment)
+        }
+
+        for cfg in configs {
+            app = XCUIApplication()
+            app.launchArguments = [
+                "-uiTestResetReadingSession",
+                "-uiTestResetRenderingPreferences",
+                "-AppleLanguages", "(\(cfg.code))",
+                "-AppleLocale", cfg.locale
+            ]
+            app.launch()
+
+            // 1. Empty state
+            XCTAssertTrue(element("emptyStateView").waitForExistence(timeout: 10))
+            attach("\(cfg.code)_01_empty_state")
+
+            // 2. Sample PDFs list
+            let samplesButton = app.buttons["samplePDFsButton"]
+            XCTAssertTrue(samplesButton.waitForExistence(timeout: 5))
+            samplesButton.tap()
+            XCTAssertTrue(element("samplePDFListScreen").waitForExistence(timeout: 5))
+            sleep(1)
+            attach("\(cfg.code)_02_sample_pdfs")
+            app.navigationBars.buttons.element(boundBy: 0).tap()
+            XCTAssertTrue(element("emptyStateView").waitForExistence(timeout: 5))
+
+            // 3. Settings (top)
+            let settingsButton = app.buttons["settingsButton"]
+            XCTAssertTrue(settingsButton.waitForExistence(timeout: 5))
+            settingsButton.tap()
+            XCTAssertTrue(element("settingsScreen").waitForExistence(timeout: 5))
+            attach("\(cfg.code)_03_settings_top")
+
+            // 4. Help + Issue Reporting Guide (Open GitHub Issues)
+            let helpButton = app.buttons["helpButton"]
+            XCTAssertTrue(helpButton.waitForExistence(timeout: 5))
+            helpButton.tap()
+            XCTAssertTrue(element("helpScreen").waitForExistence(timeout: 5))
+            attach("\(cfg.code)_04_help")
+
+            let reportButton = app.buttons["reportProblemButton"]
+            if reportButton.waitForExistence(timeout: 3) {
+                reportButton.tap()
+                XCTAssertTrue(element("issueReportingGuideScreen").waitForExistence(timeout: 5))
+                let githubBtn = element("openGitHubIssuesButton")
+                for _ in 0..<4 where !githubBtn.exists {
+                    app.swipeUp()
+                }
+                if githubBtn.waitForExistence(timeout: 3) {
+                    attach("\(cfg.code)_05_issue_reporting")
+                }
+                app.navigationBars.buttons.element(boundBy: 0).tap()
+                XCTAssertTrue(element("helpScreen").waitForExistence(timeout: 5))
+            }
+
+            app.navigationBars.buttons.element(boundBy: 0).tap()
+            XCTAssertTrue(element("settingsScreen").waitForExistence(timeout: 5))
+
+            // 5. Settings (scrolled) + Support / Tip Selection
+            app.swipeUp()
+            attach("\(cfg.code)_06_settings_mid")
+
+            let supportButton = app.buttons["supportButton"]
+            for _ in 0..<4 where !(supportButton.exists && supportButton.isHittable) {
+                app.swipeUp()
+            }
+            XCTAssertTrue(supportButton.waitForExistence(timeout: 5))
+            supportButton.tap()
+            _ = app.buttons["restorePurchasesButton"].waitForExistence(timeout: 5)
+            sleep(1)
+            attach("\(cfg.code)_07_tip_selection")
+
+            app.terminate()
+        }
+    }
+
 }
