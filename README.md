@@ -1,4 +1,4 @@
-> **Status (2026-11-27):** **1.1.3 (19)** is approved and available on the App Store in 11 countries and regions (Japan, the United States, South Korea, Taiwan, Hong Kong, Macau, Canada, the United Kingdom, Australia, New Zealand, and Singapore). **1.1.4 (20)** is a local release candidate adding full Italian localization (14 languages) and Italian web documentation; EU distribution (Germany, France, Italy) remains on hold pending EU DSA review approval. [Prior release record (2026-11-23)](release-notes/2026-11-23.md).
+> **Status (2026-11-27):** **1.1.3 (19)** is available on the App Store in **16 countries and regions** (Japan, the United States, South Korea, Taiwan, Hong Kong, Macau, Canada, the United Kingdom, Australia, New Zealand, Singapore, Switzerland, Norway, Malaysia, Thailand, and India). **1.1.4 (20)** (full Italian localization) is in App Review, and **1.1.5** (completed `es`, `fil`, `id`, `vi`, `ne`, and `pt-BR` localizations and iPhone SE layout fixes) is prepared locally; EU distribution remains on hold pending EU DSA review approval. [Prior release record (2026-11-23)](release-notes/2026-11-23.md).
 
 # MihirakiPDFViewer
 
