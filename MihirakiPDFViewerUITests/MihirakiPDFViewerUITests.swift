@@ -993,4 +993,54 @@ final class MihirakiPDFViewerUITests: XCTestCase {
         app.terminate()
     }
 
+    @MainActor
+    func testWave4LocalizationScreens() throws {
+        XCUIDevice.shared.orientation = .portrait
+        func attach(_ name: String) {
+            let attachment = XCTAttachment(screenshot: app.screenshot())
+            attachment.name = name
+            attachment.lifetime = .keepAlways
+            add(attachment)
+        }
+
+        let configs: [(code: String, lang: String, locale: String)] = [
+            ("es", "es", "es_MX"),
+            ("id", "id", "id_ID"),
+            ("fil", "fil", "fil_PH"),
+            ("vi", "vi", "vi_VN"),
+            ("ne", "ne", "ne_NP"),
+            ("pt", "pt-BR", "pt_BR")
+        ]
+
+        for cfg in configs {
+            app = XCUIApplication()
+            app.launchArguments = [
+                "-uiTestResetReadingSession",
+                "-uiTestResetRenderingPreferences",
+                "-AppleLanguages", "(\(cfg.lang))",
+                "-AppleLocale", cfg.locale
+            ]
+            app.launch()
+
+            XCTAssertTrue(element("emptyStateView").waitForExistence(timeout: 10))
+            let settingsButton = app.buttons["settingsButton"]
+            XCTAssertTrue(settingsButton.waitForExistence(timeout: 5))
+            settingsButton.tap()
+            XCTAssertTrue(element("settingsScreen").waitForExistence(timeout: 5))
+            attach("\(cfg.code)_01_settings_top")
+
+            let supportButton = app.buttons["supportButton"]
+            for _ in 0..<4 where !(supportButton.exists && supportButton.isHittable) {
+                app.swipeUp()
+            }
+            XCTAssertTrue(supportButton.waitForExistence(timeout: 5))
+            supportButton.tap()
+            _ = app.buttons["restorePurchasesButton"].waitForExistence(timeout: 5)
+            sleep(1)
+            attach("\(cfg.code)_02_tip_selection")
+
+            app.terminate()
+        }
+    }
+
 }

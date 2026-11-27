@@ -106,6 +106,30 @@
             "state": "machine_translated",
             "value": "%1$@: %2$lld"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@: %2$lld"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@: %2$lld"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@: %2$lld"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@: %2$lld"
+          }
         }
       }
     },
@@ -204,6 +228,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "GitHub 계정이 필요합니다. 제출한 정보는 공개될 수 있습니다."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diperlukan akun GitHub. Informasi yang Anda kirimkan dapat terlihat oleh publik."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cần có tài khoản GitHub. Thông tin bạn gửi có thể hiển thị công khai."
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GitHub खाता आवश्यक छ। तपाईंले पठाउनुभएको जानकारी सार्वजनिक रूपमा देखिन सक्छ।"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "É necessária uma conta do GitHub. As informações enviadas podem ficar visíveis publicamente."
           }
         }
       }
@@ -339,6 +387,30 @@
             "state": "machine_translated",
             "value": "문제의 간단한 개요"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ringkasan singkat masalah"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tóm tắt ngắn gọn về sự cố"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "समस्याको छोटो सारांश"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Um breve resumo do problema"
+          }
         }
       }
     },
@@ -384,6 +456,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "모든 테스트를 통과했습니다."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Semua pengujian lulus."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tất cả kiểm tra đều đạt."
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "सबै परीक्षणहरू सफल भए।"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todos os testes passaram."
           }
         }
       }
@@ -431,6 +527,30 @@
             "state": "machine_translated",
             "value": "앱"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aplikasi"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ứng dụng"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "एप"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App"
+          }
         }
       }
     },
@@ -476,6 +596,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "앱 정보"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Informasi Aplikasi"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thông tin ứng dụng"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "एप जानकारी"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Informações do app"
           }
         }
       }
@@ -523,6 +667,30 @@
             "state": "machine_translated",
             "value": "앱 로그"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Log Aplikasi"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nhật ký ứng dụng"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "एप लगहरू"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Logs do app"
+          }
         }
       }
     },
@@ -568,6 +736,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "앱 정보"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Informasi aplikasi"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thông tin ứng dụng"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "एप जानकारी"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Informações do app"
           }
         }
       }
@@ -615,6 +807,30 @@
             "state": "machine_translated",
             "value": "앱 버전"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versi aplikasi"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Phiên bản ứng dụng"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "एप संस्करण"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versão do app"
+          }
         }
       }
     },
@@ -660,6 +876,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "앱 버전: %@"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versi aplikasi: %@"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Phiên bản ứng dụng: %@"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "एप संस्करण: %@"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versão do app: %@"
           }
         }
       }
@@ -713,6 +953,30 @@
             "state": "machine_translated",
             "value": "앱 버전: %1$@ (%2$@)"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versi aplikasi: %1$@ (%2$@)"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Phiên bản ứng dụng: %1$@ (%2$@)"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "एप संस्करण: %1$@ (%2$@)"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versão do app: %1$@ (%2$@)"
+          }
         }
       }
     },
@@ -758,6 +1022,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "사용 가능한 메모리"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Memori tersedia"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bộ nhớ khả dụng"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "उपलब्ध मेमोरी"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Memória disponível"
           }
         }
       }
@@ -805,6 +1093,30 @@
             "state": "machine_translated",
             "value": "사용 가능한 메모리: %@"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Memori tersedia: %@"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bộ nhớ khả dụng: %@"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "उपलब्ध मेमोरी: %@"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Memória disponível: %@"
+          }
         }
       }
     },
@@ -851,6 +1163,30 @@
             "state": "machine_translated",
             "value": "사용 가능한 저장 공간"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Penyimpanan tersedia"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dung lượng trống"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "उपलब्ध भण्डारण"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Armazenamento disponível"
+          }
         }
       }
     },
@@ -896,6 +1232,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "사용 가능한 저장 공간을 확인할 수 없습니다."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Penyimpanan tersedia tidak dapat dibaca."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Không thể đọc dung lượng trống."
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "उपलब्ध भण्डारण पढ्न सकिएन।"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não foi possível ler o armazenamento disponível."
           }
         }
       }
@@ -1025,6 +1385,30 @@
             "state": "machine_translated",
             "value": "보고하기 전에"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sebelum melaporkan"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trước khi báo cáo"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "रिपोर्ट गर्नुअघि"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Antes de relatar"
+          }
         }
       }
     },
@@ -1070,6 +1454,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "Bronze 후원자"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pendukung Bronze"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Người ủng hộ Bronze"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bronze समर्थक"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apoiador Bronze"
           }
         }
       }
@@ -1117,6 +1525,30 @@
             "state": "machine_translated",
             "value": "빌드"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Build"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bản dựng"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "बिल्ड"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compilação"
+          }
         }
       }
     },
@@ -1162,6 +1594,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "캐시 저장 공간"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Penyimpanan cache"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bộ nhớ đệm"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "क्यास भण्डारण"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Armazenamento de cache"
           }
         }
       }
@@ -1297,6 +1753,30 @@
             "state": "machine_translated",
             "value": "편안한 읽기"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Membaca dengan Nyaman"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đọc thoải mái"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "आरामदायी पठन"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Leitura confortável"
+          }
         }
       }
     },
@@ -1342,6 +1822,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "저작권"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hak Cipta"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bản quyền"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "प्रतिलिपि अधिकार"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Direitos autorais"
           }
         }
       }
@@ -1389,6 +1893,30 @@
             "state": "machine_translated",
             "value": "기기 테스트 결과"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hasil Pengujian Perangkat"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kết quả kiểm tra thiết bị"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "यन्त्र परीक्षण नतिजाहरू"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Resultados dos testes do dispositivo"
+          }
         }
       }
     },
@@ -1429,6 +1957,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "実機テスト"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pengujian Perangkat"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kiểm tra thiết bị"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "यन्त्र परीक्षण"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Testes do dispositivo"
           }
         }
       }
@@ -1476,6 +2028,30 @@
             "state": "machine_translated",
             "value": "기기 테스트"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pengujian Perangkat"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kiểm tra thiết bị"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "यन्त्र परीक्षणहरू"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Testes do dispositivo"
+          }
         }
       }
     },
@@ -1517,6 +2093,30 @@
             "state": "machine_translated",
             "value": "端末名"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nama perangkat"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tên thiết bị"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "यन्त्रको नाम"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nome do dispositivo"
+          }
         }
       }
     },
@@ -1557,6 +2157,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "端末: %@"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perangkat: %@"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thiết bị: %@"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "यन्त्र: %@"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dispositivo: %@"
           }
         }
       }
@@ -1604,6 +2228,30 @@
             "state": "machine_translated",
             "value": "진단 도구"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alat Diagnostik"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Công cụ chẩn đoán"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "निदान उपकरणहरू"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ferramentas de diagnóstico"
+          }
         }
       }
     },
@@ -1649,6 +2297,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "진단 정보"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Informasi diagnostik"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thông tin chẩn đoán"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "निदान जानकारी"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Informações de diagnóstico"
           }
         }
       }
@@ -1696,6 +2368,30 @@
             "state": "machine_translated",
             "value": "직접 공유하지 않는 한 진단 결과와 로그는 이 기기에만 저장됩니다."
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hasil diagnostik dan log tetap berada di perangkat ini kecuali Anda membagikannya secara eksplisit."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kết quả chẩn đoán và nhật ký chỉ lưu trên thiết bị này trừ khi bạn chủ động chia sẻ."
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "तपाईंले स्पष्ट रूपमा साझा नगरेसम्म निदान नतिजा र लगहरू यसै यन्त्रमा रहन्छन्।"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Os resultados de diagnóstico e os logs permanecem neste dispositivo, a menos que você os compartilhe explicitamente."
+          }
         }
       }
     },
@@ -1741,6 +2437,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "진단"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diagnostik"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chẩn đoán"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "निदान"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diagnóstico"
           }
         }
       }
@@ -1970,6 +2690,30 @@
             "state": "translated",
             "value": "完成"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selesai"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xong"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "सम्पन्न"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Concluído"
+          }
         }
       }
     },
@@ -2015,6 +2759,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "처리 시간: %lld ms"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Durasi: %lld ms"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thời gian: %lld ms"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "अवधि: %lld ms"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Duração: %lld ms"
           }
         }
       }
@@ -2062,6 +2830,30 @@
             "state": "machine_translated",
             "value": "실패"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gagal"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thất bại"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "असफल"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Falhou"
+          }
         }
       }
     },
@@ -2107,6 +2899,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "시작하기"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Memulai"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bắt đầu"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "सुरुवात"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Primeiros passos"
           }
         }
       }
@@ -2154,6 +2970,30 @@
             "state": "machine_translated",
             "value": "Gold 후원자"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pendukung Gold"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Người ủng hộ Gold"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gold समर्थक"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apoiador Gold"
+          }
         }
       }
     },
@@ -2200,6 +3040,30 @@
             "state": "machine_translated",
             "value": "도움말"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bantuan"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trợ giúp"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "मद्दत"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajuda"
+          }
         }
       }
     },
@@ -2245,6 +3109,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "문제 발생 빈도"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seberapa sering masalah terjadi"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tần suất xảy ra sự cố"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "समस्या कति पटक देखिन्छ"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Com que frequência o problema ocorre"
           }
         }
       }
@@ -2380,6 +3268,30 @@
             "state": "machine_translated",
             "value": "보고에 포함할 정보"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sertakan dalam laporan Anda"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bao gồm trong báo cáo của bạn"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "आफ्नो रिपोर्टमा समावेश गर्नुहोस्"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inclua no seu relatório"
+          }
         }
       }
     },
@@ -2420,6 +3332,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "こよみサポーター"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pendukung Koyomi"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Người ủng hộ Koyomi"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Koyomi समर्थक"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apoiador Koyomi"
           }
         }
       }
@@ -2467,6 +3403,30 @@
             "state": "machine_translated",
             "value": "최근 24시간"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "24 jam terakhir"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "24 giờ qua"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "पछिल्लो २४ घण्टा"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Últimas 24 horas"
+          }
         }
       }
     },
@@ -2512,6 +3472,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "라이선스"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lisensi"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Giấy phép"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "इजाजतपत्र"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Licença"
           }
         }
       }
@@ -2559,6 +3543,30 @@
             "state": "machine_translated",
             "value": "로그 불러오는 중…"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Memuat log…"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đang tải nhật ký…"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "लगहरू लोड हुँदैछ…"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Carregando logs…"
+          }
         }
       }
     },
@@ -2599,6 +3607,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "ローカルストレージ"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Penyimpanan lokal"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bộ nhớ cục bộ"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "स्थानीय भण्डारण"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Armazenamento local"
           }
         }
       }
@@ -2822,6 +3854,30 @@
             "state": "machine_translated",
             "value": "24시간이 지난 로그는 자동으로 삭제됩니다."
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Log yang lebih lama dari 24 jam dihapus secara otomatis."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nhật ký cũ hơn 24 giờ sẽ tự động bị xóa."
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "२४ घण्टाभन्दा पुराना लगहरू स्वतः मेटिन्छन्।"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Logs com mais de 24 horas são excluídos automaticamente."
+          }
         }
       }
     },
@@ -2867,6 +3923,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "일치 항목 수"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hasil cocok"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kết quả khớp"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "मिलानहरू"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Correspondências"
           }
         }
       }
@@ -2914,6 +3994,30 @@
             "state": "machine_translated",
             "value": "미히라키 PDF 뷰어 앱 로그"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Log Aplikasi MihirakiPDFViewer"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nhật ký ứng dụng MihirakiPDFViewer"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MihirakiPDFViewer एप लगहरू"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Logs do app MihirakiPDFViewer"
+          }
         }
       }
     },
@@ -2954,6 +4058,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "モデル"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Model"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kiểu máy"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "मोडेल"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modelo"
           }
         }
       }
@@ -3025,6 +4153,18 @@
             "state": "machine_translated",
             "value": "機型識別碼"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pengidentifikasi model"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "मोडेल पहिचानकर्ता"
+          }
         }
       }
     },
@@ -3094,6 +4234,18 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "機型識別碼：%@"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pengidentifikasi model: %@"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "मोडेल पहिचानकर्ता: %@"
           }
         }
       }
@@ -3165,6 +4317,18 @@
             "state": "machine_translated",
             "value": "機型名稱"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nama model"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "मोडेल नाम"
+          }
         }
       }
     },
@@ -3235,6 +4399,18 @@
             "state": "machine_translated",
             "value": "機型名稱：%@"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nama model: %@"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "मोडेल नाम: %@"
+          }
         }
       }
     },
@@ -3275,6 +4451,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "モデル: %@"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Model: %@"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kiểu máy: %@"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "मोडेल: %@"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modelo: %@"
           }
         }
       }
@@ -3322,6 +4522,30 @@
             "state": "machine_translated",
             "value": "이름"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nama"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tên"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "नाम"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nome"
+          }
         }
       }
     },
@@ -3367,6 +4591,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "아직 배지가 없습니다"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum Ada Lencana"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chưa có huy hiệu"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "अहिलेसम्म कुनै ब्याज छैन"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhum emblema ainda"
           }
         }
       }
@@ -3420,6 +4668,30 @@
             "state": "translated",
             "value": "沒有目錄"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak Ada Daftar Isi"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Không có mục lục"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "कुनै विषयसूची छैन"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sem sumário"
+          }
         }
       }
     },
@@ -3465,6 +4737,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "로그 없음"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak ada log"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Không có nhật ký"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "कुनै लग छैन"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sem logs"
           }
         }
       }
@@ -3600,6 +4896,30 @@
             "state": "machine_translated",
             "value": "사용할 수 없음"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak tersedia"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Không khả dụng"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "उपलब्ध छैन"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Indisponível"
+          }
         }
       }
     },
@@ -3646,6 +4966,30 @@
             "state": "machine_translated",
             "value": "OS 버전"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versi OS"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Phiên bản hệ điều hành"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OS संस्करण"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versão do sistema"
+          }
         }
       }
     },
@@ -3691,6 +5035,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "OS 버전: %@"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versi OS: %@"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Phiên bản hệ điều hành: %@"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OS संस्करण: %@"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versão do sistema: %@"
           }
         }
       }
@@ -3743,6 +5111,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "OS 버전: %1$@ %2$@"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versi OS: %1$@ %2$@"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Phiên bản hệ điều hành: %1$@ %2$@"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OS संस्करण: %1$@ %2$@"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versão do sistema: %1$@ %2$@"
           }
         }
       }
@@ -3878,6 +5270,30 @@
             "state": "machine_translated",
             "value": "오픈 소스 라이선스"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lisensi Sumber Terbuka"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Giấy phép mã nguồn mở"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ओपन सोर्स इजाजतपत्र"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Licença de código aberto"
+          }
         }
       }
     },
@@ -3923,6 +5339,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "PDF 렌더링"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rendering PDF"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kết xuất PDF"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PDF रेन्डरिङ"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Renderização de PDF"
           }
         }
       }
@@ -3970,6 +5410,30 @@
             "state": "machine_translated",
             "value": "페이지"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halaman"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trang"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "पृष्ठ"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Página"
+          }
         }
       }
     },
@@ -4015,6 +5479,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "페이지 수"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halaman"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Số trang"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "पृष्ठहरू"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Páginas"
           }
         }
       }
@@ -4062,6 +5550,30 @@
             "state": "machine_translated",
             "value": "통과"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lulus"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đạt"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "सफल"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aprovado"
+          }
         }
       }
     },
@@ -4107,6 +5619,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "개인정보 보호"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Privasi"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quyền riêng tư"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "गोपनीयता"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Privacidade"
           }
         }
       }
@@ -4324,6 +5860,30 @@
             "state": "machine_translated",
             "value": "개인정보 보호"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lindungi privasi Anda"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bảo vệ quyền riêng tư của bạn"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "आफ्नो गोपनीयता सुरक्षित राख्नुहोस्"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Proteja sua privacidade"
+          }
         }
       }
     },
@@ -4369,6 +5929,30 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "새로 고침"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Muat Ulang"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Làm mới"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ताजा गर्नुहोस्"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atualizar"
           }
         }
       }
@@ -4504,6 +6088,30 @@
             "state": "machine_translated",
             "value": "결과: %@"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hasil: %@"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kết quả: %@"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "नतिजा: %@"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Resultado: %@"
+          }
         }
       }
     },
@@ -4543,6 +6151,36 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "결과"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mga Resulta"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hasil"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kết quả"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "नतिजाहरू"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Resultados"
           }
         }
       }
@@ -4584,6 +6222,36 @@
             "state": "machine_translated",
             "value": "보관 기간: 24시간"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pagpapanatili: 24 na oras"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Penyimpanan: 24 jam"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lưu giữ: 24 giờ"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "भण्डारण अवधि: २४ घण्टा"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Retenção: 24 horas"
+          }
         }
       }
     },
@@ -4618,6 +6286,36 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "診断画面では、端末内テストの実行、プライバシーに配慮したログの確認、問題報告に必要な情報の準備ができます。"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Magpatakbo ng mga pagsusuri sa device, tingnan ang mga log na ligtas sa privacy, at maghanda ng impormasyon para sa ulat ng problema mula sa screen ng Diagnostics."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jalankan pemeriksaan di perangkat, tinjau log yang aman bagi privasi, dan siapkan informasi laporan masalah dari layar Diagnostik."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chạy kiểm tra trên thiết bị, xem nhật ký an toàn quyền riêng tư và chuẩn bị thông tin báo cáo sự cố từ màn hình Chẩn đoán."
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "निदान स्क्रिनबाट यन्त्रभित्रको जाँच चलाउनुहोस्, गोपनीयता-सुरक्षित लगहरू हेर्नुहोस् र समस्या रिपोर्टका लागि जानकारी तयार गर्नुहोस्।"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Execute verificações no dispositivo, revise logs seguros para a privacidade e prepare informações para relatar problemas na tela de Diagnóstico."
           }
         }
       }
@@ -4659,6 +6357,36 @@
             "state": "machine_translated",
             "value": "테스트 다시 실행"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Patakbuhin muli ang mga pagsubok"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jalankan pengujian lagi"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chạy lại kiểm tra"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "परीक्षण पुनः चलाउनुहोस्"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Executar testes novamente"
+          }
         }
       }
     },
@@ -4698,6 +6426,36 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "이 기기에서 테스트 실행"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Patakbuhin ang mga pagsubok sa device na ito"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jalankan pengujian di perangkat ini"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chạy kiểm tra trên thiết bị này"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "यस यन्त्रमा परीक्षण चलाउनुहोस्"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Executar testes neste dispositivo"
           }
         }
       }
@@ -4739,6 +6497,36 @@
             "state": "machine_translated",
             "value": "테스트 실행 중…"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pinatatakbo ang mga pagsubok…"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menjalankan pengujian…"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đang chạy kiểm tra…"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "परीक्षण चल्दैछ…"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Executando testes…"
+          }
         }
       }
     },
@@ -4778,6 +6566,36 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "설정 안내"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gabay sa Mga Setting"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Panduan Pengaturan"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hướng dẫn cài đặt"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "सेटिङ मार्गदर्शिका"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guia de configurações"
           }
         }
       }
@@ -4819,6 +6637,36 @@
             "state": "machine_translated",
             "value": "공유"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ibahagi"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bagikan"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chia sẻ"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "साझा गर्नुहोस्"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compartilhar"
+          }
         }
       }
     },
@@ -4858,6 +6706,36 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "Silver 후원자"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tagasuportang Silver"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pendukung Silver"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Người ủng hộ Silver"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Silver समर्थक"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apoiador Silver"
           }
         }
       }
@@ -4899,6 +6777,36 @@
             "state": "machine_translated",
             "value": "일부 테스트에 실패했습니다."
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "May mga pagsubok na nabigo."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beberapa pengujian gagal."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Một số kiểm tra đã thất bại."
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "केही परीक्षणहरू असफल भए।"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alguns testes falharam."
+          }
         }
       }
     },
@@ -4938,6 +6846,36 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "문제 재현 단계"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mga hakbang upang maulit ang problema"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Langkah-langkah untuk mereproduksi masalah"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Các bước tái hiện sự cố"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "समस्या पुनः उत्पन्न गर्ने चरणहरू"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Passos para reproduzir o problema"
           }
         }
       }
@@ -4979,6 +6917,36 @@
             "state": "machine_translated",
             "value": "개발자 후원"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suportahan ang Developer"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dukung Pengembang"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ủng hộ nhà phát triển"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "विकासकर्तालाई सहयोग गर्नुहोस्"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apoie o desenvolvedor"
+          }
         }
       }
     },
@@ -5019,6 +6987,36 @@
             "state": "machine_translated",
             "value": "개발자를 후원하면 후원자 배지를 받을 수 있습니다."
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suportahan ang developer upang ma-unlock ang supporter badge."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dukung pengembang untuk membuka lencana pendukung."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ủng hộ nhà phát triển để mở khóa huy hiệu ủng hộ."
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "समर्थक ब्याज अनलक गर्न विकासकर्तालाई सहयोग गर्नुहोस्।"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apoie o desenvolvedor para desbloquear um emblema de apoiador."
+          }
         }
       }
     },
@@ -5058,6 +7056,36 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "후원자 배지"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mga Supporter Badge"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lencana Pendukung"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Huy hiệu ủng hộ"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "समर्थक ब्याजहरू"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Emblemas de apoiador"
           }
         }
       }
@@ -5105,6 +7133,36 @@
             "state": "translated",
             "value": "目錄"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Talaan ng mga Nilalaman"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Daftar Isi"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mục lục"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "विषयसूची"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sumário"
+          }
         }
       }
     },
@@ -5144,6 +7202,36 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "테스트 일시"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Petsa ng pagsubok"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tanggal pengujian"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ngày kiểm tra"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "परीक्षण मिति"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Data do teste"
           }
         }
       }
@@ -5185,6 +7273,36 @@
             "state": "machine_translated",
             "value": "테스트 일시: %@"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Petsa ng pagsubok: %@"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tanggal pengujian: %@"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ngày kiểm tra: %@"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "परीक्षण मिति: %@"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Data do teste: %@"
+          }
         }
       }
     },
@@ -5224,6 +7342,36 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "테스트 정보"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impormasyon ng pagsubok"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Informasi pengujian"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thông tin kiểm tra"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "परीक्षण जानकारी"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Informações do teste"
           }
         }
       }
@@ -5353,6 +7501,36 @@
             "state": "machine_translated",
             "value": "앱 버전을 확인할 수 없습니다."
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hindi mabasa ang bersyon ng app."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versi aplikasi tidak dapat dibaca."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Không thể đọc phiên bản ứng dụng."
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "एप संस्करण पढ्न सकिएन।"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não foi possível ler a versão do app."
+          }
         }
       }
     },
@@ -5392,6 +7570,36 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "생성된 PDF를 읽을 수 없습니다."
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hindi mabasa ang nabuong PDF."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PDF yang dibuat tidak dapat dibaca."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Không thể đọc tệp PDF vừa tạo."
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "उत्पन्न गरिएको PDF पढ्न सकिएन।"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não foi possível ler o PDF gerado."
           }
         }
       }
@@ -5603,6 +7811,36 @@
             "state": "machine_translated",
             "value": "최근 24시간 동안 기록된 로그가 없습니다."
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Walang mga log sa nakalipas na 24 na oras."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak ada log dalam 24 jam terakhir."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Không có nhật ký nào trong 24 giờ qua."
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "पछिल्लो २४ घण्टामा कुनै लग छैन।"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não há logs das últimas 24 horas."
+          }
         }
       }
     },
@@ -5649,6 +7887,36 @@
             "state": "translated",
             "value": "此 PDF 不含目錄資訊。"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Walang impormasyon ng talaan ng nilalaman ang PDF na ito."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PDF ini tidak memuat informasi daftar isi."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PDF này không chứa thông tin mục lục."
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "यो PDF मा विषयसूची जानकारी समावेश छैन।"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este PDF não contém informações de sumário."
+          }
         }
       }
     },
@@ -5689,6 +7957,36 @@
             "state": "machine_translated",
             "value": "전체 메모리"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kabuuang memorya"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Total memori"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tổng bộ nhớ"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "कुल मेमोरी"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Memória total"
+          }
         }
       }
     },
@@ -5728,6 +8026,36 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "전체 메모리: %@"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kabuuang memorya: %@"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Total memori: %@"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tổng bộ nhớ: %@"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "कुल मेमोरी: %@"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Memória total: %@"
           }
         }
       }
@@ -5939,6 +8267,36 @@
             "state": "machine_translated",
             "value": "名称未設定"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Walang Pamagat"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tanpa Judul"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chưa đặt tên"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "शीर्षकविहीन"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sem título"
+          }
         }
       }
     },
@@ -5978,6 +8336,36 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "버전"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bersyon"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versi"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Phiên bản"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "संस्करण"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versão"
           }
         }
       }
@@ -6019,6 +8407,36 @@
             "state": "machine_translated",
             "value": "앱 로그 보기"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tingnan ang mga log ng app"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lihat log aplikasi"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xem nhật ký ứng dụng"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "एप लगहरू हेर्नुहोस्"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver logs do app"
+          }
         }
       }
     },
@@ -6059,6 +8477,36 @@
             "state": "machine_translated",
             "value": "기대한 동작과 실제로 일어난 일"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ano ang inaasahan mo at ano ang aktwal na nangyari"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apa yang Anda harapkan dan apa yang sebenarnya terjadi"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Điều bạn mong đợi và điều thực tế đã xảy ra"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "तपाईंले अपेक्षा गर्नुभएको र वास्तवमा के भयो"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O que você esperava e o que realmente aconteceu"
+          }
         }
       }
     },
@@ -6098,6 +8546,36 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "앱 버전, OS 버전, 기기 및 관련 화면 설정"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ang bersyon ng app, bersyon ng OS, device, at mga kaugnay na setting ng pagtingin"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versi aplikasi, versi OS, perangkat, dan pengaturan tampilan terkait"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Phiên bản ứng dụng, phiên bản hệ điều hành, thiết bị và cài đặt hiển thị liên quan"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "तपाईंको एप संस्करण, OS संस्करण, यन्त्र र सम्बन्धित दृश्य सेटिङहरू"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versão do app, versão do sistema, dispositivo e configurações de visualização relevantes"
           }
         }
       }
@@ -6410,6 +8888,36 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "앱 로그"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mga Log ng App"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Log Aplikasi"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nhật ký ứng dụng"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "एप लगहरू"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Logs do app"
           }
         }
       }
@@ -7427,6 +9935,36 @@
             "state": "machine_translated",
             "value": "実機テスト"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pagsusuri ng Device"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pengujian Perangkat"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kiểm tra thiết bị"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "यन्त्र परीक्षण"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Testes do dispositivo"
+          }
         }
       }
     },
@@ -7448,13 +9986,13 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "De izquierda a derecha (L2R)"
+            "value": "Izq. → Der. (L2R)"
           }
         },
         "fil": {
           "stringUnit": {
-            "state": "machine_translated",
-            "value": "Mula Kaliwa Pakanan (L2R)"
+            "state": "translated",
+            "value": "Kaliwa → Kanan (L2R)"
           }
         },
         "fr": {
@@ -7496,7 +10034,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Da esquerda para a direita (L2R)"
+            "value": "Esquerda → Direita (L2R)"
           }
         },
         "vi": {
@@ -7537,13 +10075,13 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "De derecha a izquierda (R2L)"
+            "value": "Der. → Izq. (R2L)"
           }
         },
         "fil": {
           "stringUnit": {
-            "state": "machine_translated",
-            "value": "Mula Kanan Pakaliwa (R2L)"
+            "state": "translated",
+            "value": "Kanan → Kaliwa (R2L)"
           }
         },
         "fr": {
@@ -7585,7 +10123,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Da direita para a esquerda (R2L)"
+            "value": "Direita → Esquerda (R2L)"
           }
         },
         "vi": {
@@ -7674,7 +10212,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Configurações de exibisã"
+            "value": "Configurações de exibição"
           }
         },
         "vi": {
@@ -7829,6 +10367,36 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "프로모션 코드 입력"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ilagay ang Promotion Code"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masukkan Kode Promosi"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nhập mã khuyến mãi"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "प्रोमोशन कोड प्रविष्ट गर्नुहोस्"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inserir código promocional"
           }
         }
       }
@@ -8142,6 +10710,36 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "후원 화면으로 이동"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pumunta sa Screen ng Suporta"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buka Layar Dukungan"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đi tới màn hình Hỗ trợ"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "सहयोग स्क्रिनमा जानुहोस्"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ir para a tela de Apoio"
           }
         }
       }
@@ -14795,6 +17393,12 @@
             "state": "machine_translated",
             "value": "此操作會重設顯示設定、恢復預設App圖像，並關閉目前的文件。已購買的支持者App圖像仍可使用。"
           }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "यसले दृश्य सेटिङहरू रिसेट गर्छ, पूर्वनिर्धारित एप आइकन पुनर्स्थापना गर्छ र हालको कागजात बन्द गर्छ। खरिद गरिएका समर्थक आइकनहरू उपलब्ध रहन्छन्।"
+          }
         }
       }
     },
@@ -15292,6 +17896,36 @@
             "state": "translated",
             "value": "瀏覽範例 PDF"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tingnan ang Mga Sample PDF"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jelajahi PDF Contoh"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xem PDF mẫu"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "नमुना PDF हरू हेर्नुहोस्"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver PDFs de exemplo"
+          }
         }
       }
     },
@@ -15344,6 +17978,36 @@
           "stringUnit": {
             "state": "translated",
             "value": "無法載入範例 PDF 清單。"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hindi ma-load ang listahan ng sample PDF."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Daftar PDF contoh tidak dapat dimuat."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Không thể tải danh sách PDF mẫu."
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "नमुना PDF सूची लोड गर्न सकिएन।"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não foi possível carregar a lista de PDFs de exemplo."
           }
         }
       }
@@ -15398,6 +18062,36 @@
             "state": "translated",
             "value": "此 PDF 大小為 %@。下載時會使用行動數據。"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ang laki ng PDF na ito ay %@. Gagamit ito ng mobile data kapag na-download."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ukuran PDF ini adalah %@. Mengunduhnya akan menggunakan data seluler."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tệp PDF này có dung lượng %@. Tải xuống sẽ sử dụng dữ liệu di động."
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "यो PDF को आकार %@ छ। यसलाई डाउनलोड गर्दा मोबाइल डेटा प्रयोग हुनेछ।"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este PDF tem %@. Baixá-lo usará dados móveis."
+          }
         }
       }
     },
@@ -15450,6 +18144,36 @@
           "stringUnit": {
             "state": "translated",
             "value": "要使用行動數據下載嗎？"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I-download Gamit ang Mobile Data?"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unduh Menggunakan Data Seluler?"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tải xuống bằng dữ liệu di động?"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "मोबाइल डेटा प्रयोग गरेर डाउनलोड गर्ने?"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Baixar usando dados móveis?"
           }
         }
       }
@@ -15504,6 +18228,36 @@
             "state": "translated",
             "value": "下載的 PDF 未通過完整性檢查。"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nabigo ang pagsusuri ng integridad ng na-download na PDF."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PDF yang diunduh gagal pemeriksaan integritas."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tệp PDF đã tải xuống không vượt qua kiểm tra tính toàn vẹn."
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "डाउनलोड गरिएको PDF को अखण्डता जाँच असफल भयो।"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O PDF baixado falhou na verificação de integridade."
+          }
         }
       }
     },
@@ -15556,6 +18310,36 @@
           "stringUnit": {
             "state": "translated",
             "value": "刪除前請先關閉此 PDF。"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Isara muna ang PDF na ito bago tanggalin."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tutup PDF ini sebelum menghapusnya."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đóng tệp PDF này trước khi xóa."
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "मेटाउनुअघि यो PDF बन्द गर्नुहोस्।"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Feche este PDF antes de excluí-lo."
           }
         }
       }
@@ -15610,6 +18394,36 @@
             "state": "translated",
             "value": "刪除"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tanggalin"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xóa"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "मेटाउनुहोस्"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Excluir"
+          }
         }
       }
     },
@@ -15662,6 +18476,36 @@
           "stringUnit": {
             "state": "translated",
             "value": "無法刪除範例 PDF。"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hindi matanggal ang sample PDF."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PDF contoh tidak dapat dihapus."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Không thể xóa tệp PDF mẫu."
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "नमुना PDF मेटाउन सकिएन।"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não foi possível excluir o PDF de exemplo."
           }
         }
       }
@@ -15716,6 +18560,36 @@
             "state": "translated",
             "value": "要從 Documents 刪除 %@ 嗎？"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tanggalin ang %@ mula sa Documents?"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus %@ dari Documents?"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xóa %@ khỏi Documents?"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Documents बाट %@ मेटाउने?"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Excluir %@ de Documentos?"
+          }
         }
       }
     },
@@ -15768,6 +18642,36 @@
           "stringUnit": {
             "state": "translated",
             "value": "要刪除範例 PDF 嗎？"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tanggalin ang Sample PDF?"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus PDF Contoh?"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xóa PDF mẫu?"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "नमुना PDF मेटाउने?"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Excluir PDF de exemplo?"
           }
         }
       }
@@ -15822,6 +18726,36 @@
             "state": "translated",
             "value": "正在刪除…"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tinatanggal…"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menghapus…"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đang xóa…"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "मेटिँदैछ…"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Excluindo…"
+          }
         }
       }
     },
@@ -15874,6 +18808,36 @@
           "stringUnit": {
             "state": "translated",
             "value": "下載"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I-download"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unduh"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tải xuống"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "डाउनलोड"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Baixar"
           }
         }
       }
@@ -15928,6 +18892,36 @@
             "state": "translated",
             "value": "無法下載範例 PDF。"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hindi ma-download ang sample PDF."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PDF contoh tidak dapat diunduh."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Không thể tải xuống tệp PDF mẫu."
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "नमुना PDF डाउनलोड गर्न सकिएन।"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não foi possível baixar o PDF de exemplo."
+          }
         }
       }
     },
@@ -15980,6 +18974,36 @@
           "stringUnit": {
             "state": "translated",
             "value": "已下載"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Na-download"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diunduh"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đã tải xuống"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "डाउनलोड भयो"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Baixado"
           }
         }
       }
@@ -16034,6 +19058,36 @@
             "state": "translated",
             "value": "正在下載…"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nagda-download…"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mengunduh…"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đang tải xuống…"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "डाउनलोड हुँदैछ…"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Baixando…"
+          }
         }
       }
     },
@@ -16087,6 +19141,36 @@
             "state": "translated",
             "value": "下載的檔案不是有效的 PDF。"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hindi wastong PDF ang na-download na file."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "File yang diunduh bukan PDF yang valid."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tệp đã tải xuống không phải là PDF hợp lệ."
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "डाउनलोड गरिएको फाइल मान्य PDF होइन।"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O arquivo baixado não é um PDF válido."
+          }
         }
       }
     },
@@ -16138,6 +19222,42 @@
           "stringUnit": {
             "state": "translated",
             "value": "繁體中文（香港）"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chino (tradicional, Hong Kong)"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tsino (Tradisyonal, Hong Kong)"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mandarin (Tradisional, Hong Kong)"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiếng Trung (Phồn thể, Hồng Kông)"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "चिनियाँ (परम्परागत, हङकङ)"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chinês (Tradicional, Hong Kong)"
           }
         }
       }
@@ -16191,6 +19311,42 @@
             "state": "translated",
             "value": "簡體中文"
           }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chino (simplificado)"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tsino (Pinasimple)"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mandarin (Sederhana)"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiếng Trung (Giản thể)"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "चिनियाँ (सरलकृत)"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chinês (Simplificado)"
+          }
         }
       }
     },
@@ -16242,6 +19398,42 @@
           "stringUnit": {
             "state": "translated",
             "value": "繁體中文"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chino (tradicional)"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tsino (Tradisyonal)"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mandarin (Tradisional)"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiếng Trung (Phồn thể)"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "चिनियाँ (परम्परागत)"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chinês (Tradicional)"
           }
         }
       }
@@ -16296,6 +19488,36 @@
             "state": "translated",
             "value": "全部"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lahat"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Semua"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tất cả"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "सबै"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todos"
+          }
         }
       }
     },
@@ -16349,6 +19571,36 @@
             "state": "translated",
             "value": "語言"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wika"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bahasa"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ngôn ngữ"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "भाषा"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Idioma"
+          }
         }
       }
     },
@@ -16401,6 +19653,36 @@
           "stringUnit": {
             "state": "translated",
             "value": "授權條款"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lisensya"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lisensi"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Giấy phép"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "इजाजतपत्र"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Licença"
           }
         }
       }
@@ -16544,6 +19826,36 @@
             "state": "translated",
             "value": "開啟"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buksan"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buka"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mở"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "खोल्नुहोस्"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir"
+          }
         }
       }
     },
@@ -16596,6 +19908,36 @@
           "stringUnit": {
             "state": "translated",
             "value": "如要檢視已下載的範例 PDF，請點選旁邊的「開啟」。"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I-tap ang Buksan sa tabi ng na-download na sample PDF upang tingnan ito."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ketuk Buka di samping PDF contoh yang diunduh untuk melihatnya."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chạm vào Mở bên cạnh tệp PDF mẫu đã tải xuống để xem."
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "डाउनलोड गरिएको नमुना PDF हेर्न यसको छेउमा रहेको खोल्नुहोस् मा ट्याप गर्नुहोस्।"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toque em Abrir ao lado de um PDF de exemplo baixado para visualizá-lo."
           }
         }
       }
@@ -16650,6 +19992,36 @@
             "state": "translated",
             "value": "無法從伺服器下載範例 PDF。"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hindi ma-download ang sample PDF mula sa server."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PDF contoh tidak dapat diunduh dari server."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Không thể tải xuống tệp PDF mẫu từ máy chủ."
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "सर्भरबाट नमुना PDF डाउनलोड गर्न सकिएन।"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não foi possível baixar o PDF de exemplo do servidor."
+          }
         }
       }
     },
@@ -16690,6 +20062,36 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "サンプルPDFをDocumentsにダウンロードし、ファイルピッカーから開きます。"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mag-download ng mga sample PDF sa Documents at buksan ang mga ito gamit ang file picker."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unduh PDF contoh ke Documents dan buka dengan pemilih file."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tải PDF mẫu vào Documents và mở bằng trình chọn tệp."
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Documents मा नमुना PDF हरू डाउनलोड गर्नुहोस् र फाइल पिकरबाट खोल्नुहोस्।"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Baixe PDFs de exemplo para Documentos e abra-os com o seletor de arquivos."
           }
         }
       }
@@ -16744,6 +20146,36 @@
             "state": "translated",
             "value": "下載的檔案大小無效。"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hindi wasto ang laki ng na-download na file."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ukuran file yang diunduh tidak valid."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kích thước tệp đã tải xuống không hợp lệ."
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "डाउनलोड गरिएको फाइलको आकार अमान्य छ।"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O tamanho do arquivo baixado é inválido."
+          }
         }
       }
     },
@@ -16796,6 +20228,36 @@
           "stringUnit": {
             "state": "translated",
             "value": "範例 PDF"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mga Sample PDF"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PDF Contoh"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PDF mẫu"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "नमुना PDF हरू"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PDFs de exemplo"
           }
         }
       }
@@ -16850,6 +20312,36 @@
             "state": "translated",
             "value": "範例 PDF 的下載網址無效。"
           }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hindi wasto ang URL sa pag-download ng sample PDF."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "URL unduhan PDF contoh tidak valid."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "URL tải xuống PDF mẫu không hợp lệ."
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "नमुना PDF डाउनलोड URL अमान्य छ।"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A URL de download do PDF de exemplo é inválida."
+          }
         }
       }
     },
@@ -16871,7 +20363,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Scroll Dirección"
+            "value": "Dirección de lectura"
           }
         },
         "fil": {
@@ -16919,7 +20411,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Direção de movimento na tela"
+            "value": "Direção de leitura"
           }
         },
         "vi": {
@@ -17430,6 +20922,36 @@
           "stringUnit": {
             "state": "machine_translated",
             "value": "세로 화면에서 한 페이지씩 보기"
+          }
+        },
+        "fil": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Isang Pahina sa Portrait"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Satu Halaman di Potret"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Một trang khi xoay dọc"
+          }
+        },
+        "ne": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ठाडो मोडमा एक पृष्ठ"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Página única na vertical"
           }
         }
       }
