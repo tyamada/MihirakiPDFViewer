@@ -240,10 +240,15 @@ Generative AI was used to create and translate the text and images in this work.
 
 ## Version History
 
-- **1.1.4 build 20 — local release candidate, 2026/11/27**: Added full Italian
+- **1.1.5 — local candidate, 2026/11/27**: Completed all 587 missing localization
+  keys across 6 languages (`es`, `fil`, `id`, `vi`, `ne`, `pt-BR`), fixed reading-direction
+  segment truncation (`es`, `fil`, `pt-BR`) and a Portuguese heading typo, and verified
+  all 6 languages on a physical iPhone SE (3rd generation).
+- **1.1.4 build 20 — submitted to App Review, 2026/11/27**: Added full Italian
   localization (`Localizable.xcstrings`, `InfoPlist.xcstrings`, 14 supported languages),
-  Italian web documentation (`docs/*_it.html`), and verified Italian primary screens on
-  iPhone SE (3rd generation) simulator.
+  Italian web documentation (`docs/*_it.html`), fixed German/French App Store support
+  and privacy URLs, and verified Italian primary screens on a physical iPhone SE
+  (3rd generation).
 - **1.1.3 build 19 — released, 2026/11/27**: Completed German
   and French localizations (`Localizable.xcstrings`), shortened German reading-direction
   segment labels and supporter-icon apply button to prevent truncation on iPhone SE,
