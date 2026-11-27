@@ -125,7 +125,7 @@ The app supports the following non-consumable items:
 - `supporter_icon_gold`: Gold icon
 - `supporter_badge_koyomi_v2`: Release Commemorative Koyomi Badge
 
-Bronze, Silver, and Gold purchases permanently unlock their corresponding alternate app icons. Koyomi is excluded from the purchase list and does not change the app icon. In the next development version, both existing and new users receive it free when eligibility is evaluated before January 1, 2028 at 00:00 JST (through December 31, 2027), using the device clock. No purchase, redemption code, account lookup, or network connection is required. The grant is saved locally and remains after the deadline; a new grant shows an acquisition notice. Tap a badge in App Information to view its enlarged image, name, and description.
+Bronze, Silver, and Gold purchases permanently unlock their corresponding alternate app icons. Koyomi is excluded from the purchase list and does not change the app icon. Both existing and new users receive it free when eligibility is evaluated before January 1, 2028 at 00:00 JST (through December 31, 2027), using the device clock. No purchase, redemption code, account lookup, or network connection is required. The grant is saved locally and remains after the deadline; a new grant shows an acquisition notice. Tap a badge in App Information to view its enlarged image, name, and description.
 
 Existing StoreKit badge rights remain valid and produce one badge together with a local free grant. Settings → Support → Restore Purchases restores eligible StoreKit purchases using the same Apple Account; it does not recover a lost local free grant after the deadline. Deleting the app may remove the local grant. Support still provides code redemption for eligible purchased items.
 
